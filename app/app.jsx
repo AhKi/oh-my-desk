@@ -1,8 +1,9 @@
 import React from 'react';
+import './style.scss';
 
 function App(props) {
 	return (
-		<div>
+		<div className="App__container">
 			{props.children}
 		</div>
 	);
