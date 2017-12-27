@@ -6,7 +6,7 @@
   "scripts": {
     "build": "electron-builder --win",
     "dev": "./node_modules/.bin/electron .",
-    "watch": "watchify app/app.js -o dist/bundle.js -t babelify -v",
+    "watch": "watchify app/app.js -o build/bundle.js -t babelify -v",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -33,6 +33,11 @@
     "appId": "com.geekwims.omd",
     "mac": {
       "category": "oh.my.desk"
-    }
+    },
+    "files": [
+      "*.js",
+      "build",
+      "node_modules"
+    ]
   }
 }
