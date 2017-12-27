@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Counter from 'components/Counter';
+import { Provider } from 'react-redux';
+import CounterContainers from 'containers/CounterContainer';
+import store from './store';
 
 ReactDOM.render(
-	<Counter />,
-	document.getElementById('root')
+	<Provider store={store}>
+		<CounterContainers />
+	</Provider>,
+	document.getElementById('root'),
 );

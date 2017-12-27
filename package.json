@@ -33,8 +33,16 @@
   "dependencies": {
     "babel-register": "^6.26.0",
     "html-webpack-plugin": "^2.30.1",
+    "immutable": "^3.8.2",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.2.1",
+    "redux-immutable": "^4.0.0",
+    "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1",
     "webpack": "^3.10.0"
   },
   "build": {
