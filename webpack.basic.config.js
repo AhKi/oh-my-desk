@@ -28,7 +28,7 @@ module.exports = {
 
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: path.join(__dirname, './dist/index.html'),
+			template: path.join(__dirname, './static/index.html'),
 			inject: 'body',
 		}),
 		new webpack.DefinePlugin({
