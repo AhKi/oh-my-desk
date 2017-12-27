@@ -1,0 +1,38 @@
+{
+  "name": "oh-my-desk",
+  "version": "1.0.0",
+  "description": "blar blar",
+  "main": "main.js",
+  "scripts": {
+    "build": "electron-builder --win",
+    "dev": "./node_modules/.bin/electron .",
+    "watch": "watchify app/app.js -o dist/bundle.js -t babelify -v",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geekwims/oh_my_system.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^8.0.0",
+    "electron": "^1.7.9",
+    "electron-builder": "^19.49.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "build": {
+    "appId": "com.geekwims.omd",
+    "mac": {
+      "category": "oh.my.desk"
+    }
+  }
+}
