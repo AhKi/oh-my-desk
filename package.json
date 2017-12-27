@@ -5,8 +5,9 @@
   "main": "main.js",
   "scripts": {
     "build": "electron-builder --win",
-    "dev": "./node_modules/.bin/electron .",
     "watch": "watchify app/app.js -o build/bundle.js -t babelify -v",
+    "dev": "NODE_ENV=development ./node_modules/.bin/electron .",
+    "start": "NODE_ENV=development node -r babel-register ./node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.js --hot --inline --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,17 +18,24 @@
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babelify": "^8.0.0",
     "electron": "^1.7.9",
     "electron-builder": "^19.49.0",
+    "file-loader": "^1.1.6",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "webpack-dev-server": "^2.9.7",
+    "webpack-merge": "^4.1.1"
   },
   "dependencies": {
+    "babel-register": "^6.26.0",
+    "html-webpack-plugin": "^2.30.1",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "webpack": "^3.10.0"
   },
   "build": {
     "appId": "com.geekwims.omd",
