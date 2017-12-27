@@ -25,10 +25,17 @@
     <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
     <script type="text/javascript" src="js/popper.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script src="bundle.js"></script>
     <!-- for jQuery compatibility -->
-    <script>if (window.module) module = window.module;</script>    
+    <script>if (window.module) module = window.module;</script>
+    <!-- inject bundle.js in webpack-dev-server when NODE_ENV is development -->
     <script>
+      const scripts = [];
+
+      if (process.env.NODE_ENV === 'development') {
+        scripts.push('<script defer src=\"http://localhost:1112/build/bundle.js"><\/script>');
+      }
+
+      document.write(scripts.map(script => script));
     </script>
 </body>
 </html>

@@ -60,3 +60,4 @@ typings/
 # build files
 dist/**
 build/**
+.idea/
