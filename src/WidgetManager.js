@@ -12,9 +12,11 @@ class WidgetManager {
 
   
   createWidgets() {
-    this.widgetStore.getAll().forEach(each => {
-        this.createWidget(each)
-    })
+    let widgets = this.widgetStore.getAll();
+
+    for (let label in widgets) {
+      this.createWidget(widgets[label])
+    }
   }
 
   createWidget(opt) {
