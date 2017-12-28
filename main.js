@@ -33,9 +33,11 @@ let widgetStore = new store({
 function createWidget(opt) {
     if (!opt.isActive) return;
     let win = new BrowserWindow({
+        x: opt.position.x,
+        y: opt.position.y,
         width: opt.size.width,
         height: opt.size.height,
-        frame: false
+        frame: false,
     })
 
     if (opt.type === 'web') {
