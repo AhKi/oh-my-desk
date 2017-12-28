@@ -1,6 +1,6 @@
 # oh-my-desk
 
-how to open react/redux devtools
+## how to open react/redux devtools
 
 Then execute the following from the Console tab of your running Electron app's developer tools:
 
