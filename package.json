@@ -4,7 +4,7 @@
   "description": "blar blar",
   "main": "main.js",
   "scripts": {
-    "build": "yarn build:app && NODE_ENV=production electron-builder --win",
+    "build": "yarn build:app && cross-env NODE_ENV=production electron-builder --win",
     "build:app": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js",
     "watch": "watchify app/app.js -o build/bundle.js -t babelify -v",
     "dev": "cross-env NODE_ENV=development ./node_modules/.bin/electron .",
@@ -64,7 +64,9 @@
     "files": [
       "*.js",
       "build",
-      "node_modules"
+      "node_modules",
+      "src",
+      "resource"
     ]
   }
 }
