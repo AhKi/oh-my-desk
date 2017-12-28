@@ -2,11 +2,34 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 const {ipcMain} = require('electron')
+const store = require('./src/store')
 
 let win
 
-function createWindow() {
+let widgetStore = new store({
+    configName: 'widgets',
+    defaults: [{
+        id: 'test',
+        type: 'web',
+        name: '사전',
+        url: 'http://m.dic.naver.com/',
+        position: {
+            x: 100,
+            y: 100
+        },
+        size: {
+            width: 300,
+            height: 400
+        },
+        transparency: 0.7,
+        isActive: true,
+        isIcon : false,
+        isOnTop : false,
+        favicon : null
+    }]
+})
 
+function createWindow() {
     win = new BrowserWindow({
         width: 800,
         height: 800
