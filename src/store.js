@@ -27,6 +27,11 @@ class Store {
     this.save();
   }
 
+  delete(key) {
+    delete this.data[key];
+    this.save();
+  }
+
   getAll() {
     return this.data;
   }
