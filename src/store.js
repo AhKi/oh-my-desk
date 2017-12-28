@@ -3,6 +3,13 @@ const path = require('path');
 const fs = require('fs');
 
 class Store {
+  /**
+ * @param {opts} 
+ * {
+ *   configName: ... (the name of config file)
+ *   defualts: ... (if there is no config file, it will be replace config file)
+ * }
+ */
   constructor(opts) {
     // renderer has to get `app` module via remote, main gets it directly
     const userDataPath = (electron.app || electron.remote.app).getPath('userData');
