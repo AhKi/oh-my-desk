@@ -37,7 +37,6 @@ function createWidget(opt) {
         y: opt.position.y,
         width: opt.size.width,
         height: opt.size.height,
-        frame: false,
     })
 
     if (opt.type === 'web') {
