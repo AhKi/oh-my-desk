@@ -68,3 +68,19 @@ ipcRenderer.send('WIDGET_MANAGE', {
 	}
 })
 ```
+
+## how to regist event which gets data of widgets
+
+```js
+
+// regist the callback method gets data of widgets
+ipcRenderer.on('WIDGET_INFO_RESULT', (event, arg) => {
+  console.log(arg)
+})
+
+// send event to main process
+ipcRenderer.send('WIDGET_INFO_REQUEST', '')
+
+```
+
+when ```js ipcRenderer.send('WIDGET_INFO_REQUEST', '') ``` is called, the result will be handled in `WIDGET_INFO_RESULT`

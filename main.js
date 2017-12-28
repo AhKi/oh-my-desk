@@ -30,6 +30,10 @@ function init() {
             console.error('operaction is not set')
         }
     })
+
+    ipcMain.on('WIDGET_INFO_REQUEST', (event, arg) => {
+        event.sender.send('WIDGET_INFO_RESULT', widgetManager.getWidgets())
+    })
 }
 
 function createSetting() {
