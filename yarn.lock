@@ -1928,6 +1928,14 @@ electron-publish@19.49.0:
     fs-extra-p "^4.5.0"
     mime "^2.0.3"
 
+electron-react-devtools@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/electron-react-devtools/-/electron-react-devtools-0.5.2.tgz#97619cdb7a8fc2a444b323245889a3f4bf54a647"
+
+electron-redux-devtools@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/electron-redux-devtools/-/electron-redux-devtools-0.3.3.tgz#edd623e4f90850241c476f9393853a01511163d0"
+
 electron-releases@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/electron-releases/-/electron-releases-2.1.0.tgz#c5614bf811f176ce3c836e368a0625782341fd4e"
