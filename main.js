@@ -34,7 +34,8 @@ function createWidget(opt) {
     if (!opt.isActive) return;
     let win = new BrowserWindow({
         width: opt.size.width,
-        height: opt.size.height
+        height: opt.size.height,
+        frame: false
     })
 
     if (opt.type === 'web') {
