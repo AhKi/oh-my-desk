@@ -34,10 +34,7 @@ module.exports = webpackMerge(webpackBaseConfig, {
 				{ shell: true, env: process.env, stdio: 'inherit' },
 			)
 				.on('close', code => process.exit(code))
-				.on('error', spawnError => {
-					console.error(spawnError)
-					process.exit(-1)
-				});
+				.on('error', spawnError => console.error(spawnError));
 		},
 	},
 });
