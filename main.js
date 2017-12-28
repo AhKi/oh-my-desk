@@ -16,7 +16,22 @@ function init() {
     tray.setToolTip('Oh My Desk')
     tray.setContextMenu(contextMenu)
 
-    win = new BrowserWindow({
+    widgetManager.createWidgets();
+
+    ipcMain.on('WIDGET_MANAGE', (event, arg) => {
+        if (arg.operation === 'CREATE') {
+        } else if (arg.operation === 'UPDATE') {
+        } else if (arg.operation === 'DELETE') {
+        } else {
+            console.error('operaction is not set')
+        }
+    })
+}
+
+function createSetting() {
+    if (setting_win) return
+
+    setting_win = new BrowserWindow({
         width: 800,
         height: 800
     })
