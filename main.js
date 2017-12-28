@@ -3,7 +3,6 @@ const path = require('path')
 const url = require('url')
 const {ipcMain} = require('electron')
 const WidgetManager = require('./src/WidgetManager')
-
 let setting_win
 let widgetManager = new WidgetManager()
 
@@ -18,7 +17,19 @@ function init() {
     tray.setToolTip('Oh My Desk')
     tray.setContextMenu(contextMenu)
 
-    widgetManager.createWidgets();
+    widgetManager.openAllWindow();
+
+    ipcMain.on('WIDGET_MANAGE', (event, arg) => {
+        if (arg.operation === 'CREATE') {
+            widgetManager.create(arg.widget)
+        } else if (arg.operation === 'UPDATE') {
+            widgetManager.update(arg.widget)
+        } else if (arg.operation === 'DELETE') {
+            widgetManager.delete(arg.widget.id)
+        } else {
+            console.error('operaction is not set')
+        }
+    })
 }
 
 function createSetting() {

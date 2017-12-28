@@ -1,5 +1,6 @@
 const { BrowserWindow } = require('electron')
 const Store = require('./Store')
+const uuid = require('uuid/v4')
 
 class WidgetManager {
   constructor() {
@@ -10,14 +11,31 @@ class WidgetManager {
     })
   }
 
-  
-  createWidgets() {
-    this.widgetStore.getAll().forEach(each => {
-        this.createWidget(each)
-    })
+  create(widget) {
+    widget.id = uuid();
+    this.widgetStore.set(widget.id, widget)
+    this.openWindow(widget)
   }
 
-  createWidget(opt) {
+  update(widget) {
+    this.widgetStore.set(widget.id, widget)
+  }
+
+  delete(id) {
+    this.widgetStore.delete(id)
+    this.windows[id].close()
+    delete this.windows[id]
+  }
+
+  openAllWindow() {
+    let widgets = this.widgetStore.getAll();
+
+    for (let label in widgets) {
+      this.openWindow(widgets[label])
+    }
+  }
+
+  openWindow(opt) {
     if (!opt.isActive) return;
     let win = new BrowserWindow({
         title: opt.name,

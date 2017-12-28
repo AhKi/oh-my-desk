@@ -27,6 +27,11 @@ class Store {
     this.save();
   }
 
+  delete(key) {
+    delete this.data[key];
+    this.save();
+  }
+
   getAll() {
     return this.data;
   }
@@ -40,6 +45,7 @@ function parseDataFile(filePath, defaults) {
   try {
     return JSON.parse(fs.readFileSync(filePath));
   } catch(error) {
+    console.dir(error)
     return defaults;
   }
 }
