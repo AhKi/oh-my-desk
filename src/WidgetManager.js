@@ -27,6 +27,10 @@ class WidgetManager {
     delete this.windows[id]
   }
 
+  getWidgets() {
+    return this.widgetStore.getAll();
+  }
+
   openAllWindow() {
     let widgets = this.widgetStore.getAll();
 
