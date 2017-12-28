@@ -30,7 +30,7 @@ class WidgetManager {
     })
   
     if (opt.type === 'web') {
-        win.loadURL(opt.url)
+        win.loadURL(opt.url, {userAgent: 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Mobile Safari/537.36'})
     } else {
         // some code creating window for native widget
     }
