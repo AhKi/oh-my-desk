@@ -1,41 +1,54 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, Menu, Tray} = require('electron')
 const path = require('path')
 const url = require('url')
 const {ipcMain} = require('electron')
+const WidgetManager = require('./src/WidgetManager')
 
-let win
+let setting_win
+let widgetManager = new WidgetManager()
 
-function createWindow() {
+function init() {
+    tray = new Tray(path.join(__dirname, 'resource', 'icon.png'))
+    const contextMenu = Menu.buildFromTemplate([
+      {label: 'Setting', type: 'normal', click: createSetting},
+      {label: 'Exit', type: 'normal'}
+    ])
+    tray.setToolTip('Oh My Desk')
+    tray.setContextMenu(contextMenu)
 
-    win = new BrowserWindow({
+    widgetManager.createWidgets();
+}
+
+function createSetting() {
+    if (setting_win) return
+
+    setting_win = new BrowserWindow({
         width: 800,
         height: 800
     })
 
-    win.loadURL(url.format({
-        pathname: path.join(__dirname, 'build', 'index.html'),
-        protocol: 'file:',
-        slashes: true
-    }))
+    if (process.env.NODE_ENV === 'development') {
+        setting_win.loadURL(url.format({
+            pathname: path.join(__dirname, 'static', 'index.html'),
+            protocol: 'file:',
+            slashes: true
+        }))
+        
+        setting_win.webContents.openDevTools()
+    } else {
+        setting_win.loadURL(url.format({
+            pathname: path.join(__dirname, 'build', 'index.html'),
+            protocol: 'file:',
+            slashes: true
+        }))
+    }
 
-		if (process.env.NODE_ENV === 'development') {
-			win.loadURL(url.format({
-				pathname: path.join(__dirname, 'static', 'index.html'),
-				protocol: 'file:',
-				slashes: true
-			}))
-		}
-
-    win.webContents.openDevTools()
-    // to clear hardware info refresh interval, save id here
-    win.intervalId = null;
-
-    win.on('closed', () => {
-        win = null
+    setting_win.on('closed', () => {
+        setting_win = null
     })
 }
 
-app.on('ready', createWindow)
+app.on('ready', init)
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
