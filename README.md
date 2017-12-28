@@ -1,6 +1,6 @@
 # oh-my-desk
 
-## how to open react/redux devtools
+## How to open react/redux devtools
 
 Then execute the following from the Console tab of your running Electron app's developer tools:
 
@@ -11,11 +11,11 @@ require('electron-redux-devtools').install()
 
 And than refresh or restart the renderer process, you can see a React tab added.
 
-## read setting data about widgets
+## Reading setting data about widgets
 
 we read/save setting data from `C:\Users\suyou\AppData\Roaming\oh-my-desk\widgets.json`
 
-## testing ipc communication 
+## Testing ipc communication 
 
 type this code in renderer process
 
@@ -69,7 +69,7 @@ ipcRenderer.send('WIDGET_MANAGE', {
 })
 ```
 
-## how to regist event which gets data of widgets
+## How to regist event which gets data of widgets
 
 ```js
 
