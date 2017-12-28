@@ -48,7 +48,8 @@ class WidgetManager {
         width: opt.size.width,
         height: opt.size.height,
         alwaysOnTop: opt.isOnTop,
-        autoHideMenuBar: true
+        autoHideMenuBar: true,
+        skipTaskbar: true
     })
   
     if (opt.type === 'web') {
