@@ -5,7 +5,16 @@ const {ipcMain} = require('electron')
 
 let win
 
-function createWindow() {
+function init() {
+    tray = new Tray(path.join(__dirname, 'resource', 'icon.png'))
+    const contextMenu = Menu.buildFromTemplate([
+      {label: 'Setting', type: 'normal', click: createSetting},
+      {label: 'Exit', type: 'normal', click: function() {
+          app.quit();
+      }}
+    ])
+    tray.setToolTip('Oh My Desk')
+    tray.setContextMenu(contextMenu)
 
     win = new BrowserWindow({
         width: 800,
