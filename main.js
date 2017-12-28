@@ -19,6 +19,15 @@ function init() {
     tray.setContextMenu(contextMenu)
 
     widgetManager.createWidgets();
+
+    ipcMain.on('WIDGET_MANAGE', (event, arg) => {
+        if (arg.operation === 'CREATE') {
+        } else if (arg.operation === 'UPDATE') {
+        } else if (arg.operation === 'DELETE') {
+        } else {
+            console.error('operaction is not set')
+        }
+    })
 }
 
 function createSetting() {
