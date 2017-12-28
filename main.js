@@ -64,9 +64,6 @@ function createSetting() {
 app.on('ready', init)
 
 app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-        app.quit()
-    }
 })
 
 app.on('activate', () => {
