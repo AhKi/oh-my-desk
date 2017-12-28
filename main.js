@@ -33,10 +33,13 @@ let widgetStore = new store({
 function createWidget(opt) {
     if (!opt.isActive) return;
     let win = new BrowserWindow({
+        title: opt.name,
         x: opt.position.x,
         y: opt.position.y,
         width: opt.size.width,
         height: opt.size.height,
+        alwaysOnTop: opt.isOnTop,
+        autoHideMenuBar: true
     })
 
     if (opt.type === 'web') {
@@ -53,7 +56,9 @@ function createWidget(opt) {
 }
 
 function createWidgets() {
-    widgetStore.getAll().forEach(each => createWidget(each))
+    widgetStore.getAll().forEach(each => {
+        createWidget(each)
+    })
 }
 
 function init() {
