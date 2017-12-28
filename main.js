@@ -2,64 +2,10 @@ const {app, BrowserWindow, Menu, Tray} = require('electron')
 const path = require('path')
 const url = require('url')
 const {ipcMain} = require('electron')
-const store = require('./src/store')
+const WidgetManager = require('./src/WidgetManager')
 
-let windows = [];
 let setting_win
-
-let widgetStore = new store({
-    configName: 'widgets',
-    defaults: [{
-        id: 'test',
-        type: 'web',
-        name: '사전',
-        url: 'http://m.dic.naver.com/',
-        position: {
-            x: 100,
-            y: 100
-        },
-        size: {
-            width: 300,
-            height: 400
-        },
-        transparency: 0.7,
-        isActive: true,
-        isIcon : false,
-        isOnTop : false,
-        favicon : null
-    }]
-})
-
-function createWidget(opt) {
-    if (!opt.isActive) return;
-    let win = new BrowserWindow({
-        title: opt.name,
-        x: opt.position.x,
-        y: opt.position.y,
-        width: opt.size.width,
-        height: opt.size.height,
-        alwaysOnTop: opt.isOnTop,
-        autoHideMenuBar: true
-    })
-
-    if (opt.type === 'web') {
-        win.loadURL(opt.url)
-    } else {
-        // some code creating window for native widget
-    }
-
-    win.on('closed', () => {
-        win = null
-    })
-
-    windows[opt.id] = win
-}
-
-function createWidgets() {
-    widgetStore.getAll().forEach(each => {
-        createWidget(each)
-    })
-}
+let widgetManager = new WidgetManager()
 
 function init() {
     tray = new Tray(path.join(__dirname, 'resource', 'icon.png'))
@@ -70,7 +16,7 @@ function init() {
     tray.setToolTip('Oh My Desk')
     tray.setContextMenu(contextMenu)
 
-    createWidgets();
+    widgetManager.createWidgets();
 }
 
 function createSetting() {
