@@ -2,12 +2,12 @@ const {app, BrowserWindow, Menu, Tray} = require('electron')
 const path = require('path')
 const url = require('url')
 const {ipcMain} = require('electron')
-const store = require('./src/store')
+const Store = require('./src/store')
 
 let windows = [];
 let setting_win
 
-let widgetStore = new store({
+let widgetStore = new Store({
     configName: 'widgets',
     defaults: [{
         id: 'test',
