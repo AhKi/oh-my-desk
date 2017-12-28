@@ -12,21 +12,22 @@ function createWindow() {
         height: 800
     })
 
-    win.loadURL(url.format({
-        pathname: path.join(__dirname, 'build', 'index.html'),
-        protocol: 'file:',
-        slashes: true
-    }))
+    if (process.env.NODE_ENV === 'development') {
+        win.loadURL(url.format({
+            pathname: path.join(__dirname, 'static', 'index.html'),
+            protocol: 'file:',
+            slashes: true
+        }))
+        
+        win.webContents.openDevTools()
+    } else {
+        win.loadURL(url.format({
+            pathname: path.join(__dirname, 'build', 'index.html'),
+            protocol: 'file:',
+            slashes: true
+        }))
+    }
 
-		if (process.env.NODE_ENV === 'development') {
-			win.loadURL(url.format({
-				pathname: path.join(__dirname, 'static', 'index.html'),
-				protocol: 'file:',
-				slashes: true
-			}))
-		}
-
-    win.webContents.openDevTools()
     // to clear hardware info refresh interval, save id here
     win.intervalId = null;
 
