@@ -6,6 +6,6 @@ module.exports = webpackMerge(webpackBaseConfig, {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),
-    publicPath: '/',
+    publicPath: './',
   },
 });
