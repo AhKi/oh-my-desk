@@ -1,6 +1,8 @@
 const { BrowserWindow } = require('electron')
 const Store = require('./Store')
 const uuid = require('uuid/v4')
+const url = require('url')
+const path = require('path')
 
 class WidgetManager {
   constructor() {
@@ -65,17 +67,24 @@ class WidgetManager {
         alwaysOnTop: opt.isOnTop,
         autoHideMenuBar: true,
         skipTaskbar: true,
-        show: false
+        show: false,
+        frame: false
     })
   
     if (opt.type === 'web') {
-        win.loadURL(opt.url, {userAgent: 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Mobile Safari/537.36'})
+        // win.loadURL(opt.url, {userAgent: 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Mobile Safari/537.36'})
+      win.loadURL(url.format({
+        pathname: path.join(__dirname, 'static', 'index.html'),
+        protocol: 'file:',
+        slashes: true
+      }))
     } else {
         // some code creating window for native widget
     }
 
     win.webContents.on('did-finish-load', () => {
       win.setTitle(opt.name)
+      win.webContents.send('widget-info', opt);
     })
 
     win.once('ready-to-show', () => {
