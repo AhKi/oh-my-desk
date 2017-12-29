@@ -33,6 +33,8 @@ class WidgetManager {
     this.widgetStore.delete(id)
     this.windows[id].close()
     delete this.windows[id]
+
+    this.deleteObserver.forEach((o) => o(id))
   }
 
   getWidgets() {
@@ -103,6 +105,18 @@ class WidgetManager {
     }).bind(this))
   
     this.windows[opt.id] = win
+  }
+
+  onUpdateTray(callback) {
+
+    let funcWrapper = (function() {
+      callback(this.buildTrayContextMenuTemplate())
+    }).bind(this)
+
+    funcWrapper();
+
+    this.createObserver.push(funcWrapper)
+    this.deleteObserver.push(funcWrapper)
   }
 
   buildTrayContextMenuTemplate() {
