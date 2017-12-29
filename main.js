@@ -9,8 +9,8 @@ let widgetManager = new WidgetManager()
 let tray
 
 function init() {
-    createTray();
 
+    widgetManager.onUpdateTray(createTray)
     widgetManager.openAllWindow();
 
     ipcMain.on('WIDGET_MANAGE', (event, arg) => {
@@ -30,10 +30,10 @@ function init() {
     })
 }
 
-function createTray() {
+function createTray(contextMenuTemplate) {
     if (!tray) tray = new Tray(path.join(__dirname, 'resource', 'icon.png'))
     
-    const contextMenu = Menu.buildFromTemplate(widgetManager.buildTrayContextMenuTemplate().concat([
+    const contextMenu = Menu.buildFromTemplate(contextMenuTemplate.concat([
       {label: 'Setting', type: 'normal', click: createSetting},
       {label: 'Exit', type: 'normal', click: function() {
           app.quit();
