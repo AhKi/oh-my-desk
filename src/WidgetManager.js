@@ -93,6 +93,15 @@ class WidgetManager {
       this.widgetStore.set(opt.id, opt);
     }).bind(this))
   
+    win.on('resize', (() => {
+      let size = win.getSize();
+
+      opt.size.width = size[0];
+      opt.size.height = size[1];
+
+      this.widgetStore.set(opt.id, opt);
+    }).bind(this))
+  
     this.windows[opt.id] = win
   }
 
