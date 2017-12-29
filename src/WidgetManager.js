@@ -59,6 +59,10 @@ class WidgetManager {
         // some code creating window for native widget
     }
 
+    win.webContents.on('did-finish-load', () => {
+      win.setTitle(opt.name)
+    })
+
     win.once('ready-to-show', () => {
       win.show()
     })
