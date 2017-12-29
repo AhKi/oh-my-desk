@@ -6,9 +6,6 @@ html {
 body {
   padding: 0px;
   margin: 0px;
-  background-color: #2D2D30;
-  border: 1px solid #68217A;
-  border-bottom: 24px solid #68217A;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -23,10 +20,11 @@ html, body {
 
 #title-bar {
   -webkit-app-region: drag;
-  height: 32px; 
+  height: 28px; 
   padding: 0px;
   margin: 0px; 
-  color: #ADADAD;
+  background-color: #2D2D30;
+  color: white;
   font-family: sans-serif;
  }
  
@@ -35,9 +33,9 @@ html, body {
 #title {
   position: fixed;
   top: 0px;
-  left: 12px; 
-  line-height: 32px;
-  font-size: 14px;
+  left: 12px;
+  line-height: 28px;
+  font-size: 12px;
  }
  
  
@@ -45,18 +43,19 @@ html, body {
 #title-bar-btns {
   -webkit-app-region: no-drag;
   position: fixed;
-  top: 1px;
-  right: 0px; 
+  top: 0px;
+  right: 0px;
  }
  
  
 #title-bar-btns button {
-  height: 32px;
-  width: 32px;
   background-color: transparent;
   border: none;
   color: #F1F1F1;
-  font-size: 16px;
+  width: 24px;
+  height: 28px;
+  padding: 0px;
+  margin: 0px;
 }
  
 #title-bar-btns button:hover {
