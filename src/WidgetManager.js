@@ -66,6 +66,15 @@ class WidgetManager {
     win.on('closed', () => {
         win = null
     })
+
+    win.on('move', (() => {
+      let position = win.getPosition();
+
+      opt.position.x = position[0];
+      opt.position.y = position[1];
+
+      this.widgetStore.set(opt.id, opt);
+    }).bind(this))
   
     this.windows[opt.id] = win
   }
