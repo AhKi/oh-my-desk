@@ -49,7 +49,8 @@ class WidgetManager {
         height: opt.size.height,
         alwaysOnTop: opt.isOnTop,
         autoHideMenuBar: true,
-        skipTaskbar: true
+        skipTaskbar: true,
+        show: false
     })
   
     if (opt.type === 'web') {
@@ -57,6 +58,10 @@ class WidgetManager {
     } else {
         // some code creating window for native widget
     }
+
+    win.once('ready-to-show', () => {
+      win.show()
+    })
   
     win.on('closed', () => {
         win = null
