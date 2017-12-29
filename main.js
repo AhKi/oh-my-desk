@@ -3,19 +3,13 @@ const path = require('path')
 const url = require('url')
 const {ipcMain} = require('electron')
 const WidgetManager = require('./src/WidgetManager')
+
 let setting_win
 let widgetManager = new WidgetManager()
+let tray
 
 function init() {
-    tray = new Tray(path.join(__dirname, 'resource', 'icon.png'))
-    const contextMenu = Menu.buildFromTemplate([
-      {label: 'Setting', type: 'normal', click: createSetting},
-      {label: 'Exit', type: 'normal', click: function() {
-          app.quit();
-      }}
-    ])
-    tray.setToolTip('Oh My Desk')
-    tray.setContextMenu(contextMenu)
+    createTray();
 
     widgetManager.openAllWindow();
 
@@ -34,6 +28,20 @@ function init() {
     ipcMain.on('WIDGET_INFO_REQUEST', (event, arg) => {
         event.sender.send('WIDGET_INFO_RESULT', widgetManager.getWidgets())
     })
+}
+
+function createTray() {
+    if (!tray) tray = new Tray(path.join(__dirname, 'resource', 'icon.png'))
+    
+    const contextMenu = Menu.buildFromTemplate(widgetManager.buildTrayContextMenuTemplate().concat([
+      {label: 'Setting', type: 'normal', click: createSetting},
+      {label: 'Exit', type: 'normal', click: function() {
+          app.quit();
+      }}
+    ]))
+
+    tray.setToolTip('Oh My Desk');
+    tray.setContextMenu(contextMenu);
 }
 
 function createSetting() {

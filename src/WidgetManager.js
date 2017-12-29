@@ -9,12 +9,20 @@ class WidgetManager {
       configName: 'widgets',
       defaults: []
     })
+
+    // this is consumers of observer pattern
+    // createObserver will be passed widget information
+    this.createObserver = [this.openWindow.bind(this)];
+    this.updateObserver = [];
+    // deleteObserver will be passed widget id which be deleted
+    this.deleteObserver = [];
   }
 
   create(widget) {
     widget.id = uuid();
     this.widgetStore.set(widget.id, widget)
-    this.openWindow(widget)
+
+    this.createObserver.forEach((o) => o(widget))
   }
 
   update(widget) {
@@ -41,6 +49,11 @@ class WidgetManager {
 
   openWindow(opt) {
     if (!opt.isActive) return;
+    if (this.windows[opt.id]) {
+      this.windows[opt.id].focus();
+      return;
+    }
+
     let win = new BrowserWindow({
         title: opt.name,
         x: opt.position.x,
@@ -81,6 +94,25 @@ class WidgetManager {
     }).bind(this))
   
     this.windows[opt.id] = win
+  }
+
+  buildTrayContextMenuTemplate() {
+    let menuTemplate = [];
+    let widgets = this.getWidgets()
+
+    menuTemplate.push({label: 'Apps', type: 'normal'})
+
+    for (let label in widgets) {
+      let element = widgets[label];
+
+      menuTemplate.push({
+        label: element.name,
+        type: 'normal',
+        click: (() => { this.openWindow(element) }).bind(this)
+      })
+    }
+
+    return menuTemplate
   }
 }
 
