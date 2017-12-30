@@ -1,5 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './style.scss';
+
+const propTypes = {
+	children: PropTypes.element.isRequired,
+};
 
 function App(props) {
 	return (
@@ -8,5 +13,7 @@ function App(props) {
 		</div>
 	);
 }
+
+App.propTypes = propTypes;
 
 export default App;

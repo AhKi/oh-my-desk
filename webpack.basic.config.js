@@ -9,11 +9,17 @@ module.exports = {
 		rules: [
 			{
 				test: /\.jsx?$/,
+				include: [
+					path.join(__dirname, '/app'),
+					path.join(__dirname, '/src'),
+					path.join(__dirname, '/main.js'),
+				],
 				exclude: /node_modules/,
 				use: [
 					{
 						loader: 'babel-loader',
-					}
+					},
+					'eslint-loader',
 				]
 			},
 			{
