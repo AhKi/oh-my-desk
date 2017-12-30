@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import GlobalNavigationBarContainer from 'containers/GloablNavigationBarContainer';
 import './style.scss';
 
 const propTypes = {
@@ -9,6 +10,7 @@ const propTypes = {
 function App(props) {
 	return (
 		<div className="App__container">
+			<GlobalNavigationBarContainer />
 			{props.children}
 		</div>
 	);
