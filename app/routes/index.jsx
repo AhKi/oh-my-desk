@@ -1,15 +1,20 @@
 import React from 'react';
-import { Switch, Route } from 'react-router';
-import CounterContainer from 'containers/CounterContainer';
+import { Switch, Route, Redirect } from 'react-router';
+import SettingContainer from 'containers/SettingContainer';
 import RootPage from 'components/RootPage';
+import WidgetList from 'components/WidgetList';
+import WidgetStore from 'components/WidgetStore';
 import App from '../app';
 
 function routes() {
 	return (
 		<App>
 			<Switch>
-				<Route path="/counter" component={CounterContainer} />
-				<Route path="/" component={RootPage} />
+				<Route exact path="/" component={RootPage} />
+				<Route path="/setting" component={SettingContainer} />
+				<Route path="/widget-list" component={WidgetList} />
+				<Route path="/widget-store" component={WidgetStore} />
+				<Redirect to="/setting" from="/" />
 			</Switch>
 		</App>
 	);
