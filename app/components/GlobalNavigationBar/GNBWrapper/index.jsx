@@ -7,7 +7,9 @@ function GNBWrapper(WrappedComponent) {
 		return (
 			<div className="GNBWrapper">
 				<GlobalNavigationBar {...props} />
-				<WrappedComponent {...props} />
+				<div className="GNBWrapper__content">
+					<WrappedComponent {...props} />
+				</div>
 			</div>
 		);
 	};
