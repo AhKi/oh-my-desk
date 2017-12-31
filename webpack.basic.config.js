@@ -61,6 +61,7 @@ module.exports = {
 			components: path.resolve(__dirname, 'app/components'),
 			containers: path.resolve(__dirname, 'app/containers'),
 			routes: path.resolve(__dirname, 'app/routes'),
+			scss: path.resolve(__dirname, 'app/scss'),
 			store: path.resolve(__dirname, 'app/store'),
 			utils: path.resolve(__dirname, 'app/utils'),
 		},
