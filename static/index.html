@@ -16,7 +16,7 @@
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>    
     <script>
         (function(window) {
-            const {ipcRenderer} = require('electron')
+            const {ipcRenderer} = require('electron');
             window.ipcRenderer = ipcRenderer
         })(window);
     </script>
@@ -33,6 +33,8 @@
 
       if (process.env.NODE_ENV === 'development') {
         scripts.push('<script defer src=\"http://localhost:1112/build/bundle.js"><\/script>');
+        require('electron-react-devtools').install();
+        require('electron-redux-devtools').install();
       }
 
       document.write(scripts.map(script => script));
