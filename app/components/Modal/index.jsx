@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
+import DeleteConfirmWidget from './Content/DeleteConfirmWidget';
 import MakeWebWidget from './Content/MakeWebWidget';
 import './Modal.scss';
 
@@ -15,6 +16,7 @@ const defaultProps = {
 };
 
 const content = {
+	DELETE_CONFIRM_WIDGET: DeleteConfirmWidget,
 	MAKE_WEB_WIDGET: MakeWebWidget,
 };
 

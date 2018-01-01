@@ -11,12 +11,14 @@ import {
 } from 'store/modal/actions';
 import {
 	selectedIdSelector,
+	getSelectedWidget,
 	getWidgetInfo,
 } from 'store/widget/selectors';
 
 const mapStateToProps = state => ({
 	list: getWidgetInfo(state),
 	selectedId: selectedIdSelector(state),
+	selectedWidget: getSelectedWidget(state),
 });
 
 const mapDispatchToProps = {
