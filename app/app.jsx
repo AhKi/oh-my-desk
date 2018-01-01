@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ModalContainer from 'containers/ModalContainer';
 import './style.scss';
 
 const propTypes = {
@@ -9,6 +10,7 @@ const propTypes = {
 function App(props) {
 	return (
 		<div className="App__container">
+			<ModalContainer />
 			{props.children}
 		</div>
 	);
