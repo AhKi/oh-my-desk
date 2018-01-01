@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as TYPES from 'store/actionTypes';
+import * as IPC from 'constants/ipc';
 import WidgetListBox from 'components/ListBox';
 import * as MODAL from 'constants/modal';
 import './WidgetSetting.scss';
@@ -48,8 +48,8 @@ class WidgetSetting extends React.Component {
 	}
 
 	componentDidMount() {
-		window.ipcRenderer.send(TYPES.WIDGET_INFO_REQUEST);
-		window.ipcRenderer.on(TYPES.WIDGET_INFO_RESULT,
+		window.ipcRenderer.send(IPC.WIDGET_INFO_REQUEST);
+		window.ipcRenderer.on(IPC.WIDGET_INFO_RESULT,
 			(response, result) => this.props.onStoreWidgetInfo(result),
 		);
 	}
