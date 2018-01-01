@@ -1,2 +1,2 @@
-export const MAKE_WEB_WIDGET // eslint-disable-line
-	= 'MAKE_WEB_WIDGET';
+export const MAKE_WEB_WIDGET = 'MAKE_WEB_WIDGET';
+export const DELETE_CONFIRM_WIDGET = 'DELETE_CONFIRM_WIDGET';

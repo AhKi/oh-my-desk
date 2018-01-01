@@ -21,3 +21,8 @@ export const getWidgetInfo = createSelector(
 	[byIdSelector, itemsSelector],
 	(byId, items) => items.map(item => byId.get(item).toObject()).toArray(),
 );
+
+export const getSelectedWidget = createSelector(
+	[byIdSelector, selectedIdSelector],
+	(byId, selectedId) => selectedId && byId.get(selectedId).toObject(),
+);
