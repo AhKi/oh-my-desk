@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as IPC from 'constants/ipc';
 import WidgetListBox from 'components/ListBox';
+import WidgetInfo from 'components/WidgetInfo';
 import * as MODAL from 'constants/modal';
 import './WidgetSetting.scss';
 
@@ -28,6 +29,25 @@ const propTypes = {
 		}),
 	),
 	selectedId: PropTypes.string,
+	selectedWidget: PropTypes.shape({
+		favicon: PropTypes.string,
+		id: PropTypes.string,
+		isActive: PropTypes.bool,
+		isIcon: PropTypes.bool,
+		isOnTop: PropTypes.bool,
+		name: PropTypes.string,
+		position: PropTypes.shape({
+			x: PropTypes.number,
+			y: PropTypes.number,
+		}),
+		size: PropTypes.shape({
+			height: PropTypes.number,
+			width: PropTypes.number,
+		}),
+		transparency: PropTypes.number,
+		type: PropTypes.string,
+		url: PropTypes.string,
+	}),
 	onModalOpen: PropTypes.func,
 	onStoreWidgetInfo: PropTypes.func,
 	onSelectItem: PropTypes.func,
@@ -36,6 +56,7 @@ const propTypes = {
 const defaultProps = {
 	list: [],
 	selectedId: '',
+	selectedWidget: {},
 	onModalOpen() {},
 	onStoreWidgetInfo() {},
 	onSelectItem() {},
@@ -59,7 +80,13 @@ class WidgetSetting extends React.Component {
 	}
 
 	render() {
-		const { list, selectedId, onSelectItem } = this.props;
+		const {
+			list,
+			selectedId,
+			selectedWidget,
+			onModalOpen,
+			onSelectItem,
+		} = this.props;
 
 		return (
 			<div>
@@ -77,6 +104,10 @@ class WidgetSetting extends React.Component {
 					+ 새 위젯 추가하기
 				</button>
 				<p>위젯 설정</p>
+				<WidgetInfo
+					info={selectedWidget}
+					onModalOpen={onModalOpen}
+				/>
 			</div>
 		);
 	}
