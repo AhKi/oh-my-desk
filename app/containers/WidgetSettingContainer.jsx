@@ -6,6 +6,10 @@ import {
 	widgetListSelect,
 } from 'store/widget/actions';
 import {
+	modalOpen,
+	modalClose,
+} from 'store/modal/actions';
+import {
 	selectedIdSelector,
 	getWidgetInfo,
 } from 'store/widget/selectors';
@@ -16,6 +20,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
+	onModalClose: modalClose,
+	onModalOpen: modalOpen,
 	onStoreWidgetInfo: widgetListInfoStore,
 	onSelectItem: widgetListSelect,
 };

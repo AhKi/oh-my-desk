@@ -1,0 +1,21 @@
+.Modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.5);
+  z-index: 3;
+}
+
+.Modal__container {
+  background-color: #F1F1F1;
+  opacity: 1;
+  position: absolute;
+  margin: auto;
+  top: 10%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  z-index: 5;
+}

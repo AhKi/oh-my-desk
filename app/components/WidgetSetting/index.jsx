@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as TYPES from 'store/actionTypes';
 import WidgetListBox from 'components/ListBox';
+import * as MODAL from 'constants/modal';
 import './WidgetSetting.scss';
 
 const propTypes = {
@@ -27,6 +28,7 @@ const propTypes = {
 		}),
 	),
 	selectedId: PropTypes.string,
+	onModalOpen: PropTypes.func,
 	onStoreWidgetInfo: PropTypes.func,
 	onSelectItem: PropTypes.func,
 };
@@ -34,16 +36,26 @@ const propTypes = {
 const defaultProps = {
 	list: [],
 	selectedId: '',
+	onModalOpen() {},
 	onStoreWidgetInfo() {},
 	onSelectItem() {},
 };
 
 class WidgetSetting extends React.Component {
+	constructor(props) {
+		super(props);
+		this.handleOpenModal = this.handleOpenModal.bind(this);
+	}
+
 	componentDidMount() {
 		window.ipcRenderer.send(TYPES.WIDGET_INFO_REQUEST);
 		window.ipcRenderer.on(TYPES.WIDGET_INFO_RESULT,
 			(response, result) => this.props.onStoreWidgetInfo(result),
 		);
+	}
+
+	handleOpenModal() {
+		this.props.onModalOpen(MODAL.MAKE_WEB_WIDGET);
 	}
 
 	render() {
@@ -57,6 +69,13 @@ class WidgetSetting extends React.Component {
 					selectedId={selectedId}
 					onSelectItem={onSelectItem}
 				/>
+				<button
+					className="WidgetSetting__add-btn"
+					type="button"
+					onClick={this.handleOpenModal}
+				>
+					+ 새 위젯 추가하기
+				</button>
 				<p>위젯 설정</p>
 			</div>
 		);
