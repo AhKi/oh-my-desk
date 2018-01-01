@@ -26,12 +26,16 @@ const propTypes = {
 			url: PropTypes.string,
 		}),
 	),
+	selectedId: PropTypes.string,
 	onStoreWidgetInfo: PropTypes.func,
+	onSelectItem: PropTypes.func,
 };
 
 const defaultProps = {
 	list: [],
+	selectedId: '',
 	onStoreWidgetInfo() {},
+	onSelectItem() {},
 };
 
 class WidgetSetting extends React.Component {
@@ -43,12 +47,16 @@ class WidgetSetting extends React.Component {
 	}
 
 	render() {
-		const { list } = this.props;
+		const { list, selectedId, onSelectItem } = this.props;
 
 		return (
 			<div>
 				<p>위젯 목록</p>
-				<WidgetListBox list={list} />
+				<WidgetListBox
+					list={list}
+					selectedId={selectedId}
+					onSelectItem={onSelectItem}
+				/>
 				<p>위젯 설정</p>
 			</div>
 		);
