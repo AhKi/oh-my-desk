@@ -33,7 +33,7 @@ html, body {
 #title {
   position: fixed;
   top: 0px;
-  left: 12px;
+  left: 24px;
   line-height: 28px;
   font-size: 12px;
  }
@@ -58,12 +58,12 @@ html, body {
   margin: 0px;
 }
 
-#title-bar-btns #thumbtack {
+#thumbtack {
   background-color: transparent;
   border: none;
   color: #F1F1F1;
   width: 24px;
-  height: 20px;
+  height: 28px;
 }
  
 #title-bar-btns button:hover {
