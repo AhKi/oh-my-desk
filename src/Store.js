@@ -5,7 +5,7 @@ const fs = require('fs');
 function parseDataFile(filePath, defaults) {
 	let returnValue = defaults;
 
-	if (!fs.existsSync(path)) return defaults;
+	if (!fs.existsSync(filePath)) return defaults;
 
 	try {
 		returnValue = JSON.parse(fs.readFileSync(filePath));
