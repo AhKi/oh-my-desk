@@ -61,11 +61,16 @@ html, body {
 }
 
 #thumbtack {
+  -webkit-app-region: no-drag;
   background-color: transparent;
   border: none;
   color: #F1F1F1;
   width: 24px;
   height: 28px;
+}
+
+#thumbtack:hover {
+  background-color: #3f3f41;
 }
 
 #title-bar-btns button.hover-normal:hover {
