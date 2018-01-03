@@ -34,5 +34,13 @@ const { ipcRenderer } = require('electron');
 		document.getElementById('webview').loadURL(widget.url, {
 			userAgent: 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Mobile Safari/537.36',
 		});
+
+		const isOnTopIcon = document.querySelector('#thumbtack svg');
+
+		if (widget.isOnTop) {
+			isOnTopIcon.dataset.faTransform = '';
+		} else {
+			isOnTopIcon.dataset.faTransform = 'rotate-90';
+		}
 	});
 }());
