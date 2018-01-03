@@ -14,7 +14,9 @@ class WidgetManager {
 		this.createObserver = [
 			this.openWindow.bind(this),
 		];
-		this.updateObserver = [];
+		this.updateObserver = [
+			this.updateWindow.bind(this),
+		];
 		// deleteObserver will be passed widget id which be deleted
 		this.deleteObserver = [];
 	}
@@ -29,7 +31,7 @@ class WidgetManager {
 
 	update(widget) {
 		this.widgetStore.set(widget.id, widget);
-
+		this.windows[widget.id].webContents.send('widget-info', widget);
 		this.updateObserver.forEach((o) => { o(widget); });
 	}
 
@@ -113,7 +115,8 @@ class WidgetManager {
 
 			[_opt.position.x, _opt.position.y] = position;
 
-			this.widgetStore.set(opt.id, opt);
+			this.widgetStore.set(_opt.id, _opt);
+			win.webContents.send('widget-info', _opt);
 		}));
 
 		win.on('resize', (() => {
@@ -122,10 +125,34 @@ class WidgetManager {
 
 			[_opt.size.width, _opt.size.height] = size;
 
-			this.widgetStore.set(opt.id, opt);
+			this.widgetStore.set(_opt.id, _opt);
+			win.webContents.send('widget-info', _opt);
 		}));
 
 		this.windows[opt.id] = win;
+	}
+
+	updateWindow(widget) {
+		const widgetWindow = this.windows[widget.id];
+
+		// size
+		widgetWindow.setSize(
+			widget.size.width,
+			widget.size.height,
+		);
+		// position
+		widgetWindow.setPosition(
+			widget.position.x,
+			widget.position.y,
+		);
+		// always on top
+		widgetWindow.setAlwaysOnTop(widget.isOnTop);
+
+
+		// is this active. This must place in last of function
+		if (!widget.isActive) {
+			widgetWindow.close();
+		}
 	}
 
 	onUpdateTray(callback) {
