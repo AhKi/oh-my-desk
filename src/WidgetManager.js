@@ -105,7 +105,7 @@ class WidgetManager {
 		});
 
 		win.on('move', (() => {
-			const [position] = win.getPosition();
+			const position = win.getPosition();
 			const _opt = opt;
 
 			[_opt.position.x, _opt.position.y] = position;
@@ -119,9 +119,7 @@ class WidgetManager {
 
 			[_opt.size.width, _opt.size.height] = size;
 
-			this
-				.widgetStore
-				.set(opt.id, opt);
+			this.widgetStore.set(opt.id, opt);
 		}));
 
 		this.windows[opt.id] = win;
