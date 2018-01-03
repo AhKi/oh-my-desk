@@ -33,7 +33,7 @@ html, body {
 #title {
   position: fixed;
   top: 0px;
-  left: 12px;
+  left: 24px;
   line-height: 28px;
   font-size: 12px;
  }
@@ -56,18 +56,35 @@ html, body {
   height: 28px;
   padding: 0px;
   margin: 0px;
+  display: block;
+  float: left;
 }
- 
-#title-bar-btns button:hover {
+
+#thumbtack {
+  -webkit-app-region: no-drag;
+  background-color: transparent;
+  border: none;
+  color: #F1F1F1;
+  width: 24px;
+  height: 28px;
+}
+
+#thumbtack:hover {
+  background-color: #3f3f41;
+}
+
+#title-bar-btns button.hover-normal:hover {
   background-color: #3F3F41;
+}
+
+#title-bar-btns button.hover-danger:hover {
+  background-color: red;
 }
 
 #content {
   padding: 12px; 
   color: #CCCCCC;
 }
-
-
 
 a {
   color: #68217A;
