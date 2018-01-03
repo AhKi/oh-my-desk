@@ -1,82 +1,88 @@
-const {app, BrowserWindow, Menu, Tray} = require('electron')
-const path = require('path')
-const url = require('url')
-const {ipcMain} = require('electron')
-const WidgetManager = require('./src/WidgetManager')
+const {
+	app, BrowserWindow, Menu, Tray,
+} = require('electron');
+const path = require('path');
+const url = require('url');
+const { ipcMain } = require('electron');
+const WidgetManager = require('./src/WidgetManager');
 
-let setting_win
-let widgetManager = new WidgetManager()
-let tray
+let setting_win;
+const widgetManager = new WidgetManager();
+let tray;
 
-function init() {
+function createSetting() {
+	if (setting_win) return;
 
-    widgetManager.onUpdateTray(createTray)
-    widgetManager.openAllWindow();
+	setting_win = new BrowserWindow({
+		width: 800,
+		height: 800,
+	});
 
-    ipcMain.on('WIDGET_MANAGE', (event, arg) => {
-        if (arg.operation === 'CREATE') {
-            widgetManager.create(arg.widget)
-        } else if (arg.operation === 'UPDATE') {
-            widgetManager.update(arg.widget)
-        } else if (arg.operation === 'DELETE') {
-            widgetManager.delete(arg.widget.id)
-        } else {
-            console.error('operaction is not set')
-        }
-    })
+	if (process.env.NODE_ENV === 'development') {
+		setting_win.loadURL(url.format({
+			pathname: path.join(__dirname, 'static', 'index.html'),
+			protocol: 'file:',
+			slashes: true,
+		}));
 
-    ipcMain.on('WIDGET_INFO_REQUEST', (event, arg) => {
-        event.sender.send('WIDGET_INFO_RESULT', widgetManager.getWidgets())
-    })
+		setting_win.webContents.openDevTools();
+	} else {
+		setting_win.loadURL(url.format({
+			pathname: path.join(__dirname, 'build', 'index.html'),
+			protocol: 'file:',
+			slashes: true,
+		}));
+	}
+
+	setting_win.on('closed', () => {
+		setting_win = null;
+	});
 }
 
 function createTray(contextMenuTemplate) {
-    if (!tray) tray = new Tray(path.join(__dirname, 'resource', 'icon.png'))
-    
-    const contextMenu = Menu.buildFromTemplate(contextMenuTemplate.concat([
-      {label: 'Setting', type: 'normal', click: createSetting},
-      {label: 'Exit', type: 'normal', click: function() {
-          app.quit();
-      }}
-    ]))
+	if (!tray) tray = new Tray(path.join(__dirname, 'resource', 'icon.png'));
 
-    tray.setToolTip('Oh My Desk');
-    tray.setContextMenu(contextMenu);
+	const contextMenu = Menu.buildFromTemplate(contextMenuTemplate.concat([
+		{ label: 'Setting', type: 'normal', click: createSetting },
+		{
+			label: 'Exit',
+			type: 'normal',
+			click: () => {
+				app.quit();
+			},
+		},
+	]));
+
+	tray.setToolTip('Oh My Desk');
+	tray.setContextMenu(contextMenu);
 }
 
-function createSetting() {
-    if (setting_win) return
+function init() {
+	widgetManager.onUpdateTray(createTray);
+	widgetManager.openAllWindow();
 
-    setting_win = new BrowserWindow({
-        width: 800,
-        height: 800
-    })
+	ipcMain.on('WIDGET_MANAGE', (event, arg) => {
+		if (arg.operation === 'CREATE') {
+			widgetManager.create(arg.widget);
+		} else if (arg.operation === 'UPDATE') {
+			widgetManager.update(arg.widget);
+		} else if (arg.operation === 'DELETE') {
+			widgetManager.delete(arg.widget.id);
+		} else {
+			throw new Error('WIDGET_MANAGER : operaction is not set');
+		}
+	});
 
-    if (process.env.NODE_ENV === 'development') {
-        setting_win.loadURL(url.format({
-            pathname: path.join(__dirname, 'static', 'index.html'),
-            protocol: 'file:',
-            slashes: true
-        }))
-        
-        setting_win.webContents.openDevTools()
-    } else {
-        setting_win.loadURL(url.format({
-            pathname: path.join(__dirname, 'build', 'index.html'),
-            protocol: 'file:',
-            slashes: true
-        }))
-    }
-
-    setting_win.on('closed', () => {
-        setting_win = null
-    })
+	ipcMain.on('WIDGET_INFO_REQUEST', (event) => {
+		event.sender.send('WIDGET_INFO_RESULT', widgetManager.getWidgets());
+	});
 }
 
-app.on('ready', init)
+
+app.on('ready', init);
 
 app.on('window-all-closed', () => {
-})
+});
 
 app.on('activate', () => {
-})
+});

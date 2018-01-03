@@ -50,7 +50,6 @@ class WidgetInfo extends React.Component {
 
 	render() {
 		const { info } = this.props;
-		console.log(info);
 		if (!info) {
 			return <div>위젯을 선택해 주세요.</div>;
 		}

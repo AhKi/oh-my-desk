@@ -1,6 +1,5 @@
 {
   "extends": "airbnb",
-//  "plugins": ["react", "jsx-a11y", "import"],
   "settings": {
     "import/resolver": {
       "eslint-import-resolver-webpack": {
@@ -25,7 +24,8 @@
     "import/no-named-as-default": 0,
     "import/no-duplicates": 0,
     "import/no-named-as-default-member": 0,
-    "jsx-a11y/anchor-is-valid": 0
+    "jsx-a11y/anchor-is-valid": 0,
+    "linebreak-style": 0
   },
   "globals": {
     "__DEV__": false,
