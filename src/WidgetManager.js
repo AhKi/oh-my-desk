@@ -29,6 +29,8 @@ class WidgetManager {
 
 	update(widget) {
 		this.widgetStore.set(widget.id, widget);
+
+		this.updateObserver.forEach((o) => { o(widget); });
 	}
 
 	delete(id) {
@@ -102,6 +104,7 @@ class WidgetManager {
 
 		win.on('closed', () => {
 			win = null;
+			delete this.windows[opt.id];
 		});
 
 		win.on('move', (() => {
@@ -133,6 +136,7 @@ class WidgetManager {
 		funcWrapper.bind(this)();
 
 		this.createObserver.push(funcWrapper.bind(this));
+		this.updateObserver.push(funcWrapper.bind(this));
 		this.deleteObserver.push(funcWrapper.bind(this));
 	}
 
