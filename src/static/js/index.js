@@ -41,6 +41,9 @@ let g_widget = null;
 			webview.loadURL(widget.url, {
 				userAgent: 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Mobile Safari/537.36',
 			});
+			webview.addEventListener('dom-ready', () => {
+				webview.insertCSS('html::-webkit-scrollbar{ display:none}');
+			});
 		}
 
 		const isOnTop = document.querySelector('#thumbtack');
