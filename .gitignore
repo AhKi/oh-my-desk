@@ -61,3 +61,4 @@ typings/
 dist/**
 build/**
 .idea/
+.DS_store
