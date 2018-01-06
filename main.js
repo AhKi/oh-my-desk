@@ -7,7 +7,9 @@ const { ipcMain } = require('electron');
 const WidgetManager = require('./src/WidgetManager');
 
 let setting_win;
-const widgetManager = new WidgetManager();
+const widgetManager = new WidgetManager({
+	icon: path.join(__dirname, 'resource', 'icon.png'),
+});
 let tray;
 
 function createSetting() {
@@ -16,6 +18,7 @@ function createSetting() {
 	setting_win = new BrowserWindow({
 		width: 800,
 		height: 800,
+		icon: path.join(__dirname, 'resource', 'icon.png'),
 	});
 
 	if (process.env.NODE_ENV === 'development') {
@@ -40,7 +43,7 @@ function createSetting() {
 }
 
 function createTray(contextMenuTemplate) {
-	if (!tray) tray = new Tray(path.join(__dirname, 'resource', 'icon.png'));
+	if (!tray) tray = new Tray(path.join(__dirname, 'resource', 'tray_icon.png'));
 
 	const contextMenu = Menu.buildFromTemplate(contextMenuTemplate.concat([
 		{ label: 'Setting', type: 'normal', click: createSetting },
