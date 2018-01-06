@@ -135,6 +135,7 @@ class WidgetManager {
 	}
 
 	updateWindow(widget) {
+		if (this.windows[widget.id] && widget.isActive) this.openWindow(widget);
 		const widgetWindow = this.windows[widget.id];
 
 		// size
