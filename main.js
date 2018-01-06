@@ -81,6 +81,10 @@ function init() {
 	});
 }
 
+// remove dock icon on macOS
+if (process.platform === 'darwin') {
+	app.dock.hide();
+}
 
 app.on('ready', init);
 
