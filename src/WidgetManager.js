@@ -5,9 +5,10 @@ const url = require('url');
 const path = require('path');
 
 class WidgetManager {
-	constructor() {
+	constructor(option) {
 		this.windows = [];
 		this.widgetStore = new Store({ configName: 'widgets', defaults: {} });
+		this.iconPath = option.icon;
 
 		// this is consumers of observer pattern createObserver will be passed widget
 		// information
@@ -80,6 +81,7 @@ class WidgetManager {
 			skipTaskbar: true,
 			show: false,
 			frame: false,
+			icon: this.iconPath,
 		});
 
 		if (opt.type === 'web') {
