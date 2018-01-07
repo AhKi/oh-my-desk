@@ -8,7 +8,7 @@ const propTypes = {
 		PropTypes.string,
 		PropTypes.element,
 	]),
-	isCheck: PropTypes.bool,
+	isCheck: PropTypes.bool.isRequired,
 	unCheckedValue: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.element,
@@ -18,7 +18,6 @@ const propTypes = {
 };
 const defaultProps = {
 	checkedValue: <i className="fa fa-check" />,
-	isCheck: false,
 	unCheckedValue: <i className="fa fa-times" />,
 	width: 50,
 	onToggle() {},

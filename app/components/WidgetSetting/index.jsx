@@ -51,6 +51,7 @@ const propTypes = {
 	onModalOpen: PropTypes.func,
 	onStoreWidgetInfo: PropTypes.func,
 	onSelectItem: PropTypes.func,
+	onUpdateInfoWithIPC: PropTypes.func,
 };
 
 const defaultProps = {
@@ -60,6 +61,7 @@ const defaultProps = {
 	onModalOpen() {},
 	onStoreWidgetInfo() {},
 	onSelectItem() {},
+	onUpdateInfoWithIPC() {},
 };
 
 class WidgetSetting extends React.Component {
@@ -86,6 +88,7 @@ class WidgetSetting extends React.Component {
 			selectedWidget,
 			onModalOpen,
 			onSelectItem,
+			onUpdateInfoWithIPC,
 		} = this.props;
 
 		return (
@@ -107,6 +110,7 @@ class WidgetSetting extends React.Component {
 				<WidgetInfo
 					info={selectedWidget}
 					onModalOpen={onModalOpen}
+					onUpdateInfoWithIPC={onUpdateInfoWithIPC}
 				/>
 			</div>
 		);
