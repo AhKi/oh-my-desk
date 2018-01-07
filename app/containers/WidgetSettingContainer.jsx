@@ -4,6 +4,7 @@ import GNBWrapper from 'components/GlobalNavigationBar/GNBWrapper';
 import {
 	widgetListInfoStore,
 	widgetListSelect,
+	widgetInfoUpdateWithIPC,
 } from 'store/widget/actions';
 import {
 	modalOpen,
@@ -26,6 +27,7 @@ const mapDispatchToProps = {
 	onModalOpen: modalOpen,
 	onStoreWidgetInfo: widgetListInfoStore,
 	onSelectItem: widgetListSelect,
+	onUpdateInfoWithIPC: widgetInfoUpdateWithIPC,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(GNBWrapper(WidgetSetting));
