@@ -5,6 +5,7 @@
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
   color: #616161;
   display: inline-block;
+  font-size: inherit;
   font-weight: 700;
   height: 32px;
   margin: 0 3px 12px;
@@ -35,4 +36,8 @@
   &:hover {
     color: #eee;
   }
+}
+
+.Btn-middle {
+  width: 100px;
 }
