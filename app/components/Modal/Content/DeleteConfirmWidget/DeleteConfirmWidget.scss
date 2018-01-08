@@ -1,0 +1,22 @@
+.DeleteConfirmWidget {
+  font-family: Noto Sans CJK KR Subset,sans-serif;
+  width: 350px;
+  padding: 25px;
+  overflow: auto;
+}
+
+.DeleteConfirmWidget__title {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.DeleteConfirmWidget__content {
+  text-align: center;
+  font-size: 15px;
+}
+
+.DeleteConfirmWidget__button-set {
+  text-align: center;
+  margin-top: 15px;
+}
