@@ -1,7 +1,64 @@
+.WidgetSetting {
+  // flex-container
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  height: 100%;
+}
+
+.WidgetSetting__list {
+  flex: 1 1;
+
+  margin: 20px;
+}
+
+.WidgetSetting__box {
+  flex: 3 3 auto;
+
+  margin: 20px;
+}
+
+.WidgetSetting__title {
+  margin-bottom: 15px;
+}
+
 .WidgetSetting__add-btn {
   margin: auto;
   width: 70%;
   display: block;
   height: 45px;
   background-color: #343a40;
+}
+
+
+.WidgetInfo__button-box {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.WidgetInfo__sub-title {
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.WidgetInfo__Card {
+  color: #424242;
+  display: inline-block;
+  border: 1px solid #e1e1e1;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  margin: auto;
+  padding: 5px;
+}
+
+.WidgetInfo__Card-full {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.WidgetInfo__content-middle {
+  display: inline-block;
+  width: 50%;
 }
