@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import * as MODAL from 'constants/modal';
 import ToggleButtonWithLabel from '../WidgetSetting/components/ToggleButtonWithLabel';
 import InputWithLabel from '../WidgetSetting/components/InputWithLabel';
+import './WidgetInfo.scss';
 
 const propTypes = {
 	info: PropTypes.shape({
@@ -155,73 +156,84 @@ class WidgetInfo extends React.Component {
 
 		return (
 			<div>
-				<ToggleButtonWithLabel
-					isCheck={info.isActive}
-					label="활성화"
-					onToggle={this.handleToggleActive}
-				/>
-				<ToggleButtonWithLabel
-					isCheck={info.isOnTop}
-					label="항상 위"
-					onToggle={this.handleToggleOnTop}
-				/>
-				<InputWithLabel
-					label="이름"
-					value={this.state.info.name}
-					onChange={this.handleChangeName}
-				/>
-				<InputWithLabel
-					disabled
-					label="타입"
-					value={info.type}
-				/>
-				<InputWithLabel
-					label="URL"
-					value={this.state.info.url}
-					onChange={this.handleChangeUrl}
-				/>
-				<div>
-					<p>위치</p>
-					<InputWithLabel
-						label="X 좌표"
-						type="number"
-						value={this.state.info.position.x}
-						onChange={this.handleChangePositionX}
+				<div className="WidgetInfo__Card WidgetInfo__Card-full">
+					<ToggleButtonWithLabel
+						isCheck={info.isActive}
+						label="활성화"
+						onToggle={this.handleToggleActive}
 					/>
-					<InputWithLabel
-						label="Y 좌표"
-						type="number"
-						value={this.state.info.position.y}
-						onChange={this.handleChangePositionY}
+					<ToggleButtonWithLabel
+						isCheck={info.isOnTop}
+						label="항상 위"
+						onToggle={this.handleToggleOnTop}
 					/>
 				</div>
-				<div>
-					<p>크기</p>
+				<div className="WidgetInfo__Card">
 					<InputWithLabel
+						className="WidgetInfo__input-width-middle"
+						label="이름"
+						value={this.state.info.name}
+						onChange={this.handleChangeName}
+					/>
+					<InputWithLabel
+						className="WidgetInfo__input-width-large"
+						label="URL"
+						value={this.state.info.url}
+						onChange={this.handleChangeUrl}
+					/>
+				</div>
+				<div className="WidgetInfo__content-middle">
+					<h5 className="WidgetInfo__sub-title">위치</h5>
+					<div className="WidgetInfo__Card">
+						<InputWithLabel
+							className="WidgetInfo__input-width-middle"
+							label="X 좌표"
+							type="number"
+							value={this.state.info.position.x}
+							onChange={this.handleChangePositionX}
+						/>
+						<InputWithLabel
+							className="WidgetInfo__input-width-middle"
+							label="Y 좌표"
+							type="number"
+							value={this.state.info.position.y}
+							onChange={this.handleChangePositionY}
+						/>
+					</div>
+				</div>
+				<h5 className="WidgetInfo__sub-title">크기</h5>
+				<div className="WidgetInfo__Card">
+					<InputWithLabel
+						className="WidgetInfo__input-width-middle"
 						label="너비"
 						type="number"
 						value={this.state.info.size.width}
 						onChange={this.handleChangeSizeWidth}
 					/>
 					<InputWithLabel
+						className="WidgetInfo__input-width-middle"
 						label="높이"
 						type="number"
 						value={this.state.info.size.height}
 						onChange={this.handleChangeSizeHeight}
 					/>
 				</div>
-				<button
-					type="button"
-					onClick={this.handleEditWidget}
-				>
-					수정하기
-				</button>
-				<button
-					type="button"
-					onClick={this.handleDeleteConfirm}
-				>
-					삭제하기
-				</button>
+				<div className="WidgetInfo__button-box">
+					<button
+						className="Btn Btn--primary"
+						type="button"
+						onClick={this.handleEditWidget}
+					>
+						수정하기
+					</button>
+					<button
+						className="Btn"
+						type="button"
+						onClick={this.handleDeleteConfirm}
+					>
+						삭제하기
+					</button>
+				</div>
 			</div>
 		);
 	}
