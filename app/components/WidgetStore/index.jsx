@@ -1,9 +1,10 @@
 import React from 'react';
+import './WidgetStore.scss';
 
 class WidgetStore extends React.Component {
 	render() {
 		return (
-			<div>
+			<div className="WidgetStore">
 				WidgetStore
 			</div>
 		);
