@@ -31,9 +31,12 @@ class WidgetManager {
 	}
 
 	update(widget) {
-		this.widgetStore.set(widget.id, widget);
-		this.windows[widget.id].webContents.send('widget-info', widget);
-		this.updateObserver.forEach((o) => { o(widget); });
+		const originWidget = this.widgetStore.get(widget.id);
+		Object.assign(originWidget, widget);
+
+		this.widgetStore.set(widget.id, originWidget);
+		this.windows[widget.id].webContents.send('widget-info', originWidget);
+		this.updateObserver.forEach((o) => { o(originWidget); });
 	}
 
 	delete(id) {
@@ -113,7 +116,7 @@ class WidgetManager {
 
 		win.on('move', (() => {
 			const position = win.getPosition();
-			const _opt = opt;
+			const _opt = this.widgetStore.get(opt.id);
 
 			[_opt.position.x, _opt.position.y] = position;
 
@@ -123,7 +126,7 @@ class WidgetManager {
 
 		win.on('resize', (() => {
 			const size = win.getSize();
-			const _opt = opt;
+			const _opt = this.widgetStore.get(opt.id);
 
 			[_opt.size.width, _opt.size.height] = size;
 
