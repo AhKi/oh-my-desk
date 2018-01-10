@@ -14,7 +14,7 @@ function createWidget(type, info) {
 			},
 			size: {
 				width: (info.size && info.size.width) || 300,
-				height: (info.size && info.size.width) || 400,
+				height: (info.size && info.size.height) || 400,
 			},
 			transparency: info.transparency || 0.7,
 			isActive: info.isActive || true,
