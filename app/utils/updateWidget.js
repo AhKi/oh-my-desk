@@ -14,7 +14,7 @@ function updateWidget(type, info) {
 			},
 			size: {
 				width: info.size && info.size.width,
-				height: info.size && info.size.width,
+				height: info.size && info.size.height,
 			},
 			transparency: info.transparency,
 			isActive: info.isActive,
