@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ToggleButton from 'components/Button/ToggleButton';
+import './ToggleButtonWithLabel.scss';
 
 const propTypes = {
 	isCheck: PropTypes.bool,
@@ -16,14 +17,16 @@ const defaultProps = {
 function ToggleButtonWithLabel(props) {
 	return (
 		<div className="ToggleButtonWithLabel">
-			<span>
+			<span className="InputSet__label">
 				{props.label}
 			</span>
-			<ToggleButton
-				isCheck={props.isCheck}
-				onToggle={props.onToggle}
-				{...props}
-			/>
+			<div>
+				<ToggleButton
+					isCheck={props.isCheck}
+					onToggle={props.onToggle}
+					{...props}
+				/>
+			</div>
 		</div>
 	);
 }
