@@ -1,16 +1,8 @@
 .WidgetSetting {
-  // flex-container
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-
   height: 100%;
 }
 
 .WidgetSetting__list {
-  // flex-item
-  flex: 1 1;
-
   margin: 20px;
 }
 
