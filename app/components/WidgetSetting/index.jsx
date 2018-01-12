@@ -109,9 +109,9 @@ class WidgetSetting extends React.Component {
 					</button>
 				</div>
 				<div className="WidgetSetting__box">
-					<h3 className="WidgetSetting__title">
+					<h4 className="WidgetSetting__title">
 						{selectedWidget && selectedWidget.type.toUpperCase()} 위젯 설정
-					</h3>
+					</h4>
 					<WidgetInfo
 						info={selectedWidget}
 						onModalOpen={onModalOpen}
