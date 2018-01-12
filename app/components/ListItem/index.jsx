@@ -27,19 +27,16 @@ class ListItem extends React.Component {
 
 	render() {
 		const { item, selectedId } = this.props;
-		const itemClassName = cx('list-group-item-dark', 'ListItem', {
-			active: item.id === selectedId,
+		const itemClassName = cx('ListItem', 'ListItem__button', {
+			'ListItem__button-active': item.id === selectedId,
 		});
 
 		return (
-			<li className={itemClassName}>
-				<button
-					className="ListItem__button"
-					type="button"
-					onClick={this.handleSelectList}
-				>
-					{item.name}
-				</button>
+			<li // eslint-disable-line
+				className={itemClassName}
+				onClick={this.handleSelectList}
+			>
+				{item.name}
 			</li>
 		);
 	}

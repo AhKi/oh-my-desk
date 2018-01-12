@@ -92,26 +92,32 @@ class WidgetSetting extends React.Component {
 		} = this.props;
 
 		return (
-			<div>
-				<p>위젯 목록</p>
-				<WidgetListBox
-					list={list}
-					selectedId={selectedId}
-					onSelectItem={onSelectItem}
-				/>
-				<button
-					className="WidgetSetting__add-btn"
-					type="button"
-					onClick={this.handleOpenModal}
-				>
-					+ 새 위젯 추가하기
-				</button>
-				<p>위젯 설정</p>
-				<WidgetInfo
-					info={selectedWidget}
-					onModalOpen={onModalOpen}
-					onUpdateInfoWithIPC={onUpdateInfoWithIPC}
-				/>
+			<div className="WidgetSetting">
+				<div className="WidgetSetting__list">
+					<h4>위젯 목록</h4>
+					<WidgetListBox
+						list={list}
+						selectedId={selectedId}
+						onSelectItem={onSelectItem}
+					/>
+					<button
+						className="WidgetSetting__add-btn"
+						type="button"
+						onClick={this.handleOpenModal}
+					>
+						<b><i className="fa fa-plus-square-o fa-lg" /> 새 위젯 추가하기</b>
+					</button>
+				</div>
+				<div className="WidgetSetting__box">
+					<h4 className="WidgetSetting__title">
+						{selectedWidget && selectedWidget.type.toUpperCase()} 위젯 설정
+					</h4>
+					<WidgetInfo
+						info={selectedWidget}
+						onModalOpen={onModalOpen}
+						onUpdateInfoWithIPC={onUpdateInfoWithIPC}
+					/>
+				</div>
 			</div>
 		);
 	}

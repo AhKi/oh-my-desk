@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import deleteWidget from 'utils/deleteWidget';
+import './DeleteConfirmWidget.scss';
 
 const propTypes = {
 	id: PropTypes.string,
@@ -29,21 +30,27 @@ class DeleteConfirmWidget extends React.Component {
 		const { name, onClose } = this.props;
 
 		return (
-			<div>
-				<h5>삭제 확인</h5>
-				<p>정말로 {'"'}{name}{'"'} 위젯을 삭제하시겠습니까?</p>
-				<button
-					type="button"
-					onClick={this.handleDeleteWidget}
-				>
-					삭제
-				</button>
-				<button
-					type="button"
-					onClick={onClose}
-				>
-					닫기
-				</button>
+			<div className="DeleteConfirmWidget">
+				<h5 className="DeleteConfirmWidget__title">삭제 확인</h5>
+				<p className="DeleteConfirmWidget__content">
+					정말로 <b>{'"'}{name}{'"'}</b> 위젯을 삭제하시겠습니까?
+				</p>
+				<div className="DeleteConfirmWidget__button-set">
+					<button
+						className="Btn Btn--primary Btn-middle"
+						type="button"
+						onClick={this.handleDeleteWidget}
+					>
+						삭제
+					</button>
+					<button
+						className="Btn Btn-middle"
+						type="button"
+						onClick={onClose}
+					>
+						닫기
+					</button>
+				</div>
 			</div>
 		);
 	}

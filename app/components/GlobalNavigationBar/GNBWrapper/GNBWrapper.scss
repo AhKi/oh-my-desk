@@ -1,11 +1,16 @@
 .GNBWrapper {
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+
   height: 100%;
 }
 
 .GNBWrapper__content {
-  background-color: #323435;
-  color: #fefefe;
-  width: 100%;
-  height: 100%;
-  min-width: 450px;
+  order: 2;
+  flex: 5 5 200px;
+
+  color: #424242;
+  overflow: scroll;
+  max-width: 950px;
 }

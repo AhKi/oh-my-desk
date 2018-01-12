@@ -1,7 +1,37 @@
+.WidgetSetting {
+  // flex-container
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  height: 100%;
+}
+
+.WidgetSetting__list {
+  // flex-item
+  flex: 1 1;
+
+  margin: 20px;
+}
+
+.WidgetSetting__box {
+  flex: 3 3 auto;
+
+  margin: 20px;
+}
+
+.WidgetSetting__title {
+  margin-bottom: 15px;
+}
+
 .WidgetSetting__add-btn {
-  margin: auto;
-  width: 70%;
-  display: block;
+  background-color: #e0a800;
+  border: 1px solid rgba(0, 0, 0, .125);
+  width: 100%;
   height: 45px;
-  background-color: #343a40;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: .75rem 1.25rem;
+  min-width: 350px;
 }

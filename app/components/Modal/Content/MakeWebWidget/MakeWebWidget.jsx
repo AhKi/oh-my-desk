@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import createWidget from 'utils/createWidget';
+import './MakeWebWidget.scss';
 
 const propTypes = {
 	onModalClose: PropTypes.func,
@@ -43,31 +44,51 @@ class MakeWebWidget extends React.Component {
 		const { widgetName, widgetUrl } = this.state;
 
 		return (
-			<div>
-				<p>웹 위젯 이름</p>
-				<input
-					type="text"
-					value={widgetName}
-					onChange={this.handleWidgetNameChange}
-				/>
-				<p>웹 위젯 URL</p>
-				<input
-					type="text"
-					value={widgetUrl}
-					onChange={this.handleWidgetUrlChange}
-				/>
-				<button
-					type="button"
-					onClick={this.handleCreateWidget}
-				>
-					만들기
-				</button>
-				<button
-					type="button"
-					onClick={onModalClose}
-				>
-					닫기
-				</button>
+			<div className="MakeWebWidget">
+				<h5 className="MakeWebWidget__title">웹 위젯 만들기</h5>
+				<div className="Card">
+					<p className="Card__content">웹 위젯을 만듭니다.<br />이름, 만들고자하는 URL을 입력하세요.</p>
+					<p className="Card__content--postscript">
+						* URL정보는 브라우저 주소표시줄에서 <br />복사/붙여넣기 하시는게 간편합니다.
+					</p>
+				</div>
+				<div className="InputSet">
+					<p className="InputSet__label">웹 위젯 이름</p>
+					<input
+						className="InputSet__text-input"
+						type="text"
+						placeholder="web widget name"
+						value={widgetName}
+						onChange={this.handleWidgetNameChange}
+					/>
+				</div>
+				<div className="InputSet">
+					<p className="InputSet__label">웹 위젯 URL</p>
+					<input
+						className="InputSet__text-input"
+						type="text"
+						placeholder="ex) https://www.google.com"
+						value={widgetUrl}
+						onChange={this.handleWidgetUrlChange}
+					/>
+				</div>
+				<div className="MakeWebWidget__button-set">
+					<button
+						className="Btn Btn--primary Btn-middle"
+						type="button"
+						onClick={this.handleCreateWidget}
+					>
+						만들기
+					</button>
+					<button
+						className="Btn Btn-middle"
+						type="button"
+
+						onClick={onModalClose}
+					>
+						닫기
+					</button>
+				</div>
 			</div>
 		);
 	}
