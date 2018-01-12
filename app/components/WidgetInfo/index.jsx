@@ -155,45 +155,49 @@ class WidgetInfo extends React.Component {
 		}
 
 		return (
-			<div>
-				<div className="WidgetInfo__Card WidgetInfo__Card-full">
-					<ToggleButtonWithLabel
-						isCheck={info.isActive}
-						label="활성화"
-						onToggle={this.handleToggleActive}
-					/>
-					<ToggleButtonWithLabel
-						isCheck={info.isOnTop}
-						label="항상 위"
-						onToggle={this.handleToggleOnTop}
-					/>
-				</div>
-				<div className="WidgetInfo__Card">
-					<InputWithLabel
-						className="WidgetInfo__input-width-middle"
-						label="이름"
-						value={this.state.info.name}
-						onChange={this.handleChangeName}
-					/>
-					<InputWithLabel
-						className="WidgetInfo__input-width-large"
-						label="URL"
-						value={this.state.info.url}
-						onChange={this.handleChangeUrl}
-					/>
-				</div>
-				<div className="WidgetInfo__content-middle">
-					<h5 className="WidgetInfo__sub-title">위치</h5>
-					<div className="WidgetInfo__Card">
+			<div className="WidgetInfo">
+				<div className="WidgetInfo__Toggle-box">
+					<div className="WidgetInfo__Card WidgetInfo__content-small">
+						<ToggleButtonWithLabel
+							isCheck={info.isActive}
+							label="활성화"
+							onToggle={this.handleToggleActive}
+						/>
+					</div>
+					<div className="WidgetInfo__Card WidgetInfo__content-small">
+						<ToggleButtonWithLabel
+							isCheck={info.isOnTop}
+							label="항상 위"
+							onToggle={this.handleToggleOnTop}
+						/>
+					</div>
+					<div className="WidgetInfo__Card WidgetInfo__content-name">
 						<InputWithLabel
-							className="WidgetInfo__input-width-middle"
+							className="WidgetInfo__input"
+							label="이름"
+							value={this.state.info.name}
+							onChange={this.handleChangeName}
+						/>
+					</div>
+					<div className="WidgetInfo__Card WidgetInfo__content-url">
+						<InputWithLabel
+							className="WidgetInfo__input"
+							label="URL"
+							value={this.state.info.url}
+							onChange={this.handleChangeUrl}
+						/>
+					</div>
+				</div>
+				<div className="WidgetInfo__content-position">
+					<h5 className="WidgetInfo__sub-title">위치</h5>
+					<div className="WidgetInfo__Card WidgetInfo__Card-center">
+						<InputWithLabel
 							label="X 좌표"
 							type="number"
 							value={this.state.info.position.x}
 							onChange={this.handleChangePositionX}
 						/>
 						<InputWithLabel
-							className="WidgetInfo__input-width-middle"
 							label="Y 좌표"
 							type="number"
 							value={this.state.info.position.y}
@@ -201,22 +205,22 @@ class WidgetInfo extends React.Component {
 						/>
 					</div>
 				</div>
-				<h5 className="WidgetInfo__sub-title">크기</h5>
-				<div className="WidgetInfo__Card">
-					<InputWithLabel
-						className="WidgetInfo__input-width-middle"
-						label="너비"
-						type="number"
-						value={this.state.info.size.width}
-						onChange={this.handleChangeSizeWidth}
-					/>
-					<InputWithLabel
-						className="WidgetInfo__input-width-middle"
-						label="높이"
-						type="number"
-						value={this.state.info.size.height}
-						onChange={this.handleChangeSizeHeight}
-					/>
+				<div className="WidgetInfo__content-size">
+					<h5 className="WidgetInfo__sub-title">크기</h5>
+					<div className="WidgetInfo__Card WidgetInfo__Card-center">
+						<InputWithLabel
+							label="너비"
+							type="number"
+							value={this.state.info.size.width}
+							onChange={this.handleChangeSizeWidth}
+						/>
+						<InputWithLabel
+							label="높이"
+							type="number"
+							value={this.state.info.size.height}
+							onChange={this.handleChangeSizeHeight}
+						/>
+					</div>
 				</div>
 				<div className="WidgetInfo__button-box">
 					<button

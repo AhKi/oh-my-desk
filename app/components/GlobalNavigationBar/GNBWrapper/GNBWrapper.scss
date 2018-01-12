@@ -1,5 +1,4 @@
 .GNBWrapper {
-  //flex-container
   display: flex;
   align-items: stretch;
   flex-direction: row;
@@ -8,10 +7,10 @@
 }
 
 .GNBWrapper__content {
-  // flex-item
   order: 2;
   flex: 5 5 200px;
 
   color: #424242;
   overflow: scroll;
+  max-width: 950px;
 }

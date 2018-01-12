@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
+import './InputWithLabel.scss';
 
 const propTypes = {
+	className: PropTypes.string,
 	disabled: PropTypes.bool,
 	type: PropTypes.string,
 	label: PropTypes.string,
@@ -12,6 +15,7 @@ const propTypes = {
 	onChange: PropTypes.func,
 };
 const defaultProps = {
+	className: null,
 	disabled: false,
 	type: 'text',
 	label: '',
@@ -21,9 +25,10 @@ const defaultProps = {
 
 function InputWithLabel(props) {
 	return (
-		<div className="ToggleButtonWithLabel">
-			<span>{props.label}</span>
+		<div className={cx('InputWithLabel', props.className)}>
+			<p className="InputSet__label">{props.label}</p>
 			<input
+				className="InputSet__text-input"
 				disabled={props.disabled}
 				type={props.type}
 				value={props.value || ''}
