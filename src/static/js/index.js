@@ -59,8 +59,8 @@ let g_widget = null;
 
 document.querySelector('#thumbtack').addEventListener('click', () => {
 	if (!g_widget) return;
-	const paramWidget = g_widget;
-	paramWidget.isOnTop = !paramWidget.isOnTop;
+	const paramWidget = { isOnTop: false };
+	paramWidget.isOnTop = !g_widget.isOnTop;
 	ipcRenderer.send('WIDGET_MANAGE', {
 		operation: 'UPDATE',
 		widget: paramWidget,
