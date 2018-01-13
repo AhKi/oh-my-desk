@@ -2,20 +2,6 @@ const electron = require('electron');
 const path = require('path');
 const fs = require('fs');
 
-function parseDataFile(filePath, defaults) {
-	let returnValue = defaults;
-
-	if (!fs.existsSync(filePath)) return defaults;
-
-	try {
-		returnValue = JSON.parse(fs.readFileSync(filePath));
-	} catch (error) {
-		throw new Error(error);
-	}
-
-	return returnValue;
-}
-
 class Store {
 	/**
  * @param { opts }
@@ -26,9 +12,9 @@ class Store {
  */
 	constructor(opts) {
 		// renderer has to get `app` module via remote, main gets it directly
-		const userDataPath = (electron.app || electron.remote.app).getPath('userData');
-		this.path = path.join(userDataPath, `${opts.configName}.json`);
-		this.data = parseDataFile(this.path, opts.defaults);
+		this.userDataPath = (electron.app || electron.remote.app).getPath('userData');
+		this.path = path.join(this.userDataPath, `${opts.configName}.json`);
+		this.data = this.parseDataFile(opts.defaults);
 		this.save();
 	}
 
@@ -51,9 +37,27 @@ class Store {
 	}
 
 	save() {
+		if (!fs.existsSync(this.userDataPath)) fs.mkdirSync(this.userDataPath);
+
 		fs.writeFile(this.path, JSON.stringify(this.data), (err) => {
 			if (err) throw new Error(err);
 		});
+	}
+
+	parseDataFile(defaults) {
+		let returnValue = defaults;
+
+		if (!fs.existsSync(this.filePath)) {
+			return defaults;
+		}
+
+		try {
+			returnValue = JSON.parse(fs.readFileSync(this.filePath));
+		} catch (error) {
+			throw new Error(error);
+		}
+
+		return returnValue;
 	}
 }
 
