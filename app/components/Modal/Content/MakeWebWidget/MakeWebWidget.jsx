@@ -44,7 +44,7 @@ class MakeWebWidget extends React.Component {
 		const { widgetName, widgetUrl } = this.state;
 
 		return (
-			<div className="MakeWebWidget">
+			<form className="MakeWebWidget">
 				<h5 className="MakeWebWidget__title">웹 위젯 만들기</h5>
 				<div className="Card">
 					<p className="Card__content">웹 위젯을 만듭니다.<br />이름, 만들고자하는 URL을 입력하세요.</p>
@@ -73,13 +73,12 @@ class MakeWebWidget extends React.Component {
 					/>
 				</div>
 				<div className="MakeWebWidget__button-set">
-					<button
+					<input
 						className="Btn Btn--primary Btn-middle"
-						type="button"
+						type="submit"
 						onClick={this.handleCreateWidget}
-					>
-						만들기
-					</button>
+						value="만들기"
+					/>
 					<button
 						className="Btn Btn-middle"
 						type="button"
@@ -89,7 +88,7 @@ class MakeWebWidget extends React.Component {
 						닫기
 					</button>
 				</div>
-			</div>
+			</form>
 		);
 	}
 }
