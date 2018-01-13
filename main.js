@@ -13,7 +13,10 @@ const widgetManager = new WidgetManager({
 let tray;
 
 function createSetting() {
-	if (setting_win) return;
+	if (setting_win) {
+		setting_win.focus();
+		return;
+	}
 
 	setting_win = new BrowserWindow({
 		width: 800,

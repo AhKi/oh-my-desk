@@ -1,4 +1,4 @@
-const { BrowserWindow } = require('electron');
+const { BrowserWindow, ipcMain } = require('electron');
 const Store = require('./Store');
 const uuid = require('uuid/v4');
 const url = require('url');
@@ -35,7 +35,6 @@ class WidgetManager {
 		Object.assign(originWidget, widget);
 
 		this.widgetStore.set(widget.id, originWidget);
-		this.windows[widget.id].webContents.send('widget-info', originWidget);
 		this.updateObserver.forEach((o) => { o(originWidget); });
 	}
 
@@ -138,7 +137,7 @@ class WidgetManager {
 	}
 
 	updateWindow(widget) {
-		if (this.windows[widget.id] && widget.isActive) this.openWindow(widget);
+		if (!this.windows[widget.id] && widget.isActive) this.openWindow(widget);
 		const widgetWindow = this.windows[widget.id];
 
 		// size
@@ -154,9 +153,12 @@ class WidgetManager {
 		// always on top
 		widgetWindow.setAlwaysOnTop(widget.isOnTop);
 
+		ipcMain.send('WIDGET_INFO_RESULT', this.widgetStore.getAll());
 
 		// is this active. This must place in last of function
-		if (!widget.isActive) {
+		if (widget.isActive) {
+			this.windows[widget.id].webContents.send('widget-info', widget);
+		} else {
 			widgetWindow.close();
 		}
 	}
