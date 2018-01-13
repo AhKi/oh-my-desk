@@ -15,7 +15,7 @@ class Store {
 		this.userDataPath = (electron.app || electron.remote.app).getPath('userData');
 		this.path = path.join(this.userDataPath, `${opts.configName}.json`);
 		this.data = this.parseDataFile(opts.defaults);
-		this.save();
+		// this.save();
 	}
 
 	get(key) {
@@ -47,12 +47,12 @@ class Store {
 	parseDataFile(defaults) {
 		let returnValue = defaults;
 
-		if (!fs.existsSync(this.filePath)) {
+		if (!fs.existsSync(this.path)) {
 			return defaults;
 		}
 
 		try {
-			returnValue = JSON.parse(fs.readFileSync(this.filePath));
+			returnValue = JSON.parse(fs.readFileSync(this.path));
 		} catch (error) {
 			throw new Error(error);
 		}
