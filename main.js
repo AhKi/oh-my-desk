@@ -60,40 +60,6 @@ function createTray(contextMenuTemplate) {
 	tray.setContextMenu(contextMenu);
 }
 
-<<<<<<< HEAD
-function createSetting() {
-    if (setting_win) return
-
-    setting_win = new BrowserWindow({
-        width: 800,
-        height: 800
-    })
-
-    win.loadURL(url.format({
-        pathname: path.join(__dirname, 'build', 'index.html'),
-        protocol: 'file:',
-        slashes: true
-    }))
-
-		if (process.env.NODE_ENV === 'development') {
-			win.loadURL(url.format({
-				pathname: path.join(__dirname, 'static', 'index.html'),
-				protocol: 'file:',
-				slashes: true
-			}))
-		}
-
-    win.webContents.openDevTools()
-    // to clear hardware info refresh interval, save id here
-    win.intervalId = null;
-
-    win.on('closed', () => {
-        win = null
-    })
-}
-
-app.on('ready', createWindow)
-=======
 function init() {
 	widgetManager.onUpdateTray(createTray);
 	widgetManager.openAllWindow();
@@ -121,7 +87,6 @@ if (process.platform === 'darwin') {
 }
 
 app.on('ready', init);
->>>>>>> fit code to eslint
 
 app.on('window-all-closed', () => {
 });
