@@ -17,7 +17,7 @@
     "url": "git+https://github.com/geekwims/oh_my_system.git"
   },
   "author": "hyunmoahn, suyoungkim",
-  "license": "GPL",
+  "license": "GPL-3.0",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
