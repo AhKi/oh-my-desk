@@ -1,7 +1,7 @@
 {
   "name": "oh-my-desk",
   "version": "0.0.1",
-  "description": "blar blar",
+  "description": "desktop widget application",
   "main": "main.js",
   "scripts": {
     "build": "yarn build:app && cross-env NODE_ENV=production electron-builder --win",
@@ -16,8 +16,8 @@
     "type": "git",
     "url": "git+https://github.com/geekwims/oh_my_system.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "hyunmoahn, suyoungkim",
+  "license": "GPL",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
