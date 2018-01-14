@@ -1,6 +1,7 @@
 # oh-my-desk
 
 The oh-my-desk is a desktop application made by electron.
+
 You can use every web content though widget in wallpapers
 
 
@@ -25,6 +26,25 @@ yarn start
 // else
 npm run start
 ```
+
+
+## Using Technique
+
+[electron](https://github.com/electron/electron)
+
+[electron-builder](https://github.com/electron-userland/electron-builder)
+
+[react](https://github.com/facebook/react)
+
+[redux](https://github.com/reactjs/redux)
+
+[react-router](https://github.com/ReactTraining/react-router)
+
+[webpack](https://github.com/webpack/webpack)
+
+[immutable-js](https://github.com/facebook/immutable-js)
+
+...etc
 
 ## Path about Save and read data about widgets
 
