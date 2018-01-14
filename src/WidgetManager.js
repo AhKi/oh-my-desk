@@ -9,6 +9,8 @@ class WidgetManager {
 		this.windows = [];
 		this.widgetStore = new Store({ configName: 'widgets', defaults: {} });
 		this.iconPath = option.icon;
+		this.settingWin = null;
+		this.isFirstTime = (this.widgetStore.count() === 0);
 
 		// this is consumers of observer pattern createObserver will be passed widget
 		// information
@@ -20,6 +22,10 @@ class WidgetManager {
 		];
 		// deleteObserver will be passed widget id which be deleted
 		this.deleteObserver = [];
+	}
+
+	setSettingWin(win) {
+		this.settingWin = win;
 	}
 
 	create(_widget) {
@@ -137,8 +143,19 @@ class WidgetManager {
 	}
 
 	updateWindow(widget) {
-		if (!this.windows[widget.id] && widget.isActive) this.openWindow(widget);
 		const widgetWindow = this.windows[widget.id];
+
+		if (widget.isActive && widgetWindow) {
+			widgetWindow.focus();
+		}
+		if (widget.isActive && !widgetWindow) {
+			this.openWindow(widget);
+			return;
+		}
+		if (!widget.isActive && widgetWindow) {
+			if (widgetWindow) widgetWindow.close();
+			return;
+		}
 
 		// size
 		widgetWindow.setSize(
@@ -153,12 +170,7 @@ class WidgetManager {
 		// always on top
 		widgetWindow.setAlwaysOnTop(widget.isOnTop);
 
-		// is this active. This must place in last of function
-		if (widget.isActive) {
-			this.windows[widget.id].webContents.send('widget-info', widget);
-		} else {
-			widgetWindow.close();
-		}
+		widgetWindow.webContents.send('widget-info', widget);
 	}
 
 	onUpdateTray(callback) {
