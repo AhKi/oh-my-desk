@@ -153,8 +153,6 @@ class WidgetManager {
 		// always on top
 		widgetWindow.setAlwaysOnTop(widget.isOnTop);
 
-		ipcMain.send('WIDGET_INFO_RESULT', this.widgetStore.getAll());
-
 		// is this active. This must place in last of function
 		if (widget.isActive) {
 			this.windows[widget.id].webContents.send('widget-info', widget);
