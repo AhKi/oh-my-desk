@@ -68,6 +68,7 @@ class WidgetSetting extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleOpenModal = this.handleOpenModal.bind(this);
+		this.handleSelectItem = this.handleSelectItem.bind(this);
 	}
 
 	componentDidMount() {
@@ -81,13 +82,17 @@ class WidgetSetting extends React.Component {
 		this.props.onModalOpen(MODAL.MAKE_WEB_WIDGET);
 	}
 
+	handleSelectItem(id) {
+		window.ipcRenderer.send(IPC.WIDGET_INFO_REQUEST);
+		this.props.onSelectItem(id);
+	}
+
 	render() {
 		const {
 			list,
 			selectedId,
 			selectedWidget,
 			onModalOpen,
-			onSelectItem,
 			onUpdateInfoWithIPC,
 		} = this.props;
 
@@ -98,7 +103,7 @@ class WidgetSetting extends React.Component {
 					<WidgetListBox
 						list={list}
 						selectedId={selectedId}
-						onSelectItem={onSelectItem}
+						onSelectItem={this.handleSelectItem}
 					/>
 					<button
 						className="WidgetSetting__add-btn"
