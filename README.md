@@ -1,33 +1,55 @@
 # oh-my-desk
 
-## How to open react/redux devtools
+The oh-my-desk is a desktop application made by electron.
+You can use every web content though widget in wallpapers
 
-Then execute the following from the Console tab of your running Electron app's developer tools:
 
-```bash
-require('electron-react-devtools').install()
-require('electron-redux-devtools').install()
+## Installation
+
+**when just use**
+```
+// if you use yarn
+
+yarn build
+
+// else
+npm run build
 ```
 
-And than refresh or restart the renderer process, you can see a React tab added.
+**when develop**
+```
+// if you use yarn
 
-## Reading setting data about widgets
+yarn start
 
-we read/save setting data from `C:\Users\suyou\AppData\Roaming\oh-my-desk\widgets.json`
+// else
+npm run start
+```
 
-## Testing ipc communication 
+## Path about Save and read data about widgets
 
-type this code in renderer process
+we read/save setting data from 
+
+window: `C:\Users\suyou\AppData\Roaming\oh-my-desk\widgets.json`
+
+MacOS: `~/Library/Application Support/oh-my-desk/widgets.json`
+
+Linux: `~/.config/oh-my-desk/widgets.json`
+
+## Example of IPC communication
+
+IPC communication between setting renderer process and main process in electron.
+
 
 ```js
-const {ipcRenderer} = require('electron')
+// create widget 
 
 ipcRenderer.send('WIDGET_MANAGE', {
 	"operation": "CREATE",
 	"widget": {
 		"id": "",
 		"type": "web",
-		"name": "네이버 검색",
+		"name": "naver search",
 		"url": "https://www.naver.com/",
 		"position": {
 			"x": 600,
@@ -44,43 +66,36 @@ ipcRenderer.send('WIDGET_MANAGE', {
 		"favicon": null
 	}
 })
+
+// delete widget
 
 ipcRenderer.send('WIDGET_MANAGE', {
 	"operation": "DELETE",
 	"widget": {
 		"id": "52fc5318-24a4-4784-a352-695509427aea",
-		"type": "web",
-		"name": "네이버 검색",
-		"url": "https://www.naver.com/",
-		"position": {
-			"x": 600,
-			"y": 100
-		},
-		"size": {
-			"width": 300,
-			"height": 400
-		},
-		"transparency": 0.7,
-		"isActive": true,
-		"isIcon": false,
-		"isOnTop": false,
-		"favicon": null
-	}
 })
-```
 
-## How to regist event which gets data of widgets
-
-```js
 
 // regist the callback method gets data of widgets
+
 ipcRenderer.on('WIDGET_INFO_RESULT', (event, arg) => {
-  console.log(arg)
+  // some code...
 })
 
 // send event to main process
-ipcRenderer.send('WIDGET_INFO_REQUEST', '')
 
+ipcRenderer.send('WIDGET_INFO_REQUEST')
 ```
+when `ipcRenderer.send('WIDGET_INFO_REQUEST', '')` is called, the result will be handled in `WIDGET_INFO_RESULT`
 
-when ```js ipcRenderer.send('WIDGET_INFO_REQUEST', '') ``` is called, the result will be handled in `WIDGET_INFO_RESULT`
+
+### Contributing Guide
+
+everybody can contribute this project.
+
+If you want to use new feature, Just make issue.
+
+If you want to change code this project, Just make pull request.
+
+### License
+**GPL**
