@@ -1,5 +1,4 @@
 import { createAction } from 'redux-actions';
-import * as selectors from 'store/widget/selectors';
 import updateWidget from 'utils/updateWidget';
 import * as TYPES from '../actionTypes';
 
@@ -9,10 +8,8 @@ export const widgetInfoUpdate = createAction(TYPES.WIDGET_INFO_UPDATE,
 	(id, update) => ({ id, update }),
 );
 
-export const widgetInfoUpdateWithIPC = (id, update) => (dispatch, getState) => {
-	const byId = selectors.byIdSelector(getState());
-	const target = byId.get(id).toObject();
-	const nextData = Object.assign({}, target, update);
+export const widgetInfoUpdateWithIPC = (id, update) => (dispatch) => {
+	const nextData = Object.assign({}, { id }, update);
 
 	dispatch(widgetInfoUpdate(id, update));
 	updateWidget('web', nextData);
