@@ -35,6 +35,13 @@ class Store {
 	getAll() {
 		return this.data;
 	}
+	
+	count() {
+		const datas = this.data;
+		const keys = Object.keys(datas);
+
+		return keys.length;
+	}
 
 	save() {
 		if (!fs.existsSync(this.userDataPath)) fs.mkdirSync(this.userDataPath);
