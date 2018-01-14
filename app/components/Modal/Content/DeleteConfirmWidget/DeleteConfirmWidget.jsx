@@ -33,7 +33,7 @@ class DeleteConfirmWidget extends React.Component {
 			<div className="DeleteConfirmWidget">
 				<h5 className="DeleteConfirmWidget__title">삭제 확인</h5>
 				<p className="DeleteConfirmWidget__content">
-					정말로 <b>{'"'}{name}{'"'}</b> 위젯을 삭제하시겠습니까?
+					Do you want delete <b>{'"'}{name}{'"'}</b> widget?
 				</p>
 				<div className="DeleteConfirmWidget__button-set">
 					<button
@@ -41,14 +41,14 @@ class DeleteConfirmWidget extends React.Component {
 						type="button"
 						onClick={this.handleDeleteWidget}
 					>
-						삭제
+						Delete
 					</button>
 					<button
 						className="Btn Btn-middle"
 						type="button"
 						onClick={onClose}
 					>
-						닫기
+						Close
 					</button>
 				</div>
 			</div>

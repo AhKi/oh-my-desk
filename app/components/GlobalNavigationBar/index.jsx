@@ -28,15 +28,15 @@ class GlobalNavigationBar extends React.Component {
 		const menu = [
 			{
 				path: '/setting',
-				name: '전체 설정',
+				name: 'Setting',
 			},
 			{
 				path: '/widget-list',
-				name: '위젯',
+				name: 'Widget',
 			},
 			{
 				path: '/widget-store',
-				name: '스토어',
+				name: 'Widget store',
 			},
 		];
 

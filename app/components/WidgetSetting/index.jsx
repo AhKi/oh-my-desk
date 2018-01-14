@@ -94,7 +94,7 @@ class WidgetSetting extends React.Component {
 		return (
 			<div className="WidgetSetting">
 				<div className="WidgetSetting__list">
-					<h4>위젯 목록</h4>
+					<h4>Widget List</h4>
 					<WidgetListBox
 						list={list}
 						selectedId={selectedId}
@@ -105,12 +105,12 @@ class WidgetSetting extends React.Component {
 						type="button"
 						onClick={this.handleOpenModal}
 					>
-						<b><i className="fa fa-plus-square-o fa-lg" /> 새 위젯 추가하기</b>
+						<b><i className="fa fa-plus-square-o fa-lg" /> Add New Widget</b>
 					</button>
 				</div>
 				<div className="WidgetSetting__box">
 					<h4 className="WidgetSetting__title">
-						{selectedWidget && selectedWidget.type.toUpperCase()} 위젯 설정
+						{selectedWidget && selectedWidget.type.toUpperCase()} Widget Setting
 					</h4>
 					<WidgetInfo
 						info={selectedWidget}

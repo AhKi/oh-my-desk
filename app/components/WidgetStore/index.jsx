@@ -6,7 +6,7 @@ class WidgetStore extends React.Component {
 		return (
 			<div className="WidgetStore">
 				<div className="WidgetStore__content">
-					<h4>{'"'}Store{'"'}기능은 <br />준비 중 입니다.</h4>
+					<h4>{'"'}Store{'"'} function is <br />Comming soon.</h4>
 				</div>
 			</div>
 		);
