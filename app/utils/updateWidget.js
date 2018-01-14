@@ -8,11 +8,11 @@ function updateWidget(type, info) {
 			type,
 			name: info.name,
 			url: info.url,
-			position: {
+			position: info.position && {
 				x: info.position && info.position.x,
 				y: info.position && info.position.y,
 			},
-			size: {
+			size: info.size && {
 				width: info.size && info.size.width,
 				height: info.size && info.size.height,
 			},
