@@ -151,7 +151,7 @@ class WidgetInfo extends React.Component {
 		const { info } = this.props;
 
 		if (!info) {
-			return <div>위젯을 선택해 주세요.</div>;
+			return <div>Select Widget or Make Widget.</div>;
 		}
 
 		return (
@@ -160,21 +160,21 @@ class WidgetInfo extends React.Component {
 					<div className="WidgetInfo__Card WidgetInfo__content-small">
 						<ToggleButtonWithLabel
 							isCheck={info.isActive}
-							label="활성화"
+							label="Active"
 							onToggle={this.handleToggleActive}
 						/>
 					</div>
 					<div className="WidgetInfo__Card WidgetInfo__content-small">
 						<ToggleButtonWithLabel
 							isCheck={info.isOnTop}
-							label="항상 위"
+							label="Always Top"
 							onToggle={this.handleToggleOnTop}
 						/>
 					</div>
 					<div className="WidgetInfo__Card WidgetInfo__content-name">
 						<InputWithLabel
 							className="WidgetInfo__input"
-							label="이름"
+							label="Name"
 							value={this.state.info.name}
 							onChange={this.handleChangeName}
 						/>
@@ -189,16 +189,16 @@ class WidgetInfo extends React.Component {
 					</div>
 				</div>
 				<div className="WidgetInfo__content-position">
-					<h5 className="WidgetInfo__sub-title">위치</h5>
+					<h5 className="WidgetInfo__sub-title">Position</h5>
 					<div className="WidgetInfo__Card WidgetInfo__Card-center">
 						<InputWithLabel
-							label="X 좌표"
+							label="X location"
 							type="number"
 							value={this.state.info.position.x}
 							onChange={this.handleChangePositionX}
 						/>
 						<InputWithLabel
-							label="Y 좌표"
+							label="Y location"
 							type="number"
 							value={this.state.info.position.y}
 							onChange={this.handleChangePositionY}
@@ -206,16 +206,16 @@ class WidgetInfo extends React.Component {
 					</div>
 				</div>
 				<div className="WidgetInfo__content-size">
-					<h5 className="WidgetInfo__sub-title">크기</h5>
+					<h5 className="WidgetInfo__sub-title">Size</h5>
 					<div className="WidgetInfo__Card WidgetInfo__Card-center">
 						<InputWithLabel
-							label="너비"
+							label="width"
 							type="number"
 							value={this.state.info.size.width}
 							onChange={this.handleChangeSizeWidth}
 						/>
 						<InputWithLabel
-							label="높이"
+							label="height"
 							type="number"
 							value={this.state.info.size.height}
 							onChange={this.handleChangeSizeHeight}
@@ -228,14 +228,14 @@ class WidgetInfo extends React.Component {
 						type="button"
 						onClick={this.handleEditWidget}
 					>
-						수정하기
+						Edit Widget Info
 					</button>
 					<button
 						className="Btn"
 						type="button"
 						onClick={this.handleDeleteConfirm}
 					>
-						삭제하기
+						Delete Widget
 					</button>
 				</div>
 			</div>

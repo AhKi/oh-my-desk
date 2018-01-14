@@ -6,8 +6,8 @@ class Setting extends React.Component {
 		return (
 			<div className="Setting">
 				<div className="Setting__content">
-					<h4>설정</h4>
-					Setting
+					<h4>Setting</h4>
+					Comming soon
 				</div>
 			</div>
 		);

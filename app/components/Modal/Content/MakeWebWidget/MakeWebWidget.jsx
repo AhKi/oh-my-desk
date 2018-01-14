@@ -45,15 +45,15 @@ class MakeWebWidget extends React.Component {
 
 		return (
 			<form className="MakeWebWidget">
-				<h5 className="MakeWebWidget__title">웹 위젯 만들기</h5>
+				<h5 className="MakeWebWidget__title">Make Web Widget</h5>
 				<div className="Card">
-					<p className="Card__content">웹 위젯을 만듭니다.<br />이름, 만들고자하는 URL을 입력하세요.</p>
+					<p className="Card__content">Make web widget.<br />Please enter name and URL</p>
 					<p className="Card__content--postscript">
-						* URL정보는 브라우저 주소표시줄에서 <br />복사/붙여넣기 하시는게 간편합니다.
+						* URL information is easy to copy / paste from browser address bar.
 					</p>
 				</div>
 				<div className="InputSet">
-					<p className="InputSet__label">웹 위젯 이름</p>
+					<p className="InputSet__label">Widget Name</p>
 					<input
 						className="InputSet__text-input"
 						type="text"
@@ -63,7 +63,7 @@ class MakeWebWidget extends React.Component {
 					/>
 				</div>
 				<div className="InputSet">
-					<p className="InputSet__label">웹 위젯 URL</p>
+					<p className="InputSet__label">Widget URL</p>
 					<input
 						className="InputSet__text-input"
 						type="text"
@@ -77,7 +77,7 @@ class MakeWebWidget extends React.Component {
 						className="Btn Btn--primary Btn-middle"
 						type="submit"
 						onClick={this.handleCreateWidget}
-						value="만들기"
+						value="Make"
 					/>
 					<button
 						className="Btn Btn-middle"
@@ -85,7 +85,7 @@ class MakeWebWidget extends React.Component {
 
 						onClick={onModalClose}
 					>
-						닫기
+						Close
 					</button>
 				</div>
 			</form>
