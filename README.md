@@ -118,4 +118,4 @@ If you want to use new feature, Just make issue.
 If you want to change code this project, Just make pull request.
 
 ### License
-**GPL**
+**GPL-3.0+**
