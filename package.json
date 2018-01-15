@@ -4,6 +4,7 @@
   "description": "desktop widget application",
   "main": "main.js",
   "scripts": {
+    "build": "yarn build:app && cross-env NODE_ENV=production electron-builder",
     "build:window": "yarn build:app && cross-env NODE_ENV=production electron-builder --win",
     "build:mac": "yarn build:app && cross-env NODE_ENV=production electron-builder --mac",
     "build:linux": "yarn build:app && cross-env NODE_ENV=production electron-builder --linux",
