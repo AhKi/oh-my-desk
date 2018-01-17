@@ -23,6 +23,20 @@ let g_widget = null;
 			const window = remote.getCurrentWindow();
 			window.close();
 		});
+
+		const webview = document.querySelector('webview');
+
+		document.getElementById('goback-btn').addEventListener('click', () => {
+			webview.goBack();
+		});
+
+		document.getElementById('refresh-btn').addEventListener('click', () => {
+			webview.reload();
+		});
+
+		document.getElementById('goforward-btn').addEventListener('click', () => {
+			webview.goForward();
+		});
 	}
 
 	document.onreadystatechange = function change() {

@@ -19,6 +19,13 @@
    </div>
     <webview id="webview" src="https://www.github.com/" style="display:inline-flex; width:100%; height:100%; overflow: auto;overflow-y: hidden;"></webview>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <div id="bottom-bar">
+        <div id="bottom-bar-btns">
+            <button id="goback-btn"><i class="fas fa-arrow-left" aria-hidden="true"></i></button>
+            <button id="refresh-btn"><i class="fas fa-undo" aria-hidden="true"></i></button>
+            <button id="goforward-btn"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+        </div>
+   </div>
     <script>
         (function(window) {
             const {ipcRenderer} = require('electron');
