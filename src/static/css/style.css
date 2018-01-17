@@ -18,7 +18,7 @@ html, body {
   height: 100%
 } 
 
-#title-bar {
+#title-bar, #bottom-bar {
   -webkit-app-region: drag;
   height: 28px; 
   padding: 0px;
@@ -37,17 +37,37 @@ html, body {
   line-height: 28px;
   font-size: 12px;
  }
- 
- 
- 
+  
 #title-bar-btns {
   -webkit-app-region: no-drag;
   position: fixed;
   top: 0px;
   right: 0px;
  }
- 
- 
+
+#bottom-bar-btns {
+   -webkit-app-region: no-drag;
+   position: fixed;
+   bottom: 0px;
+   right: 0px;
+}
+
+#bottom-bar-btns button {
+  border: none;
+  color: #F1F1F1;
+  width: 24px;
+  height: 28px;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  float: left;
+}
+
+#bottom-bar-btns button:hover {
+  background-color: #F1F1F1;
+  color: black;
+}
+
 #title-bar-btns button {
   background-color: transparent;
   border: none;
