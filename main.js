@@ -51,6 +51,7 @@ function createTray(contextMenuTemplate) {
 	if (!tray) tray = new Tray(path.join(__dirname, 'resource', 'tray_icon.png'));
 
 	const contextMenu = Menu.buildFromTemplate(contextMenuTemplate.concat([
+		{ type: 'separator' },
 		{ label: 'Setting', type: 'normal', click: createSetting },
 		{
 			label: 'Exit',

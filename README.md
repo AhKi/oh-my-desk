@@ -11,10 +11,18 @@ You can use every web content though widget in wallpapers
 ```
 // if you use yarn
 
-yarn build
+yarn build // No matter which OS you use
+yarn build:window // use window OS
+yarn build:mac // use macOS
+yarn build:linux // use linux
 
 // else
-npm run build
+npm run build // No matter which OS you use
+npm run build:window // use window OS
+npm run build:mac // use macOS
+npm run build:linux // use linux
+
+then open dist directory and install oh-my-desk.exe (or .dmg)
 ```
 
 **when develop**
@@ -118,4 +126,4 @@ If you want to use new feature, Just make issue.
 If you want to change code this project, Just make pull request.
 
 ### License
-**GPL**
+**GPL-3.0+**

@@ -192,8 +192,6 @@ class WidgetManager {
 		const values = Object.values(widgets);
 		let element = null;
 
-		menuTemplate.push({ label: 'Apps', type: 'normal' });
-
 		function openWindow(widget) {
 			this.openWindow(widget);
 		}
