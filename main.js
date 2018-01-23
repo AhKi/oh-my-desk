@@ -43,6 +43,8 @@ function createSetting() {
 	setting_win.on('closed', () => {
 		setting_win = null;
 	});
+
+	widgetManager.setSettingWin(setting_win);
 }
 
 function createTray(contextMenuTemplate) {
@@ -83,6 +85,8 @@ function init() {
 	ipcMain.on('WIDGET_INFO_REQUEST', (event) => {
 		event.sender.send('WIDGET_INFO_RESULT', widgetManager.getWidgets());
 	});
+
+	if (widgetManager.isFirstTime) createSetting();
 }
 
 // remove dock icon on macOS
