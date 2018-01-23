@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <title>Oh_My_System</title>
-    <style>
-    </style>
+    <title>Oh_My_Desk</title>
 </head>
 <body>
     <div id="title-bar">
@@ -19,25 +17,17 @@
             <button id="close-btn" class="hover-danger"><i class="fas fa-times" aria-hidden="true"></i></button>
         </div>
    </div>
-
     <webview id="webview" src="https://www.github.com/" style="display:inline-flex; width:100%; height:100%; overflow: auto;overflow-y: hidden;"></webview>
-    <!-- for jQuery compatibility -->
-    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>    
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script>
         (function(window) {
-            const {ipcRenderer} = require('electron')
-            window.ipcRenderer = ipcRenderer
+            const {ipcRenderer} = require('electron');
+            window.ipcRenderer = ipcRenderer;
         })(window);
     </script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS --> 
-    <script type="text/javascript" src="js/jquery-3.2.1.slim.min.js"></script>
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/fontawesome-all.min.js"></script>
+    <!--fontawesome-->
+    <script defer type="text/javascript" src="js/fontawesome-all.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <!-- for jQuery compatibility -->
     <script>if (window.module) module = window.module;</script>
-    <!-- inject bundle.js in webpack-dev-server when NODE_ENV is development -->
 </body>
 </html>
