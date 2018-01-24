@@ -13,7 +13,7 @@ function routes() {
 				<Route path="/setting" component={SettingContainer} />
 				<Route path="/widget-list" component={WidgetSettingContainer} />
 				<Route path="/widget-store" component={GNBWrapper(WidgetStore)} />
-				<Redirect to="/setting" from="/" />
+				<Redirect to="/widget-list" from="/" />
 			</Switch>
 		</App>
 	);

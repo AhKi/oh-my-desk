@@ -24,20 +24,16 @@ function createSetting() {
 		icon: path.join(__dirname, 'resource', 'icon.png'),
 	});
 
-	if (process.env.NODE_ENV === 'development') {
-		setting_win.loadURL(url.format({
-			pathname: path.join(__dirname, 'static', 'index.html'),
-			protocol: 'file:',
-			slashes: true,
-		}));
+	const ENV_PATH = process.env.NODE_ENV === 'development' ? 'app' : 'build';
 
+	setting_win.loadURL(url.format({
+		pathname: path.join(__dirname, ENV_PATH, 'index.html'),
+		protocol: 'file:',
+		slashes: true,
+	}));
+
+	if (process.env.NODE_ENV === 'development') {
 		setting_win.webContents.openDevTools();
-	} else {
-		setting_win.loadURL(url.format({
-			pathname: path.join(__dirname, 'build', 'index.html'),
-			protocol: 'file:',
-			slashes: true,
-		}));
 	}
 
 	setting_win.on('closed', () => {
