@@ -9,12 +9,12 @@ function updateWidget(type, info) {
 			name: info.name,
 			url: info.url,
 			position: info.position && {
-				x: info.position && info.position.x,
-				y: info.position && info.position.y,
+				x: info.position.x,
+				y: info.position.y,
 			},
 			size: info.size && {
-				width: info.size && info.size.width,
-				height: info.size && info.size.height,
+				width: info.size.width,
+				height: info.size.height,
 			},
 			transparency: info.transparency,
 			isActive: info.isActive,
