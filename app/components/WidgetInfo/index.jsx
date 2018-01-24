@@ -41,6 +41,7 @@ class WidgetInfo extends React.Component {
 		this.state = {
 			info: props.info,
 		};
+		this.enterEvent = this.enterEvent.bind(this);
 		this.setStateInfo = this.setStateInfo.bind(this);
 		this.handleDeleteConfirm = this.handleDeleteConfirm.bind(this);
 		this.handleToggleActive = this.handleToggleActive.bind(this);
@@ -54,8 +55,16 @@ class WidgetInfo extends React.Component {
 		this.handleEditWidget = this.handleEditWidget.bind(this);
 	}
 
+	componentDidMount() {
+		document.addEventListener('keydown', this.enterEvent);
+	}
+
 	componentWillReceiveProps(nextProps) {
 		this.setState({ info: nextProps.info });
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener('keydown', this.enterEvent);
 	}
 
 	setStateInfo(key, value) {
@@ -64,6 +73,12 @@ class WidgetInfo extends React.Component {
 				[key]: value,
 			}),
 		});
+	}
+
+	enterEvent(e) {
+		if (e.keyCode === 13 && this.props.info) {
+			this.handleEditWidget();
+		}
 	}
 
 	handleChangeName(e) {
