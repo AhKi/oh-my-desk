@@ -120,6 +120,10 @@ class WidgetInfo extends React.Component {
 
 	handleEditWidget() {
 		this.props.onUpdateInfoWithIPC(this.props.info.id, this.state.info);
+		this.props.onModalOpen('CONFIRM', {
+			title: 'Success',
+			content: 'Widget Setting is Changed.',
+		});
 	}
 
 	handleToggleActive() {
