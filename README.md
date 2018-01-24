@@ -28,10 +28,11 @@ then open dist directory and install oh-my-desk.exe (or .dmg)
 **when develop**
 ```
 // if you use yarn
-
+yarn
 yarn start
 
 // else
+npm install
 npm run start
 ```
 
