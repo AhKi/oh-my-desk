@@ -41,7 +41,6 @@ class WidgetInfo extends React.Component {
 		this.state = {
 			info: props.info,
 		};
-		this.enterEvent = this.enterEvent.bind(this);
 		this.setStateInfo = this.setStateInfo.bind(this);
 		this.handleDeleteConfirm = this.handleDeleteConfirm.bind(this);
 		this.handleToggleActive = this.handleToggleActive.bind(this);
@@ -55,16 +54,8 @@ class WidgetInfo extends React.Component {
 		this.handleEditWidget = this.handleEditWidget.bind(this);
 	}
 
-	componentDidMount() {
-		document.addEventListener('keydown', this.enterEvent);
-	}
-
 	componentWillReceiveProps(nextProps) {
 		this.setState({ info: nextProps.info });
-	}
-
-	componentWillUnmount() {
-		document.removeEventListener('keydown', this.enterEvent);
 	}
 
 	setStateInfo(key, value) {
@@ -73,12 +64,6 @@ class WidgetInfo extends React.Component {
 				[key]: value,
 			}),
 		});
-	}
-
-	enterEvent(e) {
-		if (e.keyCode === 13 && this.props.info) {
-			this.handleEditWidget();
-		}
 	}
 
 	handleChangeName(e) {
@@ -133,7 +118,9 @@ class WidgetInfo extends React.Component {
 		});
 	}
 
-	handleEditWidget() {
+	handleEditWidget(e) {
+		e.preventDefault();
+		this.invisibleInput.focus();
 		this.props.onUpdateInfoWithIPC(this.props.info.id, this.state.info);
 		this.props.onModalOpen('CONFIRM', {
 			title: 'Success',
@@ -190,6 +177,13 @@ class WidgetInfo extends React.Component {
 							onToggle={this.handleToggleOnTop}
 						/>
 					</div>
+				</div>
+				<input
+					type="text"
+					ref={(ref) => { this.invisibleInput = ref; }}
+					style={{ width: 0, height: 0 }}
+				/>
+				<form onSubmit={this.handleEditWidget}>
 					<div className="WidgetInfo__Card WidgetInfo__content-name">
 						<InputWithLabel
 							className="WidgetInfo__input"
@@ -206,57 +200,55 @@ class WidgetInfo extends React.Component {
 							onChange={this.handleChangeUrl}
 						/>
 					</div>
-				</div>
-				<div className="WidgetInfo__content-position">
-					<h5 className="WidgetInfo__sub-title">Position</h5>
-					<div className="WidgetInfo__Card WidgetInfo__Card-center">
-						<InputWithLabel
-							label="X location"
-							type="number"
-							value={this.state.info.position.x}
-							onChange={this.handleChangePositionX}
-						/>
-						<InputWithLabel
-							label="Y location"
-							type="number"
-							value={this.state.info.position.y}
-							onChange={this.handleChangePositionY}
-						/>
+					<div className="WidgetInfo__content-position">
+						<h5 className="WidgetInfo__sub-title">Position</h5>
+						<div className="WidgetInfo__Card WidgetInfo__Card-center">
+							<InputWithLabel
+								label="X location"
+								type="number"
+								value={this.state.info.position.x}
+								onChange={this.handleChangePositionX}
+							/>
+							<InputWithLabel
+								label="Y location"
+								type="number"
+								value={this.state.info.position.y}
+								onChange={this.handleChangePositionY}
+							/>
+						</div>
 					</div>
-				</div>
-				<div className="WidgetInfo__content-size">
-					<h5 className="WidgetInfo__sub-title">Size</h5>
-					<div className="WidgetInfo__Card WidgetInfo__Card-center">
-						<InputWithLabel
-							label="width"
-							type="number"
-							value={this.state.info.size.width}
-							onChange={this.handleChangeSizeWidth}
-						/>
-						<InputWithLabel
-							label="height"
-							type="number"
-							value={this.state.info.size.height}
-							onChange={this.handleChangeSizeHeight}
-						/>
+					<div className="WidgetInfo__content-size">
+						<h5 className="WidgetInfo__sub-title">Size</h5>
+						<div className="WidgetInfo__Card WidgetInfo__Card-center">
+							<InputWithLabel
+								label="width"
+								type="number"
+								value={this.state.info.size.width}
+								onChange={this.handleChangeSizeWidth}
+							/>
+							<InputWithLabel
+								label="height"
+								type="number"
+								value={this.state.info.size.height}
+								onChange={this.handleChangeSizeHeight}
+							/>
+						</div>
 					</div>
-				</div>
-				<div className="WidgetInfo__button-box">
-					<button
-						className="Btn Btn--primary"
-						type="button"
-						onClick={this.handleEditWidget}
-					>
-						Edit Widget Info
-					</button>
-					<button
-						className="Btn"
-						type="button"
-						onClick={this.handleDeleteConfirm}
-					>
-						Delete Widget
-					</button>
-				</div>
+					<div className="WidgetInfo__button-box">
+						<input
+							className="Btn Btn--primary"
+							type="submit"
+							value="Edit Widget Info"
+						/>
+						<button
+							className="Btn"
+							type="button"
+							onClick={this.handleDeleteConfirm}
+						>
+							Delete Widget
+						</button>
+					</div>
+				</form>
 			</div>
 		);
 	}
