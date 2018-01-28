@@ -152,7 +152,7 @@ class WidgetManager {
 			this.openWindow(widget);
 			return;
 		}
-		if (!widget.isActive && widgetWindow) {
+		if (!widget.isActive) {
 			if (widgetWindow) widgetWindow.close();
 			return;
 		}
