@@ -29,6 +29,14 @@ module.exports = {
 					'css-loader',
 					'resolve-url-loader',
 					'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                path.join(__dirname, 'app/scss', '**/_*.scss'),
+              ],
+            },
+          }
 				]
 			},
 			{
