@@ -37,6 +37,19 @@ let g_widget = null;
 		document.getElementById('goforward-btn').addEventListener('click', () => {
 			webview.goForward();
 		});
+
+		window.addEventListener('keydown', (e) => {
+			console.log(e);
+			if ((e.metaKey || e.altKey) && e.keyCode === 37) {
+        // cmd + arrowLeft (mac)
+        // alt + arrowLeft (window)
+				webview.goBack();
+			} else if ((e.metaKey || e.altKey) && e.keyCode === 39) { // cmd + arrowRight in mac
+				// cmd + arrowRight (mac)
+        // alt + arrowRight (window)
+        webview.goForward();
+			}
+		});
 	}
 
 	document.onreadystatechange = function change() {
