@@ -39,12 +39,11 @@ let g_widget = null;
 		});
 
 		window.addEventListener('keydown', (e) => {
-			console.log(e);
 			if ((e.metaKey || e.altKey) && e.keyCode === 37) {
         // cmd + arrowLeft (mac)
         // alt + arrowLeft (window)
 				webview.goBack();
-			} else if ((e.metaKey || e.altKey) && e.keyCode === 39) { // cmd + arrowRight in mac
+			} else if ((e.metaKey || e.altKey) && e.keyCode === 39) {
 				// cmd + arrowRight (mac)
         // alt + arrowRight (window)
         webview.goForward();
