@@ -38,6 +38,7 @@ function createSetting() {
 
 	setting_win.on('closed', () => {
 		setting_win = null;
+		widgetManager.setSettingWin(null);
 	});
 
 	widgetManager.setSettingWin(setting_win);
