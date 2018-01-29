@@ -1,7 +1,6 @@
 import * as IPC from 'constants/ipc';
 
 function createWidget(type, info) {
-	console.log(info);
 	window.ipcRenderer.send(IPC.WIDGET_MANAGE, {
 		operation: 'CREATE',
 		widget: {

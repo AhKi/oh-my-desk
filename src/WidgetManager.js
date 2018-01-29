@@ -3,6 +3,7 @@ const Store = require('./Store');
 const uuid = require('uuid/v4');
 const url = require('url');
 const path = require('path');
+const setting_win = require('../main.js');
 
 class WidgetManager {
 	constructor(option) {
@@ -127,7 +128,8 @@ class WidgetManager {
 
 			this.widgetStore.set(_opt.id, _opt);
 			win.webContents.send('widget-info', _opt);
-		}));
+      this.sendToSettingWindow(this.widgetStore.data);
+    }));
 
 		win.on('resize', (() => {
 			const size = win.getSize();
@@ -137,9 +139,15 @@ class WidgetManager {
 
 			this.widgetStore.set(_opt.id, _opt);
 			win.webContents.send('widget-info', _opt);
-		}));
-
+      this.sendToSettingWindow(this.widgetStore.data);
+    }));
 		this.windows[opt.id] = win;
+	}
+
+	sendToSettingWindow(info) {
+		if (this.settingWin) {
+			this.settingWin.webContents.send('WIDGET_INFO_RESULT', info);
+		}
 	}
 
 	updateWindow(widget) {
@@ -171,7 +179,7 @@ class WidgetManager {
 		widgetWindow.setAlwaysOnTop(widget.isOnTop);
 
 		widgetWindow.webContents.send('widget-info', widget);
-	}
+  }
 
 	onUpdateTray(callback) {
 		function funcWrapper() {
