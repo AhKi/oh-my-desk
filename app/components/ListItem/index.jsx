@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import * as IPC from 'constants/ipc';
 import './ListItem.scss';
 
 const propTypes = {
@@ -19,10 +20,16 @@ class ListItem extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleSelectList = this.handleSelectList.bind(this);
+		this.handleWidgetOpen = this.handleWidgetOpen.bind(this);
 	}
 
 	handleSelectList() {
 		this.props.onSelectItem(this.props.item.id);
+	}
+
+	handleWidgetOpen() {
+		window.ipcRenderer.send(IPC.WIDGET_OPEN,
+			Object.assign({}, this.props.item, { isActive: true }));
 	}
 
 	render() {
@@ -35,6 +42,7 @@ class ListItem extends React.Component {
 			<li // eslint-disable-line
 				className={itemClassName}
 				onClick={this.handleSelectList}
+				onDoubleClick={this.handleWidgetOpen}
 			>
 				{item.name}
 			</li>
