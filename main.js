@@ -79,6 +79,11 @@ function init() {
 		}
 	});
 
+	ipcMain.on('WIDGET_OPEN', (event, arg) => {
+		widgetManager.update(arg);
+		widgetManager.openWindow(arg);
+	});
+
 	ipcMain.on('WIDGET_INFO_REQUEST', (event) => {
 		event.sender.send('WIDGET_INFO_RESULT', widgetManager.getWidgets());
 	});
