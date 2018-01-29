@@ -39,7 +39,12 @@ class WidgetManager {
 
 	update(widget) {
 		const originWidget = this.widgetStore.get(widget.id);
-		Object.assign(originWidget, widget);
+    if (originWidget.url !== widget.url) {
+    	this.windows[widget.id].close();
+    	this.openWindow(widget);
+    }
+
+    Object.assign(originWidget, widget);
 
 		this.widgetStore.set(widget.id, originWidget);
 		this.updateObserver.forEach((o) => { o(originWidget); });
