@@ -4,12 +4,12 @@ import { counterIncrement, counterDecrement } from 'store/counter/actions';
 import Counter from 'components/Counter';
 
 const mapStateToProps = state => ({
-	value: valueSelector(state),
+  value: valueSelector(state),
 });
 
 const mapDispatchToProps = {
-	onIncrement: counterIncrement,
-	onDecrement: counterDecrement,
+  onIncrement: counterIncrement,
+  onDecrement: counterDecrement,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
