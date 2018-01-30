@@ -3,8 +3,8 @@ import modalProps from './modalProps';
 import modalType from './modalType';
 
 const modalReducers = combineReducers({
-	modalProps,
-	modalType,
+  modalProps,
+  modalType,
 });
 
 export default modalReducers;

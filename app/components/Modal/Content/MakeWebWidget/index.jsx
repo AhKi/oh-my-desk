@@ -3,7 +3,7 @@ import { modalClose } from 'store/modal/actions';
 import MakeWebWidget from './MakeWebWidget';
 
 const mapDispatchToProps = {
-	onModalClose: modalClose,
+  onModalClose: modalClose,
 };
 
 export default connect(null, mapDispatchToProps)(MakeWebWidget);

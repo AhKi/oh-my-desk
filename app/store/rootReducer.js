@@ -4,9 +4,9 @@ import modal from './modal/reducers';
 import widget from './widget/reducers';
 
 const rootReducer = combineReducers({
-	counter,
-	modal,
-	widget,
+  counter,
+  modal,
+  widget,
 });
 
 export default rootReducer;

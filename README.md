@@ -74,34 +74,34 @@ IPC communication between setting renderer process and main process in electron.
 // create widget 
 
 ipcRenderer.send('WIDGET_MANAGE', {
-	"operation": "CREATE",
-	"widget": {
-		"id": "",
-		"type": "web",
-		"name": "naver search",
-		"url": "https://www.naver.com/",
-		"position": {
-			"x": 600,
-			"y": 100
-		},
-		"size": {
-			"width": 300,
-			"height": 400
-		},
-		"transparency": 0.7,
-		"isActive": true,
-		"isIcon": false,
-		"isOnTop": false,
-		"favicon": null
-	}
+  "operation": "CREATE",
+  "widget": {
+    "id": "",
+    "type": "web",
+    "name": "naver search",
+    "url": "https://www.naver.com/",
+    "position": {
+      "x": 600,
+      "y": 100
+    },
+    "size": {
+      "width": 300,
+      "height": 400
+    },
+    "transparency": 0.7,
+    "isActive": true,
+    "isIcon": false,
+    "isOnTop": false,
+    "favicon": null
+  }
 })
 
 // delete widget
 
 ipcRenderer.send('WIDGET_MANAGE', {
-	"operation": "DELETE",
-	"widget": {
-		"id": "52fc5318-24a4-4784-a352-695509427aea",
+  "operation": "DELETE",
+  "widget": {
+    "id": "52fc5318-24a4-4784-a352-695509427aea",
 })
 
 

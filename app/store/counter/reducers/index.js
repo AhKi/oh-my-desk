@@ -2,7 +2,7 @@ import { combineReducers } from 'redux-immutable';
 import value from './value';
 
 const counterReducer = combineReducers({
-	value,
+  value,
 });
 
 export default counterReducer;

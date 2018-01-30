@@ -5,33 +5,33 @@ import ListItem from 'components/ListItem';
 import './ListBox.scss';
 
 const propTypes = {
-	list: PropTypes.array, // eslint-disable-line
-	selectedId: PropTypes.string,
-	onSelectItem: PropTypes.func,
+  list: PropTypes.array, // eslint-disable-line
+  selectedId: PropTypes.string,
+  onSelectItem: PropTypes.func,
 };
 
 const defaultProps = {
-	list: [],
-	selectedId: '',
-	onSelectItem() {},
+  list: [],
+  selectedId: '',
+  onSelectItem() {},
 };
 
 class ListBox extends React.Component {
-	render() {
-		const { list, selectedId, onSelectItem } = this.props;
-		const listBoxClassName = cx('ListBox');
+  render() {
+    const { list, selectedId, onSelectItem } = this.props;
+    const listBoxClassName = cx('ListBox');
 
-		return (
-			<ul className={listBoxClassName}>
-				{list.map(item => (<ListItem
-					key={item.id}
-					item={item}
-					selectedId={selectedId}
-					onSelectItem={onSelectItem}
-				/>))}
-			</ul>
-		);
-	}
+    return (
+      <ul className={listBoxClassName}>
+        {list.map(item => (<ListItem
+          key={item.id}
+          item={item}
+          selectedId={selectedId}
+          onSelectItem={onSelectItem}
+        />))}
+      </ul>
+    );
+  }
 }
 
 ListBox.propTypes = propTypes;
