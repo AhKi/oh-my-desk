@@ -79,6 +79,10 @@ function init() {
     }
   });
 
+  ipcMain.on('WIDGET_SHOW_INACTIVE', (e, arg) => {
+    widgetManager.callTargetEvent('showInactive', arg);
+  });
+
   ipcMain.on('WIDGET_OPEN', (event, arg) => {
     widgetManager.update(arg);
     widgetManager.openWindow(arg);

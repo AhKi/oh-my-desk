@@ -29,6 +29,14 @@ class WidgetManager {
     this.settingWin = win;
   }
 
+  callTargetEvent(eventName, widgetId) {
+    const targetWidget = this.windows[widgetId];
+
+    if (targetWidget) {
+      targetWidget[eventName]();
+    }
+  }
+
   create(_widget) {
     const widget = _widget;
     widget.id = uuid();

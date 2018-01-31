@@ -24,6 +24,7 @@ class ListItem extends React.Component {
   }
 
   handleSelectList() {
+    window.ipcRenderer.send(IPC.WIDGET_SHOW_INACTIVE, this.props.item.id);
     this.props.onSelectItem(this.props.item.id);
   }
 
