@@ -1,13 +1,16 @@
 # oh-my-desk
 
-The oh-my-desk is a desktop application made by electron.
+The oh-my-desk is a desktop widget to use web content.
+It is desktop application made by [electron](https://github.com/electron/electron).
+Use every web content though widget in computer wallpaper.
 
-You can use every web content though widget in wallpapers
+## OverView
+
 
 
 ## Installation
 
-**when just use**
+**Download and Use**
 ```
 // if you use yarn
 
@@ -25,7 +28,7 @@ npm run build:linux // use linux
 then open dist directory and install oh-my-desk.exe (or .dmg)
 ```
 
-**when develop**
+**Using Develop environment**
 ```
 // if you use yarn
 yarn
@@ -39,9 +42,14 @@ npm run start
 
 ## Using Technique
 
+### Main Process
+
 [electron](https://github.com/electron/electron)
 
 [electron-builder](https://github.com/electron-userland/electron-builder)
+
+
+### Setting View
 
 [react](https://github.com/facebook/react)
 
@@ -52,8 +60,6 @@ npm run start
 [webpack](https://github.com/webpack/webpack)
 
 [immutable-js](https://github.com/facebook/immutable-js)
-
-...etc
 
 ## Path about Save and read data about widgets
 
@@ -120,7 +126,7 @@ when `ipcRenderer.send('WIDGET_INFO_REQUEST', '')` is called, the result will be
 
 ### Contributing Guide
 
-everybody can contribute this project.
+Everybody can contribute this project.
 
 If you want to use new feature, Just make issue.
 
