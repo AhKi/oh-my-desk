@@ -6,7 +6,7 @@ Use every web content though widget in computer wallpaper.
 
 ## OverView
 
-
+![oh-my-desk overview](https://user-images.githubusercontent.com/23732795/35629918-33849386-06e3-11e8-8e94-f4884455fa7c.gif)
 
 ## Installation
 
