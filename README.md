@@ -1,11 +1,11 @@
 # oh-my-desk
 
-The oh-my-desk is a desktop widget to use web content.<br/>
-It is desktop application made by [electron](https://github.com/electron/electron).<br/>
+The oh-my-desk is a desktop widget to using web content.<br/>
 Use every web content though widget in computer wallpaper.
 
 As web service is more activated, there is so many web content. These web content have high quality services but also limit these have to run on web browser. We open web browser and search a content to use specific service. And It is difficult to change size of browser or manage several tabs and etc. So we provide a platform managing web browser as a desktop web to using high quality web contents.
 
+It is desktop application made by [electron](https://github.com/electron/electron).<br/>
 
 ## OverView
 
