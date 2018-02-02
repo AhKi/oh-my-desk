@@ -1,13 +1,19 @@
 # oh-my-desk
 
-The oh-my-desk is a desktop application made by electron.
+The oh-my-desk is a desktop widget to using web content.<br/>
+Use every web content though widget in computer wallpaper.
 
-You can use every web content though widget in wallpapers
+As web service is more activated, there is so many web content. These web content have high quality services but also limit these have to run on web browser. We open web browser and search a content to use specific service. And It is difficult to change size of browser or manage several tabs and etc. So we provide a platform managing web browser as a desktop web to using high quality web contents.
 
+It is desktop application made by [electron](https://github.com/electron/electron).<br/>
+
+## OverView
+
+![oh-my-desk overview](https://user-images.githubusercontent.com/23732795/35629918-33849386-06e3-11e8-8e94-f4884455fa7c.gif)
 
 ## Installation
 
-**when just use**
+**Download and Use**
 ```
 // if you use yarn
 
@@ -25,7 +31,7 @@ npm run build:linux // use linux
 then open dist directory and install oh-my-desk.exe (or .dmg)
 ```
 
-**when develop**
+**Using Develop environment**
 ```
 // if you use yarn
 yarn
@@ -39,9 +45,14 @@ npm run start
 
 ## Using Technique
 
+### Main Process
+
 [electron](https://github.com/electron/electron)
 
 [electron-builder](https://github.com/electron-userland/electron-builder)
+
+
+### Setting View
 
 [react](https://github.com/facebook/react)
 
@@ -52,8 +63,6 @@ npm run start
 [webpack](https://github.com/webpack/webpack)
 
 [immutable-js](https://github.com/facebook/immutable-js)
-
-...etc
 
 ## Path about Save and read data about widgets
 
@@ -120,11 +129,27 @@ when `ipcRenderer.send('WIDGET_INFO_REQUEST', '')` is called, the result will be
 
 ### Contributing Guide
 
-everybody can contribute this project.
+Everybody can contribute this project.
 
 If you want to use new feature, Just make issue.
 
 If you want to change code this project, Just make pull request.
 
-### License
-**GPL-3.0+**
+## License
+oh-my-desk is licensed under the [GNU GENERAL PUBLIC LICENSE v3](https://github.com/AhKi/oh-my-desk/blob/edit/read-me/LICENSE).
+```
+Copyright (C) 2017-present,  HyunmoAhn, Produck
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+```
