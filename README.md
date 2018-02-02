@@ -136,9 +136,9 @@ If you want to use new feature, Just make issue.
 If you want to change code this project, Just make pull request.
 
 ## License
-prefeel-lib is licensed under the [GNU GENERAL PUBLIC LICENSE v3](https://github.com/bbvch13531/prefeel-lib/blob/master/LICENSE).
+oh-my-desk is licensed under the [GNU GENERAL PUBLIC LICENSE v3](https://github.com/AhKi/oh-my-desk/blob/edit/read-me/LICENSE).
 ```
-Copyright (C) 2017-present,  oh3vci,bbvch13531,WoochanLee
+Copyright (C) 2017-present,  HyunmoAhn, Produck
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
