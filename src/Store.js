@@ -35,7 +35,7 @@ class Store {
   getAll() {
     return this.data;
   }
-  
+
   count() {
     const datas = this.data;
     const keys = Object.keys(datas);
