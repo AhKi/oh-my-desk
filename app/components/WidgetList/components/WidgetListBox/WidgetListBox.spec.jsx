@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import ListBox from './';
+import WidgetListBox from './';
 
-describe('<ListBox />', () => {
+describe('<WidgetListBox />', () => {
   it('should match to snapshot when render default', () => {
-    const wrapper = shallow(<ListBox list={[{ id: 1 }]} />);
+    const wrapper = shallow(<WidgetListBox list={[{ id: 1 }]} />);
 
     expect(wrapper).toMatchSnapshot();
   });

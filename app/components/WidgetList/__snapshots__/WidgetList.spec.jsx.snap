@@ -19,7 +19,7 @@ exports[`<WidgetList /> should match to snapshot when render default 1`] = `
         widget
       </h4>
     </div>
-    <ListBox
+    <WidgetListBox
       list={Array []}
       onSelectItem={[Function]}
       selectedId=""
@@ -30,10 +30,7 @@ exports[`<WidgetList /> should match to snapshot when render default 1`] = `
       type="button"
     >
       <b>
-        <i
-          className="fa fa-plus-square-o fa-lg"
-        />
-         Add New Widget
+        + Add New Widget
       </b>
     </button>
   </div>
