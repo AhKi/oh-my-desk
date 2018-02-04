@@ -1,22 +1,22 @@
-.WidgetSetting {
+.WidgetList {
   height: 100%;
 }
 
-.WidgetSetting__list {
+.WidgetList__list {
   margin: 20px;
 }
 
-.WidgetSetting__box {
+.WidgetList__box {
   flex: 3 3 auto;
 
   margin: 20px;
 }
 
-.WidgetSetting__title {
+.WidgetList__title {
   margin-bottom: 15px;
 }
 
-.WidgetSetting__add-btn {
+.WidgetList__add-btn {
   background-color: #e0a800;
   border: 1px solid rgba(0, 0, 0, .125);
   width: 100%;

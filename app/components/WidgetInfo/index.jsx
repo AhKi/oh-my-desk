@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as MODAL from 'constants/modal';
-import ToggleButtonWithLabel from '../WidgetSetting/components/ToggleButtonWithLabel';
-import InputWithLabel from '../WidgetSetting/components/InputWithLabel';
+import ToggleButtonWithLabel from '../WidgetList/components/ToggleButtonWithLabel';
+import InputWithLabel from '../WidgetList/components/InputWithLabel';
 import './WidgetInfo.scss';
 
 const propTypes = {
