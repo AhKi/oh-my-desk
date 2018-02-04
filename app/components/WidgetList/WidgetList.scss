@@ -2,13 +2,15 @@
   height: 100%;
 }
 
+.WidgetList__content {
+  padding: 15px;
+}
 .WidgetList__list {
   margin: 20px;
 }
 
 .WidgetList__box {
   flex: 3 3 auto;
-
   margin: 20px;
 }
 

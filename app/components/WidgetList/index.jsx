@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import * as IPC from 'constants/ipc';
 import Header from 'components/Header';
 import WidgetListBox from 'components/ListBox';
-import WidgetInfo from 'components/WidgetInfo';
 import * as MODAL from 'constants/modal';
 import './WidgetList.scss';
 
@@ -30,39 +29,17 @@ const propTypes = {
     }),
   ),
   selectedId: PropTypes.string,
-  selectedWidget: PropTypes.shape({
-    favicon: PropTypes.string,
-    id: PropTypes.string,
-    isActive: PropTypes.bool,
-    isIcon: PropTypes.bool,
-    isOnTop: PropTypes.bool,
-    name: PropTypes.string,
-    position: PropTypes.shape({
-      x: PropTypes.number,
-      y: PropTypes.number,
-    }),
-    size: PropTypes.shape({
-      height: PropTypes.number,
-      width: PropTypes.number,
-    }),
-    transparency: PropTypes.number,
-    type: PropTypes.string,
-    url: PropTypes.string,
-  }),
   onModalOpen: PropTypes.func,
   onStoreWidgetInfo: PropTypes.func,
   onSelectItem: PropTypes.func,
-  onUpdateInfoWithIPC: PropTypes.func,
 };
 
 const defaultProps = {
   list: [],
   selectedId: '',
-  selectedWidget: {},
   onModalOpen() {},
   onStoreWidgetInfo() {},
   onSelectItem() {},
-  onUpdateInfoWithIPC() {},
 };
 
 class WidgetList extends React.Component {
@@ -91,9 +68,6 @@ class WidgetList extends React.Component {
     const {
       list,
       selectedId,
-      selectedWidget,
-      onModalOpen,
-      onUpdateInfoWithIPC,
     } = this.props;
 
     return (
@@ -101,8 +75,10 @@ class WidgetList extends React.Component {
         <Header>
           <h1>Widget manage</h1>
         </Header>
-        <div className="WidgetList__list">
-          <h4>Widget manage</h4>
+        <div className="WidgetList__content">
+          <div className="WidgetList__content-header">
+            <h4>widget</h4>
+          </div>
           <WidgetListBox
             list={list}
             selectedId={selectedId}
@@ -115,16 +91,6 @@ class WidgetList extends React.Component {
           >
             <b><i className="fa fa-plus-square-o fa-lg" /> Add New Widget</b>
           </button>
-        </div>
-        <div className="WidgetList__box">
-          <h4 className="WidgetList__title">
-            {selectedWidget && selectedWidget.type.toUpperCase()} Widget Setting
-          </h4>
-          <WidgetInfo
-            info={selectedWidget}
-            onModalOpen={onModalOpen}
-            onUpdateInfoWithIPC={onUpdateInfoWithIPC}
-          />
         </div>
       </div>
     );
