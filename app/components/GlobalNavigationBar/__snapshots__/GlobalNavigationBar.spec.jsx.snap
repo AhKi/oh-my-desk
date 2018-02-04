@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GlobalNavigationBar /> should match to snapshot when render default 1`] = `
+<div
+  className="GlobalNavigationBar"
+>
+  <ul
+    className="list-group"
+  >
+    <Link
+      className="GlobalNavigationBar__link"
+      key="/setting"
+      replace={false}
+      to="/setting"
+    >
+      <li
+        className="list-group-item list-group-item-action GlobalNavigationBar__list"
+      >
+        Setting
+      </li>
+    </Link>
+    <Link
+      className="GlobalNavigationBar__link"
+      key="/widget-list"
+      replace={false}
+      to="/widget-list"
+    >
+      <li
+        className="list-group-item list-group-item-action GlobalNavigationBar__list"
+      >
+        Widget
+      </li>
+    </Link>
+    <Link
+      className="GlobalNavigationBar__link"
+      key="/widget-store"
+      replace={false}
+      to="/widget-store"
+    >
+      <li
+        className="list-group-item list-group-item-action GlobalNavigationBar__list"
+      >
+        Widget store
+      </li>
+    </Link>
+  </ul>
+</div>
+`;
