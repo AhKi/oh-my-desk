@@ -1,0 +1,29 @@
+.WidgetListBox {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+  min-width: 350px;
+}
+
+.WidgetListBox__title {
+  border-bottom: 1px solid #7f7f7f;
+  color: #7f7f7f;
+  display: inline-block;
+}
+
+.WidgetListBox__title-name {
+  width: 25%;
+}
+
+.WidgetListBox__title-url {
+  width: 30%;
+}
+
+.WidgetListBox__title-activated,
+.WidgetListBox__title-always-top,
+.WidgetListBox__title-more {
+  width: 15%;
+}
