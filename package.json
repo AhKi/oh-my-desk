@@ -11,7 +11,10 @@
     "build:app": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js",
     "dev": "cross-env NODE_ENV=development ./node_modules/.bin/electron .",
     "start": "lint-staged && cross-env NODE_ENV=development node -r babel-register ./node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.js --hot --inline --watch",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --config jest.config.json",
+    "test:watch": "yarn test -- --watch",
+    "test:coverage": "yarn test -- --coverage",
+    "coverage": "open ./coverage/lcov-report/index.html",
     "watch": "watchify app/app.js -o build/bundle.js -t babelify -v",
     "lint": "eslint app src main.js --ext .js,.jsx",
     "precommit": "lint-staged",
@@ -22,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/geekwims/oh_my_system.git"
+    "url": "git+https://github.com/ahki/oh-my-desk.git"
   },
   "author": "hyunmoahn, suyoungkim",
   "license": "GPL-3.0",
@@ -37,6 +40,9 @@
     "electron-builder": "^19.49.0",
     "electron-react-devtools": "^0.5.2",
     "electron-redux-devtools": "^0.3.3",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.1",
     "eslint": "^4.14.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-loader": "^1.9.0",
@@ -45,6 +51,7 @@
     "eslint-plugin-react": "^7.5.1",
     "file-loader": "^1.1.6",
     "husky": "^0.14.3",
+    "jest": "^22.1.4",
     "lint-staged": "^6.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

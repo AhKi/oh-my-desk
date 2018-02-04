@@ -1,0 +1,20 @@
+{
+  "collectCoverageFrom": [
+    "app/**/*.{js,jsx}",
+    "src/**/*.{js,jsx}",
+    "./main.js"
+  ],
+  "moduleNameMapper": {
+    "\\.(css|scss|jpg)$": "<rootDir>/app/__mocks__/styleMock.js",
+    "^components(.*)$": "<rootDir>/app/components$1",
+    "^containers(.*)$": "<rootDir>/app/containers$1",
+    "^constants(.*)$": "<rootDir>/app/constants$1",
+    "^routes(.*)$": "<rootDir>/app/routes$1",
+    "^store(.*)$": "<rootDir>/app/store$1",
+    "^utils(.*)$": "<rootDir>/app/utils$1"
+  },
+  "setupTestFrameworkScriptFile": "<rootDir>/enzyme.config.js",
+  "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ]
+}
