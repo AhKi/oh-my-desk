@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ListBox /> should match to snapshot when render default 1`] = `
+<ul
+  className="ListBox"
+>
+  <ListItem
+    item={
+      Object {
+        "id": 1,
+      }
+    }
+    key="1"
+    onSelectItem={[Function]}
+    selectedId=""
+  />
+</ul>
+`;
