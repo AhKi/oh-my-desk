@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ToggleButton /> should match to snapshot when isCheck === false 1`] = `
+<div
+  className="ToggleButton__wrapper"
+  onClick={[Function]}
+  style={
+    Object {
+      "height": 25,
+      "width": 50,
+    }
+  }
+>
+  <span
+    className="ToggleButton__value ToggleButton__value-checked"
+  >
+    <i
+      className="fa fa-check"
+    />
+  </span>
+  <span
+    className="ToggleButton__value ToggleButton__value-un-checked"
+  >
+    <i
+      className="fa fa-times"
+    />
+  </span>
+  <div
+    className="ToggleButton__btn"
+    style={
+      Object {
+        "height": 23,
+        "left": 0,
+        "width": 23,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`<ToggleButton /> should match to snapshot when render default 1`] = `
+<div
+  className="ToggleButton__wrapper ToggleButton__wrapper-active"
+  onClick={[Function]}
+  style={
+    Object {
+      "height": 25,
+      "width": 50,
+    }
+  }
+>
+  <span
+    className="ToggleButton__value ToggleButton__value-checked"
+  >
+    <i
+      className="fa fa-check"
+    />
+  </span>
+  <span
+    className="ToggleButton__value ToggleButton__value-un-checked"
+  >
+    <i
+      className="fa fa-times"
+    />
+  </span>
+  <div
+    className="ToggleButton__btn ToggleButton__btn-active"
+    style={
+      Object {
+        "height": 23,
+        "left": 25,
+        "width": 23,
+      }
+    }
+  />
+</div>
+`;
