@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as IPC from 'constants/ipc';
 import Header from 'components/Header';
-import WidgetListBox from 'components/WidgetList/components/WidgetListBox/index';
 import * as MODAL from 'constants/modal';
+import WidgetListBox from './components/WidgetListBox';
 import './WidgetList.scss';
 
 const propTypes = {
@@ -32,6 +32,7 @@ const propTypes = {
   onModalOpen: PropTypes.func,
   onStoreWidgetInfo: PropTypes.func,
   onSelectItem: PropTypes.func,
+  onUpdateInfoWithIPC: PropTypes.func,
 };
 
 const defaultProps = {
@@ -40,6 +41,7 @@ const defaultProps = {
   onModalOpen() {},
   onStoreWidgetInfo() {},
   onSelectItem() {},
+  onUpdateInfoWithIPC() {},
 };
 
 class WidgetList extends React.Component {
@@ -68,6 +70,8 @@ class WidgetList extends React.Component {
     const {
       list,
       selectedId,
+      onUpdateInfoWithIPC,
+      onModalOpen,
     } = this.props;
 
     return (
@@ -83,6 +87,8 @@ class WidgetList extends React.Component {
             list={list}
             selectedId={selectedId}
             onSelectItem={this.handleSelectItem}
+            onUpdateInfoWithIPC={onUpdateInfoWithIPC}
+            onModalOpen={onModalOpen}
           />
           <button
             className="WidgetList__add-btn"
