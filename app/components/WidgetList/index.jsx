@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as IPC from 'constants/ipc';
+import Header from 'components/Header';
 import WidgetListBox from 'components/ListBox';
 import WidgetInfo from 'components/WidgetInfo';
 import * as MODAL from 'constants/modal';
@@ -97,8 +98,11 @@ class WidgetList extends React.Component {
 
     return (
       <div className="WidgetList">
+        <Header>
+          <h1>Widget manage</h1>
+        </Header>
         <div className="WidgetList__list">
-          <h4>Widget List</h4>
+          <h4>Widget manage</h4>
           <WidgetListBox
             list={list}
             selectedId={selectedId}
