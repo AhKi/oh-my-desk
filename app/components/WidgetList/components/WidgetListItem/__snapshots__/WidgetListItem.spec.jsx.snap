@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WidgetListItem /> should match to snapshot when props.isActiveMore === true 1`] = `
+<ul
+  className="WidgetListItem WidgetListItem__list-box"
+  onClick={[Function]}
+  onDoubleClick={[Function]}
+>
+  <li
+    className="WidgetListItem__list WidgetListItem__list-name"
+  />
+  <li
+    className="WidgetListItem__list"
+  >
+    <button
+      className="WidgetListItem__button"
+      onClick={[Function]}
+      type="button"
+    />
+  </li>
+  <li
+    className="WidgetListItem__list WidgetListItem__list-activated"
+  >
+    <ToggleButton
+      checkedValue={null}
+      isCheck={true}
+      onToggle={[Function]}
+      unCheckedValue={null}
+      width={50}
+    />
+  </li>
+  <li
+    className="WidgetListItem__list WidgetListItem__list-always-top"
+  >
+    <button
+      className="WidgetListItem__button"
+      onClick={[Function]}
+      type="button"
+    >
+      pin up
+    </button>
+  </li>
+  <li
+    className="WidgetListItem__list WidgetListItem__more"
+  >
+    <button
+      className="WidgetListItem__button"
+      data-name="more-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      ···
+    </button>
+  </li>
+</ul>
+`;
+
+exports[`<WidgetListItem /> should match to snapshot when render default 1`] = `
+<ul
+  className="WidgetListItem WidgetListItem__list-box"
+  onClick={[Function]}
+  onDoubleClick={[Function]}
+>
+  <li
+    className="WidgetListItem__list WidgetListItem__list-name"
+  />
+  <li
+    className="WidgetListItem__list"
+  >
+    <button
+      className="WidgetListItem__button"
+      onClick={[Function]}
+      type="button"
+    />
+  </li>
+  <li
+    className="WidgetListItem__list WidgetListItem__list-activated"
+  >
+    <ToggleButton
+      checkedValue={null}
+      isCheck={true}
+      onToggle={[Function]}
+      unCheckedValue={null}
+      width={50}
+    />
+  </li>
+  <li
+    className="WidgetListItem__list WidgetListItem__list-always-top"
+  >
+    <button
+      className="WidgetListItem__button"
+      onClick={[Function]}
+      type="button"
+    >
+      unpin
+    </button>
+  </li>
+  <li
+    className="WidgetListItem__list WidgetListItem__more"
+  >
+    <button
+      className="WidgetListItem__button"
+      data-name="more-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      ···
+    </button>
+  </li>
+</ul>
+`;
