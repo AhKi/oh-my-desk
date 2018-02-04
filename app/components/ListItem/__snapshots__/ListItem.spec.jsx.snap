@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ListItem /> should match to snapshot when render default 1`] = `
+<li
+  className="ListItem ListItem__button"
+  onClick={[Function]}
+  onDoubleClick={[Function]}
+/>
+`;
