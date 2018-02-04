@@ -10,16 +10,31 @@ $GNB-background-color: #424242;
   padding: 20px 0 0 20px;
 }
 
+.GlobalNavigationBar__menu-box {
+
+}
+
+.GlobalNavigationBar__title {
+  color: white;
+  text-align: center;
+}
+
 .GlobalNavigationBar__list {
   color: #BBBDC0;
   background-color: $GNB-background-color;
   border: 0;
-  height: 100%;
+  height: 45px;
   text-align: center;
   width: 100%;
 }
 
-.GlobalNavigationBar__link {
+.GlobalNavigationBar__list-active {
+  background-color: blue;
+  color: white;
+}
+
+.GlobalNavigationBar__list-btn {
   width: 100%;
   height: 100%;
+  color: inherit;
 }
