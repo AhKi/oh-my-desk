@@ -4,43 +4,63 @@ exports[`<GlobalNavigationBar /> should match to snapshot when render default 1`
 <div
   className="GlobalNavigationBar"
 >
+  <div
+    className="GlobalNavigationBar__title"
+  >
+    OhMyDesk
+  </div>
   <ul
-    className="list-group"
+    className="GlobalNavigationBar__menu-box"
   >
     <Link
-      className="GlobalNavigationBar__link"
-      key="/setting"
-      replace={false}
-      to="/setting"
-    >
-      <li
-        className="list-group-item list-group-item-action GlobalNavigationBar__list"
-      >
-        Setting
-      </li>
-    </Link>
-    <Link
-      className="GlobalNavigationBar__link"
       key="/widget-list"
       replace={false}
       to="/widget-list"
     >
       <li
-        className="list-group-item list-group-item-action GlobalNavigationBar__list"
+        className="GlobalNavigationBar__list"
       >
-        Widget
+        <button
+          className="GlobalNavigationBar__list-btn"
+          onClick={[Function]}
+          type="button"
+        >
+          Widget
+        </button>
       </li>
     </Link>
     <Link
-      className="GlobalNavigationBar__link"
+      key="/setting"
+      replace={false}
+      to="/setting"
+    >
+      <li
+        className="GlobalNavigationBar__list"
+      >
+        <button
+          className="GlobalNavigationBar__list-btn"
+          onClick={[Function]}
+          type="button"
+        >
+          Setting
+        </button>
+      </li>
+    </Link>
+    <Link
       key="/widget-store"
       replace={false}
       to="/widget-store"
     >
       <li
-        className="list-group-item list-group-item-action GlobalNavigationBar__list"
+        className="GlobalNavigationBar__list"
       >
-        Widget store
+        <button
+          className="GlobalNavigationBar__list-btn"
+          onClick={[Function]}
+          type="button"
+        >
+          Widget store
+        </button>
       </li>
     </Link>
   </ul>
