@@ -35,14 +35,16 @@ exports[`<WidgetListBox /> should match to snapshot when render default 1`] = `
       </li>
     </ul>
     <ul>
-      <ListItem
+      <WidgetListItem
         item={
           Object {
             "id": 1,
           }
         }
         key="1"
+        onModalOpen={[Function]}
         onSelectItem={[Function]}
+        onUpdateInfoWithIPC={[Function]}
         selectedId=""
       />
     </ul>
