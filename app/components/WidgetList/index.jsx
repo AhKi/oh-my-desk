@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as IPC from 'constants/ipc';
 import Header from 'components/Header';
-import WidgetListBox from 'components/ListBox';
+import WidgetListBox from 'components/WidgetList/components/WidgetListBox/index';
 import * as MODAL from 'constants/modal';
 import './WidgetList.scss';
 
@@ -89,7 +89,7 @@ class WidgetList extends React.Component {
             type="button"
             onClick={this.handleOpenModal}
           >
-            <b><i className="fa fa-plus-square-o fa-lg" /> Add New Widget</b>
+            <b>+ Add New Widget</b>
           </button>
         </div>
       </div>
