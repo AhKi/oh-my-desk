@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WidgetList /> should match to snapshot when render default 1`] = `
+<div
+  className="WidgetList"
+>
+  <Header>
+    <h1>
+      Widget manage
+    </h1>
+  </Header>
+  <div
+    className="WidgetList__content"
+  >
+    <div
+      className="WidgetList__content-header"
+    >
+      <h4>
+        widget
+      </h4>
+    </div>
+    <ListBox
+      list={Array []}
+      onSelectItem={[Function]}
+      selectedId=""
+    />
+    <button
+      className="WidgetList__add-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      <b>
+        <i
+          className="fa fa-plus-square-o fa-lg"
+        />
+         Add New Widget
+      </b>
+    </button>
+  </div>
+</div>
+`;
