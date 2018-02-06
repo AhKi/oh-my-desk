@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Header from 'components/Header';
+import Pagination from 'components/Pagination';
 import Select from 'components/Select';
+import * as CONST from 'constants/index';
 import * as FILTER from 'constants/filter';
 import * as IPC from 'constants/ipc';
 import * as MODAL from 'constants/modal';
@@ -9,6 +11,7 @@ import WidgetListBox from './components/WidgetListBox';
 import './WidgetList.scss';
 
 const propTypes = {
+  currentPage: PropTypes.number,
   filter: PropTypes.string,
   list: PropTypes.arrayOf(
     PropTypes.shape({
@@ -18,10 +21,6 @@ const propTypes = {
       isIcon: PropTypes.bool,
       isOnTop: PropTypes.bool,
       name: PropTypes.string,
-      position: PropTypes.shape({
-        x: PropTypes.number,
-        y: PropTypes.number,
-      }),
       size: PropTypes.shape({
         height: PropTypes.number,
         width: PropTypes.number,
@@ -40,6 +39,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  currentPage: 1,
   filter: FILTER.LATEST,
   list: [],
   selectedId: '',
@@ -79,6 +79,7 @@ class WidgetList extends React.Component {
 
   render() {
     const {
+      currentPage,
       filter,
       list,
       selectedId,
@@ -86,6 +87,7 @@ class WidgetList extends React.Component {
       onModalOpen,
     } = this.props;
     const filterList = [FILTER.LATEST, FILTER.OLDEST, FILTER.ACTIVATED];
+    const maxPage = Math.ceil(Object.keys(list).length / CONST.NUMBER_PER_PAGE);
 
     return (
       <div className="WidgetList">
@@ -116,6 +118,10 @@ class WidgetList extends React.Component {
             <b>+ Add New Widget</b>
           </button>
         </div>
+        <Pagination
+          currentPage={currentPage}
+          maxPage={maxPage}
+        />
       </div>
     );
   }

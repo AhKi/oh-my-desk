@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Pagination /> should match to snapshot when render default 1`] = `
+<div>
+  <button
+    disabled={true}
+    onClick={[Function]}
+    type="button"
+  >
+    <i
+      className="fas fa-caret-left"
+    />
+    <span>
+      prev
+    </span>
+  </button>
+  <button
+    data-name="page-button"
+    key="1"
+    onClick={[Function]}
+    type="button"
+  >
+    1
+  </button>
+  <button
+    data-name="page-button"
+    key="2"
+    onClick={[Function]}
+    type="button"
+  >
+    2
+  </button>
+  <button
+    data-name="page-button"
+    key="3"
+    onClick={[Function]}
+    type="button"
+  >
+    3
+  </button>
+  <button
+    data-name="page-button"
+    key="4"
+    onClick={[Function]}
+    type="button"
+  >
+    4
+  </button>
+  <button
+    data-name="page-button"
+    key="5"
+    onClick={[Function]}
+    type="button"
+  >
+    5
+  </button>
+  <button
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      next
+    </span>
+    <i
+      className="fas fa-caret-right"
+    />
+  </button>
+</div>
+`;
