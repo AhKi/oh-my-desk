@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EditSize /> should match to snapshot when render default 1`] = `
+<div
+  className="EditSize"
+>
+  <h4
+    className="EditSize__header"
+  >
+    Edit setting
+  </h4>
+  <h5
+    className="EditSize__sub-header"
+  >
+    The size is preserved when the widget is switched off and on.
+  </h5>
+  <div>
+    <label
+      htmlFor="width-input"
+    >
+      Width
+      <input
+        id="width-input"
+        onChange={[Function]}
+        type="number"
+        value={100}
+      />
+      px
+    </label>
+    <label
+      htmlFor="height-input"
+    >
+      Height
+      <input
+        id="height-input"
+        onChange={[Function]}
+        type="number"
+        value={100}
+      />
+      px
+    </label>
+  </div>
+</div>
+`;
+
+exports[`<EditSize /> should match to snapshot when size is zero 1`] = `
+<div
+  className="EditSize"
+>
+  <h4
+    className="EditSize__header"
+  >
+    Edit setting
+  </h4>
+  <h5
+    className="EditSize__sub-header"
+  >
+    The size is preserved when the widget is switched off and on.
+  </h5>
+  <div>
+    <label
+      htmlFor="width-input"
+    >
+      Width
+      <input
+        id="width-input"
+        onChange={[Function]}
+        type="number"
+        value=""
+      />
+      px
+    </label>
+    <label
+      htmlFor="height-input"
+    >
+      Height
+      <input
+        id="height-input"
+        onChange={[Function]}
+        type="number"
+        value=""
+      />
+      px
+    </label>
+  </div>
+</div>
+`;
