@@ -7,9 +7,19 @@ export const byIdSelector = createSelector(
   widget => widget.get('byId'),
 );
 
+export const currentPageSelector = createSelector(
+  widgetSelector,
+  widget => widget.get('currentPage'),
+);
+
 export const itemsSelector = createSelector(
   widgetSelector,
   widget => widget.get('items'),
+);
+
+export const maxPageSelector = createSelector(
+  widgetSelector,
+  widget => widget.get('maxPage'),
 );
 
 export const selectedIdSelector = createSelector(
