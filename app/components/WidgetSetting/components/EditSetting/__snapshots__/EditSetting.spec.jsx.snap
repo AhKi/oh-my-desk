@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EditSetting /> should match to snapshot when render default 1`] = `
+<div
+  className="EditSetting"
+>
+  <h4
+    className="EditSetting__header"
+  >
+    Edit setting
+  </h4>
+  <div>
+    <label
+      htmlFor="name-input"
+    >
+      Name
+      <input
+        id="name-input"
+        onChange={[Function]}
+        type="text"
+      />
+    </label>
+    <label
+      htmlFor="url-input"
+    >
+      Url
+      <input
+        id="url-input"
+        onChange={[Function]}
+        type="text"
+      />
+    </label>
+    <div>
+      Activated
+      <ToggleButton
+        checkedValue={null}
+        isCheck={false}
+        onToggle={[Function]}
+        unCheckedValue={null}
+        width={50}
+      />
+      Runs the Web widget.
+    </div>
+    <div>
+      Always top
+      <ToggleButton
+        checkedValue={null}
+        isCheck={false}
+        onToggle={[Function]}
+        unCheckedValue={null}
+        width={50}
+      />
+      Always pin the Web widget up.
+    </div>
+  </div>
+</div>
+`;
