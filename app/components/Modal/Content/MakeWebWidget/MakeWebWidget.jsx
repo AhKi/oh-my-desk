@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import validUrl from 'valid-url';
+
+import OutsideClickHandler from 'components/OutsideClickHandler';
 import createWidget from 'utils/createWidget';
 import './MakeWebWidget.scss';
 
@@ -107,53 +109,49 @@ class MakeWebWidget extends React.Component {
     } = this.state;
 
     return (
-      <form className="MakeWebWidget">
-        <h5 className="MakeWebWidget__title">Make Web Widget</h5>
-        <div className="Card">
-          <p className="Card__content">Make web widget.<br />Please enter name and URL</p>
-          <p className="Card__content--postscript">
-            * URL information is easy to copy / paste from browser address bar.
-          </p>
-        </div>
-        <div className="InputSet">
-          <p className="InputSet__label">Widget Name</p>
-          <input
-            className="InputSet__text-input"
-            type="text"
-            placeholder="web widget name"
-            value={widgetName}
-            onChange={this.handleWidgetNameChange}
-          />
-          {nameError && <p className="InputSet__validate-message">{nameError}</p>}
-        </div>
-        <div className="InputSet">
-          <p className="InputSet__label">Widget URL</p>
-          <input
-            className="InputSet__text-input"
-            type="text"
-            placeholder="ex) https://www.google.com"
-            value={widgetUrl}
-            onChange={this.handleWidgetUrlChange}
-          />
-          {urlError && <p className="InputSet__validate-message">{urlError}</p>}
-        </div>
-        <div className="MakeWebWidget__button-set">
-          <input
-            className="Btn Btn--primary Btn-middle"
-            type="submit"
-            onClick={this.handleCreateWidget}
-            value="Make"
-          />
-          <button
-            className="Btn Btn-middle"
-            type="button"
+      <OutsideClickHandler onOutSideClick={onModalClose}>
+        <form className="MakeWebWidget">
+          <h5 className="MakeWebWidget__title">Make new web widget</h5>
+          <div className="InputSet">
+            <p className="InputSet__label">Name</p>
+            <input
+              className="InputSet__text-input"
+              type="text"
+              placeholder="Write your site name"
+              value={widgetName}
+              onChange={this.handleWidgetNameChange}
+            />
+            {nameError && <p className="InputSet__validate-message">{nameError}</p>}
+          </div>
+          <div className="InputSet">
+            <p className="InputSet__label">Url</p>
+            <input
+              className="InputSet__text-input"
+              type="text"
+              placeholder="Keep it 'http://' or 'https://'"
+              value={widgetUrl}
+              onChange={this.handleWidgetUrlChange}
+            />
+            {urlError && <p className="InputSet__validate-message">{urlError}</p>}
+          </div>
+          <div className="MakeWebWidget__button-set">
+            <button
+              className="Btn Btn-middle"
+              type="button"
 
-            onClick={onModalClose}
-          >
-            Close
-          </button>
-        </div>
-      </form>
+              onClick={onModalClose}
+            >
+              Close
+            </button>
+            <input
+              className="Btn Btn--primary"
+              type="submit"
+              onClick={this.handleCreateWidget}
+              value="Create New Widget"
+            />
+          </div>
+        </form>
+      </OutsideClickHandler>
     );
   }
 }
