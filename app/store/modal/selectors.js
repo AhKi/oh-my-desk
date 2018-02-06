@@ -1,11 +1,11 @@
 import { createSelector } from 'reselect';
 
-export const modalSeletor = state => state.get('modal');
+export const modalSelector = state => state.get('modal');
 export const modalPropsSelector = createSelector(
-  modalSeletor,
+  modalSelector,
   modal => modal.get('modalProps').toObject(),
 );
 export const modalTypeSelector = createSelector(
-  modalSeletor,
+  modalSelector,
   modal => modal.get('modalType'),
 );
