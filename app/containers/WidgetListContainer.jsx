@@ -12,6 +12,7 @@ import {
   modalClose,
 } from 'store/modal/actions';
 import {
+  currentPageSelector,
   filterSelector,
   selectedIdSelector,
   getSelectedWidget,
@@ -19,6 +20,7 @@ import {
 } from 'store/widget/selectors';
 
 const mapStateToProps = state => ({
+  currentPage: currentPageSelector(state),
   filter: filterSelector(state),
   list: getWidgetFilteredListInPage(state),
   selectedId: selectedIdSelector(state),
