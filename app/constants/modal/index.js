@@ -1,2 +1,4 @@
+export const CONFIRM = 'CONFIRM';
+export const CONFIRM_CHECK = 'CONFIRM_CHECK';
 export const MAKE_WEB_WIDGET = 'MAKE_WEB_WIDGET';
 export const DELETE_CONFIRM_WIDGET = 'DELETE_CONFIRM_WIDGET';
