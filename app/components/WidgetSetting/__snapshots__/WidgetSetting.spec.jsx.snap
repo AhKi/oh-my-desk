@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WidgetSetting /> should match to snapshot when render default 1`] = `
+<div>
+  <input
+    style={
+      Object {
+        "height": 0,
+        "width": 0,
+      }
+    }
+    type="text"
+  />
+  <Header>
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="fas fa-arrow-left"
+      />
+    </button>
+    Back to List
+  </Header>
+  <form
+    className="WidgetSetting__content"
+    onSubmit={[Function]}
+  >
+    <EditSetting
+      item={Object {}}
+      onChangeInput={[Function]}
+      onStoreWidgetInfo={[Function]}
+    />
+    <EditSize
+      item={Object {}}
+      onChangeHeight={[Function]}
+      onChangeWidth={[Function]}
+    />
+    <button
+      className=""
+      onClick={[Function]}
+      type="button"
+    >
+      &lt;
+       back
+    </button>
+    <input
+      type="submit"
+      value="Save"
+    />
+  </form>
+</div>
+`;
