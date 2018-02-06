@@ -19,6 +19,17 @@ describe('test widget selectors', () => {
       }));
   });
 
+  it('should select currentPage', () => {
+    const state = Immutable.fromJS({
+      widget: {
+        currentPage: 5,
+      },
+    });
+
+    expect(selectors.currentPageSelector(state))
+      .toEqual(5);
+  });
+
   it('should select items', () => {
     const state = Immutable.fromJS({
       widget: {
@@ -39,6 +50,17 @@ describe('test widget selectors', () => {
 
     expect(selectors.selectedIdSelector(state))
       .toEqual('mock-id');
+  });
+
+  it('should select maxPage', () => {
+    const state = Immutable.fromJS({
+      widget: {
+        maxPage: 5,
+      },
+    });
+
+    expect(selectors.maxPageSelector(state))
+      .toEqual(5);
   });
 
   it('should select using getWidgetInfo ', () => {
