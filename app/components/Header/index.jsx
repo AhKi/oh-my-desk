@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import './Header.scss';
 
 const propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.array,
+  ]),
 };
 
 const defaultProps = {
