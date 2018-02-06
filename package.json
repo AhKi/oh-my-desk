@@ -55,6 +55,7 @@
     "lint-staged": "^6.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "redux-mock-store": "^1.5.1",
     "webpack-dev-server": "^2.9.7",
     "webpack-merge": "^4.1.1"
   },
