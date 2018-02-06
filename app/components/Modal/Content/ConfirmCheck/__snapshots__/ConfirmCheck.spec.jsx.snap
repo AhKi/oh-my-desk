@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ConfirmCheck /> should match to snapshot when render default 1`] = `
+<div
+  className="ConfirmCheck"
+>
+  <h3
+    className="ConfirmCheck__title"
+  />
+  <p
+    className="ConfirmCheck__content"
+  />
+  <button
+    className="Btn Btn--primary Btn-middle"
+    onClick={[Function]}
+    type="button"
+  >
+    ok
+  </button>
+  <button
+    className="Btn Btn--primary Btn-middle"
+    onClick={[Function]}
+    type="button"
+  >
+    close
+  </button>
+</div>
+`;
