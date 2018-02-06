@@ -29,7 +29,7 @@ class WidgetListItem extends React.Component {
     this.state = {
       isActiveMore: false,
     };
-    this.handleSelectList = this.handleSelectList.bind(this);
+    this.handleSelectItem = this.handleSelectItem.bind(this);
     this.handleWidgetOpen = this.handleWidgetOpen.bind(this);
     this.handleToggleIsActive = this.handleToggleIsActive.bind(this);
     this.handleToggleAlwaysTop = this.handleToggleAlwaysTop.bind(this);
@@ -37,7 +37,7 @@ class WidgetListItem extends React.Component {
     this.handleOpenDeleteModal = this.handleOpenDeleteModal.bind(this);
   }
 
-  handleSelectList() {
+  handleSelectItem() {
     window.ipcRenderer.send(IPC.WIDGET_SHOW_INACTIVE, this.props.item.id);
     this.props.onSelectItem(this.props.item.id);
   }
@@ -91,7 +91,7 @@ class WidgetListItem extends React.Component {
     return (
       <ul // eslint-disable-line
         className={itemClassName}
-        onClick={this.handleSelectList}
+        onClick={this.handleSelectItem}
         onDoubleClick={this.handleWidgetOpen}
       >
         <li className="WidgetListItem__list WidgetListItem__list-name">
@@ -138,6 +138,7 @@ class WidgetListItem extends React.Component {
                 <Link
                   className="WidgetListItem__more-list"
                   to="/widget-setting"
+                  onClick={this.handleSelectItem}
                 >
                   edit <i className="fas fa-pencil-alt" />
                 </Link>
