@@ -50,7 +50,7 @@ describe('<WidgetListItem />', () => {
       />,
     );
 
-    wrapper.instance().handleSelectList();
+    wrapper.instance().handleSelectItem();
 
     expect(onSelectItem).toHaveBeenCalledTimes(1);
     expect(onSelectItem).toHaveBeenCalledWith('mock-id');
