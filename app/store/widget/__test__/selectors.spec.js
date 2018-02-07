@@ -1,4 +1,5 @@
 import Immutable from 'immutable';
+import * as FILTER from 'constants/filter';
 import * as selectors from 'store/widget/selectors';
 
 describe('test widget selectors', () => {
@@ -103,6 +104,239 @@ describe('test widget selectors', () => {
           value: 'mock-value-2',
         },
       ]);
+  });
+
+  describe('should select using getWidgetListWithFilter', () => {
+    const state = Immutable.fromJS({
+      widget: {
+        byId: {
+          mock1: {
+            id: 'mock1',
+            isActive: false,
+          },
+          mock2: {
+            id: 'mock2',
+            isActive: false,
+          },
+          mock3: {
+            id: 'mock3',
+            isActive: true,
+          },
+          mock4: {
+            id: 'mock4',
+            isActive: false,
+          },
+          mock5: {
+            id: 'mock5',
+            isActive: true,
+          },
+          mock6: {
+            id: 'mock6',
+            isActive: false,
+          },
+          mock7: {
+            id: 'mock7',
+            isActive: false,
+          },
+        },
+        items: ['mock1', 'mock2', 'mock3', 'mock4', 'mock5', 'mock6', 'mock7'],
+      },
+    });
+
+    it('when filter === FILTER.LATEST', () => {
+      expect(selectors.getWidgetListWithFilter(state.setIn(['widget', 'filter'], FILTER.LATEST)))
+        .toEqual([
+          {
+            id: 'mock1',
+            isActive: false,
+          },
+          {
+            id: 'mock2',
+            isActive: false,
+          },
+          {
+            id: 'mock3',
+            isActive: true,
+          },
+          {
+            id: 'mock4',
+            isActive: false,
+          },
+          {
+            id: 'mock5',
+            isActive: true,
+          },
+          {
+            id: 'mock6',
+            isActive: false,
+          },
+          {
+            id: 'mock7',
+            isActive: false,
+          },
+        ]);
+    });
+
+    it('when filter === FILTER.OLDEST', () => {
+      expect(selectors.getWidgetListWithFilter(state.setIn(['widget', 'filter'], FILTER.OLDEST)))
+        .toEqual([
+          {
+            id: 'mock7',
+            isActive: false,
+          },
+          {
+            id: 'mock6',
+            isActive: false,
+          },
+          {
+            id: 'mock5',
+            isActive: true,
+          },
+          {
+            id: 'mock4',
+            isActive: false,
+          },
+          {
+            id: 'mock3',
+            isActive: true,
+          },
+          {
+            id: 'mock2',
+            isActive: false,
+          },
+          {
+            id: 'mock1',
+            isActive: false,
+          },
+        ]);
+    });
+
+    it('when filter === FILTER.OLDEST', () => {
+      expect(selectors.getWidgetListWithFilter(state.setIn(['widget', 'filter'], FILTER.ACTIVATED)))
+        .toEqual([
+          {
+            id: 'mock3',
+            isActive: true,
+          },
+          {
+            id: 'mock5',
+            isActive: true,
+          },
+        ]);
+    });
+
+    it('when filter is not matched', () => {
+      expect(selectors.getWidgetListWithFilter(state.setIn(['widget', 'filter'], 'DEFAULT')))
+        .toEqual([
+          {
+            id: 'mock1',
+            isActive: false,
+          },
+          {
+            id: 'mock2',
+            isActive: false,
+          },
+          {
+            id: 'mock3',
+            isActive: true,
+          },
+          {
+            id: 'mock4',
+            isActive: false,
+          },
+          {
+            id: 'mock5',
+            isActive: true,
+          },
+          {
+            id: 'mock6',
+            isActive: false,
+          },
+          {
+            id: 'mock7',
+            isActive: false,
+          },
+        ]);
+    });
+  });
+
+  describe('should select getWidgetFilteredListInPage', () => {
+    const state = Immutable.fromJS({
+      widget: {
+        byId: {
+          mock1: {
+            id: 'mock1',
+            isActive: false,
+          },
+          mock2: {
+            id: 'mock2',
+            isActive: false,
+          },
+          mock3: {
+            id: 'mock3',
+            isActive: true,
+          },
+          mock4: {
+            id: 'mock4',
+            isActive: false,
+          },
+          mock5: {
+            id: 'mock5',
+            isActive: true,
+          },
+          mock6: {
+            id: 'mock6',
+            isActive: false,
+          },
+          mock7: {
+            id: 'mock7',
+            isActive: false,
+          },
+        },
+        items: ['mock1', 'mock2', 'mock3', 'mock4', 'mock5', 'mock6', 'mock7'],
+        filter: FILTER.LATEST,
+      },
+    });
+
+    it('when currentPage === 1', () => {
+      expect(selectors.getWidgetFilteredListInPage(state.setIn(['widget', 'currentPage'], 1)))
+        .toEqual([
+          {
+            id: 'mock1',
+            isActive: false,
+          },
+          {
+            id: 'mock2',
+            isActive: false,
+          },
+          {
+            id: 'mock3',
+            isActive: true,
+          },
+          {
+            id: 'mock4',
+            isActive: false,
+          },
+          {
+            id: 'mock5',
+            isActive: true,
+          },
+          {
+            id: 'mock6',
+            isActive: false,
+          },
+        ]);
+    });
+
+    it('when currentPage === 2', () => {
+      expect(selectors.getWidgetFilteredListInPage(state.setIn(['widget', 'currentPage'], 2)))
+        .toEqual([
+          {
+            id: 'mock7',
+            isActive: false,
+          },
+        ]);
+    });
   });
 
   it('should select using getSelectedWidget', () => {
