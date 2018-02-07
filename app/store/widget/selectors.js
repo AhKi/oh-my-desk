@@ -1,4 +1,6 @@
 import { createSelector } from 'reselect';
+import * as CONST from 'constants/index';
+import * as FILTER from 'constants/filter';
 
 export const widgetSelector = state => state.get('widget');
 
@@ -35,6 +37,29 @@ export const selectedIdSelector = createSelector(
 export const getWidgetInfo = createSelector(
   [byIdSelector, itemsSelector],
   (byId, items) => items.map(item => byId.get(item).toObject()).toArray(),
+);
+
+export const getWidgetListWithFilter = createSelector(
+  [getWidgetInfo, filterSelector],
+  (list, filter) => {
+    switch (filter) {
+      case FILTER.LATEST:
+        return list;
+      case FILTER.OLDEST: {
+        const copyList = list.slice();
+        return copyList.reverse();
+      }
+      case FILTER.ACTIVATED:
+        return list.filter(item => item.isActive === true);
+      default:
+        return list;
+    }
+  },
+);
+
+export const getWidgetFilteredListInPage = createSelector(
+  [getWidgetListWithFilter, currentPageSelector, filterSelector],
+  (list, page) => list.slice(CONST.NUMBER_PER_PAGE * (page - 1), CONST.NUMBER_PER_PAGE * page),
 );
 
 export const getSelectedWidget = createSelector(
