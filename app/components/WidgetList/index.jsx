@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as IPC from 'constants/ipc';
 import Header from 'components/Header';
+import Select from 'components/Select';
+import * as FILTER from 'constants/filter';
+import * as IPC from 'constants/ipc';
 import * as MODAL from 'constants/modal';
 import WidgetListBox from './components/WidgetListBox';
 import './WidgetList.scss';
 
 const propTypes = {
+  filter: PropTypes.string,
   list: PropTypes.arrayOf(
     PropTypes.shape({
       favicon: PropTypes.string,
@@ -31,15 +34,18 @@ const propTypes = {
   selectedId: PropTypes.string,
   onModalOpen: PropTypes.func,
   onStoreWidgetInfo: PropTypes.func,
+  onSelectFilter: PropTypes.func,
   onSelectItem: PropTypes.func,
   onUpdateInfoWithIPC: PropTypes.func,
 };
 
 const defaultProps = {
+  filter: FILTER.LATEST,
   list: [],
   selectedId: '',
   onModalOpen() {},
   onStoreWidgetInfo() {},
+  onSelectFilter() {},
   onSelectItem() {},
   onUpdateInfoWithIPC() {},
 };
@@ -48,6 +54,7 @@ class WidgetList extends React.Component {
   constructor(props) {
     super(props);
     this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleSelectFilter = this.handleSelectFilter.bind(this);
     this.handleSelectItem = this.handleSelectItem.bind(this);
   }
 
@@ -61,6 +68,10 @@ class WidgetList extends React.Component {
     this.props.onModalOpen(MODAL.MAKE_WEB_WIDGET);
   }
 
+  handleSelectFilter(e) {
+    this.props.onSelectFilter(e.target.value);
+  }
+
   handleSelectItem(id) {
     window.ipcRenderer.send(IPC.WIDGET_INFO_REQUEST);
     this.props.onSelectItem(id);
@@ -68,16 +79,23 @@ class WidgetList extends React.Component {
 
   render() {
     const {
+      filter,
       list,
       selectedId,
       onUpdateInfoWithIPC,
       onModalOpen,
     } = this.props;
+    const filterList = [FILTER.LATEST, FILTER.OLDEST, FILTER.ACTIVATED];
 
     return (
       <div className="WidgetList">
         <Header>
           <h1>Widget manage</h1>
+          <Select
+            items={filterList}
+            value={filter}
+            onChange={this.handleSelectFilter}
+          />
         </Header>
         <div className="WidgetList__content">
           <div className="WidgetList__content-header">
