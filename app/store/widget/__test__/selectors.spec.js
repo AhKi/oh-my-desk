@@ -63,6 +63,17 @@ describe('test widget selectors', () => {
       .toEqual(5);
   });
 
+  it('should select filter', () => {
+    const state = Immutable.fromJS({
+      widget: {
+        filter: 'mock-filter',
+      },
+    });
+
+    expect(selectors.filterSelector(state))
+      .toEqual('mock-filter');
+  });
+
   it('should select using getWidgetInfo ', () => {
     const state = Immutable.fromJS({
       widget: {
