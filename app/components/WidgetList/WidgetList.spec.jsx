@@ -45,6 +45,20 @@ describe('<WidgetList />', () => {
     expect(onModalOpen).toHaveBeenCalledWith(MODAL.MAKE_WEB_WIDGET);
   });
 
+  it('should call onSelectFilter when call handleSelectFilter', () => {
+    const onSelectFilter = jest.fn();
+    const wrapper = shallow(<WidgetList onSelectFilter={onSelectFilter} />);
+
+    wrapper.instance().handleSelectFilter({
+      target: {
+        value: 'mock-value',
+      },
+    });
+
+    expect(onSelectFilter).toHaveBeenCalledTimes(1);
+    expect(onSelectFilter).toHaveBeenCalledWith('mock-value');
+  });
+
   it('should call correct when call handleSelectItem', () => {
     const onSelectItem = jest.fn();
     const send = jest.spyOn(ipcRenderer, 'send');
