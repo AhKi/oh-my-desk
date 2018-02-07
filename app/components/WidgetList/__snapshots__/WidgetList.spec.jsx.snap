@@ -8,6 +8,17 @@ exports[`<WidgetList /> should match to snapshot when render default 1`] = `
     <h1>
       Widget manage
     </h1>
+    <Select
+      items={
+        Array [
+          "LATEST",
+          "OLDEST",
+          "ACTIVATED",
+        ]
+      }
+      onChange={[Function]}
+      value="LATEST"
+    />
   </Header>
   <div
     className="WidgetList__content"
@@ -36,5 +47,6 @@ exports[`<WidgetList /> should match to snapshot when render default 1`] = `
       </b>
     </button>
   </div>
+  <Pagination />
 </div>
 `;
