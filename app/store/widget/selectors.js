@@ -12,6 +12,11 @@ export const currentPageSelector = createSelector(
   widget => widget.get('currentPage'),
 );
 
+export const filterSelector = createSelector(
+  widgetSelector,
+  widget => widget.get('filter'),
+);
+
 export const itemsSelector = createSelector(
   widgetSelector,
   widget => widget.get('items'),
