@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import WidgetList from 'components/WidgetList';
 import GNBWrapper from 'components/GlobalNavigationBar/GNBWrapper';
 import {
+  widgetChangeCurrentPage,
   widgetListInfoStore,
   widgetListSelect,
   widgetInfoUpdateWithIPC,
@@ -16,6 +17,7 @@ import {
   filterSelector,
   selectedIdSelector,
   getSelectedWidget,
+  getNumberOfItemFilteredList,
   getWidgetFilteredListInPage,
 } from 'store/widget/selectors';
 
@@ -25,12 +27,14 @@ const mapStateToProps = state => ({
   list: getWidgetFilteredListInPage(state),
   selectedId: selectedIdSelector(state),
   selectedWidget: getSelectedWidget(state),
+  totalNumber: getNumberOfItemFilteredList(state),
 });
 
 const mapDispatchToProps = {
   onModalClose: modalClose,
   onModalOpen: modalOpen,
   onSelectFilter: widgetSelectFilter,
+  onSelectPage: widgetChangeCurrentPage,
   onStoreWidgetInfo: widgetListInfoStore,
   onSelectItem: widgetListSelect,
   onUpdateInfoWithIPC: widgetInfoUpdateWithIPC,

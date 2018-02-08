@@ -15,6 +15,28 @@ describe('<Pagination />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should match to snapshot when maxPage < 5', () => {
+    const wrapper = shallow(
+      <Pagination
+        currentPage={1}
+        maxPage={2}
+      />,
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should match to snapshot when currentPage is attached to maxPage', () => {
+    const wrapper = shallow(
+      <Pagination
+        currentPage={9}
+        maxPage={10}
+      />,
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('should call onPageClick when call handlePrevPage', () => {
     const onPageClick = jest.fn();
     const wrapper = shallow(
