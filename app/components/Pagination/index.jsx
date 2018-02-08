@@ -39,9 +39,9 @@ class Pagination extends React.Component {
     const startPage = Math.max(currentPage - 2, 1);
 
     for (let makePage = startPage; makePage < startPage + unit; makePage += 1) {
-      if (makePage > maxPage && arr.length) {
+      if (makePage > maxPage && arr.length && arr[0] !== 1) {
         arr.unshift(arr[0] - 1);
-      } else {
+      } else if (makePage <= maxPage) {
         arr.push(makePage);
       }
     }

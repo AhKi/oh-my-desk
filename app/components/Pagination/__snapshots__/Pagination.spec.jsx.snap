@@ -1,5 +1,119 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Pagination /> should match to snapshot when currentPage is attached to maxPage 1`] = `
+<div>
+  <button
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    <i
+      className="fas fa-caret-left"
+    />
+    <span>
+      prev
+    </span>
+  </button>
+  <button
+    data-name="page-button"
+    key="6"
+    onClick={[Function]}
+    type="button"
+  >
+    6
+  </button>
+  <button
+    data-name="page-button"
+    key="7"
+    onClick={[Function]}
+    type="button"
+  >
+    7
+  </button>
+  <button
+    data-name="page-button"
+    key="8"
+    onClick={[Function]}
+    type="button"
+  >
+    8
+  </button>
+  <button
+    data-name="page-button"
+    key="9"
+    onClick={[Function]}
+    type="button"
+  >
+    9
+  </button>
+  <button
+    data-name="page-button"
+    key="10"
+    onClick={[Function]}
+    type="button"
+  >
+    10
+  </button>
+  <button
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      next
+    </span>
+    <i
+      className="fas fa-caret-right"
+    />
+  </button>
+</div>
+`;
+
+exports[`<Pagination /> should match to snapshot when maxPage < 5 1`] = `
+<div>
+  <button
+    disabled={true}
+    onClick={[Function]}
+    type="button"
+  >
+    <i
+      className="fas fa-caret-left"
+    />
+    <span>
+      prev
+    </span>
+  </button>
+  <button
+    data-name="page-button"
+    key="1"
+    onClick={[Function]}
+    type="button"
+  >
+    1
+  </button>
+  <button
+    data-name="page-button"
+    key="2"
+    onClick={[Function]}
+    type="button"
+  >
+    2
+  </button>
+  <button
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      next
+    </span>
+    <i
+      className="fas fa-caret-right"
+    />
+  </button>
+</div>
+`;
+
 exports[`<Pagination /> should match to snapshot when render default 1`] = `
 <div>
   <button
