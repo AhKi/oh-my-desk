@@ -75,6 +75,16 @@ describe('test widget selectors', () => {
       .toEqual('mock-filter');
   });
 
+  it('should select totalNumber', () => {
+    const state = Immutable.fromJS({
+      widget: {
+        totalNumber: 5,
+      },
+    });
+
+    expect(selectors.totalNumberSelector(state)).toBe(5);
+  });
+
   it('should select using getWidgetInfo ', () => {
     const state = Immutable.fromJS({
       widget: {
