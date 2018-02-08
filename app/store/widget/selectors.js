@@ -62,6 +62,11 @@ export const getWidgetListWithFilter = createSelector(
   },
 );
 
+export const getNumberOfItemFilteredList = createSelector(
+  [getWidgetListWithFilter],
+  list => Object.keys(list).length,
+);
+
 export const getWidgetFilteredListInPage = createSelector(
   [getWidgetListWithFilter, currentPageSelector, filterSelector],
   (list, page) => list.slice(CONST.NUMBER_PER_PAGE * (page - 1), CONST.NUMBER_PER_PAGE * page),
