@@ -31,10 +31,12 @@ const propTypes = {
     }),
   ),
   selectedId: PropTypes.string,
+  totalNumber: PropTypes.number,
   onModalOpen: PropTypes.func,
   onStoreWidgetInfo: PropTypes.func,
   onSelectFilter: PropTypes.func,
   onSelectItem: PropTypes.func,
+  onSelectPage: PropTypes.func,
   onUpdateInfoWithIPC: PropTypes.func,
 };
 
@@ -43,10 +45,12 @@ const defaultProps = {
   filter: FILTER.LATEST,
   list: [],
   selectedId: '',
+  totalNumber: 0,
   onModalOpen() {},
   onStoreWidgetInfo() {},
   onSelectFilter() {},
   onSelectItem() {},
+  onSelectPage() {},
   onUpdateInfoWithIPC() {},
 };
 
@@ -83,11 +87,13 @@ class WidgetList extends React.Component {
       filter,
       list,
       selectedId,
+      totalNumber,
+      onSelectPage,
       onUpdateInfoWithIPC,
       onModalOpen,
     } = this.props;
     const filterList = [FILTER.LATEST, FILTER.OLDEST, FILTER.ACTIVATED];
-    const maxPage = Math.ceil(Object.keys(list).length / CONST.NUMBER_PER_PAGE);
+    const maxPage = Math.ceil(totalNumber / CONST.NUMBER_PER_PAGE);
 
     return (
       <div className="WidgetList">
@@ -121,6 +127,7 @@ class WidgetList extends React.Component {
         <Pagination
           currentPage={currentPage}
           maxPage={maxPage}
+          onPageClick={onSelectPage}
         />
       </div>
     );
