@@ -5,6 +5,7 @@ import filter from './filter';
 import items from './items';
 import maxPage from './maxPage';
 import selectedId from './selectedId';
+import totalNumber from './totalNumber';
 
 const widgetReducers = combineReducers({
   byId,
@@ -13,6 +14,7 @@ const widgetReducers = combineReducers({
   items,
   maxPage,
   selectedId,
+  totalNumber,
 });
 
 export default widgetReducers;

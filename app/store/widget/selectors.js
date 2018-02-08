@@ -34,6 +34,11 @@ export const selectedIdSelector = createSelector(
   widget => widget.get('selectedId'),
 );
 
+export const totalNumberSelector = createSelector(
+  widgetSelector,
+  widget => widget.get('totalNumber'),
+);
+
 export const getWidgetInfo = createSelector(
   [byIdSelector, itemsSelector],
   (byId, items) => items.map(item => byId.get(item).toObject()).toArray(),
