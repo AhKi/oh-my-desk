@@ -116,7 +116,7 @@ describe('test widget selectors', () => {
       ]);
   });
 
-  describe('should select using getWidgetListWithFilter', () => {
+  describe('should select using getWidgetListWithFilter and getNumberOfItemFilteredList', () => {
     const state = Immutable.fromJS({
       widget: {
         byId: {
@@ -185,6 +185,9 @@ describe('test widget selectors', () => {
             isActive: false,
           },
         ]);
+
+      expect(selectors.getNumberOfItemFilteredList(state.setIn(['widget', 'filter'], FILTER.LATEST)))
+        .toBe(7);
     });
 
     it('when filter === FILTER.OLDEST', () => {
@@ -219,6 +222,8 @@ describe('test widget selectors', () => {
             isActive: false,
           },
         ]);
+      expect(selectors.getNumberOfItemFilteredList(state.setIn(['widget', 'filter'], FILTER.OLDEST)))
+        .toBe(7);
     });
 
     it('when filter === FILTER.OLDEST', () => {
@@ -233,6 +238,8 @@ describe('test widget selectors', () => {
             isActive: true,
           },
         ]);
+      expect(selectors.getNumberOfItemFilteredList(state.setIn(['widget', 'filter'], FILTER.ACTIVATED)))
+        .toBe(2);
     });
 
     it('when filter is not matched', () => {
