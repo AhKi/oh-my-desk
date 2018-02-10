@@ -6,6 +6,7 @@ const url = require('url');
 const fs = require('fs');
 const { ipcMain } = require('electron');
 const WidgetManager = require('./src/WidgetManager');
+const createMenu = require('./src/createMenu');
 
 let informationBeforeQuit;
 let setting_win;
@@ -68,6 +69,7 @@ function createTray(contextMenuTemplate) {
 function init() {
   widgetManager.onUpdateTray(createTray);
   widgetManager.openAllWindow();
+  createMenu();
 
   ipcMain.on('WIDGET_MANAGE', (event, arg) => {
     if (arg.operation === 'CREATE') {
