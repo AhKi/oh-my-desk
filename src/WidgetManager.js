@@ -134,6 +134,15 @@ class WidgetManager {
       delete this.windows[opt.id];
     });
 
+    win.on('close', () => {
+      const _opt = this.widgetStore.get(opt.id);
+      _opt.isActive = false;
+
+      this.widgetStore.set(_opt.id, _opt);
+      win.webContents.send('widget-info', _opt);
+      this.sendToSettingWindow(this.widgetStore.data);
+    });
+
     win.on('move', (() => {
       const position = win.getPosition();
       const _opt = this.widgetStore.get(opt.id);
