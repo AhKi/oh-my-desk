@@ -1,13 +1,13 @@
 const {
-  app, BrowserWindow, remote, Menu, Tray,
+  app, BrowserWindow, remote, Menu, Tray, // eslint-disable-line
 } = require('electron');
 const path = require('path');
 const url = require('url');
-const fs = require('fs');
+// const fs = require('fs');
 const { ipcMain } = require('electron');
 const WidgetManager = require('./src/WidgetManager');
 
-let informationBeforeQuit;
+// let informationBeforeQuit;
 let setting_win;
 const widgetManager = new WidgetManager({
   icon: path.join(__dirname, 'resource', 'icon.png'),
@@ -193,19 +193,19 @@ app.on('ready', init);
 app.on('window-all-closed', () => {
 });
 
-app.on('before-quit', () => {
-  informationBeforeQuit = JSON.stringify(widgetManager.widgetStore.getAll());
-});
+// app.on('before-quit', () => {
+//   informationBeforeQuit = JSON.stringify(widgetManager.widgetStore.getAll());
+// });
 
-app.on('quit', () => {
-  const configName = 'widgets';
-  const userDataPath = (app || remote.app).getPath('userData');
-  const savedPath = path.join(userDataPath, `${configName}.json`);
-
-  fs.writeFile(savedPath, informationBeforeQuit, (err) => {
-    if (err) throw new Error(err);
-  });
-});
+// app.on('quit', () => {
+//   const configName = 'widgets';
+//   const userDataPath = (app || remote.app).getPath('userData');
+//   const savedPath = path.join(userDataPath, `${configName}.json`);
+//
+//   fs.writeFile(savedPath, informationBeforeQuit, (err) => {
+//     if (err) throw new Error(err);
+//   });
+// });
 
 app.on('activate', () => {
 });
