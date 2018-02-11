@@ -309,8 +309,24 @@ describe('test widget selectors', () => {
             id: 'mock7',
             isActive: false,
           },
+          mock8: {
+            id: 'mock8',
+            isActive: false,
+          },
+          mock9: {
+            id: 'mock9',
+            isActive: false,
+          },
+          mock10: {
+            id: 'mock10',
+            isActive: false,
+          },
+          mock11: {
+            id: 'mock11',
+            isActive: false,
+          },
         },
-        items: ['mock1', 'mock2', 'mock3', 'mock4', 'mock5', 'mock6', 'mock7'],
+        items: ['mock1', 'mock2', 'mock3', 'mock4', 'mock5', 'mock6', 'mock7', 'mock8', 'mock9', 'mock10', 'mock11'],
         filter: FILTER.LATEST,
       },
     });
@@ -342,6 +358,22 @@ describe('test widget selectors', () => {
             id: 'mock6',
             isActive: false,
           },
+          {
+            id: 'mock7',
+            isActive: false,
+          },
+          {
+            id: 'mock8',
+            isActive: false,
+          },
+          {
+            id: 'mock9',
+            isActive: false,
+          },
+          {
+            id: 'mock10',
+            isActive: false,
+          },
         ]);
     });
 
@@ -349,7 +381,7 @@ describe('test widget selectors', () => {
       expect(selectors.getWidgetFilteredListInPage(state.setIn(['widget', 'currentPage'], 2)))
         .toEqual([
           {
-            id: 'mock7',
+            id: 'mock11',
             isActive: false,
           },
         ]);

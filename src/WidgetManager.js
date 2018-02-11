@@ -3,6 +3,7 @@ const Store = require('./Store');
 const uuid = require('uuid/v4');
 const url = require('url');
 const path = require('path');
+const moment = require('moment');
 
 class WidgetManager {
   constructor(option) {
@@ -39,6 +40,8 @@ class WidgetManager {
   create(_widget) {
     const widget = _widget;
     widget.id = uuid();
+    widget.createTime = moment().format('YYYY-MM-DDTHH:mm:ss');
+    widget.updateTime = moment().format('YYYY-MM-DDTHH:mm:ss');
     this.widgetStore.set(widget.id, widget);
 
     this.createObserver.forEach((o) => { o(widget); });
@@ -54,6 +57,7 @@ class WidgetManager {
 
     Object.assign(originWidget, widget);
 
+    originWidget.updateTime = moment().format('YYYY-MM-DDTHH:mm:ss');
     this.widgetStore.set(widget.id, originWidget);
     this.sendToSettingWindow(this.widgetStore.data);
     this.updateObserver.forEach((o) => { o(originWidget); });
