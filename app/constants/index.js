@@ -1,1 +1,1 @@
-export const NUMBER_PER_PAGE = 6; // eslint-disable-line
+export const NUMBER_PER_PAGE = 10; // eslint-disable-line
