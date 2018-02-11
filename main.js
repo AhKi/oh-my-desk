@@ -1,13 +1,13 @@
 const {
-  app, BrowserWindow, remote, Menu, Tray, // eslint-disable-line
+  app, BrowserWindow, remote, Menu, Tray,
 } = require('electron');
 const path = require('path');
 const url = require('url');
-// const fs = require('fs');
+const fs = require('fs');
 const { ipcMain } = require('electron');
 const WidgetManager = require('./src/WidgetManager');
 
-// let informationBeforeQuit;
+let informationBeforeQuit;
 let setting_win;
 const widgetManager = new WidgetManager({
   icon: path.join(__dirname, 'resource', 'icon.png'),
@@ -188,24 +188,37 @@ if (process.platform === 'darwin') {
   app.dock.hide();
 }
 
+// save file when close main process
+// if data is not save correctly, call saveData function recursive
+function saveData(info) {
+  const configName = 'widgets';
+  const userDataPath = (app || remote.app).getPath('userData');
+  const savedPath = path.join(userDataPath, `${configName}.json`);
+
+  fs.writeFile(savedPath, info, (err) => {
+    if (err) throw new Error(err);
+  });
+
+  fs.readFile(savedPath, 'utf8', (err, data) => {
+    if (data !== info) {
+      console.log('save');
+      saveData(info);
+    }
+  });
+}
+
 app.on('ready', init);
 
 app.on('window-all-closed', () => {
 });
 
-// app.on('before-quit', () => {
-//   informationBeforeQuit = JSON.stringify(widgetManager.widgetStore.getAll());
-// });
+app.on('before-quit', () => {
+  informationBeforeQuit = JSON.stringify(widgetManager.widgetStore.getAll());
+});
 
-// app.on('quit', () => {
-//   const configName = 'widgets';
-//   const userDataPath = (app || remote.app).getPath('userData');
-//   const savedPath = path.join(userDataPath, `${configName}.json`);
-//
-//   fs.writeFile(savedPath, informationBeforeQuit, (err) => {
-//     if (err) throw new Error(err);
-//   });
-// });
+app.on('quit', () => {
+  saveData(informationBeforeQuit);
+});
 
 app.on('activate', () => {
 });
