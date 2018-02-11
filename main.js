@@ -201,7 +201,7 @@ function saveData(info) {
 
   fs.readFile(savedPath, 'utf8', (err, data) => {
     if (data !== info) {
-      console.log('save');
+      console.log('save'); // eslint-disable-line no-console
       saveData(info);
     }
   });
