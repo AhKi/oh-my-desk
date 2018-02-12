@@ -9,9 +9,13 @@ module.exports = webpackMerge(webpackBaseConfig, {
       'webpack/hot/only-dev-server',
       './app/index.jsx',
     ],
+    widget: [
+      'webpack/hot/only-dev-server',
+      './app/widget.jsx',
+    ],
   },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'build'),
     publicPath: 'http://127.0.0.1:1112/',
   },
