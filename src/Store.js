@@ -46,9 +46,7 @@ class Store {
   save() {
     if (!fs.existsSync(this.userDataPath)) fs.mkdirSync(this.userDataPath);
 
-    fs.writeFile(this.path, JSON.stringify(this.data), (err) => {
-      if (err) throw new Error(err);
-    });
+    fs.writeFileSync(this.path, JSON.stringify(this.data));
   }
 
   parseDataFile(defaults) {
