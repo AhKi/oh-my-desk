@@ -4,7 +4,7 @@ const webpackBaseConfig = require('./webpack.basic.config');
 
 module.exports = webpackMerge(webpackBaseConfig, {
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'build'),
     publicPath: './',
   },

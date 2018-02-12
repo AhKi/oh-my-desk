@@ -3,7 +3,10 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './app/index.jsx',
+  entry: {
+    app: './app/index.jsx',
+    widget: './app/widget.jsx',
+  },
 
   module: {
     rules: [
@@ -51,7 +54,15 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
+      chunks: ['app'],
+      filename: 'index.html',
       template: path.join(__dirname, './app/index.html'),
+      inject: 'body',
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['widget'],
+      filename: 'widget.html',
+      template: path.join(__dirname, './app/widget.html'),
       inject: 'body',
     }),
     new webpack.DefinePlugin({
