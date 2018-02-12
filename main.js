@@ -188,25 +188,6 @@ if (process.platform === 'darwin') {
   app.dock.hide();
 }
 
-// save file when close main process
-// if data is not save correctly, call saveData function recursive
-function saveData(info) {
-  const configName = 'widgets';
-  const userDataPath = (app || remote.app).getPath('userData');
-  const savedPath = path.join(userDataPath, `${configName}.json`);
-
-  fs.writeFile(savedPath, info, (err) => {
-    if (err) throw new Error(err);
-  });
-
-  fs.readFile(savedPath, 'utf8', (err, data) => {
-    if (data !== info) {
-      console.log('save'); // eslint-disable-line no-console
-      saveData(info);
-    }
-  });
-}
-
 app.on('ready', init);
 
 app.on('window-all-closed', () => {
@@ -217,7 +198,11 @@ app.on('before-quit', () => {
 });
 
 app.on('quit', () => {
-  saveData(informationBeforeQuit);
+  const configName = 'widgets';
+  const userDataPath = (app || remote.app).getPath('userData');
+  const savedPath = path.join(userDataPath, `${configName}.json`);
+
+  fs.writeFileSync(savedPath, informationBeforeQuit);
 });
 
 app.on('activate', () => {
