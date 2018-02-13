@@ -230,7 +230,7 @@ class WidgetManager {
     let element = null;
 
     function openWindow(widget) {
-      this.openWindow(widget);
+      this.update(Object.assign({}, widget, { isActive: true }));
     }
 
     for (let i = 0; i < keys.length; i += 1) {
