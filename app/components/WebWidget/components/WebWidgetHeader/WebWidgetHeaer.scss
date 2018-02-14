@@ -1,0 +1,55 @@
+.WebWidgetHeader__title-bar {
+  -webkit-app-region: drag;
+  height: 28px;
+  padding: 0;
+  margin: 0;
+  background-color: #2D2D30;
+  color: white;
+  font-family: sans-serif;
+}
+
+.WebWidgetHeader__title {
+  top: 0;
+  left: 24px;
+  line-height: 28px;
+  font-size: 12px;
+}
+
+.WebWidgetHeader__button-set {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.WebWidgetHeader__history-set {
+  display: inline;
+}
+
+.WebWidgetHeader__button {
+  border: none;
+  color: #F1F1F1;
+  width: 24px;
+  height: 28px;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  float: left;
+
+  :hover {
+    background-color: #3F3F41;
+    color: black;
+  }
+}
+
+.WebWidgetHeader__thumbtack {
+  background-color: transparent;
+  border: none;
+  color: #F1F1F1;
+  float: left;
+  width: 24px;
+  height: 28px;
+
+  :hover {
+    background-color: #3f3f41;
+  }
+}
