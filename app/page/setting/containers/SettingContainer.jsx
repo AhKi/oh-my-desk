@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import Setting from 'components/Setting';
-import GNBWrapper from 'components/GlobalNavigationBar/GNBWrapper';
+import Setting from 'components/Setting/index';
+import GNBWrapper from 'components/GlobalNavigationBar/GNBWrapper/index';
 
 const mapStateToProps = state => ({ // eslint-disable-line
 
