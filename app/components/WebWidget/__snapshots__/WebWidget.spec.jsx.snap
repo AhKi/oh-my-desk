@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WebWidget /> should match to snapshot when render default 1`] = `
+<WebWidget>
+  <div
+    className="WebWidget"
+  >
+    <WebWidgetHeader
+      isLoading={false}
+      onToggleIsOnTop={[Function]}
+      title=""
+      webView={null}
+    >
+      <div
+        className="WebWidgetHeader__title-bar"
+      >
+        <button
+          className="WebWidgetHeader__thumbtack"
+          onClick={[Function]}
+          type="button"
+        >
+          <i
+            className="fas fa-thumbtack"
+            data-fa-transform="rotate-90"
+          />
+        </button>
+        <div
+          className="WebWidgetHeader__history-set"
+        >
+          <button
+            className="WebWidgetHeader__button WebWidgetHeader__button--go-back"
+            disabled={null}
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              className="fas fa-arrow-left"
+            />
+          </button>
+          <button
+            className="WebWidgetHeader__button WebWidgetHeader__button--go-front"
+            disabled={null}
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              className="fas fa-arrow-right"
+            />
+          </button>
+          <button
+            className="WebWidgetHeader__button WebWidgetHeader__button--refresh"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              className="fas fa-undo"
+            />
+          </button>
+        </div>
+        <div
+          className="WebWidgetHeader__title"
+        />
+        <div
+          className="WebWidgetHeader__button-set"
+        >
+          <button
+            className="WebWidgetHeader__button WebWidgetHeader__button--min"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              className="fas fa-window-minimize"
+            />
+          </button>
+          <button
+            className="WebWidgetHeader__button WebWidgetHeader__button--max"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              className="fas fa-square"
+            />
+          </button>
+          <button
+            className="WebWidgetHeader__button WebWidgetHeader__button--close"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              className="fas fa-times"
+            />
+          </button>
+        </div>
+      </div>
+    </WebWidgetHeader>
+    <webview
+      src="https://www.github.com"
+      style={
+        Object {
+          "display": "inline-flex",
+          "height": "100%",
+          "overflow": "auto",
+          "overflowY": "hidden",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</WebWidget>
+`;
