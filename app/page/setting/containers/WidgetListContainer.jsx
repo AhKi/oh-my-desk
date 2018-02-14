@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
-import WidgetList from 'components/WidgetList/index';
-import GNBWrapper from 'components/GlobalNavigationBar/GNBWrapper/index';
+import WidgetList from 'setting/components/WidgetList';
+import GNBWrapper from 'setting/components/GlobalNavigationBar/GNBWrapper';
 import {
   widgetChangeCurrentPage,
   widgetListInfoStore,
   widgetListSelect,
   widgetInfoUpdateWithIPC,
   widgetSelectFilter,
-} from 'store/widget/actions';
+} from 'setting/store/widget/actions';
 import {
   modalOpen,
   modalClose,
-} from 'store/modal/actions';
+} from 'setting/store/modal/actions';
 import {
   currentPageSelector,
   filterSelector,
@@ -19,7 +19,7 @@ import {
   getSelectedWidget,
   getNumberOfItemFilteredList,
   getWidgetFilteredListInPage,
-} from 'store/widget/selectors';
+} from 'setting/store/widget/selectors';
 
 const mapStateToProps = state => ({
   currentPage: currentPageSelector(state),

@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
 import * as FILTER from 'constants/filter';
-import * as selectors from 'store/widget/selectors';
+import * as selectors from 'setting/store/widget/selectors';
 
 describe('test widget selectors', () => {
   it('should select byId', () => {

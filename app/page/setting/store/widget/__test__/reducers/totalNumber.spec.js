@@ -1,5 +1,5 @@
-import totalNumber from 'store/widget/reducers/totalNumber';
-import * as actions from 'store/widget/actions';
+import totalNumber from 'setting/store/widget/reducers/totalNumber';
+import * as actions from 'setting/store/widget/actions';
 
 describe('test widget totalNumber reducer', () => {
   it('should return initialState', () => {

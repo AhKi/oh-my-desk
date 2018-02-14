@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import WidgetListItem from '../WidgetListItem/index';
+import WidgetListItem from '../WidgetListItem';
 import './WidgetListBox.scss';
 
 const propTypes = {

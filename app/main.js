@@ -10,7 +10,7 @@ const WidgetManager = require('./utils/WidgetManager');
 let informationBeforeQuit;
 let setting_win;
 const widgetManager = new WidgetManager({
-  icon: path.join(__dirname, 'resource', 'icon.png'),
+  icon: path.join(__dirname, 'asset', 'icon.png'),
 });
 let tray;
 
@@ -23,13 +23,13 @@ function createSetting() {
   setting_win = new BrowserWindow({
     width: 800,
     height: 800,
-    icon: path.join(__dirname, 'resource', 'icon.png'),
+    icon: path.join(__dirname, 'asset', 'icon.png'),
   });
 
-  const ENV_PATH = process.env.NODE_ENV === 'development' ? 'app' : 'build';
+  const ENV_PATH = process.env.NODE_ENV === 'development' ? 'app/page/setting' : 'build';
 
   setting_win.loadURL(url.format({
-    pathname: path.join(__dirname, ENV_PATH, 'index.html'),
+    pathname: path.join(__dirname, '..', ENV_PATH, 'index.html'),
     protocol: 'file:',
     slashes: true,
   }));
@@ -47,7 +47,7 @@ function createSetting() {
 }
 
 function createTray(contextMenuTemplate) {
-  if (!tray) tray = new Tray(path.join(__dirname, 'resource', 'tray_icon.png'));
+  if (!tray) tray = new Tray(path.join(__dirname, 'asset', 'tray_icon.png'));
 
   const contextMenu = Menu.buildFromTemplate(contextMenuTemplate.concat([
     { type: 'separator' },

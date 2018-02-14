@@ -1,5 +1,5 @@
-import * as actions from 'store/modal/actions';
-import modalProps from 'store/modal/reducers/modalProps';
+import * as actions from 'setting/store/modal/actions';
+import modalProps from 'setting/store/modal/reducers/modalProps';
 import Immutable from 'immutable';
 
 describe('test modal modalProps reducer', () => {

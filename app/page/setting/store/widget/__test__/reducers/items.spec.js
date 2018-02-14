@@ -1,7 +1,7 @@
 import Immutable from 'immutable';
 import moment from 'moment';
-import items from 'store/widget/reducers/items';
-import * as actions from 'store/widget/actions';
+import items from 'setting/store/widget/reducers/items';
+import * as actions from 'setting/store/widget/actions';
 
 describe('test widget items reducer', () => {
   it('should return initialState', () => {
