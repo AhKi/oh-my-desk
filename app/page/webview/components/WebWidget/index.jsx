@@ -1,6 +1,6 @@
 import React from 'react';
 import updateWidget from 'utils/updateWidget';
-import WebWidgetHeader from './components/WebWidgetHeader';
+import WebWidgetHeader from './components/WebWidgetHeader/index';
 import './WebWidget.scss';
 
 const propTypes = {};

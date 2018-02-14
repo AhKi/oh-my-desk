@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import WidgetList from 'components/WidgetList';
-import GNBWrapper from 'components/GlobalNavigationBar/GNBWrapper';
+import WidgetList from 'components/WidgetList/index';
+import GNBWrapper from 'components/GlobalNavigationBar/GNBWrapper/index';
 import {
   widgetChangeCurrentPage,
   widgetListInfoStore,
