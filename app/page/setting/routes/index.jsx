@@ -3,8 +3,8 @@ import { Switch, Route, Redirect } from 'react-router';
 import SettingContainer from 'containers/SettingContainer';
 import WidgetListContainer from 'containers/WidgetListContainer';
 import WidgetSettingContainer from 'containers/WidgetSettingContainer';
-import WidgetStore from 'components/WidgetStore';
-import GNBWrapper from 'components/GlobalNavigationBar/GNBWrapper';
+import WidgetStore from 'components/WidgetStore/index';
+import GNBWrapper from 'components/GlobalNavigationBar/GNBWrapper/index';
 import App from '../app';
 
 function routes() {

@@ -5,7 +5,7 @@ const path = require('path');
 const url = require('url');
 const fs = require('fs');
 const { ipcMain } = require('electron');
-const WidgetManager = require('./src/WidgetManager');
+const WidgetManager = require('./utils/WidgetManager');
 
 let informationBeforeQuit;
 let setting_win;

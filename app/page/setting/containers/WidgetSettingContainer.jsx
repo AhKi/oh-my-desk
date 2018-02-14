@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import WidgetSetting from 'components/WidgetSetting';
-import GNBWrapper from 'components/GlobalNavigationBar/GNBWrapper';
+import WidgetSetting from 'components/WidgetSetting/index';
+import GNBWrapper from 'components/GlobalNavigationBar/GNBWrapper/index';
 import { getSelectedWidget } from 'store/widget/selectors';
 import { widgetInfoUpdateWithIPC } from 'store/widget/actions';
 import { modalOpen } from 'store/modal/actions';
