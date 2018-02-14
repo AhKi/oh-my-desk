@@ -1,5 +1,5 @@
-import filter from 'store/widget/reducers/filter';
-import * as actions from 'store/widget/actions';
+import filter from 'setting/store/widget/reducers/filter';
+import * as actions from 'setting/store/widget/actions';
 import * as FILTER from 'constants/filter';
 
 describe('test widget filter reducer', () => {

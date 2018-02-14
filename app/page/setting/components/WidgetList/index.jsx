@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Header from 'components/Header';
-import Pagination from 'components/Pagination';
-import Select from 'components/Select';
+import Header from 'setting/components/Header';
+import Pagination from 'setting/components/Pagination';
+import Select from 'setting/components/Select';
 import * as CONST from 'constants/index';
 import * as FILTER from 'constants/filter';
 import * as IPC from 'constants/ipc';

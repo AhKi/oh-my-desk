@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 
-import * as actions from 'store/widget/actions';
+import * as actions from 'setting/store/widget/actions';
 
 const initialState = 0;
 

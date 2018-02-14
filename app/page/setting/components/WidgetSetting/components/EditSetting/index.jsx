@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ToggleButton from 'components/Button/ToggleButton';
+import ToggleButton from 'setting/components/Button/ToggleButton';
 
 const propTypes = {
   item: PropTypes.shape({
