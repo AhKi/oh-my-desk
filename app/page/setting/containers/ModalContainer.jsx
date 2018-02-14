@@ -3,7 +3,7 @@ import {
   modalPropsSelector,
   modalTypeSelector,
 } from 'store/modal/selectors';
-import Modal from 'components/Modal';
+import Modal from 'components/Modal/index';
 
 const mapStateToProps = state => ({
   modalType: modalTypeSelector(state),
