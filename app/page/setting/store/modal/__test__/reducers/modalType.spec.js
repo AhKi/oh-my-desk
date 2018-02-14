@@ -1,5 +1,5 @@
-import modalType from 'store/modal/reducers/modalType';
-import * as actions from 'store/modal/actions';
+import modalType from 'setting/store/modal/reducers/modalType';
+import * as actions from 'setting/store/modal/actions';
 
 describe('test modal modalType reducer', () => {
   it('should return initial state', () => {

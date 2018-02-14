@@ -1,5 +1,5 @@
-import selectedId from 'store/widget/reducers/selectedId';
-import * as actions from 'store/widget/actions';
+import selectedId from 'setting/store/widget/reducers/selectedId';
+import * as actions from 'setting/store/widget/actions';
 
 describe('test widget selectedId reducer', () => {
   it('should return default value', () => {

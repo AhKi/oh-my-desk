@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import * as selectors from 'store/modal/selectors';
+import * as selectors from 'setting/store/modal/selectors';
 
 describe('test modal selectors', () => {
   const state = Immutable.fromJS({

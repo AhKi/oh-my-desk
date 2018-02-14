@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import WebWidget from 'components/components/WebWidget/index';
-import './style.scss';
+import WebWidget from 'webview/components/WebWidget';
+import 'scss/index.scss';
 
 ReactDOM.render(
   <WebWidget />,

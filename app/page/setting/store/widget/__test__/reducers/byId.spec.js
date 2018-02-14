@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
-import byId from 'store/widget/reducers/byId';
-import * as actions from 'store/widget/actions';
+import byId from 'setting/store/widget/reducers/byId';
+import * as actions from 'setting/store/widget/actions';
 
 describe('test widget byid reducer', () => {
   it('should return initialState', () => {

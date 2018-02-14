@@ -1,10 +1,10 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router';
-import SettingContainer from 'containers/SettingContainer';
-import WidgetListContainer from 'containers/WidgetListContainer';
-import WidgetSettingContainer from 'containers/WidgetSettingContainer';
-import WidgetStore from 'components/WidgetStore/index';
-import GNBWrapper from 'components/GlobalNavigationBar/GNBWrapper/index';
+import SettingContainer from 'setting/containers/SettingContainer';
+import WidgetListContainer from 'setting/containers/WidgetListContainer';
+import WidgetSettingContainer from 'setting/containers/WidgetSettingContainer';
+import WidgetStore from 'setting/components/WidgetStore';
+import GNBWrapper from 'setting/components/GlobalNavigationBar/GNBWrapper';
 import App from '../app';
 
 function routes() {

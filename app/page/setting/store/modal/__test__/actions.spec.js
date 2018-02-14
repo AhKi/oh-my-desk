@@ -1,8 +1,8 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import Immutable from 'immutable';
-import * as actions from 'store/modal/actions';
-import * as TYPES from 'store/actionTypes';
+import * as actions from 'setting/store/modal/actions';
+import * as TYPES from 'setting/store/actionTypes';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

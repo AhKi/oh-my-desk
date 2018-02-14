@@ -115,10 +115,10 @@ class WidgetManager {
       // win.loadURL(opt.url, {userAgent: 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5
       // Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113
       // Mobile Safari/537.36'})
-      const ENV_PATH = process.env.NODE_ENV === 'development' ? 'app' : 'build';
+      const ENV_PATH = process.env.NODE_ENV === 'development' ? 'app/page/webview/index.html' : 'build/widget.html';
 
       win.loadURL(url.format({
-        pathname: path.join(__dirname, '..', ENV_PATH, 'widget.html'),
+        pathname: path.join(__dirname, '../..', ENV_PATH),
         protocol: 'file:',
         slashes: true,
       }));
