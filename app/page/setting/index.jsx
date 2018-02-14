@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
-import Routes from 'app/page/setting/routes/index';
-import store from '../../store/index';
+import Routes from 'setting/routes';
+import store from 'setting/store';
 
 ReactDOM.render(
   <Provider store={store}>

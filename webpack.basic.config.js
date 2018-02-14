@@ -4,8 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './app/index.jsx',
-    widget: './app/widget.jsx',
+    app: './app/page/setting/index.jsx',
+    widget: './app/page/webview/index.jsx',
   },
 
   module: {
@@ -14,8 +14,6 @@ module.exports = {
         test: /\.jsx?$/,
         include: [
           path.join(__dirname, '/app'),
-          path.join(__dirname, '/src'),
-          path.join(__dirname, '/main.js'),
         ],
         exclude: /node_modules/,
         use: [
@@ -56,13 +54,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       chunks: ['app'],
       filename: 'index.html',
-      template: path.join(__dirname, './app/index.html'),
+      template: path.join(__dirname, './app/page/setting/index.html'),
       inject: 'body',
     }),
     new HtmlWebpackPlugin({
       chunks: ['widget'],
       filename: 'widget.html',
-      template: path.join(__dirname, './app/widget.html'),
+      template: path.join(__dirname, './app/page/webview/index.html'),
       inject: 'body',
     }),
     new webpack.DefinePlugin({
@@ -78,10 +76,10 @@ module.exports = {
       assets: path.resolve(__dirname, 'app/assets'),
       constants: path.resolve(__dirname, 'app/constants'),
       components: path.resolve(__dirname, 'app/components'),
-      containers: path.resolve(__dirname, 'app/containers'),
-      routes: path.resolve(__dirname, 'app/routes'),
+      page: path.resolve(__dirname, 'app/page'),
+      setting: path.resolve(__dirname, 'app/page/setting'),
+      webview: path.resolve(__dirname, 'app/page/webview'),
       scss: path.resolve(__dirname, 'app/scss'),
-      store: path.resolve(__dirname, 'app/store'),
       utils: path.resolve(__dirname, 'app/utils'),
     },
     extensions: ['.js', '.jsx'],

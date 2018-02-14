@@ -7,11 +7,11 @@ module.exports = webpackMerge(webpackBaseConfig, {
   entry: {
     app: [
       'webpack/hot/only-dev-server',
-      './app/index.jsx',
+      './app/page/setting/index.jsx',
     ],
     widget: [
       'webpack/hot/only-dev-server',
-      './app/widget.jsx',
+      './app/page/webview/index.jsx',
     ],
   },
   output: {

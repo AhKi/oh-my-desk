@@ -1,8 +1,8 @@
 {
   "name": "oh-my-desk",
-  "version": "0.0.1",
+  "version": "v1.0.2",
   "description": "desktop widget application",
-  "main": "main.js",
+  "main": "app/main.js",
   "scripts": {
     "build": "yarn build:app && cross-env NODE_ENV=production electron-builder",
     "build:window": "yarn build:app && cross-env NODE_ENV=production electron-builder --win",
@@ -94,11 +94,11 @@
       "category": "oh.my.desk"
     },
     "files": [
-      "*.js",
+      "app/*.js",
+      "app/utils",
       "build",
       "node_modules",
-      "src",
-      "resource"
+      "app/asset"
     ]
   }
 }

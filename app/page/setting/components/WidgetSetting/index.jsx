@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Header from 'components/Header';
+import Header from 'setting/components/Header';
 import * as MODAL from 'constants/modal';
 import EditSetting from './components/EditSetting';
 import EditSize from './components/EditSize';
