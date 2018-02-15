@@ -1,0 +1,15 @@
+.HistoryGoBackButton__btn {
+  border: none;
+  color: #F1F1F1;
+  width: 24px;
+  height: 28px;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  float: left;
+
+  :hover {
+    background-color: #3F3F41;
+    color: black;
+  }
+}
