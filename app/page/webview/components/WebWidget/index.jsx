@@ -1,6 +1,7 @@
 import React from 'react';
 import updateWidget from 'utils/updateWidget';
 import WebWidgetHeader from './components/WebWidgetHeader';
+import WebWidgetMobileHeader from './components/WebWidgetMobileHeader';
 import './WebWidget.scss';
 
 const propTypes = {};
@@ -15,6 +16,10 @@ class WebWidget extends React.Component {
     };
     this.setKeyEvent = this.setKeyEvent.bind(this);
     this.toggleIsOnTop = this.toggleIsOnTop.bind(this);
+    this.handleWidgetGoBack = this.handleWidgetGoBack.bind(this);
+    this.handleWidgetGoForward = this.handleWidgetGoForward.bind(this);
+    this.handleWidgetRefresh = this.handleWidgetRefresh.bind(this);
+    this.handleWidgetStopRefresh = this.handleWidgetStopRefresh.bind(this);
   }
 
   componentWillMount() {
@@ -75,8 +80,25 @@ class WebWidget extends React.Component {
     updateWidget('web', nextWidget);
   }
 
+  handleWidgetGoBack() {
+    this.webViewRef.goBack();
+  }
+
+  handleWidgetGoForward() {
+    this.webViewRef.goForward();
+  }
+
+  handleWidgetRefresh() {
+    this.webViewRef.reload();
+  }
+
+  handleWidgetStopRefresh() {
+    this.webViewRef.stop();
+  }
+
   render() {
     const { widget, isLoading } = this.state;
+
     return (
       <div className="WebWidget">
         <WebWidgetHeader
@@ -84,6 +106,18 @@ class WebWidget extends React.Component {
           title={widget.name}
           isLoading={isLoading}
           onToggleIsOnTop={this.toggleIsOnTop}
+          onGoBack={this.handleWidgetGoBack}
+          onGoForward={this.handleWidgetGoForward}
+          onRefresh={this.handleWidgetRefresh}
+          onStopRefresh={this.handleWidgetStopRefresh}
+        />
+        <WebWidgetMobileHeader
+          webView={this.webViewRef}
+          isLoading={isLoading}
+          onGoBack={this.handleWidgetGoBack}
+          onGoForward={this.handleWidgetGoForward}
+          onRefresh={this.handleWidgetRefresh}
+          onStopRefresh={this.handleWidgetStopRefresh}
         />
         <webview
           ref={(ref) => { this.webViewRef = ref; }}

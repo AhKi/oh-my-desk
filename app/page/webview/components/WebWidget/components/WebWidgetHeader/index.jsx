@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import HistoryGoBackButton from '../Button/HistoryGoBackButton';
+import ReloadButton from '../Button/ReloadButton';
 import './WebWidgetHeaer.scss';
 
 const propTypes = {
@@ -7,12 +9,20 @@ const propTypes = {
   webView: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   isLoading: PropTypes.bool,
   onToggleIsOnTop: PropTypes.func,
+  onGoBack: PropTypes.func,
+  onGoForward: PropTypes.func,
+  onRefresh: PropTypes.func,
+  onStopRefresh: PropTypes.func,
 };
 const defaultProps = {
   title: '',
   webView: null,
   isLoading: false,
   onToggleIsOnTop() {},
+  onGoBack() {},
+  onGoForward() {},
+  onRefresh() {},
+  onStopRefresh() {},
 };
 
 class WebWidgetHeader extends React.Component {
@@ -22,26 +32,6 @@ class WebWidgetHeader extends React.Component {
     this.handleWidgetMinimize = this.handleWidgetMinimize.bind(this);
     this.handleWidgetToggleMaximize = this.handleWidgetToggleMaximize.bind(this);
     this.handleWidgetClose = this.handleWidgetClose.bind(this);
-    this.handleWidgetGoBack = this.handleWidgetGoBack.bind(this);
-    this.handleWidgetGoFront = this.handleWidgetGoFront.bind(this);
-    this.handleWidgetRefresh = this.handleWidgetRefresh.bind(this);
-    this.handleWidgetStopRefresh = this.handleWidgetStopRefresh.bind(this);
-  }
-
-  handleWidgetGoBack() {
-    this.props.webView.goBack();
-  }
-
-  handleWidgetGoFront() {
-    this.props.webView.goForward();
-  }
-
-  handleWidgetRefresh() {
-    this.props.webView.reload();
-  }
-
-  handleWidgetStopRefresh() {
-    this.props.webView.stop();
   }
 
   handleWidgetMinimize() {
@@ -61,7 +51,15 @@ class WebWidgetHeader extends React.Component {
   }
 
   render() {
-    const { webView, isLoading, onToggleIsOnTop } = this.props;
+    const {
+      webView,
+      isLoading,
+      onToggleIsOnTop,
+      onGoBack,
+      onGoForward,
+      onRefresh,
+      onStopRefresh,
+    } = this.props;
 
     return (
       <div className="WebWidgetHeader__title-bar">
@@ -75,40 +73,17 @@ class WebWidgetHeader extends React.Component {
         <div
           className="WebWidgetHeader__history-set"
         >
-          <button
-            type="button"
-            className="WebWidgetHeader__button WebWidgetHeader__button--go-back"
-            disabled={webView && !webView.canGoBack()}
-            onClick={this.handleWidgetGoBack}
-          >
-            <i className="fas fa-arrow-left" />
-          </button>
-          <button
-            type="button"
-            className="WebWidgetHeader__button WebWidgetHeader__button--go-front"
-            disabled={webView && !webView.canGoForward()}
-            onClick={this.handleWidgetGoFront}
-          >
-            <i className="fas fa-arrow-right" />
-          </button>
-          {!isLoading &&
-            <button
-              type="button"
-              className="WebWidgetHeader__button WebWidgetHeader__button--refresh"
-              onClick={this.handleWidgetRefresh}
-            >
-              <i className="fas fa-undo" />
-            </button>
-          }
-          {isLoading &&
-            <button
-              type="button"
-              className="WebWidgetHeader__button WebWidgetHeader__button--refresh"
-              onClick={this.handleWidgetStopRefresh}
-            >
-              <i className="fas fa-times" />
-            </button>
-          }
+          <HistoryGoBackButton
+            isCanGoBack={webView && webView.canGoBack()}
+            isCanGoForward={webView && webView.canGoForward()}
+            onGoBack={onGoBack}
+            onGoForward={onGoForward}
+          />
+          <ReloadButton
+            isLoading={isLoading}
+            onRefresh={onRefresh}
+            onStopRefresh={onStopRefresh}
+          />
         </div>
         <div className="WebWidgetHeader__title">
           {this.props.title}

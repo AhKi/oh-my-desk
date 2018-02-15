@@ -13,7 +13,6 @@ exports[`<WebWidgetMobileHeader /> should match to snapshot when render default 
   />
   <ReloadButton
     className="ReloadButton"
-    isLoadind={false}
     isLoading={false}
     onRefresh={[Function]}
     onStopRefresh={[Function]}

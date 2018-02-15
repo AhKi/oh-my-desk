@@ -43,7 +43,7 @@ class WebWidgetMobileHeader extends React.Component {
           onGoForward={onGoForward}
         />
         <ReloadButton
-          isLoadind={isLoading}
+          isLoading={isLoading}
           onRefresh={onRefresh}
           onStopRefresh={onStopRefresh}
         />

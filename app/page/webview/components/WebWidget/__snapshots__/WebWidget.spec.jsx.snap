@@ -7,6 +7,10 @@ exports[`<WebWidget /> should match to snapshot when render default 1`] = `
   >
     <WebWidgetHeader
       isLoading={false}
+      onGoBack={[Function]}
+      onGoForward={[Function]}
+      onRefresh={[Function]}
+      onStopRefresh={[Function]}
       onToggleIsOnTop={[Function]}
       title=""
       webView={null}
@@ -27,35 +31,58 @@ exports[`<WebWidget /> should match to snapshot when render default 1`] = `
         <div
           className="WebWidgetHeader__history-set"
         >
-          <button
-            className="WebWidgetHeader__button WebWidgetHeader__button--go-back"
-            disabled={null}
-            onClick={[Function]}
-            type="button"
+          <HistoryGoBackButton
+            className=""
+            isCanGoBack={null}
+            isCanGoForward={null}
+            onGoBack={[Function]}
+            onGoForward={[Function]}
           >
-            <i
-              className="fas fa-arrow-left"
-            />
-          </button>
-          <button
-            className="WebWidgetHeader__button WebWidgetHeader__button--go-front"
-            disabled={null}
-            onClick={[Function]}
-            type="button"
+            <div
+              className="HistoryGoBackButton"
+            >
+              <button
+                className="HistoryGoBackButton__btn HistoryGoBackButton__btn--go-back"
+                disabled={true}
+                onClick={[Function]}
+                type="button"
+              >
+                <i
+                  className="fas fa-arrow-left"
+                />
+              </button>
+              <button
+                className="HistoryGoBackButton__btn HistoryGoBackButton__btn--go-front"
+                disabled={true}
+                onClick={[Function]}
+                type="button"
+              >
+                <i
+                  className="fas fa-arrow-right"
+                />
+              </button>
+            </div>
+          </HistoryGoBackButton>
+          <ReloadButton
+            className="ReloadButton"
+            isLoading={false}
+            onRefresh={[Function]}
+            onStopRefresh={[Function]}
           >
-            <i
-              className="fas fa-arrow-right"
-            />
-          </button>
-          <button
-            className="WebWidgetHeader__button WebWidgetHeader__button--refresh"
-            onClick={[Function]}
-            type="button"
-          >
-            <i
-              className="fas fa-undo"
-            />
-          </button>
+            <div
+              className="ReloadButton className"
+            >
+              <button
+                className="ReloadButton__btn ReloadButton__btn--refresh"
+                onClick={[Function]}
+                type="button"
+              >
+                <i
+                  className="fas fa-undo"
+                />
+              </button>
+            </div>
+          </ReloadButton>
         </div>
         <div
           className="WebWidgetHeader__title"
@@ -96,6 +123,71 @@ exports[`<WebWidget /> should match to snapshot when render default 1`] = `
         </div>
       </div>
     </WebWidgetHeader>
+    <WebWidgetMobileHeader
+      isLoading={false}
+      onGoBack={[Function]}
+      onGoForward={[Function]}
+      onRefresh={[Function]}
+      onStopRefresh={[Function]}
+      webView={null}
+    >
+      <div
+        className="WebWidgetMobileHeader"
+      >
+        <HistoryGoBackButton
+          className=""
+          isCanGoBack={null}
+          isCanGoForward={null}
+          onGoBack={[Function]}
+          onGoForward={[Function]}
+        >
+          <div
+            className="HistoryGoBackButton"
+          >
+            <button
+              className="HistoryGoBackButton__btn HistoryGoBackButton__btn--go-back"
+              disabled={true}
+              onClick={[Function]}
+              type="button"
+            >
+              <i
+                className="fas fa-arrow-left"
+              />
+            </button>
+            <button
+              className="HistoryGoBackButton__btn HistoryGoBackButton__btn--go-front"
+              disabled={true}
+              onClick={[Function]}
+              type="button"
+            >
+              <i
+                className="fas fa-arrow-right"
+              />
+            </button>
+          </div>
+        </HistoryGoBackButton>
+        <ReloadButton
+          className="ReloadButton"
+          isLoading={false}
+          onRefresh={[Function]}
+          onStopRefresh={[Function]}
+        >
+          <div
+            className="ReloadButton className"
+          >
+            <button
+              className="ReloadButton__btn ReloadButton__btn--refresh"
+              onClick={[Function]}
+              type="button"
+            >
+              <i
+                className="fas fa-undo"
+              />
+            </button>
+          </div>
+        </ReloadButton>
+      </div>
+    </WebWidgetMobileHeader>
     <webview
       src="https://www.github.com"
       style={
