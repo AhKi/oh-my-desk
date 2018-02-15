@@ -21,9 +21,10 @@ function createSetting() {
   }
 
   setting_win = new BrowserWindow({
-    width: 800,
-    height: 800,
-    icon: path.join(__dirname, 'assets', 'icon.png'),
+    width: 960,
+    height: 700,
+    minWidth: 360,
+    icon: path.join(__dirname, 'asset', 'icon.png'),
   });
 
   const ENV_PATH = process.env.NODE_ENV === 'development' ? 'app/page/setting' : 'build';
