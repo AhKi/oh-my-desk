@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ReloadButton /> should match to snapshot when props.isLoading === true 1`] = `
+<div
+  className="ReloadButton className"
+>
+  <button
+    className="ReloadButton__btn ReloadButton__btn--refresh"
+    onClick={[Function]}
+    type="button"
+  >
+    <i
+      className="fas fa-times"
+    />
+  </button>
+</div>
+`;
+
+exports[`<ReloadButton /> should match to snapshot when render default 1`] = `
+<div
+  className="ReloadButton className"
+>
+  <button
+    className="ReloadButton__btn ReloadButton__btn--refresh"
+    onClick={[Function]}
+    type="button"
+  >
+    <i
+      className="fas fa-undo"
+    />
+  </button>
+</div>
+`;
