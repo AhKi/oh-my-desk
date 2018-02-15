@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WebWidgetMobileHeader /> should match to snapshot when render default 1`] = `
+<div
+  className="WebWidgetMobileHeader"
+>
+  <HistoryGoBackButton
+    className=""
+    isCanGoBack={false}
+    isCanGoForward={false}
+    onGoBack={[Function]}
+    onGoForward={[Function]}
+  />
+  <ReloadButton
+    className="ReloadButton"
+    isLoadind={false}
+    isLoading={false}
+    onRefresh={[Function]}
+    onStopRefresh={[Function]}
+  />
+</div>
+`;
