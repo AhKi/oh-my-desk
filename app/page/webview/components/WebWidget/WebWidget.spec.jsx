@@ -5,6 +5,14 @@ import * as utils from 'utils/updateWidget';
 import WebWidget from './';
 
 describe('<WebWidget />', () => {
+  const webView = {
+    canGoBack() {},
+    canGoForward() {},
+    goBack() {},
+    goForward() {},
+    reload() {},
+    stop() {},
+  };
   const ipcRenderer = {
     on: () => {},
     send: () => {},
@@ -21,6 +29,7 @@ describe('<WebWidget />', () => {
 
   it('should match to snapshot when render default', () => {
     const wrapper = mount(<WebWidget />);
+    wrapper.instance().webViewRef = webView;
 
     expect(wrapper).toMatchSnapshot();
   });
@@ -28,7 +37,9 @@ describe('<WebWidget />', () => {
   it('test componentWillMount', () => {
     const componentWillMount = jest.spyOn(WebWidget.prototype, 'componentWillMount');
     const on = jest.spyOn(ipcRenderer, 'on');
-    mount(<WebWidget />);
+    const wrapper = mount(<WebWidget />);
+    wrapper.instance().webViewRef = webView;
+
 
     expect(componentWillMount).toHaveBeenCalledTimes(1);
     expect(on).toHaveBeenCalledTimes(1);
@@ -41,6 +52,7 @@ describe('<WebWidget />', () => {
     global.document.addEventListener = jest.fn();
     global.document.removeEventListener = jest.fn();
     const wrapper = mount(<WebWidget />);
+    wrapper.instance().webViewRef = webView;
     const { setKeyEvent } = wrapper.instance();
 
     expect(componentDidMount).toHaveBeenCalledTimes(1);
@@ -60,11 +72,6 @@ describe('<WebWidget />', () => {
   });
 
   describe('should test setKeyEvent', () => {
-    const webView = {
-      goBack: () => {},
-      goForward: () => {},
-      reload: () => {},
-    };
     const goBack = jest.spyOn(webView, 'goBack');
     const goForward = jest.spyOn(webView, 'goForward');
     const reload = jest.spyOn(webView, 'reload');
@@ -145,13 +152,9 @@ describe('<WebWidget />', () => {
   });
 
   it('should test toggleIsOnTop', () => {
-    const webViewRef = {
-      canGoBack: () => {},
-      canGoForward: () => {},
-    };
     const updateWidget = jest.spyOn(utils, 'default');
     const wrapper = mount(<WebWidget />);
-    wrapper.instance().webViewRef = webViewRef;
+    wrapper.instance().webViewRef = webView;
 
     wrapper.instance().toggleIsOnTop();
 
@@ -162,5 +165,42 @@ describe('<WebWidget />', () => {
         isOnTop: true,
       },
     );
+  });
+
+  describe('test WebWidget handle function', () => {
+    const goBack = jest.spyOn(webView, 'goBack');
+    const goForward = jest.spyOn(webView, 'goForward');
+    const reload = jest.spyOn(webView, 'reload');
+    const stop = jest.spyOn(webView, 'stop');
+    const wrapper = mount(<WebWidget />);
+    wrapper.instance().webViewRef = webView;
+
+    it('when call handleWidgetGoBack', () => {
+      wrapper.instance().handleWidgetGoBack();
+
+      expect(goBack).toHaveBeenCalledTimes(1);
+      expect(goBack).toHaveBeenCalledWith();
+    });
+
+    it('when call handleWidgetGoFront', () => {
+      wrapper.instance().handleWidgetGoForward();
+
+      expect(goForward).toHaveBeenCalledTimes(1);
+      expect(goForward).toHaveBeenCalledWith();
+    });
+
+    it('when call handleWidgetRefresh', () => {
+      wrapper.instance().handleWidgetRefresh();
+
+      expect(reload).toHaveBeenCalledTimes(1);
+      expect(reload).toHaveBeenCalledWith();
+    });
+
+    it('when call handleWidgetStopRefresh', () => {
+      wrapper.instance().handleWidgetStopRefresh();
+
+      expect(stop).toHaveBeenCalledTimes(1);
+      expect(stop).toHaveBeenCalledWith();
+    });
   });
 });
