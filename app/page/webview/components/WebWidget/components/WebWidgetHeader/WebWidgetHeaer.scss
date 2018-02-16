@@ -1,28 +1,42 @@
 .WebWidgetHeader__title-bar {
+  background-color: #2E333F;
+  color: #ffffff;
+  font-family: sans-serif;
   -webkit-app-region: drag;
   height: 28px;
-  padding: 0;
-  margin: 0;
-  background-color: #2D2D30;
-  color: white;
-  font-family: sans-serif;
+  width: 100%;
 }
 
-.WebWidgetHeader__title {
-  top: 0;
-  left: 24px;
-  line-height: 28px;
-  font-size: 12px;
-}
+.WebWidgetHeader__thumbtack {
+  background-color: transparent;
+  color: #F1F1F1;
+  width: 24px;
+  height: 28px;
 
-.WebWidgetHeader__button-set {
-  position: fixed;
-  top: 0;
-  right: 0;
+  :hover {
+    background-color: #3f3f41;
+  }
 }
 
 .WebWidgetHeader__history-set {
   display: inline;
+}
+
+.WebWidgetHeader__button-setting {
+  color: #F1F1F1;
+  height: 28px;
+}
+
+.WebWidgetHeader__button-set {
+  display: inline-block;
+  float: right;
+}
+
+.WebWidgetHeader__title {
+  display: inline-block;
+  line-height: 28px;
+  font-size: 12px;
+  text-align: center;
 }
 
 .WebWidgetHeader__button {
@@ -30,10 +44,6 @@
   color: #F1F1F1;
   width: 24px;
   height: 28px;
-  padding: 0px;
-  margin: 0px;
-  display: block;
-  float: left;
 
   :hover {
     background-color: #3F3F41;
@@ -41,15 +51,9 @@
   }
 }
 
-.WebWidgetHeader__thumbtack {
-  background-color: transparent;
-  border: none;
-  color: #F1F1F1;
-  float: left;
-  width: 24px;
-  height: 28px;
-
-  :hover {
-    background-color: #3f3f41;
+@media (max-width: 412px) {
+  .WebWidgetHeader__history-set,
+  .WebWidgetHeader__button-setting {
+    display: none;
   }
 }
