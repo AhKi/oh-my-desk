@@ -47,6 +47,13 @@ class WebWidgetMobileHeader extends React.Component {
           onRefresh={onRefresh}
           onStopRefresh={onStopRefresh}
         />
+        <button
+          className="WebWidgetMobileHeader__setting"
+          type="button"
+          onClick={() => console.log('setting')}
+        >
+          <i className="fas fa-cog" />
+        </button>
       </div>
     );
   }
