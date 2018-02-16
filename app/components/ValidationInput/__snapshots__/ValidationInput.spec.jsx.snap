@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ValidationInput /> should match to snapshot when render default 1`] = `
+<div
+  className="ValidationInput"
+>
+  <label
+    className="ValidationInput__label"
+    htmlFor=""
+  >
+    <input
+      className="ValidationInput__text-input"
+      id=""
+      onChange={[Function]}
+      placeholder=""
+      type="text"
+      value=""
+    />
+  </label>
+  <p
+    className="ValidationInput__validation-message"
+  >
+    mock-error
+  </p>
+</div>
+`;
