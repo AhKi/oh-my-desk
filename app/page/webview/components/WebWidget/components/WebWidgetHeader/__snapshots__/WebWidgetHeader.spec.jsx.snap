@@ -11,7 +11,6 @@ exports[`<WebWidgetHeader /> should match to snapshot when render default 1`] = 
   >
     <i
       className="fas fa-thumbtack"
-      data-fa-transform="rotate-90"
     />
   </button>
   <div
@@ -37,6 +36,15 @@ exports[`<WebWidgetHeader /> should match to snapshot when render default 1`] = 
   <div
     className="WebWidgetHeader__button-set"
   >
+    <button
+      className="WebWidgetHeader__button WebWidgetHeader__button-setting"
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="fas fa-cog"
+      />
+    </button>
     <button
       className="WebWidgetHeader__button WebWidgetHeader__button--min"
       onClick={[Function]}

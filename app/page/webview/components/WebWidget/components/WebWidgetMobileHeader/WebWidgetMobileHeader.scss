@@ -2,3 +2,15 @@
   background-color: #7f7f7f;
   height: 26px;
 }
+
+.WebWidgetMobileHeader__setting {
+  color: #F1F1F1;
+  float: right;
+  height: 27px;
+}
+
+@media (min-width: 412px) {
+  .WebWidgetMobileHeader {
+    display: none;
+  }
+}

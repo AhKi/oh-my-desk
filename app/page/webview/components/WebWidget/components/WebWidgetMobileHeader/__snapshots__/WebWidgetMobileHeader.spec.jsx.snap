@@ -17,5 +17,14 @@ exports[`<WebWidgetMobileHeader /> should match to snapshot when render default 
     onRefresh={[Function]}
     onStopRefresh={[Function]}
   />
+  <button
+    className="WebWidgetMobileHeader__setting"
+    onClick={[Function]}
+    type="button"
+  >
+    <i
+      className="fas fa-cog"
+    />
+  </button>
 </div>
 `;
