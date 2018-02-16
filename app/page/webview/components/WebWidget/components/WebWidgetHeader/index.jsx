@@ -68,7 +68,7 @@ class WebWidgetHeader extends React.Component {
           className="WebWidgetHeader__thumbtack"
           onClick={onToggleIsOnTop}
         >
-          <i className="fas fa-thumbtack" data-fa-transform="rotate-90" />
+          <i className="fas fa-thumbtack" />
         </button>
         <div
           className="WebWidgetHeader__history-set"
@@ -89,6 +89,13 @@ class WebWidgetHeader extends React.Component {
           {this.props.title}
         </div>
         <div className="WebWidgetHeader__button-set">
+          <button
+            className="WebWidgetHeader__button WebWidgetHeader__button-setting"
+            type="button"
+            onClick={() => console.log('setting')}
+          >
+            <i className="fas fa-cog" />
+          </button>
           <button
             type="button"
             className="WebWidgetHeader__button WebWidgetHeader__button--min"
