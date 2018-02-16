@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import validUrl from 'valid-url';
 
 import OutsideClickHandler from 'components/OutsideClickHandler';
+import ValidationInput from 'components/ValidationInput';
 import createWidget from 'utils/createWidget';
+import validateName from 'utils/validation/widgetName';
+import validateUrl from 'utils/validation/widgetUrl';
 import './MakeWebWidget.scss';
 
 const propTypes = {
@@ -32,21 +34,11 @@ class MakeWebWidget extends React.Component {
   validateCheck(type) {
     const { widgetName, widgetUrl } = this.state;
     const nameCheck = () => {
-      if (widgetName.length === 0) {
-        this.setState({ nameError: 'Please enter the widget name.' });
-      } else {
-        this.setState({ nameError: '' });
-      }
+      this.setState({ nameError: validateName(widgetName) });
     };
 
     const urlCheck = () => {
-      if (widgetUrl.length === 0) {
-        this.setState({ urlError: 'Please enter the widget url.' });
-      } else if (!validUrl.isUri(widgetUrl)) {
-        this.setState({ urlError: 'Please match the URL format. (ex: https://www.google.com)' });
-      } else {
-        this.setState({ urlError: '' });
-      }
+      this.setState({ urlError: validateUrl(widgetUrl) });
     };
 
     switch (type) {
@@ -112,28 +104,20 @@ class MakeWebWidget extends React.Component {
       <OutsideClickHandler onOutSideClick={onModalClose}>
         <form className="MakeWebWidget">
           <h5 className="MakeWebWidget__title">Make new web widget</h5>
-          <div className="InputSet">
-            <p className="InputSet__label">Name</p>
-            <input
-              className="InputSet__text-input"
-              type="text"
-              placeholder="Write your site name"
-              value={widgetName}
-              onChange={this.handleWidgetNameChange}
-            />
-            {nameError && <p className="InputSet__validate-message">{nameError}</p>}
-          </div>
-          <div className="InputSet">
-            <p className="InputSet__label">Url</p>
-            <input
-              className="InputSet__text-input"
-              type="text"
-              placeholder="Keep it 'http://' or 'https://'"
-              value={widgetUrl}
-              onChange={this.handleWidgetUrlChange}
-            />
-            {urlError && <p className="InputSet__validate-message">{urlError}</p>}
-          </div>
+          <ValidationInput
+            error={nameError}
+            name="Name"
+            placeholder="Write your site name"
+            value={widgetName}
+            onChange={this.handleWidgetNameChange}
+          />
+          <ValidationInput
+            error={urlError}
+            name="Url"
+            placeholder="Keep it 'http://' or 'https://'"
+            value={widgetUrl}
+            onChange={this.handleWidgetUrlChange}
+          />
           <div className="MakeWebWidget__button-set">
             <button
               className="Btn Btn-middle"

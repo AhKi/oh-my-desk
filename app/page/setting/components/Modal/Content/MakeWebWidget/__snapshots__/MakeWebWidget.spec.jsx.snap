@@ -12,48 +12,28 @@ exports[`<MakeWebWidget /> should match to snapshot when exist error 1`] = `
     >
       Make new web widget
     </h5>
-    <div
-      className="InputSet"
-    >
-      <p
-        className="InputSet__label"
-      >
-        Name
-      </p>
-      <input
-        className="InputSet__text-input"
-        onChange={[Function]}
-        placeholder="Write your site name"
-        type="text"
-        value="mock-name"
-      />
-      <p
-        className="InputSet__validate-message"
-      >
-        mock-error
-      </p>
-    </div>
-    <div
-      className="InputSet"
-    >
-      <p
-        className="InputSet__label"
-      >
-        Url
-      </p>
-      <input
-        className="InputSet__text-input"
-        onChange={[Function]}
-        placeholder="Keep it 'http://' or 'https://'"
-        type="text"
-        value="mock-url"
-      />
-      <p
-        className="InputSet__validate-message"
-      >
-        mock-error
-      </p>
-    </div>
+    <ValidationInput
+      className="ValidationInput"
+      error="mock-error"
+      errorClassName="ValidationInput__validation-message"
+      inputClassName="ValidationInput__text-input"
+      name="Name"
+      nameClassName="ValidationInput__label"
+      onChange={[Function]}
+      placeholder="Write your site name"
+      value="mock-name"
+    />
+    <ValidationInput
+      className="ValidationInput"
+      error="mock-error"
+      errorClassName="ValidationInput__validation-message"
+      inputClassName="ValidationInput__text-input"
+      name="Url"
+      nameClassName="ValidationInput__label"
+      onChange={[Function]}
+      placeholder="Keep it 'http://' or 'https://'"
+      value="mock-url"
+    />
     <div
       className="MakeWebWidget__button-set"
     >
@@ -87,38 +67,28 @@ exports[`<MakeWebWidget /> should match to snapshot when render default 1`] = `
     >
       Make new web widget
     </h5>
-    <div
-      className="InputSet"
-    >
-      <p
-        className="InputSet__label"
-      >
-        Name
-      </p>
-      <input
-        className="InputSet__text-input"
-        onChange={[Function]}
-        placeholder="Write your site name"
-        type="text"
-        value=""
-      />
-    </div>
-    <div
-      className="InputSet"
-    >
-      <p
-        className="InputSet__label"
-      >
-        Url
-      </p>
-      <input
-        className="InputSet__text-input"
-        onChange={[Function]}
-        placeholder="Keep it 'http://' or 'https://'"
-        type="text"
-        value=""
-      />
-    </div>
+    <ValidationInput
+      className="ValidationInput"
+      error=""
+      errorClassName="ValidationInput__validation-message"
+      inputClassName="ValidationInput__text-input"
+      name="Name"
+      nameClassName="ValidationInput__label"
+      onChange={[Function]}
+      placeholder="Write your site name"
+      value=""
+    />
+    <ValidationInput
+      className="ValidationInput"
+      error=""
+      errorClassName="ValidationInput__validation-message"
+      inputClassName="ValidationInput__text-input"
+      name="Url"
+      nameClassName="ValidationInput__label"
+      onChange={[Function]}
+      placeholder="Keep it 'http://' or 'https://'"
+      value=""
+    />
     <div
       className="MakeWebWidget__button-set"
     >
