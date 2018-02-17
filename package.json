@@ -98,7 +98,7 @@
       "app/utils",
       "build",
       "node_modules",
-      "app/asset"
+      "app/assets"
     ]
   }
 }
