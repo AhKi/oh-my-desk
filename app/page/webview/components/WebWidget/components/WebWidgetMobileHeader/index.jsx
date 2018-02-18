@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import HistoryGoBackButton from '../Button/HistoryGoBackButton';
 import ReloadButton from '../Button/ReloadButton';
 import './WebWidgetMobileHeader.scss';
 
 const propTypes = {
   isLoading: PropTypes.bool,
+  isOpen: PropTypes.bool,
   webView: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   onGoBack: PropTypes.func,
   onGoForward: PropTypes.func,
@@ -15,6 +17,7 @@ const propTypes = {
 };
 const defaultProps = {
   isLoading: false,
+  isOpen: false,
   webView: null,
   onGoBack() {},
   onGoForward() {},
@@ -26,18 +29,22 @@ const defaultProps = {
 class WebWidgetMobileHeader extends React.Component {
   render() {
     const {
-      webView,
       isLoading,
+      isOpen,
+      webView,
       onGoBack,
       onGoForward,
       onRefresh,
       onStopRefresh,
       onToggleSetting,
     } = this.props;
+    const headerClassName = cx('WebWidgetMobileHeader', {
+      WebWidgetModalHeader__open: isOpen,
+    });
 
     return (
       <div
-        className="WebWidgetMobileHeader"
+        className={headerClassName}
       >
         <HistoryGoBackButton
           isCanGoBack={webView && webView.canGoBack()}
