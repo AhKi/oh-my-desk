@@ -13,7 +13,7 @@ exports[`<MakeWebWidget /> should match to snapshot when exist error 1`] = `
       Make new web widget
     </h5>
     <ValidationInput
-      autoFocus={false}
+      autoFocus={true}
       className="ValidationInput"
       error="mock-error"
       errorClassName="ValidationInput__validation-message"
@@ -70,7 +70,7 @@ exports[`<MakeWebWidget /> should match to snapshot when render default 1`] = `
       Make new web widget
     </h5>
     <ValidationInput
-      autoFocus={false}
+      autoFocus={true}
       className="ValidationInput"
       error=""
       errorClassName="ValidationInput__validation-message"

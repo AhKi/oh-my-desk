@@ -105,6 +105,7 @@ class MakeWebWidget extends React.Component {
         <form className="MakeWebWidget">
           <h5 className="MakeWebWidget__title">Make new web widget</h5>
           <ValidationInput
+            autoFocus
             error={nameError}
             name="Name"
             placeholder="Write your site name"
