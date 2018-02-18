@@ -15,9 +15,13 @@ class WebWidget extends React.Component {
       widget: {},
       isLoading: false,
       isSettingOpen: false,
+      isMobileHeaderOpen: true,
     };
+    this.prevScrollY = 0;
+    this.tick = null;
     this.setKeyEvent = this.setKeyEvent.bind(this);
     this.toggleIsOnTop = this.toggleIsOnTop.bind(this);
+    this.toggleMobileHeader = this.toggleMobileHeader.bind(this);
     this.handleWidgetGoBack = this.handleWidgetGoBack.bind(this);
     this.handleWidgetGoForward = this.handleWidgetGoForward.bind(this);
     this.handleWidgetRefresh = this.handleWidgetRefresh.bind(this);
@@ -55,6 +59,34 @@ class WebWidget extends React.Component {
     this.webViewRef.addEventListener('did-stop-loading', () => {
       this.setState({ isLoading: false });
     });
+    // Communicate webview tag and BrowserWindow
+    // TODO fix communication logic
+    this.webViewRef.addEventListener('console-message', (res) => {
+      const scrollY = Number(res.message);
+      if (typeof scrollY !== 'number') {
+        return;
+      }
+
+      if (scrollY === 0 || this.prevScrollY === 0) {
+        clearTimeout(this.tick);
+        this.tick = null;
+        this.setState({ isMobileHeaderOpen: true });
+      } else if (Math.abs(scrollY - this.prevScrollY) > 30) {
+        clearTimeout(this.tick);
+        this.setState({ isMobileHeaderOpen: true });
+        this.tick = setTimeout(() => this.setState({ isMobileHeaderOpen: false }), 2000);
+      } else if (!this.tick) {
+        this.setState({ isMobileHeaderOpen: false });
+      }
+      this.prevScrollY = scrollY;
+    });
+    this.webViewRef.addEventListener('dom-ready', () => {
+      this.webViewRef.executeJavaScript(`
+        window.addEventListener('scroll', () => {
+          console.log(window.scrollY);
+        });
+      `, true);
+    });
   }
 
   componentWillUnmount() {
@@ -86,6 +118,10 @@ class WebWidget extends React.Component {
     updateWidget('web', nextWidget);
   }
 
+  toggleMobileHeader(data) { // eslint-disable-line
+    console.log('header', data);
+  }
+
   handleWidgetGoBack() {
     this.webViewRef.goBack();
   }
@@ -111,7 +147,12 @@ class WebWidget extends React.Component {
   }
 
   render() {
-    const { widget, isLoading, isSettingOpen } = this.state;
+    const {
+      widget,
+      isLoading,
+      isSettingOpen,
+      isMobileHeaderOpen,
+    } = this.state;
 
     return (
       <div className="WebWidget">
@@ -129,6 +170,7 @@ class WebWidget extends React.Component {
         <WebWidgetMobileHeader
           webView={this.webViewRef}
           isLoading={isLoading}
+          isOpen={isMobileHeaderOpen || isSettingOpen}
           onGoBack={this.handleWidgetGoBack}
           onGoForward={this.handleWidgetGoForward}
           onRefresh={this.handleWidgetRefresh}

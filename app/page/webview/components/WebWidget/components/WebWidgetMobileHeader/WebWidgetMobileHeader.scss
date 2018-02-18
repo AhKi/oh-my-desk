@@ -1,6 +1,18 @@
 .WebWidgetMobileHeader {
   background-color: #7f7f7f;
   height: 26px;
+  opacity: 0;
+  position: fixed;
+  transition: all .5s ease-in;
+  width: 100%;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.WebWidgetModalHeader__open {
+  opacity: 0.8;
 }
 
 .WebWidgetMobileHeader__setting {
