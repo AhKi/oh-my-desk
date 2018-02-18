@@ -88,6 +88,10 @@ function init() {
     widgetManager.callTargetEvent('showInactive', arg);
   });
 
+  ipcMain.on('WIDGET_MANAGER_OPEN', () => {
+    createSetting();
+  });
+
   ipcMain.on('WIDGET_OPEN', (event, arg) => {
     widgetManager.update(arg);
     widgetManager.openWindow(arg);
