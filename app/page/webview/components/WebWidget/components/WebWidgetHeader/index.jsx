@@ -13,6 +13,7 @@ const propTypes = {
   onGoForward: PropTypes.func,
   onRefresh: PropTypes.func,
   onStopRefresh: PropTypes.func,
+  onToggleSetting: PropTypes.func,
 };
 const defaultProps = {
   title: '',
@@ -23,6 +24,7 @@ const defaultProps = {
   onGoForward() {},
   onRefresh() {},
   onStopRefresh() {},
+  onToggleSetting() {},
 };
 
 class WebWidgetHeader extends React.Component {
@@ -59,6 +61,7 @@ class WebWidgetHeader extends React.Component {
       onGoForward,
       onRefresh,
       onStopRefresh,
+      onToggleSetting,
     } = this.props;
 
     return (
@@ -92,7 +95,7 @@ class WebWidgetHeader extends React.Component {
           <button
             className="WebWidgetHeader__button WebWidgetHeader__button-setting"
             type="button"
-            onClick={() => console.log('setting')}
+            onClick={() => onToggleSetting()}
           >
             <i className="fas fa-cog" />
           </button>

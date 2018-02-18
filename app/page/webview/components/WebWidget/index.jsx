@@ -2,6 +2,7 @@ import React from 'react';
 import updateWidget from 'utils/updateWidget';
 import WebWidgetHeader from './components/WebWidgetHeader';
 import WebWidgetMobileHeader from './components/WebWidgetMobileHeader';
+import WebWidgetSetting from './components/WebWidgetSetting';
 import './WebWidget.scss';
 
 const propTypes = {};
@@ -13,6 +14,7 @@ class WebWidget extends React.Component {
     this.state = {
       widget: {},
       isLoading: false,
+      isSettingOpen: false,
     };
     this.setKeyEvent = this.setKeyEvent.bind(this);
     this.toggleIsOnTop = this.toggleIsOnTop.bind(this);
@@ -20,6 +22,7 @@ class WebWidget extends React.Component {
     this.handleWidgetGoForward = this.handleWidgetGoForward.bind(this);
     this.handleWidgetRefresh = this.handleWidgetRefresh.bind(this);
     this.handleWidgetStopRefresh = this.handleWidgetStopRefresh.bind(this);
+    this.handleToggleSettingMenu = this.handleToggleSettingMenu.bind(this);
   }
 
   componentWillMount() {
@@ -96,8 +99,16 @@ class WebWidget extends React.Component {
     this.webViewRef.stop();
   }
 
+  handleToggleSettingMenu(bool) {
+    if (typeof bool === 'boolean') {
+      this.setState({ isSettingOpen: bool });
+    } else {
+      this.setState({ isSettingOpen: !this.state.isSettingOpen });
+    }
+  }
+
   render() {
-    const { widget, isLoading } = this.state;
+    const { widget, isLoading, isSettingOpen } = this.state;
 
     return (
       <div className="WebWidget">
@@ -110,6 +121,7 @@ class WebWidget extends React.Component {
           onGoForward={this.handleWidgetGoForward}
           onRefresh={this.handleWidgetRefresh}
           onStopRefresh={this.handleWidgetStopRefresh}
+          onToggleSetting={this.handleToggleSettingMenu}
         />
         <WebWidgetMobileHeader
           webView={this.webViewRef}
@@ -118,7 +130,16 @@ class WebWidget extends React.Component {
           onGoForward={this.handleWidgetGoForward}
           onRefresh={this.handleWidgetRefresh}
           onStopRefresh={this.handleWidgetStopRefresh}
+          onToggleSetting={this.handleToggleSettingMenu}
         />
+        {isSettingOpen &&
+          <WebWidgetSetting
+            name={widget.name}
+            widget={widget}
+            url={widget.url}
+            onToggleSetting={this.handleToggleSettingMenu}
+          />
+        }
         <webview
           ref={(ref) => { this.webViewRef = ref; }}
           src="https://www.github.com"
