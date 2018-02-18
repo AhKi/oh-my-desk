@@ -142,6 +142,9 @@ class WidgetManager {
 
     win.on('close', () => {
       const _opt = this.widgetStore.get(opt.id);
+      if (!_opt) {
+        return;
+      }
       _opt.isActive = false;
 
       this.widgetStore.set(_opt.id, _opt);
