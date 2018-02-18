@@ -50,11 +50,6 @@ class WidgetManager {
   update(widget) {
     const originWidget = this.widgetStore.get(widget.id);
 
-    if (widget.url && originWidget.url !== widget.url) {
-      this.windows[widget.id].close();
-      this.openWindow(widget);
-    }
-
     Object.assign(originWidget, widget);
 
     originWidget.updateTime = moment().format('YYYY-MM-DDTHH:mm:ss');
