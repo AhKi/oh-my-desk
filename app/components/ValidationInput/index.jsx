@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './ValidationInput.scss';
 
 const propTypes = {
+  autoFocus: PropTypes.bool,
   className: PropTypes.string,
   error: PropTypes.string,
   errorClassName: PropTypes.string,
@@ -15,6 +16,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  autoFocus: false,
   className: 'ValidationInput',
   error: '',
   errorClassName: 'ValidationInput__validation-message',
@@ -28,6 +30,7 @@ const defaultProps = {
 
 function ValidationInput(props) {
   const {
+    autoFocus,
     className,
     error,
     errorClassName,
@@ -47,6 +50,7 @@ function ValidationInput(props) {
       >
         {name}
         <input
+          autoFocus={autoFocus} // eslint-disable-line jsx-a11y/no-autofocus
           id={name}
           className={inputClassName}
           type="text"
