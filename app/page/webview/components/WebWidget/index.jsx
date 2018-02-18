@@ -27,7 +27,10 @@ class WebWidget extends React.Component {
 
   componentWillMount() {
     window.ipcRenderer.on('widget-info', (event, widget) => {
-      if (!this.webViewRef.getURL()) {
+      const currentURL = this.state.widget.url;
+      const nextURL = widget.url;
+
+      if (!currentURL || currentURL !== nextURL) {
         this.webViewRef.loadURL(widget.url, {
           // set mobile mode of widget userAgent
           userAgent: 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Mobile Safari/537.36',
