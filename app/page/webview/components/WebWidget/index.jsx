@@ -160,6 +160,7 @@ class WebWidget extends React.Component {
           webView={this.webViewRef}
           title={widget.name}
           isLoading={isLoading}
+          isOnTop={widget.isOnTop}
           onToggleIsOnTop={this.toggleIsOnTop}
           onGoBack={this.handleWidgetGoBack}
           onGoForward={this.handleWidgetGoForward}

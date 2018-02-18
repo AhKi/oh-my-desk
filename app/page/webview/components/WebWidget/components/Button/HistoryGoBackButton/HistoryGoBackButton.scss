@@ -8,7 +8,16 @@
   width: 24px;
   height: 28px;
 
-  :hover {
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+    &:hover {
+      background-color: transparent;
+      color: #F1F1F1;
+    }
+  }
+
+  &:hover {
     background-color: #3F3F41;
     color: black;
   }

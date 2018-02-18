@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import HistoryGoBackButton from '../Button/HistoryGoBackButton';
 import ReloadButton from '../Button/ReloadButton';
 import './WebWidgetHeaer.scss';
@@ -8,6 +9,7 @@ const propTypes = {
   title: PropTypes.string,
   webView: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   isLoading: PropTypes.bool,
+  isOnTop: PropTypes.bool,
   onToggleIsOnTop: PropTypes.func,
   onGoBack: PropTypes.func,
   onGoForward: PropTypes.func,
@@ -19,6 +21,7 @@ const defaultProps = {
   title: '',
   webView: null,
   isLoading: false,
+  isOnTop: false,
   onToggleIsOnTop() {},
   onGoBack() {},
   onGoForward() {},
@@ -56,6 +59,7 @@ class WebWidgetHeader extends React.Component {
     const {
       webView,
       isLoading,
+      isOnTop,
       onToggleIsOnTop,
       onGoBack,
       onGoForward,
@@ -63,12 +67,15 @@ class WebWidgetHeader extends React.Component {
       onStopRefresh,
       onToggleSetting,
     } = this.props;
+    const thumbtackClassName = cx('WebWidgetHeader__thumbtack', {
+      'WebWidgetHeader__thumbtack--active': isOnTop,
+    });
 
     return (
       <div className="WebWidgetHeader__title-bar">
         <button
           type="button"
-          className="WebWidgetHeader__thumbtack"
+          className={thumbtackClassName}
           onClick={onToggleIsOnTop}
         >
           <i className="fas fa-thumbtack" />
