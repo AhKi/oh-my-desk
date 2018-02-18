@@ -9,6 +9,7 @@ exports[`<ValidationInput /> should match to snapshot when render default 1`] = 
     htmlFor=""
   >
     <input
+      autoFocus={false}
       className="ValidationInput__text-input"
       id=""
       onChange={[Function]}
