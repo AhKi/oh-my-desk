@@ -12,10 +12,16 @@
   color: #F1F1F1;
   width: 24px;
   height: 28px;
+  transform: rotate(90deg);
 
-  :hover {
-    background-color: #3f3f41;
+  &:hover {
+    background-color: #3F3F41;
+    color: black;
   }
+}
+
+.WebWidgetHeader__thumbtack--active {
+  transform: rotate(0);
 }
 
 .WebWidgetHeader__history-set {
@@ -45,7 +51,7 @@
   width: 24px;
   height: 28px;
 
-  :hover {
+  &:hover {
     background-color: #3F3F41;
     color: black;
   }
