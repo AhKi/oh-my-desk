@@ -12,6 +12,7 @@ exports[`<WebWidget /> should match to snapshot when render default 1`] = `
       onRefresh={[Function]}
       onStopRefresh={[Function]}
       onToggleIsOnTop={[Function]}
+      onToggleSetting={[Function]}
       title=""
       webView={null}
     >
@@ -137,6 +138,7 @@ exports[`<WebWidget /> should match to snapshot when render default 1`] = `
       onGoForward={[Function]}
       onRefresh={[Function]}
       onStopRefresh={[Function]}
+      onToggleSetting={[Function]}
       webView={null}
     >
       <div
@@ -205,6 +207,346 @@ exports[`<WebWidget /> should match to snapshot when render default 1`] = `
         </button>
       </div>
     </WebWidgetMobileHeader>
+    <webview
+      src="https://www.github.com"
+      style={
+        Object {
+          "display": "inline-flex",
+          "height": "100%",
+          "overflow": "auto",
+          "overflowY": "hidden",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</WebWidget>
+`;
+
+exports[`<WebWidget /> should match to snapshot when state.isSettingOpen === true 1`] = `
+<WebWidget>
+  <div
+    className="WebWidget"
+  >
+    <WebWidgetHeader
+      isLoading={false}
+      onGoBack={[Function]}
+      onGoForward={[Function]}
+      onRefresh={[Function]}
+      onStopRefresh={[Function]}
+      onToggleIsOnTop={[Function]}
+      onToggleSetting={[Function]}
+      title=""
+      webView={
+        Object {
+          "canGoBack": [Function],
+          "canGoForward": [Function],
+          "goBack": [MockFunction],
+          "goForward": [MockFunction],
+          "reload": [MockFunction],
+          "stop": [MockFunction],
+        }
+      }
+    >
+      <div
+        className="WebWidgetHeader__title-bar"
+      >
+        <button
+          className="WebWidgetHeader__thumbtack"
+          onClick={[Function]}
+          type="button"
+        >
+          <i
+            className="fas fa-thumbtack"
+          />
+        </button>
+        <div
+          className="WebWidgetHeader__history-set"
+        >
+          <HistoryGoBackButton
+            className=""
+            isCanGoBack={false}
+            isCanGoForward={false}
+            onGoBack={[Function]}
+            onGoForward={[Function]}
+          >
+            <div
+              className="HistoryGoBackButton"
+            >
+              <button
+                className="HistoryGoBackButton__btn HistoryGoBackButton__btn--go-back"
+                disabled={true}
+                onClick={[Function]}
+                type="button"
+              >
+                <i
+                  className="fas fa-arrow-left"
+                />
+              </button>
+              <button
+                className="HistoryGoBackButton__btn HistoryGoBackButton__btn--go-front"
+                disabled={true}
+                onClick={[Function]}
+                type="button"
+              >
+                <i
+                  className="fas fa-arrow-right"
+                />
+              </button>
+            </div>
+          </HistoryGoBackButton>
+          <ReloadButton
+            className="ReloadButton"
+            isLoading={false}
+            onRefresh={[Function]}
+            onStopRefresh={[Function]}
+          >
+            <div
+              className="ReloadButton className"
+            >
+              <button
+                className="ReloadButton__btn ReloadButton__btn--refresh"
+                onClick={[Function]}
+                type="button"
+              >
+                <i
+                  className="fas fa-undo"
+                />
+              </button>
+            </div>
+          </ReloadButton>
+        </div>
+        <div
+          className="WebWidgetHeader__title"
+        />
+        <div
+          className="WebWidgetHeader__button-set"
+        >
+          <button
+            className="WebWidgetHeader__button WebWidgetHeader__button-setting"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              className="fas fa-cog"
+            />
+          </button>
+          <button
+            className="WebWidgetHeader__button WebWidgetHeader__button--min"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              className="fas fa-window-minimize"
+            />
+          </button>
+          <button
+            className="WebWidgetHeader__button WebWidgetHeader__button--max"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              className="fas fa-square"
+            />
+          </button>
+          <button
+            className="WebWidgetHeader__button WebWidgetHeader__button--close"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              className="fas fa-times"
+            />
+          </button>
+        </div>
+      </div>
+    </WebWidgetHeader>
+    <WebWidgetMobileHeader
+      isLoading={false}
+      onGoBack={[Function]}
+      onGoForward={[Function]}
+      onRefresh={[Function]}
+      onStopRefresh={[Function]}
+      onToggleSetting={[Function]}
+      webView={
+        Object {
+          "canGoBack": [Function],
+          "canGoForward": [Function],
+          "goBack": [MockFunction],
+          "goForward": [MockFunction],
+          "reload": [MockFunction],
+          "stop": [MockFunction],
+        }
+      }
+    >
+      <div
+        className="WebWidgetMobileHeader"
+      >
+        <HistoryGoBackButton
+          className=""
+          isCanGoBack={false}
+          isCanGoForward={false}
+          onGoBack={[Function]}
+          onGoForward={[Function]}
+        >
+          <div
+            className="HistoryGoBackButton"
+          >
+            <button
+              className="HistoryGoBackButton__btn HistoryGoBackButton__btn--go-back"
+              disabled={true}
+              onClick={[Function]}
+              type="button"
+            >
+              <i
+                className="fas fa-arrow-left"
+              />
+            </button>
+            <button
+              className="HistoryGoBackButton__btn HistoryGoBackButton__btn--go-front"
+              disabled={true}
+              onClick={[Function]}
+              type="button"
+            >
+              <i
+                className="fas fa-arrow-right"
+              />
+            </button>
+          </div>
+        </HistoryGoBackButton>
+        <ReloadButton
+          className="ReloadButton"
+          isLoading={false}
+          onRefresh={[Function]}
+          onStopRefresh={[Function]}
+        >
+          <div
+            className="ReloadButton className"
+          >
+            <button
+              className="ReloadButton__btn ReloadButton__btn--refresh"
+              onClick={[Function]}
+              type="button"
+            >
+              <i
+                className="fas fa-undo"
+              />
+            </button>
+          </div>
+        </ReloadButton>
+        <button
+          className="WebWidgetMobileHeader__setting"
+          onClick={[Function]}
+          type="button"
+        >
+          <i
+            className="fas fa-cog"
+          />
+        </button>
+      </div>
+    </WebWidgetMobileHeader>
+    <WebWidgetSetting
+      name=""
+      onToggleSetting={[Function]}
+      url=""
+      widget={Object {}}
+    >
+      <div
+        className="WebWidgetSetting"
+      >
+        <OutsideClickHandler
+          onOutSideClick={[Function]}
+        >
+          <div
+            className="OutsideClickHandler"
+          >
+            <form>
+              <h3>
+                Edit setting
+              </h3>
+              <ValidationInput
+                autoFocus={true}
+                className="ValidationInput"
+                error=""
+                errorClassName="ValidationInput__validation-message"
+                inputClassName="ValidationInput__text-input"
+                name="Name"
+                nameClassName="ValidationInput__label"
+                onChange={[Function]}
+                placeholder=""
+                value=""
+              >
+                <div
+                  className="ValidationInput"
+                >
+                  <label
+                    className="ValidationInput__label"
+                    htmlFor="Name"
+                  >
+                    Name
+                    <input
+                      autoFocus={true}
+                      className="ValidationInput__text-input"
+                      id="Name"
+                      onChange={[Function]}
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </label>
+                </div>
+              </ValidationInput>
+              <ValidationInput
+                autoFocus={false}
+                className="ValidationInput"
+                error=""
+                errorClassName="ValidationInput__validation-message"
+                inputClassName="ValidationInput__text-input"
+                name="Url"
+                nameClassName="ValidationInput__label"
+                onChange={[Function]}
+                placeholder=""
+                value=""
+              >
+                <div
+                  className="ValidationInput"
+                >
+                  <label
+                    className="ValidationInput__label"
+                    htmlFor="Url"
+                  >
+                    Url
+                    <input
+                      autoFocus={false}
+                      className="ValidationInput__text-input"
+                      id="Url"
+                      onChange={[Function]}
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </label>
+                </div>
+              </ValidationInput>
+              <button
+                onClick={[Function]}
+                type="button"
+              >
+                Go to manage view
+              </button>
+              <input
+                onClick={[Function]}
+                type="submit"
+                value="Save"
+              />
+            </form>
+          </div>
+        </OutsideClickHandler>
+      </div>
+    </WebWidgetSetting>
     <webview
       src="https://www.github.com"
       style={
