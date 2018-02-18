@@ -65,4 +65,20 @@ describe('<WebWidgetHeader />', () => {
       expect(close).toHaveBeenCalledWith();
     });
   });
+
+  it('should call onToggleSetting when click .WebWidgetHeader__button-setting', () => {
+    const onToggleSetting = jest.fn();
+    const wrapper = shallow(
+      <WebWidgetHeader
+        webView={webView}
+        onToggleSetting={onToggleSetting}
+      />,
+    );
+    const button = wrapper.find('.WebWidgetHeader__button-setting');
+
+    button.simulate('click');
+
+    expect(onToggleSetting).toHaveBeenCalledTimes(1);
+    expect(onToggleSetting).toHaveBeenCalledWith();
+  });
 });

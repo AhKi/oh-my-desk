@@ -11,6 +11,7 @@ const propTypes = {
   onGoForward: PropTypes.func,
   onRefresh: PropTypes.func,
   onStopRefresh: PropTypes.func,
+  onToggleSetting: PropTypes.func,
 };
 const defaultProps = {
   isLoading: false,
@@ -19,6 +20,7 @@ const defaultProps = {
   onGoForward() {},
   onRefresh() {},
   onStopRefresh() {},
+  onToggleSetting() {},
 };
 
 class WebWidgetMobileHeader extends React.Component {
@@ -30,6 +32,7 @@ class WebWidgetMobileHeader extends React.Component {
       onGoForward,
       onRefresh,
       onStopRefresh,
+      onToggleSetting,
     } = this.props;
 
     return (
@@ -50,7 +53,7 @@ class WebWidgetMobileHeader extends React.Component {
         <button
           className="WebWidgetMobileHeader__setting"
           type="button"
-          onClick={() => console.log('setting')}
+          onClick={() => onToggleSetting()}
         >
           <i className="fas fa-cog" />
         </button>

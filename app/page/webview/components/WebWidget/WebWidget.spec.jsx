@@ -34,6 +34,14 @@ describe('<WebWidget />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should match to snapshot when state.isSettingOpen === true', () => {
+    const wrapper = mount(<WebWidget />);
+    wrapper.instance().webViewRef = webView;
+    wrapper.setState({ isSettingOpen: true });
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('test componentWillMount', () => {
     const componentWillMount = jest.spyOn(WebWidget.prototype, 'componentWillMount');
     const on = jest.spyOn(ipcRenderer, 'on');
@@ -201,6 +209,32 @@ describe('<WebWidget />', () => {
 
       expect(stop).toHaveBeenCalledTimes(1);
       expect(stop).toHaveBeenCalledWith();
+    });
+  });
+
+  describe('test handleToggleSettingMenu', () => {
+    const wrapper = mount(<WebWidget />);
+
+    beforeEach(() => {
+      wrapper.instance().webViewRef = webView;
+    });
+
+    it('when toggle state.isSettingOpen', () => {
+      wrapper.instance().handleToggleSettingMenu();
+      expect(wrapper.state().isSettingOpen).toBe(true);
+      wrapper.instance().webViewRef = webView;
+      wrapper.instance().handleToggleSettingMenu();
+      expect(wrapper.state().isSettingOpen).toBe(false);
+    });
+
+    it('when set state.isSettingOpen = true ', () => {
+      wrapper.instance().handleToggleSettingMenu(true);
+      expect(wrapper.state().isSettingOpen).toBe(true);
+    });
+
+    it('when set state.isSettingOpen = false', () => {
+      wrapper.instance().handleToggleSettingMenu(false);
+      expect(wrapper.state().isSettingOpen).toBe(false);
     });
   });
 });
