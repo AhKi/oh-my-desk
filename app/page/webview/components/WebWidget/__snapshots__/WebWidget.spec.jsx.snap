@@ -7,6 +7,7 @@ exports[`<WebWidget /> should match to snapshot when render default 1`] = `
   >
     <WebWidgetHeader
       isLoading={false}
+      isOnTop={false}
       onGoBack={[Function]}
       onGoForward={[Function]}
       onRefresh={[Function]}
@@ -134,6 +135,7 @@ exports[`<WebWidget /> should match to snapshot when render default 1`] = `
     </WebWidgetHeader>
     <WebWidgetMobileHeader
       isLoading={false}
+      isOpen={true}
       onGoBack={[Function]}
       onGoForward={[Function]}
       onRefresh={[Function]}
@@ -142,7 +144,7 @@ exports[`<WebWidget /> should match to snapshot when render default 1`] = `
       webView={null}
     >
       <div
-        className="WebWidgetMobileHeader"
+        className="WebWidgetMobileHeader WebWidgetModalHeader__open"
       >
         <HistoryGoBackButton
           className=""
@@ -230,6 +232,7 @@ exports[`<WebWidget /> should match to snapshot when state.isSettingOpen === tru
   >
     <WebWidgetHeader
       isLoading={false}
+      isOnTop={false}
       onGoBack={[Function]}
       onGoForward={[Function]}
       onRefresh={[Function]}
@@ -366,6 +369,7 @@ exports[`<WebWidget /> should match to snapshot when state.isSettingOpen === tru
     </WebWidgetHeader>
     <WebWidgetMobileHeader
       isLoading={false}
+      isOpen={true}
       onGoBack={[Function]}
       onGoForward={[Function]}
       onRefresh={[Function]}
@@ -383,7 +387,7 @@ exports[`<WebWidget /> should match to snapshot when state.isSettingOpen === tru
       }
     >
       <div
-        className="WebWidgetMobileHeader"
+        className="WebWidgetMobileHeader WebWidgetModalHeader__open"
       >
         <HistoryGoBackButton
           className=""
