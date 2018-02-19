@@ -15,7 +15,8 @@ or
 step 1. add comment existed issue that you want progress.
 
 step 2. agree at owner(or members) about can progress.
-**this process prevent duplication work.**
+
+**using this process is that prevent duplication work.**
  
 step 3. add or edit code checkout branch from `develop` branch
 step 4. add PR(Pull Request)
