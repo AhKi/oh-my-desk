@@ -5,11 +5,15 @@ When contributing to this repository, please first discuss the change you wish t
 ## Pull Request Process
 
 **can skip about step 1,2.** 
+
 step 1. add issue about suggestion or refactor.
+
 step 2. discussion about issue if it will progress or not.   
+
 or
 
 step 1. add comment existed issue that you want progress.
+
 step 2. agree at owner(or members) about can progress.
 **this process prevent duplication work.**
  
