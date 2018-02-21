@@ -6,7 +6,7 @@ it is using web page as a widget that desktop application.
 
 ## Getting Started 
 
-you must installed package manager like [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/lang/en/) 
+you must install package manager like [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/lang/en/) 
 
 **Install Application**
 
@@ -46,7 +46,7 @@ yarn coverage
 we manage document in this repository [wiki](https://github.com/AhKi/oh-my-desk/wiki)
 
 ## Road Map
-We have LoadMap about this project.
+We have RoadMap about this project.
 show this [RoadMap](https://github.com/AhKi/oh-my-desk/wiki/Road-Map)
 
 ## Contributing
