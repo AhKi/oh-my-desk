@@ -1,0 +1,27 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/oh-my-desk
+    docker:
+      - image: circleci/node:9.3.0
+    environment:
+      TZ: "/usr/share/zoneinfo/Asia/Seoul"
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependency
+          command: yarn install
+      - save_cache:
+          key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+          - ./node_modules
+          - ~/.yarn-cache
+      - run:
+          name: Test
+          command: yarn test:coverage --maxWorkers=2
+      - store_artifacts:
+          path: coverage
+          destination: coverage
