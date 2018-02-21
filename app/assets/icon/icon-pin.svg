@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="14px" viewBox="0 0 11 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-pin</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-147.000000, -366.000000)">
+        <path d="M153.325223,373.821865 L153.325223,378.169601 L152.788113,379.356563 L152.116725,378.169601 L152.116725,373.821865 L147.685565,373.821865 C147.685565,373.821865 147.685565,372.553496 150.773949,372.207578 L150.773949,367.364716 C150.773949,367.364716 149.028341,367.24941 148.625508,366.096348 L156.81644,366.096348 C156.81644,366.096348 156.413607,367.24941 154.667999,367.364716 L154.667999,372.207578 C154.667999,372.207578 157.622105,372.553496 157.756383,373.821865 L153.325223,373.821865 Z" id="icon-pin" fill="#3C4954"></path>
+    </g>
+</svg>
