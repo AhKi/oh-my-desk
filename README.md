@@ -1,5 +1,4 @@
-# oh-my-desk
-
+# oh-my-desk [![CircleCI](https://circleci.com/gh/AhKi/oh-my-desk.svg?style=shield&circle-token=f779ef67e3b142774ebbf79072fe2f54c617d61a)](https://circleci.com/gh/AhKi/oh-my-desk)
 The oh-my-desk is a desktop widget to using web content.<br/>
 Use every web content though widget in computer wallpaper.
 
