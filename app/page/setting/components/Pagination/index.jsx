@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Pagination.scss';
 
 const propTypes = {
   currentPage: PropTypes.number.isRequired,
@@ -52,6 +53,7 @@ class Pagination extends React.Component {
         data-name="page-button"
         key={v}
         onClick={() => onPageClick(v)}
+        className="Pagenation__num"
       >
         {v}
       </button>
@@ -62,11 +64,12 @@ class Pagination extends React.Component {
     const { currentPage, maxPage } = this.props;
 
     return (
-      <div>
+      <div className="Pagenation__box">
         <button
           type="button"
           disabled={currentPage <= 1}
           onClick={this.handlePrevPage}
+          className="Pagenation__text-disable"
         >
           <i className="fas fa-caret-left" />
           <span>prev</span>
@@ -76,8 +79,9 @@ class Pagination extends React.Component {
           type="button"
           disabled={currentPage >= maxPage}
           onClick={this.handleNextPage}
+          className="Pagenation__text-active"
         >
-          <span>next</span>
+          <span >next</span>
           <i className="fas fa-caret-right" />
         </button>
       </div>
