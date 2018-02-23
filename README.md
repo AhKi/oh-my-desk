@@ -1,5 +1,7 @@
 # oh-my-desk
 
+[![License](https://img.shields.io/badge/license-GPL%20v3-green.svg)](https://github.com/AhKi/oh-my-desk/blob/master/LICENSE)
+
 The oh-my-desk is a desktop widget to using web content.<br/>
 Use every web content though widget in computer wallpaper.
 
