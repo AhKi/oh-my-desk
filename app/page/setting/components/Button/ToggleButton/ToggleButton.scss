@@ -1,32 +1,32 @@
 .ToggleButton__wrapper {
   align-items: center;
-  background: #4D4D4D;
+  background-color: #f0f0f0;
+  border: 1px solid #d1d1d1;
   border-radius: 100px;
-  color: #fff;
   display: flex;
   justify-content: center;
-  margin: auto;
   position: relative;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.4s cubic-bezier(0.91, 0.16, 0.13, 1.1);
 }
 
 .ToggleButton__wrapper-active {
-  background-color: #19AB27;
-  color: #000;
+  background: linear-gradient(0deg, $color-light-blue, $color-blue);
+  border: 1px solid $color-blue;
 }
 
 .ToggleButton__btn {
-  background-color: #FAFAFA;
-  border: 1px solid #4D4D4D;
+  background-color: $color-white;
+  border: 1px solid #d1d1d1;
   border-radius: 50%;
-  left: 0;
+  left: -2px;
   position: absolute;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.4s cubic-bezier(0.91, 0.16, 0.13, 1.1);
 }
 
 .ToggleButton__btn-active {
-  border: 1px solid #19AB27;
-  left: 27px;
+  border: 1px solid $color-blue;
+  transform: translateX(20px);
+  box-shadow: -2px 2px 2px -1px rgba(0,26,178,0.24)
 }
 
 .ToggleButton__value {
@@ -34,12 +34,4 @@
   overflow: hidden;
   font-size: 10px;
   transform-origin: 50% 50% 0;
-}
-
-.ToggleButton__value-checked {
-  left: 20%;
-}
-
-.ToggleButton__value-un-checked {
-  left: 65%;
 }
