@@ -1,0 +1,41 @@
+.TextBtn {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  text-decoration: underline;
+  transition: 0.1s;
+
+  small & {
+    font-size: 14px;
+  }
+}
+
+.TextBtn:hover {
+  transition: 0.1s;
+}
+
+.TextBtn--blue {
+  color: $global-base-color;
+
+  &:hover {
+    color: lighten($global-base-color, 20%);
+  }
+}
+
+.TextBtn--gray {
+  color: $color-gray500;
+
+  &:hover {
+    color: $color-gray600;
+  }
+}
+
+@media (max-width: $large-break-point) {
+  .TextBtn {
+    font-size: 15px;
+  }
+
+  .TextBtn--underline-mobile {
+    text-decoration: underline;
+  }
+}

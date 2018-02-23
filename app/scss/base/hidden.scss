@@ -1,0 +1,25 @@
+.hidden {
+  display: none;
+}
+
+@media (max-width: $large-break-point) {
+
+  .hidden-tablet {
+    display: none;
+  }
+
+  .display-tablet {
+    display: inherit;
+  }
+}
+
+@media (max-width: $middle-break-point) {
+
+  .hidden-mobile {
+    display: none;
+  }
+
+  .display-mobile {
+    display: inherit;
+  }
+}

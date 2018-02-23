@@ -1,0 +1,116 @@
+// -----------------------------------
+//               무채색
+// -----------------------------------
+
+$color-white: #ffffff;
+$color-black: #000000;
+
+$color-gray20: #fdfdfd;
+$color-gray50: #f3f3f3;
+$color-gray100: #f5f5f5;
+$color-gray150: #f1f1f1;
+$color-gray200: #eeeeee;
+$color-gray250: #e4e4e4;
+$color-gray300: #e1e1e1;
+$color-gray350: #d2d2d2;
+$color-gray400: #bdbdbd;
+$color-gray500: #9e9e9e;
+$color-gray600: #757575;
+$color-gray700: #616161;
+$color-gray750: #484848;
+$color-gray800: #424242;
+$color-gray850: #292929;
+$color-gray900: #212121;
+
+// 투명도 컬러
+$color-white-opacity0: rgba(255, 255, 255, 0);
+$color-white-opacity05: rgba(255, 255, 255, 0.05);
+$color-white-opacity10: rgba(255, 255, 255, 0.1);
+$color-white-opacity20: rgba(255, 255, 255, 0.2);
+$color-white-opacity30: rgba(255, 255, 255, 0.3);
+$color-white-opacity40: rgba(255, 255, 255, 0.4);
+$color-white-opacity50: rgba(255, 255, 255, 0.5);
+$color-white-opacity60: rgba(255, 255, 255, 0.6);
+$color-white-opacity70: rgba(255, 255, 255, 0.7);
+$color-white-opacity80: rgba(255, 255, 255, 0.8);
+$color-white-opacity90: rgba(255, 255, 255, 0.9);
+
+$color-black-opacity0: rgba(0, 0, 0, 0);
+$color-black-opacity05: rgba(0, 0, 0, 0.05);
+$color-black-opacity075: rgba(0, 0, 0, 0.075);
+$color-black-opacity10: rgba(0, 0, 0, 0.1);
+$color-black-opacity20: rgba(0, 0, 0, 0.2);
+$color-black-opacity30: rgba(0, 0, 0, 0.3);
+$color-black-opacity40: rgba(0, 0, 0, 0.4);
+$color-black-opacity50: rgba(0, 0, 0, 0.5);
+$color-black-opacity60: rgba(0, 0, 0, 0.6);
+$color-black-opacity70: rgba(0, 0, 0, 0.7);
+$color-black-opacity80: rgba(0, 0, 0, 0.8);
+$color-black-opacity90: rgba(0, 0, 0, 0.9);
+
+
+// -----------------------------------
+//                유채색
+// -----------------------------------
+// - 명도 기준
+// - light < (보통) < dark < deep < shadow < dark-shadow
+
+$color-ivory: #fff5da;
+$color-light-yellow: #ffeab2;
+$color-pastel-yellow: #ffd666;
+$color-yellow: #ffcd20;
+$color-dark-yellow: #ff9800;
+$color-shadow-yellow: #6f4000;
+$color-dark-shadow-yellow: #492100;
+
+
+$color-blue-black: #383b3d;
+
+$color-orange: #ff9300;
+
+$color-light-blue: #507deb;
+$color-blue: #2e55ce;
+$color-deep-blue: #062e69;
+
+$color-indigo: #37478e;
+
+$color-red: #d00000;
+
+$color-carrot: #ff4c00;
+
+$color-dark-brown: #544e49;
+
+$color-warm-gray800: #45403c;
+
+$color-light-gray-blue: #9eb2c3;
+$color-middle-gray-blue: #4e5c65;
+$color-gray-blue: #3a4154;
+$color-dark-gray-blue: #232831;
+
+$color-cool-gray10: #fafafa;
+$color-cool-gray20: #f9fafb;
+$color-cool-gray50: #f5f8fa;
+$color-cool-gray100: #eff2f4;
+$color-cool-gray200: #ebeff3;
+$color-cool-gray300: #d5d9e2;
+$color-cool-gray400: #b7bbbe;
+$color-cool-gray500: #7a8190;
+$color-cool-gray900: #181818;
+
+// -----------------------------------
+//               외부 색
+// -----------------------------------
+
+$color-deep-indigo: #37478e;
+$color-naver-green: #4ba43e;
+$color-google: #c7122e;
+
+
+
+// -----------------------------------
+//              글로벌 컬러
+// -----------------------------------
+
+$global-text-color: $color-black;
+$global-base-color: $color-black;
+$global-primary-color: $color-cool-gray300;
