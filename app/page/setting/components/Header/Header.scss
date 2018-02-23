@@ -1,4 +1,16 @@
 .Header {
-  height: 55px;
-  border-bottom: 1px solid #4D4D4D;
+  height: 70px;
+  border-bottom: 1px solid $color-gray300;
+  padding: 0 20px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  transition: all .4s ease-in-out;
+}
+
+
+@media (max-width: 700px) {
+  .Header {
+    height: 66px;
+  }
 }
