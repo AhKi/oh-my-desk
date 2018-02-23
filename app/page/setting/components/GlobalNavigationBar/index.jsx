@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
+import logo from 'assets/logo/logo-white.svg';
+import goarrow from 'assets/icon/icon-menu-arrow.svg';
+import widgetIcon from 'assets/icon/icon-menu-widjet.svg';
+import settingIcon from 'assets/icon/icon-menu-setting.svg';
+import storeIcon from 'assets/icon/icon-menu-shopping.svg';
 import './GlobalNavigationBar.scss';
 
 const propTypes = {
@@ -43,22 +48,22 @@ class GlobalNavigationBar extends React.Component {
   render() {
     const menu = [
       {
-        icon: '',
+        icon: <img src={widgetIcon} alt="" className="GlobalNavigationBar__list-icon" />,
         path: '/widget-list',
-        name: 'Widget',
+        name: <span className="GlobalNavigationBar__list-text">Widget</span>,
         match: ['/widget-list', '/widget-setting'],
         onClick: this.props.onListClick,
       },
       {
-        icon: '',
+        icon: <img src={settingIcon} alt="" className="GlobalNavigationBar__list-icon" />,
         path: '/setting',
-        name: 'Setting',
+        name: <span className="GlobalNavigationBar__list-text">Setting</span>,
         onClick: this.props.onSettingClick,
       },
       {
-        icon: '',
+        icon: <img src={storeIcon} alt="" className="GlobalNavigationBar__list-icon" />,
         path: '/widget-store',
-        name: 'Widget store',
+        name: <span className="GlobalNavigationBar__list-text">Store</span>,
         onClick: this.props.onStoreClick,
       },
     ];
@@ -66,7 +71,7 @@ class GlobalNavigationBar extends React.Component {
     return (
       <div className="GlobalNavigationBar">
         <div className="GlobalNavigationBar__title">
-          OhMyDesk
+          <img src={logo} alt="white-logo" className="GlobalNavigationBar__logo" />
         </div>
         <ul className="GlobalNavigationBar__menu-box">
           {menu.map(v => (
@@ -81,7 +86,9 @@ class GlobalNavigationBar extends React.Component {
                   type="button"
                   onClick={v.onClick}
                 >
+                  {v.icon}
                   {v.name}
+                  <img src={goarrow} alt="go-arrow" className="GlobalNavigationBar__list-arrow" />
                 </button>
               </li>
             </Link>
