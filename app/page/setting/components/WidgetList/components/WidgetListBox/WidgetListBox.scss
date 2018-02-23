@@ -3,27 +3,52 @@
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: stretch;
-
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
   min-width: 350px;
 }
 
 .WidgetListBox__title {
-  border-bottom: 1px solid #7f7f7f;
-  color: #7f7f7f;
+  padding: 0 12px 5px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-cool-gray400;
   display: inline-block;
 }
 
+.WidgetListBox__title-box {
+  border-bottom: 1px solid $color-gray300;
+}
+
+// List labels
+.WidgetListBox__label-box {
+  display: flex;
+}
+
 .WidgetListBox__title-name {
-  width: 25%;
+  display: flex;
+  flex: 2 2 30px;
+  max-width: 160px;
 }
 
 .WidgetListBox__title-url {
-  width: 30%;
+  text-align: left;
+  display: flex;
+  flex: 3 3;
 }
 
-.WidgetListBox__title-activated,
-.WidgetListBox__title-always-top,
+.WidgetListBox__title-activated {
+  display: flex;
+  flex: 1 1 50px;
+  justify-content: center;
+}
+
+.WidgetListBox__title-always-top {
+  display: flex;
+  flex: 1 1 50px;
+  justify-content: center;
+}
+
 .WidgetListBox__title-more {
-  width: 15%;
+  display: flex;
+  flex: 1 1;
+  justify-content: flex-end;
 }
