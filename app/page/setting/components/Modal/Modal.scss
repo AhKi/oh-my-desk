@@ -17,13 +17,14 @@
 .Modal__container {
   animation-duration: 0.3s;
   animation-name: RootModal;
-  background-color: #fff;
-  border: 1px solid #e1e1e1;
+  background-color: $color-white;
   border-radius: 4px;
   box-sizing: inherit;
   display: flex;
   margin-bottom: 12px;
   overflow: auto;
+  box-shadow: 0 60px 40px -30px rgba(0,0,0,.35);
+  outline: none;
 }
 
 @keyframes RootModal {

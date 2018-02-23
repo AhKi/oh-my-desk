@@ -31,24 +31,24 @@ class DeleteConfirmWidget extends React.Component {
 
     return (
       <div className="DeleteConfirmWidget">
-        <h5 className="DeleteConfirmWidget__title">삭제 확인</h5>
-        <p className="DeleteConfirmWidget__content">
+        <h6 className="DeleteConfirmWidget__title space-2x">Confirm delete</h6>
+        <span className="DeleteConfirmWidget__content space-4x">
           Do you want delete <b>{'"'}{name}{'"'}</b> widget?
-        </p>
-        <div className="DeleteConfirmWidget__button-set">
+        </span>
+        <div className="DeleteConfirmWidget__btn-box">
           <button
-            className="Btn Btn--primary Btn-middle"
-            type="button"
-            onClick={this.handleDeleteWidget}
-          >
-            Delete
-          </button>
-          <button
-            className="Btn Btn-middle"
+            className="Btn Btn--gray Btn--sm"
             type="button"
             onClick={onClose}
           >
             Close
+          </button>
+          <button
+            className="Btn Btn--primary Btn--sm"
+            type="button"
+            onClick={this.handleDeleteWidget}
+          >
+            Delete
           </button>
         </div>
       </div>

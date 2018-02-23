@@ -103,11 +103,14 @@ class MakeWebWidget extends React.Component {
     return (
       <OutsideClickHandler onOutSideClick={onModalClose}>
         <form className="MakeWebWidget">
-          <h5 className="MakeWebWidget__title">Make new web widget</h5>
+          <h5 className="MakeWebWidget__title space-2x">Make new web widget</h5>
+          <hr className="MakeWebWidget__line space-4x" />
           <ValidationInput
             autoFocus
             error={nameError}
             name="Name"
+            nameClassName="InputSet__label"
+            inputClassName="InputSet InputSet__text-input"
             placeholder="Write your site name"
             value={widgetName}
             onChange={this.handleWidgetNameChange}
@@ -115,13 +118,15 @@ class MakeWebWidget extends React.Component {
           <ValidationInput
             error={urlError}
             name="Url"
+            nameClassName="InputSet__label"
+            inputClassName="InputSet InputSet__text-input"
             placeholder="Keep it 'http://' or 'https://'"
             value={widgetUrl}
             onChange={this.handleWidgetUrlChange}
           />
           <div className="MakeWebWidget__button-set">
             <button
-              className="Btn Btn-middle"
+              className="Btn Btn--gray Btn--sm"
               type="button"
 
               onClick={onModalClose}
@@ -129,7 +134,7 @@ class MakeWebWidget extends React.Component {
               Close
             </button>
             <input
-              className="Btn Btn--primary"
+              className="Btn Btn--primary Btn--sm"
               type="submit"
               onClick={this.handleCreateWidget}
               value="Create New Widget"
