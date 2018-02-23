@@ -1,0 +1,148 @@
+.Btn {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 4px;
+  text-align: center;
+}
+
+.Btn--gray {
+  background: linear-gradient(180deg, #F5F6FA, #EDEEF0);
+  border: 1px solid #E5E6E9;
+  color: $color-middle-gray-blue;
+  box-shadow: 0 2px 6px -1px rgba(129,129,129,0.23);
+
+  &:hover {
+    background: linear-gradient(180deg, #EDEEF0, #EDEEF0);
+  }
+}
+
+.Btn--white {
+  background-color: $color-white;
+  border: 1px solid $color-gray500;
+  color: $color-warm-gray800;
+
+  &:hover {
+    background-color: $color-cool-gray50;
+    border: 1px solid $color-gray400;
+    color: $color-gray600;
+  }
+
+  &:active {
+    background-color: $color-cool-gray200;
+  }
+}
+
+.Btn--ghost {
+  background-color: $color-white-opacity0;
+  border: 1px solid $global-base-color;
+  color: $global-text-color;
+
+  &:hover {
+    background-color: $color-black-opacity05;
+    border: 1px solid $global-base-color;
+    color: $global-text-color;
+  }
+
+  &:active {
+    background-color: $color-black-opacity05;
+    border: 1px solid $global-base-color;
+    color: $global-text-color;
+  }
+}
+
+.Btn--white-ghost {
+  background-color: $color-white-opacity0;
+  border: 1px solid $color-white;
+  color: $color-white;
+
+  //&:hover {
+  //  background-color: $color-white-opacity20;
+  //  border: 1px solid $color-white;
+  //  color: $color-white;
+  //}
+
+  &:active {
+    background-color: $color-white-opacity20;
+    border: 1px solid $color-white;
+    color: $color-white;
+  }
+}
+
+.Btn--primary {
+  background: linear-gradient(180deg, $color-light-blue, $color-blue);
+  border: 1px solid $color-blue;
+  color: $color-white;
+  box-shadow: 0 2px 6px -1px rgba(54,59,111,0.47);
+
+  &:hover {
+    background: linear-gradient(180deg, $color-blue, $color-blue);
+  }
+
+  &:active {
+    background-color: darken($global-primary-color, 12%);
+  }
+}
+
+.Btn--indigo {
+  background-color: $color-gray-blue;
+  color: $color-white;
+
+  &:hover {
+    background-color: $color-dark-gray-blue;
+  }
+
+  &:active {
+    background-color: darken($global-primary-color, 12%);
+  }
+}
+
+
+.Btn--lg {
+  max-width: 35 * $unit;
+  padding: 18px $unit 20px;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.Btn--md {
+  max-width: 20 * $unit;
+  padding: 10px $unit 15px;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.Btn--sm {
+  font-size: 14px;
+  padding: $unit $unit * 3 $unit + 2px;
+  border-radius: 3px;
+}
+
+.Btn--full {
+  width: 100%;
+}
+
+@media (max-width: 425px) {
+  .Btn--lg {
+    font-size: 15px;
+    padding: 16px $unit;
+    width: 25 * $unit;
+  }
+
+  .Btn--md {
+    font-size: 14px;
+    padding: 12px $unit;
+  }
+}
+
+// 버튼 부속
+.Btn__video-icon {
+  margin-left: -3px;
+  margin-right: 4px;
+  vertical-align: text-bottom;
+}
+
+.Btn--submit {
+  padding: 8px 50px 10px;
+
+}

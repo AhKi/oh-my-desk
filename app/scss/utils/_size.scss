@@ -1,0 +1,48 @@
+// -----------------------------------
+//              기본 수치
+// -----------------------------------
+
+// 서비스 기본 단위
+$unit: 8px;
+
+
+// -----------------------------------
+//             레이아웃 셋팅
+// -----------------------------------
+
+// break-point
+// - 가로 해상도가 값 크기 이하로 내려가면 해당 사이즈로 인식됨.
+// - 미디어 쿼리에서 사용.
+$middle-break-point: 500px;
+$large-break-point: 768px;
+
+// body-min-width
+$body-min-width: 300px;
+
+// grid-gutter
+// - 그리드 간격
+$grid-gutter: $unit * 4;
+
+// LandingContainer size
+$global-container-size: 1080px + $grid-gutter;
+
+// -----------------------------------
+//               타이포
+// -----------------------------------
+
+// 서비스 기본 폰트 사이즈
+$global-font-size: $unit * 2;
+
+// 서비스 전체 자간 letter-spacing
+$global-letter-spacing: -0.04em;
+
+// 문단 행간 line-height
+$paragraph-line-height: 1.55em;
+
+// 헤딩 행간 line-height
+$heading-line-height: 1.3em;
+
+// 텍스트 인풋의 글자 잘림 보정을 위한 행간 line-height
+$input-text-correction-line-height: 1.3em;
+
+

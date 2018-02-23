@@ -1,0 +1,334 @@
+
+.Grid {
+  margin-left: -$grid-gutter / 2;
+  margin-right: -$grid-gutter / 2;
+  @include clear-fix;
+}
+
+.Grid__col {
+  float: left;
+  padding: 0 $grid-gutter / 2;
+}
+
+// right direction 그리드
+.Grid--right .Grid__col {
+  float: right;
+}
+
+// 그리드 거터 사이즈
+// -----------------------------------
+
+.Grid--half-gutter {
+  margin-left: -$grid-gutter / 4;
+  margin-right: -$grid-gutter / 4;
+
+  .Grid__col {
+    padding: 0 $grid-gutter / 4;
+  }
+}
+
+.Grid--2x-gutter {
+  margin-left: -$grid-gutter;
+  margin-right: -$grid-gutter;
+
+  .Grid__col {
+    padding: 0 $grid-gutter;
+  }
+}
+
+.Grid--3x-gutter {
+  margin-left: -$grid-gutter * 1.5;
+  margin-right: -$grid-gutter * 1.5;
+
+  .Grid__col {
+    padding: 0 $grid-gutter * 1.5;
+  }
+}
+
+.Grid--4x-gutter {
+  margin-left: -$grid-gutter * 2;
+  margin-right: -$grid-gutter * 2;
+
+  .Grid__col {
+    padding: 0 $grid-gutter * 2;
+  }
+}
+
+.Grid--5x-gutter {
+  margin-left: -$grid-gutter * 2.5;
+  margin-right: -$grid-gutter * 2.5;
+
+  .Grid__col {
+    padding: 0 $grid-gutter * 2.5;
+  }
+}
+
+// 그리드 컬럼 사이즈
+// -----------------------------------
+.Grid__col--12 {
+  width: 100%;
+}
+
+.Grid__col--11 {
+  width: 91.66666667%;
+}
+
+.Grid__col--10 {
+  width: 83.33333333%;
+}
+
+.Grid__col--9 {
+  width: 75%;
+}
+
+.Grid__col--8 {
+  width: 66.66666667%;
+}
+
+.Grid__col--7 {
+  width: 58.33333333%;
+}
+
+.Grid__col--6 {
+  width: 50%;
+}
+
+.Grid__col--5 {
+  width: 41.66666667%;
+}
+
+.Grid__col--4 {
+  width: 33.33333333%;
+}
+
+.Grid__col--3 {
+  width: 25%;
+}
+
+.Grid__col--2-4 {
+  width: 20%;
+}
+
+.Grid__col--2 {
+  width: 16.66666667%;
+}
+
+.Grid__col--1 {
+  width: 8.33333333%;
+}
+
+.Grid__col--0 {
+  display: none;
+}
+
+@media (max-width: $large-break-point) {
+
+  // 그리드 거터 사이즈
+  .Grid--half-gutter-tablet {
+    margin-left: -$grid-gutter / 4;
+    margin-right: -$grid-gutter / 4;
+
+    .Grid__col {
+      padding: 0 $grid-gutter / 4;
+    }
+  }
+
+  .Grid--2x-gutter-tablet {
+    margin-left: -$grid-gutter;
+    margin-right: -$grid-gutter;
+
+    .Grid__col {
+      padding: 0 $grid-gutter;
+    }
+  }
+
+  .Grid--3x-gutter-tablet {
+    margin-left: -$grid-gutter * 1.5;
+    margin-right: -$grid-gutter * 1.5;
+
+    .Grid__col {
+      padding: 0 $grid-gutter * 1.5;
+    }
+  }
+
+  .Grid--4x-gutter-tablet {
+    margin-left: -$grid-gutter * 2;
+    margin-right: -$grid-gutter * 2;
+
+    .Grid__col {
+      padding: 0 $grid-gutter * 2;
+    }
+  }
+
+  .Grid--5x-gutter-tablet {
+    margin-left: -$grid-gutter * 2.5;
+    margin-right: -$grid-gutter * 2.5;
+
+    .Grid__col {
+      padding: 0 $grid-gutter * 2.5;
+    }
+  }
+
+  // 그리드 컬럼
+  .Grid__col--12-tablet {
+    width: 100%;
+  }
+
+  .Grid__col--11-tablet {
+    width: 91.66666667%;
+  }
+
+  .Grid__col--10-tablet {
+    width: 83.33333333%;
+  }
+
+  .Grid__col--9-tablet {
+    width: 75%;
+  }
+
+  .Grid__col--8-tablet {
+    width: 66.66666667%;
+  }
+
+  .Grid__col--7-tablet {
+    width: 58.33333333%;
+  }
+
+  .Grid__col--6-tablet {
+    width: 50%;
+  }
+
+  .Grid__col--5-tablet {
+    width: 41.66666667%;
+  }
+
+  .Grid__col--4-tablet {
+    width: 33.33333333%;
+  }
+
+  .Grid__col--3-tablet {
+    width: 25%;
+  }
+
+  .Grid__col--2-4-tablet {
+    width: 20%;
+  }
+
+  .Grid__col--2-tablet {
+    width: 16.66666667%;
+  }
+
+  .Grid__col--1-tablet {
+    width: 8.33333333%;
+  }
+
+  .Grid__col--0-tablet {
+    display: none;
+  }
+}
+
+@media (max-width: $middle-break-point) {
+
+  // 그리드 거터 사이즈
+  .Grid--half-gutter-mobile {
+    margin-left: -$grid-gutter / 4;
+    margin-right: -$grid-gutter / 4;
+
+    .Grid__col {
+      padding: 0 $grid-gutter / 4;
+    }
+  }
+
+  .Grid--2x-gutter-mobile {
+    margin-left: -$grid-gutter;
+    margin-right: -$grid-gutter;
+
+    .Grid__col {
+      padding: 0 $grid-gutter;
+    }
+  }
+
+  .Grid--3x-gutter-mobile {
+    margin-left: -$grid-gutter * 1.5;
+    margin-right: -$grid-gutter * 1.5;
+
+    .Grid__col {
+      padding: 0 $grid-gutter * 1.5;
+    }
+  }
+
+  .Grid--4x-gutter-mobile {
+    margin-left: -$grid-gutter * 2;
+    margin-right: -$grid-gutter * 2;
+
+    .Grid__col {
+      padding: 0 $grid-gutter * 2;
+    }
+  }
+
+  .Grid--5x-gutter-mobile {
+    margin-left: -$grid-gutter * 2.5;
+    margin-right: -$grid-gutter * 2.5;
+
+    .Grid__col {
+      padding: 0 $grid-gutter * 2.5;
+    }
+  }
+
+  // 그리드 컬럼
+  .Grid__col--12-mobile {
+    width: 100%;
+  }
+
+  .Grid__col--11-mobile {
+    width: 91.66666667%;
+  }
+
+  .Grid__col--10-mobile {
+    width: 83.33333333%;
+  }
+
+  .Grid__col--9-mobile {
+    width: 75%;
+  }
+
+  .Grid__col--8-mobile {
+    width: 66.66666667%;
+  }
+
+  .Grid__col--7-mobile {
+    width: 58.33333333%;
+  }
+
+  .Grid__col--6-mobile {
+    width: 50%;
+  }
+
+  .Grid__col--5-mobile {
+    width: 41.66666667%;
+  }
+
+  .Grid__col--4-mobile {
+    width: 33.33333333%;
+  }
+
+  .Grid__col--3-mobile {
+    width: 25%;
+  }
+
+  .Grid__col--2-4-mobile {
+    width: 20%;
+  }
+
+  .Grid__col--2-mobile {
+    width: 16.66666667%;
+  }
+
+  .Grid__col--1-mobile {
+    width: 8.33333333%;
+  }
+
+  .Grid__col--0-mobile {
+    display: none;
+  }
+}

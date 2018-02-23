@@ -1,0 +1,89 @@
+// 오버레이
+// -----------------------------------
+.Overlay {
+  left: 0;
+  overflow: visible;
+  padding: 80px 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: $z-index-overlay;
+
+  // 실질적 오버레이는 after로 처리 부모는 컨테이너의 역할
+  // 이유는 스크롤을 화면크기 이상으로 했을때 밀어내는 (띠용띠용)에서 뒷화면이 보이기때문에 fixed된 오버레이가 필요함
+  &::after {
+    background: $color-black-opacity60;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    right: 0;
+    transition: 0.3s background;
+    width: 100%;
+    z-index: -1;
+  }
+}
+
+.Overlay--hidden {
+  left: -99999px;
+
+  &::after {
+    background: $color-black-opacity0;
+    left: -99999px;
+    transition: 0.3s background, 0s 0.3s left;
+  }
+}
+
+// 고정형 모바일 창모달의 배경 덮음이
+.Overlay__mobile-modal-wrapper {
+  visibility: hidden;
+
+  &::after,
+  &::before {
+    background: $color-gray700;
+    content: "";
+    display: block;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &::before {
+    height: 70px;
+  }
+
+  &::after {
+    height: 50px;
+  }
+}
+
+.Overlay__mobile-modal-wrapper::before {
+  top: 0;
+}
+
+.Overlay__mobile-modal-wrapper::after {
+  bottom: 0;
+}
+
+@media (max-width: $tablet-break-point) {
+  .Overlay {
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: $mobile-break-point) {
+  .Overlay {
+    padding-top: 0;
+
+    &::after {
+      background: $color-gray700;
+    }
+  }
+
+  .Overlay__mobile-modal-wrapper {
+    visibility: visible;
+  }
+}

@@ -1,0 +1,32 @@
+//------------------------------
+//          space - x
+//------------------------------
+
+$max: 16;
+
+// 데스크탑
+@for $i from 0 through $max {
+  .space-#{$i}x {
+    margin-bottom: $unit * $i;
+  }
+}
+
+
+// 태블릿
+@media (max-width: $large-break-point) {
+  @for $i from 0 through $max {
+    .space-#{$i}x {
+      margin-bottom: $unit * $i;
+    }
+  }
+}
+
+
+// 모바일
+@media (max-width: $middle-break-point) {
+  @for $i from 0 through $max {
+    .space-#{$i}x {
+      margin-bottom: $unit * $i;
+    }
+  }
+}
