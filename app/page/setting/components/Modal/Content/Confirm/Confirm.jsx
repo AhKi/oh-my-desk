@@ -45,15 +45,17 @@ class Confirm extends React.Component {
 
     return (
       <div className="Confirm">
-        <h3 className="Confirm__title">{title}</h3>
-        <p className="Confirm__content">{content}</p>
-        <button
-          type="button"
-          className="Btn Btn--primary Btn-middle"
-          onClick={onModalClose}
-        >
-          {btnText}
-        </button>
+        <h6 className="Confirm__title space-2x"><strong>{title}</strong></h6>
+        <span className="Confirm__content space-4x">{content}</span>
+        <div className="Confirm__btn-box">
+          <button
+            type="button"
+            className="Btn Btn--primary Btn--sm"
+            onClick={onModalClose}
+          >
+            {btnText}
+          </button>
+        </div>
       </div>
     );
   }
