@@ -11,7 +11,7 @@ const propTypes = {
   onModalClose: PropTypes.func,
 };
 const defaultProps = {
-  cancelText: 'close',
+  cancelText: 'cancel',
   confirmText: 'ok',
   content: '',
   title: '',
@@ -41,22 +41,24 @@ class ConfirmCheck extends React.Component {
 
     return (
       <div className="ConfirmCheck">
-        <h3 className="ConfirmCheck__title">{title}</h3>
-        <p className="ConfirmCheck__content">{content}</p>
-        <button
-          type="button"
-          className="Btn Btn--primary Btn-middle"
-          onClick={this.handleConfirm}
-        >
-          {confirmText}
-        </button>
-        <button
-          type="button"
-          className="Btn Btn--primary Btn-middle"
-          onClick={onModalClose}
-        >
-          {cancelText}
-        </button>
+        <h6 className="ConfirmCheck__title space-2x"><strong>{title}</strong></h6>
+        <span className="ConfirmCheck__content space-4x">{content}</span>
+        <div className="ConfirmCheck__btn-box">
+          <button
+            type="button"
+            className="Btn Btn--gray Btn--sm"
+            onClick={onModalClose}
+          >
+            {cancelText}
+          </button>
+          <button
+            type="button"
+            className="Btn Btn--primary Btn--sm ConfirmCheck__btn"
+            onClick={this.handleConfirm}
+          >
+            {confirmText}
+          </button>
+        </div>
       </div>
     );
   }

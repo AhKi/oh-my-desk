@@ -5,3 +5,27 @@
   text-align: center;
 }
 
+
+.ConfirmCheck__title {
+  text-align: center;
+  font-weight: 600;
+  color: $color-middle-gray-blue;
+}
+
+.ConfirmCheck__content {
+  font-weight: 400;
+  font-size: 13px;
+  color: $color-middle-gray-blue;
+  display: inline-block;
+  text-align: center;
+}
+
+.ConfirmCheck__btn {
+  display: flex;
+  justify-content: center;
+}
+
+.ConfirmCheck__btn-box {
+  display: flex;
+  justify-content: center;
+}

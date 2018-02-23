@@ -8,15 +8,18 @@
 .DeleteConfirmWidget__title {
   text-align: center;
   font-weight: 600;
-  margin-bottom: 16px;
+  color: $color-middle-gray-blue;
 }
 
 .DeleteConfirmWidget__content {
+  font-weight: 400;
+  font-size: 13px;
+  color: $color-middle-gray-blue;
+  display: inline-block;
   text-align: center;
-  font-size: 15px;
 }
 
-.DeleteConfirmWidget__button-set {
-  text-align: center;
-  margin-top: 15px;
+.DeleteConfirmWidget__btn-box {
+  display: flex;
+  justify-content: center;
 }

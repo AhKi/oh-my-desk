@@ -1,17 +1,21 @@
 .MakeWebWidget {
-  width: 350px;
-  height: 400px;
+  width: 517px;
   padding: 25px;
   font-family: Noto Sans CJK KR Subset,sans-serif;
 }
 
 .MakeWebWidget__title {
-  text-align: center;
+  text-align: left;
   font-weight: 600;
-  margin-bottom: 15px;
+  color: $color-middle-gray-blue;
 }
 
 .MakeWebWidget__button-set {
-  text-align: center;
-  margin: 15px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px;
+}
+
+.MakeWebWidget__line {
+  border-top: 1px solid $color-gray300;
 }
