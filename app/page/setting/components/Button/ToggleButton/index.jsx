@@ -19,7 +19,7 @@ const propTypes = {
 const defaultProps = {
   checkedValue: <i className="fa fa-check" />,
   unCheckedValue: <i className="fa fa-times" />,
-  width: 50,
+  width: 40,
   onToggle() {},
 };
 
@@ -55,9 +55,8 @@ function ToggleButton(props) {
       <div
         className={buttonClassName}
         style={{
-          width: halfWidth - 2,
-          height: halfWidth - 2,
-          left: isCheck ? halfWidth : 0,
+          width: halfWidth + 2,
+          height: halfWidth + 2,
         }}
       />
     </div>
