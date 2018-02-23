@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { Link } from 'react-router-dom';
 
+import moreIcon from 'assets/icon/icon-more.svg';
+import editIcon from 'assets/icon/icon-edit.svg';
+import deleteIcon from 'assets/icon/icon-delete.svg';
+import pinIcon from 'assets/icon/icon-pin.svg';
 import ToggleButton from 'setting/components/Button/ToggleButton';
 import OutsideClickHandler from 'components/OutsideClickHandler';
 import * as IPC from 'constants/ipc';
@@ -97,7 +101,7 @@ class WidgetListItem extends React.Component {
         <li className="WidgetListItem__list WidgetListItem__list-name">
           {item.name}
         </li>
-        <li className="WidgetListItem__list">
+        <li className="WidgetListItem__list WidgetListItem__list-url">
           <button
             className="WidgetListItem__button"
             type="button"
@@ -116,10 +120,11 @@ class WidgetListItem extends React.Component {
         </li>
         <li className="WidgetListItem__list WidgetListItem__list-always-top">
           <button
-            className="WidgetListItem__button"
+            className="WidgetListItem__pin-button"
             type="button"
             onClick={this.handleToggleAlwaysTop}
           >
+            <img src={pinIcon} alt="" className="WidgetListItem__pin" />
             {item.isOnTop ? 'pin up' : 'unpin'}
           </button>
         </li>
@@ -127,39 +132,40 @@ class WidgetListItem extends React.Component {
           {isActiveMore ?
             <OutsideClickHandler onOutSideClick={() => this.handleToggleMore(false)}>
               <button
-                className="WidgetListItem__button"
+                className="WidgetListItem__pin-button-active"
                 data-name="outside-inner-more-btn"
                 type="button"
                 onClick={() => this.handleToggleMore()}
               >
-                {'···'}
+                <img src={moreIcon} alt="" />
               </button>
               <ul className="WidgetListItem__more-menu">
                 <Link
-                  className="WidgetListItem__more-list"
+                  className="WidgetListItem__more-list-btn"
                   to="/widget-setting"
                   onClick={this.handleSelectItem}
                 >
-                  edit <i className="fas fa-pencil-alt" />
+                  edit <img src={editIcon} alt="" />
                 </Link>
-                <li className="WidgetListItem__more-list">
+                <li>
                   <button
-                    className="WidgetListItem__button"
+                    className="WidgetListItem__more-list-btn"
+                    data-name="outside-inner-more-btn"
                     type="button"
                     onClick={this.handleOpenDeleteModal}
                   >
-                    remove <i className="fas fa-trash-alt" />
+                    remove <img src={deleteIcon} alt="" />
                   </button>
                 </li>
               </ul>
             </OutsideClickHandler> :
             <button
-              className="WidgetListItem__button"
+              className="WidgetListItem__pin-button"
               data-name="more-btn"
               type="button"
               onClick={() => this.handleToggleMore()}
             >
-              {'···'}
+              <img src={moreIcon} alt="" />
             </button>
           }
         </li>

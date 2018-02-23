@@ -98,16 +98,17 @@ class WidgetList extends React.Component {
     return (
       <div className="WidgetList">
         <Header>
-          <h1>Widget manage</h1>
-          <Select
-            items={filterList}
-            value={filter}
-            onChange={this.handleSelectFilter}
-          />
+          <h6>Widget manage</h6>
         </Header>
         <div className="WidgetList__content">
-          <div className="WidgetList__content-header">
-            <h4>widget</h4>
+          <div className="WidgetList__content-header space-5x">
+            <p>Activated widget</p>
+            <Select
+              items={filterList}
+              value={filter}
+              onChange={this.handleSelectFilter}
+              className="Select"
+            />
           </div>
           <WidgetListBox
             list={list}
@@ -116,13 +117,15 @@ class WidgetList extends React.Component {
             onUpdateInfoWithIPC={onUpdateInfoWithIPC}
             onModalOpen={onModalOpen}
           />
-          <button
-            className="WidgetList__add-btn"
-            type="button"
-            onClick={this.handleOpenModal}
-          >
-            <b>+ Add New Widget</b>
-          </button>
+          <div className="WidgetList__btn-box">
+            <button
+              className="Btn Btn--primary Btn--md"
+              type="button"
+              onClick={this.handleOpenModal}
+            >
+              <b>+ Add New Widget</b>
+            </button>
+          </div>
         </div>
         <Pagination
           currentPage={currentPage}
