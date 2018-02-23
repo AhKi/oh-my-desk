@@ -1,0 +1,18 @@
+.Container {
+  margin: auto;
+  max-width: 980px;
+  padding: 0 $unit * 2;
+}
+
+@media (max-width: $large-break-point) {
+  .Container {
+    padding: 0 $unit * 3;
+  }
+}
+
+
+@media (max-width: $middle-break-point) {
+  .Container {
+    padding: 0 $unit * 2;
+  }
+}

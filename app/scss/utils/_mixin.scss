@@ -1,0 +1,19 @@
+// 클리어 픽스
+@mixin clear-fix() {
+
+  &::before,
+  &::after {
+    content: " ";
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+
+// 플레이스 홀더 스타일러
+@mixin placeholder-styler {
+  &::placeholder {@content}
+}

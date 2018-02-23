@@ -1,0 +1,183 @@
+.InputSet {
+  text-align: left;
+}
+
+// 인풋 라벨
+// -----------------------------------
+.InputSet__label {
+  font-weight: 700;
+  text-align: left;
+  font-size: 13px;
+  color: $color-dark-gray-blue;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.InputSet__label-text {
+  width: 100px;
+}
+
+.InputSet__label--disabled {
+  color: $color-gray500;
+}
+
+.InputSet__guide-label {
+  color: $color-gray700;
+  font-weight: 400;
+  margin-left: 6px;
+}
+
+// 텍스트 인풋, 셀렉트 인풋, 텍스트에어리어
+// -----------------------------------
+
+.InputSet__text-input,
+.InputSet__text-area {
+  font-size: 15px;
+  border: 1px solid $color-gray250;
+  border-radius: 3px;
+  color: $global-text-color;
+  transition: all 0.2s;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: inset 1px 1px 3px 0 rgba(0,0,0,0.06);
+  margin-right: 8px;
+
+  &::placeholder {
+    color: $color-gray-blue;
+    opacity: 0.5;
+  }
+
+  &:disabled {
+    background: $color-gray50;
+    border: 1px solid $color-gray300;
+    box-shadow: none;
+    color: $color-gray500;
+  }
+
+  &:focus {
+    border: 1px solid $color-light-gray-blue;
+    outline: none;
+  }
+}
+
+.InputSet__text-input {
+  background: $color-white;
+  height: auto;
+  padding: $unit * 1.5;
+}
+
+.InputSet__text-area {
+  min-height: 78px;
+  padding: $unit * 1.5;
+}
+
+.InputSet__select-box {
+  background: $color-white;
+  display: inline-block;
+  position: relative;
+  z-index: 0;
+
+  &::before {
+    border-color: $color-gray800 transparent transparent;
+    border-style: solid;
+    border-width: 7px 5px 0;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    right: 13px;
+    top: 21px;
+    width: 0;
+    z-index: -1;
+  }
+}
+
+.InputSet__select {
+  border: 1px solid $color-cool-gray300;
+  border-radius: 0;
+  color: $global-text-color;
+  padding: $unit * 1.5;
+  transition: all 0.2s;
+  width: 150px;
+
+  &:focus {
+    background-color: $color-cool-gray20;
+    box-shadow: 0 0 7px $color-deep-blue;
+    outline: none;
+  }
+}
+
+// 유효성에 걸린 인풋셋
+// -----------------------------------
+.InputSet--invalid {
+
+  .InputSet__text-input,
+  .InputSet__text-area {
+    border: 1px solid $color-red;
+  }
+
+  .InputSet__invalidity-message {
+    display: block;
+  }
+}
+
+// 디바이딩 인풋
+.InputSet__dividing-inputs-group {
+  @include clear-fix;
+  margin: 0 -3px;
+}
+
+.InputSet__dividing-input--half,
+.InputSet__dividing-input--third,
+.InputSet__dividing-input--quarter,
+.InputSet__dividing-input--fifth {
+  float: left;
+  margin: 0 3px;
+}
+
+.InputSet__dividing-input--half {
+  width: calc(50% - 6px);
+}
+
+.InputSet__dividing-input--third {
+  width: calc(33.33% - 6px);
+}
+
+.InputSet__dividing-input--quarter {
+  width: calc(25% - 6px);
+}
+
+.InputSet__dividing-input--fifth {
+  width: calc(20% - 6px);
+}
+
+// 암호 인풋의 플레이스홀더 스타일
+.InputSet__text-input--placeholder-star {
+  @include placeholder-styler {
+    //font-family: "fontello";
+  }
+}
+
+// 유효성 메세지
+// -----------------------------------
+.InputSet__invalidity-message {
+  color: $color-red;
+  display: none;
+  padding-left: 6px;
+}
+
+// 테마
+// -----------------------------------
+.InputSet--theme-editor {
+
+  .InputSet__text-input,
+  .InputSet__text-area {
+    background: $color-gray50;
+    border: 1px solid $color-gray300;
+
+    @include placeholder-styler {
+      color: $color-gray600;
+    }
+  }
+}
