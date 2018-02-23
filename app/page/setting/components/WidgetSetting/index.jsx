@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import backIcon from 'assets/icon/icon-menu-back-list.svg';
 import Header from 'setting/components/Header';
 import * as MODAL from 'constants/modal';
 import EditSetting from './components/EditSetting';
@@ -62,6 +64,8 @@ class WidgetSetting extends React.Component {
 
   handleCancelEdit() {
     this.props.onModalOpen(MODAL.CONFIRM_CHECK, {
+      title: 'Back to list',
+      content: 'If you did not press the Save button, the changes will not be maintained.',
       onConfirm: () => {
         this.props.history.push('/widget-list');
       },
@@ -101,7 +105,7 @@ class WidgetSetting extends React.Component {
     this.setState({ initialInfo: info });
     this.props.onStoreWidgetInfo(info.id, info);
     this.props.onModalOpen(MODAL.CONFIRM, {
-      title: 'success',
+      title: 'Save complete',
       content: 'Widget Setting is Changed',
     });
     this.hideInput.focus();
@@ -111,23 +115,19 @@ class WidgetSetting extends React.Component {
     const { onStoreWidgetInfo } = this.props;
 
     return (
-      <div>
-        <input
-          style={{ width: 0, height: 0 }}
-          type="text"
-          ref={(ref) => { this.hideInput = ref; }}
-        />
+      <div className="WidgetEdit">
         <Header>
           <button
+            className="WidgetEdit__header-back-btn"
             type="button"
             onClick={this.handleMoveWidgetList}
           >
-            <i className="fas fa-arrow-left" />
+            <img src={backIcon} alt="" />
+            <h6 className="WidgetEdit__header-text"><strong>Back to List</strong></h6>
           </button>
-          Back to List
         </Header>
         <form
-          className="WidgetSetting__content"
+          className="WidgetEdit__content"
           onSubmit={this.handleSubmit}
         >
           <EditSetting
@@ -140,17 +140,20 @@ class WidgetSetting extends React.Component {
             onChangeHeight={this.handleChangeSizeHeight}
             onChangeWidth={this.handleChangeSizeWidth}
           />
-          <button
-            className=""
-            type="button"
-            onClick={this.handleCancelEdit}
-          >
-            {'<'} back
-          </button>
-          <input
-            type="submit"
-            value="Save"
-          />
+          <div className="WidgetEdit__btn-box">
+            <button
+              className="Btn Btn--gray Btn--sm"
+              type="button"
+              onClick={this.handleCancelEdit}
+            >
+              {'<'} back
+            </button>
+            <input
+              className="Btn Btn--primary Btn--sm Btn--submit"
+              type="submit"
+              value="Save"
+            />
+          </div>
         </form>
       </div>
     );
