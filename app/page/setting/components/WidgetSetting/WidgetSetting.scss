@@ -1,3 +1,56 @@
-.WidgetSetting__content {
-  padding: 10px;
+.WidgetEdit {
+  color: $color-middle-gray-blue;
+}
+
+
+// header - back Btn
+.WidgetEdit__header-back-btn {
+  display: flex;
+  align-items: center;
+  color: $color-middle-gray-blue;
+}
+
+.WidgetEdit__header-text {
+  margin-left: 20px;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+// Edit contents box
+.WidgetEdit__content {
+  padding: 28px 40px;
+}
+
+
+.WidgetEdit__toggle-label {
+  font-weight: 700;
+  text-align: left;
+  font-size: 13px;
+  color: $color-dark-gray-blue;
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.WidgetEdit__toggle-btn {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+}
+
+.InputSet__toggle-description {
+  font-weight: 400;
+  font-size: 13px;
+  color: $color-middle-gray-blue;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.WidgetEdit__btn-box {
+  display: flex;
+  justify-content: center;
 }
