@@ -48,7 +48,7 @@ function ValidationInput(props) {
         htmlFor={name}
         className={nameClassName}
       >
-        {name}
+        <span className="InputSet__label-text">{name}</span>
         <input
           autoFocus={autoFocus} // eslint-disable-line jsx-a11y/no-autofocus
           id={name}
