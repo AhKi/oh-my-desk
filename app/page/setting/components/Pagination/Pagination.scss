@@ -1,0 +1,26 @@
+.Pagenation__box {
+  text-align: center;
+}
+
+
+.Pagenation__num {
+  color: $color-gray-blue;
+}
+
+.fa-caret-left {
+  padding-right: 8px;
+}
+
+.fa-caret-right {
+  padding-left: 8px;
+}
+
+.Pagenation__text-disable {
+  color: $color-gray350;
+  padding: 0 12px;
+}
+
+.Pagenation__text-active {
+  color: $color-middle-gray-blue;
+  padding: 0 12px;
+}
