@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './EditSize.scss';
 
 const propTypes = {
   item: PropTypes.shape({
@@ -22,15 +23,16 @@ class EditSize extends React.Component {
     const { item, onChangeHeight, onChangeWidth } = this.props;
 
     return (
-      <div className="EditSize">
-        <h4 className="EditSize__header">Edit setting</h4>
-        <h5 className="EditSize__sub-header">
+      <div className="EditSize space-6x">
+        <p className="EditSize__header space-1x"><strong>Web widget size</strong></p>
+        <span className="EditSize-description space-4x">
           The size is preserved when the widget is switched off and on.
-        </h5>
-        <div>
-          <label htmlFor="width-input">
-            Width
+        </span>
+        <div className="EditSize__content">
+          <label htmlFor="width-input" className="InputSet__label">
+            <span className="InputSet__label-text">Width</span>
             <input
+              className="EditSize__text-input"
               id="width-input"
               type="number"
               value={item.size.width || ''}
@@ -38,9 +40,10 @@ class EditSize extends React.Component {
             />
             px
           </label>
-          <label htmlFor="height-input">
-            Height
+          <label htmlFor="height-input" className="InputSet__label">
+            <span className="InputSet__label-text">Height</span>
             <input
+              className="EditSize__text-input"
               id="height-input"
               type="number"
               value={item.size.height || ''}

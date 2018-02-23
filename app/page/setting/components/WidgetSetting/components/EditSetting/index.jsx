@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ToggleButton from 'setting/components/Button/ToggleButton';
+import './EditSetting.scss';
 
 const propTypes = {
   item: PropTypes.shape({
@@ -68,46 +69,52 @@ class EditSetting extends React.Component {
     const { item } = this.props;
 
     return (
-      <div className="EditSetting">
-        <h4 className="EditSetting__header">Edit setting</h4>
-        <div>
-          <label htmlFor="name-input">
-            Name
+      <div className="EditSetting space-6x">
+        <p className="space-2x"><strong>Edit setting</strong></p>
+        <div className="EditSetting__content">
+          <label htmlFor="name-input" className="InputSet__label">
+            <span className="InputSet__label-text">Name</span>
             <input
+              className="InputSet InputSet__text-input"
               id="name-input"
               type="text"
               value={item.name}
               onChange={this.handleChangeName}
             />
           </label>
-          <label htmlFor="url-input">
-            Url
+          <label htmlFor="url-input" className="InputSet__label">
+            <span className="InputSet__label-text">Url</span>
             <input
+              className="InputSet InputSet__text-input"
               id="url-input"
               type="text"
               value={item.url}
               onChange={this.handleChangeUrl}
             />
           </label>
-          <div>
-            Activated
-            <ToggleButton
-              checkedValue={null}
-              unCheckedValue={null}
-              isCheck={item.isActive}
-              onToggle={this.handleToggleIsActive}
-            />
-            Runs the Web widget.
+          <div className="WidgetEdit__toggle-label">
+            <span className="InputSet__label-text">Activated</span>
+            <div className="WidgetEdit__toggle-btn">
+              <ToggleButton
+                checkedValue={null}
+                unCheckedValue={null}
+                isCheck={item.isActive}
+                onToggle={this.handleToggleIsActive}
+              />
+              <span className="InputSet__toggle-description">Runs the Web widget.</span>
+            </div>
           </div>
-          <div>
-            Always top
-            <ToggleButton
-              checkedValue={null}
-              unCheckedValue={null}
-              isCheck={item.isOnTop}
-              onToggle={this.handleToggleIsOnTop}
-            />
-            Always pin the Web widget up.
+          <div className="WidgetEdit__toggle-label">
+            <span className="InputSet__label-text">Always Top</span>
+            <div className="WidgetEdit__toggle-btn">
+              <ToggleButton
+                checkedValue={null}
+                unCheckedValue={null}
+                isCheck={item.isOnTop}
+                onToggle={this.handleToggleIsOnTop}
+              />
+              <span className="InputSet__toggle-description">Always pin the Web widget up.</span>
+            </div>
           </div>
         </div>
       </div>
