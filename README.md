@@ -1,4 +1,6 @@
 # oh-my-desk
+[![License](https://img.shields.io/badge/license-GPL%20v3-green.svg)](https://github.com/AhKi/oh-my-desk/blob/master/LICENSE)
+
 it is using web page as a widget that desktop application.
 
 ## OverView
