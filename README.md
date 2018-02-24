@@ -1,5 +1,4 @@
-# oh-my-desk [![CircleCI](https://circleci.com/gh/AhKi/oh-my-desk.svg?style=shield&circle-token=f779ef67e3b142774ebbf79072fe2f54c617d61a)](https://circleci.com/gh/AhKi/oh-my-desk)
-it is using web page as a widget that desktop application.
+# oh-my-desk [![CircleCI](https://circleci.com/gh/AhKi/oh-my-desk.svg?style=shield&circle-token=f779ef67e3b142774ebbf79072fe2f54c617d61a)](https://circleci.com/gh/AhKi/oh-my-desk) [![License](https://img.shields.io/badge/license-GPL%20v3-green.svg)](https://github.com/AhKi/oh-my-desk/blob/master/LICENSE)
 
 ## OverView
 [.gif파일]
