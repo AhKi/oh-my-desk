@@ -3,7 +3,7 @@
     "app/**/*.{js,jsx}"
   ],
   "moduleNameMapper": {
-    "\\.(css|scss|jpg)$": "<rootDir>/app/__mocks__/styleMock.js",
+    "\\.(css|scss|jpg|svg)$": "<rootDir>/app/__mocks__/styleMock.js",
     "^components(.*)$": "<rootDir>/app/components$1",
     "^constants(.*)$": "<rootDir>/app/constants$1",
     "^page(.*)$": "<rootDir>/app/page$1",
