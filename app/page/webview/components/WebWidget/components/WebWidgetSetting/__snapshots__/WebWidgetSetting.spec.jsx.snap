@@ -8,17 +8,21 @@ exports[`<WebWidgetSetting /> should match to snapshot when render default 1`] =
     onOutSideClick={[Function]}
   >
     <form>
-      <h3>
-        Edit setting
-      </h3>
+      <h6
+        className="WebWidgetSetting__title space-3x"
+      >
+        <strong>
+          Edit setting
+        </strong>
+      </h6>
       <ValidationInput
         autoFocus={true}
         className="ValidationInput"
         error=""
         errorClassName="ValidationInput__validation-message"
-        inputClassName="ValidationInput__text-input"
+        inputClassName="InputSet InputSet__text-input"
         name="Name"
-        nameClassName="ValidationInput__label"
+        nameClassName="ValidationInput__label InputSet__label"
         onChange={[Function]}
         placeholder=""
         value=""
@@ -28,24 +32,30 @@ exports[`<WebWidgetSetting /> should match to snapshot when render default 1`] =
         className="ValidationInput"
         error=""
         errorClassName="ValidationInput__validation-message"
-        inputClassName="ValidationInput__text-input"
+        inputClassName="InputSet InputSet__text-input"
         name="Url"
-        nameClassName="ValidationInput__label"
+        nameClassName="ValidationInput__label InputSet__label"
         onChange={[Function]}
         placeholder=""
         value=""
       />
-      <button
-        onClick={[Function]}
-        type="button"
+      <div
+        className="WebWidgetSetting__btn-box"
       >
-        Go to manage view
-      </button>
-      <input
-        onClick={[Function]}
-        type="submit"
-        value="Save"
-      />
+        <button
+          className="TextBtn TextBtn--blue WebWidgetSetting__text-btn"
+          onClick={[Function]}
+          type="button"
+        >
+          Go to manage view
+        </button>
+        <input
+          className="Btn Btn--primary Btn--sm"
+          onClick={[Function]}
+          type="submit"
+          value="Save"
+        />
+      </div>
     </form>
   </OutsideClickHandler>
 </div>

@@ -4,27 +4,29 @@ exports[`<WebWidgetMobileHeader /> should match to snapshot when render default 
 <div
   className="WebWidgetMobileHeader"
 >
-  <HistoryGoBackButton
-    className=""
-    isCanGoBack={false}
-    isCanGoForward={false}
-    onGoBack={[Function]}
-    onGoForward={[Function]}
-  />
-  <ReloadButton
-    className="ReloadButton"
-    isLoading={false}
-    onRefresh={[Function]}
-    onStopRefresh={[Function]}
-  />
+  <div
+    className="WebWidgetMobileHeader__front_btn"
+  >
+    <HistoryGoBackButton
+      className=""
+      isCanGoBack={false}
+      isCanGoForward={false}
+      onGoBack={[Function]}
+      onGoForward={[Function]}
+    />
+    <ReloadButton
+      className="ReloadButton"
+      isLoading={false}
+      onRefresh={[Function]}
+      onStopRefresh={[Function]}
+    />
+  </div>
   <button
     className="WebWidgetMobileHeader__setting"
     onClick={[Function]}
     type="button"
   >
-    <i
-      className="fas fa-cog"
-    />
+    <WidgetSettingIcon />
   </button>
 </div>
 `;

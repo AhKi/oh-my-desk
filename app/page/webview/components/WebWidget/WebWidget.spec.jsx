@@ -12,6 +12,7 @@ describe('<WebWidget />', () => {
     goForward() {},
     reload() {},
     stop() {},
+    isMaximized() {},
   };
   const ipcRenderer = {
     on: () => {},
