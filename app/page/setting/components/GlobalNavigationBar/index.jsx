@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
 import logo from 'assets/logo/logo-white.svg';
-import goArrow from 'assets/icon/icon-menu-arrow.svg';
-import widgetIcon from 'assets/icon/icon-menu-widjet.svg';
-import settingIcon from 'assets/icon/icon-menu-setting.svg';
-import storeIcon from 'assets/icon/icon-menu-shopping.svg';
+import WidgetIcon from 'assets/icon/icon-menu-widget';
+import StoreIcon from 'assets/icon/icon-menu-store';
+import SettingIcon from 'assets/icon/icon-menu-setting';
+import ArrowIcon from 'assets/icon/icon-menu-arrow';
 import './GlobalNavigationBar.scss';
 
 const propTypes = {
@@ -69,20 +69,20 @@ class GlobalNavigationBar extends React.Component {
     });
     const menu = [
       {
-        icon: widgetIcon,
+        icon: WidgetIcon,
         path: '/widget-list',
         name: <span className="GlobalNavigationBar__list-text">Widget</span>,
         match: ['/widget-list', '/widget-setting'],
         onClick: this.props.onListClick,
       },
       {
-        icon: settingIcon,
+        icon: SettingIcon,
         path: '/setting',
         name: <span className="GlobalNavigationBar__list-text">Setting</span>,
         onClick: this.props.onSettingClick,
       },
       {
-        icon: storeIcon,
+        icon: StoreIcon,
         path: '/widget-store',
         name: <span className="GlobalNavigationBar__list-text">Store</span>,
         onClick: this.props.onStoreClick,
@@ -95,33 +95,37 @@ class GlobalNavigationBar extends React.Component {
           <img src={logo} alt="white-logo" className="GlobalNavigationBar__logo" />
         </div>
         <ul className="GlobalNavigationBar__menu-box">
-          {menu.map(v => (
-            <Link to={v.path} key={v.path}>
-              <li className={GlobalNavigationBar.listClassName(
-                this.props.match.path,
-                v.match || v.path,
-              )}
-              >
-                <button
-                  className="GlobalNavigationBar__list-btn"
-                  type="button"
-                  onClick={v.onClick}
+          {menu.map((v) => {
+            const Icon = v.icon;
+
+            return (
+              <Link to={v.path} key={v.path}>
+                <li className={GlobalNavigationBar.listClassName(
+                  this.props.match.path,
+                  v.match || v.path,
+                )}
                 >
-                  <img
-                    className={iconClassName(match.path, v.match || v.path)}
-                    src={v.icon}
-                    alt=""
-                  />
-                  {v.name}
-                  <img
-                    src={goArrow}
-                    alt="go-arrow"
-                    className={arrowClassName(match.path, v.match || v.path)}
-                  />
-                </button>
-              </li>
-            </Link>
-          ))}
+                  <button
+                    className="GlobalNavigationBar__list-btn"
+                    type="button"
+                    onClick={v.onClick}
+                  >
+                    <Icon
+                      className={iconClassName(match.path, v.match || v.path)}
+                    />
+                    <img
+                      src={v.icon}
+                      alt=""
+                    />
+                    {v.name}
+                    <ArrowIcon
+                      className={arrowClassName(match.path, v.match || v.path)}
+                    />
+                  </button>
+                </li>
+              </Link>
+            );
+          })}
         </ul>
       </div>
     );

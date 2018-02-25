@@ -49,6 +49,17 @@ $GNB-background-color: #424242;
 .GlobalNavigationBar__list-icon {
   display: inline-block;
   flex-grow: 1;
+  path,
+  polygon {
+    fill: $color-light-gray-blue;
+  }
+}
+
+.GlobalNavigationBar__list-icon--active {
+  path,
+  polygon {
+    fill: $color-white;
+  }
 }
 
 .GlobalNavigationBar__list-text {
@@ -57,6 +68,20 @@ $GNB-background-color: #424242;
 }
 
 .GlobalNavigationBar__list-arrow {
+  flex-grow: 2;
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+  path {
+    fill: $color-dark-gray-blue;
+  }
+}
+
+.GlobalNavigationBar__list-arrow--active {
+  path {
+    fill: $color-cool-gray50;
+  }
+
   flex-grow: 2;
   display: flex;
   justify-content: flex-end;
