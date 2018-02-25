@@ -4,18 +4,24 @@ exports[`<Confirm /> should match to snapshot when render default 1`] = `
 <div
   className="Confirm"
 >
-  <h3
-    className="Confirm__title"
-  />
-  <p
-    className="Confirm__content"
-  />
-  <button
-    className="Btn Btn--primary Btn-middle"
-    onClick={[Function]}
-    type="button"
+  <h6
+    className="Confirm__title space-2x"
   >
-    OK
-  </button>
+    <strong />
+  </h6>
+  <span
+    className="Confirm__content space-4x"
+  />
+  <div
+    className="Confirm__btn-box"
+  >
+    <button
+      className="Btn Btn--primary Btn--sm"
+      onClick={[Function]}
+      type="button"
+    >
+      OK
+    </button>
+  </div>
 </div>
 `;

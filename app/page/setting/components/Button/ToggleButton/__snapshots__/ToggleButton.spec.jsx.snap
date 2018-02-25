@@ -6,8 +6,8 @@ exports[`<ToggleButton /> should match to snapshot when isCheck === false 1`] = 
   onClick={[Function]}
   style={
     Object {
-      "height": 25,
-      "width": 50,
+      "height": 20,
+      "width": 40,
     }
   }
 >
@@ -29,9 +29,8 @@ exports[`<ToggleButton /> should match to snapshot when isCheck === false 1`] = 
     className="ToggleButton__btn"
     style={
       Object {
-        "height": 23,
-        "left": 0,
-        "width": 23,
+        "height": 22,
+        "width": 22,
       }
     }
   />
@@ -44,8 +43,8 @@ exports[`<ToggleButton /> should match to snapshot when render default 1`] = `
   onClick={[Function]}
   style={
     Object {
-      "height": 25,
-      "width": 50,
+      "height": 20,
+      "width": 40,
     }
   }
 >
@@ -67,9 +66,8 @@ exports[`<ToggleButton /> should match to snapshot when render default 1`] = `
     className="ToggleButton__btn ToggleButton__btn-active"
     style={
       Object {
-        "height": 23,
-        "left": 25,
-        "width": 23,
+        "height": 22,
+        "width": 22,
       }
     }
   />

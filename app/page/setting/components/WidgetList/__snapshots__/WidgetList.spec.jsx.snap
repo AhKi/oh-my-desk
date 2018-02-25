@@ -5,30 +5,31 @@ exports[`<WidgetList /> should match to snapshot when render default 1`] = `
   className="WidgetList"
 >
   <Header>
-    <h1>
+    <h6>
       Widget manage
-    </h1>
-    <Select
-      items={
-        Array [
-          "LATEST",
-          "OLDEST",
-          "ACTIVATED",
-        ]
-      }
-      onChange={[Function]}
-      value="LATEST"
-    />
+    </h6>
   </Header>
   <div
     className="WidgetList__content"
   >
     <div
-      className="WidgetList__content-header"
+      className="WidgetList__content-header space-5x"
     >
-      <h4>
-        widget
-      </h4>
+      <p>
+        Activated widget
+      </p>
+      <Select
+        className="Select"
+        items={
+          Array [
+            "LATEST",
+            "OLDEST",
+            "ACTIVATED",
+          ]
+        }
+        onChange={[Function]}
+        value="LATEST"
+      />
     </div>
     <WidgetListBox
       list={Array []}
@@ -37,15 +38,19 @@ exports[`<WidgetList /> should match to snapshot when render default 1`] = `
       onUpdateInfoWithIPC={[Function]}
       selectedId=""
     />
-    <button
-      className="WidgetList__add-btn"
-      onClick={[Function]}
-      type="button"
+    <div
+      className="WidgetList__btn-box"
     >
-      <b>
-        + Add New Widget
-      </b>
-    </button>
+      <button
+        className="Btn Btn--primary Btn--md"
+        onClick={[Function]}
+        type="button"
+      >
+        <b>
+          + Add New Widget
+        </b>
+      </button>
+    </div>
   </div>
   <Pagination
     currentPage={1}

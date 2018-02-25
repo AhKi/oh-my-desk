@@ -490,7 +490,11 @@ exports[`<WebWidget /> should match to snapshot when state.isSettingOpen === tru
                     className="ValidationInput__label"
                     htmlFor="Name"
                   >
-                    Name
+                    <span
+                      className="InputSet__label-text"
+                    >
+                      Name
+                    </span>
                     <input
                       autoFocus={true}
                       className="ValidationInput__text-input"
@@ -522,7 +526,11 @@ exports[`<WebWidget /> should match to snapshot when state.isSettingOpen === tru
                     className="ValidationInput__label"
                     htmlFor="Url"
                   >
-                    Url
+                    <span
+                      className="InputSet__label-text"
+                    >
+                      Url
+                    </span>
                     <input
                       autoFocus={false}
                       className="ValidationInput__text-input"
