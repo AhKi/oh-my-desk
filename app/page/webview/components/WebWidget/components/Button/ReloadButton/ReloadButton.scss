@@ -1,15 +1,17 @@
 .ReloadButton {
-  display: inline;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    height: 100%;
+    background-color: $color-middle-gray-blue;
+  }
 }
 
 .ReloadButton__btn {
-  border: none;
-  color: #F1F1F1;
-  width: 24px;
-  height: 28px;
-
   &:hover {
-    background-color: #3F3F41;
-    color: black;
+    path {
+      fill: $color-white;
+    }
   }
 }

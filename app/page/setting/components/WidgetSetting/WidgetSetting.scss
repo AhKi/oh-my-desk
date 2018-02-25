@@ -2,21 +2,25 @@
   color: $color-middle-gray-blue;
 }
 
+.WidgetEdit__header_input{
+ float: right;
+}
 
 // header - back Btn
+
 .WidgetEdit__header-back-btn {
   display: flex;
   align-items: center;
   color: $color-middle-gray-blue;
-}
-
-.WidgetEdit__header-text {
-  margin-left: 20px;
   transition: all .2s ease-in-out;
 
   &:hover {
     opacity: 0.5;
   }
+}
+
+.WidgetEdit__header-text {
+  margin-left: 20px;
 }
 
 // Edit contents box
