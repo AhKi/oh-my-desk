@@ -96,7 +96,6 @@ class WidgetListItem extends React.Component {
       <ul // eslint-disable-line
         className={itemClassName}
         onClick={this.handleSelectItem}
-        onDoubleClick={this.handleWidgetOpen}
       >
         <li className="WidgetListItem__list WidgetListItem__list-name">
           {item.name}
