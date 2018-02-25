@@ -15,12 +15,12 @@
   padding-left: 8px;
 }
 
-.Pagenation__text-disable {
-  color: $color-gray350;
-  padding: 0 12px;
-}
-
-.Pagenation__text-active {
+.Pagenation__btn {
   color: $color-middle-gray-blue;
   padding: 0 12px;
+
+  &:disabled {
+    color: $color-gray350;
+    padding: 0 12px;
+  }
 }
