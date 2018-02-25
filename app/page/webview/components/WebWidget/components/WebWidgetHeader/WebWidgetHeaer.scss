@@ -1,65 +1,101 @@
+.WebWidgetHeader__front-btn-set {
+  display: flex;
+  align-items: center;
+}
+
 .WebWidgetHeader__title-bar {
-  background-color: #2E333F;
-  color: #ffffff;
-  font-family: sans-serif;
+  background: linear-gradient(180deg, $color-gray-blue, $color-dark-gray-blue);
+  color: $color-white;
   -webkit-app-region: drag;
-  height: 28px;
+  height: 36px;
   width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+
+.WebWidgetHeader__button-set {
+  float: right;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .WebWidgetHeader__thumbtack {
+  display: flex;
+  align-self: stretch;
+  padding: 0 12px;
   background-color: transparent;
-  color: #F1F1F1;
-  width: 24px;
-  height: 28px;
-  transform: rotate(90deg);
+  transform: rotate(45deg);
+  border: 0;
 
-  &:hover {
-    background-color: #3F3F41;
-    color: black;
+  path {
+    fill: $color-white;
   }
 }
 
 .WebWidgetHeader__thumbtack--active {
   transform: rotate(0);
+  background-color: $color-dark-gray-blue;
+  border-right: 1px solid $color-middle-gray-blue;
 }
 
 .WebWidgetHeader__history-set {
-  display: inline;
+  display: flex;
+  align-items: stretch;
+  height: 100%;
 }
 
 .WebWidgetHeader__button-setting {
   color: #F1F1F1;
   height: 28px;
+  position: relative;
 }
 
-.WebWidgetHeader__button-set {
-  display: inline-block;
-  float: right;
-}
 
 .WebWidgetHeader__title {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   line-height: 28px;
   font-size: 12px;
   text-align: center;
 }
 
+.WebWidgetHeader__mobile-title {
+  display: none;
+}
+
 .WebWidgetHeader__button {
   border: none;
-  color: #F1F1F1;
-  width: 24px;
-  height: 28px;
+  padding: 0 8px;
 
   &:hover {
-    background-color: #3F3F41;
-    color: black;
+    height: 100%;
+    background-color: $color-middle-gray-blue;
+    path {
+      fill: $color-white;
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
   }
 }
 
-@media (max-width: 412px) {
+@media (max-width: 413px) {
   .WebWidgetHeader__history-set,
   .WebWidgetHeader__button-setting {
+    display: none;
+  }
+
+  .WebWidgetHeader__mobile-title {
+    display: inline-block;
+    padding-left: 8px;
+  }
+
+  .WebWidgetHeader__title {
     display: none;
   }
 }

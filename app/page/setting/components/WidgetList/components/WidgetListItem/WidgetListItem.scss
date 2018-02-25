@@ -55,19 +55,14 @@
 .WidgetListItem__pin-button {
   display: flex;
   justify-items: center;
-  padding: 4px 8px;
+  padding: 5px 9px;
 
   &:hover {
-    .WidgetListItem__pin {
-      transform: rotate(0deg);
-    }
-    .WidgetListItem__pin--active {
-      transform: rotate(45deg);
-    }
     background-color: $color-white;
     border: 1px solid $color-gray350;
     border-radius: 3px;
     box-shadow: 0 2px 2px -1px rgba(217, 217, 217, 0.5);
+    padding: 4px 8px;
   }
 }
 
@@ -83,12 +78,14 @@
 
 .WidgetListItem__pin {
   transform: rotate(45deg);
-  transition: transform 0.2s ease-in-out;
-  margin: 3px 5px 0 0;
+  transition: all 0.2s ease-in-out;
+  margin: 1px 4px 0 0;
+  opacity: 0.5;
 }
 
 .WidgetListItem__pin--active {
   transform: rotate(0);
+  opacity: 1;
 }
 
 .WidgetListItem__more-button {
@@ -105,7 +102,7 @@
   background-color: $color-white;
   box-shadow: 2px 3px 7px -2px rgba(59, 60, 67, 0.23);
   padding: 6px 0;
-  width: 112px;
+  width: 102px;
   margin-top: 30px;
   z-index: 1;
 }
@@ -116,7 +113,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: inherit;
+  color: $color-dark-gray-blue;
 
   &:hover {
     background-color: $color-cool-gray100;

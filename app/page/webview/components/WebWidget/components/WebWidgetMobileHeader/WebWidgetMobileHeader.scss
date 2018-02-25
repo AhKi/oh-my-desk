@@ -1,24 +1,36 @@
 .WebWidgetMobileHeader {
-  background-color: #7f7f7f;
+  background: rgba(53,62,71,0.8);
   height: 26px;
-  opacity: 0;
   position: fixed;
   transition: all .2s ease-in;
   width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0 6px;
 
   &:hover {
-    opacity: 0.8;
+    background: rgba(53,62,71,1);
   }
 }
 
-.WebWidgetModalHeader__open {
-  opacity: 0.8;
+.WebWidgetMobileHeader__front_btn  {
+  display: flex;
+  align-items: center;
 }
 
 .WebWidgetMobileHeader__setting {
-  color: #F1F1F1;
-  float: right;
-  height: 27px;
+  padding: 0 8px;
+
+  &:hover {
+    height: 100%;
+    background-color: $color-middle-gray-blue;
+    path {
+      fill: $color-white;
+    }
+  }
+
 }
 
 @media (min-width: 412px) {

@@ -95,7 +95,7 @@ class WebWidgetSetting extends React.Component {
       <div className="WebWidgetSetting">
         <OutsideClickHandler onOutSideClick={onToggleSetting}>
           <form>
-            <h3>Edit setting</h3>
+            <h6 className="WebWidgetSetting__title space-3x"><strong>Edit setting</strong></h6>
             <ValidationInput
               autoFocus
               name="Name"
@@ -109,17 +109,21 @@ class WebWidgetSetting extends React.Component {
               error={urlError}
               onChange={this.handleChangeUrl}
             />
-            <button
-              type="button"
-              onClick={this.openManageView}
-            >
-              Go to manage view
-            </button>
-            <input
-              type="submit"
-              value="Save"
-              onClick={this.handleSubmit}
-            />
+            <div className="WebWidgetSetting__btn-box">
+              <button
+                className="TextBtn TextBtn--blue WebWidgetSetting__text-btn"
+                type="button"
+                onClick={this.openManageView}
+              >
+                Go to manage view
+              </button>
+              <input
+                className="Btn Btn--primary Btn--sm"
+                type="submit"
+                value="Save"
+                onClick={this.handleSubmit}
+              />
+            </div>
           </form>
         </OutsideClickHandler>
       </div>

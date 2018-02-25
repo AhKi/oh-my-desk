@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import WidgetSmallIcon from 'assets/icon/icon-widget-small-view';
+import WidgetSettingIcon from 'assets/icon/icon-widget-setting';
+import WidgetGrowIcon from 'assets/icon/icon-widget-grow-view';
+import WidgetCloseIcon from 'assets/icon/icon-widget-close';
+import PinIcon from 'assets/icon/icon-pin';
 import cx from 'classnames';
+
 import HistoryGoBackButton from '../Button/HistoryGoBackButton';
 import ReloadButton from '../Button/ReloadButton';
 import './WebWidgetHeaer.scss';
@@ -73,27 +79,32 @@ class WebWidgetHeader extends React.Component {
 
     return (
       <div className="WebWidgetHeader__title-bar">
-        <button
-          type="button"
-          className={thumbtackClassName}
-          onClick={onToggleIsOnTop}
-        >
-          <i className="fas fa-thumbtack" />
-        </button>
-        <div
-          className="WebWidgetHeader__history-set"
-        >
-          <HistoryGoBackButton
-            isCanGoBack={webView && webView.canGoBack()}
-            isCanGoForward={webView && webView.canGoForward()}
-            onGoBack={onGoBack}
-            onGoForward={onGoForward}
-          />
-          <ReloadButton
-            isLoading={isLoading}
-            onRefresh={onRefresh}
-            onStopRefresh={onStopRefresh}
-          />
+        <div className="WebWidgetHeader__front-btn-set">
+          <button
+            type="button"
+            className={thumbtackClassName}
+            onClick={onToggleIsOnTop}
+          >
+            <PinIcon />
+          </button>
+          <div
+            className="WebWidgetHeader__history-set"
+          >
+            <HistoryGoBackButton
+              isCanGoBack={webView && webView.canGoBack()}
+              isCanGoForward={webView && webView.canGoForward()}
+              onGoBack={onGoBack}
+              onGoForward={onGoForward}
+            />
+            <ReloadButton
+              isLoading={isLoading}
+              onRefresh={onRefresh}
+              onStopRefresh={onStopRefresh}
+            />
+          </div>
+          <div className="WebWidgetHeader__mobile-title">
+            {this.props.title}
+          </div>
         </div>
         <div className="WebWidgetHeader__title">
           {this.props.title}
@@ -104,28 +115,28 @@ class WebWidgetHeader extends React.Component {
             type="button"
             onClick={() => onToggleSetting()}
           >
-            <i className="fas fa-cog" />
+            <WidgetSettingIcon />
           </button>
           <button
             type="button"
             className="WebWidgetHeader__button WebWidgetHeader__button--min"
             onClick={this.handleWidgetMinimize}
           >
-            <i className="fas fa-window-minimize" aria-hidden="true" />
+            <WidgetSmallIcon />
           </button>
           <button
             type="button"
             className="WebWidgetHeader__button WebWidgetHeader__button--max"
             onClick={this.handleWidgetToggleMaximize}
           >
-            <i className="fas fa-square" aria-hidden="true" />
+            <WidgetGrowIcon />
           </button>
           <button
             type="button"
             className="WebWidgetHeader__button WebWidgetHeader__button--close"
             onClick={this.handleWidgetClose}
           >
-            <i className="fas fa-times" aria-hidden="true" />
+            <WidgetCloseIcon />
           </button>
         </div>
       </div>

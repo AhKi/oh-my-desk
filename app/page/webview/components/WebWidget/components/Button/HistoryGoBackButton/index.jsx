@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import WidgetBackIcon from 'assets/icon/icon-widget-back-arrow';
+import WidgetGoIcon from 'assets/icon/icon-widget-go-arrow';
 import cx from 'classnames';
 import './HistoryGoBackButton.scss';
 
@@ -32,19 +34,19 @@ function HistoryGoBackButton(props) {
     >
       <button
         type="button"
-        className="HistoryGoBackButton__btn HistoryGoBackButton__btn--go-back"
+        className="WebWidgetHeader__button HistoryGoBackButton__btn--go-back"
         disabled={!isCanGoBack}
         onClick={onGoBack}
       >
-        <i className="fas fa-arrow-left" />
+        <WidgetBackIcon />
       </button>
       <button
         type="button"
-        className="HistoryGoBackButton__btn HistoryGoBackButton__btn--go-front"
+        className="WebWidgetHeader__button HistoryGoBackButton__btn--go-front"
         disabled={!isCanGoForward}
         onClick={onGoForward}
       >
-        <i className="fas fa-arrow-right" />
+        <WidgetGoIcon />
       </button>
     </div>
   );
