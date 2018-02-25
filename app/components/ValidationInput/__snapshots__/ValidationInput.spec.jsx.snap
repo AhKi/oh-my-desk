@@ -5,7 +5,7 @@ exports[`<ValidationInput /> should match to snapshot when render default 1`] = 
   className="ValidationInput"
 >
   <label
-    className="ValidationInput__label"
+    className="ValidationInput__label InputSet__label"
     htmlFor=""
   >
     <span
@@ -13,7 +13,7 @@ exports[`<ValidationInput /> should match to snapshot when render default 1`] = 
     />
     <input
       autoFocus={false}
-      className="ValidationInput__text-input"
+      className="InputSet InputSet__text-input"
       id=""
       onChange={[Function]}
       placeholder=""

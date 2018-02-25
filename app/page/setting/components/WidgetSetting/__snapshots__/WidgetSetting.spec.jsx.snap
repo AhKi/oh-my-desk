@@ -5,6 +5,7 @@ exports[`<WidgetSetting /> should match to snapshot when render default 1`] = `
   className="WidgetEdit"
 >
   <input
+    className="WidgetEdit__header_input"
     style={
       Object {
         "height": 0,

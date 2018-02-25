@@ -4,30 +4,35 @@ exports[`<WebWidgetHeader /> should match to snapshot when render default 1`] = 
 <div
   className="WebWidgetHeader__title-bar"
 >
-  <button
-    className="WebWidgetHeader__thumbtack"
-    onClick={[Function]}
-    type="button"
-  >
-    <i
-      className="fas fa-thumbtack"
-    />
-  </button>
   <div
-    className="WebWidgetHeader__history-set"
+    className="WebWidgetHeader__front-btn-set"
   >
-    <HistoryGoBackButton
-      className=""
-      isCanGoBack={false}
-      isCanGoForward={false}
-      onGoBack={[Function]}
-      onGoForward={[Function]}
-    />
-    <ReloadButton
-      className="ReloadButton"
-      isLoading={false}
-      onRefresh={[Function]}
-      onStopRefresh={[Function]}
+    <button
+      className="WebWidgetHeader__thumbtack"
+      onClick={[Function]}
+      type="button"
+    >
+      <PinIcon />
+    </button>
+    <div
+      className="WebWidgetHeader__history-set"
+    >
+      <HistoryGoBackButton
+        className=""
+        isCanGoBack={false}
+        isCanGoForward={false}
+        onGoBack={[Function]}
+        onGoForward={[Function]}
+      />
+      <ReloadButton
+        className="ReloadButton"
+        isLoading={false}
+        onRefresh={[Function]}
+        onStopRefresh={[Function]}
+      />
+    </div>
+    <div
+      className="WebWidgetHeader__mobile-title"
     />
   </div>
   <div
@@ -41,39 +46,28 @@ exports[`<WebWidgetHeader /> should match to snapshot when render default 1`] = 
       onClick={[Function]}
       type="button"
     >
-      <i
-        className="fas fa-cog"
-      />
+      <WidgetSettingIcon />
     </button>
     <button
       className="WebWidgetHeader__button WebWidgetHeader__button--min"
       onClick={[Function]}
       type="button"
     >
-      <i
-        aria-hidden="true"
-        className="fas fa-window-minimize"
-      />
+      <WidgetSmallIcon />
     </button>
     <button
       className="WebWidgetHeader__button WebWidgetHeader__button--max"
       onClick={[Function]}
       type="button"
     >
-      <i
-        aria-hidden="true"
-        className="fas fa-square"
-      />
+      <WidgetShrinkIcon />
     </button>
     <button
       className="WebWidgetHeader__button WebWidgetHeader__button--close"
       onClick={[Function]}
       type="button"
     >
-      <i
-        aria-hidden="true"
-        className="fas fa-times"
-      />
+      <WidgetBackIcon />
     </button>
   </div>
 </div>

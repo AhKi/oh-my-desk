@@ -5,24 +5,20 @@ exports[`<HistoryGoBackButton /> should match to snapshot when render default 1`
   className="HistoryGoBackButton"
 >
   <button
-    className="HistoryGoBackButton__btn HistoryGoBackButton__btn--go-back"
+    className="WebWidgetHeader__button HistoryGoBackButton__btn--go-back"
     disabled={true}
     onClick={[Function]}
     type="button"
   >
-    <i
-      className="fas fa-arrow-left"
-    />
+    <BackIcon />
   </button>
   <button
-    className="HistoryGoBackButton__btn HistoryGoBackButton__btn--go-front"
+    className="WebWidgetHeader__button HistoryGoBackButton__btn--go-front"
     disabled={true}
     onClick={[Function]}
     type="button"
   >
-    <i
-      className="fas fa-arrow-right"
-    />
+    <GoIcon />
   </button>
 </div>
 `;
