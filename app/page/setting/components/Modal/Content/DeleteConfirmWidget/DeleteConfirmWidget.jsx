@@ -33,7 +33,7 @@ class DeleteConfirmWidget extends React.Component {
       <div className="DeleteConfirmWidget">
         <h6 className="DeleteConfirmWidget__title space-2x">Confirm delete</h6>
         <span className="DeleteConfirmWidget__content space-4x">
-          Do you want delete <b>{'"'}{name}{'"'}</b> widget?
+          Do you want delete <br /><b>{'"'}{name}{'"'}</b> widget?
         </span>
         <div className="DeleteConfirmWidget__btn-box">
           <button
