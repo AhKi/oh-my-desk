@@ -65,7 +65,7 @@ class WidgetSetting extends React.Component {
   handleCancelEdit() {
     this.props.onModalOpen(MODAL.CONFIRM_CHECK, {
       title: 'Back to list',
-      content: 'If you did not press the Save button, the changes will not be maintained.',
+      content: 'If you did not press the Save button, \nthe changes will not be maintained.',
       onConfirm: () => {
         this.props.history.push('/widget-list');
       },
