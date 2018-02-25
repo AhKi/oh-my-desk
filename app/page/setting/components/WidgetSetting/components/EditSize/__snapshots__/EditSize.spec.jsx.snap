@@ -2,24 +2,34 @@
 
 exports[`<EditSize /> should match to snapshot when render default 1`] = `
 <div
-  className="EditSize"
+  className="EditSize space-6x"
 >
-  <h4
-    className="EditSize__header"
+  <p
+    className="EditSize__header space-1x"
   >
-    Edit setting
-  </h4>
-  <h5
-    className="EditSize__sub-header"
+    <strong>
+      Web widget size
+    </strong>
+  </p>
+  <span
+    className="EditSize-description space-4x"
   >
     The size is preserved when the widget is switched off and on.
-  </h5>
-  <div>
+  </span>
+  <div
+    className="EditSize__content"
+  >
     <label
+      className="InputSet__label"
       htmlFor="width-input"
     >
-      Width
+      <span
+        className="InputSet__label-text"
+      >
+        Width
+      </span>
       <input
+        className="EditSize__text-input"
         id="width-input"
         onChange={[Function]}
         type="number"
@@ -28,10 +38,16 @@ exports[`<EditSize /> should match to snapshot when render default 1`] = `
       px
     </label>
     <label
+      className="InputSet__label"
       htmlFor="height-input"
     >
-      Height
+      <span
+        className="InputSet__label-text"
+      >
+        Height
+      </span>
       <input
+        className="EditSize__text-input"
         id="height-input"
         onChange={[Function]}
         type="number"
@@ -45,24 +61,34 @@ exports[`<EditSize /> should match to snapshot when render default 1`] = `
 
 exports[`<EditSize /> should match to snapshot when size is zero 1`] = `
 <div
-  className="EditSize"
+  className="EditSize space-6x"
 >
-  <h4
-    className="EditSize__header"
+  <p
+    className="EditSize__header space-1x"
   >
-    Edit setting
-  </h4>
-  <h5
-    className="EditSize__sub-header"
+    <strong>
+      Web widget size
+    </strong>
+  </p>
+  <span
+    className="EditSize-description space-4x"
   >
     The size is preserved when the widget is switched off and on.
-  </h5>
-  <div>
+  </span>
+  <div
+    className="EditSize__content"
+  >
     <label
+      className="InputSet__label"
       htmlFor="width-input"
     >
-      Width
+      <span
+        className="InputSet__label-text"
+      >
+        Width
+      </span>
       <input
+        className="EditSize__text-input"
         id="width-input"
         onChange={[Function]}
         type="number"
@@ -71,10 +97,16 @@ exports[`<EditSize /> should match to snapshot when size is zero 1`] = `
       px
     </label>
     <label
+      className="InputSet__label"
       htmlFor="height-input"
     >
-      Height
+      <span
+        className="InputSet__label-text"
+      >
+        Height
+      </span>
       <input
+        className="EditSize__text-input"
         id="height-input"
         onChange={[Function]}
         type="number"
