@@ -1,6 +1,4 @@
 .DeleteConfirmWidget {
-  font-family: Noto Sans CJK KR Subset,sans-serif;
-  width: 350px;
   padding: 25px;
   overflow: auto;
 }
@@ -15,8 +13,9 @@
   font-weight: 400;
   font-size: 13px;
   color: $color-middle-gray-blue;
-  display: inline-block;
   text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 .DeleteConfirmWidget__btn-box {
