@@ -91,6 +91,12 @@ class WidgetListItem extends React.Component {
     const { item } = this.props;
     const { isActiveMore } = this.state;
     const itemClassName = cx('WidgetListItem', 'WidgetListItem__list-box');
+    const pinBtnClassName = cx('WidgetListItem__pin-button', {
+      'WidgetListItem__pin-button--active': item.isOnTop,
+    });
+    const pinClassName = cx('WidgetListItem__pin', {
+      'WidgetListItem__pin--active': item.isOnTop,
+    });
 
     return (
       <ul // eslint-disable-line
@@ -119,11 +125,11 @@ class WidgetListItem extends React.Component {
         </li>
         <li className="WidgetListItem__list WidgetListItem__list-always-top">
           <button
-            className="WidgetListItem__pin-button"
+            className={pinBtnClassName}
             type="button"
             onClick={this.handleToggleAlwaysTop}
           >
-            <img src={pinIcon} alt="" className="WidgetListItem__pin" />
+            <img src={pinIcon} alt="" className={pinClassName} />
             {item.isOnTop ? 'pin up' : 'unpin'}
           </button>
         </li>
