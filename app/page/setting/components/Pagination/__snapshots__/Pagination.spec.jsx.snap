@@ -5,7 +5,7 @@ exports[`<Pagination /> should match to snapshot when currentPage is attached to
   className="Pagenation__box"
 >
   <button
-    className="Pagenation__text-disable"
+    className="Pagenation__btn"
     disabled={false}
     onClick={[Function]}
     type="button"
@@ -63,7 +63,7 @@ exports[`<Pagination /> should match to snapshot when currentPage is attached to
     10
   </button>
   <button
-    className="Pagenation__text-active"
+    className="Pagenation__btn"
     disabled={false}
     onClick={[Function]}
     type="button"
@@ -83,7 +83,7 @@ exports[`<Pagination /> should match to snapshot when maxPage < 5 1`] = `
   className="Pagenation__box"
 >
   <button
-    className="Pagenation__text-disable"
+    className="Pagenation__btn"
     disabled={true}
     onClick={[Function]}
     type="button"
@@ -114,7 +114,7 @@ exports[`<Pagination /> should match to snapshot when maxPage < 5 1`] = `
     2
   </button>
   <button
-    className="Pagenation__text-active"
+    className="Pagenation__btn"
     disabled={false}
     onClick={[Function]}
     type="button"
@@ -134,7 +134,7 @@ exports[`<Pagination /> should match to snapshot when render default 1`] = `
   className="Pagenation__box"
 >
   <button
-    className="Pagenation__text-disable"
+    className="Pagenation__btn"
     disabled={true}
     onClick={[Function]}
     type="button"
@@ -192,7 +192,7 @@ exports[`<Pagination /> should match to snapshot when render default 1`] = `
     5
   </button>
   <button
-    className="Pagenation__text-active"
+    className="Pagenation__btn"
     disabled={false}
     onClick={[Function]}
     type="button"

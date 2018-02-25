@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import WidgetSmallIcon from 'assets/icon/icon-widget-small-view';
 import WidgetSettingIcon from 'assets/icon/icon-widget-setting';
 import WidgetGrowIcon from 'assets/icon/icon-widget-grow-view';
+import WidgetShrinkIcon from 'assets/icon/icon-widget-shrink-view';
 import WidgetCloseIcon from 'assets/icon/icon-widget-close';
 import PinIcon from 'assets/icon/icon-pin';
 import cx from 'classnames';
@@ -129,7 +130,7 @@ class WebWidgetHeader extends React.Component {
             className="WebWidgetHeader__button WebWidgetHeader__button--max"
             onClick={this.handleWidgetToggleMaximize}
           >
-            <WidgetGrowIcon />
+            {this.widget && !this.widget.isMaximized() ? <WidgetGrowIcon /> : <WidgetShrinkIcon />}
           </button>
           <button
             type="button"

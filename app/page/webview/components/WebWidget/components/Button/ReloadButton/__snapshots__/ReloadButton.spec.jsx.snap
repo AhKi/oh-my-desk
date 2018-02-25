@@ -5,13 +5,11 @@ exports[`<ReloadButton /> should match to snapshot when props.isLoading === true
   className="ReloadButton className"
 >
   <button
-    className="ReloadButton__btn ReloadButton__btn--refresh"
+    className="WebWidgetHeader__button ReloadButton__btn"
     onClick={[Function]}
     type="button"
   >
-    <i
-      className="fas fa-times"
-    />
+    <WidgetBackIcon />
   </button>
 </div>
 `;
@@ -21,13 +19,11 @@ exports[`<ReloadButton /> should match to snapshot when render default 1`] = `
   className="ReloadButton className"
 >
   <button
-    className="ReloadButton__btn ReloadButton__btn--refresh"
+    className="WebWidgetHeader__button ReloadButton__btn"
     onClick={[Function]}
     type="button"
   >
-    <i
-      className="fas fa-undo"
-    />
+    <WidgetRefreshIcon />
   </button>
 </div>
 `;
