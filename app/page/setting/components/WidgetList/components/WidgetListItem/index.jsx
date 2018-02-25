@@ -99,10 +99,7 @@ class WidgetListItem extends React.Component {
     });
 
     return (
-      <ul // eslint-disable-line
-        className={itemClassName}
-        onClick={this.handleSelectItem}
-      >
+      <ul className={itemClassName}>
         <li className="WidgetListItem__list WidgetListItem__list-name">
           {item.name}
         </li>
