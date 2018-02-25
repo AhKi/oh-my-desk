@@ -8,6 +8,9 @@ exports[`<ValidationInput /> should match to snapshot when render default 1`] = 
     className="ValidationInput__label"
     htmlFor=""
   >
+    <span
+      className="InputSet__label-text"
+    />
     <input
       autoFocus={false}
       className="ValidationInput__text-input"

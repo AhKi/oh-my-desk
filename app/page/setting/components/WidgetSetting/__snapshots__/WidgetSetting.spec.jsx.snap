@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<WidgetSetting /> should match to snapshot when render default 1`] = `
-<div>
+<div
+  className="WidgetEdit"
+>
   <input
     style={
       Object {
@@ -13,17 +15,25 @@ exports[`<WidgetSetting /> should match to snapshot when render default 1`] = `
   />
   <Header>
     <button
+      className="WidgetEdit__header-back-btn"
       onClick={[Function]}
       type="button"
     >
-      <i
-        className="fas fa-arrow-left"
+      <img
+        alt=""
+        src={Object {}}
       />
+      <h6
+        className="WidgetEdit__header-text"
+      >
+        <strong>
+          Back to List
+        </strong>
+      </h6>
     </button>
-    Back to List
   </Header>
   <form
-    className="WidgetSetting__content"
+    className="WidgetEdit__content"
     onSubmit={[Function]}
   >
     <EditSetting
@@ -36,18 +46,23 @@ exports[`<WidgetSetting /> should match to snapshot when render default 1`] = `
       onChangeHeight={[Function]}
       onChangeWidth={[Function]}
     />
-    <button
-      className=""
-      onClick={[Function]}
-      type="button"
+    <div
+      className="WidgetEdit__btn-box"
     >
-      &lt;
-       back
-    </button>
-    <input
-      type="submit"
-      value="Save"
-    />
+      <button
+        className="Btn Btn--gray Btn--sm"
+        onClick={[Function]}
+        type="button"
+      >
+        &lt;
+         back
+      </button>
+      <input
+        className="Btn Btn--primary Btn--sm Btn--submit"
+        type="submit"
+        value="Save"
+      />
+    </div>
   </form>
 </div>
 `;

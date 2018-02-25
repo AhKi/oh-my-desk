@@ -150,7 +150,6 @@ class WidgetListItem extends React.Component {
                 <li>
                   <button
                     className="WidgetListItem__more-list-btn"
-                    data-name="outside-inner-more-btn"
                     type="button"
                     onClick={this.handleOpenDeleteModal}
                   >
