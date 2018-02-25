@@ -1,3 +1,33 @@
+# v1.1.0 Refactor Main Design
+
+- Setting TestCode and add Circle CI environment
+(#55, #59, #90)
+
+- Synchronize update about widget isActive Boolean
+(#64, #70, #71, #73)
+
+- add default menu in main process
+(#67)
+
+- save widget createTime, updateTime and sort by createTime
+(#72)
+
+- migration web widget from Pure JS to React JS
+(#77)
+
+- refactor folder-structure
+(#78, #81, #82)
+
+- edit webview title-bar
+(#83, #86)
+
+- markup code (#95,
+
+- refactor code (#91, #96)
+
+- add documentation (#87, #94)
+
+
 # v1.0.2 version release
 - change eslint-rule (#50)
 - show widget when click widget list in setting widget (#51)
