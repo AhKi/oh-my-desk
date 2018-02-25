@@ -4,7 +4,6 @@ exports[`<WidgetListItem /> should match to snapshot when props.isActiveMore ===
 <ul
   className="WidgetListItem WidgetListItem__list-box"
   onClick={[Function]}
-  onDoubleClick={[Function]}
 >
   <li
     className="WidgetListItem__list WidgetListItem__list-name"
@@ -67,7 +66,6 @@ exports[`<WidgetListItem /> should match to snapshot when render default 1`] = `
 <ul
   className="WidgetListItem WidgetListItem__list-box"
   onClick={[Function]}
-  onDoubleClick={[Function]}
 >
   <li
     className="WidgetListItem__list WidgetListItem__list-name"
