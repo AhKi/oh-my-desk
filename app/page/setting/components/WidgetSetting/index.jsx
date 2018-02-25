@@ -116,6 +116,11 @@ class WidgetSetting extends React.Component {
 
     return (
       <div className="WidgetEdit">
+        <input
+          style={{ width: 0, height: 0 }}
+          type="text"
+          ref={(ref) => { this.hideInput = ref; }}
+        />
         <Header>
           <button
             className="WidgetEdit__header-back-btn"
