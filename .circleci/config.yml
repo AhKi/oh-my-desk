@@ -25,3 +25,6 @@ jobs:
       - store_artifacts:
           path: coverage
           destination: coverage
+      - run:
+          name: Add Coverage Label
+          command: yarn coveralls
