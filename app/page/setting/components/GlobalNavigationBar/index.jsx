@@ -113,10 +113,6 @@ class GlobalNavigationBar extends React.Component {
                     <Icon
                       className={iconClassName(match.path, v.match || v.path)}
                     />
-                    <img
-                      src={v.icon}
-                      alt=""
-                    />
                     {v.name}
                     <ArrowIcon
                       className={arrowClassName(match.path, v.match || v.path)}
