@@ -11,7 +11,13 @@ exports[`<Confirm /> should match to snapshot when render default 1`] = `
   </h6>
   <span
     className="Confirm__content space-4x"
-  />
+  >
+    <span
+      key="0"
+    >
+      <br />
+    </span>
+  </span>
   <div
     className="Confirm__btn-box"
   >
