@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import WidgetRefreshIcon from 'assets/icon/icon-widget-refresh';
+import WidgetCloseIcon from 'assets/icon/icon-widget-close';
 import cx from 'classnames';
 import './ReloadButton.scss';
 
@@ -31,19 +33,19 @@ function ReloadButton(props) {
       {!isLoading &&
         <button
           type="button"
-          className="ReloadButton__btn ReloadButton__btn--refresh"
+          className="WebWidgetHeader__button ReloadButton__btn"
           onClick={onRefresh}
         >
-          <i className="fas fa-undo" />
+          <WidgetRefreshIcon />
         </button>
       }
       {isLoading &&
         <button
           type="button"
-          className="ReloadButton__btn ReloadButton__btn--refresh"
+          className="WebWidgetHeader__button ReloadButton__btn"
           onClick={onStopRefresh}
         >
-          <i className="fas fa-times" />
+          <WidgetCloseIcon />
         </button>
       }
     </div>

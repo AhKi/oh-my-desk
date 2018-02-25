@@ -117,6 +117,7 @@ class WidgetSetting extends React.Component {
     return (
       <div className="WidgetEdit">
         <input
+          className="WidgetEdit__header_input"
           style={{ width: 0, height: 0 }}
           type="text"
           ref={(ref) => { this.hideInput = ref; }}

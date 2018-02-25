@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import WidgetSettingIcon from 'assets/icon/icon-widget-setting';
 import HistoryGoBackButton from '../Button/HistoryGoBackButton';
 import ReloadButton from '../Button/ReloadButton';
 import './WebWidgetMobileHeader.scss';
@@ -46,23 +47,25 @@ class WebWidgetMobileHeader extends React.Component {
       <div
         className={headerClassName}
       >
-        <HistoryGoBackButton
-          isCanGoBack={webView && webView.canGoBack()}
-          isCanGoForward={webView && webView.canGoForward()}
-          onGoBack={onGoBack}
-          onGoForward={onGoForward}
-        />
-        <ReloadButton
-          isLoading={isLoading}
-          onRefresh={onRefresh}
-          onStopRefresh={onStopRefresh}
-        />
+        <div className="WebWidgetMobileHeader__front_btn">
+          <HistoryGoBackButton
+            isCanGoBack={webView && webView.canGoBack()}
+            isCanGoForward={webView && webView.canGoForward()}
+            onGoBack={onGoBack}
+            onGoForward={onGoForward}
+          />
+          <ReloadButton
+            isLoading={isLoading}
+            onRefresh={onRefresh}
+            onStopRefresh={onStopRefresh}
+          />
+        </div>
         <button
           className="WebWidgetMobileHeader__setting"
           type="button"
           onClick={() => onToggleSetting()}
         >
-          <i className="fas fa-cog" />
+          <WidgetSettingIcon />
         </button>
       </div>
     );
