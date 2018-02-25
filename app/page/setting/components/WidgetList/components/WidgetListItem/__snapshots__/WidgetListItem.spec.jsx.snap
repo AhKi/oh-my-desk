@@ -32,13 +32,13 @@ exports[`<WidgetListItem /> should match to snapshot when props.isActiveMore ===
     className="WidgetListItem__list WidgetListItem__list-always-top"
   >
     <button
-      className="WidgetListItem__pin-button"
+      className="WidgetListItem__pin-button WidgetListItem__pin-button--active"
       onClick={[Function]}
       type="button"
     >
       <img
         alt=""
-        className="WidgetListItem__pin"
+        className="WidgetListItem__pin WidgetListItem__pin--active"
         src={Object {}}
       />
       pin up
