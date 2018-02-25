@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
 import logo from 'assets/logo/logo-white.svg';
-import goarrow from 'assets/icon/icon-menu-arrow.svg';
+import goArrow from 'assets/icon/icon-menu-arrow.svg';
 import widgetIcon from 'assets/icon/icon-menu-widjet.svg';
 import settingIcon from 'assets/icon/icon-menu-setting.svg';
 import storeIcon from 'assets/icon/icon-menu-shopping.svg';
@@ -26,6 +26,20 @@ const defaultProps = {
 };
 
 class GlobalNavigationBar extends React.Component {
+  static calculateIsActive(current, target) {
+    let isActive;
+
+    if (typeof target === 'string') {
+      isActive = current === target;
+    } else if (Array.isArray(target)) {
+      isActive = target.indexOf(current) !== -1;
+    } else {
+      isActive = false;
+    }
+
+    return isActive;
+  }
+
   static listClassName(current, target) {
     let isActive;
 
@@ -46,22 +60,29 @@ class GlobalNavigationBar extends React.Component {
   }
 
   render() {
+    const { match } = this.props;
+    const iconClassName = (current, target) => cx('GlobalNavigationBar__list-icon', {
+      'GlobalNavigationBar__list-icon--active': GlobalNavigationBar.calculateIsActive(current, target),
+    });
+    const arrowClassName = (current, target) => cx('GlobalNavigationBar__list-arrow', {
+      'GlobalNavigationBar__list-arrow--active': GlobalNavigationBar.calculateIsActive(current, target),
+    });
     const menu = [
       {
-        icon: <img src={widgetIcon} alt="" className="GlobalNavigationBar__list-icon" />,
+        icon: widgetIcon,
         path: '/widget-list',
         name: <span className="GlobalNavigationBar__list-text">Widget</span>,
         match: ['/widget-list', '/widget-setting'],
         onClick: this.props.onListClick,
       },
       {
-        icon: <img src={settingIcon} alt="" className="GlobalNavigationBar__list-icon" />,
+        icon: settingIcon,
         path: '/setting',
         name: <span className="GlobalNavigationBar__list-text">Setting</span>,
         onClick: this.props.onSettingClick,
       },
       {
-        icon: <img src={storeIcon} alt="" className="GlobalNavigationBar__list-icon" />,
+        icon: storeIcon,
         path: '/widget-store',
         name: <span className="GlobalNavigationBar__list-text">Store</span>,
         onClick: this.props.onStoreClick,
@@ -86,9 +107,17 @@ class GlobalNavigationBar extends React.Component {
                   type="button"
                   onClick={v.onClick}
                 >
-                  {v.icon}
+                  <img
+                    className={iconClassName(match.path, v.match || v.path)}
+                    src={v.icon}
+                    alt=""
+                  />
                   {v.name}
-                  <img src={goarrow} alt="go-arrow" className="GlobalNavigationBar__list-arrow" />
+                  <img
+                    src={goArrow}
+                    alt="go-arrow"
+                    className={arrowClassName(match.path, v.match || v.path)}
+                  />
                 </button>
               </li>
             </Link>
