@@ -10,7 +10,7 @@ exports[`<WidgetListItem /> should match to snapshot when props.isActiveMore ===
     className="WidgetListItem__list WidgetListItem__list-name"
   />
   <li
-    className="WidgetListItem__list"
+    className="WidgetListItem__list WidgetListItem__list-url"
   >
     <button
       className="WidgetListItem__button"
@@ -26,17 +26,22 @@ exports[`<WidgetListItem /> should match to snapshot when props.isActiveMore ===
       isCheck={true}
       onToggle={[Function]}
       unCheckedValue={null}
-      width={50}
+      width={40}
     />
   </li>
   <li
     className="WidgetListItem__list WidgetListItem__list-always-top"
   >
     <button
-      className="WidgetListItem__button"
+      className="WidgetListItem__pin-button"
       onClick={[Function]}
       type="button"
     >
+      <img
+        alt=""
+        className="WidgetListItem__pin"
+        src={Object {}}
+      />
       pin up
     </button>
   </li>
@@ -44,12 +49,15 @@ exports[`<WidgetListItem /> should match to snapshot when props.isActiveMore ===
     className="WidgetListItem__list WidgetListItem__more"
   >
     <button
-      className="WidgetListItem__button"
+      className="WidgetListItem__pin-button"
       data-name="more-btn"
       onClick={[Function]}
       type="button"
     >
-      ···
+      <img
+        alt=""
+        src={Object {}}
+      />
     </button>
   </li>
 </ul>
@@ -65,7 +73,7 @@ exports[`<WidgetListItem /> should match to snapshot when render default 1`] = `
     className="WidgetListItem__list WidgetListItem__list-name"
   />
   <li
-    className="WidgetListItem__list"
+    className="WidgetListItem__list WidgetListItem__list-url"
   >
     <button
       className="WidgetListItem__button"
@@ -81,17 +89,22 @@ exports[`<WidgetListItem /> should match to snapshot when render default 1`] = `
       isCheck={true}
       onToggle={[Function]}
       unCheckedValue={null}
-      width={50}
+      width={40}
     />
   </li>
   <li
     className="WidgetListItem__list WidgetListItem__list-always-top"
   >
     <button
-      className="WidgetListItem__button"
+      className="WidgetListItem__pin-button"
       onClick={[Function]}
       type="button"
     >
+      <img
+        alt=""
+        className="WidgetListItem__pin"
+        src={Object {}}
+      />
       unpin
     </button>
   </li>
@@ -99,12 +112,15 @@ exports[`<WidgetListItem /> should match to snapshot when render default 1`] = `
     className="WidgetListItem__list WidgetListItem__more"
   >
     <button
-      className="WidgetListItem__button"
+      className="WidgetListItem__pin-button"
       data-name="more-btn"
       onClick={[Function]}
       type="button"
     >
-      ···
+      <img
+        alt=""
+        src={Object {}}
+      />
     </button>
   </li>
 </ul>

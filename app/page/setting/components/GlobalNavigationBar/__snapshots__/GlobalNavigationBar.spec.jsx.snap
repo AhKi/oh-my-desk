@@ -7,7 +7,11 @@ exports[`<GlobalNavigationBar /> should match to snapshot when render default 1`
   <div
     className="GlobalNavigationBar__title"
   >
-    OhMyDesk
+    <img
+      alt="white-logo"
+      className="GlobalNavigationBar__logo"
+      src={Object {}}
+    />
   </div>
   <ul
     className="GlobalNavigationBar__menu-box"
@@ -25,7 +29,21 @@ exports[`<GlobalNavigationBar /> should match to snapshot when render default 1`
           onClick={[Function]}
           type="button"
         >
-          Widget
+          <img
+            alt=""
+            className="GlobalNavigationBar__list-icon"
+            src={Object {}}
+          />
+          <span
+            className="GlobalNavigationBar__list-text"
+          >
+            Widget
+          </span>
+          <img
+            alt="go-arrow"
+            className="GlobalNavigationBar__list-arrow"
+            src={Object {}}
+          />
         </button>
       </li>
     </Link>
@@ -42,7 +60,21 @@ exports[`<GlobalNavigationBar /> should match to snapshot when render default 1`
           onClick={[Function]}
           type="button"
         >
-          Setting
+          <img
+            alt=""
+            className="GlobalNavigationBar__list-icon"
+            src={Object {}}
+          />
+          <span
+            className="GlobalNavigationBar__list-text"
+          >
+            Setting
+          </span>
+          <img
+            alt="go-arrow"
+            className="GlobalNavigationBar__list-arrow"
+            src={Object {}}
+          />
         </button>
       </li>
     </Link>
@@ -59,7 +91,21 @@ exports[`<GlobalNavigationBar /> should match to snapshot when render default 1`
           onClick={[Function]}
           type="button"
         >
-          Widget store
+          <img
+            alt=""
+            className="GlobalNavigationBar__list-icon"
+            src={Object {}}
+          />
+          <span
+            className="GlobalNavigationBar__list-text"
+          >
+            Store
+          </span>
+          <img
+            alt="go-arrow"
+            className="GlobalNavigationBar__list-arrow"
+            src={Object {}}
+          />
         </button>
       </li>
     </Link>

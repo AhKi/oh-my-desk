@@ -289,7 +289,7 @@ describe('<WidgetSetting />', () => {
     expect(onModalOpen).toHaveBeenCalledWith(
       MODAL.CONFIRM,
       {
-        title: 'success',
+        title: 'Save complete',
         content: 'Widget Setting is Changed',
       },
     );
