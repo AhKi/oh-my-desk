@@ -9,10 +9,15 @@
   justify-content: space-between;
   align-items: stretch;
   padding: 0 6px;
+  opacity: 0;
 
   &:hover {
     background: rgba(53,62,71,1);
   }
+}
+
+.WebWidgetModalHeader__open {
+  opacity: 1;
 }
 
 .WebWidgetMobileHeader__front_btn  {
