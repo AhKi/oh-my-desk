@@ -1,5 +1,5 @@
 .TextBtn {
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: -0.04em;
   text-decoration: underline;
@@ -15,10 +15,10 @@
 }
 
 .TextBtn--blue {
-  color: $global-base-color;
+  color: $color-blue;
 
   &:hover {
-    color: lighten($global-base-color, 20%);
+    color: $color-light-blue;
   }
 }
 
