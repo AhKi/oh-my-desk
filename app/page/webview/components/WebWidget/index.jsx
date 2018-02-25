@@ -21,7 +21,6 @@ class WebWidget extends React.Component {
     this.tick = null;
     this.setKeyEvent = this.setKeyEvent.bind(this);
     this.toggleIsOnTop = this.toggleIsOnTop.bind(this);
-    this.toggleMobileHeader = this.toggleMobileHeader.bind(this);
     this.handleWidgetGoBack = this.handleWidgetGoBack.bind(this);
     this.handleWidgetGoForward = this.handleWidgetGoForward.bind(this);
     this.handleWidgetRefresh = this.handleWidgetRefresh.bind(this);
@@ -116,10 +115,6 @@ class WebWidget extends React.Component {
       widget: nextWidget,
     });
     updateWidget('web', nextWidget);
-  }
-
-  toggleMobileHeader(data) { // eslint-disable-line
-    console.log('header', data);
   }
 
   handleWidgetGoBack() {
