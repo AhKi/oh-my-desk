@@ -69,7 +69,7 @@ class Pagination extends React.Component {
           type="button"
           disabled={currentPage <= 1}
           onClick={this.handlePrevPage}
-          className="Pagenation__text-disable"
+          className="Pagenation__btn"
         >
           <i className="fas fa-caret-left" />
           <span>prev</span>
@@ -79,9 +79,9 @@ class Pagination extends React.Component {
           type="button"
           disabled={currentPage >= maxPage}
           onClick={this.handleNextPage}
-          className="Pagenation__text-active"
+          className="Pagenation__btn"
         >
-          <span >next</span>
+          <span>next</span>
           <i className="fas fa-caret-right" />
         </button>
       </div>
