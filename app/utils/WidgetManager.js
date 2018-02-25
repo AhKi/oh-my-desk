@@ -155,7 +155,6 @@ class WidgetManager {
 
       this.widgetStore.set(_opt.id, _opt);
       win.webContents.send('widget-info', _opt);
-      this.sendToSettingWindow(this.widgetStore.data);
     }));
 
     win.on('resize', (() => {
