@@ -1,4 +1,5 @@
 # oh-my-desk [![CircleCI](https://circleci.com/gh/AhKi/oh-my-desk.svg?style=shield&circle-token=f779ef67e3b142774ebbf79072fe2f54c617d61a)](https://circleci.com/gh/AhKi/oh-my-desk) [![License](https://img.shields.io/badge/license-GPL%20v3-green.svg)](https://github.com/AhKi/oh-my-desk/blob/master/LICENSE) [![Coverage Status](https://coveralls.io/repos/github/AhKi/oh-my-desk/badge.svg?branch=master)](https://coveralls.io/github/AhKi/oh-my-desk?branch=master)
+it is using web page as a widget that desktop application.
 
 ## OverView
 ![oh-my-desk overview](https://user-images.githubusercontent.com/23732795/36644082-6c464232-1a98-11e8-8f8e-2de8c14b8cdf.png)
