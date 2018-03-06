@@ -40,4 +40,26 @@ describe('<GlobalNavigationBar />', () => {
       );
     });
   });
+
+  describe('should test GlobalNavigationBar.calculateIsActive', () => {
+    const { calculateIsActive } = GlobalNavigationBar;
+
+    it('should when typeof target is string', () => {
+      expect(calculateIsActive('mock-current', 'mock-current'))
+        .toBe(true);
+      expect(calculateIsActive('mock-current', 'mock-target'))
+        .toBe(false);
+    });
+
+    it('should when typeof target is array', () => {
+      expect(calculateIsActive('mock-current', ['mock-current', 'mock-target']))
+        .toBe(true);
+      expect(calculateIsActive('mock-current', ['mock-target', 'mock-target-2']))
+        .toBe(false);
+    });
+
+    it('should when typeof target is not array or string', () => {
+      expect(calculateIsActive('mock-current', 1)).toBe(false);
+    });
+  });
 });
