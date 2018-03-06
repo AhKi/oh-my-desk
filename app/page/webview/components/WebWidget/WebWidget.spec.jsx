@@ -38,7 +38,10 @@ describe('<WebWidget />', () => {
   it('should match to snapshot when state.isSettingOpen === true', () => {
     const wrapper = mount(<WebWidget />);
     wrapper.instance().webViewRef = webView;
-    wrapper.setState({ isSettingOpen: true });
+    wrapper.setState({
+      isMobileHeaderOpen: false,
+      isSettingOpen: true,
+    });
 
     expect(wrapper).toMatchSnapshot();
   });
