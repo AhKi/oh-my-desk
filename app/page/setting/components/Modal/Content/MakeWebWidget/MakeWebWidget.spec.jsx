@@ -1,9 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import * as utils from 'utils/createWidget';
 import MakeWebWidget from './MakeWebWidget';
 
 describe('<MakeWebWidget />', () => {
+  const ipcRenderer = {
+    send: () => {},
+  };
+  window.ipcRenderer = ipcRenderer;
+
   it('should match to snapshot when render default', () => {
     const wrapper = shallow(<MakeWebWidget />);
 
@@ -105,11 +111,6 @@ describe('<MakeWebWidget />', () => {
   });
 
   describe('test handleCreateWidget', () => {
-    const mockIpcRenderer = window.ipcRenderer;
-    const ipcRenderer = {
-      send: () => {},
-    };
-    window.ipcRenderer = ipcRenderer;
     const event = {
       preventDefault: () => {},
     };
@@ -135,8 +136,6 @@ describe('<MakeWebWidget />', () => {
       expect(validateCheck).toHaveBeenCalledTimes(1);
       expect(validateCheck).toHaveBeenCalledWith('total');
     });
-
-    window.ipcRenderer = mockIpcRenderer;
   });
 
   it('should change state when call handleWidgetNameChange', () => {
@@ -169,5 +168,60 @@ describe('<MakeWebWidget />', () => {
     expect(wrapper.state().widgetUrl).toBe('mock-value');
     expect(validateCheck).toHaveBeenCalledTimes(1);
     expect(validateCheck).toHaveBeenCalledWith('url');
+  });
+
+  describe('should test when call handleCreateWidget', () => {
+    const event = {
+      preventDefault() {},
+    };
+    const createWidget = jest.spyOn(utils, 'default');
+    const validateCheck = jest.spyOn(MakeWebWidget.prototype, 'validateCheck');
+    const onModalClose = jest.fn();
+    const wrapper = shallow(
+      <MakeWebWidget
+        onModalClose={onModalClose}
+      />,
+    );
+
+    beforeEach(() => {
+      jest.clearAllMocks();
+    });
+
+    it('when widgetName or Url have error', () => {
+      wrapper.setState({
+        nameError: 'mock-name-error',
+        urlError: 'mock-url-error',
+      });
+
+      wrapper.instance().handleCreateWidget(event);
+
+      expect(validateCheck).toHaveBeenCalledTimes(1);
+      expect(validateCheck).toHaveBeenCalledWith('total');
+      expect(createWidget).toHaveBeenCalledTimes(0);
+      expect(onModalClose).toHaveBeenCalledTimes(0);
+    });
+
+    it('when widgetName or Url don\'t have error', () => {
+      wrapper.setState({
+        widgetName: 'mock-name',
+        widgetUrl: 'mock-url',
+        nameError: '',
+        urlError: '',
+      });
+
+      wrapper.instance().handleCreateWidget(event);
+
+      expect(validateCheck).toHaveBeenCalledTimes(0);
+      expect(createWidget).toHaveBeenCalledTimes(1);
+      expect(createWidget).toHaveBeenCalledWith(
+        'web',
+        {
+          name: 'mock-name',
+          url: 'mock-url',
+        },
+      );
+      expect(onModalClose).toHaveBeenCalledTimes(1);
+      expect(onModalClose).toHaveBeenCalledWith();
+    });
   });
 });
