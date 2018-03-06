@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Setting /> should match to snapshot when render default 1`] = `
+<div
+  className="Setting"
+>
+  <div
+    className="Setting__content"
+  >
+    <h4>
+      Setting
+    </h4>
+    Comming soon
+  </div>
+</div>
+`;
