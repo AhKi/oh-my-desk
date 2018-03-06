@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import Confirm from './Confirm';
 
@@ -34,5 +34,26 @@ describe('<Confirm />', () => {
 
       expect(onModalClose).toHaveBeenCalledTimes(0);
     });
+  });
+
+  it('test componentDidMount and componentWillUnmount react lifecycle hook', () => {
+    const componentDidMount = jest.spyOn(Confirm.prototype, 'componentDidMount');
+    const componentWillUnmount = jest.spyOn(Confirm.prototype, 'componentWillUnmount');
+    const addEventListener = jest.spyOn(document, 'addEventListener');
+    const removeEventListener = jest.spyOn(document, 'addEventListener');
+    const wrapper = mount(<Confirm />);
+
+    expect(componentDidMount).toHaveBeenCalledTimes(1);
+    expect(addEventListener).toHaveBeenCalledWith(
+      'keydown',
+      expect.any(Function),
+    );
+
+    wrapper.unmount();
+    expect(componentWillUnmount).toHaveBeenCalledTimes(1);
+    expect(removeEventListener).toHaveBeenCalledWith(
+      'keydown',
+      expect.any(Function),
+    );
   });
 });
