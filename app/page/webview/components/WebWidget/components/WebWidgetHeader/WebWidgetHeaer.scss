@@ -1,5 +1,6 @@
 .WebWidgetHeader__front-btn-set {
   display: flex;
+  -webkit-app-region: no-drag;
   align-items: center;
 }
 
@@ -19,6 +20,7 @@
   float: right;
   display: flex;
   align-items: center;
+  -webkit-app-region: no-drag;
   position: relative;
 }
 
