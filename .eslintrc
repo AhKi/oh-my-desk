@@ -23,7 +23,7 @@
     "import/no-duplicates": 0,
     "import/no-named-as-default-member": 0,
     "jsx-a11y/anchor-is-valid": 0,
-    "linebreak-style": ["error", "windows"]
+    "linebreak-style": 0
   },
   "globals": {
     "__DEV__": false,
