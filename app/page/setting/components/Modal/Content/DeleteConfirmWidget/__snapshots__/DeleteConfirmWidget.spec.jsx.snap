@@ -12,13 +12,13 @@ exports[`<DeleteConfirmWidget /> should match to snapshot when render default 1`
   <span
     className="DeleteConfirmWidget__content space-4x"
   >
-    Do you want delete 
+    Do you want delete
     <br />
     <b>
       "
       "
     </b>
-     widget?
+    widget?
   </span>
   <div
     className="DeleteConfirmWidget__btn-box"
