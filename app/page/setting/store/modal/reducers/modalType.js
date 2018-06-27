@@ -4,8 +4,7 @@ import * as actions from '../actions';
 const initialState = '';
 
 const modalTypeReducer = handleActions({
-  [actions.modalOpen]: (state, action) =>
-    action.payload.modalType,
+  [actions.modalOpen]: (state, action) => action.payload.modalType,
   [actions.modalClose]: () => initialState,
 }, initialState);
 

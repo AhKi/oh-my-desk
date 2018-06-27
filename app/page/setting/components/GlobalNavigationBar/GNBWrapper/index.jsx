@@ -1,5 +1,5 @@
 import React from 'react';
-import GlobalNavigationBar from '../';
+import GlobalNavigationBar from '..';
 import './GNBWrapper.scss';
 
 function GNBWrapper(WrappedComponent) {

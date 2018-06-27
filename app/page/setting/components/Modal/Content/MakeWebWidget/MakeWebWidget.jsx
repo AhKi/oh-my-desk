@@ -65,6 +65,7 @@ class MakeWebWidget extends React.Component {
       widgetUrl,
       urlError,
     } = this.state;
+    const { onModalClose } = this.props;
 
 
     if (!(widgetName && widgetUrl) || (nameError || urlError)) {
@@ -76,7 +77,7 @@ class MakeWebWidget extends React.Component {
       name: widgetName,
       url: widgetUrl,
     });
-    this.props.onModalClose();
+    onModalClose();
   }
 
   handleWidgetNameChange(e) {
@@ -103,7 +104,9 @@ class MakeWebWidget extends React.Component {
     return (
       <OutsideClickHandler onOutSideClick={onModalClose}>
         <form className="MakeWebWidget">
-          <h5 className="MakeWebWidget__title space-2x">Make new web widget</h5>
+          <h5 className="MakeWebWidget__title space-2x">
+            Make new web widget
+          </h5>
           <hr className="MakeWebWidget__line space-4x" />
           <ValidationInput
             autoFocus

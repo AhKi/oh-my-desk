@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import * as utils from 'utils/updateWidget';
-import WebWidget from './';
+import WebWidget from '.';
 
 describe('<WebWidget />', () => {
   const webView = {

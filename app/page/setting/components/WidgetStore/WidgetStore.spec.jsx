@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import WidgetStore from './';
+import WidgetStore from '.';
 
 describe('<WidgetStore />', () => {
   it('should match to snapshot when render default', () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import cx from 'classnames';
 
-import GlobalNavigationBar from './';
+import GlobalNavigationBar from '.';
 
 describe('<GlobalNavigationBar />', () => {
   it('should match to snapshot when render default', () => {
