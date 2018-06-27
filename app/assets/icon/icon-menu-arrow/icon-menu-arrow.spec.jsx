@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import ArrowIcon from './';
+import ArrowIcon from '.';
 
 describe('<ArrowIcon />', () => {
   it('should match to snapshot when render default', () => {

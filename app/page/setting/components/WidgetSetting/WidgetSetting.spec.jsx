@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 
 import * as MODAL from 'constants/modal';
-import WidgetSetting from './';
+import WidgetSetting from '.';
 
 describe('<WidgetSetting />', () => {
   it('should match to snapshot when render default', () => {

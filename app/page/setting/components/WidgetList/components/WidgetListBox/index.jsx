@@ -34,22 +34,34 @@ class WidgetListBox extends React.Component {
         <div className="WidgetListBox__container">
           <div className="WidgetListBox__title-box">
             <ul className="WidgetListBox__label-box">
-              <li className="WidgetListBox__title WidgetListBox__title-name">Name</li>
-              <li className="WidgetListBox__title WidgetListBox__title-url">Url</li>
-              <li className="WidgetListBox__title WidgetListBox__title-activated">Activated</li>
-              <li className="WidgetListBox__title WidgetListBox__title-always-top">Always top</li>
-              <li className="WidgetListBox__title WidgetListBox__title-more">More</li>
+              <li className="WidgetListBox__title WidgetListBox__title-name">
+                Name
+              </li>
+              <li className="WidgetListBox__title WidgetListBox__title-url">
+                Url
+              </li>
+              <li className="WidgetListBox__title WidgetListBox__title-activated">
+                Activated
+              </li>
+              <li className="WidgetListBox__title WidgetListBox__title-always-top">
+                Always top
+              </li>
+              <li className="WidgetListBox__title WidgetListBox__title-more">
+                More
+              </li>
             </ul>
           </div>
           <ul>
-            {list.map(item => (<WidgetListItem
-              key={item.id}
-              item={item}
-              selectedId={selectedId}
-              onSelectItem={onSelectItem}
-              onUpdateInfoWithIPC={onUpdateInfoWithIPC}
-              onModalOpen={onModalOpen}
-            />))}
+            {list.map(item => (
+              <WidgetListItem
+                key={item.id}
+                item={item}
+                selectedId={selectedId}
+                onSelectItem={onSelectItem}
+                onUpdateInfoWithIPC={onUpdateInfoWithIPC}
+                onModalOpen={onModalOpen}
+              />
+            ))}
           </ul>
         </div>
       </div>

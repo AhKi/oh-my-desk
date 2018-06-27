@@ -26,8 +26,9 @@ class ConfirmCheck extends React.Component {
   }
 
   handleConfirm(arg) {
-    this.props.onConfirm(arg);
-    this.props.onModalClose();
+    const { onConfirm, onModalClose } = this.props;
+    onConfirm(arg);
+    onModalClose();
   }
 
   render() {
@@ -41,12 +42,19 @@ class ConfirmCheck extends React.Component {
 
     return (
       <div className="ConfirmCheck">
-        <h6 className="ConfirmCheck__title space-2x"><strong>{title}</strong></h6>
+        <h6 className="ConfirmCheck__title space-2x">
+          <strong>
+            {title}
+          </strong>
+        </h6>
         <span
           className="ConfirmCheck__content space-4x"
         >
-          {content.split('\n').map((line, index) => (
-            <span key={index}>{line}<br /></span> // eslint-disable-line react/no-array-index-key
+          {content.split('\n').map((line, index) => ( // eslint-disable-next-line react/no-array-index-key
+            <span key={index}>
+              {line}
+              <br />
+            </span>
           ))}
         </span>
         <div className="ConfirmCheck__btn-box">

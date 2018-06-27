@@ -24,13 +24,19 @@ class EditSize extends React.Component {
 
     return (
       <div className="EditSize space-6x">
-        <p className="EditSize__header space-1x"><strong>Web widget size</strong></p>
+        <p className="EditSize__header space-1x">
+          <strong>
+            Web widget size
+          </strong>
+        </p>
         <span className="EditSize-description space-4x">
           The size is preserved when the widget is switched off and on.
         </span>
         <div className="EditSize__content">
           <label htmlFor="width-input" className="InputSet__label">
-            <span className="InputSet__label-text">Width</span>
+            <span className="InputSet__label-text">
+              Width
+            </span>
             <input
               className="EditSize__text-input"
               id="width-input"
@@ -41,7 +47,9 @@ class EditSize extends React.Component {
             px
           </label>
           <label htmlFor="height-input" className="InputSet__label">
-            <span className="InputSet__label-text">Height</span>
+            <span className="InputSet__label-text">
+              Height
+            </span>
             <input
               className="EditSize__text-input"
               id="height-input"

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import ValidationInput from './';
+import ValidationInput from '.';
 
 describe('<ValidationInput />', () => {
   it('should match to snapshot when render default', () => {

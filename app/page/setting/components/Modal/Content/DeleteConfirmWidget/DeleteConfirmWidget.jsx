@@ -22,8 +22,9 @@ class DeleteConfirmWidget extends React.Component {
   }
 
   handleDeleteWidget() {
-    deleteWidget(this.props.id);
-    this.props.onClose();
+    const { id, onClose } = this.props;
+    deleteWidget(id);
+    onClose();
   }
 
   render() {
@@ -31,9 +32,18 @@ class DeleteConfirmWidget extends React.Component {
 
     return (
       <div className="DeleteConfirmWidget">
-        <h6 className="DeleteConfirmWidget__title space-2x">Confirm delete</h6>
+        <h6 className="DeleteConfirmWidget__title space-2x">
+          Confirm delete
+        </h6>
         <span className="DeleteConfirmWidget__content space-4x">
-          Do you want delete <br /><b>{'"'}{name}{'"'}</b> widget?
+          Do you want delete
+          <br />
+          <b>
+            {'"'}
+            {name}
+            {'"'}
+          </b>
+          widget?
         </span>
         <div className="DeleteConfirmWidget__btn-box">
           <button
