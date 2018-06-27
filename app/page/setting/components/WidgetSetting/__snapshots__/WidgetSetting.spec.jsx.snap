@@ -56,7 +56,7 @@ exports[`<WidgetSetting /> should match to snapshot when render default 1`] = `
         type="button"
       >
         &lt;
-         back
+        back
       </button>
       <input
         className="Btn Btn--primary Btn--sm Btn--submit"
