@@ -20,6 +20,7 @@ module.exports = webpackMerge(webpackBaseConfig, {
     publicPath: 'http://127.0.0.1:1112/',
   },
   cache: true,
+  mode: 'development',
   devServer: {
     compress: true,
     inline: true,
