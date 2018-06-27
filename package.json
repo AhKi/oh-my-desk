@@ -30,9 +30,9 @@
   "author": "hyunmoahn, suyoungkim",
   "license": "GPL-3.0",
   "devDependencies": {
-    "babel-core": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babelify": "^8.0.0",
     "coveralls": "^3.0.1",
