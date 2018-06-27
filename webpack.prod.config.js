@@ -8,4 +8,5 @@ module.exports = webpackMerge(webpackBaseConfig, {
     path: path.resolve(__dirname, 'build'),
     publicPath: './',
   },
+  mode: 'production',
 });
