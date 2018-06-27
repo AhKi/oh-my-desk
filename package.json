@@ -38,7 +38,7 @@
     "coveralls": "^3.0.1",
     "cross-env": "^5.2.0",
     "electron": "^2.0.3",
-    "electron-builder": "^19.49.0",
+    "electron-builder": "^20.17.0",
     "electron-react-devtools": "^0.5.3",
     "electron-redux-devtools": "^0.3.4",
     "enzyme": "^3.3.0",
