@@ -5,8 +5,8 @@ import * as actions from '../actions';
 const initialState = Immutable.Map();
 
 const byIdReducer = handleActions({
-  [actions.widgetListInfoStore]: (state, action) =>
-    Immutable.Map(action.payload).map(v => Immutable.Map(v)),
+  [actions.widgetListInfoStore]:
+    (state, action) => Immutable.Map(action.payload).map(v => Immutable.Map(v)),
   [actions.widgetInfoUpdate]: (state, action) => {
     const { id, update } = action.payload;
 

@@ -1,13 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import OutsideClickHandler from './';
+import OutsideClickHandler from '.';
 
 describe('<OutsideClickHandler />', () => {
   it('should match to snapshot when render default', () => {
     const wrapper = shallow(
       <OutsideClickHandler>
-        <div>mock</div>
+        <div>
+          mock
+        </div>
       </OutsideClickHandler>,
     );
 
@@ -20,7 +22,9 @@ describe('<OutsideClickHandler />', () => {
       <OutsideClickHandler
         onOutSideClick={onOutSideClick}
       >
-        <div>mock</div>
+        <div>
+          mock
+        </div>
       </OutsideClickHandler>,
     );
 

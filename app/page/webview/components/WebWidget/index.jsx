@@ -29,12 +29,13 @@ class WebWidget extends React.Component {
   }
 
   componentWillMount() {
-    window.ipcRenderer.on('widget-info', (event, widget) => {
-      const currentURL = this.state.widget.url;
-      const nextURL = widget.url;
+    window.ipcRenderer.on('widget-info', (event, nextWidget) => {
+      const { widget } = this.state;
+      const currentURL = widget.url;
+      const nextURL = nextWidget.url;
 
       if (!currentURL || currentURL !== nextURL) {
-        this.webViewRef.loadURL(widget.url, {
+        this.webViewRef.loadURL(nextWidget.url, {
           // set mobile mode of widget userAgent
           userAgent: 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Mobile Safari/537.36',
         });
@@ -42,7 +43,7 @@ class WebWidget extends React.Component {
       this.webViewRef.addEventListener('dom-ready', () => {
         this.webViewRef.insertCSS('html::-webkit-scrollbar{ display:none }');
       });
-      this.setState({ widget });
+      this.setState({ widget: nextWidget });
     });
   }
 
@@ -137,7 +138,7 @@ class WebWidget extends React.Component {
     if (typeof bool === 'boolean') {
       this.setState({ isSettingOpen: bool });
     } else {
-      this.setState({ isSettingOpen: !this.state.isSettingOpen });
+      this.setState(nextState => ({ isSettingOpen: !nextState.isSettingOpen }));
     }
   }
 
@@ -173,14 +174,14 @@ class WebWidget extends React.Component {
           onStopRefresh={this.handleWidgetStopRefresh}
           onToggleSetting={this.handleToggleSettingMenu}
         />
-        {isSettingOpen &&
+        {isSettingOpen && (
           <WebWidgetSetting
             name={widget.name}
             widget={widget}
             url={widget.url}
             onToggleSetting={this.handleToggleSettingMenu}
           />
-        }
+        )}
         <webview
           ref={(ref) => { this.webViewRef = ref; }}
           src="https://www.github.com"

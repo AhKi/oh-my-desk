@@ -30,8 +30,9 @@ class Confirm extends React.Component {
   }
 
   handleEnterEvent(e) {
+    const { onModalClose } = this.props;
     if (e.keyCode === 13) {
-      this.props.onModalClose();
+      onModalClose();
     }
   }
 
@@ -45,12 +46,19 @@ class Confirm extends React.Component {
 
     return (
       <div className="Confirm">
-        <h6 className="Confirm__title space-2x"><strong>{title}</strong></h6>
+        <h6 className="Confirm__title space-2x">
+          <strong>
+            {title}
+          </strong>
+        </h6>
         <span
           className="Confirm__content space-4x"
         >
-          {content.split('\n').map((line, index) => (
-            <span key={index}>{line}<br /></span> // eslint-disable-line react/no-array-index-key
+          {content.split('\n').map((line, index) => ( // eslint-disable-next-line react/no-array-index-key
+            <span key={index}>
+              {line}
+              <br />
+            </span>
           ))}
         </span>
         <div className="Confirm__btn-box">

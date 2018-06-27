@@ -28,18 +28,20 @@ class OutsideClickHandler extends React.Component {
   }
 
   handleOutSideClick(e) {
+    const { onOutSideClick } = this.props;
     if (!this.outsideRef.contains(e.target)) {
-      this.props.onOutSideClick();
+      onOutSideClick();
     }
   }
 
   render() {
+    const { children } = this.props;
     return (
       <div
         className="OutsideClickHandler"
         ref={(ref) => { this.outsideRef = ref; }}
       >
-        {this.props.children}
+        {children}
       </div>
     );
   }

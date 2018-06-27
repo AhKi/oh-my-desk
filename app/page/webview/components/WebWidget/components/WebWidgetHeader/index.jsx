@@ -64,6 +64,7 @@ class WebWidgetHeader extends React.Component {
 
   render() {
     const {
+      title,
       webView,
       isLoading,
       isOnTop,
@@ -104,11 +105,11 @@ class WebWidgetHeader extends React.Component {
             />
           </div>
           <div className="WebWidgetHeader__mobile-title">
-            {this.props.title}
+            {title}
           </div>
         </div>
         <div className="WebWidgetHeader__title">
-          {this.props.title}
+          {title}
         </div>
         <div className="WebWidgetHeader__button-set">
           <button

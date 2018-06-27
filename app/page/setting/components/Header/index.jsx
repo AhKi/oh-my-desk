@@ -14,9 +14,10 @@ const defaultProps = {
 };
 
 function Header(props) {
+  const { children } = props;
   return (
     <div className="Header">
-      {props.children}
+      {children}
     </div>
   );
 }

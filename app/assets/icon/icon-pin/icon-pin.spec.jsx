@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import PinIcon from './';
+import PinIcon from '.';
 
 describe('<PinIcon />', () => {
   it('should match to snapshot when render default', () => {

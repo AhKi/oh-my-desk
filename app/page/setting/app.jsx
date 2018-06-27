@@ -8,10 +8,11 @@ const propTypes = {
 };
 
 function App(props) {
+  const { children } = props;
   return (
     <div className="App__container">
       <ModalContainer />
-      {props.children}
+      {children}
     </div>
   );
 }

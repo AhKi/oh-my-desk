@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import WidgetListBox from './';
+import WidgetListBox from '.';
 
 describe('<WidgetListBox />', () => {
   it('should match to snapshot when render default', () => {

@@ -22,11 +22,13 @@ class Pagination extends React.Component {
   }
 
   handlePrevPage() {
-    this.props.onPageClick(this.props.currentPage - 1);
+    const { currentPage, onPageClick } = this.props;
+    onPageClick(currentPage - 1);
   }
 
   handleNextPage() {
-    this.props.onPageClick(this.props.currentPage + 1);
+    const { currentPage, onPageClick } = this.props;
+    onPageClick(currentPage + 1);
   }
 
   renderPageNumber() {
@@ -72,7 +74,9 @@ class Pagination extends React.Component {
           className="Pagenation__btn"
         >
           <i className="fas fa-caret-left" />
-          <span>prev</span>
+          <span>
+            prev
+          </span>
         </button>
         {this.renderPageNumber()}
         <button
@@ -81,7 +85,9 @@ class Pagination extends React.Component {
           onClick={this.handleNextPage}
           className="Pagenation__btn"
         >
-          <span>next</span>
+          <span>
+            next
+          </span>
           <i className="fas fa-caret-right" />
         </button>
       </div>

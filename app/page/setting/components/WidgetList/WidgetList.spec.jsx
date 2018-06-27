@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 
 import * as IPC from 'constants/ipc';
 import * as MODAL from 'constants/modal';
-import WidgetList from './';
+import WidgetList from '.';
 
 describe('<WidgetList />', () => {
   const ipcRenderer = {

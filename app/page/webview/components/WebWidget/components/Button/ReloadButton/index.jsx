@@ -30,7 +30,7 @@ function ReloadButton(props) {
     <div
       className={cx('ReloadButton', { className })}
     >
-      {!isLoading &&
+      {!isLoading && (
         <button
           type="button"
           className="WebWidgetHeader__button ReloadButton__btn"
@@ -38,8 +38,8 @@ function ReloadButton(props) {
         >
           <WidgetRefreshIcon />
         </button>
-      }
-      {isLoading &&
+      )}
+      {isLoading && (
         <button
           type="button"
           className="WebWidgetHeader__button ReloadButton__btn"
@@ -47,7 +47,7 @@ function ReloadButton(props) {
         >
           <WidgetCloseIcon />
         </button>
-      }
+      )}
     </div>
   );
 }

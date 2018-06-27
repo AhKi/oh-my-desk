@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import WidgetSmallIcon from './';
+import WidgetSmallIcon from '.';
 
 describe('<WidgetSmallIcon />', () => {
   it('should match to snapshot when render default', () => {

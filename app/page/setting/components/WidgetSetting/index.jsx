@@ -36,8 +36,9 @@ class WidgetSetting extends React.Component {
   }
 
   componentWillMount() {
-    if (!this.props.item) {
-      this.props.history.goBack();
+    const { item, history } = this.props;
+    if (!item) {
+      history.goBack();
     }
   }
 
@@ -47,64 +48,68 @@ class WidgetSetting extends React.Component {
 
   componentWillUnmount() {
     const { info, initialInfo } = this.state;
+    const { onStoreWidgetInfo } = this.props;
 
     // if state.info is not same state.initialInfo
     if (JSON.stringify(info) !== JSON.stringify(initialInfo)) {
-      this.props.onStoreWidgetInfo(initialInfo.id, initialInfo);
+      onStoreWidgetInfo(initialInfo.id, initialInfo);
     }
   }
 
   setStateInfo(key, value) {
-    this.setState({
-      info: Object.assign({}, this.state.info, {
+    this.setState(nextState => ({
+      info: Object.assign({}, nextState.info, {
         [key]: value,
       }),
-    });
+    }));
   }
 
   handleCancelEdit() {
-    this.props.onModalOpen(MODAL.CONFIRM_CHECK, {
+    const { history, onModalOpen } = this.props;
+    onModalOpen(MODAL.CONFIRM_CHECK, {
       title: 'Back to list',
       content: 'If you did not press the Save button, \nthe changes will not be maintained.',
       onConfirm: () => {
-        this.props.history.push('/widget-list');
+        history.push('/widget-list');
       },
     });
   }
 
   handleChangeSizeWidth(e) {
-    this.setState({
-      info: Object.assign({}, this.state.info, {
+    this.setState(nextState => ({
+      info: Object.assign({}, nextState.info, {
         size: {
           width: Number(e.target.value),
-          height: this.state.info.size.height,
+          height: nextState.info.size.height,
         },
       }),
-    });
+    }));
   }
 
   handleChangeSizeHeight(e) {
-    this.setState({
-      info: Object.assign({}, this.state.info, {
+    this.setState(nextState => ({
+      info: Object.assign({}, nextState.info, {
         size: {
-          width: this.state.info.size.width,
+          width: nextState.info.size.width,
           height: Number(e.target.value),
         },
       }),
-    });
+    }));
   }
 
   handleMoveWidgetList() {
-    this.props.history.push('/widget-list');
+    const { history } = this.props;
+    history.push('/widget-list');
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const { info } = this.state;
+    const { onStoreWidgetInfo, onModalOpen } = this.props;
 
     this.setState({ initialInfo: info });
-    this.props.onStoreWidgetInfo(info.id, info);
-    this.props.onModalOpen(MODAL.CONFIRM, {
+    onStoreWidgetInfo(info.id, info);
+    onModalOpen(MODAL.CONFIRM, {
       title: 'Save complete',
       content: 'Widget Setting is Changed',
     });
@@ -112,6 +117,7 @@ class WidgetSetting extends React.Component {
   }
 
   render() {
+    const { info } = this.state;
     const { onStoreWidgetInfo } = this.props;
 
     return (
@@ -129,7 +135,11 @@ class WidgetSetting extends React.Component {
             onClick={this.handleMoveWidgetList}
           >
             <img src={backIcon} alt="" />
-            <h6 className="WidgetEdit__header-text"><strong>Back to List</strong></h6>
+            <h6 className="WidgetEdit__header-text">
+              <strong>
+                Back to List
+              </strong>
+            </h6>
           </button>
         </Header>
         <form
@@ -137,12 +147,12 @@ class WidgetSetting extends React.Component {
           onSubmit={this.handleSubmit}
         >
           <EditSetting
-            item={this.state.info}
+            item={info}
             onStoreWidgetInfo={onStoreWidgetInfo}
             onChangeInput={this.setStateInfo}
           />
           <EditSize
-            item={this.state.info}
+            item={info}
             onChangeHeight={this.handleChangeSizeHeight}
             onChangeWidth={this.handleChangeSizeWidth}
           />
@@ -152,7 +162,8 @@ class WidgetSetting extends React.Component {
               type="button"
               onClick={this.handleCancelEdit}
             >
-              {'<'} back
+              {'<'}
+              back
             </button>
             <input
               className="Btn Btn--primary Btn--sm Btn--submit"
