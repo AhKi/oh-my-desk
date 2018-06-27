@@ -11,7 +11,7 @@ exports[`<WidgetStore /> should match to snapshot when render default 1`] = `
       "
       Store
       "
-       function is 
+      function is
       <br />
       Comming soon.
     </h4>
