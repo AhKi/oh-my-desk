@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import ToggleButton from './';
+import ToggleButton from '.';
 
 describe('<ToggleButton />', () => {
   it('should match to snapshot when render default', () => {

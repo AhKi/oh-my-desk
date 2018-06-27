@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import StoreIcon from './';
+import StoreIcon from '.';
 
 describe('<StoreIcon />', () => {
   it('should match to snapshot when render default', () => {

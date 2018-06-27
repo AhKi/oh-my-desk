@@ -65,20 +65,26 @@ class WidgetList extends React.Component {
   componentDidMount() {
     window.ipcRenderer.send(IPC.WIDGET_INFO_REQUEST);
     window.ipcRenderer.on(IPC.WIDGET_INFO_RESULT,
-      (response, result) => this.props.onStoreWidgetInfo(result));
+      (response, result) => {
+        const { onStoreWidgetInfo } = this.props;
+        onStoreWidgetInfo(result);
+      });
   }
 
   handleOpenModal() {
-    this.props.onModalOpen(MODAL.MAKE_WEB_WIDGET);
+    const { onModalOpen } = this.props;
+    onModalOpen(MODAL.MAKE_WEB_WIDGET);
   }
 
   handleSelectFilter(e) {
-    this.props.onSelectFilter(e.target.value);
+    const { onSelectFilter } = this.props;
+    onSelectFilter(e.target.value);
   }
 
   handleSelectItem(id) {
+    const { onSelectItem } = this.props;
     window.ipcRenderer.send(IPC.WIDGET_INFO_REQUEST);
-    this.props.onSelectItem(id);
+    onSelectItem(id);
   }
 
   render() {
@@ -98,11 +104,15 @@ class WidgetList extends React.Component {
     return (
       <div className="WidgetList">
         <Header>
-          <h6>Widget manage</h6>
+          <h6>
+            Widget manage
+          </h6>
         </Header>
         <div className="WidgetList__content">
           <div className="WidgetList__content-header space-5x">
-            <p>Activated widget</p>
+            <p>
+              Activated widget
+            </p>
             <Select
               items={filterList}
               value={filter}
@@ -123,7 +133,9 @@ class WidgetList extends React.Component {
               type="button"
               onClick={this.handleOpenModal}
             >
-              <b>+ Add New Widget</b>
+              <b>
+                + Add New Widget
+              </b>
             </button>
           </div>
         </div>

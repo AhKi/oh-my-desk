@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import WebWidgetMobileHeader from './';
+import WebWidgetMobileHeader from '.';
 
 describe('<WebWidgetMobileHeader />', () => {
   const webView = {

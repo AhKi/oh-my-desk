@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import ReloadButton from './';
+import ReloadButton from '.';
 
 describe('<ReloadButton />', () => {
   it('should match to snapshot when render default', () => {

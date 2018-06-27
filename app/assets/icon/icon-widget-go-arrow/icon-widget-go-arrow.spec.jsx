@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import GoIcon from './';
+import GoIcon from '.';
 
 describe('<GoIcon />', () => {
   it('should match to snapshot when render default', () => {

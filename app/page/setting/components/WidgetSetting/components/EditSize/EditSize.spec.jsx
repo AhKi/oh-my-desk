@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import EditSize from './';
+import EditSize from '.';
 
 describe('<EditSize />', () => {
   it('should match to snapshot when render default', () => {

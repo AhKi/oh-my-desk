@@ -42,11 +42,13 @@ class EditSetting extends React.Component {
   }
 
   handleChangeName(e) {
-    this.props.onChangeInput('name', e.target.value);
+    const { onChangeInput } = this.props;
+    onChangeInput('name', e.target.value);
   }
 
   handleChangeUrl(e) {
-    this.props.onChangeInput('url', e.target.value);
+    const { onChangeInput } = this.props;
+    onChangeInput('url', e.target.value);
   }
 
   handleToggleIsActive() {
@@ -70,10 +72,16 @@ class EditSetting extends React.Component {
 
     return (
       <div className="EditSetting space-6x">
-        <p className="space-2x"><strong>Edit setting</strong></p>
+        <p className="space-2x">
+          <strong>
+            Edit setting
+          </strong>
+        </p>
         <div className="EditSetting__content">
           <label htmlFor="name-input" className="InputSet__label">
-            <span className="InputSet__label-text">Name</span>
+            <span className="InputSet__label-text">
+              Name
+            </span>
             <input
               className="InputSet InputSet__text-input"
               id="name-input"
@@ -83,7 +91,9 @@ class EditSetting extends React.Component {
             />
           </label>
           <label htmlFor="url-input" className="InputSet__label">
-            <span className="InputSet__label-text">Url</span>
+            <span className="InputSet__label-text">
+              Url
+            </span>
             <input
               className="InputSet InputSet__text-input"
               id="url-input"
@@ -93,7 +103,9 @@ class EditSetting extends React.Component {
             />
           </label>
           <div className="WidgetEdit__toggle-label">
-            <span className="InputSet__label-text">Activated</span>
+            <span className="InputSet__label-text">
+              Activated
+            </span>
             <div className="WidgetEdit__toggle-btn">
               <ToggleButton
                 checkedValue={null}
@@ -101,11 +113,15 @@ class EditSetting extends React.Component {
                 isCheck={item.isActive}
                 onToggle={this.handleToggleIsActive}
               />
-              <span className="InputSet__toggle-description">Runs the Web widget.</span>
+              <span className="InputSet__toggle-description">
+                Runs the Web widget.
+              </span>
             </div>
           </div>
           <div className="WidgetEdit__toggle-label">
-            <span className="InputSet__label-text">Always Top</span>
+            <span className="InputSet__label-text">
+              Always Top
+            </span>
             <div className="WidgetEdit__toggle-btn">
               <ToggleButton
                 checkedValue={null}
@@ -113,7 +129,9 @@ class EditSetting extends React.Component {
                 isCheck={item.isOnTop}
                 onToggle={this.handleToggleIsOnTop}
               />
-              <span className="InputSet__toggle-description">Always pin the Web widget up.</span>
+              <span className="InputSet__toggle-description">
+                Always pin the Web widget up.
+              </span>
             </div>
           </div>
         </div>

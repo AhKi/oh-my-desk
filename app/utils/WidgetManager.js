@@ -1,9 +1,9 @@
 const { BrowserWindow } = require('electron');
-const Store = require('./Store');
 const uuid = require('uuid/v4');
 const url = require('url');
 const path = require('path');
 const moment = require('moment');
+const Store = require('./Store');
 
 class WidgetManager {
   constructor(option) {

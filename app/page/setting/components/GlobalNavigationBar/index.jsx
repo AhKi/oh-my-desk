@@ -60,7 +60,11 @@ class GlobalNavigationBar extends React.Component {
   }
 
   render() {
-    const { match } = this.props;
+    const {
+      onListClick,
+      onSettingClick,
+      onStoreClick,
+    } = this.props;
     const iconClassName = (current, target) => cx('GlobalNavigationBar__list-icon', {
       'GlobalNavigationBar__list-icon--active': GlobalNavigationBar.calculateIsActive(current, target),
     });
@@ -71,21 +75,33 @@ class GlobalNavigationBar extends React.Component {
       {
         icon: WidgetIcon,
         path: '/widget-list',
-        name: <span className="GlobalNavigationBar__list-text">Widget</span>,
+        name: (
+          <span className="GlobalNavigationBar__list-text">
+            Widget
+          </span>
+        ),
         match: ['/widget-list', '/widget-setting'],
-        onClick: this.props.onListClick,
+        onClick: onListClick,
       },
       {
         icon: SettingIcon,
         path: '/setting',
-        name: <span className="GlobalNavigationBar__list-text">Setting</span>,
-        onClick: this.props.onSettingClick,
+        name: (
+          <span className="GlobalNavigationBar__list-text">
+            Setting
+          </span>
+        ),
+        onClick: onSettingClick,
       },
       {
         icon: StoreIcon,
         path: '/widget-store',
-        name: <span className="GlobalNavigationBar__list-text">Store</span>,
-        onClick: this.props.onStoreClick,
+        name: (
+          <span className="GlobalNavigationBar__list-text">
+            Store
+          </span>
+        ),
+        onClick: onStoreClick,
       },
     ];
 
@@ -97,11 +113,12 @@ class GlobalNavigationBar extends React.Component {
         <ul className="GlobalNavigationBar__menu-box">
           {menu.map((v) => {
             const Icon = v.icon;
+            const { match } = this.props;
 
             return (
               <Link to={v.path} key={v.path}>
                 <li className={GlobalNavigationBar.listClassName(
-                  this.props.match.path,
+                  match.path,
                   v.match || v.path,
                 )}
                 >

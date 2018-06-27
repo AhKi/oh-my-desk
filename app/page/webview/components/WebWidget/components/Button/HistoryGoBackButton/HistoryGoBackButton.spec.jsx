@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import HistoryGoBackButton from './';
+import HistoryGoBackButton from '.';
 
 describe('<HistoryGoBackButton />', () => {
   it('should match to snapshot when render default', () => {

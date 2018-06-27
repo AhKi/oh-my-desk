@@ -42,13 +42,15 @@ class WidgetListItem extends React.Component {
   }
 
   handleSelectItem() {
-    window.ipcRenderer.send(IPC.WIDGET_SHOW_INACTIVE, this.props.item.id);
-    this.props.onSelectItem(this.props.item.id);
+    const { item, onSelectItem } = this.props;
+    window.ipcRenderer.send(IPC.WIDGET_SHOW_INACTIVE, item.id);
+    onSelectItem(item.id);
   }
 
   handleWidgetOpen() {
+    const { item } = this.props;
     window.ipcRenderer.send(IPC.WIDGET_OPEN,
-      Object.assign({}, this.props.item, { isActive: true }));
+      Object.assign({}, item, { isActive: true }));
   }
 
   handleToggleIsActive() {
@@ -81,9 +83,10 @@ class WidgetListItem extends React.Component {
   }
 
   handleOpenDeleteModal() {
-    this.props.onModalOpen(MODAL.DELETE_CONFIRM_WIDGET, {
-      id: this.props.item.id,
-      name: this.props.item.name,
+    const { item, onModalOpen } = this.props;
+    onModalOpen(MODAL.DELETE_CONFIRM_WIDGET, {
+      id: item.id,
+      name: item.name,
     });
   }
 
@@ -131,7 +134,7 @@ class WidgetListItem extends React.Component {
           </button>
         </li>
         <li className="WidgetListItem__list WidgetListItem__more">
-          {isActiveMore ?
+          {isActiveMore ? (
             <OutsideClickHandler onOutSideClick={() => this.handleToggleMore(false)}>
               <button
                 className="WidgetListItem__pin-button-active"
@@ -147,7 +150,8 @@ class WidgetListItem extends React.Component {
                   to="/widget-setting"
                   onClick={this.handleSelectItem}
                 >
-                  edit <img src={editIcon} alt="" />
+                  edit
+                  <img src={editIcon} alt="" />
                 </Link>
                 <li>
                   <button
@@ -155,20 +159,21 @@ class WidgetListItem extends React.Component {
                     type="button"
                     onClick={this.handleOpenDeleteModal}
                   >
-                    remove <img src={deleteIcon} alt="" />
+                    remove
+                    <img src={deleteIcon} alt="" />
                   </button>
                 </li>
               </ul>
-            </OutsideClickHandler> :
-            <button
-              className="WidgetListItem__pin-button"
-              data-name="more-btn"
-              type="button"
-              onClick={() => this.handleToggleMore()}
-            >
-              <img src={moreIcon} alt="" />
-            </button>
-          }
+            </OutsideClickHandler>) : (
+              <button
+                className="WidgetListItem__pin-button"
+                data-name="more-btn"
+                type="button"
+                onClick={() => this.handleToggleMore()}
+              >
+                <img src={moreIcon} alt="" />
+              </button>
+          )}
         </li>
       </ul>
     );

@@ -69,14 +69,15 @@ class WebWidgetSetting extends React.Component {
       url,
       urlError,
     } = this.state;
+    const { widget, onToggleSetting } = this.props;
 
     if (name && url && (!nameError && !urlError)) {
-      this.props.onToggleSetting(false);
+      onToggleSetting(false);
       updateWidget(
         'web',
-        Object.assign({}, this.props.widget, {
-          name: this.state.name,
-          url: this.state.url,
+        Object.assign({}, widget, {
+          name,
+          url,
         }),
       );
     }
@@ -95,7 +96,11 @@ class WebWidgetSetting extends React.Component {
       <div className="WebWidgetSetting">
         <OutsideClickHandler onOutSideClick={onToggleSetting}>
           <form>
-            <h6 className="WebWidgetSetting__title space-3x"><strong>Edit setting</strong></h6>
+            <h6 className="WebWidgetSetting__title space-3x">
+              <strong>
+                Edit setting
+              </strong>
+            </h6>
             <ValidationInput
               autoFocus
               name="Name"
