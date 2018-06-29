@@ -37,7 +37,7 @@
     "babel-preset-react": "^6.24.1",
     "coveralls": "^3.0.1",
     "cross-env": "^5.2.0",
-    "electron": "^2.0.3",
+    "electron": "1.7.1",
     "electron-builder": "^20.17.0",
     "electron-react-devtools": "^0.5.3",
     "electron-redux-devtools": "^0.3.4",
