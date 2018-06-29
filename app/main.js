@@ -1,12 +1,16 @@
-const {
-  app, BrowserWindow, remote, Menu, Tray,
-} = require('electron');
-const path = require('path');
-const url = require('url');
-const fs = require('fs');
-const { ipcMain } = require('electron');
-const WidgetManager = require('./utils/WidgetManager');
-const createMenu = require('./utils/createMenu');
+import {
+  app,
+  BrowserWindow,
+  ipcMain,
+  Menu,
+  remote,
+  Tray,
+} from 'electron';
+import path from 'path';
+import url from 'url';
+import fs from 'fs';
+import WidgetManager from 'process/renderer/WidgetManager';
+import createMenu from 'process/main/createMenu';
 
 let informationBeforeQuit;
 let setting_win;
