@@ -5,9 +5,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     app: './app/page/setting/index.jsx',
+    store: './app/store/index.js',
     widget: './app/page/webview/index.jsx',
   },
-
+  target: 'electron-renderer',
   module: {
     rules: [
       {
@@ -83,6 +84,7 @@ module.exports = {
       webview: path.resolve(__dirname, 'app/page/webview'),
       scss: path.resolve(__dirname, 'app/scss'),
       utils: path.resolve(__dirname, 'app/utils'),
+      store: path.resolve(__dirname, 'app/store'),
     },
     extensions: ['.js', '.jsx'],
   },
