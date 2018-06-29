@@ -24,9 +24,9 @@
   version "9.4.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-9.4.0.tgz#b85a0bcf1e1cc84eb4901b7e96966aedc6f078d1"
 
-"@types/node@^8.0.24":
-  version "8.10.20"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.10.20.tgz#fe674ea52e13950ab10954433a7824438aabbcac"
+"@types/node@^7.0.18":
+  version "7.0.66"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.66.tgz#3d1dc4d6f52e484e843806ff456379f7e6ad5553"
 
 "@webassemblyjs/ast@1.5.12":
   version "1.5.12"
@@ -782,7 +782,7 @@ babel-plugin-syntax-jsx@^6.3.13, babel-plugin-syntax-jsx@^6.8.0:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-jsx/-/babel-plugin-syntax-jsx-6.18.0.tgz#0af32a9a6e13ca7a3fd5069e62d7b0f58d0d8946"
 
-babel-plugin-syntax-object-rest-spread@^6.13.0:
+babel-plugin-syntax-object-rest-spread@^6.13.0, babel-plugin-syntax-object-rest-spread@^6.8.0:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-object-rest-spread/-/babel-plugin-syntax-object-rest-spread-6.13.0.tgz#fd6536f2bce13836ffa3a5458c4903a597bb3bf5"
 
@@ -980,6 +980,13 @@ babel-plugin-transform-flow-strip-types@^6.22.0:
   dependencies:
     babel-plugin-syntax-flow "^6.18.0"
     babel-runtime "^6.22.0"
+
+babel-plugin-transform-object-rest-spread@^6.26.0:
+  version "6.26.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-object-rest-spread/-/babel-plugin-transform-object-rest-spread-6.26.0.tgz#0f36692d50fef6b7e2d4b3ac1478137a963b7b06"
+  dependencies:
+    babel-plugin-syntax-object-rest-spread "^6.8.0"
+    babel-runtime "^6.26.0"
 
 babel-plugin-transform-react-display-name@^6.23.0:
   version "6.25.0"
@@ -2656,11 +2663,11 @@ electron-to-chromium@^1.3.47:
   version "1.3.50"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.50.tgz#7438b76f92b41b919f3fbdd350fbd0757dacddf7"
 
-electron@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-2.0.3.tgz#8e591e820cae2ccdb0c3fd74c6d07834913fc133"
+electron@1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-1.7.1.tgz#a93b8abd1fd6df794839d8602903aacbce74d388"
   dependencies:
-    "@types/node" "^8.0.24"
+    "@types/node" "^7.0.18"
     electron-download "^3.0.1"
     extract-zip "^1.0.3"
 
@@ -3422,6 +3429,12 @@ flush-write-stream@^1.0.0:
   dependencies:
     inherits "^2.0.1"
     readable-stream "^2.0.4"
+
+flux-standard-action@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/flux-standard-action/-/flux-standard-action-2.0.3.tgz#a73a6c4b25ea19d7051afe093ec108ff33dd8935"
+  dependencies:
+    lodash "^4.0.0"
 
 for-in@^0.1.3:
   version "0.1.8"
@@ -5761,6 +5774,10 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
+
+module-alias@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/module-alias/-/module-alias-2.1.0.tgz#c36d4fd15f7f9d7112f62fa015385e7b65a286c1"
 
 moment@^2.22.2:
   version "2.22.2"
