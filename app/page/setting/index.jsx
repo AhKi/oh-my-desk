@@ -3,7 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 import Routes from 'setting/routes';
-import store from 'setting/store';
+import subscribeActionRenderer from 'store/utils/subscribeActionRenderer';
+import getStore from 'store';
+
+const store = getStore();
+
+subscribeActionRenderer(store);
 
 ReactDOM.render(
   <Provider store={store}>
