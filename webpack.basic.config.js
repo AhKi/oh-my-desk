@@ -80,6 +80,7 @@ module.exports = {
       constants: path.resolve(__dirname, 'app/constants'),
       components: path.resolve(__dirname, 'app/components'),
       page: path.resolve(__dirname, 'app/page'),
+      process: path.resolve(__dirname, 'app/process'),
       setting: path.resolve(__dirname, 'app/page/setting'),
       webview: path.resolve(__dirname, 'app/page/webview'),
       scss: path.resolve(__dirname, 'app/scss'),
