@@ -11,6 +11,12 @@ import url from 'url';
 import fs from 'fs';
 import WidgetManager from 'process/renderer/WidgetManager';
 import createMenu from 'process/main/createMenu';
+import getStore from 'store';
+import subscribeActionMain from 'store/utils/subscribeActionMain';
+
+const MAIN = 'MAIN';
+const store = getStore(MAIN);
+subscribeActionMain(store);
 
 let informationBeforeQuit;
 let setting_win;
