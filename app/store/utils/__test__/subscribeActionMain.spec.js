@@ -32,7 +32,7 @@ describe('test subscribeActionMain', () => {
       expect(store.dispatch).toHaveBeenCalledWith(payload);
 
       expect(controller.default).toHaveBeenCalledTimes(1);
-      expect(controller.default).toHaveBeenCalledWith(initialState, nextState);
+      expect(controller.default).toHaveBeenCalledWith(initialState, nextState, payload);
     });
   });
 
