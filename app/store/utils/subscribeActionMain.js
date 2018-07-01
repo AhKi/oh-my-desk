@@ -4,11 +4,11 @@ import controller from 'process/main/controllers';
 export default function subscribeActionMain(store) {
   global.getReduxState = () => JSON.stringify(store.getState());
 
-  ipcMain.on('redux-action', (e, payload) => {
+  ipcMain.on('redux-action', (e, action) => {
     const prevState = store.getState();
-    store.dispatch(payload);
+    store.dispatch(action);
     const nextState = store.getState();
 
-    controller(prevState, nextState);
+    controller(prevState, nextState, action);
   });
 }
