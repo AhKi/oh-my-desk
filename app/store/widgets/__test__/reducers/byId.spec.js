@@ -21,4 +21,27 @@ describe('test widgets byId reducer', () => {
         [mockId]: createWidget(mockId, mockInfo),
       }));
   });
+
+  it('should handle SHOW_TARGET_WIDGET', () => {
+    const mockId = 'mock-id';
+    const mockInfo = {
+      name: 'mock-name',
+      url: 'mock-url',
+      isOpen: false,
+    };
+    const resultInfo = {
+      name: 'mock-name',
+      url: 'mock-url',
+      isOpen: true,
+    };
+    const initialState = {
+      [mockId]: mockInfo,
+    };
+    const resultState = {
+      [mockId]: resultInfo,
+    };
+
+    expect(byId(Immutable.fromJS(initialState), widgetActions.showTargetWidget(mockId)))
+      .toEqual(Immutable.fromJS(resultState));
+  });
 });

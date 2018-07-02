@@ -1,12 +1,17 @@
+import Immutable from 'immutable';
 import { BrowserWindow } from 'electron';
 import * as TYPES from 'actions/actionTypes';
 import storeMock from 'store/storeMain';
-import * as actions from 'actions/widget';
+import * as utils from 'utils/makeWidgetWindow';
 import widgetController from '.';
 
 describe('test widgetController', () => {
-  storeMock.dispatch = jest.fn();
-  describe('should handle TYPES.REGISTER_NEW_WIDGET', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should handle TYPES.REGISTER_NEW_WIDGET', () => {
+    storeMock.dispatch = jest.fn();
     const mockAction = {
       type: TYPES.REGISTER_NEW_WIDGET,
       payload: {
@@ -18,85 +23,78 @@ describe('test widgetController', () => {
         },
       },
     };
-    const once = jest.fn();
-    const loadURL = jest.fn();
-    const on = jest.fn();
-    const show = jest.fn();
-    const mock = {
-      once,
-      loadURL,
-      on,
-      show,
-    };
-    BrowserWindow.mockImplementation(() => mock);
+
+    const makeWidgetWindow = jest.spyOn(utils, 'default');
 
     widgetController(mockAction);
 
-    it('should call actions.registerNewWidgetBrowserWindow', () => {
-      expect(storeMock.dispatch).toHaveBeenCalledTimes(1);
-      expect(storeMock.dispatch).toHaveBeenCalledWith(
-        actions.registerNewWidgetBrowserWindow('mock-id', mock),
-      );
+    expect(makeWidgetWindow).toHaveBeenCalledTimes(1);
+    expect(makeWidgetWindow).toHaveBeenCalledWith('mock-id', {
+      name: 'mock-name',
+      url: 'mock-url',
+      isOpen: false,
+    });
+  });
+
+  describe('should handle TYPES.SHOW_TARGET_WIDGET', () => {
+    const mockAction = {
+      type: TYPES.SHOW_TARGET_WIDGET,
+      payload: {
+        id: 'mock-id',
+      },
+    };
+    const makeWidgetWindow = jest.spyOn(utils, 'default');
+
+    it('when widget is exist', () => {
+      const browserWindow = new BrowserWindow();
+
+      const mockStore = Immutable.Map({
+        status: Immutable.Map({
+          winWidgets: Immutable.Map({
+            'mock-id': browserWindow,
+          }),
+        }),
+        widgets: Immutable.fromJS({
+          byId: {
+            'mock-id': {
+              name: 'mock-name',
+              url: 'mock-url',
+              isOpen: false,
+            },
+          },
+        }),
+      });
+
+      widgetController(mockAction, mockStore, mockStore);
+
+      expect(browserWindow.show).toHaveBeenCalledTimes(1);
+      expect(browserWindow.show).toHaveBeenCalledWith();
+      expect(makeWidgetWindow).toHaveBeenCalledTimes(0);
     });
 
-    it('test BrowserWindow.show', () => {
-      expect(show).toHaveBeenCalledTimes(1);
-      expect(show).toHaveBeenCalledWith();
-    });
-
-    describe('test BrowserWindow.once', () => {
-      it('should call BrowserWindow.once', () => {
-        expect(once).toHaveBeenCalledTimes(1);
-        expect(once).toHaveBeenCalledWith('ready-to-show', expect.any(Function));
+    it('when widget is not exist', () => {
+      const mockStore = Immutable.Map({
+        status: Immutable.Map({
+          winWidgets: Immutable.Map({}),
+        }),
+        widgets: Immutable.fromJS({
+          byId: {
+            'mock-id': {
+              name: 'mock-name',
+              url: 'mock-url',
+              isOpen: false,
+            },
+          },
+        }),
       });
 
-      it('should call callback of BrowserWindow.once', () => {
-        const cb = once.mock.calls[0][1];
-        cb();
+      widgetController(mockAction, mockStore, mockStore);
 
-        expect(show).toHaveBeenCalledTimes(2);
-        expect(show).toHaveBeenCalledWith();
-      });
-    });
-
-    describe('test BrowserWindow.on', () => {
-      describe('when closed event', () => {
-        it('should call closed', () => {
-          expect(on).toHaveBeenCalledTimes(1);
-          expect(on).toHaveBeenCalledWith('closed', expect.any(Function));
-        });
-
-        it('should call callback of closed event', () => {
-          const cb = on.mock.calls[0][1];
-          cb();
-
-          expect(storeMock.dispatch).toHaveBeenCalledTimes(2);
-          expect(storeMock.dispatch).toHaveBeenCalledWith(
-            actions.closeTargetWidget('mock-id'),
-          );
-        });
-      });
-    });
-
-    describe('test BrowserWindow.loadURL', () => {
-      beforeEach(() => {
-        jest.clearAllMocks();
-      });
-
-      it('when process.env.NODE_ENV === development', () => {
-        process.env.NODE_ENV = 'development';
-        widgetController(mockAction);
-        expect(loadURL).toHaveBeenCalledTimes(1);
-        expect(loadURL)
-          .toHaveBeenCalledWith('file:///Users/hyunmoahn/project/oh-my-desk/app/app/page/webview/index.html');
-      });
-
-      it('when process.env.NODE_ENV === production', () => {
-        process.env.NODE_ENV = 'production';
-        widgetController(mockAction);
-        expect(loadURL).toHaveBeenCalledTimes(1);
-        expect(loadURL)
-          .toHaveBeenCalledWith('file:///Users/hyunmoahn/project/oh-my-desk/app/build/widget.html');
+      expect(makeWidgetWindow).toHaveBeenCalledTimes(1);
+      expect(makeWidgetWindow).toHaveBeenCalledWith('mock-id', {
+        name: 'mock-name',
+        url: 'mock-url',
+        isOpen: false,
       });
     });
   });
