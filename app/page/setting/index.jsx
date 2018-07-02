@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 import Routes from 'setting/routes';
 import subscribeActionRenderer from 'store/utils/subscribeActionRenderer';
-import getStore from 'store';
+import getStore from 'store/createStore.js';
 
 const store = getStore();
 

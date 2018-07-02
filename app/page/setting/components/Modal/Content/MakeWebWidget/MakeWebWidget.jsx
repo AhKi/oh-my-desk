@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { v4 } from 'uuid';
 import OutsideClickHandler from 'components/OutsideClickHandler';
 import ValidationInput from 'components/ValidationInput';
-import createWidget from 'utils/createWidget';
 import validateName from 'utils/validation/widgetName';
 import validateUrl from 'utils/validation/widgetUrl';
 import './MakeWebWidget.scss';
 
 const propTypes = {
+  onRegisterNew: PropTypes.func,
   onModalClose: PropTypes.func,
 };
 
 const defaultProps = {
+  onRegisterNew() {},
   onModalClose() {},
 };
 
@@ -65,7 +66,7 @@ class MakeWebWidget extends React.Component {
       widgetUrl,
       urlError,
     } = this.state;
-    const { onModalClose } = this.props;
+    const { onRegisterNew, onModalClose } = this.props;
 
 
     if (!(widgetName && widgetUrl) || (nameError || urlError)) {
@@ -73,7 +74,7 @@ class MakeWebWidget extends React.Component {
       return;
     }
 
-    createWidget('web', {
+    onRegisterNew(v4(), {
       name: widgetName,
       url: widgetUrl,
     });
