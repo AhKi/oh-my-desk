@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import deleteWidget from 'utils/deleteWidget';
 import './DeleteConfirmWidget.scss';
 
 const propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   onClose: PropTypes.func,
+  onDeleteWidget: PropTypes.func,
 };
 
 const defaultProps = {
   id: '',
   name: '',
   onClose() {},
+  onDeleteWidget() {},
 };
 
 class DeleteConfirmWidget extends React.Component {
@@ -22,8 +23,9 @@ class DeleteConfirmWidget extends React.Component {
   }
 
   handleDeleteWidget() {
-    const { id, onClose } = this.props;
-    deleteWidget(id);
+    const { id, onClose, onDeleteWidget } = this.props;
+
+    onDeleteWidget(id);
     onClose();
   }
 

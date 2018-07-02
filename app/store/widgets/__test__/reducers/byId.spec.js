@@ -157,4 +157,20 @@ describe('test widgets byId reducer', () => {
       });
     });
   });
+
+  it('should handle DELETE_TARGET_WIDGET', () => {
+    const mockId = 'mock-id';
+    const mockInfo = {
+      name: 'mock-name',
+      url: 'mock-url',
+      isOpen: false,
+    };
+    const initialState = {
+      [mockId]: mockInfo,
+    };
+    const resultState = {};
+
+    expect(byId(Immutable.fromJS(initialState), widgetActions.deleteTargetWidget(mockId)))
+      .toEqual(Immutable.fromJS(resultState));
+  });
 });
