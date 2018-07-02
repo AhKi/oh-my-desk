@@ -22,7 +22,7 @@ const byIdReducer = handleActions({
     const { id, info } = action.payload;
     let widget = state.get(id);
 
-    if (info) {
+    if (info && widget) {
       if (info.position) {
         widget = widget.set('position', Immutable.Map(info.position));
       }
@@ -35,6 +35,11 @@ const byIdReducer = handleActions({
     }
 
     return state.set(id, widget.set('isOpen', false));
+  },
+  [TYPES.DELETE_TARGET_WIDGET]: (state, action) => {
+    const { id } = action.payload;
+
+    return state.delete(id);
   },
 }, initialState);
 
