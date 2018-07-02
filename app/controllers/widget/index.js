@@ -26,6 +26,17 @@ const widgetController = (action, prev, next) => {
       } else {
         makeWidgetWindow(id, item.toJS());
       }
+
+      break;
+    }
+    case TYPES.CLOSE_TARGET_WIDGET: {
+      const { id } = action.payload;
+      const winWidgets = statusSelector.winWidgetsSelector(next);
+      const widget = winWidgets.get(id);
+
+      widget.close();
+
+      break;
     }
   }
 };

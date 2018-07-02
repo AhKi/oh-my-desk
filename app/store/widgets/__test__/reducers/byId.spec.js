@@ -44,4 +44,117 @@ describe('test widgets byId reducer', () => {
     expect(byId(Immutable.fromJS(initialState), widgetActions.showTargetWidget(mockId)))
       .toEqual(Immutable.fromJS(resultState));
   });
+
+  describe('should handle CLOSE_TARGET_WIDGET', () => {
+    const mockId = 'mock-id';
+    const initialState = {
+      [mockId]: {
+        name: 'mock-name',
+        url: 'mock-url',
+        isOpen: false,
+        position: {
+          x: 10,
+          y: 20,
+        },
+        size: {
+          height: 100,
+          width: 200,
+        },
+      },
+    };
+    const nextState = {
+      [mockId]: {
+        name: 'mock-name',
+        url: 'mock-url',
+        isOpen: false,
+        position: {
+          x: 30,
+          y: 40,
+        },
+        size: {
+          height: 300,
+          width: 400,
+        },
+      },
+    };
+    const mockInfo = {
+      position: {
+        x: 30,
+        y: 40,
+      },
+      size: {
+        height: 300,
+        width: 400,
+      },
+    };
+
+    it('when info don\'t exist', () => {
+      expect(byId(Immutable.fromJS(initialState), widgetActions.closeTargetWidget(mockId)))
+        .toEqual(Immutable.fromJS(initialState));
+    });
+
+    describe('when info exist', () => {
+      it('exist position and width', () => {
+        expect(byId(
+          Immutable.fromJS(initialState),
+          widgetActions.closeTargetWidget(mockId, mockInfo),
+        ))
+          .toEqual(Immutable.fromJS(nextState));
+      });
+
+      it('exist position only', () => {
+        expect(byId(
+          Immutable.fromJS(initialState),
+          widgetActions.closeTargetWidget(mockId, {
+            size: {
+              height: 300,
+              width: 400,
+            },
+          }),
+        ))
+          .toEqual(Immutable.fromJS({
+            [mockId]: {
+              name: 'mock-name',
+              url: 'mock-url',
+              isOpen: false,
+              position: {
+                x: 10,
+                y: 20,
+              },
+              size: {
+                height: 300,
+                width: 400,
+              },
+            },
+          }));
+      });
+
+      it('exist size only', () => {
+        expect(byId(
+          Immutable.fromJS(initialState),
+          widgetActions.closeTargetWidget(mockId, {
+            position: {
+              x: 30,
+              y: 40,
+            },
+          }),
+        ))
+          .toEqual(Immutable.fromJS({
+            [mockId]: {
+              name: 'mock-name',
+              url: 'mock-url',
+              isOpen: false,
+              position: {
+                x: 30,
+                y: 40,
+              },
+              size: {
+                height: 100,
+                width: 200,
+              },
+            },
+          }));
+      });
+    });
+  });
 });

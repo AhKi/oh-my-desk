@@ -9,6 +9,7 @@ export const ipcMain = {
 };
 
 export const BrowserWindow = jest.fn(() => ({
+  close: jest.fn(),
   loadURL: jest.fn(),
   once: jest.fn(),
   on: jest.fn(),

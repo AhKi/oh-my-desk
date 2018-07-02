@@ -10,6 +10,14 @@ const winWidgets = handleActions({
 
     return state.set(id, browserWindow);
   },
+  [TYPES.CLOSE_TARGET_WIDGET]: (state, action) => {
+    const { id, info } = action.payload;
+    if (info) {
+      return state.delete(id);
+    }
+
+    return state;
+  },
 }, initialState);
 
 export default winWidgets;
