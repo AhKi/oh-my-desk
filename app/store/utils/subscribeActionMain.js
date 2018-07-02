@@ -1,5 +1,5 @@
 import { ipcMain } from 'electron';
-import controller from 'process/main/controllers';
+import controller from 'controllers';
 
 export default function subscribeActionMain(store) {
   global.getReduxState = () => JSON.stringify(store.getState());
@@ -9,6 +9,6 @@ export default function subscribeActionMain(store) {
     store.dispatch(action);
     const nextState = store.getState();
 
-    controller(prevState, nextState, action);
+    controller(action, prevState, nextState);
   });
 }

@@ -1,5 +1,5 @@
 import { ipcMain } from 'electron';
-import * as controller from 'process/main/controllers';
+import * as controller from 'controllers';
 import subscribeActionMain from '../subscribeActionMain';
 
 describe('test subscribeActionMain', () => {
@@ -32,7 +32,7 @@ describe('test subscribeActionMain', () => {
       expect(store.dispatch).toHaveBeenCalledWith(payload);
 
       expect(controller.default).toHaveBeenCalledTimes(1);
-      expect(controller.default).toHaveBeenCalledWith(initialState, nextState, payload);
+      expect(controller.default).toHaveBeenCalledWith(payload, initialState, nextState);
     });
   });
 

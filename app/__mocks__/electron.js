@@ -8,6 +8,13 @@ export const ipcMain = {
   on: jest.fn(),
 };
 
+export const BrowserWindow = jest.fn(() => ({
+  loadURL: jest.fn(),
+  once: jest.fn(),
+  on: jest.fn(),
+  show: jest.fn(),
+}));
+
 export const ipcRenderer = {
   on: jest.fn(),
   send: jest.fn(),
