@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     app: './app/page/setting/index.jsx',
-    store: './app/store/index.js',
     widget: './app/page/webview/index.jsx',
   },
   target: 'electron-renderer',
@@ -76,9 +75,11 @@ module.exports = {
   ],
   resolve: {
     alias: {
+      actions: path.resolve(__dirname, 'app/actions'),
       assets: path.resolve(__dirname, 'app/assets'),
       constants: path.resolve(__dirname, 'app/constants'),
       components: path.resolve(__dirname, 'app/components'),
+      controllers: path.resolve(__dirname, 'app/controllers'),
       page: path.resolve(__dirname, 'app/page'),
       process: path.resolve(__dirname, 'app/process'),
       setting: path.resolve(__dirname, 'app/page/setting'),
