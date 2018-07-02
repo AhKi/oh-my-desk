@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux-immutable';
-import status from './models/status/reducers';
-import modal from './models/modal/reducers';
-import widget from './models/widget/reducers';
+import setting from './setting/reducers';
+import status from './status/reducers';
+import modal from './modal/reducers';
+import widgets from './widgets/reducers';
 
 const rootReducer = combineReducers({
+  setting,
   status,
   modal,
-  widget,
+  widgets,
 });
 
 export default rootReducer;
