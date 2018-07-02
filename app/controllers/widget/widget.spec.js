@@ -99,7 +99,7 @@ describe('test widgetController', () => {
     });
   });
 
-  it('should handle TYPES.CLOSE_TARGET_WIDGET', () => {
+  describe('should handle TYPES.CLOSE_TARGET_WIDGET', () => {
     const browserWindow = new BrowserWindow();
     const mockAction = {
       type: TYPES.CLOSE_TARGET_WIDGET,
@@ -112,26 +112,106 @@ describe('test widgetController', () => {
         },
       },
     };
-    const mockStore = Immutable.Map({
-      status: Immutable.Map({
-        winWidgets: Immutable.Map({
-          'mock-id': browserWindow,
+
+    it('when widget exist', () => {
+      const mockStore = Immutable.Map({
+        status: Immutable.Map({
+          winWidgets: Immutable.Map({
+            'mock-id': browserWindow,
+          }),
         }),
-      }),
-      widgets: Immutable.fromJS({
-        byId: {
-          'mock-id': {
-            name: 'mock-name',
-            url: 'mock-url',
-            isOpen: false,
+        widgets: Immutable.fromJS({
+          byId: {
+            'mock-id': {
+              name: 'mock-name',
+              url: 'mock-url',
+              isOpen: false,
+            },
           },
-        },
-      }),
+        }),
+      });
+      widgetController(mockAction, mockStore, mockStore);
+
+      expect(browserWindow.close).toHaveBeenCalledTimes(1);
+      expect(browserWindow.close).toHaveBeenCalledWith();
     });
 
-    widgetController(mockAction, mockStore, mockStore);
+    it('when widget don\'t exist', () => {
+      const mockStore = Immutable.Map({
+        status: Immutable.Map({
+          winWidgets: Immutable.Map({}),
+        }),
+        widgets: Immutable.fromJS({
+          byId: {
+            'mock-id': {
+              name: 'mock-name',
+              url: 'mock-url',
+              isOpen: false,
+            },
+          },
+        }),
+      });
+      widgetController(mockAction, mockStore, mockStore);
 
-    expect(browserWindow.close).toHaveBeenCalledTimes(1);
-    expect(browserWindow.close).toHaveBeenCalledWith();
+      expect(browserWindow.close).toHaveBeenCalledTimes(0);
+    });
+  });
+
+  describe('should handle TYPES.DELETE_TARGET_WIDGET', () => {
+    const browserWindow = new BrowserWindow();
+    const mockAction = {
+      type: TYPES.DELETE_TARGET_WIDGET,
+      payload: {
+        id: 'mock-id',
+        info: {
+          name: 'mock-name',
+          url: 'mock-url',
+          isOpen: false,
+        },
+      },
+    };
+
+    it('when widget exist', () => {
+      const mockStore = Immutable.Map({
+        status: Immutable.Map({
+          winWidgets: Immutable.Map({
+            'mock-id': browserWindow,
+          }),
+        }),
+        widgets: Immutable.fromJS({
+          byId: {
+            'mock-id': {
+              name: 'mock-name',
+              url: 'mock-url',
+              isOpen: false,
+            },
+          },
+        }),
+      });
+      widgetController(mockAction, mockStore, mockStore);
+
+      expect(browserWindow.close).toHaveBeenCalledTimes(1);
+      expect(browserWindow.close).toHaveBeenCalledWith();
+    });
+
+    it('when widget don\'t exist', () => {
+      const mockStore = Immutable.Map({
+        status: Immutable.Map({
+          winWidgets: Immutable.Map({}),
+        }),
+        widgets: Immutable.fromJS({
+          byId: {
+            'mock-id': {
+              name: 'mock-name',
+              url: 'mock-url',
+              isOpen: false,
+            },
+          },
+        }),
+      });
+      widgetController(mockAction, mockStore, mockStore);
+
+      expect(browserWindow.close).toHaveBeenCalledTimes(0);
+    });
   });
 });
