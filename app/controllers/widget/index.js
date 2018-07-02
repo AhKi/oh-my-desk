@@ -29,12 +29,15 @@ const widgetController = (action, prev, next) => {
 
       break;
     }
-    case TYPES.CLOSE_TARGET_WIDGET: {
+    case TYPES.CLOSE_TARGET_WIDGET:
+    case TYPES.DELETE_TARGET_WIDGET: {
       const { id } = action.payload;
       const winWidgets = statusSelector.winWidgetsSelector(next);
       const widget = winWidgets.get(id);
 
-      widget.close();
+      if (widget) {
+        widget.close();
+      }
 
       break;
     }
