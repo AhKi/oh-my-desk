@@ -31,9 +31,20 @@ const makeWidgetWindow = (id, info) => {
     widget.show();
   });
 
-  widget.on('closed', () => {
-    // TODO type location and position
-    store.dispatch(actions.closeTargetWidget(id));
+  widget.on('close', () => {
+    const contentBounds = widget.getContentBounds();
+    const widgetBounds = {
+      position: {
+        x: contentBounds.x,
+        y: contentBounds.y,
+      },
+      size: {
+        height: contentBounds.height,
+        width: contentBounds.width,
+      },
+    };
+
+    store.dispatch(actions.closeTargetWidget(id, widgetBounds));
   });
 
   widget.show();
