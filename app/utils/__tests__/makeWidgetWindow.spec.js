@@ -14,11 +14,15 @@ describe('test makeWidgetWindow', () => {
   const loadURL = jest.fn();
   const on = jest.fn();
   const show = jest.fn();
+  const getContentBounds = () => ({
+    x: 10, y: 20, height: 100, width: 200,
+  });
   const mock = {
     once,
     loadURL,
     on,
     show,
+    getContentBounds,
   };
   BrowserWindow.mockImplementation(() => mock);
   makeWidgetWindow('mock-id', mockInfo);
@@ -51,10 +55,10 @@ describe('test makeWidgetWindow', () => {
   });
 
   describe('test BrowserWindow.on', () => {
-    describe('when closed event', () => {
-      it('should call closed', () => {
+    describe('when close event', () => {
+      it('should call close', () => {
         expect(on).toHaveBeenCalledTimes(1);
-        expect(on).toHaveBeenCalledWith('closed', expect.any(Function));
+        expect(on).toHaveBeenCalledWith('close', expect.any(Function));
       });
 
       it('should call callback of closed event', () => {
@@ -63,7 +67,16 @@ describe('test makeWidgetWindow', () => {
 
         expect(storeMock.dispatch).toHaveBeenCalledTimes(2);
         expect(storeMock.dispatch).toHaveBeenCalledWith(
-          actions.closeTargetWidget('mock-id'),
+          actions.closeTargetWidget('mock-id', {
+            position: {
+              x: 10,
+              y: 20,
+            },
+            size: {
+              height: 100,
+              width: 200,
+            },
+          }),
         );
       });
     });

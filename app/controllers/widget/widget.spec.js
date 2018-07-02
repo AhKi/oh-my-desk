@@ -98,4 +98,40 @@ describe('test widgetController', () => {
       });
     });
   });
+
+  it('should handle TYPES.CLOSE_TARGET_WIDGET', () => {
+    const browserWindow = new BrowserWindow();
+    const mockAction = {
+      type: TYPES.CLOSE_TARGET_WIDGET,
+      payload: {
+        id: 'mock-id',
+        info: {
+          name: 'mock-name',
+          url: 'mock-url',
+          isOpen: false,
+        },
+      },
+    };
+    const mockStore = Immutable.Map({
+      status: Immutable.Map({
+        winWidgets: Immutable.Map({
+          'mock-id': browserWindow,
+        }),
+      }),
+      widgets: Immutable.fromJS({
+        byId: {
+          'mock-id': {
+            name: 'mock-name',
+            url: 'mock-url',
+            isOpen: false,
+          },
+        },
+      }),
+    });
+
+    widgetController(mockAction, mockStore, mockStore);
+
+    expect(browserWindow.close).toHaveBeenCalledTimes(1);
+    expect(browserWindow.close).toHaveBeenCalledWith();
+  });
 });
