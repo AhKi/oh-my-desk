@@ -2,5 +2,5 @@ const path = require('path');
 require('babel-register');
 require('module-alias/register');
 
-const mainPath = path.join(__dirname, process.argv.splice(2)[0]);
+const mainPath = path.join(__dirname, 'app/main');
 require(mainPath); // eslint-disable-line
