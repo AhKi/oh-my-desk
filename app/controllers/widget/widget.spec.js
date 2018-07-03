@@ -235,6 +235,36 @@ describe('test widgetController', () => {
     });
 
     describe('test isOnTop', () => {
+      it('when widget don\'t exist', () => {
+        const mockAction = {
+          type: TYPES.UPDATE_TARGET_WIDGET_INFO,
+          payload: {
+            id: 'mock-id',
+            info: {
+              isOnTop: false,
+            },
+          },
+        };
+        const mockWithoutWindow = Immutable.Map({
+          status: Immutable.Map({
+            winWidgets: Immutable.Map({}),
+          }),
+          widgets: Immutable.fromJS({
+            byId: {
+              'mock-id': {
+                name: 'mock-name',
+                url: 'mock-url',
+                isOpen: false,
+              },
+            },
+          }),
+        });
+
+        widgetController(mockAction, mockWithoutWindow, mockWithoutWindow);
+
+        expect(browserWindow.setAlwaysOnTop).toHaveBeenCalledTimes(0);
+      });
+
       it('when isOnTop is false', () => {
         const mockAction = {
           type: TYPES.UPDATE_TARGET_WIDGET_INFO,
