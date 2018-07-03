@@ -46,13 +46,15 @@ const widgetController = (action, prev, next) => {
       const winWidgets = statusSelector.winWidgetsSelector(next);
       const widget = winWidgets.get(id);
 
-      Object.keys(info).forEach((target) => {
-        switch (target) { // eslint-disable-line default-case
-          case 'isOnTop': {
-            widget.setAlwaysOnTop(info.isOnTop);
+      if (widget) {
+        Object.keys(info).forEach((target) => {
+          switch (target) { // eslint-disable-line default-case
+            case 'isOnTop': {
+              widget.setAlwaysOnTop(info.isOnTop);
+            }
           }
-        }
-      });
+        });
+      }
 
       break;
     }
