@@ -11,13 +11,22 @@ import './WidgetSetting.scss';
 const propTypes = {
   history: PropTypes.object, // eslint-disable-line
   item: PropTypes.object, // eslint-disable-line
-  onStoreWidgetInfo: PropTypes.func,
+  onCloseWidget: PropTypes.func,
   onModalOpen: PropTypes.func,
+  onOpenWidget: PropTypes.func,
+  onUpdateWidgetInfo: PropTypes.func,
 };
 const defaultProps = {
-  item: {},
-  onStoreWidgetInfo: PropTypes.func,
+  item: {
+    isOpen: false,
+    isOnTop: false,
+    size: {},
+    position: {},
+  },
+  onCloseWidget() {},
   onModalOpen() {},
+  onOpenWidget() {},
+  onUpdateWidgetInfo() {},
 };
 
 class WidgetSetting extends React.Component {
@@ -25,7 +34,7 @@ class WidgetSetting extends React.Component {
     super(props);
     this.state = {
       info: props.item,
-      initialInfo: props.item,
+      initialInfo: props.item, // eslint-disable-line
     };
     this.setStateInfo = this.setStateInfo.bind(this);
     this.handleMoveWidgetList = this.handleMoveWidgetList.bind(this);
@@ -47,13 +56,13 @@ class WidgetSetting extends React.Component {
   }
 
   componentWillUnmount() {
-    const { info, initialInfo } = this.state;
-    const { onStoreWidgetInfo } = this.props;
+    // const { info, initialInfo } = this.state;
+    // const { onStoreWidgetInfo } = this.props;
 
     // if state.info is not same state.initialInfo
-    if (JSON.stringify(info) !== JSON.stringify(initialInfo)) {
-      onStoreWidgetInfo(initialInfo.id, initialInfo);
-    }
+    // if (JSON.stringify(info) !== JSON.stringify(initialInfo)) {
+    //   onStoreWidgetInfo(initialInfo.id, initialInfo);
+    // }
   }
 
   setStateInfo(key, value) {
@@ -105,10 +114,14 @@ class WidgetSetting extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const { info } = this.state;
-    const { onStoreWidgetInfo, onModalOpen } = this.props;
+    const { onModalOpen, onUpdateWidgetInfo } = this.props;
 
-    this.setState({ initialInfo: info });
-    onStoreWidgetInfo(info.id, info);
+    this.setState({ initialInfo: info }); // eslint-disable-line
+
+    onUpdateWidgetInfo(info.id, {
+      name: info.name,
+      url: info.url,
+    });
     onModalOpen(MODAL.CONFIRM, {
       title: 'Save complete',
       content: 'Widget Setting is Changed',
@@ -118,7 +131,11 @@ class WidgetSetting extends React.Component {
 
   render() {
     const { info } = this.state;
-    const { onStoreWidgetInfo } = this.props;
+    const {
+      onCloseWidget,
+      onOpenWidget,
+      onUpdateWidgetInfo,
+    } = this.props;
 
     return (
       <div className="WidgetEdit">
@@ -148,8 +165,10 @@ class WidgetSetting extends React.Component {
         >
           <EditSetting
             item={info}
-            onStoreWidgetInfo={onStoreWidgetInfo}
+            onCloseWidget={onCloseWidget}
             onChangeInput={this.setStateInfo}
+            onOpenWidget={onOpenWidget}
+            onUpdateWidgetInfo={onUpdateWidgetInfo}
           />
           <EditSize
             item={info}

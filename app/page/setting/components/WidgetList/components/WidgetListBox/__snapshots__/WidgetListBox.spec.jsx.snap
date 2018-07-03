@@ -48,9 +48,11 @@ exports[`<WidgetListBox /> should match to snapshot when render default 1`] = `
           }
         }
         key="1"
+        onCloseWidget={[Function]}
         onModalOpen={[Function]}
+        onOpenWidget={[Function]}
         onSelectItem={[Function]}
-        onUpdateInfoWithIPC={[Function]}
+        onUpdateWidgetInfo={[Function]}
         selectedId=""
       />
     </ul>

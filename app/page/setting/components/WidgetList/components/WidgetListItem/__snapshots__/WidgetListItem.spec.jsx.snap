@@ -21,7 +21,6 @@ exports[`<WidgetListItem /> should match to snapshot when props.isActiveMore ===
   >
     <ToggleButton
       checkedValue={null}
-      isCheck={true}
       onToggle={[Function]}
       unCheckedValue={null}
       width={40}
@@ -82,7 +81,6 @@ exports[`<WidgetListItem /> should match to snapshot when render default 1`] = `
   >
     <ToggleButton
       checkedValue={null}
-      isCheck={true}
       onToggle={[Function]}
       unCheckedValue={null}
       width={40}
