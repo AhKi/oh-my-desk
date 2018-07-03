@@ -214,4 +214,60 @@ describe('test widgetController', () => {
       expect(browserWindow.close).toHaveBeenCalledTimes(0);
     });
   });
+
+  describe('should handle UPDATE_TARGET_WIDGET_INFO', () => {
+    const browserWindow = new BrowserWindow();
+    const mockStore = Immutable.Map({
+      status: Immutable.Map({
+        winWidgets: Immutable.Map({
+          'mock-id': browserWindow,
+        }),
+      }),
+      widgets: Immutable.fromJS({
+        byId: {
+          'mock-id': {
+            name: 'mock-name',
+            url: 'mock-url',
+            isOpen: false,
+          },
+        },
+      }),
+    });
+
+    describe('test isOnTop', () => {
+      it('when isOnTop is false', () => {
+        const mockAction = {
+          type: TYPES.UPDATE_TARGET_WIDGET_INFO,
+          payload: {
+            id: 'mock-id',
+            info: {
+              isOnTop: false,
+            },
+          },
+        };
+
+        widgetController(mockAction, mockStore, mockStore);
+
+        expect(browserWindow.setAlwaysOnTop).toHaveBeenCalledTimes(1);
+        expect(browserWindow.setAlwaysOnTop).toHaveBeenCalledWith(false);
+      });
+
+      it('when isOnTop is true', () => {
+        const mockAction = {
+          type: TYPES.UPDATE_TARGET_WIDGET_INFO,
+          payload: {
+            id: 'mock-id',
+            info: {
+              isOnTop: true,
+            },
+          },
+        };
+
+        widgetController(mockAction, mockStore, mockStore);
+
+        expect(browserWindow.setAlwaysOnTop).toHaveBeenCalledTimes(1);
+        expect(browserWindow.setAlwaysOnTop).toHaveBeenCalledWith(true);
+      });
+    });
+  });
 });

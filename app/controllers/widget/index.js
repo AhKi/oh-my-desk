@@ -41,6 +41,21 @@ const widgetController = (action, prev, next) => {
 
       break;
     }
+    case TYPES.UPDATE_TARGET_WIDGET_INFO: {
+      const { id, info } = action.payload;
+      const winWidgets = statusSelector.winWidgetsSelector(next);
+      const widget = winWidgets.get(id);
+
+      Object.keys(info).forEach((target) => {
+        switch (target) { // eslint-disable-line default-case
+          case 'isOnTop': {
+            widget.setAlwaysOnTop(info.isOnTop);
+          }
+        }
+      });
+
+      break;
+    }
   }
 };
 

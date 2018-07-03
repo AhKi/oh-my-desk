@@ -13,6 +13,7 @@ export const BrowserWindow = jest.fn(() => ({
   loadURL: jest.fn(),
   once: jest.fn(),
   on: jest.fn(),
+  setAlwaysOnTop: jest.fn(),
   show: jest.fn(),
 }));
 
