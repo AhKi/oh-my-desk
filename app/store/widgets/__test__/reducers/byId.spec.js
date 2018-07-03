@@ -173,4 +173,52 @@ describe('test widgets byId reducer', () => {
     expect(byId(Immutable.fromJS(initialState), widgetActions.deleteTargetWidget(mockId)))
       .toEqual(Immutable.fromJS(resultState));
   });
+
+  it('should handle UPDATE_TARGET_WIDGET_INFO', () => {
+    const mockId = 'mock-id';
+    const mockInfo = {
+      position: {
+        x: 20,
+        y: 30,
+      },
+      name: 'mock-name',
+      someone: true,
+      isOpen: false,
+    };
+    const initialState = Immutable.fromJS({
+      [mockId]: {
+        name: 'mock-prev-name',
+        url: 'mock-url',
+        isOpen: false,
+        position: {
+          x: 10,
+          y: 20,
+        },
+        size: {
+          height: 100,
+          width: 200,
+        },
+      },
+    });
+
+    const nextState = Immutable.fromJS({
+      [mockId]: {
+        name: 'mock-name',
+        url: 'mock-url',
+        isOpen: false,
+        someone: true,
+        position: {
+          x: 20,
+          y: 30,
+        },
+        size: {
+          height: 100,
+          width: 200,
+        },
+      },
+    });
+
+    expect(byId(initialState, widgetActions.updateTargetWidgetInfo(mockId, mockInfo)))
+      .toEqual(nextState);
+  });
 });

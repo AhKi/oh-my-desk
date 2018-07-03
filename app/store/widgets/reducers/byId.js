@@ -41,6 +41,15 @@ const byIdReducer = handleActions({
 
     return state.delete(id);
   },
+  [TYPES.UPDATE_TARGET_WIDGET_INFO]: (state, action) => {
+    const { id, info } = action.payload;
+
+    const widgetInfo = state.get(id);
+    const newInfo = Immutable.fromJS(info);
+    const updatedInfo = widgetInfo.merge(newInfo);
+
+    return state.set(id, updatedInfo);
+  },
 }, initialState);
 
 export default byIdReducer;
