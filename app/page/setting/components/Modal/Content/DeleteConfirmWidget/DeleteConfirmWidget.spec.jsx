@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import * as utils from 'utils/deleteWidget';
 import DeleteConfirmWidget from './DeleteConfirmWidget';
 
-describe('<DeleteConfirmWidget />', () => {
+describe.skip('<DeleteConfirmWidget />', () => {
   it('should match to snapshot when render default', () => {
     const wrapper = shallow(<DeleteConfirmWidget />);
 

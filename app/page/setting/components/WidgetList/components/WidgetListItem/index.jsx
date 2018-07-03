@@ -9,22 +9,25 @@ import deleteIcon from 'assets/icon/icon-delete.svg';
 import pinIcon from 'assets/icon/icon-pin.svg';
 import ToggleButton from 'setting/components/Button/ToggleButton';
 import OutsideClickHandler from 'components/OutsideClickHandler';
-import * as IPC from 'constants/ipc';
 import * as MODAL from 'constants/modal';
 import './WidgetListItem.scss';
 
 const propTypes = {
   item: PropTypes.object, // eslint-disable-line
+  onCloseWidget: PropTypes.func,
+  onOpenWidget: PropTypes.func,
   onSelectItem: PropTypes.func,
-  onUpdateInfoWithIPC: PropTypes.func,
   onModalOpen: PropTypes.func,
+  onUpdateWidgetInfo: PropTypes.func,
 };
 
 const defaultProps = {
   item: {},
+  onCloseWidget() {},
+  onOpenWidget() {},
   onSelectItem() {},
-  onUpdateInfoWithIPC() {},
   onModalOpen() {},
+  onUpdateWidgetInfo() {},
 };
 
 class WidgetListItem extends React.Component {
@@ -43,30 +46,29 @@ class WidgetListItem extends React.Component {
 
   handleSelectItem() {
     const { item, onSelectItem } = this.props;
-    window.ipcRenderer.send(IPC.WIDGET_SHOW_INACTIVE, item.id);
+
     onSelectItem(item.id);
   }
 
   handleWidgetOpen() {
-    const { item } = this.props;
-    window.ipcRenderer.send(IPC.WIDGET_OPEN,
-      Object.assign({}, item, { isActive: true }));
+    const { item, onOpenWidget } = this.props;
+    onOpenWidget(item.id);
   }
 
   handleToggleIsActive() {
-    const { item, onUpdateInfoWithIPC } = this.props;
-    const nextInfo = Object.assign({}, item, {
-      isActive: !item.isActive,
-    });
-    onUpdateInfoWithIPC(item.id, nextInfo);
+    const { item, onCloseWidget, onOpenWidget } = this.props;
+
+    if (item.isOpen) {
+      onCloseWidget(item.id);
+    } else {
+      onOpenWidget(item.id);
+    }
   }
 
   handleToggleAlwaysTop() {
-    const { item, onUpdateInfoWithIPC } = this.props;
-    const nextInfo = Object.assign({}, item, {
-      isOnTop: !item.isOnTop,
-    });
-    onUpdateInfoWithIPC(item.id, nextInfo);
+    const { item, onUpdateWidgetInfo } = this.props;
+
+    onUpdateWidgetInfo(item.id, { isOnTop: !item.isOnTop });
   }
 
   handleToggleMore(bool) {
@@ -119,7 +121,7 @@ class WidgetListItem extends React.Component {
           <ToggleButton
             checkedValue={null}
             unCheckedValue={null}
-            isCheck={item.isActive}
+            isCheck={item.isOpen}
             onToggle={this.handleToggleIsActive}
           />
         </li>
@@ -140,7 +142,7 @@ class WidgetListItem extends React.Component {
                 className="WidgetListItem__pin-button-active"
                 data-name="outside-inner-more-btn"
                 type="button"
-                onClick={() => this.handleToggleMore()}
+                onClick={this.handleToggleMore}
               >
                 <img src={moreIcon} alt="" />
               </button>
@@ -169,7 +171,7 @@ class WidgetListItem extends React.Component {
                 className="WidgetListItem__pin-button"
                 data-name="more-btn"
                 type="button"
-                onClick={() => this.handleToggleMore()}
+                onClick={this.handleToggleMore}
               >
                 <img src={moreIcon} alt="" />
               </button>
