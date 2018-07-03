@@ -23,13 +23,17 @@ const propTypes = {
     type: PropTypes.string,
     url: PropTypes.string,
   }),
+  onCloseWidget: PropTypes.func,
+  onOpenWidget: PropTypes.func,
   onChangeInput: PropTypes.func,
-  onStoreWidgetInfo: PropTypes.func,
+  onUpdateWidgetInfo: PropTypes.func, // eslint-disable-line
 };
 const defaultProps = {
   item: {},
+  onCloseWidget() {},
   onChangeInput() {},
-  onStoreWidgetInfo() {},
+  onOpenWidget() {},
+  onUpdateWidgetInfo() {},
 };
 
 class EditSetting extends React.Component {
@@ -52,19 +56,19 @@ class EditSetting extends React.Component {
   }
 
   handleToggleIsActive() {
-    const { item, onStoreWidgetInfo } = this.props;
-    onStoreWidgetInfo(
-      item.id,
-      Object.assign({}, item, { isActive: !item.isActive }),
-    );
+    const { item, onCloseWidget, onOpenWidget } = this.props;
+
+    if (item.isOpen) {
+      onCloseWidget(item.id);
+    } else {
+      onOpenWidget(item.id);
+    }
   }
 
   handleToggleIsOnTop() {
-    const { item, onStoreWidgetInfo } = this.props;
-    onStoreWidgetInfo(
-      item.id,
-      Object.assign({}, item, { isOnTop: !item.isOnTop }),
-    );
+    const { item, onUpdateWidgetInfo } = this.props;
+
+    onUpdateWidgetInfo(item.id, { isOnTop: !item.isOnTop });
   }
 
   render() {
@@ -110,7 +114,7 @@ class EditSetting extends React.Component {
               <ToggleButton
                 checkedValue={null}
                 unCheckedValue={null}
-                isCheck={item.isActive}
+                isCheck={item.isOpen}
                 onToggle={this.handleToggleIsActive}
               />
               <span className="InputSet__toggle-description">
