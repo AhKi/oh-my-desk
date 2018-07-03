@@ -38,12 +38,28 @@ exports[`<WidgetSetting /> should match to snapshot when render default 1`] = `
     onSubmit={[Function]}
   >
     <EditSetting
-      item={Object {}}
+      item={
+        Object {
+          "isOnTop": false,
+          "isOpen": false,
+          "position": Object {},
+          "size": Object {},
+        }
+      }
       onChangeInput={[Function]}
-      onStoreWidgetInfo={[Function]}
+      onCloseWidget={[Function]}
+      onOpenWidget={[Function]}
+      onUpdateWidgetInfo={[Function]}
     />
     <EditSize
-      item={Object {}}
+      item={
+        Object {
+          "isOnTop": false,
+          "isOpen": false,
+          "position": Object {},
+          "size": Object {},
+        }
+      }
       onChangeHeight={[Function]}
       onChangeWidth={[Function]}
     />

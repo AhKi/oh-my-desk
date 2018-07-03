@@ -5,7 +5,6 @@ import Pagination from 'setting/components/Pagination';
 import Select from 'setting/components/Select';
 import * as CONST from 'constants/index';
 import * as FILTER from 'constants/filter';
-import * as IPC from 'constants/ipc';
 import * as MODAL from 'constants/modal';
 import WidgetListBox from './components/WidgetListBox';
 import './WidgetList.scss';
@@ -31,13 +30,13 @@ const propTypes = {
     }),
   ),
   selectedId: PropTypes.string,
-  totalNumber: PropTypes.number,
+  onCloseWidget: PropTypes.func,
+  onOpenWidget: PropTypes.func,
   onModalOpen: PropTypes.func,
-  onStoreWidgetInfo: PropTypes.func,
   onSelectFilter: PropTypes.func,
   onSelectItem: PropTypes.func,
   onSelectPage: PropTypes.func,
-  onUpdateInfoWithIPC: PropTypes.func,
+  onUpdateWidgetInfo: PropTypes.func,
 };
 
 const defaultProps = {
@@ -45,13 +44,13 @@ const defaultProps = {
   filter: FILTER.LATEST,
   list: [],
   selectedId: '',
-  totalNumber: 0,
+  onCloseWidget() {},
+  onOpenWidget() {},
   onModalOpen() {},
-  onStoreWidgetInfo() {},
   onSelectFilter() {},
   onSelectItem() {},
   onSelectPage() {},
-  onUpdateInfoWithIPC() {},
+  onUpdateWidgetInfo() {},
 };
 
 class WidgetList extends React.Component {
@@ -60,15 +59,6 @@ class WidgetList extends React.Component {
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleSelectFilter = this.handleSelectFilter.bind(this);
     this.handleSelectItem = this.handleSelectItem.bind(this);
-  }
-
-  componentDidMount() {
-    window.ipcRenderer.send(IPC.WIDGET_INFO_REQUEST);
-    window.ipcRenderer.on(IPC.WIDGET_INFO_RESULT,
-      (response, result) => {
-        const { onStoreWidgetInfo } = this.props;
-        onStoreWidgetInfo(result);
-      });
   }
 
   handleOpenModal() {
@@ -83,7 +73,6 @@ class WidgetList extends React.Component {
 
   handleSelectItem(id) {
     const { onSelectItem } = this.props;
-    window.ipcRenderer.send(IPC.WIDGET_INFO_REQUEST);
     onSelectItem(id);
   }
 
@@ -93,13 +82,14 @@ class WidgetList extends React.Component {
       filter,
       list,
       selectedId,
-      totalNumber,
+      onCloseWidget,
       onSelectPage,
-      onUpdateInfoWithIPC,
+      onOpenWidget,
       onModalOpen,
+      onUpdateWidgetInfo,
     } = this.props;
     const filterList = [FILTER.LATEST, FILTER.OLDEST, FILTER.ACTIVATED];
-    const maxPage = Math.ceil(totalNumber / CONST.NUMBER_PER_PAGE);
+    const maxPage = Math.ceil(list.length / CONST.NUMBER_PER_PAGE);
 
     return (
       <div className="WidgetList">
@@ -123,9 +113,11 @@ class WidgetList extends React.Component {
           <WidgetListBox
             list={list}
             selectedId={selectedId}
+            onCloseWidget={onCloseWidget}
             onSelectItem={this.handleSelectItem}
-            onUpdateInfoWithIPC={onUpdateInfoWithIPC}
             onModalOpen={onModalOpen}
+            onOpenWidget={onOpenWidget}
+            onUpdateWidgetInfo={onUpdateWidgetInfo}
           />
           <div className="WidgetList__btn-box">
             <button

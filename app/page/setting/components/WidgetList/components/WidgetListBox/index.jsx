@@ -6,17 +6,21 @@ import './WidgetListBox.scss';
 const propTypes = {
   list: PropTypes.array, // eslint-disable-line
   selectedId: PropTypes.string,
+  onCloseWidget: PropTypes.func,
+  onOpenWidget: PropTypes.func,
   onSelectItem: PropTypes.func,
-  onUpdateInfoWithIPC: PropTypes.func,
   onModalOpen: PropTypes.func,
+  onUpdateWidgetInfo: PropTypes.func,
 };
 
 const defaultProps = {
   list: [],
   selectedId: '',
+  onCloseWidget() {},
+  onOpenWidget() {},
   onSelectItem() {},
-  onUpdateInfoWithIPC() {},
   onModalOpen() {},
+  onUpdateWidgetInfo() {},
 };
 
 class WidgetListBox extends React.Component {
@@ -24,9 +28,11 @@ class WidgetListBox extends React.Component {
     const {
       list,
       selectedId,
+      onCloseWidget,
+      onOpenWidget,
       onSelectItem,
-      onUpdateInfoWithIPC,
       onModalOpen,
+      onUpdateWidgetInfo,
     } = this.props;
 
     return (
@@ -57,9 +63,11 @@ class WidgetListBox extends React.Component {
                 key={item.id}
                 item={item}
                 selectedId={selectedId}
+                onCloseWidget={onCloseWidget}
+                onOpenWidget={onOpenWidget}
                 onSelectItem={onSelectItem}
-                onUpdateInfoWithIPC={onUpdateInfoWithIPC}
                 onModalOpen={onModalOpen}
+                onUpdateWidgetInfo={onUpdateWidgetInfo}
               />
             ))}
           </ul>

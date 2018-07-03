@@ -1,16 +1,23 @@
 import { connect } from 'react-redux';
+import toJS from 'utils/toJS';
 import WidgetSetting from 'setting/components/WidgetSetting';
 import GNBWrapper from 'setting/components/GlobalNavigationBar/GNBWrapper';
-import { getSelectedWidget } from 'setting/store/widget/selectors';
-import { widgetInfoUpdateWithIPC } from 'setting/store/widget/actions';
-import { modalOpen } from 'setting/store/modal/actions';
+import { getSelectedWidget } from 'store/widgets/selectors';
+import {
+  showTargetWidget,
+  closeTargetWidget,
+  updateTargetWidgetInfo,
+} from 'actions/widget';
+import { modalOpen } from 'store/modal/actions';
 
 const mapStateToProps = state => ({
   item: getSelectedWidget(state),
 });
 const mapDispatchToProps = {
+  onCloseWidget: closeTargetWidget,
   onModalOpen: modalOpen,
-  onStoreWidgetInfo: widgetInfoUpdateWithIPC,
+  onOpenWidget: showTargetWidget,
+  onUpdateWidgetInfo: updateTargetWidgetInfo,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(GNBWrapper(WidgetSetting));
+export default connect(mapStateToProps, mapDispatchToProps)(toJS(GNBWrapper(WidgetSetting)));

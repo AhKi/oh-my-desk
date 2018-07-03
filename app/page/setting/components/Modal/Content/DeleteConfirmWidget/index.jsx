@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { modalClose } from 'setting/store/modal/actions';
+import { modalClose } from 'store/modal/actions';
 import { deleteTargetWidget } from 'actions/widget';
 import DeleteConfirmWidget from './DeleteConfirmWidget';
 
