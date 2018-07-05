@@ -62,7 +62,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       chunks: ['widget'],
       filename: 'widget.html',
-      template: path.join(__dirname, './app/page/webview/index.html'),
+      template: path.join(__dirname, './app/page/webview/widget.html'),
       inject: 'body',
     }),
     new webpack.DefinePlugin({
