@@ -1,5 +1,7 @@
 import makeWidgetWindow from 'utils/makeWidgetWindow';
+import store from 'store/storeMain';
 import * as TYPES from 'actions/actionTypes';
+import * as widgetActions from 'actions/widget';
 import * as widgetsSelector from 'store/widgets/selectors';
 import * as statusSelector from 'store/status/selectors';
 
@@ -8,9 +10,9 @@ const widgetController = (action, prev, next) => {
   switch (type) { // eslint-disable-line default-case
     case TYPES.REGISTER_NEW_WIDGET: {
       const { id, info } = action.payload;
+      const widgetWin = makeWidgetWindow(id, info);
 
-      makeWidgetWindow(id, info);
-
+      store.dispatch(widgetActions.registerNewWidgetBrowserWindow(id, widgetWin));
       break;
     }
     case TYPES.SHOW_TARGET_WIDGET: {
@@ -24,7 +26,8 @@ const widgetController = (action, prev, next) => {
       if (widget) {
         widget.show();
       } else {
-        makeWidgetWindow(id, item.toJS());
+        const widgetWin = makeWidgetWindow(id, item.toJS());
+        store.dispatch(widgetActions.registerNewWidgetBrowserWindow(id, widgetWin));
       }
 
       break;
