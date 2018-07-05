@@ -19,20 +19,8 @@ const byIdReducer = handleActions({
     return state.set(id, widget.set('isOpen', true));
   },
   [TYPES.CLOSE_TARGET_WIDGET]: (state, action) => {
-    const { id, info } = action.payload;
-    let widget = state.get(id);
-
-    if (info && widget) {
-      if (info.position) {
-        widget = widget.set('position', Immutable.Map(info.position));
-      }
-
-      if (info.size) {
-        widget = widget.set('size', Immutable.Map(info.size));
-      }
-    } else {
-      return state;
-    }
+    const { id } = action.payload;
+    const widget = state.get(id);
 
     return state.set(id, widget.set('isOpen', false));
   },

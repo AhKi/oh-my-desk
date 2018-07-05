@@ -8,13 +8,19 @@ export const ipcMain = {
   on: jest.fn(),
 };
 
-export const BrowserWindow = jest.fn(() => ({
+export const BrowserWindow = jest.fn(info => ({
   close: jest.fn(),
   loadURL: jest.fn(),
   once: jest.fn(),
   on: jest.fn(),
   setAlwaysOnTop: jest.fn(),
   show: jest.fn(),
+  getContentBounds: jest.fn(() => ({
+    x: info.x,
+    y: info.y,
+    height: info.height,
+    width: info.width,
+  })),
 }));
 
 export const ipcRenderer = {
@@ -24,4 +30,8 @@ export const ipcRenderer = {
 
 export const remote = {
   getGlobal: jest.fn(),
+};
+
+export const app = {
+  getPath: jest.fn(arg => arg),
 };
