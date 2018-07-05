@@ -31,18 +31,6 @@ describe('test mak1eWidgetWindow', () => {
   BrowserWindow.mockImplementation(() => mock);
   makeWidgetWindow('mock-id', mockInfo);
 
-  it('should call actions.registerNewWidgetBrowserWindow', () => {
-    expect(storeMock.dispatch).toHaveBeenCalledTimes(1);
-    expect(storeMock.dispatch).toHaveBeenCalledWith(
-      actions.registerNewWidgetBrowserWindow('mock-id', mock),
-    );
-  });
-
-  it('test BrowserWindow.show', () => {
-    expect(show).toHaveBeenCalledTimes(1);
-    expect(show).toHaveBeenCalledWith();
-  });
-
   describe('test BrowserWindow.once', () => {
     it('should call BrowserWindow.once', () => {
       expect(once).toHaveBeenCalledTimes(1);
@@ -53,7 +41,7 @@ describe('test mak1eWidgetWindow', () => {
       const cb = once.mock.calls[0][1];
       cb();
 
-      expect(show).toHaveBeenCalledTimes(2);
+      expect(show).toHaveBeenCalledTimes(1);
       expect(show).toHaveBeenCalledWith();
     });
   });
@@ -110,5 +98,7 @@ describe('test mak1eWidgetWindow', () => {
       expect(loadURL)
         .toHaveBeenCalledWith(`file://${PATH.ROOT_PATH}/${PATH.WIDGET_PATH}`);
     });
+
+    // TODO test about process.env.NODE_ENV === 'production'
   });
 });

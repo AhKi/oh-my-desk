@@ -1,5 +1,6 @@
 import Immutable from 'immutable';
 import { BrowserWindow } from 'electron';
+import * as widgetActions from 'actions/widget';
 import * as TYPES from 'actions/actionTypes';
 import storeMock from 'store/storeMain';
 import * as utils from 'utils/makeWidgetWindow';
@@ -9,9 +10,10 @@ describe('test widgetController', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
+  const mockBrowserWindow = new BrowserWindow();
+  storeMock.dispatch = jest.fn();
 
   it('should handle TYPES.REGISTER_NEW_WIDGET', () => {
-    storeMock.dispatch = jest.fn();
     const mockAction = {
       type: TYPES.REGISTER_NEW_WIDGET,
       payload: {
@@ -25,6 +27,7 @@ describe('test widgetController', () => {
     };
 
     const makeWidgetWindow = jest.spyOn(utils, 'default');
+    makeWidgetWindow.mockImplementationOnce(() => mockBrowserWindow);
 
     widgetController(mockAction);
 
@@ -34,6 +37,14 @@ describe('test widgetController', () => {
       url: 'mock-url',
       isOpen: false,
     });
+
+    expect(storeMock.dispatch).toHaveBeenCalledTimes(1);
+    expect(storeMock.dispatch).toHaveBeenCalledWith(
+      widgetActions.registerNewWidgetBrowserWindow(
+        'mock-id',
+        mockBrowserWindow,
+      ),
+    );
   });
 
   describe('should handle TYPES.SHOW_TARGET_WIDGET', () => {
@@ -87,7 +98,7 @@ describe('test widgetController', () => {
           },
         }),
       });
-
+      makeWidgetWindow.mockImplementationOnce(() => mockBrowserWindow);
       widgetController(mockAction, mockStore, mockStore);
 
       expect(makeWidgetWindow).toHaveBeenCalledTimes(1);
@@ -96,6 +107,13 @@ describe('test widgetController', () => {
         url: 'mock-url',
         isOpen: false,
       });
+      expect(storeMock.dispatch).toHaveBeenCalledTimes(1);
+      expect(storeMock.dispatch).toHaveBeenCalledWith(
+        widgetActions.registerNewWidgetBrowserWindow(
+          'mock-id',
+          mockBrowserWindow,
+        ),
+      );
     });
   });
 
