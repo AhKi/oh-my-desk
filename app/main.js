@@ -12,8 +12,7 @@ import createMenu from 'process/main/createMenu';
 import store from 'store/storeMain';
 import subscribeActionMain from 'store/utils/subscribeActionMain';
 import storeDataInDisk from 'utils/storeDataInDisk';
-
-subscribeActionMain(store);
+import openAllWidgetStatusOpen from 'utils/openAllWidgetStatusOpen';
 
 let setting_win;
 const widgetManager = new WidgetManager({
@@ -28,6 +27,7 @@ function createSetting() {
   }
 
   setting_win = new BrowserWindow({
+    acceptFirstMouse: true,
     width: 960,
     height: 700,
     minWidth: 360,
@@ -115,7 +115,11 @@ if (process.platform === 'darwin') {
   app.dock.hide();
 }
 
-app.on('ready', init);
+app.on('ready', () => {
+  subscribeActionMain(store);
+  init();
+  openAllWidgetStatusOpen();
+});
 
 app.on('window-all-closed', () => {
 });

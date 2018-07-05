@@ -62,6 +62,22 @@ describe('test action about widget', () => {
       .toEqual(mockAction);
   });
 
+  it('should handle registerNewWidgetBrowserWindows', () => {
+    const mockWindow = JSON.stringify(new BrowserWindow());
+    const mockIds = ['mock1', 'mock2', 'mock3'];
+    const mockBrowserWindows = [mockWindow, mockWindow, mockWindow];
+    const mockAction = {
+      type: TYPES.REGISTER_NEW_WIDGET_BROWSER_WINDOWS,
+      payload: {
+        ids: mockIds,
+        browserWindows: mockBrowserWindows,
+      },
+    };
+
+    expect(actions.registerNewWidgetBrowserWindows(mockIds, mockBrowserWindows))
+      .toEqual(mockAction);
+  });
+
   it('should handle showTargetWidget', () => {
     const mockAction = {
       type: TYPES.SHOW_TARGET_WIDGET,
