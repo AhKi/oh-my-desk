@@ -18,3 +18,8 @@ export const getSelectedWidget = createSelector(
   [byIdSelector, settings.selectedIdSelector],
   (byId, selectedId) => byId.get(selectedId),
 );
+
+export const getByIdsIsOpenIsTrue = createSelector(
+  [byIdSelector],
+  byId => byId.filter(value => value.get('isOpen')),
+);

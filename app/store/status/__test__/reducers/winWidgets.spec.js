@@ -1,5 +1,6 @@
 import Immutable from 'immutable';
 import * as TYPES from 'actions/actionTypes';
+import * as widgetActions from 'actions/widget';
 import { BrowserWindow } from 'electron';
 import winWidgets from '../../reducers/winWidgets';
 
@@ -23,7 +24,7 @@ describe('test status winWidgets reducer', () => {
     }));
   });
 
-  it('should handle REGISTER_NEW_WIDGET_BROWSER_WINDOW', () => {
+  it('should handle CLOSE_TARGET_WIDGET', () => {
     const mockWindow = JSON.stringify(new BrowserWindow());
     const initialState = {
       'mock-id': mockWindow,
@@ -40,5 +41,22 @@ describe('test status winWidgets reducer', () => {
 
     expect(winWidgets(Immutable.fromJS(initialState), mockActionInfo))
       .toEqual(Immutable.fromJS(nextState));
+  });
+
+  it('should handle REGISTER_NEW_WIDGET_BROWSER_WINDOWS', () => {
+    const mockWindow = JSON.stringify(new BrowserWindow());
+    const mockIds = ['mock1', 'mock2', 'mock3'];
+    const mockWindows = [mockWindow, mockWindow, mockWindow];
+
+    expect(
+      winWidgets(
+        undefined,
+        widgetActions.registerNewWidgetBrowserWindows(mockIds, mockWindows),
+      ),
+    ).toEqual(Immutable.Map({
+      mock1: mockWindow,
+      mock2: mockWindow,
+      mock3: mockWindow,
+    }));
   });
 });
