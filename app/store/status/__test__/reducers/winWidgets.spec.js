@@ -23,18 +23,12 @@ describe('test status winWidgets reducer', () => {
     }));
   });
 
-  describe('should handle REGISTER_NEW_WIDGET_BROWSER_WINDOW', () => {
+  it('should handle REGISTER_NEW_WIDGET_BROWSER_WINDOW', () => {
     const mockWindow = JSON.stringify(new BrowserWindow());
     const initialState = {
       'mock-id': mockWindow,
     };
     const nextState = {};
-    const mockAction = {
-      type: TYPES.CLOSE_TARGET_WIDGET,
-      payload: {
-        id: 'mock-id',
-      },
-    };
 
     const mockActionInfo = {
       type: TYPES.CLOSE_TARGET_WIDGET,
@@ -44,14 +38,7 @@ describe('test status winWidgets reducer', () => {
       },
     };
 
-    it('when action.payload.info don\'t exist', () => {
-      expect(winWidgets(Immutable.fromJS(initialState), mockAction))
-        .toEqual(Immutable.fromJS(initialState));
-    });
-
-    it('when action.payload.info exist', () => {
-      expect(winWidgets(Immutable.fromJS(initialState), mockActionInfo))
-        .toEqual(Immutable.fromJS(nextState));
-    });
+    expect(winWidgets(Immutable.fromJS(initialState), mockActionInfo))
+      .toEqual(Immutable.fromJS(nextState));
   });
 });

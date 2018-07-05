@@ -32,7 +32,7 @@ const widgetController = (action, prev, next) => {
     case TYPES.CLOSE_TARGET_WIDGET:
     case TYPES.DELETE_TARGET_WIDGET: {
       const { id } = action.payload;
-      const winWidgets = statusSelector.winWidgetsSelector(next);
+      const winWidgets = statusSelector.winWidgetsSelector(prev);
       const widget = winWidgets.get(id);
 
       if (widget) {

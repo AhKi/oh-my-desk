@@ -16,6 +16,9 @@
     "^webview(.*)$": "<rootDir>/app/page/webview$1",
     "^utils(.*)$": "<rootDir>/app/utils$1"
   },
+  "globals": {
+    "__dirname": "/Users/user-name/project/oh-my-desk/app"
+  },
   "setupTestFrameworkScriptFile": "<rootDir>/enzyme.config.js",
   "snapshotSerializers": [
     "enzyme-to-json/serializer"

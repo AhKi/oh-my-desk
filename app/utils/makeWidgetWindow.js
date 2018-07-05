@@ -1,14 +1,15 @@
 import { BrowserWindow } from 'electron';
-import path from 'path';
 import url from 'url';
 import * as actions from 'actions/widget';
 import store from 'store/storeMain';
 import createWidget from 'utils/createWidget';
+import updateWidgetContentBounds from 'utils/updateWidgetContentBounds';
+import * as PATH from 'constants/path';
 
 const makeWidgetWindow = (id, info) => {
-  const ENV_PATH = process.env.NODE_ENV === 'development' ? 'app/page/webview/index.html' : 'build/widget.html';
   const widgetInfo = createWidget(id, info);
   const widget = new BrowserWindow({
+    acceptFirstMouse: true,
     title: widgetInfo.name,
     x: widgetInfo.position.x,
     y: widgetInfo.position.y,
@@ -22,7 +23,7 @@ const makeWidgetWindow = (id, info) => {
   });
 
   widget.loadURL(url.format({
-    pathname: path.join(__dirname, '../..', ENV_PATH),
+    pathname: `${PATH.ROOT_PATH}/${PATH.WIDGET_PATH}`,
     protocol: 'file:',
     slashes: true,
   }));
@@ -31,20 +32,16 @@ const makeWidgetWindow = (id, info) => {
     widget.show();
   });
 
-  widget.on('close', () => {
-    const contentBounds = widget.getContentBounds();
-    const widgetBounds = {
-      position: {
-        x: contentBounds.x,
-        y: contentBounds.y,
-      },
-      size: {
-        height: contentBounds.height,
-        width: contentBounds.width,
-      },
-    };
+  widget.on('move', () => {
+    updateWidgetContentBounds(id, widget);
+  });
 
-    store.dispatch(actions.closeTargetWidget(id, widgetBounds));
+  widget.on('resize', () => {
+    updateWidgetContentBounds(id, widget);
+  });
+
+  widget.on('closed', () => {
+    store.dispatch(actions.closeTargetWidget(id));
   });
 
   widget.show();
