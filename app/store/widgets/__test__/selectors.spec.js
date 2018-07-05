@@ -57,4 +57,40 @@ describe('test widgets selector', () => {
     expect(selectors.getSelectedWidget(state))
       .toEqual(Immutable.Map({ a: 'aa' }));
   });
+
+  it('should select getByIdsIsOpenIsTrue', () => {
+    const state = Immutable.fromJS({
+      widgets: {
+        byId: {
+          mock1: {
+            a: 'aa',
+            isOpen: true,
+          },
+          mock2: {
+            a: 'aa',
+            isOpen: false,
+          },
+          mock3: {
+            b: 'cc',
+            isOpen: true,
+          },
+          mock4: {
+            2: '22',
+          },
+        },
+      },
+    });
+
+    expect(selectors.getByIdsIsOpenIsTrue(state))
+      .toEqual(Immutable.fromJS({
+        mock1: {
+          a: 'aa',
+          isOpen: true,
+        },
+        mock3: {
+          b: 'cc',
+          isOpen: true,
+        },
+      }));
+  });
 });
