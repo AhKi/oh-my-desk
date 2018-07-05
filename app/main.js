@@ -3,20 +3,18 @@ import {
   BrowserWindow,
   ipcMain,
   Menu,
-  remote,
   Tray,
 } from 'electron';
 import path from 'path';
 import url from 'url';
-import fs from 'fs';
 import WidgetManager from 'process/renderer/WidgetManager';
 import createMenu from 'process/main/createMenu';
 import store from 'store/storeMain';
 import subscribeActionMain from 'store/utils/subscribeActionMain';
+import storeDataInDisk from 'utils/storeDataInDisk';
 
 subscribeActionMain(store);
 
-let informationBeforeQuit;
 let setting_win;
 const widgetManager = new WidgetManager({
   icon: path.join(__dirname, 'assets', 'icon.png'),
@@ -123,15 +121,10 @@ app.on('window-all-closed', () => {
 });
 
 app.on('before-quit', () => {
-  informationBeforeQuit = JSON.stringify(widgetManager.widgetStore.getAll());
+  storeDataInDisk();
 });
 
 app.on('quit', () => {
-  const configName = 'widgets';
-  const userDataPath = (app || remote.app).getPath('userData');
-  const savedPath = path.join(userDataPath, `${configName}.json`);
-
-  fs.writeFileSync(savedPath, informationBeforeQuit);
 });
 
 app.on('activate', () => {
