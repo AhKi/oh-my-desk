@@ -18,7 +18,7 @@ const makeWidgetWindow = (id, info) => {
     alwaysOnTop: widgetInfo.isOnTop,
     autoHideMenuBar: true,
     skipTaskbar: true,
-    show: false,
+    show: true,
     frame: false,
   });
 
@@ -43,9 +43,6 @@ const makeWidgetWindow = (id, info) => {
   widget.on('closed', () => {
     store.dispatch(actions.closeTargetWidget(id));
   });
-
-  widget.show();
-  store.dispatch(actions.registerNewWidgetBrowserWindow(id, widget));
 
   return widget;
 };
