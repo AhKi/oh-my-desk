@@ -2,6 +2,7 @@ import { ipcRenderer } from 'electron';
 import { isFSA } from 'flux-standard-action';
 
 const MAIN = 'MAIN';
+const TARGET = 'TARGET';
 
 /**
  * Use in Renderer Process.
@@ -15,7 +16,7 @@ const identifyAction = () => next => (action) => {
     return next(action);
   }
 
-  if (action.meta && action.meta.source === MAIN) {
+  if (action.meta && (action.meta.source === MAIN || action.meta.source === TARGET)) {
     return next(action);
   }
 
