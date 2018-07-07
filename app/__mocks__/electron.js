@@ -21,6 +21,10 @@ export const BrowserWindow = jest.fn(info => ({
     height: info.height,
     width: info.width,
   })),
+  webContents: {
+    on: jest.fn(),
+    send: jest.fn(),
+  },
 }));
 
 export const ipcRenderer = {
