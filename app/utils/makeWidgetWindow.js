@@ -44,6 +44,10 @@ const makeWidgetWindow = (id, info) => {
     store.dispatch(actions.closeTargetWidget(id));
   });
 
+  widget.webContents.on('did-finish-load', () => {
+    store.dispatch(actions.allocateIdTargetWidget(id));
+  });
+
   return widget;
 };
 
