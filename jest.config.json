@@ -4,6 +4,7 @@
   ],
   "moduleNameMapper": {
     "\\.(css|scss|jpg|svg)$": "<rootDir>/app/__mocks__/styleMock.js",
+    "^app(.*)$": "<rootDir>/app$1",
     "^actions(.*)$": "<rootDir>/app/actions$1",
     "^assets(.*)$": "<rootDir>/app/assets$1",
     "^components(.*)$": "<rootDir>/app/components$1",
