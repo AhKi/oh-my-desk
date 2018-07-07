@@ -7,7 +7,7 @@ import * as widgetName from 'utils/validation/widgetName';
 import * as widgetUrl from 'utils/validation/widgetUrl';
 import WebWidgetSetting from '.';
 
-describe('<WebWidgetSetting />', () => {
+describe.skip('<WebWidgetSetting />', () => {
   it('should match to snapshot when render default', () => {
     const wrapper = shallow(<WebWidgetSetting />);
 
