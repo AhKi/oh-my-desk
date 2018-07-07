@@ -1,7 +1,7 @@
+/* eslint-disable */
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import * as utils from 'utils/deleteWidget';
 import DeleteConfirmWidget from './DeleteConfirmWidget';
 
 describe.skip('<DeleteConfirmWidget />', () => {
@@ -12,10 +12,6 @@ describe.skip('<DeleteConfirmWidget />', () => {
   });
 
   it('should call handleDeletWidget', () => {
-    const ipcRenderer = {
-      send() {},
-    };
-    window.ipcRenderer = ipcRenderer;
     const deleteWidget = jest.spyOn(utils, 'default');
     const onClose = jest.fn();
     const wrapper = shallow(
