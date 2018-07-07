@@ -1,7 +1,10 @@
 import { createActions } from 'redux-actions';
 import * as TYPES from '../actionTypes';
 
+const TARGET = 'TARGET';
+
 export const {
+  allocateIdTargetWidget,
   closeTargetWidget,
   deleteTargetWidget,
   registerNewWidget,
@@ -10,6 +13,13 @@ export const {
   showTargetWidget,
   updateTargetWidgetInfo,
 } = createActions({
+  [TYPES.ALLOCATE_ID_TARGET_WIDGET]: [
+    id => ({ id }),
+    id => ({
+      source: TARGET,
+      id,
+    }),
+  ],
   [TYPES.CLOSE_TARGET_WIDGET]: (id, info) => ({ id, info }),
   [TYPES.DELETE_TARGET_WIDGET]: id => ({ id }),
   [TYPES.REGISTER_NEW_WIDGET]: (id, info) => ({ id, info }),

@@ -2,6 +2,18 @@ import Immutable from 'immutable';
 import * as selectors from '../selectors';
 
 describe('test status selector', () => {
+  it('should select mySelfIdSelector', () => {
+    const mockId = 'mock-id';
+    const state = Immutable.fromJS({
+      status: {
+        mySelfId: mockId,
+      },
+    });
+
+    expect(selectors.mySelfIdSelector(state))
+      .toEqual(mockId);
+  });
+
   it('should select winPreferenceSelector', () => {
     const mockWindow = {};
     const state = Immutable.fromJS({
