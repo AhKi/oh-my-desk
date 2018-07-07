@@ -9,7 +9,7 @@ export const mySelfIdSelector = createSelector(
 
 export const winPreferenceSelector = createSelector(
   statusSelector,
-  status => status.get('winPreference'),
+  status => JSON.parse(status.get('winPreference')),
 );
 
 export const winWidgetsSelector = createSelector(

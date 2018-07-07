@@ -1,65 +1,30 @@
 import {
   app,
-  BrowserWindow,
   ipcMain,
   Menu,
   Tray,
 } from 'electron';
 import path from 'path';
-import url from 'url';
 import WidgetManager from 'process/renderer/WidgetManager';
 import createMenu from 'process/main/createMenu';
 import store from 'store/storeMain';
 import subscribeActionMain from 'store/utils/subscribeActionMain';
 import storeDataInDisk from 'utils/storeDataInDisk';
 import openAllWidgetStatusOpen from 'utils/openAllWidgetStatusOpen';
+import openPreference from 'process/renderer/openPreference';
+import { closePreference } from 'actions/preference';
 
-let setting_win;
 const widgetManager = new WidgetManager({
   icon: path.join(__dirname, 'assets', 'icon.png'),
 });
 let tray;
-
-function createSetting() {
-  if (setting_win) {
-    setting_win.focus();
-    return;
-  }
-
-  setting_win = new BrowserWindow({
-    acceptFirstMouse: true,
-    width: 960,
-    height: 700,
-    minWidth: 360,
-    icon: path.join(__dirname, 'asset', 'icon.png'),
-  });
-
-  const ENV_PATH = process.env.NODE_ENV === 'development' ? 'app/page/setting' : 'build';
-
-  setting_win.loadURL(url.format({
-    pathname: path.join(__dirname, '..', ENV_PATH, 'index.html'),
-    protocol: 'file:',
-    slashes: true,
-  }));
-
-  if (process.env.NODE_ENV === 'development') {
-    setting_win.webContents.openDevTools();
-  }
-
-  setting_win.on('closed', () => {
-    setting_win = null;
-    widgetManager.setSettingWin(null);
-  });
-
-  widgetManager.setSettingWin(setting_win);
-}
 
 function createTray(contextMenuTemplate) {
   if (!tray) tray = new Tray(path.join(__dirname, 'assets', 'tray_iconTemplate.png'));
 
   const contextMenu = Menu.buildFromTemplate(contextMenuTemplate.concat([
     { type: 'separator' },
-    { label: 'Setting', type: 'normal', click: createSetting },
+    { label: 'Setting', type: 'normal', click: openPreference },
     {
       label: 'Exit',
       type: 'normal',
@@ -78,60 +43,25 @@ function init() {
   widgetManager.openAllWindow();
   createMenu();
 
-  ipcMain.on('WIDGET_MANAGE', (event, arg) => {
-    if (arg.operation === 'CREATE') {
-      widgetManager.create(arg.widget);
-    } else if (arg.operation === 'UPDATE') {
-      widgetManager.update(arg.widget);
-    } else if (arg.operation === 'DELETE') {
-      widgetManager.delete(arg.widget.id);
-    } else {
-      throw new Error('WIDGET_MANAGER : operaction is not set');
-    }
-  });
-
   ipcMain.on('WIDGET_SHOW_INACTIVE', (e, arg) => {
     widgetManager.callTargetEvent('showInactive', arg);
   });
 
   ipcMain.on('WIDGET_MANAGER_OPEN', () => {
-    createSetting();
+    openPreference();
   });
-
-  ipcMain.on('WIDGET_OPEN', (event, arg) => {
-    widgetManager.update(arg);
-    widgetManager.openWindow(arg);
-  });
-
-  ipcMain.on('WIDGET_INFO_REQUEST', (event) => {
-    event.sender.send('WIDGET_INFO_RESULT', widgetManager.getWidgets());
-  });
-
-  if (widgetManager.isFirstTime) createSetting();
-}
-
-// remove dock icon on macOS
-if (process.platform === 'darwin') {
-  app.dock.hide();
 }
 
 app.on('ready', () => {
   subscribeActionMain(store);
   init();
   openAllWidgetStatusOpen();
-});
-
-app.on('window-all-closed', () => {
+  openPreference();
 });
 
 app.on('before-quit', () => {
+  store.dispatch(closePreference());
   storeDataInDisk();
-});
-
-app.on('quit', () => {
-});
-
-app.on('activate', () => {
 });
 
 export default store;

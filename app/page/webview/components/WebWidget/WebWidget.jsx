@@ -11,10 +11,12 @@ const propTypes = {
     name: PropTypes.string,
     url: PropTypes.string,
   }),
+  onOpenPreference: PropTypes.func,
   onUpdateInfo: PropTypes.func, // eslint-disable-line
 };
 const defaultProps = {
   widget: {},
+  onOpenPreference() {},
   onUpdateInfo() {},
 };
 
@@ -149,7 +151,11 @@ class WebWidget extends React.Component {
       isSettingOpen,
       isMobileHeaderOpen,
     } = this.state;
-    const { widget, onUpdateInfo } = this.props;
+    const {
+      widget,
+      onUpdateInfo,
+      onOpenPreference,
+    } = this.props;
 
     return (
       <div className="WebWidget">
@@ -182,6 +188,7 @@ class WebWidget extends React.Component {
             url={widget.url}
             onToggleSetting={this.handleToggleSettingMenu}
             onUpdateInfo={onUpdateInfo}
+            onOpenPreference={onOpenPreference}
           />
         )}
         <webview

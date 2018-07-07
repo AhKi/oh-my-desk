@@ -1,7 +1,7 @@
+/* eslint-disable */
 import React from 'react';
 import { mount } from 'enzyme';
 
-import * as utils from 'utils/updateWidget';
 import WebWidget from '.';
 
 describe.skip('<WebWidget />', () => {

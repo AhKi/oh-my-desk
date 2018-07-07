@@ -1,8 +1,7 @@
+/* eslint-disable */
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import * as IPC from 'constants/ipc';
-import * as utils from 'utils/updateWidget';
 import * as widgetName from 'utils/validation/widgetName';
 import * as widgetUrl from 'utils/validation/widgetUrl';
 import WebWidgetSetting from '.';

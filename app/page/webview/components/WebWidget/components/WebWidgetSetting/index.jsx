@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ValidationInput from 'components/ValidationInput';
 import OutsideClickHandler from 'components/OutsideClickHandler';
-import * as IPC from 'constants/ipc';
 import validateName from 'utils/validation/widgetName';
 import validateUrl from 'utils/validation/widgetUrl';
 import './WebWidgetSetting.scss';
@@ -11,6 +10,7 @@ const propTypes = {
   name: PropTypes.string,
   widget: PropTypes.object, // eslint-disable-line
   url: PropTypes.string,
+  onOpenPreference: PropTypes.func,
   onToggleSetting: PropTypes.func,
   onUpdateInfo: PropTypes.func,
 };
@@ -18,6 +18,7 @@ const defaultProps = {
   name: '',
   widget: {},
   url: '',
+  onOpenPreference() {},
   onToggleSetting() {},
   onUpdateInfo() {},
 };
@@ -34,7 +35,6 @@ class WebWidgetSetting extends React.Component {
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeUrl = this.handleChangeUrl.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.openManageView = this.openManageView.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -42,10 +42,6 @@ class WebWidgetSetting extends React.Component {
       name: nextProps.name,
       url: nextProps.url,
     });
-  }
-
-  openManageView() { // eslint-disable-line
-    window.ipcRenderer.send(IPC.WIDGET_MANAGER_OPEN);
   }
 
   handleChangeName(e) {
@@ -89,7 +85,7 @@ class WebWidgetSetting extends React.Component {
       url,
       urlError,
     } = this.state;
-    const { onToggleSetting } = this.props;
+    const { onOpenPreference, onToggleSetting } = this.props;
 
     return (
       <div className="WebWidgetSetting">
@@ -117,7 +113,7 @@ class WebWidgetSetting extends React.Component {
               <button
                 className="TextBtn TextBtn--blue WebWidgetSetting__text-btn"
                 type="button"
-                onClick={this.openManageView}
+                onClick={onOpenPreference}
               >
                 Go to manage view
               </button>
