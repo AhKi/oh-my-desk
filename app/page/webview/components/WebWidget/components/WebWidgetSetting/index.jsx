@@ -5,7 +5,6 @@ import OutsideClickHandler from 'components/OutsideClickHandler';
 import * as IPC from 'constants/ipc';
 import validateName from 'utils/validation/widgetName';
 import validateUrl from 'utils/validation/widgetUrl';
-import updateWidget from 'utils/updateWidget';
 import './WebWidgetSetting.scss';
 
 const propTypes = {
@@ -13,12 +12,14 @@ const propTypes = {
   widget: PropTypes.object, // eslint-disable-line
   url: PropTypes.string,
   onToggleSetting: PropTypes.func,
+  onUpdateInfo: PropTypes.func,
 };
 const defaultProps = {
   name: '',
   widget: {},
   url: '',
   onToggleSetting() {},
+  onUpdateInfo() {},
 };
 
 class WebWidgetSetting extends React.Component {
@@ -69,17 +70,15 @@ class WebWidgetSetting extends React.Component {
       url,
       urlError,
     } = this.state;
-    const { widget, onToggleSetting } = this.props;
+    const {
+      widget,
+      onToggleSetting,
+      onUpdateInfo,
+    } = this.props;
 
     if (name && url && (!nameError && !urlError)) {
+      onUpdateInfo(widget.id, { name, url });
       onToggleSetting(false);
-      updateWidget(
-        'web',
-        Object.assign({}, widget, {
-          name,
-          url,
-        }),
-      );
     }
   }
 

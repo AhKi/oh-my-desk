@@ -93,4 +93,26 @@ describe('test widgets selector', () => {
         },
       }));
   });
+
+  it('should select getIndividualInfo', () => {
+    const state = Immutable.fromJS({
+      status: {
+        mySelfId: 'mock1',
+      },
+      widgets: {
+        byId: {
+          mock1: {
+            a: 'aa',
+            isOpen: true,
+          },
+        },
+      },
+    });
+
+    expect(selectors.getIndividualInfo(state))
+      .toEqual(Immutable.Map({
+        a: 'aa',
+        isOpen: true,
+      }));
+  });
 });
