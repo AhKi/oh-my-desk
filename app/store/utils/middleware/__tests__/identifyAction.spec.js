@@ -43,6 +43,25 @@ describe('test identifyAction', () => {
         payload: {
           data: 'mock',
         },
+        meta: {
+          source: 'TARGET',
+        },
+      };
+
+      identifyAction()(next)(mockAction);
+
+      expect(next).toHaveBeenCalledTimes(1);
+      expect(next).toHaveBeenCalledWith(mockAction);
+      expect(ipcRenderer.send).toHaveBeenCalledTimes(0);
+    });
+
+    it('when action is from main', () => {
+      const next = jest.fn();
+      const mockAction = {
+        type: 'SOME_THING',
+        payload: {
+          data: 'mock',
+        },
       };
 
       identifyAction()(next)(mockAction);

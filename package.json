@@ -19,7 +19,7 @@
     "lint": "eslint app --ext .js,.jsx",
     "precommit": "lint-staged",
     "prepush": "yarn lint",
-    "reset:mac": "rm ~/Library/Application \\Support/oh-my-desk/widgets.json"
+    "reset:mac": "rm ~/Library/Application \\Support/oh-my-desk/store.json"
   },
   "lint-staged": {
     "*.{js,jsx}": "eslint"
