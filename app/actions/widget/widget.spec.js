@@ -2,6 +2,8 @@ import { BrowserWindow } from 'electron';
 import * as actions from '.';
 import * as TYPES from '../actionTypes';
 
+const TARGET = 'TARGET';
+
 describe('test action about widget', () => {
   const mockId = 'mock-id';
   const mockInfo = {
@@ -9,6 +11,22 @@ describe('test action about widget', () => {
     url: 'mock-url',
     isOpen: false,
   };
+
+  it('should handle allocateIdTargetWidget', () => {
+    const mockAction = {
+      type: TYPES.ALLOCATE_ID_TARGET_WIDGET,
+      payload: {
+        id: mockId,
+      },
+      meta: {
+        id: mockId,
+        source: TARGET,
+      },
+    };
+
+    expect(actions.allocateIdTargetWidget(mockId))
+      .toEqual(mockAction);
+  });
 
   it('should handle closeTargetWidget', () => {
     const mockAction = {
