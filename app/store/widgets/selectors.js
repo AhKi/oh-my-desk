@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 import Immutable from 'immutable';
 import * as settings from 'store/setting/selectors';
+import * as status from 'store/status/selectors';
 
 export const widgetsSelector = state => state.get('widgets');
 
@@ -22,4 +23,9 @@ export const getSelectedWidget = createSelector(
 export const getByIdsIsOpenIsTrue = createSelector(
   [byIdSelector],
   byId => byId.filter(value => value.get('isOpen')),
+);
+
+export const getIndividualInfo = createSelector(
+  [byIdSelector, status.mySelfIdSelector],
+  (byId, mySelfId) => byId.get(mySelfId),
 );
