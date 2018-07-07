@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import * as utils from 'utils/updateWidget';
 import WebWidget from '.';
 
-describe('<WebWidget />', () => {
+describe.skip('<WebWidget />', () => {
   const webView = {
     canGoBack() {},
     canGoForward() {},
