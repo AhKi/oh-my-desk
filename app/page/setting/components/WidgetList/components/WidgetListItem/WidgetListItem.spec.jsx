@@ -1,7 +1,7 @@
+/* eslint-disable */
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import * as IPC from 'constants/ipc';
 import * as MODAL from 'constants/modal';
 import OutsideClickHandler from 'components/OutsideClickHandler';
 import WidgetListItem from '.';
