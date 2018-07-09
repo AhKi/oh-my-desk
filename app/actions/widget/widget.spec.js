@@ -1,8 +1,7 @@
-import { BrowserWindow } from 'electron';
 import * as actions from '.';
 import * as TYPES from '../actionTypes';
+import * as CATEGORY from '../category';
 
-const TARGET = 'TARGET';
 
 describe('test action about widget', () => {
   const mockId = 'mock-id';
@@ -10,6 +9,9 @@ describe('test action about widget', () => {
     name: 'mock-name',
     url: 'mock-url',
     isOpen: false,
+  };
+  const broadcastMeta = {
+    category: CATEGORY.BROADCAST,
   };
 
   it('should handle allocateIdTargetWidget', () => {
@@ -19,8 +21,9 @@ describe('test action about widget', () => {
         id: mockId,
       },
       meta: {
-        id: mockId,
-        source: TARGET,
+        category: CATEGORY.TARGET,
+        target: [mockId],
+        self: false,
       },
     };
 
@@ -33,11 +36,11 @@ describe('test action about widget', () => {
       type: TYPES.CLOSE_TARGET_WIDGET,
       payload: {
         id: mockId,
-        info: mockInfo,
       },
+      meta: broadcastMeta,
     };
 
-    expect(actions.closeTargetWidget(mockId, mockInfo))
+    expect(actions.closeTargetWidget(mockId))
       .toEqual(mockAction);
   });
 
@@ -47,6 +50,7 @@ describe('test action about widget', () => {
       payload: {
         id: mockId,
       },
+      meta: broadcastMeta,
     };
 
     expect(actions.deleteTargetWidget(mockId))
@@ -60,41 +64,13 @@ describe('test action about widget', () => {
         id: mockId,
         info: mockInfo,
       },
+      meta: broadcastMeta,
     };
 
     expect(actions.registerNewWidget(mockId, mockInfo))
       .toEqual(mockAction);
   });
 
-  it('should handle registerNewWidgetBrowserWindow', () => {
-    const mockWindow = JSON.stringify(new BrowserWindow());
-    const mockAction = {
-      type: TYPES.REGISTER_NEW_WIDGET_BROWSER_WINDOW,
-      payload: {
-        id: mockId,
-        browserWindow: mockWindow,
-      },
-    };
-
-    expect(actions.registerNewWidgetBrowserWindow(mockId, mockWindow))
-      .toEqual(mockAction);
-  });
-
-  it('should handle registerNewWidgetBrowserWindows', () => {
-    const mockWindow = JSON.stringify(new BrowserWindow());
-    const mockIds = ['mock1', 'mock2', 'mock3'];
-    const mockBrowserWindows = [mockWindow, mockWindow, mockWindow];
-    const mockAction = {
-      type: TYPES.REGISTER_NEW_WIDGET_BROWSER_WINDOWS,
-      payload: {
-        ids: mockIds,
-        browserWindows: mockBrowserWindows,
-      },
-    };
-
-    expect(actions.registerNewWidgetBrowserWindows(mockIds, mockBrowserWindows))
-      .toEqual(mockAction);
-  });
 
   it('should handle showTargetWidget', () => {
     const mockAction = {
@@ -102,6 +78,7 @@ describe('test action about widget', () => {
       payload: {
         id: mockId,
       },
+      meta: broadcastMeta,
     };
 
     expect(actions.showTargetWidget(mockId))
@@ -116,6 +93,7 @@ describe('test action about widget', () => {
         id: mockId,
         info: mockInfo,
       },
+      meta: broadcastMeta,
     };
 
     expect(actions.updateTargetWidgetInfo(mockId, mockInfo))

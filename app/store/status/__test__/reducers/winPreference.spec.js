@@ -2,7 +2,7 @@ import { BrowserWindow } from 'electron';
 import * as preferenceActions from 'actions/preference';
 import winPreference from '../../reducers/winPreference';
 
-describe('test winPreference reducer', () => {
+describe.skip('test winPreference reducer', () => {
   it('should return initialState', () => {
     expect(winPreference(undefined, {})).toBe(null);
   });
