@@ -4,8 +4,8 @@ import Immutable from 'immutable';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import getStoredDataInDisk from 'utils/getStoredDataInDisk';
 import rootReducer from './rootReducer';
-import broadcastAction from './utils/middleware/broadcastAction';
-import identifyAction from './utils/middleware/identifyAction';
+import categorizeActionInMain from './utils/middleware/categorizeActionInMain';
+import categorizeActionInRenderer from './utils/middleware/categorizeActionInRenderer';
 
 
 const MAIN = 'MAIN';
@@ -17,7 +17,7 @@ const store = (scope) => {
     return createStore(
       rootReducer,
       Immutable.fromJS(storedData),
-      applyMiddleware(broadcastAction),
+      applyMiddleware(categorizeActionInMain),
     );
   }
 
@@ -27,7 +27,7 @@ const store = (scope) => {
     rootReducer,
     Immutable.fromJS(initialState),
     composeWithDevTools(
-      applyMiddleware(identifyAction),
+      applyMiddleware(categorizeActionInRenderer),
     ),
   );
 };
