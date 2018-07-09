@@ -1,6 +1,6 @@
 import rootController from './rootController';
-import preferenceController from './preference';
-import widgetController from './widget';
+import preferenceController from './preference/index';
+import widgetController from './widget/index';
 
 const controller = (action, prevState, nextState) => rootController(action, prevState, nextState, {
   preferenceController,
