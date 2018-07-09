@@ -98,7 +98,6 @@
     "actions": "app/actions",
     "assets": "app/assets",
     "constants": "app/constants",
-    "controllers": "app/controllers",
     "process": "app/process",
     "store": "app/store",
     "utils": "app/utils",

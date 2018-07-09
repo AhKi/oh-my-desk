@@ -79,7 +79,6 @@ module.exports = {
       assets: path.resolve(__dirname, 'app/assets'),
       constants: path.resolve(__dirname, 'app/constants'),
       components: path.resolve(__dirname, 'app/components'),
-      controllers: path.resolve(__dirname, 'app/controllers'),
       page: path.resolve(__dirname, 'app/page'),
       process: path.resolve(__dirname, 'app/process'),
       setting: path.resolve(__dirname, 'app/page/setting'),
