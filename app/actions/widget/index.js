@@ -1,30 +1,45 @@
 import { createActions } from 'redux-actions';
 import * as TYPES from '../actionTypes';
-
-const TARGET = 'TARGET';
+import * as CATEGORY from '../category';
 
 export const {
   allocateIdTargetWidget,
-  closeTargetWidget,
-  deleteTargetWidget,
-  registerNewWidget,
-  registerNewWidgetBrowserWindow,
-  registerNewWidgetBrowserWindows,
-  showTargetWidget,
-  updateTargetWidgetInfo,
 } = createActions({
   [TYPES.ALLOCATE_ID_TARGET_WIDGET]: [
     id => ({ id }),
     id => ({
-      source: TARGET,
-      id,
+      category: CATEGORY.TARGET,
+      target: [id],
+      self: false,
     }),
   ],
-  [TYPES.CLOSE_TARGET_WIDGET]: (id, info) => ({ id, info }),
-  [TYPES.DELETE_TARGET_WIDGET]: id => ({ id }),
-  [TYPES.REGISTER_NEW_WIDGET]: (id, info) => ({ id, info }),
-  [TYPES.REGISTER_NEW_WIDGET_BROWSER_WINDOW]: (id, browserWindow) => ({ id, browserWindow }),
-  [TYPES.REGISTER_NEW_WIDGET_BROWSER_WINDOWS]: (ids, browserWindows) => ({ ids, browserWindows }),
-  [TYPES.SHOW_TARGET_WIDGET]: id => ({ id }),
-  [TYPES.UPDATE_TARGET_WIDGET_INFO]: (id, info) => ({ id, info }),
+});
+
+export const {
+  closeTargetWidget,
+  deleteTargetWidget,
+  registerNewWidget,
+  showTargetWidget,
+  updateTargetWidgetInfo,
+} = createActions({
+  [TYPES.CLOSE_TARGET_WIDGET]: [
+    (id, info) => ({ id, info }),
+    () => ({ category: CATEGORY.BROADCAST }),
+  ],
+  [TYPES.DELETE_TARGET_WIDGET]: [
+    id => ({ id }),
+    () => ({ category: CATEGORY.BROADCAST }),
+  ],
+  [TYPES.REGISTER_NEW_WIDGET]: [
+    (id, info) => ({ id, info }),
+    () => ({ category: CATEGORY.BROADCAST }),
+  ],
+  [TYPES.SHOW_TARGET_WIDGET]: [
+    id => ({ id }),
+    () => ({ category: CATEGORY.BROADCAST }),
+  ],
+  [TYPES.UPDATE_TARGET_WIDGET_INFO]: [
+    (id, info) => ({ id, info }),
+    () => ({ category: CATEGORY.BROADCAST }),
+  ],
 });

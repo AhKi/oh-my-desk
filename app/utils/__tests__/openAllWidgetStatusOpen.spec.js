@@ -5,7 +5,7 @@ import * as widgetActions from 'actions/widget';
 import * as makeWidget from 'utils/makeWidgetWindow';
 import openAllWidgetStatusOpen from '../openAllWidgetStatusOpen';
 
-describe('test openAllWidgetStatusOpen', () => {
+describe.skip('test openAllWidgetStatusOpen', () => {
   it('should call openAllWidgetStatusOpen', () => {
     const makeWidgetWindow = jest.spyOn(makeWidget, 'default');
     const mockWindow = new BrowserWindow();
