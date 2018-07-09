@@ -1,5 +1,5 @@
 import { ipcMain } from 'electron';
-import * as controller from 'controllers';
+import * as controller from 'store/utils/controllers';
 import subscribeActionMain from '../subscribeActionMain';
 
 describe('test subscribeActionMain', () => {

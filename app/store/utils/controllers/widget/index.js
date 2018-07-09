@@ -1,7 +1,7 @@
 import makeWidgetWindow from 'utils/makeWidgetWindow';
 import store from 'store/storeMain';
 import * as TYPES from 'actions/actionTypes';
-import * as widgetActions from 'actions/widget';
+import * as widgetActions from 'actions/widget/index';
 import * as widgetsSelector from 'store/widgets/selectors';
 import * as statusSelector from 'store/status/selectors';
 
