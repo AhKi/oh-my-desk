@@ -1,15 +1,21 @@
 import path from 'path';
 import { BrowserWindow } from 'electron';
+import { v4 } from 'uuid';
 import url from 'url';
 import store from 'store/storeMain';
-import * as statusSelector from 'store/status/selectors';
-import * as preferenceActions from 'actions/preference';
+import * as statusSelector from 'store/share/status/selectors';
+import * as personalSelector from 'store/personal/selectors';
+import * as statusActions from 'actions/status';
 import * as PATH from 'constants/path';
 
 const openPreference = () => {
-  let winPreference = statusSelector.winPreferenceSelector(store.getState());
+  const winId = statusSelector.preferenceIdSelector(store.getState());
+  let winPreference;
 
-  if (winPreference) {
+
+  if (winId) {
+    const windowById = personalSelector.windowByIdSelector(store.getState());
+    winPreference = windowById.get(winId);
     winPreference.show();
     return;
   }
@@ -35,11 +41,15 @@ const openPreference = () => {
     winPreference.webContents.openDevTools();
   }
 
+  const id = v4();
+
   winPreference.on('close', () => {
-    store.dispatch(preferenceActions.closePreference());
+    store.dispatch(statusActions.closePreference(id));
   });
 
-  store.dispatch(preferenceActions.openPreference(winPreference));
+
+  store.dispatch(statusActions.allocatePreferenceId(id));
+  store.dispatch(statusActions.openBrowserWindow(id, winPreference));
 };
 
 export default openPreference;

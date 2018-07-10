@@ -71,9 +71,11 @@ const categorizeActionInMain = store => next => (action) => {
       },
     };
 
-    target.forEach((id) => { // TODO exception that id is not validity
-      targetArr.push(winById.get(id));
-    });
+    if (target) {
+      target.forEach((id) => { // TODO exception that id is not validity
+        targetArr.push(winById.get(id));
+      });
+    }
 
     targetArr.forEach((win) => {
       win.webContents.send('redux-action', targetAction);

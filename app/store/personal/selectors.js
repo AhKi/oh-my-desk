@@ -6,3 +6,8 @@ export const windowByIdSelector = createSelector(
   personalSelector,
   personal => personal.get('windowById'),
 );
+
+export const mySelfIdSelector = createSelector(
+  personalSelector,
+  personal => personal.get('mySelfId'),
+);
