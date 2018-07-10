@@ -34,7 +34,7 @@ module.exports = {
             loader: 'sass-resources-loader',
             options: {
               resources: [
-                path.join(__dirname, 'app/scss', '**/_*.scss'),
+                path.join(__dirname, 'app/page/scss', '**/_*.scss'),
               ],
             },
           }
@@ -83,7 +83,7 @@ module.exports = {
       process: path.resolve(__dirname, 'app/process'),
       setting: path.resolve(__dirname, 'app/page/setting'),
       webview: path.resolve(__dirname, 'app/page/webview'),
-      scss: path.resolve(__dirname, 'app/scss'),
+      scss: path.resolve(__dirname, 'app/page/scss'),
       utils: path.resolve(__dirname, 'app/utils'),
       store: path.resolve(__dirname, 'app/store'),
     },
