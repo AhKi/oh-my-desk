@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import Header from 'setting/components/Header';
 import Pagination from 'setting/components/Pagination';
 import Select from 'setting/components/Select';
-import * as CONST from 'constants/index';
-import * as FILTER from 'constants/filter';
+import * as CONST from 'constants';
 import * as MODAL from 'constants/modal';
 import WidgetListBox from './components/WidgetListBox';
 import './WidgetList.scss';
@@ -41,7 +40,7 @@ const propTypes = {
 
 const defaultProps = {
   currentPage: 1,
-  filter: FILTER.LATEST,
+  filter: 'lastest',
   list: [],
   selectedId: '',
   onCloseWidget() {},
@@ -88,7 +87,7 @@ class WidgetList extends React.Component {
       onModalOpen,
       onUpdateWidgetInfo,
     } = this.props;
-    const filterList = [FILTER.LATEST, FILTER.OLDEST, FILTER.ACTIVATED];
+    const filterList = ['latest', 'oldest', 'activated'];
     const maxPage = Math.ceil(list.length / CONST.NUMBER_PER_PAGE);
 
     return (

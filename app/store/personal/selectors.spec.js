@@ -16,4 +16,14 @@ describe('test personal selectors', () => {
 
     expect(selectors.windowByIdSelector(mockState)).toEqual(mockSelected);
   });
+
+  it('should select mySelfId', () => {
+    const mockState = Immutable.Map({
+      personal: Immutable.Map({
+        mySelfId: 'mock-id',
+      }),
+    });
+
+    expect(selectors.mySelfIdSelector(mockState)).toEqual('mock-id');
+  });
 });

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { modalClose } from 'store/modal/actions';
+import { modalClose } from 'actions/modal';
 
 import Confirm from './Confirm';
 

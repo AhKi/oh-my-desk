@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import * as MODAL from 'constants/modal';
 import WidgetList from '.';
 
-describe('<WidgetList />', () => {
+describe.skip('<WidgetList />', () => {
   it('should match to snapshot when render default', () => {
     const wrapper = shallow(<WidgetList />);
 

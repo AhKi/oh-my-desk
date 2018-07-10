@@ -5,16 +5,14 @@ import GNBWrapper from 'setting/components/GlobalNavigationBar/GNBWrapper';
 import {
   modalOpen,
   modalClose,
-} from 'store/modal/actions';
+} from 'actions/modal';
 import {
-  currentPageSelector,
-  filterSelector,
   selectedIdSelector,
-} from 'store/setting/selectors';
+} from 'store/personal/setting/selectors';
 import {
   getWidgetArray,
   getSelectedWidget,
-} from 'store/widgets/selectors';
+} from 'store/share/widgets/selectors';
 import {
   closeTargetWidget,
   showTargetWidget,
@@ -25,8 +23,6 @@ import {
 } from 'actions/setting';
 
 const mapStateToProps = state => ({
-  currentPage: currentPageSelector(state),
-  filter: filterSelector(state),
   list: getWidgetArray(state),
   selectedId: selectedIdSelector(state),
   selectedWidget: getSelectedWidget(state),

@@ -15,3 +15,25 @@ export const {
     () => ({ category: CATEGORY.SELF }),
   ],
 });
+
+export const {
+  allocatePreferenceId,
+  openPreference,
+  closePreference,
+} = createActions({
+  [TYPES.ALLOCATE_PREFERENCE_ID]: [
+    id => ({ id }),
+    () => ({ category: CATEGORY.BROADCAST }),
+  ],
+  [TYPES.OPEN_PREFERENCE]: [
+    () => {},
+    () => ({
+      category: CATEGORY.TARGET,
+      containMain: true,
+    }),
+  ],
+  [TYPES.CLOSE_PREFERENCE]: [
+    id => ({ id }),
+    () => ({ category: CATEGORY.SELF }),
+  ],
+});

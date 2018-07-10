@@ -1,6 +1,6 @@
 import makeWidgetWindow from 'utils/makeWidgetWindow';
-import * as widgetsSelector from 'store/widgets/selectors';
-import * as widgetActions from 'actions/widget';
+import * as widgetsSelector from 'store/share/widgets/selectors';
+import * as statusActions from 'actions/status';
 import store from 'store/storeMain';
 
 const openAllWidgetStatusOpen = () => {
@@ -12,7 +12,7 @@ const openAllWidgetStatusOpen = () => {
     arr.push(makeWidgetWindow(item, byIdIsOpenIsTrue.get(item).toJS()));
   });
 
-  store.dispatch(widgetActions.registerNewWidgetBrowserWindows(keyArray, arr));
+  store.dispatch(statusActions.openBrowserWindow(keyArray, arr));
 };
 
 export default openAllWidgetStatusOpen;

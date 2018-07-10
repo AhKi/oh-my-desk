@@ -1,9 +1,9 @@
 import makeWidgetWindow from 'utils/makeWidgetWindow';
 import store from 'store/storeMain';
 import * as TYPES from 'actions/actionTypes';
-import * as widgetActions from 'actions/widget/index';
-import * as widgetsSelector from 'store/widgets/selectors';
-import * as statusSelector from 'store/status/selectors';
+import * as statusActions from 'actions/status';
+import * as widgetsSelector from 'store/share/widgets/selectors';
+import * as personalSelector from 'store/personal/selectors';
 
 const widgetController = (action, prev, next) => {
   const { type } = action;
@@ -12,7 +12,7 @@ const widgetController = (action, prev, next) => {
       const { id, info } = action.payload;
       const widgetWin = makeWidgetWindow(id, info);
 
-      store.dispatch(widgetActions.registerNewWidgetBrowserWindow(id, widgetWin));
+      store.dispatch(statusActions.openBrowserWindow(id, widgetWin));
       break;
     }
     case TYPES.SHOW_TARGET_WIDGET: {
@@ -20,14 +20,14 @@ const widgetController = (action, prev, next) => {
       const byId = widgetsSelector.byIdSelector(next);
       const item = byId.get(id);
 
-      const winWidgets = statusSelector.winWidgetsSelector(next);
+      const winWidgets = personalSelector.windowByIdSelector(next);
       const widget = winWidgets.get(id);
 
       if (widget) {
         widget.show();
       } else {
         const widgetWin = makeWidgetWindow(id, item.toJS());
-        store.dispatch(widgetActions.registerNewWidgetBrowserWindow(id, widgetWin));
+        store.dispatch(statusActions.openBrowserWindow(id, widgetWin));
       }
 
       break;
@@ -35,7 +35,7 @@ const widgetController = (action, prev, next) => {
     case TYPES.CLOSE_TARGET_WIDGET:
     case TYPES.DELETE_TARGET_WIDGET: {
       const { id } = action.payload;
-      const winWidgets = statusSelector.winWidgetsSelector(prev);
+      const winWidgets = personalSelector.windowByIdSelector(prev);
       const widget = winWidgets.get(id);
 
       if (widget) {
@@ -46,7 +46,7 @@ const widgetController = (action, prev, next) => {
     }
     case TYPES.UPDATE_TARGET_WIDGET_INFO: {
       const { id, info } = action.payload;
-      const winWidgets = statusSelector.winWidgetsSelector(next);
+      const winWidgets = personalSelector.windowByIdSelector(next);
       const widget = winWidgets.get(id);
 
       if (widget) {
@@ -58,7 +58,6 @@ const widgetController = (action, prev, next) => {
           }
         });
       }
-
       break;
     }
   }
