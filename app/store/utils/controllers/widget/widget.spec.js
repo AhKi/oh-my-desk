@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
 import { BrowserWindow } from 'electron';
-import * as widgetActions from 'actions/widget/index';
+import * as statusActions from 'actions/status';
 import * as TYPES from 'actions/actionTypes';
 import storeMock from 'store/storeMain';
 import * as utils from 'utils/makeWidgetWindow';
@@ -13,7 +13,7 @@ describe('test widgetController', () => {
   const mockBrowserWindow = new BrowserWindow();
   storeMock.dispatch = jest.fn();
 
-  it.skip('should handle TYPES.REGISTER_NEW_WIDGET', () => {
+  it('should handle TYPES.REGISTER_NEW_WIDGET', () => {
     const mockAction = {
       type: TYPES.REGISTER_NEW_WIDGET,
       payload: {
@@ -40,14 +40,14 @@ describe('test widgetController', () => {
 
     expect(storeMock.dispatch).toHaveBeenCalledTimes(1);
     expect(storeMock.dispatch).toHaveBeenCalledWith(
-      widgetActions.registerNewWidgetBrowserWindow(
+      statusActions.openBrowserWindow(
         'mock-id',
         mockBrowserWindow,
       ),
     );
   });
 
-  describe.skip('should handle TYPES.SHOW_TARGET_WIDGET', () => {
+  describe('should handle TYPES.SHOW_TARGET_WIDGET', () => {
     const mockAction = {
       type: TYPES.SHOW_TARGET_WIDGET,
       payload: {
@@ -60,19 +60,21 @@ describe('test widgetController', () => {
       const browserWindow = new BrowserWindow();
 
       const mockStore = Immutable.Map({
-        status: Immutable.Map({
-          winWidgets: Immutable.Map({
+        personal: Immutable.Map({
+          windowById: Immutable.Map({
             'mock-id': browserWindow,
           }),
         }),
-        widgets: Immutable.fromJS({
-          byId: {
-            'mock-id': {
-              name: 'mock-name',
-              url: 'mock-url',
-              isOpen: false,
+        share: Immutable.Map({
+          widgets: Immutable.fromJS({
+            byId: {
+              'mock-id': {
+                name: 'mock-name',
+                url: 'mock-url',
+                isOpen: false,
+              },
             },
-          },
+          }),
         }),
       });
 
@@ -85,17 +87,19 @@ describe('test widgetController', () => {
 
     it('when widget is not exist', () => {
       const mockStore = Immutable.Map({
-        status: Immutable.Map({
-          winWidgets: Immutable.Map({}),
+        personal: Immutable.Map({
+          windowById: Immutable.Map({}),
         }),
-        widgets: Immutable.fromJS({
-          byId: {
-            'mock-id': {
-              name: 'mock-name',
-              url: 'mock-url',
-              isOpen: false,
+        share: Immutable.Map({
+          widgets: Immutable.fromJS({
+            byId: {
+              'mock-id': {
+                name: 'mock-name',
+                url: 'mock-url',
+                isOpen: false,
+              },
             },
-          },
+          }),
         }),
       });
       makeWidgetWindow.mockImplementationOnce(() => mockBrowserWindow);
@@ -109,7 +113,7 @@ describe('test widgetController', () => {
       });
       expect(storeMock.dispatch).toHaveBeenCalledTimes(1);
       expect(storeMock.dispatch).toHaveBeenCalledWith(
-        widgetActions.registerNewWidgetBrowserWindow(
+        statusActions.openBrowserWindow(
           'mock-id',
           mockBrowserWindow,
         ),
@@ -133,19 +137,21 @@ describe('test widgetController', () => {
 
     it('when widget exist', () => {
       const mockStore = Immutable.Map({
-        status: Immutable.Map({
-          winWidgets: Immutable.Map({
+        personal: Immutable.Map({
+          windowById: Immutable.Map({
             'mock-id': browserWindow,
           }),
         }),
-        widgets: Immutable.fromJS({
-          byId: {
-            'mock-id': {
-              name: 'mock-name',
-              url: 'mock-url',
-              isOpen: false,
+        share: Immutable.Map({
+          widgets: Immutable.fromJS({
+            byId: {
+              'mock-id': {
+                name: 'mock-name',
+                url: 'mock-url',
+                isOpen: false,
+              },
             },
-          },
+          }),
         }),
       });
       widgetController(mockAction, mockStore, mockStore);
@@ -156,17 +162,19 @@ describe('test widgetController', () => {
 
     it('when widget don\'t exist', () => {
       const mockStore = Immutable.Map({
-        status: Immutable.Map({
-          winWidgets: Immutable.Map({}),
+        personal: Immutable.Map({
+          windowById: Immutable.Map({}),
         }),
-        widgets: Immutable.fromJS({
-          byId: {
-            'mock-id': {
-              name: 'mock-name',
-              url: 'mock-url',
-              isOpen: false,
+        share: Immutable.Map({
+          widgets: Immutable.fromJS({
+            byId: {
+              'mock-id': {
+                name: 'mock-name',
+                url: 'mock-url',
+                isOpen: false,
+              },
             },
-          },
+          }),
         }),
       });
       widgetController(mockAction, mockStore, mockStore);
@@ -191,19 +199,21 @@ describe('test widgetController', () => {
 
     it('when widget exist', () => {
       const mockStore = Immutable.Map({
-        status: Immutable.Map({
-          winWidgets: Immutable.Map({
+        personal: Immutable.Map({
+          windowById: Immutable.Map({
             'mock-id': browserWindow,
           }),
         }),
-        widgets: Immutable.fromJS({
-          byId: {
-            'mock-id': {
-              name: 'mock-name',
-              url: 'mock-url',
-              isOpen: false,
+        share: Immutable.Map({
+          widgets: Immutable.fromJS({
+            byId: {
+              'mock-id': {
+                name: 'mock-name',
+                url: 'mock-url',
+                isOpen: false,
+              },
             },
-          },
+          }),
         }),
       });
       widgetController(mockAction, mockStore, mockStore);
@@ -214,17 +224,19 @@ describe('test widgetController', () => {
 
     it('when widget don\'t exist', () => {
       const mockStore = Immutable.Map({
-        status: Immutable.Map({
-          winWidgets: Immutable.Map({}),
+        personal: Immutable.Map({
+          windowById: Immutable.Map({}),
         }),
-        widgets: Immutable.fromJS({
-          byId: {
-            'mock-id': {
-              name: 'mock-name',
-              url: 'mock-url',
-              isOpen: false,
+        share: Immutable.Map({
+          widgets: Immutable.fromJS({
+            byId: {
+              'mock-id': {
+                name: 'mock-name',
+                url: 'mock-url',
+                isOpen: false,
+              },
             },
-          },
+          }),
         }),
       });
       widgetController(mockAction, mockStore, mockStore);
@@ -236,19 +248,21 @@ describe('test widgetController', () => {
   describe('should handle UPDATE_TARGET_WIDGET_INFO', () => {
     const browserWindow = new BrowserWindow();
     const mockStore = Immutable.Map({
-      status: Immutable.Map({
-        winWidgets: Immutable.Map({
+      personal: Immutable.Map({
+        windowById: Immutable.Map({
           'mock-id': browserWindow,
         }),
       }),
-      widgets: Immutable.fromJS({
-        byId: {
-          'mock-id': {
-            name: 'mock-name',
-            url: 'mock-url',
-            isOpen: false,
+      share: Immutable.Map({
+        widgets: Immutable.fromJS({
+          byId: {
+            'mock-id': {
+              name: 'mock-name',
+              url: 'mock-url',
+              isOpen: false,
+            },
           },
-        },
+        }),
       }),
     });
 
@@ -264,17 +278,19 @@ describe('test widgetController', () => {
           },
         };
         const mockWithoutWindow = Immutable.Map({
-          status: Immutable.Map({
-            winWidgets: Immutable.Map({}),
+          personal: Immutable.Map({
+            windowById: Immutable.Map({}),
           }),
-          widgets: Immutable.fromJS({
-            byId: {
-              'mock-id': {
-                name: 'mock-name',
-                url: 'mock-url',
-                isOpen: false,
+          share: Immutable.Map({
+            widgets: Immutable.fromJS({
+              byId: {
+                'mock-id': {
+                  name: 'mock-name',
+                  url: 'mock-url',
+                  isOpen: false,
+                },
               },
-            },
+            }),
           }),
         });
 

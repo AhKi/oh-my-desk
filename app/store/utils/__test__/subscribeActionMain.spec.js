@@ -1,3 +1,4 @@
+import Immutable from 'immutable';
 import { ipcMain } from 'electron';
 import * as controller from 'store/utils/controllers';
 import subscribeActionMain from '../subscribeActionMain';
@@ -37,8 +38,8 @@ describe('test subscribeActionMain', () => {
   });
 
   it('should match global.getReduxState', () => {
-    const initialState = { mock: 'initial' };
-    const nextState = { mock: 'next' };
+    const initialState = Immutable.fromJS({ share: { mock: 'initial' } });
+    const nextState = Immutable.fromJS({ share: { mock: 'next' } });
     const store = {
       getState: jest.fn(),
     };
@@ -48,10 +49,10 @@ describe('test subscribeActionMain', () => {
 
     subscribeActionMain(store);
 
-    expect(global.getReduxState()).toEqual(JSON.stringify(initialState));
+    expect(global.getReduxState()).toEqual(JSON.stringify(initialState.get('share')));
     expect(store.getState).toHaveBeenCalledTimes(1);
 
-    expect(global.getReduxState()).toEqual(JSON.stringify(nextState));
+    expect(global.getReduxState()).toEqual(JSON.stringify(nextState.get('share')));
     expect(store.getState).toHaveBeenCalledTimes(2);
   });
 });

@@ -16,16 +16,16 @@ const store = (scope) => {
 
     return createStore(
       rootReducer,
-      Immutable.fromJS(storedData),
+      Immutable.fromJS({ share: storedData }),
       applyMiddleware(categorizeActionInMain),
     );
   }
 
-  const initialState = JSON.parse(remote.getGlobal('getReduxState')());
+  const initialShare = JSON.parse(remote.getGlobal('getReduxState')());
 
   return createStore(
     rootReducer,
-    Immutable.fromJS(initialState),
+    Immutable.fromJS({ share: initialShare }),
     composeWithDevTools(
       applyMiddleware(categorizeActionInRenderer),
     ),

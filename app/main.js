@@ -1,6 +1,5 @@
 import {
   app,
-  ipcMain,
   Menu,
   Tray,
 } from 'electron';
@@ -12,7 +11,7 @@ import subscribeActionMain from 'store/utils/subscribeActionMain';
 import storeDataInDisk from 'utils/storeDataInDisk';
 import openAllWidgetStatusOpen from 'utils/openAllWidgetStatusOpen';
 import openPreference from 'process/renderer/openPreference';
-import { closePreference } from 'actions/preference';
+import * as statusActions from 'actions/status';
 
 const widgetManager = new WidgetManager({
   icon: path.join(__dirname, 'assets', 'icon.png'),
@@ -42,25 +41,16 @@ function init() {
   widgetManager.onUpdateTray(createTray);
   widgetManager.openAllWindow();
   createMenu();
-
-  ipcMain.on('WIDGET_SHOW_INACTIVE', (e, arg) => {
-    widgetManager.callTargetEvent('showInactive', arg);
-  });
-
-  ipcMain.on('WIDGET_MANAGER_OPEN', () => {
-    openPreference();
-  });
 }
 
 app.on('ready', () => {
   subscribeActionMain(store);
   init();
   openAllWidgetStatusOpen();
-  openPreference();
 });
 
 app.on('before-quit', () => {
-  store.dispatch(closePreference());
+  store.dispatch(statusActions.closePreference());
   storeDataInDisk();
 });
 

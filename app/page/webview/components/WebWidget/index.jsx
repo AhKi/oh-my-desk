@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import toJS from 'utils/toJS';
-import { getIndividualInfo } from 'store/widgets/selectors';
+import { getIndividualInfo } from 'store/share/widgets/selectors';
 import { updateTargetWidgetInfo } from 'actions/widget';
-import { openPreference } from 'actions/preference';
+import { openPreference } from 'actions/status';
 import WebWidget from './WebWidget';
 
 const mapStateToProps = state => ({
