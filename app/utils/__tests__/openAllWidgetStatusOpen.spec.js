@@ -1,30 +1,32 @@
 import { BrowserWindow } from 'electron';
 import Immutable from 'immutable';
 import store from 'store/storeMain';
-import * as widgetActions from 'actions/widget';
+import * as statusActions from 'actions/status';
 import * as makeWidget from 'utils/makeWidgetWindow';
 import openAllWidgetStatusOpen from '../openAllWidgetStatusOpen';
 
-describe.skip('test openAllWidgetStatusOpen', () => {
+describe('test openAllWidgetStatusOpen', () => {
   it('should call openAllWidgetStatusOpen', () => {
     const makeWidgetWindow = jest.spyOn(makeWidget, 'default');
     const mockWindow = new BrowserWindow();
     store.getState.mockImplementationOnce(() => Immutable.fromJS({
-      widgets: {
-        byId: {
-          mock1: {
-            a: 'aa',
-            isOpen: true,
-          },
-          mock2: {
-            isOpen: false,
-          },
-          mock3: {
-            b: 'bb',
-            isOpen: true,
-          },
-          mock4: {
-            isOpen: false,
+      share: {
+        widgets: {
+          byId: {
+            mock1: {
+              a: 'aa',
+              isOpen: true,
+            },
+            mock2: {
+              isOpen: false,
+            },
+            mock3: {
+              b: 'bb',
+              isOpen: true,
+            },
+            mock4: {
+              isOpen: false,
+            },
           },
         },
       },
@@ -44,7 +46,7 @@ describe.skip('test openAllWidgetStatusOpen', () => {
     ]);
     expect(store.dispatch).toHaveBeenCalledTimes(1);
     expect(store.dispatch).toHaveBeenCalledWith(
-      widgetActions.registerNewWidgetBrowserWindows(
+      statusActions.openBrowserWindow(
         ['mock1', 'mock3'],
         [mockWindow, mockWindow],
       ),

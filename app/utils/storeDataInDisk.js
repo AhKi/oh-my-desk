@@ -7,7 +7,7 @@ const storeDataInDisk = () => {
   const configName = 'store';
   const userDataPath = app.getPath('userData');
   const savedPath = path.join(userDataPath, `${configName}.json`);
-  const data = store.getState();
+  const data = store.getState().get('share');
 
   fs.writeFileSync(savedPath, JSON.stringify(data.toJS()));
 };
