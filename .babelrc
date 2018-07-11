@@ -1,4 +1,23 @@
 {
-    "presets": ["env", "react"],
-    "plugins": ["transform-object-rest-spread"]
+  "presets": ["env", "react"],
+  "plugins": [
+    "transform-object-rest-spread",
+    ["module-resolver", {
+      "root": ["./app"],
+      "alias": {
+        "actions": "./app/actions",
+        "assets": "./app/assets",
+        "constants": "./app/constants",
+        "components": "./app/components",
+        "page": "./app/page",
+        "process": "./app/process",
+        "setting": "./app/page/setting",
+        "webview": "./app/page/webview",
+        "scss": "./app/page/scss",
+        "utils": "./app/utils",
+        "store": "./app/store"
+      },
+      "extensions": [".js", ".jsx"]
+    }]
+  ]
 }
