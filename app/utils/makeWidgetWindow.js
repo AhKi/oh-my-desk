@@ -23,7 +23,7 @@ const makeWidgetWindow = (id, info) => {
   });
 
   widget.loadURL(url.format({
-    pathname: `${PATH.ROOT_PATH}/${PATH.WIDGET_PATH}`,
+    pathname: PATH.WIDGET_PATH,
     protocol: 'file:',
     slashes: true,
   }));
