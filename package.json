@@ -2,7 +2,7 @@
   "name": "oh-my-desk",
   "version": "v1.1.2",
   "description": "desktop widget application",
-  "main": "initialBoot.js",
+  "main": "/app/main.js",
   "scripts": {
     "build": "yarn build:app && cross-env NODE_ENV=production electron-builder",
     "build:window": "yarn build:app && cross-env NODE_ENV=production electron-builder --win",
@@ -10,7 +10,7 @@
     "build:linux": "yarn build:app && cross-env NODE_ENV=production electron-builder --linux",
     "build:app": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "dev": "cross-env NODE_ENV=development electron .",
+    "dev": "cross-env NODE_ENV=development electron -r babel-register ./app/main.js",
     "start": "lint-staged && cross-env NODE_ENV=development node -r babel-register ./node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.js --hot --inline --watch",
     "test": "jest --config jest.config.json",
     "test:watch": "yarn test -- --watch",
