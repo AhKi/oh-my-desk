@@ -9,6 +9,8 @@ describe('test openAllWidgetStatusOpen', () => {
   it('should call openAllWidgetStatusOpen', () => {
     const makeWidgetWindow = jest.spyOn(makeWidget, 'default');
     const mockWindow = new BrowserWindow();
+    store.getState = jest.fn();
+    store.dispatch = jest.fn();
     store.getState.mockImplementationOnce(() => Immutable.fromJS({
       share: {
         widgets: {

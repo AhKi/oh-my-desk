@@ -5,6 +5,7 @@ import updateWidgetContentBounds from '../updateWidgetContentBounds';
 
 describe('test updateWidgetContentBounds', () => {
   it('should call updateWidgetContentBounds', () => {
+    store.dispatch = jest.fn();
     const win = new BrowserWindow({
       x: 100,
       y: 200,
