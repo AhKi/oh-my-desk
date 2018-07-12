@@ -1,0 +1,24 @@
+appId: "com.ahki.omd"
+productName: "oh-my-desk"
+win:
+  target: [{
+    target: "nsis",
+    arch: ["x64", "ia32"],
+  }]
+  icon: "app/assets/oh-my-desk-icon.png"
+nsis:
+  installerHeaderIcon: "app/assets/oh-my-desk-icon.png"
+mac:
+  target: "dmg"
+  category: "oh.my.desk"
+  icon: "app/assets/oh-my-desk-icon"
+dmg:
+  icon: "app/assets/oh-my-desk-icon.png"
+  background: "app/assets/oh-my-desk-background.png"
+files:
+  - "app/*.js"
+  - "app/utils"
+  - "build"
+  - "node_modules"
+  - "app/assets"
+compression: "maximum"
