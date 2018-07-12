@@ -7,6 +7,7 @@ jest.mock('fs');
 
 describe('test storeDataInDisk', () => {
   it('should test storeDataInDisk', () => {
+    store.getState = jest.fn();
     store.getState.mockImplementation(
       () => Immutable.fromJS({
         share: {},

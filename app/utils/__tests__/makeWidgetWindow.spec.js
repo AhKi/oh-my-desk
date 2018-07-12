@@ -111,7 +111,7 @@ describe('test makeWidgetWindow', () => {
       makeWidgetWindow('mock-id', mockInfo);
       expect(mock.loadURL).toHaveBeenCalledTimes(1);
       expect(mock.loadURL)
-        .toHaveBeenCalledWith(`file://${PATH.ROOT_PATH}/${PATH.WIDGET_PATH}`);
+        .toHaveBeenCalledWith(`file://${PATH.WIDGET_PATH}`);
     });
 
     // TODO test about process.env.NODE_ENV === 'production'
