@@ -55,13 +55,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       chunks: ['app'],
-      filename: 'setting/index.html',
+      filename: 'index.html',
       template: path.join(__dirname, './app/page/setting/index.html'),
       inject: 'body',
     }),
     new HtmlWebpackPlugin({
       chunks: ['widget'],
-      filename: 'webview/widget.html',
+      filename: 'widget.html',
       template: path.join(__dirname, './app/page/webview/widget.html'),
       inject: 'body',
     }),

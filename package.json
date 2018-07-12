@@ -2,16 +2,16 @@
   "name": "oh-my-desk",
   "version": "v1.1.1",
   "description": "desktop widget application",
-  "main": "/app/main.js",
+  "main": "./app/main.prod.js",
   "scripts": {
-    "build": "yarn build:app && cross-env NODE_ENV=production electron-builder",
-    "build:window": "yarn build:app && cross-env NODE_ENV=production electron-builder --win",
-    "build:mac": "yarn build:app && cross-env NODE_ENV=production electron-builder --mac",
-    "build:linux": "yarn build:app && cross-env NODE_ENV=production electron-builder --linux",
+    "build:main": "cross-env NODE_ENV=production webpack --config webpack.main.prod.js",
     "build:app": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "dev": "cross-env NODE_ENV=development electron -r babel-register ./app/main.js",
     "start": "lint-staged && cross-env NODE_ENV=development node -r babel-register ./node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.js --hot --inline --watch",
+    "package": "yarn build:app && yarn build:main && build -c electron-builder.yml && yarn clear",
+    "package:mac": "yarn build:app && yarn build:main && build -c electron-builder.yml --mac && yarn clear",
+    "package:win": "yarn build:app && yarn build:main && build -c electron-builder.yml --win && yarn clear",
     "test": "jest --config jest.config.json",
     "test:watch": "yarn test -- --watch",
     "test:coverage": "yarn test -- --coverage",
@@ -19,6 +19,7 @@
     "lint": "eslint app --ext .js,.jsx",
     "precommit": "lint-staged",
     "prepush": "yarn lint",
+    "clear": "rm -rf ./build && rm ./app/main.prod.js",
     "reset:mac": "rm ~/Library/Application \\Support/oh-my-desk/store.json"
   },
   "lint-staged": {
@@ -92,18 +93,5 @@
     "valid-url": "^1.0.9",
     "webpack": "^4.12.2",
     "webpack-cli": "^3.0.8"
-  },
-  "build": {
-    "appId": "com.geekwims.omd",
-    "mac": {
-      "category": "oh.my.desk"
-    },
-    "files": [
-      "app/*.js",
-      "app/utils",
-      "build",
-      "node_modules",
-      "app/assets"
-    ]
   }
 }
