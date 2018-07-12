@@ -19,7 +19,7 @@ const widgetManager = new WidgetManager({
 let tray;
 
 function createTray(contextMenuTemplate) {
-  if (!tray) tray = new Tray(path.join(__dirname, 'assets', 'tray_icon.png'));
+  if (!tray) tray = new Tray(path.join(__dirname, 'assets', 'iconTemplate.png'));
 
   const contextMenu = Menu.buildFromTemplate(contextMenuTemplate.concat([
     { type: 'separator' },
