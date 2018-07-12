@@ -1,15 +1,11 @@
-import { app } from 'electron';
 import fs from 'fs';
-import path from 'path';
+import * as PATH from 'constants/path';
 import store from 'store/storeMain';
 
 const storeDataInDisk = () => {
-  const configName = 'store';
-  const userDataPath = app.getPath('userData');
-  const savedPath = path.join(userDataPath, `${configName}.json`);
   const data = store.getState().get('share');
 
-  fs.writeFileSync(savedPath, JSON.stringify(data.toJS()));
+  fs.writeFileSync(`${PATH.CONFIG_PATH}/${PATH.SETTING_FILE_NAME}`, JSON.stringify(data.toJS()));
 };
 
 export default storeDataInDisk;
