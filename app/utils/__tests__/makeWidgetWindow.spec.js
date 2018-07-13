@@ -3,8 +3,8 @@ import * as actions from 'actions/widget';
 import { BrowserWindow as MockBrowserWindow } from 'app/__mocks__/electron';
 import storeMock from 'store/storeMain';
 import * as PATH from 'constants/path';
-import * as updateWidgetContentBounds from 'utils/updateWidgetContentBounds';
-import makeWidgetWindow from '../makeWidgetWindow';
+import * as updateWidgetContentBounds from 'utils/process/updateWidgetContentBounds';
+import makeWidgetWindow from '../process/makeWidgetWindow';
 
 jest.mock('fs');
 

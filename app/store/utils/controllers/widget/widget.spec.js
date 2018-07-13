@@ -3,7 +3,7 @@ import { BrowserWindow } from 'electron';
 import * as statusActions from 'actions/status';
 import * as TYPES from 'actions/actionTypes';
 import storeMock from 'store/storeMain';
-import * as utils from 'utils/makeWidgetWindow';
+import * as utils from 'utils/process/makeWidgetWindow';
 import widgetController from '.';
 
 describe('test widgetController', () => {

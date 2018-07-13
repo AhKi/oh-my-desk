@@ -1,4 +1,4 @@
-import makeWidgetWindow from 'utils/makeWidgetWindow';
+import makeWidgetWindow from 'utils/process/makeWidgetWindow';
 import * as widgetsSelector from 'store/share/widgets/selectors';
 import * as statusActions from 'actions/status';
 import store from 'store/storeMain';
