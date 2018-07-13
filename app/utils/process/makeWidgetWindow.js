@@ -1,9 +1,9 @@
 import { BrowserWindow } from 'electron';
 import url from 'url';
-import * as actions from 'actions/widget';
+import * as actions from 'actions/widget/index';
 import store from 'store/storeMain';
 import createWidget from 'utils/createWidget';
-import updateWidgetContentBounds from 'utils/updateWidgetContentBounds';
+import updateWidgetContentBounds from 'utils/process/updateWidgetContentBounds';
 import * as PATH from 'constants/path';
 
 const makeWidgetWindow = (id, info) => {

@@ -1,7 +1,7 @@
 import { BrowserWindow } from 'electron';
 import store from 'store/storeMain';
 import * as actions from 'actions/widget';
-import updateWidgetContentBounds from '../updateWidgetContentBounds';
+import updateWidgetContentBounds from '../process/updateWidgetContentBounds';
 
 describe('test updateWidgetContentBounds', () => {
   it('should call updateWidgetContentBounds', () => {
