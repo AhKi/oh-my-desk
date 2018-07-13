@@ -1,5 +1,5 @@
 import * as TYPES from 'actions/actionTypes';
-import * as openPreference from 'process/renderer/openPreference';
+import * as openPreference from 'utils/process/openPreference';
 import preferenceController from '.';
 
 describe('test preference controller', () => {

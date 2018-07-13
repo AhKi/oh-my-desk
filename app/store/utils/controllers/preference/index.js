@@ -1,4 +1,4 @@
-import openPreference from 'process/renderer/openPreference';
+import openPreference from 'utils/process/openPreference';
 import * as TYPES from 'actions/actionTypes';
 
 const preferenceController = (action) => {

@@ -1,4 +1,4 @@
-import makeWidgetWindow from 'utils/makeWidgetWindow';
+import makeWidgetWindow from 'utils/process/makeWidgetWindow';
 import store from 'store/storeMain';
 import * as TYPES from 'actions/actionTypes';
 import * as statusActions from 'actions/status';
