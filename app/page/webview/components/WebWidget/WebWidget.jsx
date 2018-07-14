@@ -4,6 +4,7 @@ import { shell } from 'electron';
 import url from 'url';
 import * as PATH from 'constants/path';
 import * as USER_AGENT from 'constants/userAgent';
+import widgetContenxtMenu from 'utils/process/widgetContextMenu';
 import WebWidgetHeader from './components/WebWidgetHeader';
 import WebWidgetMobileHeader from './components/WebWidgetMobileHeader';
 import WebWidgetSetting from './components/WebWidgetSetting';
@@ -55,6 +56,12 @@ class WebWidget extends React.Component {
     });
     this.webViewRef.current.addEventListener('new-window', (e) => {
       shell.openExternal(e.url);
+    });
+
+    this.webViewRef.current.addEventListener('dom-ready', () => {
+      window.addEventListener('contextmenu', () => {
+        widgetContenxtMenu(this.webViewRef.current);
+      });
     });
 
     // Communicate webview tag and BrowserWindow
