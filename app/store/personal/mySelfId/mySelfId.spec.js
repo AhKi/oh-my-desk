@@ -1,4 +1,4 @@
-import * as widgetActions from 'actions/widget/index';
+import * as widgetActions from 'actions/widget';
 import mySelfId from '.';
 
 describe('test mySelfId reducer', () => {
