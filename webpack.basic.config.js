@@ -65,6 +65,12 @@ module.exports = {
       template: path.join(__dirname, './app/page/webview/widget.html'),
       inject: 'body',
     }),
+    new HtmlWebpackPlugin({
+      chunks: ['search'],
+      filename: 'search.html',
+      template: path.join(__dirname, './app/page/search/search.html'),
+      inject: 'body',
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),

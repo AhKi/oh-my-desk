@@ -1,19 +1,27 @@
+import { globalShortcut } from 'electron';
 import autoLaunch from 'utils/autoLaunch';
-import createTray from 'utils/process/createTray';
 import createMenu from 'utils/process/createMenu';
 import openAllWidgetStatusOpen from 'utils/process/openAllWidgetStatusOpen';
 import store from 'store/storeMain';
 import subscribeActionMain from 'store/utils/subscribeActionMain';
+import TrayMenuBar from 'utils/process/trayMenuBar';
 
 function init() {
   subscribeActionMain(store);
-  openAllWidgetStatusOpen();
   createMenu();
-  createTray();
+
+  globalShortcut.register('Ctrl+Space', () => {
+    if (TrayMenuBar.window && TrayMenuBar.window.isFocused()) {
+      TrayMenuBar.hideWindow();
+    } else {
+      TrayMenuBar.showWindow();
+    }
+  });
 
   if (process.env.NODE_ENV !== 'development') {
     autoLaunch();
   }
+  openAllWidgetStatusOpen();
 }
 
 export default init;
