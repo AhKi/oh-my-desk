@@ -24,6 +24,7 @@ export const BrowserWindow = jest.fn(info => ({
   webContents: {
     on: jest.fn(),
     send: jest.fn(),
+    openDevTools: jest.fn(),
   },
 }));
 
