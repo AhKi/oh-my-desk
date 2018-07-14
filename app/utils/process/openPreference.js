@@ -12,7 +12,6 @@ const openPreference = () => {
   const winId = statusSelector.preferenceIdSelector(store.getState());
   let winPreference;
 
-
   if (winId) {
     const windowById = personalSelector.windowByIdSelector(store.getState());
     winPreference = windowById.get(winId);
