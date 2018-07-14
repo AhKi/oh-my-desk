@@ -1,6 +1,6 @@
 import { BrowserWindow } from 'electron';
 import url from 'url';
-import * as actions from 'actions/widget/index';
+import * as actions from 'actions/widget';
 import store from 'store/storeMain';
 import createWidget from 'utils/createWidget';
 import updateWidgetContentBounds from 'utils/process/updateWidgetContentBounds';
