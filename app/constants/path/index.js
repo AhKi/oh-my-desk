@@ -14,3 +14,4 @@ export const SEARCH_BASIC_PATH = process.env.NODE_ENV === 'development' ? 'app/p
 export const SEARCH_PATH = `${ROOT_PATH}/${SEARCH_BASIC_PATH}/search.html`;
 
 export const TRAY_ICON_PATH = `${ROOT_PATH}/app/assets/iconTemplate.png`;
+export const PRELOAD_SCRIPT_PATH = path.join(ROOT_PATH, 'build/preloadScript.js');
