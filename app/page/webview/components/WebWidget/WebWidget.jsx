@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { shell } from 'electron';
 import * as USER_AGENT from 'constants/userAgent';
 import WebWidgetHeader from './components/WebWidgetHeader';
 import WebWidgetMobileHeader from './components/WebWidgetMobileHeader';
@@ -51,6 +52,9 @@ class WebWidget extends React.Component {
     });
     this.webViewRef.current.addEventListener('did-stop-loading', () => {
       this.setState({ isLoading: false });
+    });
+    this.webViewRef.current.addEventListener('new-window', (e) => {
+      shell.openExternal(e.url);
     });
     // Communicate webview tag and BrowserWindow
     // TODO fix communication logic
