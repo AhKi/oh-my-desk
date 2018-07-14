@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { shell } from 'electron';
+import url from 'url';
+import * as PATH from 'constants/path';
 import * as USER_AGENT from 'constants/userAgent';
 import WebWidgetHeader from './components/WebWidgetHeader';
 import WebWidgetMobileHeader from './components/WebWidgetMobileHeader';
@@ -32,7 +34,6 @@ class WebWidget extends React.Component {
     this.webViewRef = React.createRef();
     this.prevScrollY = 0;
     this.tick = null;
-    this.setKeyEvent = this.setKeyEvent.bind(this);
     this.toggleIsOnTop = this.toggleIsOnTop.bind(this);
     this.handleWidgetGoBack = this.handleWidgetGoBack.bind(this);
     this.handleWidgetGoForward = this.handleWidgetGoForward.bind(this);
@@ -42,7 +43,6 @@ class WebWidget extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('keydown', this.setKeyEvent);
     // add event when webview page loading
     this.webViewRef.current.addEventListener('did-start-loading', () => {
       this.setState({ isLoading: true });
@@ -56,33 +56,25 @@ class WebWidget extends React.Component {
     this.webViewRef.current.addEventListener('new-window', (e) => {
       shell.openExternal(e.url);
     });
-    // Communicate webview tag and BrowserWindow
-    // TODO fix communication logic
-    this.webViewRef.current.addEventListener('console-message', (res) => {
-      const scrollY = Number(res.message);
-      if (typeof scrollY !== 'number') {
-        return;
-      }
 
-      if (scrollY === 0 || this.prevScrollY === 0) {
-        clearTimeout(this.tick);
-        this.tick = null;
-        this.setState({ isMobileHeaderOpen: true });
-      } else if (Math.abs(scrollY - this.prevScrollY) > 30) {
-        clearTimeout(this.tick);
-        this.setState({ isMobileHeaderOpen: true });
-        this.tick = setTimeout(() => this.setState({ isMobileHeaderOpen: false }), 2000);
-      } else if (!this.tick) {
-        this.setState({ isMobileHeaderOpen: false });
+    // Communicate webview tag and BrowserWindow
+    this.webViewRef.current.addEventListener('ipc-message', (e) => {
+      if (e.channel === 'scroll') {
+        const scrollY = e.args[0];
+
+        if (scrollY === 0 || this.prevScrollY === 0) {
+          clearTimeout(this.tick);
+          this.tick = null;
+          this.setState({ isMobileHeaderOpen: true });
+        } else if (Math.abs(scrollY - this.prevScrollY) > 30) {
+          clearTimeout(this.tick);
+          this.setState({ isMobileHeaderOpen: true });
+          this.tick = setTimeout(() => this.setState({ isMobileHeaderOpen: false }), 2000);
+        } else if (!this.tick) {
+          this.setState({ isMobileHeaderOpen: false });
+        }
+        this.prevScrollY = scrollY;
       }
-      this.prevScrollY = scrollY;
-    });
-    this.webViewRef.current.addEventListener('dom-ready', () => {
-      this.webViewRef.current.executeJavaScript(`
-        window.addEventListener('scroll', () => {
-          console.log(window.scrollY);
-        });
-      `, true);
     });
   }
 
@@ -101,22 +93,6 @@ class WebWidget extends React.Component {
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.setKeyEvent);
-  }
-
-  setKeyEvent(e) {
-    if ((e.metaKey || e.altKey) && e.keyCode === 37) {
-      // cmd + arrowLeft (mac)
-      // alt + arrowLeft (window)
-      this.webViewRef.current.goBack();
-    } else if ((e.metaKey || e.altKey) && e.keyCode === 39) {
-      // cmd + arrowRight (mac)
-      // alt + arrowRight (window)
-      this.webViewRef.current.goForward();
-    } else if ((e.metaKey || e.altKey) && e.keyCode === 82) {
-      // cmd + R (mac)
-      // alt + R (window)
-      this.webViewRef.current.reload();
-    }
   }
 
   toggleIsOnTop() {
@@ -205,6 +181,11 @@ class WebWidget extends React.Component {
             overflow: 'auto',
             overflowY: 'hidden',
           }}
+          preload={url.format({
+            pathname: PATH.PRELOAD_SCRIPT_PATH,
+            protocol: 'file:',
+            slashed: true,
+          })}
         />
       </div>
     );
