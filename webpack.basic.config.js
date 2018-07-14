@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     app: './app/page/setting/index.jsx',
     widget: './app/page/webview/index.jsx',
+    preloadScript: './app/page/webview/preloadScript.js',
   },
   target: 'electron-renderer',
   module: {
@@ -94,5 +95,9 @@ module.exports = {
       store: path.resolve(__dirname, 'app/store'),
     },
     extensions: ['.js', '.jsx'],
+  },
+  node: {
+    __dirname: false,
+    __filename: false,
   },
 };
