@@ -1,4 +1,4 @@
-import * as actions from 'actions/setting/index';
+import * as actions from 'actions/setting';
 import selectedId from '../../reducers/selectedId';
 
 describe('test setting selectedId reducer', () => {

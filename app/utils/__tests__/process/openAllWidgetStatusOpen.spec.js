@@ -3,7 +3,7 @@ import Immutable from 'immutable';
 import store from 'store/storeMain';
 import * as statusActions from 'actions/status';
 import * as makeWidget from 'utils/process/makeWidgetWindow';
-import openAllWidgetStatusOpen from '../process/openAllWidgetStatusOpen';
+import openAllWidgetStatusOpen from '../../process/openAllWidgetStatusOpen';
 
 describe('test openAllWidgetStatusOpen', () => {
   it('should call openAllWidgetStatusOpen', () => {
