@@ -10,3 +10,8 @@ export const preferenceIdSelector = createSelector(
   statusSelector,
   status => status.get('preferenceId'),
 );
+
+export const langSelector = createSelector(
+  statusSelector,
+  status => status.get('lang'),
+);
