@@ -76,4 +76,26 @@ describe('test status action', () => {
 
     expect(actions.closePreference('mock-id')).toEqual(mockAction);
   });
+
+  it('should handle setLanguageEnglish', () => {
+    const mockAction = {
+      type: TYPES.SET_LANGUAGE_ENGLISH,
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+    };
+
+    expect(actions.setLanguageEnglish()).toEqual(mockAction);
+  });
+
+  it('should handle setLanguageKorean', () => {
+    const mockAction = {
+      type: TYPES.SET_LANGUAGE_KOREAN,
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+    };
+
+    expect(actions.setLanguageKorean()).toEqual(mockAction);
+  });
 });

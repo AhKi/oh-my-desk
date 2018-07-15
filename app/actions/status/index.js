@@ -37,3 +37,21 @@ export const {
     () => ({ category: CATEGORY.SELF }),
   ],
 });
+
+export const {
+  setLanguageEnglish,
+  setLanguageKorean,
+} = createActions({
+  [TYPES.SET_LANGUAGE_ENGLISH]: [
+    () => {},
+    () => ({
+      category: CATEGORY.BROADCAST,
+    }),
+  ],
+  [TYPES.SET_LANGUAGE_KOREAN]: [
+    () => {},
+    () => ({
+      category: CATEGORY.BROADCAST,
+    }),
+  ],
+});

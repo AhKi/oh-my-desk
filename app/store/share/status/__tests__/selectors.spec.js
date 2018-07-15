@@ -14,4 +14,17 @@ describe('test status selectors', () => {
     expect(selectors.preferenceIdSelector(initialState))
       .toEqual('mock-id');
   });
+
+  it('should select lang', () => {
+    const initialState = Immutable.fromJS({
+      share: {
+        status: {
+          lang: 'English',
+        },
+      },
+    });
+
+    expect(selectors.langSelector(initialState))
+      .toEqual('English');
+  });
 });
