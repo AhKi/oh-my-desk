@@ -1,6 +1,5 @@
-const {
-  app, Menu,
-} = require('electron');
+import { app, Menu } from 'electron';
+import openPreference from 'utils/process/openPreference';
 
 // reference by https://electronjs.org/docs/api/menu#examples
 function createMenu() {
@@ -46,6 +45,11 @@ function createMenu() {
       label: app.getName(),
       submenu: [
         { role: 'about' },
+        {
+          label: 'preference',
+          accelerator: 'CommandOrControl+,',
+          click: () => { openPreference(); },
+        },
         { type: 'separator' },
         { role: 'services', submenu: [] },
         { type: 'separator' },
