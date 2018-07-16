@@ -7,8 +7,18 @@ Mousetrap.bind('command+left', () => {
 Mousetrap.bind('command+right', () => {
   window.history.forward();
 });
-Mousetrap.bind('command+r', () => {
-  window.location.reload();
+
+document.addEventListener('keydown', (e) => {
+  let command;
+  if (process.platform === 'darwin') {
+    command = e.metaKey;
+  } else {
+    command = e.altKey;
+  }
+
+  if (command && e.key === 'r') {
+    window.location.reload();
+  }
 });
 
 window.addEventListener('scroll', () => {
