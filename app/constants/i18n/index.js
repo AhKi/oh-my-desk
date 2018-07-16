@@ -17,6 +17,9 @@ const getMatchedText = () => { // eslint-disable-line consistent-return
         copyUrl: 'Copy Current URL',
         openBrowser: 'Open Browser',
       },
+      preference: {
+        temp: 'preference',
+      },
     };
   }
 
@@ -32,6 +35,9 @@ const getMatchedText = () => { // eslint-disable-line consistent-return
         selectAll: '모두선택',
         copyUrl: '현재 주소 복사',
         openBrowser: '현재 주소로 브라우저 열기',
+      },
+      preference: {
+        temp: '임시 설정',
       },
     };
   }
