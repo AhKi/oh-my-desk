@@ -1,4 +1,4 @@
-import { globalShortcut } from 'electron';
+import { app, globalShortcut } from 'electron';
 import autoLaunch from 'utils/autoLaunch';
 import createMenu from 'utils/process/createMenu';
 import openAllWidgetStatusOpen from 'utils/process/openAllWidgetStatusOpen';
@@ -22,6 +22,13 @@ function init() {
     autoLaunch();
   }
   openAllWidgetStatusOpen();
+  app.on('activate', (e, isOpenWindow) => {
+    if (!isOpenWindow) {
+      TrayMenuBar.showWindow();
+    } else {
+      TrayMenuBar.hideWindow();
+    }
+  });
 }
 
 export default init;
