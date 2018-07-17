@@ -1,0 +1,17 @@
+.PreferenceHeader {
+  background-color: rgb(246,246,246);
+  text-align: center;
+  height: 55px;
+  width: 100%;
+}
+
+.PreferenceHeader__Link {
+  float: left;
+  font-size: 13px;
+  height: 55px;
+  padding: 5px;
+}
+
+.PreferenceHeader__Link--select {
+  background-color: rgb(232, 232, 232);
+}

@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Switch, Route } from 'react-router-dom';
 import i18n from 'constants/i18n';
+import HotKey from '../HotKey';
+import PreferenceHeader from '../PreferenceHeader';
+import Setting from '../Setting';
+import Update from '../Update';
+import Widget from '../Widget';
 
 const propTypes = {
   lang: PropTypes.string,
@@ -35,6 +41,13 @@ class Preference extends React.Component {
     const { lang } = this.props;
     return (
       <div>
+        <PreferenceHeader />
+        <Switch>
+          <Route exact path="/" component={Setting} />
+          <Route path="/hot-key" component={HotKey} />
+          <Route path="/update" component={Update} />
+          <Route path="/widget" component={Widget} />
+        </Switch>
         <select value={lang} onChange={this.handleChangeLanguage}>
           <option value="English">English</option>
           <option value="Korean">Korean</option>
