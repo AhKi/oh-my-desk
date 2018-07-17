@@ -1,4 +1,5 @@
 import { remote } from 'electron';
+import preference from './preference';
 
 const getMatchedText = () => { // eslint-disable-line consistent-return
   const store = JSON.parse(remote.getGlobal('getReduxState')());
@@ -17,9 +18,7 @@ const getMatchedText = () => { // eslint-disable-line consistent-return
         copyUrl: 'Copy Current URL',
         openBrowser: 'Open Browser',
       },
-      preference: {
-        temp: 'preference',
-      },
+      preference: preference.en,
     };
   }
 
@@ -36,9 +35,7 @@ const getMatchedText = () => { // eslint-disable-line consistent-return
         copyUrl: '현재 주소 복사',
         openBrowser: '현재 주소로 브라우저 열기',
       },
-      preference: {
-        temp: '임시 설정',
-      },
+      preference: preference.ko,
     };
   }
 };
