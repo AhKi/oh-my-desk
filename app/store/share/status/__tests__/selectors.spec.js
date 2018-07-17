@@ -27,4 +27,17 @@ describe('test status selectors', () => {
     expect(selectors.langSelector(initialState))
       .toEqual('English');
   });
+
+  it('should select autoLaunch', () => {
+    const initialState = Immutable.fromJS({
+      share: {
+        status: {
+          autoLaunch: false,
+        },
+      },
+    });
+
+    expect(selectors.autoLaunchSelector(initialState))
+      .toEqual(false);
+  });
 });

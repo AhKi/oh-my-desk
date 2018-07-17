@@ -1,5 +1,6 @@
 import openPreference from 'utils/process/openPreference';
 import * as TYPES from 'actions/actionTypes';
+import autoLaunch from 'utils/autoLaunch';
 
 const preferenceController = (action) => {
   const { type } = action;
@@ -7,6 +8,9 @@ const preferenceController = (action) => {
     case TYPES.OPEN_PREFERENCE: {
       openPreference();
       break;
+    }
+    case TYPES.TOGGLE_AUTO_LAUNCH: {
+      autoLaunch();
     }
   }
 };
