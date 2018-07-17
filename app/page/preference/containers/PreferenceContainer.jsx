@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
-import Preference from 'page/preference/components/Preference';
+import { withRouter } from 'react-router-dom';
+import Preference from 'page/preference/components/Preference/index';
 import toJS from 'utils/toJS';
 import { langSelector } from 'store/share/status/selectors';
 import {
   setLanguageEnglish,
   setLanguageKorean,
-} from 'actions/status';
+} from 'actions/status/index';
 
 const mapStateToProps = state => ({
   lang: langSelector(state),
@@ -15,4 +16,4 @@ const mapDispatchToProps = {
   onSetLanguageKorean: setLanguageKorean,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(toJS(Preference));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(toJS(Preference)));
