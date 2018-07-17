@@ -98,4 +98,15 @@ describe('test status action', () => {
 
     expect(actions.setLanguageKorean()).toEqual(mockAction);
   });
+
+  it('should handle toggleAutoLaunch', () => {
+    const mockAction = {
+      type: TYPES.TOGGLE_AUTO_LAUNCH,
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+    };
+
+    expect(actions.toggleAutoLaunch()).toEqual(mockAction);
+  });
 });

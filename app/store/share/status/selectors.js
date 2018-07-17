@@ -6,6 +6,11 @@ export const statusSelector = createSelector(
   share => share.get('status'),
 );
 
+export const autoLaunchSelector = createSelector(
+  statusSelector,
+  status => status.get('autoLaunch'),
+);
+
 export const preferenceIdSelector = createSelector(
   statusSelector,
   status => status.get('preferenceId'),

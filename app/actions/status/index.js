@@ -1,4 +1,4 @@
-import { createActions } from 'redux-actions';
+import { createAction, createActions } from 'redux-actions';
 import * as CATEGORY from 'actions/category';
 import * as TYPES from 'actions/actionTypes';
 
@@ -55,3 +55,10 @@ export const {
     }),
   ],
 });
+
+export const toggleAutoLaunch =
+  createAction(
+    TYPES.TOGGLE_AUTO_LAUNCH,
+    () => {},
+    () => ({ category: CATEGORY.BROADCAST }),
+  );
