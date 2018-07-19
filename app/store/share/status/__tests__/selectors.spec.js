@@ -40,4 +40,17 @@ describe('test status selectors', () => {
     expect(selectors.autoLaunchSelector(initialState))
       .toEqual(false);
   });
+
+  it('should select widgetMode', () => {
+    const initialState = Immutable.fromJS({
+      share: {
+        status: {
+          widgetMode: 'MOBILE',
+        },
+      },
+    });
+
+    expect(selectors.widgetModeSelector(initialState))
+      .toEqual('MOBILE');
+  });
 });
