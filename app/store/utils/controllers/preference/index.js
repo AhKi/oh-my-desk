@@ -1,6 +1,7 @@
 import openPreference from 'utils/process/openPreference';
 import * as TYPES from 'actions/actionTypes';
 import autoLaunch from 'utils/autoLaunch';
+import createMenu from 'utils/process/createMenu';
 
 const preferenceController = (action) => {
   const { type } = action;
@@ -11,6 +12,12 @@ const preferenceController = (action) => {
     }
     case TYPES.TOGGLE_AUTO_LAUNCH: {
       autoLaunch();
+      break;
+    }
+    case TYPES.SET_LANGUAGE_ENGLISH:
+    case TYPES.SET_LANGUAGE_KOREAN: {
+      createMenu();
+      break;
     }
   }
 };

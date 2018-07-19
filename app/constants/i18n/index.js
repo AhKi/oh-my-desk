@@ -1,40 +1,33 @@
 import { remote } from 'electron';
+import storeMain from 'store/storeMain';
+import { langSelector } from 'store/share/status/selectors';
+import contextMenu from './contextMenu';
+import menu from './menu';
 import preference from './preference';
 
 const getMatchedText = () => { // eslint-disable-line consistent-return
-  const store = JSON.parse(remote.getGlobal('getReduxState')());
-  const { lang } = store.status;
+  let store;
+  let lang;
+  if (!remote) {
+    store = storeMain.getState();
+    lang = langSelector(store);
+  } else {
+    store = JSON.parse(remote.getGlobal('getReduxState')());
+    lang = store.status.lang; // eslint-disable-line prefer-destructuring
+  }
 
   if (lang === 'English') {
     return {
-      contextMenu: {
-        back: 'Back',
-        forward: 'Forward',
-        reload: 'Reload',
-        cut: 'Cut',
-        copy: 'Copy',
-        paste: 'Paste',
-        selectAll: 'Select All',
-        copyUrl: 'Copy Current URL',
-        openBrowser: 'Open Browser',
-      },
+      contextMenu: contextMenu.en,
+      menu: menu.en,
       preference: preference.en,
     };
   }
 
   if (lang === 'Korean') {
     return {
-      contextMenu: {
-        back: '뒤로',
-        forward: '앞으로',
-        reload: '새로고침',
-        cut: '잘라내기',
-        copy: '복사',
-        paste: '붙여넣기',
-        selectAll: '모두선택',
-        copyUrl: '현재 주소 복사',
-        openBrowser: '현재 주소로 브라우저 열기',
-      },
+      contextMenu: contextMenu.ko,
+      menu: menu.ko,
       preference: preference.ko,
     };
   }
