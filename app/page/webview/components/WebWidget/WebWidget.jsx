@@ -11,6 +11,7 @@ import WebWidgetSetting from './components/WebWidgetSetting';
 import './WebWidget.scss';
 
 const propTypes = {
+  defaultMode: PropTypes.string,
   widget: PropTypes.shape({
     name: PropTypes.string,
     url: PropTypes.string,
@@ -19,6 +20,7 @@ const propTypes = {
   onUpdateInfo: PropTypes.func, // eslint-disable-line
 };
 const defaultProps = {
+  defaultMode: 'DESKTOP',
   widget: {},
   onOpenPreference() {},
   onUpdateInfo() {},
@@ -87,15 +89,20 @@ class WebWidget extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { widget } = this.props;
-    const userAgent = widget.isMobile ? USER_AGENT.MOBILE : USER_AGENT.DESKTOP;
-
-    if (prevProps.widget.url !== widget.url) {
-      this.webViewRef.current.loadURL(widget.url, { userAgent });
+    const { defaultMode, widget } = this.props;
+    let userAgent;
+    if (widget.userAgent) {
+      userAgent = widget.userAgent === 'MOBILE' ? USER_AGENT.MOBILE : USER_AGENT.DESKTOP;
+    } else {
+      userAgent = defaultMode === 'MOBILE' ? USER_AGENT.MOBILE : USER_AGENT.DESKTOP;
     }
 
-    if (prevProps.widget.isMobile !== widget.isMobile) {
-      this.webViewRef.current.setUserAgent(userAgent);
+    if (
+      (prevProps.widget.url !== widget.url) ||
+      (!widget.userAgent && prevProps.defaultMode !== defaultMode) ||
+      (prevProps.widget.userAgent !== widget.userAgent)
+    ) {
+      this.webViewRef.current.loadURL(widget.url, { userAgent });
     }
   }
 

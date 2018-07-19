@@ -20,3 +20,8 @@ export const langSelector = createSelector(
   statusSelector,
   status => status.get('lang'),
 );
+
+export const widgetModeSelector = createSelector(
+  statusSelector,
+  status => status.get('widgetMode'),
+);

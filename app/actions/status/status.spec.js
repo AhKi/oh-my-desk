@@ -109,4 +109,15 @@ describe('test status action', () => {
 
     expect(actions.toggleAutoLaunch()).toEqual(mockAction);
   });
+
+  it('should handle toggleWidgetMode', () => {
+    const mockAction = {
+      type: TYPES.TOGGLE_WIDGET_MODE,
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+    };
+
+    expect(actions.toggleWidgetMode()).toEqual(mockAction);
+  });
 });
