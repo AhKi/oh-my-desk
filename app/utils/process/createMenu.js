@@ -1,63 +1,66 @@
 import { app, Menu } from 'electron';
 import openPreference from 'utils/process/openPreference';
+import i18n from 'constants/i18n';
 
 // reference by https://electronjs.org/docs/api/menu#examples
 function createMenu() {
+  const text = i18n().menu;
   const template = [
     {
-      label: 'Edit',
+      label: text.edit,
       submenu: [
-        { role: 'undo' },
-        { role: 'redo' },
+        { label: text.undo, role: 'undo' },
+        { label: text.redo, role: 'redo' },
         { type: 'separator' },
-        { role: 'cut' },
-        { role: 'copy' },
-        { role: 'paste' },
-        { role: 'pasteandmatchstyle' },
-        { role: 'delete' },
-        { role: 'selectall' },
+        { label: text.cut, role: 'cut' },
+        { label: text.copy, role: 'copy' },
+        { label: text.paste, role: 'paste' },
+        { label: text.pasteStyle, role: 'pasteandmatchstyle' },
+        { label: text.deleteText, role: 'delete' },
+        { label: text.selectAll, role: 'selectall' },
       ],
     },
     {
-      label: 'View',
+      label: text.view,
       submenu: [
-        { role: 'forcereload' },
-        { role: 'toggledevtools' },
+        { label: text.forceReload, role: 'forcereload' },
+        process.env.NODE_ENV === 'development' && { role: 'toggledevtools' },
         { type: 'separator' },
-        { role: 'resetzoom' },
-        { role: 'zoomin' },
-        { role: 'zoomout' },
+        { label: text.actualSize, role: 'resetzoom' },
+        { label: text.zoomIn, role: 'zoomin' },
+        { label: text.zoomOut, role: 'zoomout' },
         { type: 'separator' },
         { role: 'togglefullscreen' },
       ],
     },
     {
-      role: 'window',
+      label: text.window,
       submenu: [
-        { role: 'minimize' },
-        { role: 'close' },
+        { label: text.minimize, role: 'minimize' },
+        { label: text.close, role: 'close' },
       ],
     },
   ];
 
+  // when user OS is MacOS,
   if (process.platform === 'darwin') {
     template.unshift({
       label: app.getName(),
       submenu: [
-        { role: 'about' },
+        { label: text.about, role: 'about' },
         {
-          label: 'preference',
+          label: text.preference,
           accelerator: 'CommandOrControl+,',
           click: () => { openPreference(); },
         },
         { type: 'separator' },
-        { role: 'services', submenu: [] },
+        { label: text.services, role: 'services', submenu: [] },
         { type: 'separator' },
-        { role: 'hide' },
-        { role: 'hideothers' },
-        { role: 'unhide' },
+        { label: text.hide, role: 'hide' },
+        { label: text.hideOther, role: 'hideothers' },
+        { label: text.showAll, role: 'unhide' },
         { type: 'separator' },
-        { role: 'quit' },
+        { label: text.quit, role: 'quit' },
       ],
     });
 
@@ -65,21 +68,21 @@ function createMenu() {
     template[1].submenu.push(
       { type: 'separator' },
       {
-        label: 'Speech',
+        label: text.speech,
         submenu: [
-          { role: 'startspeaking' },
-          { role: 'stopspeaking' },
+          { label: text.startSpeech, role: 'startspeaking' },
+          { label: text.stopSpeech, role: 'stopspeaking' },
         ],
       },
     );
 
     // Window menu
     template[3].submenu = [
-      { role: 'close' },
-      { role: 'minimize' },
-      { role: 'zoom' },
+      { label: text.closeWindow, role: 'close' },
+      { label: text.minimize, role: 'minimize' },
+      { label: text.zoom, role: 'zoom' },
       { type: 'separator' },
-      { role: 'front' },
+      { label: text.bringAllToFront, role: 'front' },
     ];
   }
 
