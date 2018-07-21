@@ -5,9 +5,20 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>oh-my-desk search</title>
+  <title>Oh-My-Desk Search</title>
 </head>
 <body>
-  oh-my-desk search
+  <div id="root"></div>
 </body>
+<script>
+  const scripts = [];
+
+  if (process.env.NODE_ENV === 'development') {
+    scripts.push('<script defer src=\"http://localhost:1112/build/search.js"><\/script>');
+    require('electron-react-devtools').install();
+    require('electron-redux-devtools').install();
+  }
+
+  document.write(scripts.map(script => script));
+</script>
 </html>

@@ -8,6 +8,7 @@ module.exports = {
     widget: './app/page/webview/index.jsx',
     preloadScript: './app/page/webview/preloadScript.js',
     preference: './app/page/preference/index.jsx',
+    search: './app/page/search/index.jsx'
   },
   target: 'electron-renderer',
   module: {

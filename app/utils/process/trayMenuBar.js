@@ -6,7 +6,7 @@ import * as PATH from 'constants/path';
 const trayMenuBar = menuBar({
   icon: PATH.TRAY_ICON_PATH,
   index: url.format({
-    pathname: PATH.SETTING_PATH,
+    pathname: PATH.SEARCH_PATH,
     protocol: 'file:',
     slashes: true,
   }),
