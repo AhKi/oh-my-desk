@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 import i18n from 'constants/i18n';
+import SettingContainer from 'page/preference/containers/SettingContainer';
 import HotKey from '../HotKey';
 import PreferenceHeader from '../PreferenceHeader';
-import Setting from '../Setting';
 import Update from '../Update';
 import Widget from '../Widget';
+import './Preference.scss';
 
 const propTypes = {
   lang: PropTypes.string,
@@ -39,20 +40,23 @@ class Preference extends React.Component {
   render() {
     const text = i18n().preference;
     const { lang } = this.props;
+
     return (
-      <div>
+      <div className="Preference">
         <PreferenceHeader />
-        <Switch>
-          <Route exact path="/" component={Setting} />
-          <Route path="/hot-key" component={HotKey} />
-          <Route path="/update" component={Update} />
-          <Route path="/widget" component={Widget} />
-        </Switch>
-        <select value={lang} onChange={this.handleChangeLanguage}>
-          <option value="English">English</option>
-          <option value="Korean">Korean</option>
-        </select>
-        <p>{text.temp}</p>
+        <div className="Preference__Content">
+          <Switch>
+            <Route exact path="/" component={SettingContainer} />
+            <Route path="/hot-key" component={HotKey} />
+            <Route path="/update" component={Update} />
+            <Route path="/widget" component={Widget} />
+          </Switch>
+          <select value={lang} onChange={this.handleChangeLanguage}>
+            <option value="English">English</option>
+            <option value="Korean">Korean</option>
+          </select>
+          <p>{text.temp}</p>
+        </div>
       </div>
     );
   }

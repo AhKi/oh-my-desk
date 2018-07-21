@@ -1,4 +1,3 @@
-import path from 'path';
 import { BrowserWindow } from 'electron';
 import { v4 } from 'uuid';
 import url from 'url';
@@ -21,10 +20,10 @@ const openPreference = () => {
 
   winPreference = new BrowserWindow({
     acceptFirstMouse: true,
-    width: 960,
-    height: 700,
-    minWidth: 360,
-    icon: path.join(__dirname, 'asset', 'icon.png'),
+    width: 700,
+    height: 400,
+    titleBarStyle: 'hidden',
+    resizable: false,
     webPreferences: {
       devTools: process.env.NODE_ENV === 'development',
     },

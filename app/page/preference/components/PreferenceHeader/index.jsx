@@ -10,9 +10,9 @@ const defaultProps = {};
 class PreferenceHeader extends React.Component {
   render() {
     const text = i18n().preference;
-    console.log('render');
     return (
       <div className="PreferenceHeader">
+        {process.platform === 'darwin' && <div className="PreferenceHeader__Draggable" />}
         <NavLink
           activeClassName="PreferenceHeader__Link--select"
           className="PreferenceHeader__Link"
