@@ -1,8 +1,14 @@
 .PreferenceHeader {
-  background-color: rgb(246,246,246);
+  background-color: rgb(227,227,227);
   text-align: center;
-  height: 55px;
+  height: 80px;
   width: 100%;
+}
+
+.PreferenceHeader__Draggable {
+  background-color: rgb(227,227,227);
+  height: 21px;
+  -webkit-app-region: drag;
 }
 
 .PreferenceHeader__Link {
@@ -10,8 +16,10 @@
   font-size: 13px;
   height: 55px;
   padding: 5px;
+  margin: 2px;
+  border-radius: 15%;
 }
 
 .PreferenceHeader__Link--select {
-  background-color: rgb(232, 232, 232);
+  background-color: rgb(195, 195, 195);
 }
