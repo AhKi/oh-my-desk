@@ -1,9 +1,13 @@
 import Immutable from 'immutable';
 import * as widgetActions from 'actions/widget';
 import createWidget from 'utils/createWidget';
+import moment from 'moment';
 import byId from '../../reducers/byId';
 
+
 describe('test widgets byId reducer', () => {
+  moment.mockImplementation(() => ({ default: 'mock', toISOString: jest.fn(() => 'mockISO') }));
+
   it('should return initialState', () => {
     expect(byId(undefined, {})).toEqual(Immutable.Map());
   });
@@ -33,6 +37,7 @@ describe('test widgets byId reducer', () => {
       name: 'mock-name',
       url: 'mock-url',
       isOpen: true,
+      resentOpenTime: 'mockISO',
     };
     const initialState = {
       [mockId]: mockInfo,

@@ -1,7 +1,8 @@
+import moment from 'moment';
+
 function createWidget(id, info) {
   return {
     id,
-    type: 'web',
     name: info.name,
     url: info.url,
     position: {
@@ -12,11 +13,11 @@ function createWidget(id, info) {
       width: (info.size && info.size.width) || 300,
       height: (info.size && info.size.height) || 400,
     },
-    transparency: info.transparency || 0.7,
-    isIcon: info.isIcon || false,
     isOnTop: info.isOnTop || false,
     isOpen: true,
-    favicon: info.favicon || null,
+    favorites: false,
+    createTime: moment().toISOString(),
+    resentOpenTime: moment().toISOString(),
   };
 }
 

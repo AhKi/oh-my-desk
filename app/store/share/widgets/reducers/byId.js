@@ -13,10 +13,10 @@ const byIdReducer = handleActions({
     return state.set(id, Immutable.fromJS(widgetInfo));
   },
   [TYPES.SHOW_TARGET_WIDGET]: (state, action) => {
-    const { id } = action.payload;
+    const { id, time } = action.payload;
     const widget = state.get(id);
 
-    return state.set(id, widget.set('isOpen', true));
+    return state.set(id, widget.set('isOpen', true).set('resentOpenTime', time));
   },
   [TYPES.CLOSE_TARGET_WIDGET]: (state, action) => {
     const { id } = action.payload;
