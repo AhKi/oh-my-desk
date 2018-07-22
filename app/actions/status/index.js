@@ -69,3 +69,17 @@ export const toggleWidgetMode =
     () => {},
     () => ({ category: CATEGORY.BROADCAST }),
   );
+
+export const {
+  trayWindowOpen,
+  trayWindowClose,
+} = createActions({
+  [TYPES.TRAY_WINDOW_OPEN]: [
+    () => {},
+    () => ({ category: CATEGORY.BROADCAST }),
+  ],
+  [TYPES.TRAY_WINDOW_CLOSE]: [
+    () => {},
+    () => ({ category: CATEGORY.BROADCAST }),
+  ],
+});
