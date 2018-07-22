@@ -25,3 +25,8 @@ export const widgetModeSelector = createSelector(
   statusSelector,
   status => status.get('widgetMode'),
 );
+
+export const isTrayOpenSelector = createSelector(
+  statusSelector,
+  status => status.get('isTrayOpen'),
+);

@@ -53,4 +53,17 @@ describe('test status selectors', () => {
     expect(selectors.widgetModeSelector(initialState))
       .toEqual('MOBILE');
   });
+
+  it('should select isTrayOpen', () => {
+    const initialState = Immutable.fromJS({
+      share: {
+        status: {
+          isTrayOpen: false,
+        },
+      },
+    });
+
+    expect(selectors.isTrayOpenSelector(initialState))
+      .toEqual(false);
+  });
 });
