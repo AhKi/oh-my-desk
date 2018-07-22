@@ -20,9 +20,11 @@ trayMenuBar.on('show', () => {
       trayMenuBar.hideWindow();
     }
   });
+  store.dispatch(trayWindowOpen());
 });
 
 trayMenuBar.on('hide', () => {
+  store.dispatch(trayWindowClose());
   globalShortcut.unregister('Escape');
 });
 
