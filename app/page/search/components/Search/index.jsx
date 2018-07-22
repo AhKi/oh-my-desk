@@ -1,22 +1,17 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import SearchInputContainer from '../../containers/SearchInputContainer';
+import SearchList from '../SearchList';
 import SearchMenu from '../SearchMenu';
 import './Search.scss';
 
-const propTypes = {};
-const defaultProps = {};
-
-class Search extends React.Component {
-  render() {
-    return (
-      <div className="Search">
-        <SearchMenu />
-      </div>
-    );
-  }
+function Search() {
+  return (
+    <div className="Search">
+      <SearchMenu />
+      <SearchInputContainer />
+      <SearchList />
+    </div>
+  );
 }
-
-Search.propTypes = propTypes;
-Search.defaultProps = defaultProps;
 
 export default Search;
