@@ -1,4 +1,5 @@
 import { createActions } from 'redux-actions';
+import moment from 'moment';
 import * as TYPES from '../actionTypes';
 import * as CATEGORY from '../category';
 
@@ -35,7 +36,7 @@ export const {
     () => ({ category: CATEGORY.BROADCAST }),
   ],
   [TYPES.SHOW_TARGET_WIDGET]: [
-    id => ({ id }),
+    id => ({ id, time: moment().toISOString() }),
     () => ({ category: CATEGORY.BROADCAST }),
   ],
   [TYPES.UPDATE_TARGET_WIDGET_INFO]: [
