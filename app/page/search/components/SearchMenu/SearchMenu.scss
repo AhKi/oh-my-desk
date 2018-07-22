@@ -1,0 +1,27 @@
+.SearchMenu {
+  background-color: #888888;
+  float: left;
+  height: 100%;
+  width: 70px;
+  text-align: center;
+}
+
+.SearchMenu__List {
+  padding: 5px;
+  margin: 5px;
+}
+
+.SearchMenu__Icon {
+  width: 30px;
+  margin: 5px;
+}
+
+.SearchMenu__Item {
+  margin-top: 5px;
+}
+
+.SearchMenu__Btn {
+  color: #e4e4e4;
+  height: 100%;
+  width: 100%;
+}
