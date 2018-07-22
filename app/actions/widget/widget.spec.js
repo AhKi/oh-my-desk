@@ -2,7 +2,6 @@ import * as actions from '.';
 import * as TYPES from '../actionTypes';
 import * as CATEGORY from '../category';
 
-
 describe('test action about widget', () => {
   const mockId = 'mock-id';
   const mockInfo = {

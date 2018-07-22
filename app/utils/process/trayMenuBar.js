@@ -1,6 +1,11 @@
 import { app, globalShortcut } from 'electron';
 import menuBar from 'menubar';
 import url from 'url';
+import store from 'store/storeMain';
+import {
+  trayWindowClose,
+  trayWindowOpen,
+} from 'actions/status';
 import * as PATH from 'constants/path';
 
 const trayMenuBar = menuBar({
