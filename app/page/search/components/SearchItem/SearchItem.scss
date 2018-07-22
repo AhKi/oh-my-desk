@@ -1,0 +1,18 @@
+.SearchItem {
+  padding: 5px;
+  display: flex;
+  height: 35px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-bottom: -1px;
+}
+
+.SearchItem__Text {
+  display: flex;
+  flex: 2;
+}
+
+.SearchItem__BtnSet {
+  display: flex;
+  flex: 1
+}

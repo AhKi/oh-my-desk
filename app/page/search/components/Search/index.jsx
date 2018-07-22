@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchInputContainer from '../../containers/SearchInputContainer';
-import SearchList from '../SearchList';
+import SearchListContainer from '../../containers/SearchListContainer';
 import SearchMenu from '../SearchMenu';
 import './Search.scss';
 
@@ -9,7 +9,7 @@ function Search() {
     <div className="Search">
       <SearchMenu />
       <SearchInputContainer />
-      <SearchList />
+      <SearchListContainer />
     </div>
   );
 }
