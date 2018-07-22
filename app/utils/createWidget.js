@@ -13,7 +13,6 @@ function createWidget(id, info) {
       height: (info.size && info.size.height) || 400,
     },
     transparency: info.transparency || 0.7,
-    isActive: info.isActive || true,
     isIcon: info.isIcon || false,
     isOnTop: info.isOnTop || false,
     isOpen: true,
