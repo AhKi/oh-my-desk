@@ -27,6 +27,7 @@ const widgetController = (action, prev, next) => {
         widget.show();
       } else {
         const widgetWin = makeWidgetWindow(id, item.toJS());
+
         store.dispatch(statusActions.openBrowserWindow(id, widgetWin));
       }
 
