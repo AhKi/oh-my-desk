@@ -18,7 +18,7 @@ const makeWidgetWindow = (id, info) => {
     alwaysOnTop: widgetInfo.isOnTop,
     autoHideMenuBar: true,
     skipTaskbar: true,
-    show: true,
+    show: false,
     frame: false,
   });
 
@@ -29,7 +29,7 @@ const makeWidgetWindow = (id, info) => {
   }));
 
   widget.once('ready-to-show', () => {
-    widget.show();
+    widget.showInactive();
   });
 
   widget.on('move', () => {
