@@ -120,4 +120,26 @@ describe('test status action', () => {
 
     expect(actions.toggleWidgetMode()).toEqual(mockAction);
   });
+
+  it('should handle trayWindowOpen', () => {
+    const mockAction = {
+      type: TYPES.TRAY_WINDOW_OPEN,
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+    };
+
+    expect(actions.trayWindowOpen()).toEqual(mockAction);
+  });
+
+  it('should handle trayWindowClose', () => {
+    const mockAction = {
+      type: TYPES.TRAY_WINDOW_CLOSE,
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+    };
+
+    expect(actions.trayWindowClose()).toEqual(mockAction);
+  });
 });
