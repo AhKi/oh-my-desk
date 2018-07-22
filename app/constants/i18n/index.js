@@ -4,6 +4,7 @@ import { langSelector } from 'store/share/status/selectors';
 import contextMenu from './contextMenu';
 import menu from './menu';
 import preference from './preference';
+import search from './search';
 
 const getMatchedText = () => { // eslint-disable-line consistent-return
   let store;
@@ -20,6 +21,7 @@ const getMatchedText = () => { // eslint-disable-line consistent-return
     return {
       contextMenu: contextMenu.en,
       menu: menu.en,
+      search: search.en,
       preference: preference.en,
     };
   }
@@ -28,6 +30,7 @@ const getMatchedText = () => { // eslint-disable-line consistent-return
     return {
       contextMenu: contextMenu.ko,
       menu: menu.ko,
+      search: search.ko,
       preference: preference.ko,
     };
   }
