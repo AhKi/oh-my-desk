@@ -11,12 +11,31 @@ const propTypes = {
     name: PropTypes.string,
     url: PropTypes.string,
   }),
+  onCloseWidget: PropTypes.func,
+  onShowWidget: PropTypes.func,
 };
 const defaultProps = {
   item: {},
+  onCloseWidget() {},
+  onShowWidget() {},
 };
 
 class SearchItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleToggleWidget = this.handleToggleWidget.bind(this);
+  }
+
+  handleToggleWidget() {
+    const { item, onCloseWidget, onShowWidget } = this.props;
+
+    if (item.isOpen) {
+      onCloseWidget(item.id);
+    } else {
+      onShowWidget(item.id);
+    }
+  }
+
   render() {
     const { item } = this.props;
 
@@ -24,6 +43,7 @@ class SearchItem extends React.Component {
       <li className="SearchItem">
         <ToggleButton
           isCheck={item.isOpen}
+          onToggle={this.handleToggleWidget}
         />
         <p className="SearchItem__Text">
           <span><strong>{item.name}</strong></span>
