@@ -15,6 +15,7 @@ export const BrowserWindow = jest.fn(info => ({
   on: jest.fn(),
   setAlwaysOnTop: jest.fn(),
   show: jest.fn(),
+  showInactive: jest.fn(),
   getContentBounds: jest.fn(() => ({
     x: info.x,
     y: info.y,

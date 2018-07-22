@@ -5,19 +5,34 @@ import './SearchList.scss';
 
 const propTypes = {
   list: PropTypes.arrayOf(PropTypes.object), // eslint-disable-line no-unused-prop-types
+  onCloseWidget: PropTypes.func,
+  onShowWidget: PropTypes.func,
 };
 
 const defaultProps = {
   list: [],
+  onCloseWidget() {},
+  onShowWidget() {},
 };
 
 class SearchList extends React.Component {
   render() {
-    const { list } = this.props;
+    const {
+      list,
+      onCloseWidget,
+      onShowWidget,
+    } = this.props;
 
     return (
       <ul className="SearchList">
-        {list.map(item => <SearchItem key={item.id} item={item} />)}
+        {list.map(item => (
+          <SearchItem
+            key={item.id}
+            item={item}
+            onCloseWidget={onCloseWidget}
+            onShowWidget={onShowWidget}
+          />
+        ))}
       </ul>
     );
   }

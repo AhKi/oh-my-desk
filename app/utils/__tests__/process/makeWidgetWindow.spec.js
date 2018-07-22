@@ -35,8 +35,8 @@ describe('test makeWidgetWindow', () => {
       const cb = mock.once.mock.calls[0][1];
       cb();
 
-      expect(mock.show).toHaveBeenCalledTimes(1);
-      expect(mock.show).toHaveBeenCalledWith();
+      expect(mock.showInactive).toHaveBeenCalledTimes(1);
+      expect(mock.showInactive).toHaveBeenCalledWith();
     });
   });
 
