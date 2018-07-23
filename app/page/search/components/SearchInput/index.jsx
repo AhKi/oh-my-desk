@@ -20,6 +20,7 @@ class SearchInput extends React.Component {
   constructor() {
     super();
     this.inputRef = React.createRef();
+    this.handleChangeKeyword = this.handleChangeKeyword.bind(this);
   }
 
   componentDidMount() {
@@ -34,8 +35,14 @@ class SearchInput extends React.Component {
     }
   }
 
+  handleChangeKeyword(e) {
+    const { onChangeKeyword } = this.props;
+
+    onChangeKeyword(e.target.value);
+  }
+
   render() {
-    const { filter, keyword, onChangeKeyword } = this.props;
+    const { filter, keyword } = this.props;
     const text = i18n().search;
     const placeholder = filter === 'ALL' ? text.search : text.bookMarkSearch;
 
@@ -46,7 +53,7 @@ class SearchInput extends React.Component {
         placeholder={placeholder}
         ref={this.inputRef}
         value={keyword}
-        onChange={onChangeKeyword}
+        onChange={this.handleChangeKeyword}
       />
     );
   }
