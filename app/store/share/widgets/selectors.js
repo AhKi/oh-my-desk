@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
 import Immutable from 'immutable';
+import moment from 'moment';
 import * as settings from 'store/personal/setting/selectors';
 import * as status from 'store/personal/selectors';
 import shareSelector from '../selectors';
@@ -16,7 +17,17 @@ export const byIdSelector = createSelector(
 
 export const getWidgetArray = createSelector(
   byIdSelector,
-  byId => Immutable.List(byId.toArray()),
+  (byId) => {
+    const array = byId.toArray();
+    array.sort((lItem, rItem) => {
+      const lTime = lItem.get('resentOpenTime');
+      const rTime = rItem.get('resentOpenTime');
+
+      return moment(lTime).isBefore(moment(rTime));
+    });
+
+    return Immutable.List(array);
+  },
 );
 
 export const getSelectedWidget = createSelector(

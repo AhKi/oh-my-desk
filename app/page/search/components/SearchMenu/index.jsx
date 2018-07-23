@@ -1,5 +1,6 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import cx from 'classnames';
 import icon from 'assets/logo/logo-white.svg';
 import addIcon from 'assets/icon/icon-widget-refresh.svg';
 import allIcon from 'assets/icon/icon-menu-store.svg';
@@ -8,12 +9,43 @@ import settingIcon from 'assets/icon/icon-menu-setting.svg';
 import i18n from 'constants/i18n';
 import './SearchMenu.scss';
 
-const propTypes = {};
-const defaultProps = {};
+const propTypes = {
+  filter: PropTypes.string,
+  onChangeFilter: PropTypes.func,
+};
+const defaultProps = {
+  filter: 'ALL',
+  onChangeFilter() {},
+};
 
 class SearchMenu extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSetAllFilter = this.handleSetAllFilter.bind(this);
+    this.handleSetFavoritesFilter = this.handleSetFavoritesFilter.bind(this);
+  }
+
+  handleSetAllFilter() {
+    const { onChangeFilter } = this.props;
+
+    onChangeFilter('ALL');
+  }
+
+  handleSetFavoritesFilter() {
+    const { onChangeFilter } = this.props;
+
+    onChangeFilter('FAVORITES');
+  }
+
   render() {
     const text = i18n().search;
+    const { filter } = this.props;
+    const allMenuClassName = cx('SearchMenu__Item', {
+      'SearchMenu__Item--active': filter === 'ALL',
+    });
+    const favoritesMenuClassName = cx('SearchMenu__Item', {
+      'SearchMenu__Item--active': filter === 'FAVORITES',
+    });
 
     return (
       <div className="SearchMenu">
@@ -36,10 +68,11 @@ class SearchMenu extends React.Component {
               {text.newWidget}
             </button>
           </li>
-          <li className="SearchMenu__Item">
+          <li className={allMenuClassName}>
             <button
               className="SearchMenu__Btn"
               type="button"
+              onClick={this.handleSetAllFilter}
             >
               <img
                 className="SearchMenu__Icon"
@@ -49,10 +82,11 @@ class SearchMenu extends React.Component {
               {text.all}
             </button>
           </li>
-          <li className="SearchMenu__Item">
+          <li className={favoritesMenuClassName}>
             <button
               className="SearchMenu__Btn"
               type="button"
+              onClick={this.handleSetFavoritesFilter}
             >
               <img
                 className="SearchMenu__Icon"
