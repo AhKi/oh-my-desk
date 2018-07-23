@@ -7,12 +7,14 @@ const propTypes = {
   list: PropTypes.arrayOf(PropTypes.object), // eslint-disable-line no-unused-prop-types
   onCloseWidget: PropTypes.func,
   onShowWidget: PropTypes.func,
+  onUpdateInfo: PropTypes.func,
 };
 
 const defaultProps = {
   list: [],
   onCloseWidget() {},
   onShowWidget() {},
+  onUpdateInfo() {},
 };
 
 class SearchList extends React.Component {
@@ -21,6 +23,7 @@ class SearchList extends React.Component {
       list,
       onCloseWidget,
       onShowWidget,
+      onUpdateInfo,
     } = this.props;
 
     return (
@@ -31,6 +34,7 @@ class SearchList extends React.Component {
             item={item}
             onCloseWidget={onCloseWidget}
             onShowWidget={onShowWidget}
+            onUpdateInfo={onUpdateInfo}
           />
         ))}
       </ul>

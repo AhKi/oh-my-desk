@@ -13,17 +13,20 @@ const propTypes = {
   }),
   onCloseWidget: PropTypes.func,
   onShowWidget: PropTypes.func,
+  onUpdateInfo: PropTypes.func,
 };
 const defaultProps = {
   item: {},
   onCloseWidget() {},
   onShowWidget() {},
+  onUpdateInfo() {},
 };
 
 class SearchItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleToggleWidget = this.handleToggleWidget.bind(this);
+    this.handleToggleFavorites = this.handleToggleFavorites.bind(this);
   }
 
   handleToggleWidget() {
@@ -34,6 +37,12 @@ class SearchItem extends React.Component {
     } else {
       onShowWidget(item.id);
     }
+  }
+
+  handleToggleFavorites() {
+    const { item, onUpdateInfo } = this.props;
+
+    onUpdateInfo(item.id, { favorites: !item.favorites });
   }
 
   render() {
@@ -50,7 +59,10 @@ class SearchItem extends React.Component {
           <span>{item.url}</span>
         </p>
         <p className="SearchItem__BtnSet">
-          <button type="button">
+          <button
+            type="button"
+            onClick={this.handleToggleFavorites}
+          >
             <img src={starIcon} alt="" />
           </button>
           <button type="button">

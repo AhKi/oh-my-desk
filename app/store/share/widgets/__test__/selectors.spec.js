@@ -1,5 +1,8 @@
 import Immutable from 'immutable';
+import moment from 'moment';
 import * as selectors from '../selectors';
+
+jest.unmock('moment');
 
 describe('test widgets selector', () => {
   it('should select byId', () => {
@@ -28,9 +31,15 @@ describe('test widgets selector', () => {
           byId: {
             mock1: {
               a: 'aa',
+              resentOpenTime: moment('2018-01-01').toISOString(),
             },
             mock2: {
               2: '22',
+              resentOpenTime: moment('2017-01-02').toISOString(),
+            },
+            mock3: {
+              3: '33',
+              resentOpenTime: moment('2018-01-03').toISOString(),
             },
           },
         },
@@ -38,7 +47,20 @@ describe('test widgets selector', () => {
     });
 
     expect(selectors.getWidgetArray(state))
-      .toEqual(Immutable.fromJS([{ a: 'aa' }, { 2: '22' }]));
+      .toEqual(Immutable.fromJS([
+        {
+          3: '33',
+          resentOpenTime: moment('2018-01-03').toISOString(),
+        },
+        {
+          a: 'aa',
+          resentOpenTime: moment('2018-01-01').toISOString(),
+        },
+        {
+          2: '22',
+          resentOpenTime: moment('2017-01-02').toISOString(),
+        },
+      ]));
   });
 
   it('should select getSelectedWidget', () => {
