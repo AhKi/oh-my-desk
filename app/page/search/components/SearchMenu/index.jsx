@@ -11,11 +11,11 @@ import './SearchMenu.scss';
 
 const propTypes = {
   filter: PropTypes.string,
-  onChangeFilter: PropTypes.func,
+  onSetFilter: PropTypes.func,
 };
 const defaultProps = {
   filter: 'ALL',
-  onChangeFilter() {},
+  onSetFilter() {},
 };
 
 class SearchMenu extends React.Component {
@@ -26,15 +26,19 @@ class SearchMenu extends React.Component {
   }
 
   handleSetAllFilter() {
-    const { onChangeFilter } = this.props;
+    const { filter, onSetFilter } = this.props;
 
-    onChangeFilter('ALL');
+    if (filter !== 'ALL') {
+      onSetFilter('ALL');
+    }
   }
 
   handleSetFavoritesFilter() {
-    const { onChangeFilter } = this.props;
+    const { filter, onSetFilter } = this.props;
 
-    onChangeFilter('FAVORITES');
+    if (filter !== 'FAVORITES') {
+      onSetFilter('FAVORITES');
+    }
   }
 
   render() {
