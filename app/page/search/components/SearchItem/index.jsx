@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ToggleButton from 'page/Components/ToggleButton';
 import deleteIcon from 'assets/icon/icon-delete.svg';
 import starIcon from 'assets/icon/icon-more.svg';
+import HighlightParagraph from 'page/Components/HighlightParagraph';
 import './SearchItem.scss';
 
 const propTypes = {
@@ -10,13 +11,16 @@ const propTypes = {
     id: PropTypes.string,
     name: PropTypes.string,
     url: PropTypes.string,
+    searched: PropTypes.string,
   }),
+  keyword: PropTypes.string,
   onCloseWidget: PropTypes.func,
   onShowWidget: PropTypes.func,
   onUpdateInfo: PropTypes.func,
 };
 const defaultProps = {
   item: {},
+  keyword: '',
   onCloseWidget() {},
   onShowWidget() {},
   onUpdateInfo() {},
@@ -46,7 +50,7 @@ class SearchItem extends React.Component {
   }
 
   render() {
-    const { item } = this.props;
+    const { keyword, item } = this.props;
 
     return (
       <li className="SearchItem">
@@ -55,8 +59,22 @@ class SearchItem extends React.Component {
           onToggle={this.handleToggleWidget}
         />
         <p className="SearchItem__Text">
-          <span><strong>{item.name}</strong></span>
-          <span>{item.url}</span>
+          <strong>
+            {(item.searched === 'both' || item.searched === 'name') ? (
+              <HighlightParagraph
+                keyword={keyword}
+                content={item.name}
+              />
+            ) : <span>{item.name}</span>}
+          </strong>
+          <span>
+            {(item.searched === 'both' || item.searched === 'url') ? (
+              <HighlightParagraph
+                keyword={keyword}
+                content={item.url}
+              />
+            ) : <span>{item.url}</span>}
+          </span>
         </p>
         <p className="SearchItem__BtnSet">
           <button
