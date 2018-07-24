@@ -3,6 +3,7 @@ import Immutable from 'immutable';
 import moment from 'moment';
 import * as settings from 'store/personal/setting/selectors';
 import * as status from 'store/personal/selectors';
+import { filterSelector, keywordSelector } from 'store/personal/search/selectors';
 import shareSelector from '../selectors';
 
 export const widgetsSelector = createSelector(
@@ -43,4 +44,43 @@ export const getByIdsIsOpenIsTrue = createSelector(
 export const getIndividualInfo = createSelector(
   [byIdSelector, status.mySelfIdSelector],
   (byId, mySelfId) => byId.get(mySelfId),
+);
+
+export const getFilteredWidget = createSelector(
+  [getWidgetArray, filterSelector],
+  (list, filter) => {
+    if (filter === 'ALL') {
+      return list;
+    }
+
+    return list.filter(item => item.get('favorites'));
+  },
+);
+
+export const getSearchedWidget = createSelector(
+  [getFilteredWidget, keywordSelector],
+  (list, keyword) => {
+    if (!keyword) {
+      return list;
+    }
+    let bothMatch = Immutable.List();
+    let nameMatch = Immutable.List();
+    let urlMatch = Immutable.List();
+
+    list.map((item) => {
+      const nameCheck = item.get('name').match(keyword);
+      const urlCheck = item.get('url').match(keyword);
+
+      if (nameCheck && urlCheck) {
+        bothMatch = bothMatch.push(item.set('searched', 'both'));
+      } else if (nameCheck) {
+        nameMatch = nameMatch.push(item.set('searched', 'name'));
+      } else if (urlCheck) {
+        urlMatch = urlMatch.push(item.set('searched', 'url'));
+      }
+      return item;
+    });
+
+    return bothMatch.concat(nameMatch).concat(urlMatch);
+  },
 );
