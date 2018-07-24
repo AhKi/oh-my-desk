@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import toJS from 'utils/toJS';
-import { getWidgetArray } from 'store/share/widgets/selectors';
+import { getSearchedWidget } from 'store/share/widgets/selectors';
+import { keywordSelector } from 'store/personal/search/selectors';
 import {
   closeTargetWidget,
   showTargetWidget,
@@ -9,8 +10,10 @@ import {
 import SearchList from '../components/SearchList';
 
 const mapStateToProps = state => ({
-  list: getWidgetArray(state),
+  list: getSearchedWidget(state),
+  keyword: keywordSelector(state),
 });
+
 const mapDispatchToProps = {
   onCloseWidget: closeTargetWidget,
   onShowWidget: showTargetWidget,
