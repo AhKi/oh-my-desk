@@ -63,24 +63,48 @@ export const getSearchedWidget = createSelector(
     if (!keyword) {
       return list;
     }
-    let bothMatch = Immutable.List();
-    let nameMatch = Immutable.List();
-    let urlMatch = Immutable.List();
+    const keywordSet = keyword.trim().split(' ');
+    const keywordLength = keywordSet.length;
+    let bothMatchArr = Immutable.List();
+    let nameMatchArr = Immutable.List();
+    let urlMatchArr = Immutable.List();
 
     list.map((item) => {
-      const nameCheck = item.get('name').match(keyword);
-      const urlCheck = item.get('url').match(keyword);
+      let count = 0;
+      let nameCheck = false;
+      let urlCheck = false;
+      const name = item.get('name');
+      const url = item.get('url');
 
-      if (nameCheck && urlCheck) {
-        bothMatch = bothMatch.push(item.set('searched', 'both'));
-      } else if (nameCheck) {
-        nameMatch = nameMatch.push(item.set('searched', 'name'));
-      } else if (urlCheck) {
-        urlMatch = urlMatch.push(item.set('searched', 'url'));
+      keywordSet.forEach((keywordItem) => {
+        const nameMatch = name.match(keywordItem);
+        const urlMatch = url.match(keywordItem);
+
+        if (nameMatch) {
+          nameCheck = true;
+        }
+
+        if (urlMatch) {
+          urlCheck = true;
+        }
+
+        if (nameMatch || urlMatch) {
+          count += 1;
+        }
+      });
+
+      if (count === keywordLength) {
+        if (nameCheck && urlCheck) {
+          bothMatchArr = bothMatchArr.push(item.set('searched', 'both'));
+        } else if (nameCheck) {
+          nameMatchArr = nameMatchArr.push(item.set('searched', 'name'));
+        } else if (urlCheck) {
+          urlMatchArr = urlMatchArr.push(item.set('searched', 'url'));
+        }
       }
       return item;
     });
 
-    return bothMatch.concat(nameMatch).concat(urlMatch);
+    return bothMatchArr.concat(nameMatchArr).concat(urlMatchArr);
   },
 );
