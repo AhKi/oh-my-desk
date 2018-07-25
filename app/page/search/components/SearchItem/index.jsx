@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import ToggleButton from 'page/Components/ToggleButton';
 import deleteIcon from 'assets/icon/icon-delete.svg';
 import starIcon from 'assets/icon/icon-more.svg';
@@ -7,6 +8,7 @@ import HighlightParagraph from 'page/Components/HighlightParagraph';
 import './SearchItem.scss';
 
 const propTypes = {
+  isSelect: PropTypes.bool,
   item: PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
@@ -19,6 +21,7 @@ const propTypes = {
   onUpdateInfo: PropTypes.func,
 };
 const defaultProps = {
+  isSelect: false,
   item: {},
   keyword: '',
   onCloseWidget() {},
@@ -50,10 +53,13 @@ class SearchItem extends React.Component {
   }
 
   render() {
-    const { keyword, item } = this.props;
+    const { keyword, item, isSelect } = this.props;
+    const SearchItemClassName = cx('SearchItem', {
+      SearchItem__select: isSelect,
+    });
 
     return (
-      <li className="SearchItem">
+      <li className={SearchItemClassName}>
         <ToggleButton
           isCheck={item.isOpen}
           onToggle={this.handleToggleWidget}

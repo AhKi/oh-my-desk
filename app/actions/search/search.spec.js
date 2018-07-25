@@ -30,4 +30,28 @@ describe('test search actions', () => {
 
     expect(actions.searchSetFilter('mock-filter')).toEqual(mockAction);
   });
+
+  it('should handle searchWidgetSelectDecrease', () => {
+    const mockAction = {
+      type: TYPES.SEARCH_WIDGET_SELECT_DECREASE,
+      payload: {},
+      meta: {
+        category: CATEGORY.SELF,
+      },
+    };
+
+    expect(actions.searchWidgetSelectDecrease()).toEqual(mockAction);
+  });
+
+  it('should handle searchWidgetSelectIncrease', () => {
+    const mockAction = {
+      type: TYPES.SEARCH_WIDGET_SELECT_INCREASE,
+      payload: {},
+      meta: {
+        category: CATEGORY.SELF,
+      },
+    };
+
+    expect(actions.searchWidgetSelectIncrease()).toEqual(mockAction);
+  });
 });

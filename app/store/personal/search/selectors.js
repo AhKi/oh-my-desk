@@ -15,3 +15,8 @@ export const keywordSelector = createSelector(
   searchSelector,
   search => search.get('keyword'),
 );
+
+export const selectedIndexSelector = createSelector(
+  searchSelector,
+  search => search.get('selectedIndex'),
+);
