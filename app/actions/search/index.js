@@ -1,4 +1,4 @@
-import { createAction } from 'redux-actions';
+import { createAction, createActions } from 'redux-actions';
 import * as TYPES from 'actions/actionTypes';
 import * as CATEGORY from 'actions/category';
 
@@ -15,3 +15,17 @@ export const searchSetFilter =
     filter => ({ filter }),
     () => ({ category: CATEGORY.SELF }),
   );
+
+export const {
+  searchWidgetSelectIncrease,
+  searchWidgetSelectDecrease,
+} = createActions({
+  [TYPES.SEARCH_WIDGET_SELECT_INCREASE]: [
+    () => ({}),
+    () => ({ category: CATEGORY.SELF }),
+  ],
+  [TYPES.SEARCH_WIDGET_SELECT_DECREASE]: [
+    () => ({}),
+    () => ({ category: CATEGORY.SELF }),
+  ],
+});
