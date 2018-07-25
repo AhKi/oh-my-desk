@@ -77,8 +77,8 @@ export const getSearchedWidget = createSelector(
       const url = item.get('url');
 
       keywordSet.forEach((keywordItem) => {
-        const nameMatch = name.match(keywordItem);
-        const urlMatch = url.match(keywordItem);
+        const nameMatch = name.indexOf(keywordItem) !== -1;
+        const urlMatch = url.indexOf(keywordItem) !== -1;
 
         if (nameMatch) {
           nameCheck = true;
