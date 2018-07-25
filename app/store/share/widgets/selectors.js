@@ -3,6 +3,7 @@ import Immutable from 'immutable';
 import moment from 'moment';
 import * as settings from 'store/personal/setting/selectors';
 import * as status from 'store/personal/selectors';
+import * as search from 'store/personal/search/selectors';
 import { filterSelector, keywordSelector } from 'store/personal/search/selectors';
 import shareSelector from '../selectors';
 
@@ -106,5 +107,15 @@ export const getSearchedWidget = createSelector(
     });
 
     return bothMatchArr.concat(nameMatchArr).concat(urlMatchArr);
+  },
+);
+
+
+export const getSelectedIndex = createSelector(
+  [search.selectedIndexSelector, getSearchedWidget],
+  (index, list) => {
+    const { size } = list;
+
+    return ((index % size) + size) % size;
   },
 );
