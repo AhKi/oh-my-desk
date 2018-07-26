@@ -6,7 +6,7 @@ import createWidget from 'utils/createWidget';
 import updateWidgetContentBounds from 'utils/process/updateWidgetContentBounds';
 import * as PATH from 'constants/path';
 
-const makeWidgetWindow = (id, info) => {
+const makeWidgetWindow = (id, info, isFocus) => {
   const widgetInfo = createWidget(id, info);
   const widget = new BrowserWindow({
     acceptFirstMouse: true,
@@ -29,7 +29,11 @@ const makeWidgetWindow = (id, info) => {
   }));
 
   widget.once('ready-to-show', () => {
-    widget.showInactive();
+    if (isFocus) {
+      widget.show();
+    } else {
+      widget.showInactive();
+    }
   });
 
   widget.on('move', () => {
