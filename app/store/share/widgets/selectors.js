@@ -110,7 +110,6 @@ export const getSearchedWidget = createSelector(
   },
 );
 
-
 export const getSelectedIndex = createSelector(
   [search.selectedIndexSelector, getSearchedWidget],
   (index, list) => {

@@ -76,11 +76,12 @@ describe('test action about widget', () => {
       type: TYPES.SHOW_TARGET_WIDGET,
       payload: {
         id: mockId,
+        isFocus: false,
       },
       meta: broadcastMeta,
     };
 
-    expect(actions.showTargetWidget(mockId))
+    expect(actions.showTargetWidget(mockId, false))
       .toEqual(mockAction);
   });
 

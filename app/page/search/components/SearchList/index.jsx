@@ -40,7 +40,13 @@ class SearchList extends React.Component {
   }
 
   handleKeyboardEvent(e) {
-    const { onSelectIncrease, onSelectDecrease } = this.props;
+    const {
+      list,
+      selectedIndex,
+      onShowWidget,
+      onSelectIncrease,
+      onSelectDecrease,
+    } = this.props;
 
     if (e.key === 'ArrowUp') {
       onSelectDecrease();
@@ -48,6 +54,10 @@ class SearchList extends React.Component {
 
     if (e.key === 'ArrowDown') {
       onSelectIncrease();
+    }
+
+    if (e.key === 'Enter') {
+      onShowWidget(list[selectedIndex].id, true);
     }
   }
 
