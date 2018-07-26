@@ -16,6 +16,17 @@ export const searchSetFilter =
     () => ({ category: CATEGORY.SELF }),
   );
 
+export const searchWindowHide =
+  createAction(
+    TYPES.SEARCH_WINDOW_HIDE,
+    () => ({}),
+    () => ({
+      category: CATEGORY.TARGET,
+      containMain: true,
+      self: false,
+    }),
+  );
+
 export const {
   searchWidgetSelectIncrease,
   searchWidgetSelectDecrease,
