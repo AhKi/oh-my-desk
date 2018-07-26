@@ -40,4 +40,8 @@ export const remote = {
 
 export const app = {
   getPath: jest.fn(arg => arg),
+  getVersion: jest.fn(),
+  getAppPath: jest.fn(() => 'mock-path'),
+  isReady: jest.fn(),
+  on: jest.fn(),
 };

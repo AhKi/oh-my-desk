@@ -52,6 +52,7 @@ describe('test widgetController', () => {
       type: TYPES.SHOW_TARGET_WIDGET,
       payload: {
         id: 'mock-id',
+        isFocus: true,
       },
     };
     const makeWidgetWindow = jest.spyOn(utils, 'default');
@@ -110,7 +111,7 @@ describe('test widgetController', () => {
         name: 'mock-name',
         url: 'mock-url',
         isOpen: false,
-      });
+      }, true);
       expect(storeMock.dispatch).toHaveBeenCalledTimes(1);
       expect(storeMock.dispatch).toHaveBeenCalledWith(
         statusActions.openBrowserWindow(

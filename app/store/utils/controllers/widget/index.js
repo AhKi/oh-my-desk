@@ -16,7 +16,7 @@ const widgetController = (action, prev, next) => {
       break;
     }
     case TYPES.SHOW_TARGET_WIDGET: {
-      const { id } = action.payload;
+      const { id, isFocus } = action.payload;
       const byId = widgetsSelector.byIdSelector(next);
       const item = byId.get(id);
 
@@ -26,7 +26,7 @@ const widgetController = (action, prev, next) => {
       if (widget) {
         widget.show();
       } else {
-        const widgetWin = makeWidgetWindow(id, item.toJS());
+        const widgetWin = makeWidgetWindow(id, item.toJS(), isFocus);
 
         store.dispatch(statusActions.openBrowserWindow(id, widgetWin));
       }

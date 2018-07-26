@@ -36,7 +36,7 @@ export const {
     () => ({ category: CATEGORY.BROADCAST }),
   ],
   [TYPES.SHOW_TARGET_WIDGET]: [
-    id => ({ id, time: moment().toISOString() }),
+    (id, isFocus) => ({ id, time: moment().toISOString(), isFocus }),
     () => ({ category: CATEGORY.BROADCAST }),
   ],
   [TYPES.UPDATE_TARGET_WIDGET_INFO]: [
