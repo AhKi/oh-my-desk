@@ -54,4 +54,18 @@ describe('test search actions', () => {
 
     expect(actions.searchWidgetSelectIncrease()).toEqual(mockAction);
   });
+
+  it('should handle searchWindowHide', () => {
+    const mockAction = {
+      type: TYPES.SEARCH_WINDOW_HIDE,
+      payload: {},
+      meta: {
+        category: CATEGORY.TARGET,
+        containMain: true,
+        self: false,
+      },
+    };
+
+    expect(actions.searchWindowHide()).toEqual(mockAction);
+  });
 });

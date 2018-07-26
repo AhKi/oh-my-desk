@@ -8,6 +8,7 @@ const propTypes = {
   list: PropTypes.arrayOf(PropTypes.object), // eslint-disable-line no-unused-prop-types
   selectedIndex: PropTypes.number,
   onCloseWidget: PropTypes.func,
+  onHideWindow: PropTypes.func,
   onSelectIncrease: PropTypes.func,
   onSelectDecrease: PropTypes.func,
   onShowWidget: PropTypes.func,
@@ -19,6 +20,7 @@ const defaultProps = {
   list: [],
   keyword: '',
   onCloseWidget() {},
+  onHideWindow() {},
   onSelectIncrease() {},
   onSelectDecrease() {},
   onShowWidget() {},
@@ -43,6 +45,7 @@ class SearchList extends React.Component {
     const {
       list,
       selectedIndex,
+      onHideWindow,
       onShowWidget,
       onSelectIncrease,
       onSelectDecrease,
@@ -58,6 +61,7 @@ class SearchList extends React.Component {
 
     if (e.key === 'Enter') {
       onShowWidget(list[selectedIndex].id, true);
+      onHideWindow();
     }
   }
 
