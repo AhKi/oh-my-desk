@@ -31,14 +31,39 @@ class SearchList extends React.Component {
   constructor(props) {
     super(props);
     this.handleKeyboardEvent = this.handleKeyboardEvent.bind(this);
+    this.listRef = React.createRef();
   }
 
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyboardEvent);
   }
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (snapshot !== null) {
+      this.listRef.current.scrollTop = snapshot;
+    }
+  }
+
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeyboardEvent);
+  }
+
+  getSnapshotBeforeUpdate() {
+    const { list, selectedIndex } = this.props;
+    const ref = this.listRef.current;
+    const { scrollHeight } = ref;
+    const listHeight = ref.clientHeight;
+    const currentTop = ref.scrollTop;
+    const currentBottom = ref.scrollTop + listHeight;
+    const eachHeight = scrollHeight / list.length;
+
+    const selectedTop = eachHeight * selectedIndex;
+
+    if (currentBottom < selectedTop || currentTop > selectedTop) {
+      return selectedTop;
+    }
+
+    return null;
   }
 
   handleKeyboardEvent(e) {
@@ -52,10 +77,12 @@ class SearchList extends React.Component {
     } = this.props;
 
     if (e.key === 'ArrowUp') {
+      e.preventDefault();
       onSelectDecrease();
     }
 
     if (e.key === 'ArrowDown') {
+      e.preventDefault();
       onSelectIncrease();
     }
 
@@ -76,7 +103,7 @@ class SearchList extends React.Component {
     } = this.props;
 
     return (
-      <ul className="SearchList">
+      <ul className="SearchList" ref={this.listRef}>
         {list.map(item => (
           <SearchItem
             isSelect={list[selectedIndex].id === item.id}
