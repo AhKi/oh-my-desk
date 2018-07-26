@@ -12,10 +12,12 @@ import './SearchMenu.scss';
 const propTypes = {
   filter: PropTypes.string,
   onSetFilter: PropTypes.func,
+  onOpenPreference: PropTypes.func,
 };
 const defaultProps = {
   filter: 'ALL',
   onSetFilter() {},
+  onOpenPreference() {},
 };
 
 class SearchMenu extends React.Component {
@@ -43,7 +45,7 @@ class SearchMenu extends React.Component {
 
   render() {
     const text = i18n().search;
-    const { filter } = this.props;
+    const { filter, onOpenPreference } = this.props;
     const allMenuClassName = cx('SearchMenu__Item', {
       'SearchMenu__Item--active': filter === 'ALL',
     });
@@ -104,6 +106,7 @@ class SearchMenu extends React.Component {
             <button
               className="SearchMenu__Btn"
               type="button"
+              onClick={onOpenPreference}
             >
               <img
                 className="SearchMenu__Icon"
