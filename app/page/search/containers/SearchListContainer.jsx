@@ -13,6 +13,7 @@ import {
 import {
   searchWidgetSelectIncrease,
   searchWidgetSelectDecrease,
+  searchWindowHide,
 } from 'actions/search';
 import SearchList from '../components/SearchList';
 
@@ -24,6 +25,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   onCloseWidget: closeTargetWidget,
+  onHideWindow: searchWindowHide,
   onSelectIncrease: searchWidgetSelectIncrease,
   onSelectDecrease: searchWidgetSelectDecrease,
   onShowWidget: showTargetWidget,
