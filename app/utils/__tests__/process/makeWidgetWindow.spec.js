@@ -23,22 +23,8 @@ describe('test makeWidgetWindow', () => {
     width: 200,
   });
   BrowserWindow.mockImplementation(() => mock);
+
   makeWidgetWindow('mock-id', mockInfo);
-
-  describe('test BrowserWindow.once', () => {
-    it('should call BrowserWindow.once', () => {
-      expect(mock.once).toHaveBeenCalledTimes(1);
-      expect(mock.once).toHaveBeenCalledWith('ready-to-show', expect.any(Function));
-    });
-
-    it('should call callback of BrowserWindow.once', () => {
-      const cb = mock.once.mock.calls[0][1];
-      cb();
-
-      expect(mock.showInactive).toHaveBeenCalledTimes(1);
-      expect(mock.showInactive).toHaveBeenCalledWith();
-    });
-  });
 
   describe('test BrowserWindow.on', () => {
     it('should call about widget.on', () => {
@@ -115,5 +101,32 @@ describe('test makeWidgetWindow', () => {
     });
 
     // TODO test about process.env.NODE_ENV === 'production'
+  });
+
+
+  describe('test BrowserWindow.once', () => {
+    it('should call BrowserWindow.once', () => {
+      expect(mock.once).toHaveBeenCalledTimes(1);
+      expect(mock.once).toHaveBeenCalledWith('ready-to-show', expect.any(Function));
+    });
+
+    it('should call callback of BrowserWindow.once', () => {
+      const cb = mock.once.mock.calls[0][1];
+      cb();
+
+      expect(mock.showInactive).toHaveBeenCalledTimes(1);
+      expect(mock.showInactive).toHaveBeenCalledWith();
+    });
+
+    it('should call callback of BrowserWindow.once', () => {
+      mock.once.mockClear();
+      makeWidgetWindow('mock-id', mockInfo, true);
+
+      const cb = mock.once.mock.calls[0][1];
+      cb();
+
+      expect(mock.show).toHaveBeenCalledTimes(1);
+      expect(mock.show).toHaveBeenCalledWith();
+    });
   });
 });

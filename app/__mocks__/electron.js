@@ -36,12 +36,35 @@ export const ipcRenderer = {
 
 export const remote = {
   getGlobal: jest.fn(),
+  getCurrentWindow: jest.fn(),
+  Menu: {
+    buildFromTemplate: jest.fn(() => ({
+      popup: jest.fn(),
+    })),
+  },
+};
+
+export const shell = {
+  openExternal: jest.fn(),
 };
 
 export const app = {
+  getName: jest.fn(() => 'oh-my-desk'),
   getPath: jest.fn(arg => arg),
   getVersion: jest.fn(),
   getAppPath: jest.fn(() => 'mock-path'),
   isReady: jest.fn(),
   on: jest.fn(),
+};
+
+export const Menu = {
+  buildFromTemplate: jest.fn(() => ({
+    popup: jest.fn(),
+  })),
+  setApplicationMenu: jest.fn(),
+};
+
+export const globalShortcut = {
+  register: jest.fn(),
+  unregister: jest.fn(),
 };
