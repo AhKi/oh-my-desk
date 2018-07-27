@@ -24,7 +24,7 @@ function createMenu() {
       label: text.view,
       submenu: [
         { label: text.forceReload, role: 'forcereload' },
-        process.env.NODE_ENV === 'development' && { role: 'toggledevtools' },
+        { role: 'toggledevtools' },
         { type: 'separator' },
         { label: text.actualSize, role: 'resetzoom' },
         { label: text.zoomIn, role: 'zoomin' },
