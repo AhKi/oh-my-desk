@@ -149,4 +149,267 @@ describe('test widgets selector', () => {
         isOpen: true,
       }));
   });
+
+  describe('should select getFilteredWidget', () => {
+    it('when filter === ALL', () => {
+      const state = Immutable.fromJS({
+        personal: {
+          search: {
+            filter: 'ALL',
+          },
+        },
+        share: {
+          widgets: {
+            byId: {
+              mock1: {
+                a: 'aa',
+                favorites: true,
+              },
+              mock2: {
+                b: 'bb',
+                favorites: true,
+              },
+              mock3: {
+                c: 'cc',
+                favorites: false,
+              },
+              mock4: {
+                d: 'dd',
+                favorites: true,
+              },
+            },
+          },
+        },
+      });
+
+      expect(selectors.getFilteredWidget(state))
+        .toEqual(Immutable.fromJS([
+          {
+            a: 'aa',
+            favorites: true,
+          },
+          {
+            b: 'bb',
+            favorites: true,
+          },
+          {
+            c: 'cc',
+            favorites: false,
+          },
+          {
+            d: 'dd',
+            favorites: true,
+          },
+        ]));
+    });
+
+    it('when filter === FAVORITES', () => {
+      const state = Immutable.fromJS({
+        personal: {
+          search: {
+            filter: 'FAVORITES',
+          },
+        },
+        share: {
+          widgets: {
+            byId: {
+              mock1: {
+                a: 'aa',
+                favorites: true,
+              },
+              mock2: {
+                b: 'bb',
+                favorites: true,
+              },
+              mock3: {
+                c: 'cc',
+                favorites: false,
+              },
+              mock4: {
+                d: 'dd',
+                favorites: true,
+              },
+            },
+          },
+        },
+      });
+
+      expect(selectors.getFilteredWidget(state))
+        .toEqual(Immutable.fromJS([
+          {
+            a: 'aa',
+            favorites: true,
+          },
+          {
+            b: 'bb',
+            favorites: true,
+          },
+          {
+            d: 'dd',
+            favorites: true,
+          },
+        ]));
+    });
+  });
+
+  describe('test getSearchedWidget', () => {
+    it('when keyword don\'t exist', () => {
+      const state = Immutable.fromJS({
+        personal: {
+          search: {
+            filter: 'ALL',
+          },
+        },
+        share: {
+          widgets: {
+            byId: {
+              mock1: {
+                name: 'search-name',
+                url: 'not-target-url',
+                favorites: true,
+              },
+              mock2: {
+                name: 'not-target-name',
+                url: 'search-url',
+                favorites: true,
+              },
+              mock3: {
+                name: 'not-target-name',
+                url: 'not-target-url',
+                favorites: false,
+              },
+              mock4: {
+                name: 'search-name',
+                url: 'search-url',
+                favorites: true,
+              },
+            },
+          },
+        },
+      });
+
+      expect(selectors.getSearchedWidget(state))
+        .toEqual(Immutable.fromJS([
+          {
+            name: 'search-name',
+            url: 'not-target-url',
+            favorites: true,
+          },
+          {
+            name: 'not-target-name',
+            url: 'search-url',
+            favorites: true,
+          },
+          {
+            name: 'not-target-name',
+            url: 'not-target-url',
+            favorites: false,
+          },
+          {
+            name: 'search-name',
+            url: 'search-url',
+            favorites: true,
+          },
+        ]));
+    });
+
+    it('when keyword exist', () => {
+      const state = Immutable.fromJS({
+        personal: {
+          search: {
+            filter: 'ALL',
+            keyword: 'search',
+          },
+        },
+        share: {
+          widgets: {
+            byId: {
+              mock1: {
+                name: 'search-name',
+                url: 'not-target-url',
+                favorites: true,
+              },
+              mock2: {
+                name: 'not-target-name',
+                url: 'search-url',
+                favorites: true,
+              },
+              mock3: {
+                name: 'not-target-name',
+                url: 'not-target-url',
+                favorites: true,
+              },
+              mock4: {
+                name: 'search-name',
+                url: 'search-url',
+                favorites: true,
+              },
+            },
+          },
+        },
+      });
+
+      expect(selectors.getSearchedWidget(state))
+        .toEqual(Immutable.fromJS([
+          {
+            name: 'search-name',
+            url: 'search-url',
+            favorites: true,
+            searched: 'both',
+          },
+          {
+            name: 'search-name',
+            url: 'not-target-url',
+            favorites: true,
+            searched: 'name',
+          },
+          {
+            name: 'not-target-name',
+            url: 'search-url',
+            favorites: true,
+            searched: 'url',
+          },
+        ]));
+    });
+  });
+
+  it('test getSelectedIndex', () => {
+    const state = Immutable.fromJS({
+      personal: {
+        search: {
+          filter: 'ALL',
+          keyword: '',
+          selectedIndex: 7,
+        },
+      },
+      share: {
+        widgets: {
+          byId: {
+            mock1: {
+              name: 'search-name',
+              url: 'not-target-url',
+              favorites: true,
+            },
+            mock2: {
+              name: 'not-target-name',
+              url: 'search-url',
+              favorites: true,
+            },
+            mock3: {
+              name: 'not-target-name',
+              url: 'not-target-url',
+              favorites: true,
+            },
+            mock4: {
+              name: 'search-name',
+              url: 'search-url',
+              favorites: true,
+            },
+          },
+        },
+      },
+    });
+
+    expect(selectors.getSelectedIndex(state)).toEqual(3);
+  });
 });
