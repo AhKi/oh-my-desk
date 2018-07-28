@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test SearchMenu Component should match to snapshot 1`] = `
+<div
+  className="SearchMenu"
+>
+  <img
+    alt="Oh-My-Desk-Logo"
+    className="SearchMenu__Logo"
+    src={Object {}}
+  />
+  <ul
+    className="SearchMenu__List"
+  >
+    <li
+      className="SearchMenu__Item"
+    >
+      <button
+        className="SearchMenu__Btn"
+        type="button"
+      >
+        <img
+          alt=""
+          className="SearchMenu__Icon"
+          src={Object {}}
+        />
+        New Widget
+      </button>
+    </li>
+    <li
+      className="SearchMenu__Item SearchMenu__Item--active"
+    >
+      <button
+        className="SearchMenu__Btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt=""
+          className="SearchMenu__Icon"
+          src={Object {}}
+        />
+        All
+      </button>
+    </li>
+    <li
+      className="SearchMenu__Item"
+    >
+      <button
+        className="SearchMenu__Btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt=""
+          className="SearchMenu__Icon"
+          src={Object {}}
+        />
+        Favorites
+      </button>
+    </li>
+    <li
+      className="SearchMenu__Item"
+    >
+      <button
+        className="SearchMenu__Btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt=""
+          className="SearchMenu__Icon"
+          src={Object {}}
+        />
+        Setting
+      </button>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Test SearchMenu Component should match to snapshot when props.filter === FAVORITES 1`] = `
+<div
+  className="SearchMenu"
+>
+  <img
+    alt="Oh-My-Desk-Logo"
+    className="SearchMenu__Logo"
+    src={Object {}}
+  />
+  <ul
+    className="SearchMenu__List"
+  >
+    <li
+      className="SearchMenu__Item"
+    >
+      <button
+        className="SearchMenu__Btn"
+        type="button"
+      >
+        <img
+          alt=""
+          className="SearchMenu__Icon"
+          src={Object {}}
+        />
+        New Widget
+      </button>
+    </li>
+    <li
+      className="SearchMenu__Item"
+    >
+      <button
+        className="SearchMenu__Btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt=""
+          className="SearchMenu__Icon"
+          src={Object {}}
+        />
+        All
+      </button>
+    </li>
+    <li
+      className="SearchMenu__Item SearchMenu__Item--active"
+    >
+      <button
+        className="SearchMenu__Btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt=""
+          className="SearchMenu__Icon"
+          src={Object {}}
+        />
+        Favorites
+      </button>
+    </li>
+    <li
+      className="SearchMenu__Item"
+    >
+      <button
+        className="SearchMenu__Btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt=""
+          className="SearchMenu__Icon"
+          src={Object {}}
+        />
+        Setting
+      </button>
+    </li>
+  </ul>
+</div>
+`;
