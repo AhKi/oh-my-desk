@@ -99,7 +99,7 @@ export const getSearchedWidget = createSelector(
           bothMatchArr = bothMatchArr.push(item.set('searched', 'both'));
         } else if (nameCheck) {
           nameMatchArr = nameMatchArr.push(item.set('searched', 'name'));
-        } else if (urlCheck) {
+        } else {
           urlMatchArr = urlMatchArr.push(item.set('searched', 'url'));
         }
       }
