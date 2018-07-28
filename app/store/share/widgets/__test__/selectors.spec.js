@@ -164,18 +164,22 @@ describe('test widgets selector', () => {
               mock1: {
                 a: 'aa',
                 favorites: true,
+                resentOpenTime: moment('2018-01-04').toISOString(),
               },
               mock2: {
                 b: 'bb',
                 favorites: true,
+                resentOpenTime: moment('2018-01-03').toISOString(),
               },
               mock3: {
                 c: 'cc',
                 favorites: false,
+                resentOpenTime: moment('2018-01-02').toISOString(),
               },
               mock4: {
                 d: 'dd',
                 favorites: true,
+                resentOpenTime: moment('2018-01-01').toISOString(),
               },
             },
           },
@@ -187,18 +191,22 @@ describe('test widgets selector', () => {
           {
             a: 'aa',
             favorites: true,
+            resentOpenTime: moment('2018-01-04').toISOString(),
           },
           {
             b: 'bb',
             favorites: true,
+            resentOpenTime: moment('2018-01-03').toISOString(),
           },
           {
             c: 'cc',
             favorites: false,
+            resentOpenTime: moment('2018-01-02').toISOString(),
           },
           {
             d: 'dd',
             favorites: true,
+            resentOpenTime: moment('2018-01-01').toISOString(),
           },
         ]));
     });
@@ -216,18 +224,22 @@ describe('test widgets selector', () => {
               mock1: {
                 a: 'aa',
                 favorites: true,
+                resentOpenTime: moment('2018-01-04').toISOString(),
               },
               mock2: {
                 b: 'bb',
                 favorites: true,
+                resentOpenTime: moment('2018-01-03').toISOString(),
               },
               mock3: {
                 c: 'cc',
                 favorites: false,
+                resentOpenTime: moment('2018-01-02').toISOString(),
               },
               mock4: {
                 d: 'dd',
                 favorites: true,
+                resentOpenTime: moment('2018-01-01').toISOString(),
               },
             },
           },
@@ -239,14 +251,17 @@ describe('test widgets selector', () => {
           {
             a: 'aa',
             favorites: true,
+            resentOpenTime: moment('2018-01-04').toISOString(),
           },
           {
             b: 'bb',
             favorites: true,
+            resentOpenTime: moment('2018-01-03').toISOString(),
           },
           {
             d: 'dd',
             favorites: true,
+            resentOpenTime: moment('2018-01-01').toISOString(),
           },
         ]));
     });
@@ -267,21 +282,25 @@ describe('test widgets selector', () => {
                 name: 'search-name',
                 url: 'not-target-url',
                 favorites: true,
+                resentOpenTime: moment('2018-01-04').toISOString(),
               },
               mock2: {
                 name: 'not-target-name',
                 url: 'search-url',
                 favorites: true,
+                resentOpenTime: moment('2018-01-03').toISOString(),
               },
               mock3: {
                 name: 'not-target-name',
                 url: 'not-target-url',
                 favorites: false,
+                resentOpenTime: moment('2018-01-02').toISOString(),
               },
               mock4: {
                 name: 'search-name',
                 url: 'search-url',
                 favorites: true,
+                resentOpenTime: moment('2018-01-01').toISOString(),
               },
             },
           },
@@ -294,21 +313,25 @@ describe('test widgets selector', () => {
             name: 'search-name',
             url: 'not-target-url',
             favorites: true,
+            resentOpenTime: moment('2018-01-04').toISOString(),
           },
           {
             name: 'not-target-name',
             url: 'search-url',
             favorites: true,
+            resentOpenTime: moment('2018-01-03').toISOString(),
           },
           {
             name: 'not-target-name',
             url: 'not-target-url',
             favorites: false,
+            resentOpenTime: moment('2018-01-02').toISOString(),
           },
           {
             name: 'search-name',
             url: 'search-url',
             favorites: true,
+            resentOpenTime: moment('2018-01-01').toISOString(),
           },
         ]));
     });
@@ -328,21 +351,25 @@ describe('test widgets selector', () => {
                 name: 'search-name',
                 url: 'not-target-url',
                 favorites: true,
+                resentOpenTime: moment('2018-01-04').toISOString(),
               },
               mock2: {
                 name: 'not-target-name',
                 url: 'search-url',
                 favorites: true,
+                resentOpenTime: moment('2018-01-03').toISOString(),
               },
               mock3: {
                 name: 'not-target-name',
                 url: 'not-target-url',
                 favorites: true,
+                resentOpenTime: moment('2018-01-02').toISOString(),
               },
               mock4: {
                 name: 'search-name',
                 url: 'search-url',
                 favorites: true,
+                resentOpenTime: moment('2018-01-01').toISOString(),
               },
             },
           },
@@ -356,18 +383,21 @@ describe('test widgets selector', () => {
             url: 'search-url',
             favorites: true,
             searched: 'both',
+            resentOpenTime: moment('2018-01-01').toISOString(),
           },
           {
             name: 'search-name',
             url: 'not-target-url',
             favorites: true,
             searched: 'name',
+            resentOpenTime: moment('2018-01-04').toISOString(),
           },
           {
             name: 'not-target-name',
             url: 'search-url',
             favorites: true,
             searched: 'url',
+            resentOpenTime: moment('2018-01-03').toISOString(),
           },
         ]));
     });
