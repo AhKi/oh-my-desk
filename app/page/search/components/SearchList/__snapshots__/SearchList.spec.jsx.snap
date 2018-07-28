@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test SearchList Component should match to snapshot 1`] = `
+<ul
+  className="SearchList"
+/>
+`;
+
+exports[`Test SearchList Component should match to snapshot 2`] = `
+<ul
+  className="SearchList"
+>
+  <SearchItem
+    isSelect={true}
+    item={
+      Object {
+        "id": "mock1",
+        "isOpen": false,
+      }
+    }
+    key="mock1"
+    keyword=""
+    onCloseWidget={[Function]}
+    onShowWidget={[Function]}
+    onUpdateInfo={[Function]}
+  />
+  <SearchItem
+    isSelect={false}
+    item={
+      Object {
+        "id": "mock2",
+        "isOpen": false,
+      }
+    }
+    key="mock2"
+    keyword=""
+    onCloseWidget={[Function]}
+    onShowWidget={[Function]}
+    onUpdateInfo={[Function]}
+  />
+</ul>
+`;

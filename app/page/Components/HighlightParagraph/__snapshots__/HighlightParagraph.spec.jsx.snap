@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Search Component should match to snapshot when one keyword and doesn't matched 1`] = `
+<span>
+  mock mock
+</span>
+`;
+
+exports[`Test Search Component should match to snapshot when one keyword and one matched content 1`] = `
+<span>
+  mock 
+  <span
+    className="highlight "
+    key="1"
+  >
+    target
+  </span>
+   mock
+</span>
+`;
+
+exports[`Test Search Component should match to snapshot when one keyword and several matched content 1`] = `
+<span>
+  mock 
+  <span
+    className="highlight "
+    key="1"
+  >
+    target
+  </span>
+   mock 
+  <span
+    className="highlight "
+    key="3"
+  >
+    target
+  </span>
+   
+  <span
+    className="highlight "
+    key="5"
+  >
+    target
+  </span>
+</span>
+`;
+
+exports[`Test Search Component should match to snapshot when two keyword and one matched 1`] = `
+<span>
+  mock 
+  <span
+    className="highlight "
+    key="1"
+  >
+    target
+  </span>
+   mock 
+  <span
+    className="highlight "
+    key="3"
+  >
+    target
+  </span>
+   
+  <span
+    className="highlight "
+    key="5"
+  >
+    target
+  </span>
+</span>
+`;
+
+exports[`Test Search Component should match to snapshot when two keyword and two matched 1`] = `
+<span>
+  mock 
+  <span
+    className="highlight "
+    key="1"
+  >
+    target
+  </span>
+   mock 
+  <span
+    className="highlight "
+    key="3"
+  >
+    two
+  </span>
+   
+  <span
+    className="highlight "
+    key="5"
+  >
+    target
+  </span>
+</span>
+`;
+
+exports[`Test Search Component should match to snapshot when two keyword and two matched overlapped 1`] = `
+<span>
+  mock 
+  <span
+    className="highlight "
+    key="1"
+  >
+    target
+  </span>
+   mock two 
+  <span
+    className="highlight "
+    key="3"
+  >
+    target
+  </span>
+</span>
+`;

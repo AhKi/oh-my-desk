@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test SearchItem Component should match to snapshot 1`] = `
+<li
+  className="SearchItem"
+>
+  <ToggleButton
+    checkedValue={
+      <i
+        className="fa fa-check"
+      />
+    }
+    isCheck={false}
+    onToggle={[Function]}
+    unCheckedValue={
+      <i
+        className="fa fa-times"
+      />
+    }
+    width={40}
+  />
+  <p
+    className="SearchItem__Text"
+  >
+    <strong>
+      <span>
+        mock-name
+      </span>
+    </strong>
+    <span>
+      <span>
+        mock-url
+      </span>
+    </span>
+  </p>
+  <p
+    className="SearchItem__BtnSet"
+  >
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt=""
+        src={Object {}}
+      />
+    </button>
+    <button
+      type="button"
+    >
+      <img
+        alt=""
+        src={Object {}}
+      />
+    </button>
+  </p>
+</li>
+`;
+
+exports[`Test SearchItem Component should match to snapshot when item.searched === both 1`] = `
+<li
+  className="SearchItem"
+>
+  <ToggleButton
+    checkedValue={
+      <i
+        className="fa fa-check"
+      />
+    }
+    isCheck={false}
+    onToggle={[Function]}
+    unCheckedValue={
+      <i
+        className="fa fa-times"
+      />
+    }
+    width={40}
+  />
+  <p
+    className="SearchItem__Text"
+  >
+    <strong>
+      <HighlightParagraph
+        content="mock-name"
+        highlightClass=""
+        keyword=""
+      />
+    </strong>
+    <span>
+      <HighlightParagraph
+        content="mock-url"
+        highlightClass=""
+        keyword=""
+      />
+    </span>
+  </p>
+  <p
+    className="SearchItem__BtnSet"
+  >
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt=""
+        src={Object {}}
+      />
+    </button>
+    <button
+      type="button"
+    >
+      <img
+        alt=""
+        src={Object {}}
+      />
+    </button>
+  </p>
+</li>
+`;

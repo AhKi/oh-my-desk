@@ -73,18 +73,15 @@ class HighlightParagraph extends React.Component {
         return content.substring(lastIndex, firstIndex);
       }
 
-      if (item.type === 'LAST') {
-        lastIndex = item.index;
-        return (
-          <span
-            className={`highlight ${highlightClass}`}
-            key={index} // eslint-disable-line react/no-array-index-key
-          >
-            {content.substring(firstIndex, lastIndex)}
-          </span>
-        );
-      }
-      return null;
+      lastIndex = item.index;
+      return (
+        <span
+          className={`highlight ${highlightClass}`}
+          key={index} // eslint-disable-line react/no-array-index-key
+        >
+          {content.substring(firstIndex, lastIndex)}
+        </span>
+      );
     });
     render.push(content.substring(lastIndex, content.length));
 
