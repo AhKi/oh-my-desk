@@ -11,6 +11,11 @@ export const autoLaunchSelector = createSelector(
   status => status.get('autoLaunch'),
 );
 
+export const autoActiveWidgetSelector = createSelector(
+  statusSelector,
+  status => status.get('autoActiveWidget'),
+);
+
 export const preferenceIdSelector = createSelector(
   statusSelector,
   status => status.get('preferenceId'),
