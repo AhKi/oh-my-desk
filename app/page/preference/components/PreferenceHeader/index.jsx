@@ -24,16 +24,16 @@ class PreferenceHeader extends React.Component {
         <NavLink
           activeClassName="PreferenceHeader__Link--select"
           className="PreferenceHeader__Link"
-          to="/hot-key"
+          to="/update"
         >
-          {text.hotKey}
+          {text.update}
         </NavLink>
         <NavLink
           activeClassName="PreferenceHeader__Link--select"
           className="PreferenceHeader__Link"
-          to="/update"
+          to="/hot-key"
         >
-          {text.update}
+          {text.hotKey}
         </NavLink>
         <NavLink
           activeClassName="PreferenceHeader__Link--select"
