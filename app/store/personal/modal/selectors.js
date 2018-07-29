@@ -8,7 +8,7 @@ export const modalSelector = createSelector(
 
 export const modalPropsSelector = createSelector(
   modalSelector,
-  modal => modal.get('modalProps').toObject(),
+  modal => modal.get('modalProps'),
 );
 export const modalTypeSelector = createSelector(
   modalSelector,

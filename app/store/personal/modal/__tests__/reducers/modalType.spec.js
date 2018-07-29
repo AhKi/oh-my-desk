@@ -2,7 +2,7 @@ import * as actions from 'actions/modal';
 import modalType from '../../reducers/modalType';
 
 describe('test modalProps reducer', () => {
-  const initialState = '';
+  const initialState = null;
   it('should match initialState', () => {
     expect(modalType(undefined, {})).toEqual(initialState);
   });
