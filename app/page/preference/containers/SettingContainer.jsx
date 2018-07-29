@@ -12,6 +12,7 @@ import {
   langSelector,
   widgetModeSelector,
 } from 'store/share/status/selectors';
+import { modalOpen } from 'actions/modal';
 import Setting from '../components/Setting';
 
 const mapStateToProps = state => ({
@@ -20,6 +21,7 @@ const mapStateToProps = state => ({
   widgetMode: widgetModeSelector(state),
 });
 const mapDispatchToProps = {
+  onModalOpen: modalOpen,
   onSetLanguageEnglish: setLanguageEnglish,
   onSetLanguageKorean: setLanguageKorean,
   onToggleAutoLaunch: toggleAutoLaunch,

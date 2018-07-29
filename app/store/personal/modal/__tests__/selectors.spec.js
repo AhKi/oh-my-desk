@@ -14,9 +14,9 @@ describe('test modal selectors', () => {
       },
     });
 
-    expect(selectors.modalPropsSelector(mockStore)).toEqual({
+    expect(selectors.modalPropsSelector(mockStore)).toEqual(Immutable.Map({
       a: 'mock-props',
-    });
+    }));
   });
 
   it('should select modalType', () => {

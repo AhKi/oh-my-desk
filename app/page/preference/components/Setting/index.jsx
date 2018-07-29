@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import i18n from 'constants/i18n';
 import ToggleButton from 'page/Components/ToggleButton';
+import WidgetModeConfirm from '../Modal/WidgetModeConfirm';
 import './Setting.scss';
 
 const propTypes = {
   lang: PropTypes.string,
   isAutoLaunch: PropTypes.bool,
   widgetMode: PropTypes.string,
+  onModalOpen: PropTypes.func,
   onSetLanguageEnglish: PropTypes.func,
   onSetLanguageKorean: PropTypes.func,
   onToggleAutoLaunch: PropTypes.func,
@@ -18,6 +20,7 @@ const defaultProps = {
   lang: 'English',
   isAutoLaunch: true,
   widgetMode: 'DESKTOP',
+  onModalOpen() {},
   onSetLanguageEnglish() {},
   onSetLanguageKorean() {},
   onToggleAutoLaunch() {},
@@ -28,6 +31,7 @@ class Setting extends React.Component {
   constructor(props) {
     super(props);
     this.handleChangeLanguage = this.handleChangeLanguage.bind(this);
+    this.handleOpenWidgetModeModal = this.handleOpenWidgetModeModal.bind(this);
   }
 
   handleChangeLanguage(e) {
@@ -41,6 +45,14 @@ class Setting extends React.Component {
     }
   }
 
+  handleOpenWidgetModeModal() {
+    const { onModalOpen, onToggleWidgetMode } = this.props;
+
+    onModalOpen(WidgetModeConfirm, {
+      onChangeMode: onToggleWidgetMode,
+    });
+  }
+
   render() {
     const text = i18n().preference;
     const {
@@ -48,7 +60,6 @@ class Setting extends React.Component {
       isAutoLaunch,
       widgetMode,
       onToggleAutoLaunch,
-      onToggleWidgetMode,
     } = this.props;
 
     return (
@@ -81,7 +92,7 @@ class Setting extends React.Component {
         <ul className="Setting__list-set">
           <li className="Setting__list">
             {text.defaultWidgetMode}
-            <select value={widgetMode} onChange={onToggleWidgetMode}>
+            <select value={widgetMode} onChange={this.handleOpenWidgetModeModal}>
               <option value="DESKTOP">{text.desktopMode}</option>
               <option value="MOBILE">{text.mobileMode}</option>
             </select>
