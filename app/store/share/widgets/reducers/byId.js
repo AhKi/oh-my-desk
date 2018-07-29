@@ -38,6 +38,7 @@ const byIdReducer = handleActions({
 
     return state.set(id, updatedInfo);
   },
+  [TYPES.SET_ALL_WIDGET_ISOPEN_FALSE]: state => state.map(item => item.set('isOpen', false)),
 }, initialState);
 
 export default byIdReducer;

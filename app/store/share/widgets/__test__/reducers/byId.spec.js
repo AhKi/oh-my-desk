@@ -150,4 +150,38 @@ describe('test widgets byId reducer', () => {
     expect(byId(initialState, widgetActions.updateTargetWidgetInfo(mockId, mockInfo)))
       .toEqual(nextState);
   });
+
+  it('should handle setAllWidgetIsOpenFalse', () => {
+    const initialState = Immutable.fromJS({
+      mock1: {
+        id: 'mock1',
+        isOpen: false,
+      },
+      mock2: {
+        id: 'mock2',
+        isOpen: true,
+      },
+      mock3: {
+        id: 'mock3',
+        isOpen: true,
+      },
+    });
+    const resultState = Immutable.fromJS({
+      mock1: {
+        id: 'mock1',
+        isOpen: false,
+      },
+      mock2: {
+        id: 'mock2',
+        isOpen: false,
+      },
+      mock3: {
+        id: 'mock3',
+        isOpen: false,
+      },
+    });
+
+    expect(byId(initialState, widgetActions.setAllWidgetIsOpenFalse()))
+      .toEqual(resultState);
+  });
 });

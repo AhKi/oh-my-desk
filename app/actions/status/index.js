@@ -63,6 +63,13 @@ export const toggleAutoLaunch =
     () => ({ category: CATEGORY.BROADCAST }),
   );
 
+export const toggleAutoActiveWidget =
+  createAction(
+    TYPES.TOGGLE_AUTO_ACTIVE_WIDGET,
+    () => {},
+    () => ({ category: CATEGORY.BROADCAST }),
+  );
+
 export const toggleWidgetMode =
   createAction(
     TYPES.TOGGLE_WIDGET_MODE,
