@@ -85,7 +85,6 @@ describe('test action about widget', () => {
       .toEqual(mockAction);
   });
 
-
   it('should handle updateTargetWidgetInfo', () => {
     const mockAction = {
       type: TYPES.UPDATE_TARGET_WIDGET_INFO,
@@ -97,6 +96,18 @@ describe('test action about widget', () => {
     };
 
     expect(actions.updateTargetWidgetInfo(mockId, mockInfo))
+      .toEqual(mockAction);
+  });
+
+  it('should handle setAllWidgetIsOpenFalse', () => {
+    const mockAction = {
+      type: TYPES.SET_ALL_WIDGET_ISOPEN_FALSE,
+      meta: {
+        category: CATEGORY.SELF,
+      },
+    };
+
+    expect(actions.setAllWidgetIsOpenFalse())
       .toEqual(mockAction);
   });
 });

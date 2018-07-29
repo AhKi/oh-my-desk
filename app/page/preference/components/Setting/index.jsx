@@ -7,22 +7,26 @@ import './Setting.scss';
 
 const propTypes = {
   lang: PropTypes.string,
+  isAutoActiveWidget: PropTypes.bool,
   isAutoLaunch: PropTypes.bool,
   widgetMode: PropTypes.string,
   onModalOpen: PropTypes.func,
   onSetLanguageEnglish: PropTypes.func,
   onSetLanguageKorean: PropTypes.func,
+  onToggleAutoActiveWidget: PropTypes.func,
   onToggleAutoLaunch: PropTypes.func,
   onToggleWidgetMode: PropTypes.func,
 };
 
 const defaultProps = {
   lang: 'English',
+  isAutoActiveWidget: true,
   isAutoLaunch: true,
   widgetMode: 'DESKTOP',
   onModalOpen() {},
   onSetLanguageEnglish() {},
   onSetLanguageKorean() {},
+  onToggleAutoActiveWidget() {},
   onToggleAutoLaunch() {},
   onToggleWidgetMode() {},
 };
@@ -57,8 +61,10 @@ class Setting extends React.Component {
     const text = i18n().preference;
     const {
       lang,
+      isAutoActiveWidget,
       isAutoLaunch,
       widgetMode,
+      onToggleAutoActiveWidget,
       onToggleAutoLaunch,
     } = this.props;
 
@@ -76,8 +82,8 @@ class Setting extends React.Component {
           <li className="Setting__list">
             {text.autoWidgetActive}
             <ToggleButton
-              isCheck={isAutoLaunch}
-              onToggle={onToggleAutoLaunch}
+              isCheck={isAutoActiveWidget}
+              onToggle={onToggleAutoActiveWidget}
             />
           </li>
           <li className="Setting__list">

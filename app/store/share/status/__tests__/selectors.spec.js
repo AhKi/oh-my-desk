@@ -41,6 +41,19 @@ describe('test status selectors', () => {
       .toEqual(false);
   });
 
+  it('should select autoActiveWidget', () => {
+    const initialState = Immutable.fromJS({
+      share: {
+        status: {
+          autoActiveWidget: false,
+        },
+      },
+    });
+
+    expect(selectors.autoActiveWidgetSelector(initialState))
+      .toEqual(false);
+  });
+
   it('should select widgetMode', () => {
     const initialState = Immutable.fromJS({
       share: {

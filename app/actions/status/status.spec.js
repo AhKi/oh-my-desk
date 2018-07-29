@@ -110,6 +110,17 @@ describe('test status action', () => {
     expect(actions.toggleAutoLaunch()).toEqual(mockAction);
   });
 
+  it('should handle toggleAutoActiveWidget', () => {
+    const mockAction = {
+      type: TYPES.TOGGLE_AUTO_ACTIVE_WIDGET,
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+    };
+
+    expect(actions.toggleAutoActiveWidget()).toEqual(mockAction);
+  });
+
   it('should handle toggleWidgetMode', () => {
     const mockAction = {
       type: TYPES.TOGGLE_WIDGET_MODE,
