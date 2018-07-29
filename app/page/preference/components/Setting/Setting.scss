@@ -1,0 +1,19 @@
+.Setting {
+  margin: 15px;
+}
+
+.Setting__title {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.Setting__list {
+  display: flex;
+  padding: 10px;
+  background: white;
+  font-size: 14px;
+}
+
+.Setting__list-set {
+  box-shadow: 1px 2px rgba(0, 0, 0, 0.2);
+}
