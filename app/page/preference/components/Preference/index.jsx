@@ -17,8 +17,8 @@ class Preference extends React.Component {
         <div className="Preference__Content">
           <Switch>
             <Route exact path="/" component={SettingContainer} />
-            <Route path="/hot-key" component={HotKey} />
             <Route path="/update" component={Update} />
+            <Route path="/hot-key" component={HotKey} />
             <Route path="/widget" component={Widget} />
           </Switch>
         </div>
