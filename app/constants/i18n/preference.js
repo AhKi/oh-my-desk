@@ -1,8 +1,10 @@
 export default {
   en: {
+    appVersion: 'App Version',
     autoStart: 'Launch oh-my-desk at login',
     autoWidgetActive: 'Active widget when start',
     changedCancel: 'Undo',
+    checkUpdate: 'Check Update',
     colorSpaceGray: 'Space Gray',
     defaultWidgetMode: 'Default Widget Mode',
     desktopMode: 'Desktop Mode',
@@ -20,9 +22,11 @@ export default {
     widgetModeConfirmContent: 'The window you are working on might not be saved.',
   },
   ko: {
+    appVersion: '앱 버전',
     autoStart: '윈도우 시작시 자동 실행',
     autoWidgetActive: '시작 시 위젯 활성화',
     changedCancel: '변경 취소',
+    checkUpdate: '업데이트 확인하기',
     colorSpaceGray: '스페이스 그레이',
     defaultWidgetMode: '기본 위젯 모드',
     desktopMode: '데스크탑 모드',
