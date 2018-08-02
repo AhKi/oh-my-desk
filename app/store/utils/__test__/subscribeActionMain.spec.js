@@ -1,6 +1,5 @@
 import Immutable from 'immutable';
 import { ipcMain } from 'electron';
-import * as controller from 'store/utils/controllers';
 import subscribeActionMain from '../subscribeActionMain';
 
 describe('test subscribeActionMain', () => {
@@ -12,7 +11,6 @@ describe('test subscribeActionMain', () => {
     const initialState = { mock: 'initial' };
     const nextState = { mock: 'next' };
     const payload = 'mock-payload';
-    controller.default = jest.fn();
 
     store.getState.mockReturnValueOnce(initialState);
     store.getState.mockReturnValueOnce(nextState);
@@ -31,9 +29,6 @@ describe('test subscribeActionMain', () => {
 
       expect(store.dispatch).toHaveBeenCalledTimes(1);
       expect(store.dispatch).toHaveBeenCalledWith(payload);
-
-      expect(controller.default).toHaveBeenCalledTimes(1);
-      expect(controller.default).toHaveBeenCalledWith(payload, initialState, nextState);
     });
   });
 

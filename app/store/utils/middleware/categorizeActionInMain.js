@@ -2,6 +2,7 @@ import { webContents } from 'electron';
 import { isFSA } from 'flux-standard-action';
 import * as CATEGORY from 'actions/category';
 import { windowByIdSelector } from 'store/personal/selectors';
+import controller from 'store/utils/controllers';
 
 // TODO Add link about action categorizing docs
 /**
@@ -10,9 +11,15 @@ import { windowByIdSelector } from 'store/personal/selectors';
  * This is used in middleware redux.
  */
 const categorizeActionInMain = store => next => (action) => {
+  const controllerWrapper = (value) => {
+    controller(action, store.getState());
+
+    return value;
+  };
+
   if (!isFSA(action)) {
     // if action is not FSA, do not broadcast to renderer processes.
-    return next(action);
+    return controllerWrapper(next(action));
   }
 
   const { meta } = action;
@@ -22,7 +29,7 @@ const categorizeActionInMain = store => next => (action) => {
    * if category is SELF, dispatch action without transmit another process
    */
   if (category === CATEGORY.SELF) {
-    return next(action);
+    return controllerWrapper(next(action));
   }
 
   /**
@@ -30,7 +37,7 @@ const categorizeActionInMain = store => next => (action) => {
    */
   if (category === CATEGORY.BROADCAST) {
     if (meta.transmitted) {
-      return next(action);
+      return controllerWrapper(next(action));
     }
 
     const broadcastAction = {
@@ -47,7 +54,7 @@ const categorizeActionInMain = store => next => (action) => {
       contents => contents.send('redux-action', broadcastAction),
     );
 
-    return next(action);
+    return controllerWrapper(next(action));
   }
 
   /**
@@ -56,7 +63,7 @@ const categorizeActionInMain = store => next => (action) => {
    */
   if (category === CATEGORY.TARGET) {
     if (meta.transmitted) {
-      return next(action);
+      return controllerWrapper(next(action));
     }
 
     const { target } = meta;
@@ -81,14 +88,14 @@ const categorizeActionInMain = store => next => (action) => {
       win.webContents.send('redux-action', targetAction);
     });
 
-    return meta.self || meta.containMain ? next(action) : null;
+    return (meta.self || meta.containMain) ? controllerWrapper(next(action)) : null;
   }
 
   /**
    * If don't exist category or don't match category, it may be wrong action.
    * But, just dispatch like self category and plain redux aciton.
    */
-  return next(action);
+  return controllerWrapper(next(action));
 };
 
 export default categorizeActionInMain;
