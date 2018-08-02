@@ -1,0 +1,53 @@
+.UpdateProgress {
+  height: 100%;
+}
+
+.UpdateProgress__title {
+  background-color: rgb(227,227,227);
+  height: 21px;
+  text-align: center;
+  line-height: 190%;
+  font-size: 11px;
+  -webkit-app-region: drag;
+}
+
+.UpdateProgress__content {
+  padding: 20px 30px 20px 30px;
+  background-color: rgb(235, 237, 241);
+  height: 100%;
+}
+.UpdateProgress__logo {
+  float: left;
+  height: 60px;
+  margin-right: 10px;
+}
+
+.UpdateProgress__notice {
+  font-size: 13px;
+  margin: 5px;
+}
+
+.UpdateProgress__progress-bar {
+  float: left;
+  width: 350px;
+  height: 8px;
+  margin: 5px;
+  background-color: rgb(210, 210, 210);
+  border-radius: 25px;
+}
+
+.UpdateProgress__progress-bar-gauge {
+  height: 100%;
+  width: 0;
+  background-color: dodgerblue;
+}
+
+.UpdateProgress__progress-rate {
+  font-size: 12px;
+}
+
+.UpdateProgress__btn {
+  float: right;
+  font-size: 12px;
+  padding: 3px;
+}
