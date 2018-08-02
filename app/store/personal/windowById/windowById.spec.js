@@ -1,6 +1,8 @@
 import Immutable from 'immutable';
 import { BrowserWindow } from 'electron';
 import * as actions from 'actions/status';
+import * as updateActions from 'actions/update';
+import * as widgetActions from 'actions/widget';
 import windowById from '.';
 
 describe('test windowById reducer', () => {
@@ -34,32 +36,49 @@ describe('test windowById reducer', () => {
     });
   });
 
-  it('should handle closeBrowserWindow', () => {
+  it('should handle updateProgressWindowOpen', () => {
     const mockId = 'mock-id';
     const mockWin = new BrowserWindow();
-    const mockInitial = Immutable.Map({
+    const mockResult = Immutable.Map({
       [mockId]: mockWin,
     });
 
-    expect(windowById(mockInitial, actions.closeBrowserWindow(mockId)))
-      .toEqual(Immutable.Map({}));
+    expect(windowById(undefined, updateActions.updateProgressWindowOpen(mockId, mockWin)))
+      .toEqual(mockResult);
   });
 
-  describe('should handle closePreference', () => {
+  describe('test when close window in windowById', () => {
     const mockId = 'mock-id';
     const mockWin = new BrowserWindow();
     const mockInitial = Immutable.Map({
       [mockId]: mockWin,
     });
 
-    it('when exist payload.id', () => {
+    it('should handle closeBrowserWindow', () => {
       expect(windowById(mockInitial, actions.closeBrowserWindow(mockId)))
         .toEqual(Immutable.Map({}));
     });
 
-    it('when don\'t exist payload.id', () => {
-      expect(windowById(mockInitial, actions.closeBrowserWindow()))
-        .toEqual(mockInitial);
+    it('should handle closeTargetWidget', () => {
+      expect(windowById(mockInitial, widgetActions.closeTargetWidget(mockId)))
+        .toEqual(Immutable.Map({}));
+    });
+
+    it('should handle updateProgressWindowClose', () => {
+      expect(windowById(mockInitial, updateActions.updateProgressWindowClose(mockId)))
+        .toEqual(Immutable.Map({}));
+    });
+
+    describe('should handle closePreference', () => {
+      it('when exist payload.id', () => {
+        expect(windowById(mockInitial, actions.closeBrowserWindow(mockId)))
+          .toEqual(Immutable.Map({}));
+      });
+
+      it('when don\'t exist payload.id', () => {
+        expect(windowById(mockInitial, actions.closeBrowserWindow()))
+          .toEqual(mockInitial);
+      });
     });
   });
 });

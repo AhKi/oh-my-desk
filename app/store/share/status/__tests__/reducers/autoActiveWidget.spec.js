@@ -1,7 +1,7 @@
 import * as statusActions from 'actions/status';
 import autoActiveWidget from '../../reducers/autoActiveWidget';
 
-describe('test autoActiveWidget reducer', () => {
+describe('test autoLaunch reducer', () => {
   const initialState = true;
 
   it('should test initialState', () => {
