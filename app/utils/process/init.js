@@ -1,11 +1,11 @@
 import { app, globalShortcut } from 'electron';
 import autoLaunch from 'utils/autoLaunch';
+import autoUpdateConfig from 'utils/process/update/autoUpdateConfig';
 import createMenu from 'utils/process/createMenu';
 import openAllWidgetStatusOpen from 'utils/process/openAllWidgetStatusOpen';
 import store from 'store/storeMain';
 import subscribeActionMain from 'store/utils/subscribeActionMain';
 import TrayMenuBar from 'utils/process/trayMenuBar';
-import autoUpdateConfig from 'utils/process/update/autoUpdateConfig';
 import { setInitialStore } from 'actions/status';
 
 function init() {
