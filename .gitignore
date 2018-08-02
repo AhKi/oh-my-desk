@@ -11,3 +11,6 @@ build/**
 .DS_store
 *.log
 main.prod.js
+
+keyChain/
+release.sh
