@@ -2,19 +2,33 @@ import { BrowserWindow, webContents } from 'electron';
 import Immutable from 'immutable';
 import configureStore from 'redux-mock-store';
 import * as CATEGORY from 'actions/category';
+import controllers from 'store/utils/controllers';
 import categorizeActionInMain from '../categorizeActionInMain';
+
+jest.mock('store/utils/controllers');
 
 describe('test categorizeActionInMain', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
   const next = jest.fn();
+  const mockState = Immutable.Map({
+    a: 'aa',
+    b: 'bb',
+  });
+  const store = {
+    getState: jest.fn(() => mockState),
+  };
 
   it('when action is not FSA', () => {
     const mockAction = () => {};
 
-    categorizeActionInMain()(next)(mockAction);
+    categorizeActionInMain(store)(next)(mockAction);
 
+    expect(controllers).toHaveBeenCalledTimes(1);
+    expect(controllers).toHaveBeenCalledWith(mockAction, mockState);
+    expect(store.getState).toHaveBeenCalledTimes(1);
+    expect(store.getState).toHaveBeenCalledWith();
     expect(next).toHaveBeenCalledTimes(1);
     expect(next).toHaveBeenCalledWith(mockAction);
   });
@@ -24,8 +38,12 @@ describe('test categorizeActionInMain', () => {
       type: 'SOME_TYPE',
     };
 
-    categorizeActionInMain()(next)(mockAction);
+    categorizeActionInMain(store)(next)(mockAction);
 
+    expect(controllers).toHaveBeenCalledTimes(1);
+    expect(controllers).toHaveBeenCalledWith(mockAction, mockState);
+    expect(store.getState).toHaveBeenCalledTimes(1);
+    expect(store.getState).toHaveBeenCalledWith();
     expect(next).toHaveBeenCalledTimes(1);
     expect(next).toHaveBeenCalledWith(mockAction);
   });
@@ -39,8 +57,12 @@ describe('test categorizeActionInMain', () => {
         },
       };
 
-      categorizeActionInMain()(next)(mockAction);
+      categorizeActionInMain(store)(next)(mockAction);
 
+      expect(controllers).toHaveBeenCalledTimes(1);
+      expect(controllers).toHaveBeenCalledWith(mockAction, mockState);
+      expect(store.getState).toHaveBeenCalledTimes(1);
+      expect(store.getState).toHaveBeenCalledWith();
       expect(next).toHaveBeenCalledTimes(1);
       expect(next).toHaveBeenCalledWith(mockAction);
     });
@@ -57,8 +79,12 @@ describe('test categorizeActionInMain', () => {
             transmitted: true,
           },
         };
-        categorizeActionInMain()(next)(mockAction);
+        categorizeActionInMain(store)(next)(mockAction);
 
+        expect(controllers).toHaveBeenCalledTimes(1);
+        expect(controllers).toHaveBeenCalledWith(mockAction, mockState);
+        expect(store.getState).toHaveBeenCalledTimes(1);
+        expect(store.getState).toHaveBeenCalledWith();
         expect(next).toHaveBeenCalledTimes(1);
         expect(next).toHaveBeenCalledWith(mockAction);
         expect(send).toHaveBeenCalledTimes(0);
@@ -79,8 +105,12 @@ describe('test categorizeActionInMain', () => {
           },
         };
 
-        categorizeActionInMain()(next)(mockAction);
+        categorizeActionInMain(store)(next)(mockAction);
 
+        expect(controllers).toHaveBeenCalledTimes(1);
+        expect(controllers).toHaveBeenCalledWith(mockAction, mockState);
+        expect(store.getState).toHaveBeenCalledTimes(1);
+        expect(store.getState).toHaveBeenCalledWith();
         expect(next).toHaveBeenCalledTimes(1);
         expect(next).toHaveBeenCalledWith(mockAction);
         expect(send).toHaveBeenCalledTimes(2);
@@ -100,8 +130,12 @@ describe('test categorizeActionInMain', () => {
             transmitted: true,
           },
         };
-        categorizeActionInMain()(next)(mockAction);
+        categorizeActionInMain(store)(next)(mockAction);
 
+        expect(controllers).toHaveBeenCalledTimes(1);
+        expect(controllers).toHaveBeenCalledWith(mockAction, mockState);
+        expect(store.getState).toHaveBeenCalledTimes(1);
+        expect(store.getState).toHaveBeenCalledWith();
         expect(next).toHaveBeenCalledTimes(1);
         expect(next).toHaveBeenCalledWith(mockAction);
       });
@@ -118,7 +152,7 @@ describe('test categorizeActionInMain', () => {
           }),
         });
         const mockStore = configureStore();
-        const store = mockStore(initialState);
+        const storeMock = mockStore(initialState);
 
         it('basic test', () => {
           const mockAction = {
@@ -137,7 +171,7 @@ describe('test categorizeActionInMain', () => {
             },
           };
 
-          categorizeActionInMain(store)(next)(mockAction);
+          categorizeActionInMain(storeMock)(next)(mockAction);
 
           expect(mockWindow.webContents.send).toHaveBeenCalledTimes(2);
           expect(mockWindow.webContents.send).toHaveBeenCalledWith(
@@ -154,7 +188,7 @@ describe('test categorizeActionInMain', () => {
             },
           };
 
-          categorizeActionInMain(store)(next)(mockAction);
+          categorizeActionInMain(storeMock)(next)(mockAction);
 
           expect(mockWindow.webContents.send).toHaveBeenCalledTimes(0);
         });
@@ -169,7 +203,7 @@ describe('test categorizeActionInMain', () => {
             },
           };
 
-          categorizeActionInMain(store)(next)(mockAction);
+          categorizeActionInMain(storeMock)(next)(mockAction);
           expect(next).toHaveBeenCalledTimes(1);
           expect(next).toHaveBeenCalledWith(mockAction);
         });
@@ -184,7 +218,7 @@ describe('test categorizeActionInMain', () => {
             },
           };
 
-          categorizeActionInMain(store)(next)(mockAction);
+          categorizeActionInMain(storeMock)(next)(mockAction);
           expect(next).toHaveBeenCalledTimes(1);
           expect(next).toHaveBeenCalledWith(mockAction);
         });
@@ -199,7 +233,7 @@ describe('test categorizeActionInMain', () => {
             },
           };
 
-          categorizeActionInMain(store)(next)(mockAction);
+          categorizeActionInMain(storeMock)(next)(mockAction);
           expect(next).toHaveBeenCalledTimes(0);
         });
       });
