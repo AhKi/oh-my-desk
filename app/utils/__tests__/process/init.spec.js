@@ -1,5 +1,6 @@
 import { app, remote, globalShortcut } from 'electron';
 import autoLaunch from 'utils/autoLaunch';
+import autoUpdateConfig from 'utils/process/update/autoUpdateConfig';
 import createMenu from 'utils/process/createMenu';
 import openAllWidgetStatusOpen from 'utils/process/openAllWidgetStatusOpen';
 import store from 'store/storeMain';
@@ -9,6 +10,7 @@ import TrayMenuBar from 'utils/process/trayMenuBar';
 import init from '../../process/init';
 
 jest.mock('utils/autoLaunch');
+jest.mock('utils/process/update/autoUpdateConfig');
 jest.mock('utils/process/createMenu');
 jest.mock('utils/process/openAllWidgetStatusOpen');
 jest.mock('store/utils/subscribeActionMain');
@@ -23,6 +25,9 @@ describe('test init function', () => {
     expect(subscribeActionMain).toHaveBeenCalledTimes(1);
     expect(subscribeActionMain).toHaveBeenCalledWith(store);
     expect(autoLaunch).toHaveBeenCalledTimes(1);
+    expect(autoLaunch).toHaveBeenCalledWith();
+    expect(autoUpdateConfig).toHaveBeenCalledTimes(1);
+    expect(autoUpdateConfig).toHaveBeenCalledWith();
     expect(createMenu).toHaveBeenCalledTimes(1);
     expect(globalShortcut.register).toHaveBeenCalledTimes(1);
     expect(openAllWidgetStatusOpen).toHaveBeenCalledTimes(1);
