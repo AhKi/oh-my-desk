@@ -77,6 +77,13 @@ export const toggleWidgetMode =
     () => ({ category: CATEGORY.BROADCAST }),
   );
 
+export const setInitialStore =
+  createAction(
+    TYPES.SET_INITIAL_STORE,
+    () => {},
+    () => ({ category: CATEGORY.BROADCAST }),
+  );
+
 export const {
   trayWindowOpen,
   trayWindowClose,
