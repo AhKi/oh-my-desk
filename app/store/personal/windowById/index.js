@@ -18,10 +18,16 @@ const windowByIdReducer = handleActions({
 
     return state.set(id, browserWindow);
   },
+  [TYPES.UPDATE_PROGRESS_WINDOW_OPEN]: (state, action) => {
+    const { id, win } = action.payload;
+
+    return state.set(id, win);
+  },
   [combineActions(
     TYPES.CLOSE_BROWSER_WINDOW,
     TYPES.CLOSE_TARGET_WIDGET,
     TYPES.CLOSE_PREFERENCE,
+    TYPES.UPDATE_PROGRESS_WINDOW_CLOSE,
   )]: (state, action) => {
     const { id } = action.payload;
 

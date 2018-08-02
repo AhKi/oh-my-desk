@@ -1,0 +1,28 @@
+export default {
+  en: {
+    autoUpdater: 'Automatically download and install updates in the future',
+    cancel: 'Cancel',
+    install: 'Install Update',
+    downloading: 'is Downloading',
+    downloadNotice: 'is Downloading.',
+    remindLater: 'Remind Me Later',
+    restart: 'Restart after completion',
+    skipVersion: 'Skip This Version',
+    update: 'update',
+    updateContent: 'Update Content',
+    updateNotice: 'A new version of Oh My Desk is available!',
+  },
+  ko: {
+    autoUpdater: '앞으로는 자동으로 업데이트 다운로드 후 설치',
+    cancel: '취소',
+    downloading: '다운로드 중',
+    downloadNotice: '을 다운로드 중 입니다.',
+    install: '업데이트 설치',
+    remindLater: '나중에 알림',
+    restart: '완료 후 재실행',
+    skipVersion: '이 버전 건너뛰기',
+    update: '업데이트',
+    updateContent: '업데이트 내용',
+    updateNotice: 'Oh My Desk의 새 버전을 사용 할 수 있습니다!',
+  },
+};
