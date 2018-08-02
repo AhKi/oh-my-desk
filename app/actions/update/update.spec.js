@@ -134,6 +134,21 @@ describe('test update action', () => {
       .toEqual(mockAction);
   });
 
+  it('should handle updateSetAutoCheckUpdate', () => {
+    const mockAction = {
+      type: TYPES.UPDATE_SET_AUTO_CHECK_UPDATE,
+      payload: {
+        isAutoCheckUpdate: true,
+      },
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+    };
+
+    expect(actions.updateSetAutoCheckUpdate(true))
+      .toEqual(mockAction);
+  });
+
   it('should handle updateSetAutoUpdate', () => {
     const mockAction = {
       type: TYPES.UPDATE_SET_AUTO_UPDATE,
