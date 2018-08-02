@@ -4,6 +4,7 @@ import contextMenu from './contextMenu';
 import menu from './menu';
 import preference from './preference';
 import search from './search';
+import update from './update';
 
 const getMatchedText = () => { // eslint-disable-line consistent-return
   let store;
@@ -23,6 +24,7 @@ const getMatchedText = () => { // eslint-disable-line consistent-return
       menu: menu.en,
       search: search.en,
       preference: preference.en,
+      update: update.en,
     };
   }
 
@@ -32,6 +34,7 @@ const getMatchedText = () => { // eslint-disable-line consistent-return
       menu: menu.ko,
       search: search.ko,
       preference: preference.ko,
+      update: update.ko,
     };
   }
 };

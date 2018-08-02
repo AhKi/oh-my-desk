@@ -1,21 +1,42 @@
 import React from 'react';
 import { remote, shell } from 'electron';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import i18n from 'constants/i18n';
 import './Update.scss';
 
-const propTypes = {};
-const defaultProps = {};
+const propTypes = {
+  isCheckFetch: PropTypes.bool,
+  onUpdateCheck: PropTypes.func,
+};
+const defaultProps = {
+  isCheckFetch: false,
+  onUpdateCheck() {},
+};
 
 class Update extends React.Component {
   static handleOpenLink() {
     shell.openExternal('https://github.com/AhKi/oh-my-desk');
   }
 
+  constructor(props) {
+    super(props);
+    this.handleUpdateCheck = this.handleUpdateCheck.bind(this);
+  }
+
+  handleUpdateCheck() {
+    const { isCheckFetch, onUpdateCheck } = this.props;
+
+    if (!isCheckFetch) {
+      onUpdateCheck();
+    }
+  }
+
+
   render() {
     const text = i18n().preference;
     const appName = remote.app.getName();
     const appVersion = remote.app.getVersion();
+    const { isCheckFetch } = this.props;
 
     return (
       <div className="Update">
@@ -29,9 +50,11 @@ class Update extends React.Component {
         </button>
         <button
           className="Btn--gray"
+          disabled={isCheckFetch}
           type="button"
+          onClick={this.handleUpdateCheck}
         >
-          {text.checkUpdate}
+          {isCheckFetch ? text.checkingUpdate : text.checkUpdate}
         </button>
       </div>
     );
