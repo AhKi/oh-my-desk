@@ -1,5 +1,4 @@
 import { remote } from 'electron';
-import storeMain from 'store/storeMain';
 import { langSelector } from 'store/share/status/selectors';
 import contextMenu from './contextMenu';
 import menu from './menu';
@@ -10,6 +9,7 @@ const getMatchedText = () => { // eslint-disable-line consistent-return
   let store;
   let lang;
   if (!remote) {
+    const storeMain = require('store/storeMain').default; // eslint-disable-line global-require
     store = storeMain.getState();
     lang = langSelector(store);
   } else {
