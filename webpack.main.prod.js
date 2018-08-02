@@ -34,7 +34,6 @@ module.exports = {
     ],
   },
   target: 'electron-main',
-  // mode: 'production',
   mode: 'production',
   resolve: {
     alias: basic.resolve.alias,

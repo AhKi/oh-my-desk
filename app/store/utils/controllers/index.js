@@ -3,7 +3,7 @@ import preferenceController from './preference';
 import searchController from './search';
 import widgetController from './widget';
 
-const controller = (action, prevState, nextState) => rootController(action, prevState, nextState, {
+const controller = (action, prevState) => rootController(action, prevState, {
   preferenceController,
   searchController,
   widgetController,

@@ -4,7 +4,6 @@ import Immutable from 'immutable';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import getStoredDataInDisk from 'utils/getStoredDataInDisk';
 import rootReducer from './rootReducer';
-import categorizeActionInMain from './utils/middleware/categorizeActionInMain';
 import categorizeActionInRenderer from './utils/middleware/categorizeActionInRenderer';
 
 
@@ -12,6 +11,8 @@ const MAIN = 'MAIN';
 const store = (scope) => {
   // TODO need verification when use another middleware synchronously
   if (scope === MAIN) {
+    const categorizeActionInMain =
+      require('./utils/middleware/categorizeActionInMain').default; // eslint-disable-line global-require
     const storedData = getStoredDataInDisk();
 
     return createStore(
