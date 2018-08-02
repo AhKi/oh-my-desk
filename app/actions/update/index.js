@@ -74,8 +74,8 @@ export const {
     }),
   ],
   [TYPES.UPDATE_SET_AUTO_CHECK_UPDATE]: [
-    () => {},
-    () => {},
+    isAutoCheckUpdate => ({ isAutoCheckUpdate }),
+    () => ({ category: CATEGORY.BROADCAST }),
   ],
   [TYPES.UPDATE_SET_AUTO_UPDATE]: [
     isAutoUpdate => ({ isAutoUpdate }),

@@ -7,7 +7,7 @@ const currentProgressReducer = handleActions({
   [TYPES.UPDATE_DOWNLOAD_PROGRESS]: (state, action) => {
     const { downloadObj } = action.payload;
 
-    return (downloadObj.transferred / 1000000).toFixed(1);
+    return Number((downloadObj.transferred / 1000000).toFixed(1));
   },
   [combineActions(
     TYPES.SET_INITIAL_STORE,
