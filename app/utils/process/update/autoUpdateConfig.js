@@ -18,10 +18,8 @@ import openUpdateWindow from 'utils/process/update/openUpdateWindow';
 
 
 function autoUpdateConfig() {
-  const state = store.getState();
-  const isAutoUpdate = isAutoUpdateSelector(state);
-  const isAutoCheckUpdate = isAutoCheckUpdateSelector(state);
-  const isUpdateCheckOnManual = isUpdateCheckOnManualSelector(state);
+  const isAutoUpdate = isAutoUpdateSelector(store.getState());
+  const isAutoCheckUpdate = isAutoCheckUpdateSelector(store.getState());
 
   autoUpdater.autoDownload = false;
   autoUpdater.autoInstallOnAppQuit = true;
@@ -32,8 +30,9 @@ function autoUpdateConfig() {
   });
 
   autoUpdater.on('update-available', (updateInfo) => {
-    const skipVersion = skipVersionSelector(state);
+    const skipVersion = skipVersionSelector(store.getState());
     const nextVersion = updateInfo.version;
+    const isUpdateCheckOnManual = isUpdateCheckOnManualSelector(store.getState());
 
     if (isUpdateCheckOnManual) {
       openUpdateWindow();
@@ -46,12 +45,12 @@ function autoUpdateConfig() {
 
   autoUpdater.setFeedURL({
     provider: 'github',
-    owner: 'ahki',
+    owner: 'hyunmoahn',
     protocol: 'https',
     repo: 'oh-my-desk',
   });
 
-  const isInstalling = isRestartAfterUpdateSelector(state);
+  const isInstalling = isRestartAfterUpdateSelector(store.getState());
   if (!isInstalling) {
     if (isAutoUpdate || isAutoCheckUpdate) {
       store.dispatch(updateCheckRequest());
