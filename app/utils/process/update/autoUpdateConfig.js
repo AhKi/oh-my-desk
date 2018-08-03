@@ -45,7 +45,7 @@ function autoUpdateConfig() {
 
   autoUpdater.setFeedURL({
     provider: 'github',
-    owner: 'hyunmoahn',
+    owner: 'ahki',
     protocol: 'https',
     repo: 'oh-my-desk',
   });
