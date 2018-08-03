@@ -4,10 +4,15 @@ import * as CATEGORY from '../category';
 
 export const {
   updateCheckRequest,
+  updateCheckRequestOnManual,
   updateCheckSuccess,
   updateCheckFailure,
 } = createActions({
   [TYPES.UPDATE_CHECK_REQUEST]: [
+    () => {},
+    () => ({ category: CATEGORY.BROADCAST }),
+  ],
+  [TYPES.UPDATE_CHECK_REQUEST_ON_MANUAL]: [
     () => {},
     () => ({ category: CATEGORY.BROADCAST }),
   ],
