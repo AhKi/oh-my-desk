@@ -5,6 +5,7 @@ import isAutoCheckUpdate from './isAutoCheckUpdate';
 import isCheckFetch from './isCheckFetch';
 import isDownloadFetch from './isDownloadFetch';
 import isRestartAfterUpdate from './isRestartAfterUpdate';
+import isUpdateCheckOnManual from './isUpdateCheckOnManual';
 import newVersion from './newVersion';
 import progressWindowId from './progressWindowId';
 import releaseNotes from './releaseNotes';
@@ -18,6 +19,7 @@ const updateReducer = combineReducers({
   isCheckFetch,
   isDownloadFetch,
   isRestartAfterUpdate,
+  isUpdateCheckOnManual,
   newVersion,
   progressWindowId,
   releaseNotes,
