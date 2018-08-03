@@ -12,6 +12,7 @@ import {
   isAutoUpdateSelector,
   isAutoCheckUpdateSelector,
   isRestartAfterUpdateSelector,
+  isUpdateCheckOnManualSelector,
 } from 'store/share/update/selectors';
 import openUpdateWindow from 'utils/process/update/openUpdateWindow';
 
@@ -20,6 +21,7 @@ function autoUpdateConfig() {
   const state = store.getState();
   const isAutoUpdate = isAutoUpdateSelector(state);
   const isAutoCheckUpdate = isAutoCheckUpdateSelector(state);
+  const isUpdateCheckOnManual = isUpdateCheckOnManualSelector(state);
 
   autoUpdater.autoDownload = false;
   autoUpdater.autoInstallOnAppQuit = true;
@@ -33,18 +35,18 @@ function autoUpdateConfig() {
     const skipVersion = skipVersionSelector(state);
     const nextVersion = updateInfo.version;
 
-    if (isAutoUpdate) {
+    if (isUpdateCheckOnManual) {
+      openUpdateWindow();
+    } else if (isAutoUpdate) {
       store.dispatch(updateDownloadRequest());
-    } else if (!isAutoCheckUpdate || (
-      isAutoCheckUpdate && skipVersion !== nextVersion)
-    ) {
+    } else if (skipVersion !== nextVersion) {
       openUpdateWindow();
     }
   });
 
   autoUpdater.setFeedURL({
     provider: 'github',
-    owner: 'hyunmoahn',
+    owner: 'ahki',
     protocol: 'https',
     repo: 'oh-my-desk',
   });
