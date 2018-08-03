@@ -14,6 +14,11 @@ describe('test isCheckFetch reducer', () => {
       .toBe(true);
   });
 
+  it('should handle updateCheckRequestOnManual', () => {
+    expect(isCheckFetch(false, actions.updateCheckRequestOnManual()))
+      .toBe(true);
+  });
+
   it('should handle updateCheckSuccess', () => {
     expect(isCheckFetch(true, actions.updateCheckSuccess()))
       .toBe(false);
