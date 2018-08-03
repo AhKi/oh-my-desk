@@ -3,11 +3,8 @@ import * as TYPES from 'actions/actionTypes';
 
 const initialState = false;
 
-const isCheckFetchReducer = handleActions({
-  [combineActions(
-    TYPES.UPDATE_CHECK_REQUEST,
-    TYPES.UPDATE_CHECK_REQUEST_ON_MANUAL,
-  )]: () => true,
+const isUpdateCheckOnManualReducer = handleActions({
+  [TYPES.UPDATE_CHECK_REQUEST_ON_MANUAL]: () => true,
   [combineActions(
     TYPES.UPDATE_CHECK_FAILURE,
     TYPES.UPDATE_CHECK_SUCCESS,
@@ -15,4 +12,4 @@ const isCheckFetchReducer = handleActions({
   )]: () => false,
 }, initialState);
 
-export default isCheckFetchReducer;
+export default isUpdateCheckOnManualReducer;

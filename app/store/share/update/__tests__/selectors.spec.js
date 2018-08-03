@@ -41,6 +41,20 @@ describe('test update selectors', () => {
       .toEqual(false);
   });
 
+
+  it('should select isUpdateCheckOnManual', () => {
+    const initialState = Immutable.fromJS({
+      share: {
+        update: {
+          isUpdateCheckOnManual: false,
+        },
+      },
+    });
+
+    expect(selectors.isUpdateCheckOnManualSelector(initialState))
+      .toEqual(false);
+  });
+
   it('should select isCheckFetch', () => {
     const initialState = Immutable.fromJS({
       share: {

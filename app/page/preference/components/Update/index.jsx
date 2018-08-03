@@ -6,11 +6,11 @@ import './Update.scss';
 
 const propTypes = {
   isCheckFetch: PropTypes.bool,
-  onUpdateCheck: PropTypes.func,
+  onUpdateCheckOnManual: PropTypes.func,
 };
 const defaultProps = {
   isCheckFetch: false,
-  onUpdateCheck() {},
+  onUpdateCheckOnManual() {},
 };
 
 class Update extends React.Component {
@@ -24,10 +24,10 @@ class Update extends React.Component {
   }
 
   handleUpdateCheck() {
-    const { isCheckFetch, onUpdateCheck } = this.props;
+    const { isCheckFetch, onUpdateCheckOnManual } = this.props;
 
     if (!isCheckFetch) {
-      onUpdateCheck();
+      onUpdateCheckOnManual();
     }
   }
 

@@ -36,6 +36,11 @@ export const isRestartAfterUpdateSelector = createSelector(
   update => update.get('isRestartAfterUpdate'),
 );
 
+export const isUpdateCheckOnManualSelector = createSelector(
+  updateSelector,
+  update => update.get('isUpdateCheckOnManual'),
+);
+
 export const newVersionSelector = createSelector(
   updateSelector,
   update => update.get('newVersion'),

@@ -31,7 +31,8 @@ const preferenceController = (action) => {
       createMenu();
       break;
     }
-    case TYPES.UPDATE_CHECK_REQUEST: {
+    case TYPES.UPDATE_CHECK_REQUEST:
+    case TYPES.UPDATE_CHECK_REQUEST_ON_MANUAL: {
       autoUpdater.checkForUpdates()
         .then((data) => {
           const { version: nextVersion, releaseNotes } = data.updateInfo;

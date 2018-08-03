@@ -16,6 +16,18 @@ describe('test update action', () => {
       .toEqual(mockAction);
   });
 
+  it('should handle updateCheckRequestOnManual', () => {
+    const mockAction = {
+      type: TYPES.UPDATE_CHECK_REQUEST_ON_MANUAL,
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+    };
+
+    expect(actions.updateCheckRequestOnManual())
+      .toEqual(mockAction);
+  });
+
   it('should handle updateCheckSuccess', () => {
     const mockAction = {
       type: TYPES.UPDATE_CHECK_SUCCESS,
