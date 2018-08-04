@@ -1,0 +1,21 @@
+import { connect } from 'react-redux';
+import toJS from 'utils/toJS';
+import { getIndividualInfo } from 'store/share/widgets/selectors';
+import { widgetModeSelector } from 'store/share/status/selectors';
+import { updateTargetWidgetInfo } from 'actions/widget';
+import { openPreference } from 'actions/status';
+import { modalOpen } from 'actions/modal';
+import WebWidget from '../components/WebWidget';
+
+const mapStateToProps = state => ({
+  widget: getIndividualInfo(state),
+  defaultMode: widgetModeSelector(state),
+});
+
+const mapDispatchToProps = {
+  onUpdateInfo: updateTargetWidgetInfo,
+  onOpenPreference: openPreference,
+  onOpenModal: modalOpen,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(toJS(WebWidget));
