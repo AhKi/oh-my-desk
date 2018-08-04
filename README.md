@@ -3,7 +3,8 @@
 it is using web page as a widget that desktop application.
 
 ## OverView
-![oh-my-desk overview](https://user-images.githubusercontent.com/23732795/36644082-6c464232-1a98-11e8-8f8e-2de8c14b8cdf.png)
+![oh-my-desk preference](https://user-images.githubusercontent.com/23732795/43676963-88ff653c-9835-11e8-9085-e4fd1ffc1097.png)
+![oh-my-desk widget](https://user-images.githubusercontent.com/23732795/43676972-9a34881e-9835-11e8-8bf2-adbe0ae48030.png)
 
 ## Getting Started 
 
@@ -15,7 +16,6 @@ you must install package manager like [npm](https://www.npmjs.com/) or [yarn](ht
 git clone https://github.com/AhKi/oh-my-desk.git
 cd oh-my-desk
 npm install && npm run build // when using npm
-yarn && yarn build // when using yarn
 ```
 open `Window Explorer`(or `Finder` in mac).
 execute `.exe` or `.dmg` file and install.
@@ -25,30 +25,20 @@ execute `.exe` or `.dmg` file and install.
 ```
 git clone https://github.com/AhKi/oh-my-desk.git
 cd oh-my-desk
-npm install && npm run start // when using npm 
-yarn && yarn start // when using 
+npm install && npm run start // when using npm
 ```
 
 **Show test coverage**
 
 ```
-// when using npm 
 npm install
 npm run test:coverage
-npm run coverage 
-// when using yarn
-yarn
-yarn test:coverage
-yarn coverage 
+npm run coverage
 ```
 
 ## Documentation
 
 we manage document in this repository [wiki](https://github.com/AhKi/oh-my-desk/wiki)
-
-## Road Map
-We have RoadMap about this project.
-show this [RoadMap](https://github.com/AhKi/oh-my-desk/wiki/Road-Map)
 
 ## Contributing
 
