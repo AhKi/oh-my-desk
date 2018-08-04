@@ -9,6 +9,10 @@ export default {
     selectAll: 'Select All',
     copyUrl: 'Copy Current URL',
     openBrowser: 'Open Browser',
+    openWidget: 'Open Widget',
+    moveBrowser: 'Move',
+    openNewBrowser: 'Open with a new browser',
+    openNewWidget: 'Open with a new widget',
   },
   ko: {
     back: '뒤로',
@@ -20,5 +24,9 @@ export default {
     selectAll: '모두선택',
     copyUrl: '현재 주소 복사',
     openBrowser: '현재 주소로 브라우저 열기',
+    openWidget: '현재 주소로 위젯 만들기',
+    moveBrowser: '이동',
+    openNewBrowser: '새 브라우저로 열기',
+    openNewWidget: '새 위젯으로 열기',
   },
 };

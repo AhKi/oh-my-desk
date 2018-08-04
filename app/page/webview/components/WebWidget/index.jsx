@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { shell } from 'electron';
 import url from 'url';
 import * as PATH from 'constants/path';
 import * as USER_AGENT from 'constants/userAgent';
@@ -17,14 +16,12 @@ const propTypes = {
     name: PropTypes.string,
     url: PropTypes.string,
   }),
-  onOpenModal: PropTypes.func,
   onOpenPreference: PropTypes.func,
   onUpdateInfo: PropTypes.func,
 };
 const defaultProps = {
   defaultMode: 'DESKTOP',
   widget: {},
-  onOpenModal() {},
   onOpenPreference() {},
   onUpdateInfo() {},
 };
@@ -36,6 +33,7 @@ class WebWidget extends React.Component {
       isLoading: false,
       isSettingOpen: false,
       isMobileHeaderOpen: true,
+      newWindowURL: null,
     };
     this.webViewRef = React.createRef();
     this.prevScrollY = 0;
@@ -50,6 +48,7 @@ class WebWidget extends React.Component {
     this.handleWidgetRefresh = this.handleWidgetRefresh.bind(this);
     this.handleWidgetStopRefresh = this.handleWidgetStopRefresh.bind(this);
     this.handleToggleSettingMenu = this.handleToggleSettingMenu.bind(this);
+    this.handleToggleNewWindowMenu = this.handleToggleNewWindowMenu.bind(this);
   }
 
   componentDidMount() {
@@ -69,16 +68,15 @@ class WebWidget extends React.Component {
         y: e.pageY,
       };
     });
-    this.webViewRef.current.addEventListener('new-window', () => {
-      const { onOpenModal } = this.props;
-      onOpenModal(MenuNewWindow, {});
+    this.webViewRef.current.addEventListener('new-window', (e) => {
+      this.handleToggleNewWindowMenu(e.url);
     });
 
     this.webViewRef.current.addEventListener('dom-ready', () => {
       window.addEventListener('contextmenu', () => {
         widgetContextMenu(this.webViewRef.current);
       });
-      this.webViewRef.current.openDevTools();
+      // this.webViewRef.current.openDevTools();
     });
 
     // Communicate webview tag and BrowserWindow
@@ -120,10 +118,6 @@ class WebWidget extends React.Component {
     }
   }
 
-  // componentWillUnmount() {
-  //
-  // }
-
   toggleIsOnTop() {
     const { widget, onUpdateInfo } = this.props;
 
@@ -150,7 +144,15 @@ class WebWidget extends React.Component {
     if (typeof bool === 'boolean') {
       this.setState({ isSettingOpen: bool });
     } else {
-      this.setState(nextState => ({ isSettingOpen: !nextState.isSettingOpen }));
+      this.setState(prevState => ({ isSettingOpen: !prevState.isSettingOpen }));
+    }
+  }
+
+  handleToggleNewWindowMenu(targetURL) {
+    if (targetURL) {
+      this.setState({ newWindowURL: targetURL });
+    } else {
+      this.setState({ newWindowURL: '' });
     }
   }
 
@@ -159,6 +161,7 @@ class WebWidget extends React.Component {
       isLoading,
       isSettingOpen,
       isMobileHeaderOpen,
+      newWindowURL,
     } = this.state;
     const {
       widget,
@@ -198,6 +201,15 @@ class WebWidget extends React.Component {
             onToggleSetting={this.handleToggleSettingMenu}
             onUpdateInfo={onUpdateInfo}
             onOpenPreference={onOpenPreference}
+          />
+        )}
+        {newWindowURL && (
+          <MenuNewWindow
+            url={newWindowURL}
+            webview={this.webViewRef.current}
+            x={this.mousePosition.x}
+            y={this.mousePosition.y}
+            onClose={this.handleToggleNewWindowMenu}
           />
         )}
         <webview

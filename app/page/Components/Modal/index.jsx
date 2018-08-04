@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import ReactModal from 'react-modal';
+import OutsideClickHandler from 'page/Components/OutsideClickHandler';
 import './Modal.scss';
 
 const propTypes = {
@@ -23,6 +25,18 @@ class Modal extends React.Component {
       onModalClose,
     } = this.props;
     const isOpen = !!Component;
+    const {
+      modalClass,
+      overlayClass,
+      activeOutsideClose,
+    } = modalProps;
+
+    const modalClassName = cx(modalClass, {
+      Modal__container: !modalClass,
+    });
+    const overlayClassName = cx(overlayClass, {
+      Modal__overlay: !overlayClass,
+    });
 
     if (!isOpen) {
       return null;
@@ -30,13 +44,19 @@ class Modal extends React.Component {
 
     return (
       <ReactModal
-        className="Modal__container"
-        overlayClassName="Modal__overlay"
+        className={modalClassName}
+        overlayClassName={overlayClassName}
         contentLabel="Modal"
         isOpen={isOpen}
         ariaHideApp={false}
       >
-        <Component {...modalProps} onModalClose={onModalClose} />
+        {activeOutsideClose ? (
+          <OutsideClickHandler onOutSideClick={onModalClose}>
+            <Component {...modalProps} onModalClose={onModalClose} />
+          </OutsideClickHandler>
+        ) :
+          <Component {...modalProps} onModalClose={onModalClose} />
+        }
       </ReactModal>
     );
   }
