@@ -25,7 +25,7 @@ export const getWidgetArray = createSelector(
       const lTime = lItem.get('resentOpenTime');
       const rTime = rItem.get('resentOpenTime');
 
-      return moment(lTime).isBefore(moment(rTime));
+      return moment(rTime).unix() - moment(lTime).unix();
     });
 
     return Immutable.List(array);
