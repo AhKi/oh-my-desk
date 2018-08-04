@@ -45,7 +45,7 @@ const makeWidgetWindow = (id, info, isFocus) => {
   });
 
   widget.on('closed', () => {
-    store.dispatch(actions.closeTargetWidget(id));
+    store.dispatch(actions.closeTargetWidgetForced(id));
   });
 
   widget.webContents.on('did-finish-load', () => {

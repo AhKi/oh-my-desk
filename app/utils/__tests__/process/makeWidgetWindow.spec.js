@@ -62,7 +62,7 @@ describe('test makeWidgetWindow', () => {
 
       expect(storeMock.dispatch).toHaveBeenCalledTimes(1);
       expect(storeMock.dispatch).toHaveBeenCalledWith(
-        actions.closeTargetWidget('mock-id'),
+        actions.closeTargetWidgetForced('mock-id'),
       );
     });
   });
