@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions';
+import { combineActions, handleActions } from 'redux-actions';
 import Immutable from 'immutable';
 import createWidget from 'utils/createWidget';
 import * as TYPES from 'actions/actionTypes';
@@ -18,7 +18,10 @@ const byIdReducer = handleActions({
 
     return state.set(id, widget.set('isOpen', true).set('resentOpenTime', time));
   },
-  [TYPES.CLOSE_TARGET_WIDGET]: (state, action) => {
+  [combineActions(
+    TYPES.CLOSE_TARGET_WIDGET,
+    TYPES.CLOSE_TARGET_WIDGET_FORCED,
+  )]: (state, action) => {
     const { id } = action.payload;
     const widget = state.get(id);
 

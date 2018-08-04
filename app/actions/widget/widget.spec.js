@@ -43,6 +43,19 @@ describe('test action about widget', () => {
       .toEqual(mockAction);
   });
 
+  it('should handle closeTargetWidgetForced', () => {
+    const mockAction = {
+      type: TYPES.CLOSE_TARGET_WIDGET_FORCED,
+      payload: {
+        id: mockId,
+      },
+      meta: broadcastMeta,
+    };
+
+    expect(actions.closeTargetWidgetForced(mockId))
+      .toEqual(mockAction);
+  });
+
   it('should handle deleteTargetWidget', () => {
     const mockAction = {
       type: TYPES.DELETE_TARGET_WIDGET,
