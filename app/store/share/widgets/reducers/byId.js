@@ -13,10 +13,10 @@ const byIdReducer = handleActions({
     return state.set(id, Immutable.fromJS(widgetInfo));
   },
   [TYPES.SHOW_TARGET_WIDGET]: (state, action) => {
-    const { id, time } = action.payload;
+    const { id } = action.payload;
     const widget = state.get(id);
 
-    return state.set(id, widget.set('isOpen', true).set('resentOpenTime', time));
+    return state.set(id, widget.set('isOpen', true));
   },
   [combineActions(
     TYPES.CLOSE_TARGET_WIDGET,
@@ -31,6 +31,12 @@ const byIdReducer = handleActions({
     const { id } = action.payload;
 
     return state.delete(id);
+  },
+  [TYPES.FOCUS_WIDGET]: (state, action) => {
+    const { id, time } = action.payload;
+    const widget = state.get(id);
+
+    return state.set(id, widget.set('resentFocusTime', time));
   },
   [TYPES.UPDATE_TARGET_WIDGET_INFO]: (state, action) => {
     const { id, info } = action.payload;

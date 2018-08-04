@@ -48,6 +48,10 @@ const makeWidgetWindow = (id, info, isFocus) => {
     store.dispatch(actions.closeTargetWidgetForced(id));
   });
 
+  widget.on('focus', () => {
+    store.dispatch(actions.focusWidget(id));
+  });
+
   widget.webContents.on('did-finish-load', () => {
     store.dispatch(actions.allocateIdTargetWidget(id));
   });
