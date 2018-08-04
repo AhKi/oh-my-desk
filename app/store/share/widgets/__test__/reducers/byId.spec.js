@@ -37,7 +37,6 @@ describe('test widgets byId reducer', () => {
       name: 'mock-name',
       url: 'mock-url',
       isOpen: true,
-      resentOpenTime: 'mockISO',
     };
     const initialState = {
       [mockId]: mockInfo,
@@ -47,6 +46,30 @@ describe('test widgets byId reducer', () => {
     };
 
     expect(byId(Immutable.fromJS(initialState), widgetActions.showTargetWidget(mockId)))
+      .toEqual(Immutable.fromJS(resultState));
+  });
+
+  it('should handle FOUCS_WIDGET', () => {
+    const mockId = 'mock-id';
+    const mockInfo = {
+      name: 'mock-name',
+      url: 'mock-url',
+      isOpen: false,
+    };
+    const resultInfo = {
+      name: 'mock-name',
+      url: 'mock-url',
+      isOpen: false,
+      resentFocusTime: 'mockISO',
+    };
+    const initialState = {
+      [mockId]: mockInfo,
+    };
+    const resultState = {
+      [mockId]: resultInfo,
+    };
+
+    expect(byId(Immutable.fromJS(initialState), widgetActions.focusWidget(mockId)))
       .toEqual(Immutable.fromJS(resultState));
   });
 

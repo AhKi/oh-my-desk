@@ -20,6 +20,7 @@ export const {
   closeTargetWidget,
   closeTargetWidgetForced,
   deleteTargetWidget,
+  focusWidget,
   registerNewWidget,
   showTargetWidget,
   updateTargetWidgetInfo,
@@ -36,12 +37,16 @@ export const {
     id => ({ id }),
     () => ({ category: CATEGORY.BROADCAST }),
   ],
+  [TYPES.FOCUS_WIDGET]: [
+    id => ({ id, time: moment().toISOString() }),
+    () => ({ category: CATEGORY.BROADCAST }),
+  ],
   [TYPES.REGISTER_NEW_WIDGET]: [
     (id, info) => ({ id, info }),
     () => ({ category: CATEGORY.BROADCAST }),
   ],
   [TYPES.SHOW_TARGET_WIDGET]: [
-    (id, isFocus) => ({ id, time: moment().toISOString(), isFocus }),
+    (id, isFocus) => ({ id, isFocus }),
     () => ({ category: CATEGORY.BROADCAST }),
   ],
   [TYPES.UPDATE_TARGET_WIDGET_INFO]: [

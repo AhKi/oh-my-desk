@@ -17,7 +17,7 @@ function createWidget(id, info) {
     isOpen: true,
     favorites: false,
     createTime: moment().toISOString(),
-    resentOpenTime: moment().toISOString(),
+    resentFocusTime: moment().toISOString(),
   };
 }
 
