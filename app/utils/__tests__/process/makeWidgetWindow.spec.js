@@ -28,10 +28,11 @@ describe('test makeWidgetWindow', () => {
 
   describe('test BrowserWindow.on', () => {
     it('should call about widget.on', () => {
-      expect(mock.on).toHaveBeenCalledTimes(3);
+      expect(mock.on).toHaveBeenCalledTimes(4);
       expect(mock.on).toHaveBeenCalledWith('move', expect.any(Function));
       expect(mock.on).toHaveBeenCalledWith('resize', expect.any(Function));
       expect(mock.on).toHaveBeenCalledWith('closed', expect.any(Function));
+      expect(mock.on).toHaveBeenCalledWith('focus', expect.any(Function));
     });
 
     it('should call callback of move event', () => {
@@ -64,6 +65,16 @@ describe('test makeWidgetWindow', () => {
       expect(storeMock.dispatch).toHaveBeenCalledWith(
         actions.closeTargetWidgetForced('mock-id'),
       );
+    });
+
+    it('should call callback of focus event', () => {
+      storeMock.dispatch.mockClear();
+      const cb = mock.on.mock.calls[3][1];
+      cb();
+
+      expect(storeMock.dispatch).toHaveBeenCalledTimes(1);
+      expect(storeMock.dispatch)
+        .toHaveBeenCalledWith(actions.focusWidget('mock-id'));
     });
   });
 

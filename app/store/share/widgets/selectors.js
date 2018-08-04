@@ -22,8 +22,8 @@ export const getWidgetArray = createSelector(
   (byId) => {
     const array = byId.toArray();
     array.sort((lItem, rItem) => {
-      const lTime = lItem.get('resentOpenTime');
-      const rTime = rItem.get('resentOpenTime');
+      const lTime = lItem.get('resentFocusTime');
+      const rTime = rItem.get('resentFocusTime');
 
       return moment(rTime).unix() - moment(lTime).unix();
     });

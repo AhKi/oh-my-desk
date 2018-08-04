@@ -69,6 +69,19 @@ describe('test action about widget', () => {
       .toEqual(mockAction);
   });
 
+  it('should handle focusWidget', () => {
+    const mockAction = {
+      type: TYPES.FOCUS_WIDGET,
+      payload: {
+        id: mockId,
+      },
+      meta: broadcastMeta,
+    };
+
+    expect(actions.focusWidget(mockId))
+      .toEqual(mockAction);
+  });
+
   it('should handle registerNewWidget', () => {
     const mockAction = {
       type: TYPES.REGISTER_NEW_WIDGET,
