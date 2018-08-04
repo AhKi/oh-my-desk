@@ -49,7 +49,7 @@ function createSetting() {
 }
 
 function createTray(contextMenuTemplate) {
-  if (!tray) tray = new Tray(path.join(__dirname, 'assets', 'tray_icon.png'));
+  if (!tray) tray = new Tray(path.join(__dirname, 'assets', 'tray_iconTemplate.png'));
 
   const contextMenu = Menu.buildFromTemplate(contextMenuTemplate.concat([
     { type: 'separator' },
