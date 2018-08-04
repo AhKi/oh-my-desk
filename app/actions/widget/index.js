@@ -18,12 +18,17 @@ export const {
 
 export const {
   closeTargetWidget,
+  closeTargetWidgetForced,
   deleteTargetWidget,
   registerNewWidget,
   showTargetWidget,
   updateTargetWidgetInfo,
 } = createActions({
   [TYPES.CLOSE_TARGET_WIDGET]: [
+    (id, info) => ({ id, info }),
+    () => ({ category: CATEGORY.BROADCAST }),
+  ],
+  [TYPES.CLOSE_TARGET_WIDGET_FORCED]: [
     (id, info) => ({ id, info }),
     () => ({ category: CATEGORY.BROADCAST }),
   ],
