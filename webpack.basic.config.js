@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './app/page/setting/index.jsx',
     widget: './app/page/webview/index.jsx',
     preloadScript: './app/page/webview/preloadScript.js',
     preference: './app/page/preference/index.jsx',
@@ -58,12 +57,6 @@ module.exports = {
   },
 
   plugins: [
-    new HtmlWebpackPlugin({
-      chunks: ['app'],
-      filename: 'index.html',
-      template: path.join(__dirname, './app/page/setting/index.html'),
-      inject: 'body',
-    }),
     new HtmlWebpackPlugin({
       chunks: ['widget'],
       filename: 'widget.html',

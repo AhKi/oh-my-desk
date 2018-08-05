@@ -4,16 +4,6 @@ const { spawn } = require('child_process');
 const webpackBaseConfig = require('./webpack.basic.config');
 
 module.exports = webpackMerge(webpackBaseConfig, {
-  entry: {
-    app: [
-      'webpack/hot/only-dev-server',
-      './app/page/setting/index.jsx',
-    ],
-    widget: [
-      'webpack/hot/only-dev-server',
-      './app/page/webview/index.jsx',
-    ],
-  },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'build'),
