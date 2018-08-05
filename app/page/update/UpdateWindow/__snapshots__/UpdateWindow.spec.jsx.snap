@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UpdateWindow /> should match to snapshot when render default 1`] = `
+<div
+  className="UpdateWindow"
+>
+  <div
+    className="UpdateWindow__title"
+  >
+    <img
+      alt=""
+      className="UpdateWindow__logo"
+      src={Object {}}
+    />
+    <p
+      className="UpdateWindow__notice"
+    >
+      A new version of Oh My Desk is available!
+      (
+       
+      =&gt;
+       
+      )
+    </p>
+  </div>
+  <div
+    className="UpdateWindow__content"
+  >
+    <p
+      className="UpdateWindow__content-title"
+    >
+      Update Content
+    </p>
+    <div
+      className="UpdateWindow__content-note"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "",
+        }
+      }
+    />
+    <label
+      className="UpdateWindow__checkbox-label"
+      htmlFor="checkbox"
+    >
+      <input
+        checked={false}
+        className="UpdateWindow__checkbox"
+        id="checkbox"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      Automatically download and install updates in the future
+    </label>
+  </div>
+  <div
+    className="UpdateWindow__btn-set"
+  >
+    <button
+      className="Btn--white UpdateWindow__btn-skip"
+      onClick={[Function]}
+      type="button"
+    >
+      Skip This Version
+    </button>
+    <button
+      className="Btn--white UpdateWindow__btn-remind"
+      onClick={[Function]}
+      type="button"
+    >
+      Remind Me Later
+    </button>
+    <button
+      className="Btn--primary UpdateWindow__btn-install"
+      onClick={[Function]}
+      type="button"
+    >
+      Install Update
+    </button>
+  </div>
+</div>
+`;

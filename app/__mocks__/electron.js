@@ -42,6 +42,9 @@ export const remote = {
       popup: jest.fn(),
     })),
   },
+  app: {
+    getVersion: jest.fn(),
+  },
 };
 
 export const shell = {
