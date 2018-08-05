@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UpdateProgress /> should match to snapshot when props.isDownload === true 1`] = `
+<div
+  className="UpdateProgress"
+>
+  <div
+    className="UpdateProgress__title"
+  >
+    Oh-My-Desk 
+    is Downloading
+  </div>
+  <div
+    className="UpdateProgress__content"
+  >
+    <img
+      alt=""
+      className="UpdateProgress__logo"
+      src={Object {}}
+    />
+    <p
+      className="UpdateProgress__notice"
+    >
+      Oh-My-Desk v.
+       
+      is Downloading.
+    </p>
+    <div
+      className="UpdateProgress__progress-bar"
+    >
+      <div
+        className="UpdateProgress__progress-bar-gauge"
+        style={
+          Object {
+            "width": "NaN%",
+          }
+        }
+      />
+    </div>
+    <p
+      className="UpdateProgress__progress-rate"
+    >
+      0
+      MB / 
+      0
+      MB
+    </p>
+    <button
+      className="Btn UpdateProgress__btn Btn--gray"
+      onClick={[Function]}
+      type="button"
+    >
+      Cancel
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<UpdateProgress /> should match to snapshot when render default 1`] = `
+<div
+  className="UpdateProgress"
+>
+  <div
+    className="UpdateProgress__title"
+  >
+    Oh-My-Desk 
+    is Downloading
+  </div>
+  <div
+    className="UpdateProgress__content"
+  >
+    <img
+      alt=""
+      className="UpdateProgress__logo"
+      src={Object {}}
+    />
+    <p
+      className="UpdateProgress__notice"
+    >
+      Oh-My-Desk v.
+       
+      is Downloading.
+    </p>
+    <div
+      className="UpdateProgress__progress-bar"
+    >
+      <div
+        className="UpdateProgress__progress-bar-gauge"
+        style={
+          Object {
+            "width": "NaN%",
+          }
+        }
+      />
+    </div>
+    <p
+      className="UpdateProgress__progress-rate"
+    >
+      0
+      MB / 
+      0
+      MB
+    </p>
+    <button
+      className="Btn UpdateProgress__btn Btn--primary"
+      onClick={[Function]}
+      type="button"
+    >
+      Restart after completion
+    </button>
+  </div>
+</div>
+`;
