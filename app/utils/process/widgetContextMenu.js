@@ -1,4 +1,4 @@
-import { remote, shell } from 'electron';
+import { remote, shell, clipboard } from 'electron';
 import i18n from 'constants/i18n';
 
 const { Menu } = remote;
@@ -30,14 +30,8 @@ const widgetContextMenu = (webview) => {
       label: text.copyUrl,
       click: () => {
         const url = webview.getWebContents().getURL();
-        const body = document.querySelector('body');
-        const textarea = document.createElement('textarea');
 
-        textarea.value = url;
-        body.appendChild(textarea);
-        textarea.select();
-        document.execCommand('copy');
-        body.removeChild(textarea);
+        clipboard.writeText(url);
       },
     },
     {
