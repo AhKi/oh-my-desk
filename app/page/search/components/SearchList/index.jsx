@@ -51,16 +51,20 @@ class SearchList extends React.Component {
   getSnapshotBeforeUpdate() {
     const { list, selectedIndex } = this.props;
     const ref = this.listRef.current;
-    const { scrollHeight } = ref;
-    const listHeight = ref.clientHeight;
+    const { scrollHeight } = ref; // whole scroll height
+    const listHeight = ref.clientHeight; // list height that see in view
     const currentTop = ref.scrollTop;
     const currentBottom = ref.scrollTop + listHeight;
     const eachHeight = scrollHeight / list.length;
 
     const selectedTop = eachHeight * selectedIndex;
 
-    if (currentBottom < selectedTop || currentTop > selectedTop) {
+    if (currentTop > selectedTop || scrollHeight - selectedTop <= eachHeight) {
       return selectedTop;
+    }
+
+    if (currentBottom < selectedTop) {
+      return currentTop + eachHeight;
     }
 
     return null;
