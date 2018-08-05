@@ -1,4 +1,4 @@
-import { remote, shell } from 'electron';
+import { clipboard, remote, shell } from 'electron';
 import widgetContextMenu from '../../process/widgetContextMenu';
 
 jest.mock('electron');
@@ -70,20 +70,12 @@ describe('test widgetContextMenu', () => {
       });
 
       it('should test menu of copyUrl', () => {
-        const execCommand = jest.fn();
-        const body = document.querySelector('body');
-        body.appendChild = jest.fn();
-        body.removeChild = jest.fn();
-        document.execCommand = execCommand;
-
         const menuCopyUrlClick = template[9].click;
 
         menuCopyUrlClick();
-        expect(execCommand).toHaveBeenCalledTimes(1);
-        expect(execCommand).toHaveBeenCalledWith('copy');
-        expect(body.appendChild.mock.calls[0][0].value).toBe('mock-url');
-        expect(body.appendChild).toHaveBeenCalledTimes(1);
-        expect(body.removeChild).toHaveBeenCalledTimes(1);
+
+        expect(clipboard.writeText).toHaveBeenCalledTimes(1);
+        expect(clipboard.writeText).toHaveBeenCalledWith('mock-url');
       });
 
       it('should test menu of openBrowser', () => {

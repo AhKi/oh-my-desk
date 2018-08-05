@@ -29,6 +29,10 @@ export const BrowserWindow = jest.fn(info => ({
   },
 }));
 
+export const clipboard = {
+  writeText: jest.fn(),
+};
+
 export const ipcRenderer = {
   on: jest.fn(),
   send: jest.fn(),
