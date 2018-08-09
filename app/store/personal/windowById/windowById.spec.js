@@ -64,6 +64,11 @@ describe('test windowById reducer', () => {
         .toEqual(Immutable.Map({}));
     });
 
+    it('should handle closeTargetWidgetForced', () => {
+      expect(windowById(mockInitial, widgetActions.closeTargetWidgetForced(mockId)))
+        .toEqual(Immutable.Map({}));
+    });
+
     it('should handle updateProgressWindowClose', () => {
       expect(windowById(mockInitial, updateActions.updateProgressWindowClose(mockId)))
         .toEqual(Immutable.Map({}));
