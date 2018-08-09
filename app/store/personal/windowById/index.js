@@ -26,6 +26,7 @@ const windowByIdReducer = handleActions({
   [combineActions(
     TYPES.CLOSE_BROWSER_WINDOW,
     TYPES.CLOSE_TARGET_WIDGET,
+    TYPES.CLOSE_TARGET_WIDGET_FORCED,
     TYPES.CLOSE_PREFERENCE,
     TYPES.UPDATE_PROGRESS_WINDOW_CLOSE,
   )]: (state, action) => {
