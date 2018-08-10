@@ -17,7 +17,7 @@ const makeWidgetWindow = (id, info, isFocus) => {
     height: widgetInfo.size.height,
     alwaysOnTop: widgetInfo.isOnTop,
     autoHideMenuBar: true,
-    skipTaskbar: true,
+    titleBarStyle: process.platform === 'darwin' ? 'hiddenInset' : 'default',
     show: false,
     frame: false,
   });

@@ -1,0 +1,42 @@
+.AddressBar {
+  display: flex;
+  height: 40px;
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+}
+
+.AddressBar__button {
+  width: 20px;
+  margin: 5px;
+}
+
+.AddressBar__address {
+  display: flex;
+  flex-grow: 1;
+  border-right: 1px solid rgb(216, 216, 216);
+  border-left: 1px solid rgb(216, 216, 216);
+  padding: 5px;
+}
+
+.AddressBar__address-input {
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  flex-grow: 8;
+}
+
+.AddressBar__address-button {
+  display: flex;
+  align-self: center;
+  border-radius: 20px;
+  height: 25px;
+  background-color: rgb(212, 212, 212);
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.AddressBar__more-btn,
+.AddressBar__pin-btn {
+  float: right;
+  margin: 8px;
+}

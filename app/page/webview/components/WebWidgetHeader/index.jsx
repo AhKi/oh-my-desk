@@ -24,6 +24,7 @@ const propTypes = {
   onStopRefresh: PropTypes.func,
   onToggleSetting: PropTypes.func,
 };
+
 const defaultProps = {
   title: '',
   webView: null,

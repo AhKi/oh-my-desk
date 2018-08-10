@@ -1,0 +1,42 @@
+.TitleBarMac {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  justify-content: center;
+}
+
+.TitleBarMac__traffic-light {
+  display: inline-block;
+  width: 80px;
+  order: 1;
+}
+
+.TitleBarMac__title {
+  display: inline-block;
+  order: 2;
+  flex-grow: 1;
+  align-self: center;
+}
+
+.TitleBarMac__asset {
+  align-self: center;
+  display: inline-block;
+  order: 3;
+}
+
+.TitleBarMac__button {
+  float: right;
+  width: 20px;
+  margin: 5px;
+}
+
+.TitleBarMac__desktop-icon,
+.TitleBarMac__mobile-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.TitleBarMac__icon--active {
+  opacity: 0.8;
+}

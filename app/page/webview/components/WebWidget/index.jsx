@@ -4,9 +4,8 @@ import url from 'url';
 import * as PATH from 'constants/path';
 import * as USER_AGENT from 'constants/userAgent';
 import widgetContextMenu from 'utils/process/widgetContextMenu';
+import WidgetHeaderContainer from '../../containers/WidgetHeaderContainer';
 import MenuNewWindow from '../MenuNewWindow';
-import WebWidgetHeader from '../WebWidgetHeader';
-import WebWidgetMobileHeader from '../WebWidgetMobileHeader';
 import WebWidgetSetting from '../WebWidgetSetting';
 import './WebWidget.scss';
 
@@ -32,7 +31,6 @@ class WebWidget extends React.Component {
     this.state = {
       isLoading: false,
       isSettingOpen: false,
-      isMobileHeaderOpen: true,
       newWindowURL: null,
     };
     this.webViewRef = React.createRef();
@@ -42,6 +40,7 @@ class WebWidget extends React.Component {
       x: 0,
       y: 0,
     };
+    this.getWebviewRef = this.getWebviewRef.bind(this);
     this.toggleIsOnTop = this.toggleIsOnTop.bind(this);
     this.handleWidgetGoBack = this.handleWidgetGoBack.bind(this);
     this.handleWidgetGoForward = this.handleWidgetGoForward.bind(this);
@@ -78,26 +77,6 @@ class WebWidget extends React.Component {
       });
       // this.webViewRef.current.openDevTools();
     });
-
-    // Communicate webview tag and BrowserWindow
-    this.webViewRef.current.addEventListener('ipc-message', (e) => {
-      if (e.channel === 'scroll') {
-        const scrollY = e.args[0];
-
-        if (scrollY === 0 || this.prevScrollY === 0) {
-          clearTimeout(this.tick);
-          this.tick = null;
-          this.setState({ isMobileHeaderOpen: true });
-        } else if (Math.abs(scrollY - this.prevScrollY) > 30) {
-          clearTimeout(this.tick);
-          this.setState({ isMobileHeaderOpen: true });
-          this.tick = setTimeout(() => this.setState({ isMobileHeaderOpen: false }), 2000);
-        } else if (!this.tick) {
-          this.setState({ isMobileHeaderOpen: false });
-        }
-        this.prevScrollY = scrollY;
-      }
-    });
   }
 
   componentDidUpdate(prevProps) {
@@ -116,6 +95,10 @@ class WebWidget extends React.Component {
     ) {
       this.webViewRef.current.loadURL(widget.url, { userAgent });
     }
+  }
+
+  getWebviewRef() {
+    return this.webViewRef.current;
   }
 
   toggleIsOnTop() {
@@ -160,7 +143,6 @@ class WebWidget extends React.Component {
     const {
       isLoading,
       isSettingOpen,
-      isMobileHeaderOpen,
       newWindowURL,
     } = this.state;
     const {
@@ -171,22 +153,13 @@ class WebWidget extends React.Component {
 
     return (
       <div className="WebWidget">
-        <WebWidgetHeader
+        <WidgetHeaderContainer
           webView={this.webViewRef.current}
           title={widget.name}
+          url={widget.url}
           isLoading={isLoading}
           isOnTop={widget.isOnTop}
           onToggleIsOnTop={this.toggleIsOnTop}
-          onGoBack={this.handleWidgetGoBack}
-          onGoForward={this.handleWidgetGoForward}
-          onRefresh={this.handleWidgetRefresh}
-          onStopRefresh={this.handleWidgetStopRefresh}
-          onToggleSetting={this.handleToggleSettingMenu}
-        />
-        <WebWidgetMobileHeader
-          webView={this.webViewRef.current}
-          isLoading={isLoading}
-          isOpen={isMobileHeaderOpen || isSettingOpen}
           onGoBack={this.handleWidgetGoBack}
           onGoForward={this.handleWidgetGoForward}
           onRefresh={this.handleWidgetRefresh}

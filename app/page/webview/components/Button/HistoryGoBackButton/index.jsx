@@ -34,7 +34,7 @@ function HistoryGoBackButton(props) {
     >
       <button
         type="button"
-        className="WebWidgetHeader__button HistoryGoBackButton__btn--go-back"
+        className="WidgetHeader__button HistoryGoBackButton__btn--go-back"
         disabled={!isCanGoBack}
         onClick={onGoBack}
       >
@@ -42,7 +42,7 @@ function HistoryGoBackButton(props) {
       </button>
       <button
         type="button"
-        className="WebWidgetHeader__button HistoryGoBackButton__btn--go-front"
+        className="WidgetHeader__button HistoryGoBackButton__btn--go-front"
         disabled={!isCanGoForward}
         onClick={onGoForward}
       >
