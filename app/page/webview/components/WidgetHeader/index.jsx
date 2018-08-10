@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as USER_AGENT from 'constants/userAgent';
 
 import AddressBar from '../AddressBar';
 import TitleBarMac from '../TitleBarMac';
@@ -8,6 +7,7 @@ import './WidgetHeader.scss';
 
 const propTypes = {
   currentUrl: PropTypes.string,
+  defaultUserAgent: PropTypes.string,
   title: PropTypes.string,
   id: PropTypes.string,
   isOnTop: PropTypes.bool,
@@ -19,11 +19,12 @@ const propTypes = {
 
 const defaultProps = {
   currentUrl: '',
+  defaultUserAgent: 'DESKTOP',
   title: '',
   id: '',
   isOnTop: false,
   webView: null,
-  userAgent: USER_AGENT.DESKTOP,
+  userAgent: '',
   url: '',
   onUpdateWidgetInfo() {},
 };
@@ -32,6 +33,7 @@ class WidgetHeader extends React.Component {
   render() {
     const {
       currentUrl,
+      defaultUserAgent,
       title,
       id,
       isOnTop,
@@ -44,8 +46,11 @@ class WidgetHeader extends React.Component {
     return (
       <div className="WidgetHeader__title-bar">
         <TitleBarMac
+          defaultUserAgent={defaultUserAgent}
+          id={id}
           title={title}
           userAgent={userAgent}
+          onUpdateWidgetInfo={onUpdateWidgetInfo}
         />
         <AddressBar
           currentUrl={currentUrl}

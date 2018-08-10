@@ -31,6 +31,11 @@
   float: right;
   width: 20px;
   margin: 5px;
+  opacity: 0.5;
+
+  &:disabled {
+    opacity: 1;
+  }
 }
 
 .TitleBarMac__desktop-icon,
