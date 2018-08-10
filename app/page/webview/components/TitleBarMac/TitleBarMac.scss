@@ -4,6 +4,7 @@
   height: 40px;
   text-align: center;
   justify-content: center;
+  -webkit-app-region: drag;
 }
 
 .TitleBarMac__traffic-light {
@@ -23,6 +24,7 @@
   align-self: center;
   display: inline-block;
   order: 3;
+  -webkit-app-region: no-drag;
 }
 
 .TitleBarMac__button {
