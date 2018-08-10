@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WidgetHeader /> should match to snapshot when render default 1`] = `
+<div
+  className="WidgetHeader__title-bar"
+>
+  <TitleBarMac
+    title=""
+    userAgent="Mozilla/5.0 (X11; CrOS x86_64 8172.45.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.64 Safari/537.36"
+  />
+  <AddressBar
+    currentUrl=""
+    homeUrl=""
+    webView={null}
+  />
+</div>
+`;
