@@ -8,6 +8,10 @@
 .AddressBar__button {
   width: 20px;
   margin: 5px;
+
+  &:disabled {
+    opacity: 0.5;
+  }
 }
 
 .AddressBar__address {
@@ -40,3 +44,16 @@
   float: right;
   margin: 8px;
 }
+
+.AddressBar__pin {
+  transform: rotate(45deg);
+}
+
+.AddressBar__pin--active {
+  transform: rotate(0);
+}
+
+.AddressBar__pin-btn--active {
+  background-color: rgb(205, 205, 205);
+}
+
