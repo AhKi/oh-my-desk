@@ -7,17 +7,46 @@ import desktopIcon from 'assets/icon/icon-widget-setting.svg';
 import './TitleBarMac.scss';
 
 const propTypes = {
+  defaultUserAgent: PropTypes.string,
+  id: PropTypes.string,
   title: PropTypes.string,
   userAgent: PropTypes.string,
+  onUpdateWidgetInfo: PropTypes.func,
 };
 const defaultProps = {
+  defaultUserAgent: 'DESKTOP',
+  id: '',
   title: 'Empty Widget',
-  userAgent: USER_AGENT.DESKTOP,
+  userAgent: 'DESKTOP',
+  onUpdateWidgetInfo() {},
 };
 
 class TitleBarMac extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSetMobileAgent = this.handleSetMobileAgent.bind(this);
+    this.handleSetDesktopAgent = this.handleSetDesktopAgent.bind(this);
+  }
+
+  handleSetMobileAgent() {
+    const { id, onUpdateWidgetInfo } = this.props;
+
+    onUpdateWidgetInfo(id, {
+      userAgent: 'MOBILE',
+    });
+  }
+
+  handleSetDesktopAgent() {
+    const { id, onUpdateWidgetInfo } = this.props;
+
+    onUpdateWidgetInfo(id, {
+      userAgent: 'DESKTOP',
+    });
+  }
+
   render() {
-    const { title, userAgent } = this.props;
+    const { title, defaultUserAgent, userAgent } = this.props;
+    const currentUserAgent = userAgent || defaultUserAgent;
     const mobileIconClass = cx('TitleBarMac__mobile-icon', {
       'TitleBarMac__icon--active': userAgent === USER_AGENT.MOBILE,
     });
@@ -34,14 +63,24 @@ class TitleBarMac extends React.Component {
         <div className="TitleBarMac__traffic-light" />
         <div className="TitleBarMac__title">{title}</div>
         <div className="TitleBarMac__asset">
-          <button className="TitleBarMac__button" type="button">
+          <button
+            className="TitleBarMac__button"
+            disabled={currentUserAgent === 'MOBILE'}
+            type="button"
+            onClick={this.handleSetMobileAgent}
+          >
             <img
               className={mobileIconClass}
               src={mobileIcon}
               alt=""
             />
           </button>
-          <button className="TitleBarMac__button" type="button">
+          <button
+            className="TitleBarMac__button"
+            disabled={currentUserAgent === 'DESKTOP'}
+            type="button"
+            onClick={this.handleSetDesktopAgent}
+          >
             <img
               className={desktopIconClass}
               src={desktopIcon}

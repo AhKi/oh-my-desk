@@ -10,7 +10,7 @@ import WebWidgetSetting from '../WebWidgetSetting';
 import './WebWidget.scss';
 
 const propTypes = {
-  defaultMode: PropTypes.string,
+  defaultUserAgent: PropTypes.string,
   widget: PropTypes.shape({
     name: PropTypes.string,
     url: PropTypes.string,
@@ -19,7 +19,7 @@ const propTypes = {
   onUpdateInfo: PropTypes.func,
 };
 const defaultProps = {
-  defaultMode: 'DESKTOP',
+  defaultUserAgent: 'DESKTOP',
   widget: {},
   onOpenPreference() {},
   onUpdateInfo() {},
@@ -29,6 +29,7 @@ class WebWidget extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentUrl: '',
       isLoading: false,
       isSettingOpen: false,
       newWindowURL: null,
@@ -40,7 +41,6 @@ class WebWidget extends React.Component {
       x: 0,
       y: 0,
     };
-    this.getWebviewRef = this.getWebviewRef.bind(this);
     this.toggleIsOnTop = this.toggleIsOnTop.bind(this);
     this.handleWidgetGoBack = this.handleWidgetGoBack.bind(this);
     this.handleWidgetGoForward = this.handleWidgetGoForward.bind(this);
@@ -51,15 +51,29 @@ class WebWidget extends React.Component {
   }
 
   componentDidMount() {
+    const webView = this.webViewRef.current;
     // add event when webview page loading
-    this.webViewRef.current.addEventListener('did-start-loading', () => {
+    webView.addEventListener('did-start-loading', () => {
       this.setState({ isLoading: true });
     });
-    this.webViewRef.current.addEventListener('did-finish-load', () => {
+    webView.addEventListener('did-finish-load', () => {
       this.setState({ isLoading: false });
     });
-    this.webViewRef.current.addEventListener('did-stop-loading', () => {
+    webView.addEventListener('did-stop-loading', () => {
       this.setState({ isLoading: false });
+    });
+    webView.addEventListener('new-window', (e) => {
+      this.handleToggleNewWindowMenu(e.url);
+    });
+    webView.addEventListener('did-navigate', (e) => {
+      this.setState({ currentUrl: e.url });
+    });
+
+    webView.addEventListener('dom-ready', () => {
+      window.addEventListener('contextmenu', () => {
+        widgetContextMenu(this.webViewRef.current);
+      });
+      // this.webViewRef.current.openDevTools();
     });
     window.addEventListener('mousemove', (e) => {
       this.mousePosition = {
@@ -67,38 +81,24 @@ class WebWidget extends React.Component {
         y: e.pageY,
       };
     });
-    this.webViewRef.current.addEventListener('new-window', (e) => {
-      this.handleToggleNewWindowMenu(e.url);
-    });
-
-    this.webViewRef.current.addEventListener('dom-ready', () => {
-      window.addEventListener('contextmenu', () => {
-        widgetContextMenu(this.webViewRef.current);
-      });
-      // this.webViewRef.current.openDevTools();
-    });
   }
 
   componentDidUpdate(prevProps) {
-    const { defaultMode, widget } = this.props;
+    const { defaultUserAgent, widget } = this.props;
     let userAgent;
     if (widget.userAgent) {
       userAgent = widget.userAgent === 'MOBILE' ? USER_AGENT.MOBILE : USER_AGENT.DESKTOP;
     } else {
-      userAgent = defaultMode === 'MOBILE' ? USER_AGENT.MOBILE : USER_AGENT.DESKTOP;
+      userAgent = defaultUserAgent === 'MOBILE' ? USER_AGENT.MOBILE : USER_AGENT.DESKTOP;
     }
 
     if (
       (prevProps.widget.url !== widget.url) ||
-      (!widget.userAgent && prevProps.defaultMode !== defaultMode) ||
+      (!widget.userAgent && prevProps.defaultUserAgent !== defaultUserAgent) ||
       (prevProps.widget.userAgent !== widget.userAgent)
     ) {
       this.webViewRef.current.loadURL(widget.url, { userAgent });
     }
-  }
-
-  getWebviewRef() {
-    return this.webViewRef.current;
   }
 
   toggleIsOnTop() {
@@ -141,11 +141,13 @@ class WebWidget extends React.Component {
 
   render() {
     const {
+      currentUrl,
       isLoading,
       isSettingOpen,
       newWindowURL,
     } = this.state;
     const {
+      defaultUserAgent,
       widget,
       onUpdateInfo,
       onOpenPreference,
@@ -154,11 +156,15 @@ class WebWidget extends React.Component {
     return (
       <div className="WebWidget">
         <WidgetHeaderContainer
+          currentUrl={currentUrl}
+          defaultUserAgent={defaultUserAgent}
           webView={this.webViewRef.current}
           title={widget.name}
           url={widget.url}
+          id={widget.id}
           isLoading={isLoading}
           isOnTop={widget.isOnTop}
+          userAgent={widget.userAgent}
           onToggleIsOnTop={this.toggleIsOnTop}
           onGoBack={this.handleWidgetGoBack}
           onGoForward={this.handleWidgetGoForward}
