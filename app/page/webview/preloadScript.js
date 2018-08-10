@@ -1,4 +1,3 @@
-import { ipcRenderer } from 'electron';
 import Mousetrap from 'mousetrap';
 
 Mousetrap.bind('command+left', () => {
@@ -19,8 +18,4 @@ document.addEventListener('keydown', (e) => {
   if (command && e.key === 'r') {
     window.location.reload();
   }
-});
-
-window.addEventListener('scroll', () => {
-  ipcRenderer.sendToHost('scroll', window.scrollY);
 });

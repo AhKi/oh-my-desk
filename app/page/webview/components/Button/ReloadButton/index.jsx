@@ -33,7 +33,7 @@ function ReloadButton(props) {
       {!isLoading && (
         <button
           type="button"
-          className="WebWidgetHeader__button ReloadButton__btn"
+          className="WidgetHeader__button ReloadButton__btn"
           onClick={onRefresh}
         >
           <WidgetRefreshIcon />
@@ -42,7 +42,7 @@ function ReloadButton(props) {
       {isLoading && (
         <button
           type="button"
-          className="WebWidgetHeader__button ReloadButton__btn"
+          className="WidgetHeader__button ReloadButton__btn"
           onClick={onStopRefresh}
         >
           <WidgetCloseIcon />

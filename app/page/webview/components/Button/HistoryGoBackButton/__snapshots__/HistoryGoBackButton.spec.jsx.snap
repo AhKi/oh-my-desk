@@ -5,7 +5,7 @@ exports[`<HistoryGoBackButton /> should match to snapshot when render default 1`
   className="HistoryGoBackButton"
 >
   <button
-    className="WebWidgetHeader__button HistoryGoBackButton__btn--go-back"
+    className="WidgetHeader__button HistoryGoBackButton__btn--go-back"
     disabled={true}
     onClick={[Function]}
     type="button"
@@ -13,7 +13,7 @@ exports[`<HistoryGoBackButton /> should match to snapshot when render default 1`
     <BackIcon />
   </button>
   <button
-    className="WebWidgetHeader__button HistoryGoBackButton__btn--go-front"
+    className="WidgetHeader__button HistoryGoBackButton__btn--go-front"
     disabled={true}
     onClick={[Function]}
     type="button"
