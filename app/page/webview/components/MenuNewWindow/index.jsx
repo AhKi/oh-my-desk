@@ -23,6 +23,11 @@ const defaultProps = {
 class MenuNewWindow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      x: props.x,
+      y: props.y,
+    };
+    this.menuRef = React.createRef();
     this.handleClose = this.handleClose.bind(this);
     this.handleOpenBrowser = this.handleOpenBrowser.bind(this);
     this.handleOpenWidget = this.handleOpenWidget.bind(this);
@@ -30,6 +35,17 @@ class MenuNewWindow extends React.Component {
   }
 
   componentDidMount() {
+    const { x, y, webview } = this.props;
+    const screenWidth = webview.clientWidth;
+    const screenHeight = webview.clientHeight;
+    const menuWidth = this.menuRef.current.clientWidth;
+    const menuHeight = this.menuRef.current.clientHeight;
+
+    this.setState({
+      x: x + menuWidth > screenWidth ? x - menuWidth : x,
+      y: y + menuHeight > screenHeight ? y - menuHeight : y,
+    });
+
     window.addEventListener('mouseup', this.handleClose);
   }
 
@@ -61,12 +77,13 @@ class MenuNewWindow extends React.Component {
     const {
       x,
       y,
-    } = this.props;
+    } = this.state;
     const text = i18n().contextMenu;
 
     return (
       <ul
         className="MenuNewWindow"
+        ref={this.menuRef}
         style={{ left: x, top: y }}
       >
         <li className="MenuNewWindow__list">
