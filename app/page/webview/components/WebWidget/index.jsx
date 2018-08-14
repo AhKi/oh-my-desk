@@ -80,6 +80,9 @@ class WebWidget extends React.Component {
     webView.addEventListener('did-navigate', (e) => {
       this.setState({ currentUrl: e.url });
     });
+    webView.addEventListener('did-navigate-in-page', (e) => {
+      this.setState({ currentUrl: e.url });
+    });
 
     webView.addEventListener('dom-ready', () => {
       window.addEventListener('contextmenu', () => {
