@@ -61,7 +61,7 @@ class WebWidget extends React.Component {
         command = e.altKey;
       }
 
-      if (command && e.key === 'r') {
+      if (command && (e.key === 'r' || e.key === 'ㅣ')) {
         webView.reload();
       }
     });
@@ -83,13 +83,14 @@ class WebWidget extends React.Component {
     webView.addEventListener('did-navigate-in-page', (e) => {
       this.setState({ currentUrl: e.url });
     });
-
-    webView.addEventListener('dom-ready', () => {
-      window.addEventListener('contextmenu', () => {
-        widgetContextMenu(this.webViewRef.current);
-      });
-      // this.webViewRef.current.openDevTools();
+    window.addEventListener('contextmenu', () => {
+      widgetContextMenu(this.webViewRef.current);
     });
+
+    // webView.addEventListener('dom-ready', () => {
+    //   this.webViewRef.current.openDevTools();
+    // });
+
     window.addEventListener('mousemove', (e) => {
       this.mousePosition = {
         x: e.pageX,
@@ -99,6 +100,7 @@ class WebWidget extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    const { currentUrl } = this.state;
     const { defaultUserAgent, widget } = this.props;
     let userAgent;
     if (widget.userAgent) {
@@ -107,12 +109,21 @@ class WebWidget extends React.Component {
       userAgent = defaultUserAgent === 'MOBILE' ? USER_AGENT.MOBILE : USER_AGENT.DESKTOP;
     }
 
+    if (prevProps.widget.url !== widget.url) {
+      this.webViewRef.current.loadURL(widget.url, { userAgent });
+    }
+
     if (
-      (prevProps.widget.url !== widget.url) ||
       (!widget.userAgent && prevProps.defaultUserAgent !== defaultUserAgent) ||
       (prevProps.widget.userAgent !== widget.userAgent)
     ) {
-      this.webViewRef.current.loadURL(widget.url, { userAgent });
+      // Most website provide separate url about userAgent.
+      // Mobile page url is prepended with 'm.'.
+      // So remove 'm.' in url when change userAgent mobile to desktop.
+      this.webViewRef.current.loadURL(
+        userAgent === USER_AGENT.DESKTOP ? currentUrl.replace('https://m.', 'https://') : currentUrl,
+        { userAgent },
+      );
     }
   }
 
