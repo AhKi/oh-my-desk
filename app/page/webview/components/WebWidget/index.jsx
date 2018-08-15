@@ -140,6 +140,7 @@ class WebWidget extends React.Component {
           currentUrl={currentUrl}
           defaultUserAgent={defaultUserAgent}
           webView={this.webViewRef.current}
+          reloadInterval={widget.reloadInterval}
           title={widget.name}
           url={widget.url}
           id={widget.id}

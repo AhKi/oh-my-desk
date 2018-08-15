@@ -5,6 +5,7 @@ import menu from './menu';
 import preference from './preference';
 import search from './search';
 import update from './update';
+import widget from './widget';
 
 const getMatchedText = () => { // eslint-disable-line consistent-return
   let store;
@@ -25,6 +26,7 @@ const getMatchedText = () => { // eslint-disable-line consistent-return
       search: search.en,
       preference: preference.en,
       update: update.en,
+      widget: widget.en,
     };
   }
 
@@ -35,6 +37,7 @@ const getMatchedText = () => { // eslint-disable-line consistent-return
       search: search.ko,
       preference: preference.ko,
       update: update.ko,
+      widget: widget.ko,
     };
   }
 };
