@@ -1,0 +1,16 @@
+.ReloadTimer {
+  display: flex;
+  position: fixed;
+  border-radius: 45px;
+  background-color: gray;
+  color: white;
+  padding: 5px;
+  right: 0;
+}
+
+.ReloadTimer__button {
+  display: flex;
+  align-self: center;
+  padding: 3px;
+  color: white;
+}
