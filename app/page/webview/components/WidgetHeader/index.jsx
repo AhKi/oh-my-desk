@@ -15,6 +15,7 @@ const propTypes = {
   webView: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   userAgent: PropTypes.string,
   url: PropTypes.string,
+  onModalOpen: PropTypes.func,
   onUpdateWidgetInfo: PropTypes.func,
 };
 
@@ -28,6 +29,7 @@ const defaultProps = {
   webView: null,
   userAgent: '',
   url: '',
+  onModalOpen() {},
   onUpdateWidgetInfo() {},
 };
 
@@ -43,6 +45,7 @@ class WidgetHeader extends React.Component {
       webView,
       userAgent,
       url,
+      onModalOpen,
       onUpdateWidgetInfo,
     } = this.props;
 
@@ -62,6 +65,7 @@ class WidgetHeader extends React.Component {
           isOnTop={isOnTop}
           isLoading={isLoading}
           webView={webView}
+          onModalOpen={onModalOpen}
           onUpdateWidgetInfo={onUpdateWidgetInfo}
         />
       </div>
