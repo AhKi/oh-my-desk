@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import SettingContainer from 'page/preference/containers/SettingContainer';
-import ModalContainer from 'page/preference/containers/ModalContainer';
+import ModalContainer from 'page/Components/Modal/ModalContainer';
 import UpdateContainer from 'page/preference/containers/UpdateContainer';
 import HotKey from '../HotKey';
 import PreferenceHeader from '../PreferenceHeader';

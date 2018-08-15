@@ -25,6 +25,10 @@ const byIdReducer = handleActions({
     const { id } = action.payload;
     const widget = state.get(id);
 
+    if (!widget) {
+      return state;
+    }
+
     return state.set(id, widget.set('isOpen', false));
   },
   [TYPES.DELETE_TARGET_WIDGET]: (state, action) => {
