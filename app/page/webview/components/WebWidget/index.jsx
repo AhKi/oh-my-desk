@@ -7,6 +7,7 @@ import ModalContainer from 'page/Components/Modal/ModalContainer';
 import widgetContextMenu from 'utils/process/widgetContextMenu';
 import WidgetHeaderContainer from '../../containers/WidgetHeaderContainer';
 import MenuNewWindow from '../MenuNewWindow';
+import ReloadTimer from '../ReloadTimer';
 import './WebWidget.scss';
 
 const propTypes = {
@@ -15,10 +16,12 @@ const propTypes = {
     name: PropTypes.string,
     url: PropTypes.string,
   }),
+  onUpdateInfo: PropTypes.func,
 };
 const defaultProps = {
   defaultUserAgent: 'DESKTOP',
   widget: {},
+  onUpdateInfo() {},
 };
 
 class WebWidget extends React.Component {
@@ -131,6 +134,7 @@ class WebWidget extends React.Component {
     const {
       defaultUserAgent,
       widget,
+      onUpdateInfo,
     } = this.props;
 
     return (
@@ -156,6 +160,14 @@ class WebWidget extends React.Component {
             x={this.mousePosition.x}
             y={this.mousePosition.y}
             onClose={this.handleToggleNewWindowMenu}
+          />
+        )}
+        {widget.reloadInterval !== 0 && (
+          <ReloadTimer
+            id={widget.id}
+            webView={this.webViewRef.current}
+            reloadTimer={widget.reloadInterval}
+            onUpdateInfo={onUpdateInfo}
           />
         )}
         <webview
