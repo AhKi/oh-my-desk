@@ -12,6 +12,7 @@ const propTypes = {
   id: PropTypes.string,
   isOnTop: PropTypes.bool,
   isLoading: PropTypes.bool,
+  reloadInterval: PropTypes.number,
   webView: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   userAgent: PropTypes.string,
   url: PropTypes.string,
@@ -26,6 +27,7 @@ const defaultProps = {
   id: '',
   isOnTop: false,
   isLoading: false,
+  reloadInterval: 0,
   webView: null,
   userAgent: '',
   url: '',
@@ -42,6 +44,7 @@ class WidgetHeader extends React.Component {
       id,
       isOnTop,
       isLoading,
+      reloadInterval,
       webView,
       userAgent,
       url,
@@ -64,6 +67,7 @@ class WidgetHeader extends React.Component {
           id={id}
           isOnTop={isOnTop}
           isLoading={isLoading}
+          reloadInterval={reloadInterval}
           webView={webView}
           onModalOpen={onModalOpen}
           onUpdateWidgetInfo={onUpdateWidgetInfo}

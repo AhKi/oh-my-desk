@@ -17,7 +17,9 @@ const propTypes = {
   id: PropTypes.string,
   isOnTop: PropTypes.bool,
   isLoading: PropTypes.bool,
+  reloadInterval: PropTypes.number,
   webView: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  onModalOpen: PropTypes.func,
   onUpdateWidgetInfo: PropTypes.func,
 };
 const defaultProps = {
@@ -26,7 +28,9 @@ const defaultProps = {
   id: '',
   isOnTop: false,
   isLoading: false,
+  reloadInterval: 0,
   webView: null,
+  onModalOpen() {},
   onUpdateWidgetInfo() {},
 };
 
@@ -162,10 +166,15 @@ class AddressBar extends React.Component {
   render() {
     const { addressValue, isMenuOpen } = this.state;
     const {
+      id,
+      currentUrl,
       homeUrl,
       isOnTop,
       isLoading,
+      reloadInterval,
       webView,
+      onModalOpen,
+      onUpdateWidgetInfo,
     } = this.props;
     const moreClassName = cx('AddressBar__button', 'AddressBar__more-btn', {
       'AddressBar__more-btn--active': true,
@@ -242,8 +251,13 @@ class AddressBar extends React.Component {
         </button>
         {isMenuOpen && (
           <ConfigMenu
+            currentUrl={currentUrl}
             buttonRef={this.moreBtnRef}
+            id={id}
+            reloadInterval={reloadInterval}
             onClose={this.handleToggleMenu}
+            onModalOpen={onModalOpen}
+            onUpdateWidgetInfo={onUpdateWidgetInfo}
           />
         )}
         <button
