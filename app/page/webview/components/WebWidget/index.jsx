@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import url from 'url';
 import * as PATH from 'constants/path';
 import * as USER_AGENT from 'constants/userAgent';
+import ModalContainer from 'page/Components/Modal/ModalContainer';
 import widgetContextMenu from 'utils/process/widgetContextMenu';
 import WidgetHeaderContainer from '../../containers/WidgetHeaderContainer';
 import MenuNewWindow from '../MenuNewWindow';
-import WebWidgetSetting from '../WebWidgetSetting';
 import './WebWidget.scss';
 
 const propTypes = {
@@ -15,14 +15,10 @@ const propTypes = {
     name: PropTypes.string,
     url: PropTypes.string,
   }),
-  onOpenPreference: PropTypes.func,
-  onUpdateInfo: PropTypes.func,
 };
 const defaultProps = {
   defaultUserAgent: 'DESKTOP',
   widget: {},
-  onOpenPreference() {},
-  onUpdateInfo() {},
 };
 
 class WebWidget extends React.Component {
@@ -41,11 +37,6 @@ class WebWidget extends React.Component {
       x: 0,
       y: 0,
     };
-    this.toggleIsOnTop = this.toggleIsOnTop.bind(this);
-    this.handleWidgetGoBack = this.handleWidgetGoBack.bind(this);
-    this.handleWidgetGoForward = this.handleWidgetGoForward.bind(this);
-    this.handleWidgetRefresh = this.handleWidgetRefresh.bind(this);
-    this.handleWidgetStopRefresh = this.handleWidgetStopRefresh.bind(this);
     this.handleToggleSettingMenu = this.handleToggleSettingMenu.bind(this);
     this.handleToggleNewWindowMenu = this.handleToggleNewWindowMenu.bind(this);
   }
@@ -115,28 +106,6 @@ class WebWidget extends React.Component {
     }
   }
 
-  toggleIsOnTop() {
-    const { widget, onUpdateInfo } = this.props;
-
-    onUpdateInfo(widget.id, { isOnTop: !widget.isOnTop });
-  }
-
-  handleWidgetGoBack() {
-    this.webViewRef.current.goBack();
-  }
-
-  handleWidgetGoForward() {
-    this.webViewRef.current.goForward();
-  }
-
-  handleWidgetRefresh() {
-    this.webViewRef.current.reload();
-  }
-
-  handleWidgetStopRefresh() {
-    this.webViewRef.current.stop();
-  }
-
   handleToggleSettingMenu(bool) {
     if (typeof bool === 'boolean') {
       this.setState({ isSettingOpen: bool });
@@ -157,18 +126,16 @@ class WebWidget extends React.Component {
     const {
       currentUrl,
       isLoading,
-      isSettingOpen,
       newWindowURL,
     } = this.state;
     const {
       defaultUserAgent,
       widget,
-      onUpdateInfo,
-      onOpenPreference,
     } = this.props;
 
     return (
       <div className="WebWidget">
+        <ModalContainer />
         <WidgetHeaderContainer
           currentUrl={currentUrl}
           defaultUserAgent={defaultUserAgent}
@@ -179,23 +146,8 @@ class WebWidget extends React.Component {
           isLoading={isLoading}
           isOnTop={widget.isOnTop}
           userAgent={widget.userAgent}
-          onToggleIsOnTop={this.toggleIsOnTop}
-          onGoBack={this.handleWidgetGoBack}
-          onGoForward={this.handleWidgetGoForward}
-          onRefresh={this.handleWidgetRefresh}
-          onStopRefresh={this.handleWidgetStopRefresh}
           onToggleSetting={this.handleToggleSettingMenu}
         />
-        {isSettingOpen && (
-          <WebWidgetSetting
-            name={widget.name}
-            widget={widget}
-            url={widget.url}
-            onToggleSetting={this.handleToggleSettingMenu}
-            onUpdateInfo={onUpdateInfo}
-            onOpenPreference={onOpenPreference}
-          />
-        )}
         {newWindowURL && (
           <MenuNewWindow
             url={newWindowURL}
