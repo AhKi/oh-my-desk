@@ -47,10 +47,12 @@ class MenuNewWindow extends React.Component {
     });
 
     window.addEventListener('mouseup', this.handleClose);
+    window.addEventListener('resize', this.handleClose);
   }
 
   componentWillUnmount() {
     window.removeEventListener('mouseup', this.handleClose);
+    window.removeEventListener('resize', this.handleClose);
   }
 
   handleClose() {
