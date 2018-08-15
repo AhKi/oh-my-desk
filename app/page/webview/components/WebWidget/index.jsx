@@ -53,18 +53,6 @@ class WebWidget extends React.Component {
   componentDidMount() {
     const webView = this.webViewRef.current;
     // add event when webview page loading
-    document.addEventListener('keydown', (e) => {
-      let command;
-      if (process.platform === 'darwin') {
-        command = e.metaKey;
-      } else {
-        command = e.altKey;
-      }
-
-      if (command && (e.key === 'r' || e.key === 'ㅣ')) {
-        webView.reload();
-      }
-    });
     webView.addEventListener('did-start-loading', () => {
       this.setState({ isLoading: true });
     });

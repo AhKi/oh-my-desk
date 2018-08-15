@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import cancelIcon from 'assets/icon/icon-widget-close.svg';
 import leftArrowIcon from 'assets/icon/icon-widget-back-arrow.svg';
 import rightArrowIcon from 'assets/icon/icon-widget-go-arrow.svg';
 import homeIcon from 'assets/icon/icon-widget-small-view.svg';
 import moreIcon from 'assets/icon/icon-more.svg';
 import refreshIcon from 'assets/icon/icon-widget-refresh.svg';
 import iconPin from 'assets/icon/icon-pin.svg';
+import ConfigMenu from '../ConfigMenu';
 import './AddressBar.scss';
 
 const propTypes = {
@@ -14,6 +16,7 @@ const propTypes = {
   homeUrl: PropTypes.string,
   id: PropTypes.string,
   isOnTop: PropTypes.bool,
+  isLoading: PropTypes.bool,
   webView: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   onUpdateWidgetInfo: PropTypes.func,
 };
@@ -22,6 +25,7 @@ const defaultProps = {
   homeUrl: '',
   id: '',
   isOnTop: false,
+  isLoading: false,
   webView: null,
   onUpdateWidgetInfo() {},
 };
@@ -31,15 +35,21 @@ class AddressBar extends React.Component {
     super(props);
     this.state = {
       addressValue: '',
+      isMenuOpen: false,
     };
+    this.moreBtnRef = React.createRef();
     this.addressInputRef = React.createRef();
+    this.handleAttachReloadHotKey = this.handleAttachReloadHotKey.bind(this);
     this.handleAddressChange = this.handleAddressChange.bind(this);
     this.handleAddressEnter = this.handleAddressEnter.bind(this);
+    this.handleNavigateReload = this.handleNavigateReload.bind(this);
     this.handleNavigateToHome = this.handleNavigateToHome.bind(this);
     this.handleToggleIsOnTop = this.handleToggleIsOnTop.bind(this);
+    this.handleToggleMenu = this.handleToggleMenu.bind(this);
   }
 
   componentDidMount() {
+    const { webView } = this.props;
     const additionKey = process.platform === 'darwin' ? 'metaKey' : 'ctrlKey';
     window.addEventListener('keydown', (e) => {
       if (e[additionKey] && e.key === 'l') {
@@ -50,13 +60,47 @@ class AddressBar extends React.Component {
         this.addressInputRef.current.blur();
       }
     });
+
+    if (webView) {
+      document.addEventListener('keydown', this.handleAttachReloadHotKey);
+    }
   }
 
   componentDidUpdate(prevProps) {
-    const { currentUrl } = this.props;
+    const { currentUrl, webView } = this.props; // eslint-disable-line
+
+    /**
+     * Need to occur once. but webView is parent DOM element
+     * so don't catch in "componentDidMount"
+     * Occur addEventListener once when webView is rendered from null to element
+     */
+    if (!prevProps.webView && webView) {
+      document.addEventListener('keydown', this.handleAttachReloadHotKey);
+    }
 
     if (currentUrl !== prevProps.currentUrl) {
       this.setState({ // eslint-disable-line react/no-did-update-set-state
+        addressValue: currentUrl,
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleAttachReloadHotKey);
+  }
+
+  handleAttachReloadHotKey(e) {
+    const { currentUrl, webView } = this.props;
+    let command;
+    if (process.platform === 'darwin') {
+      command = e.metaKey;
+    } else {
+      command = e.altKey;
+    }
+
+    if (command && (e.key === 'r' || e.key === 'ㅣ')) {
+      webView.reload();
+      this.setState({
         addressValue: currentUrl,
       });
     }
@@ -86,9 +130,17 @@ class AddressBar extends React.Component {
   }
 
   handleNavigateToHome() {
-    const { homeUrl, webView } = this.props;
+    const { currentUrl, homeUrl, webView } = this.props;
 
     webView.loadURL(homeUrl);
+    this.setState({ addressValue: currentUrl });
+  }
+
+  handleNavigateReload() {
+    const { currentUrl, webView } = this.props;
+
+    webView.reload();
+    this.setState({ addressValue: currentUrl });
   }
 
   handleToggleIsOnTop() {
@@ -99,9 +151,22 @@ class AddressBar extends React.Component {
     });
   }
 
+  handleToggleMenu(value) {
+    if (typeof value === 'boolean') {
+      this.setState({ isMenuOpen: value });
+    } else {
+      this.setState(prevState => ({ isMenuOpen: !prevState.isMenuOpen }));
+    }
+  }
+
   render() {
-    const { addressValue } = this.state;
-    const { homeUrl, isOnTop, webView } = this.props;
+    const { addressValue, isMenuOpen } = this.state;
+    const {
+      homeUrl,
+      isOnTop,
+      isLoading,
+      webView,
+    } = this.props;
     const moreClassName = cx('AddressBar__button', 'AddressBar__more-btn', {
       'AddressBar__more-btn--active': true,
     });
@@ -132,13 +197,23 @@ class AddressBar extends React.Component {
         >
           <img src={rightArrowIcon} alt="" />
         </button>
-        <button
-          className="AddressBar__button"
-          type="button"
-          onClick={() => webView.reload()}
-        >
-          <img src={refreshIcon} alt="" />
-        </button>
+        {isLoading ? (
+          <button
+            className="AddressBar__button"
+            type="button"
+            onClick={() => webView.stop()}
+          >
+            <img src={cancelIcon} alt="" />
+          </button>
+        ) : (
+          <button
+            className="AddressBar__button"
+            type="button"
+            onClick={this.handleNavigateReload}
+          >
+            <img src={refreshIcon} alt="" />
+          </button>
+        )}
         <div className="AddressBar__address">
           <input
             className="AddressBar__address-input"
@@ -159,10 +234,18 @@ class AddressBar extends React.Component {
         </div>
         <button
           className={moreClassName}
+          ref={this.moreBtnRef}
           type="button"
+          onClick={this.handleToggleMenu}
         >
           <img src={moreIcon} alt="" />
         </button>
+        {isMenuOpen && (
+          <ConfigMenu
+            buttonRef={this.moreBtnRef}
+            onClose={this.handleToggleMenu}
+          />
+        )}
         <button
           className={pinClassName}
           type="button"
