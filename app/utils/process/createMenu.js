@@ -1,4 +1,5 @@
 import { app, Menu } from 'electron';
+import os from 'os';
 import openPreference from 'utils/process/openPreference';
 import i18n from 'constants/i18n';
 
@@ -43,7 +44,7 @@ function createMenu() {
   ];
 
   // when user OS is MacOS,
-  if (process.platform === 'darwin') {
+  if (os.platform() === 'darwin') {
     template.unshift({
       label: app.getName(),
       submenu: [

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import os from 'os';
 import cx from 'classnames';
 import cancelIcon from 'assets/icon/icon-widget-close.svg';
 import leftArrowIcon from 'assets/icon/icon-widget-back-arrow.svg';
@@ -87,7 +88,7 @@ class AddressBar extends React.Component {
   }
 
   handleAttachAddressFocusHotKey(e) {
-    const additionKey = process.platform === 'darwin' ? 'metaKey' : 'ctrlKey';
+    const additionKey = os.platform() === 'darwin' ? 'metaKey' : 'ctrlKey';
 
     if (e[additionKey] && (e.key === 'l' || e.key === 'ㅣ')) {
       this.addressInputRef.current.select();
@@ -101,7 +102,7 @@ class AddressBar extends React.Component {
   handleAttachReloadHotKey(e) {
     const { currentUrl, webView } = this.props;
     let command;
-    if (process.platform === 'darwin') {
+    if (os.platform() === 'darwin') {
       command = e.metaKey;
     } else {
       command = e.altKey;

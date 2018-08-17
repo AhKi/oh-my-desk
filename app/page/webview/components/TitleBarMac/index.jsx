@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import os from 'os';
 import cx from 'classnames';
 import * as USER_AGENT from 'constants/userAgent';
 import mobileIcon from 'assets/icon/icon-widget-setting.svg';
@@ -54,7 +55,7 @@ class TitleBarMac extends React.Component {
       'TitleBarMac__icon--active': userAgent === USER_AGENT.MOBILE,
     });
 
-    if (process.platform !== 'darwin') {
+    if (os.platform() !== 'darwin') {
       return null;
     }
 
