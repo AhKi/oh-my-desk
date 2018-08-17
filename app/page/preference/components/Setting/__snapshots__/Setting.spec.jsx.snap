@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Setting /> should match to snapshot when render default 1`] = `
+<div
+  className="Setting"
+>
+  <p
+    className="Setting__title"
+  >
+    User
+  </p>
+  <ul
+    className="Setting__list-set"
+  >
+    <li
+      className="Setting__list"
+    >
+      Launch oh-my-desk at login
+      <ToggleButton
+        checkedValue={
+          <i
+            className="fa fa-check"
+          />
+        }
+        isCheck={true}
+        onToggle={[Function]}
+        unCheckedValue={
+          <i
+            className="fa fa-times"
+          />
+        }
+        width={40}
+      />
+    </li>
+    <li
+      className="Setting__list"
+    >
+      Active widget when start
+      <ToggleButton
+        checkedValue={
+          <i
+            className="fa fa-check"
+          />
+        }
+        isCheck={true}
+        onToggle={[Function]}
+        unCheckedValue={
+          <i
+            className="fa fa-times"
+          />
+        }
+        width={40}
+      />
+    </li>
+    <li
+      className="Setting__list"
+    >
+      Language
+      <select
+        onChange={[Function]}
+        value="English"
+      >
+        <option
+          value="English"
+        >
+          English
+        </option>
+        <option
+          value="Korean"
+        >
+          한국어
+        </option>
+      </select>
+    </li>
+  </ul>
+  <p
+    className="Setting__title"
+  >
+    Shape
+  </p>
+  <ul
+    className="Setting__list-set"
+  >
+    <li
+      className="Setting__list"
+    >
+      Default Widget Mode
+      <select
+        onChange={[Function]}
+        value="DESKTOP"
+      >
+        <option
+          value="DESKTOP"
+        >
+          Desktop Mode
+        </option>
+        <option
+          value="MOBILE"
+        >
+          Mobile Mode
+        </option>
+      </select>
+    </li>
+    <li
+      className="Setting__list"
+    >
+      Theme Color
+      <select>
+        <option
+          value="English"
+        >
+          Space Gray
+        </option>
+      </select>
+    </li>
+  </ul>
+</div>
+`;

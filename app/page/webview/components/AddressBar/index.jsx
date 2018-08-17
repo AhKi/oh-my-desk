@@ -44,6 +44,7 @@ class AddressBar extends React.Component {
     this.moreBtnRef = React.createRef();
     this.addressInputRef = React.createRef();
     this.handleAttachReloadHotKey = this.handleAttachReloadHotKey.bind(this);
+    this.handleAttachAddressFocusHotKey = this.handleAttachAddressFocusHotKey.bind(this);
     this.handleAddressChange = this.handleAddressChange.bind(this);
     this.handleAddressEnter = this.handleAddressEnter.bind(this);
     this.handleNavigateReload = this.handleNavigateReload.bind(this);
@@ -54,16 +55,7 @@ class AddressBar extends React.Component {
 
   componentDidMount() {
     const { webView } = this.props;
-    const additionKey = process.platform === 'darwin' ? 'metaKey' : 'ctrlKey';
-    window.addEventListener('keydown', (e) => {
-      if (e[additionKey] && e.key === 'l') {
-        this.addressInputRef.current.select();
-      }
-      if (document.activeElement === this.addressInputRef.current &&
-        e.key === 'Escape') {
-        this.addressInputRef.current.blur();
-      }
-    });
+    document.addEventListener('keydown', this.handleAttachAddressFocusHotKey);
 
     if (webView) {
       document.addEventListener('keydown', this.handleAttachReloadHotKey);
@@ -90,7 +82,20 @@ class AddressBar extends React.Component {
   }
 
   componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleAttachAddressFocusHotKey);
     document.removeEventListener('keydown', this.handleAttachReloadHotKey);
+  }
+
+  handleAttachAddressFocusHotKey(e) {
+    const additionKey = process.platform === 'darwin' ? 'metaKey' : 'ctrlKey';
+
+    if (e[additionKey] && (e.key === 'l' || e.key === 'ㅣ')) {
+      this.addressInputRef.current.select();
+    }
+    if (document.activeElement === this.addressInputRef.current &&
+      e.key === 'Escape') {
+      this.addressInputRef.current.blur();
+    }
   }
 
   handleAttachReloadHotKey(e) {
@@ -102,7 +107,7 @@ class AddressBar extends React.Component {
       command = e.altKey;
     }
 
-    if (command && (e.key === 'r' || e.key === 'ㅣ')) {
+    if (command && (e.key === 'r' || e.key === 'ㄱ')) {
       webView.reload();
       this.setState({
         addressValue: currentUrl,
@@ -134,10 +139,10 @@ class AddressBar extends React.Component {
   }
 
   handleNavigateToHome() {
-    const { currentUrl, homeUrl, webView } = this.props;
+    const { homeUrl, webView } = this.props;
 
     webView.loadURL(homeUrl);
-    this.setState({ addressValue: currentUrl });
+    this.setState({ addressValue: homeUrl });
   }
 
   handleNavigateReload() {
@@ -192,6 +197,7 @@ class AddressBar extends React.Component {
       <div className="AddressBar">
         <button
           className="AddressBar__button"
+          data-name="go-back-btn"
           type="button"
           disabled={!isGoBack}
           onClick={() => webView.goBack()}
@@ -200,6 +206,7 @@ class AddressBar extends React.Component {
         </button>
         <button
           className="AddressBar__button"
+          data-name="go-forward-btn"
           type="button"
           disabled={!isGoForward}
           onClick={() => webView.goForward()}
@@ -209,6 +216,7 @@ class AddressBar extends React.Component {
         {isLoading ? (
           <button
             className="AddressBar__button"
+            data-name="stop-btn"
             type="button"
             onClick={() => webView.stop()}
           >

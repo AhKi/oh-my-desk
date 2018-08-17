@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { shell, remote } from 'electron';
 import MenuNewWindow from '.';
 
@@ -11,7 +11,7 @@ describe('<MenuNewWindow />', () => {
   });
 
   it('should match to snapshot when render default', () => {
-    const wrapper = shallow(<MenuNewWindow />);
+    const wrapper = mount(<MenuNewWindow webview={{}} />);
 
     expect(wrapper).toMatchSnapshot();
   });
@@ -21,28 +21,34 @@ describe('<MenuNewWindow />', () => {
     const componentWillUnmount = jest.spyOn(MenuNewWindow.prototype, 'componentWillUnmount');
     window.addEventListener = jest.fn();
     window.removeEventListener = jest.fn();
-    const wrapper = shallow(<MenuNewWindow />);
+    const wrapper = mount(<MenuNewWindow webview={{}} />);
     const { handleClose } = wrapper.instance();
 
     expect(componentDidMount).toHaveBeenCalledTimes(1);
-    expect(window.addEventListener).toHaveBeenCalledTimes(1);
     expect(window.addEventListener).toHaveBeenCalledWith(
       'mouseup',
+      handleClose,
+    );
+    expect(window.addEventListener).toHaveBeenCalledWith(
+      'resize',
       handleClose,
     );
 
     wrapper.unmount();
     expect(componentWillUnmount).toHaveBeenCalledTimes(1);
-    expect(window.removeEventListener).toHaveBeenCalledTimes(1);
     expect(window.removeEventListener).toHaveBeenCalledWith(
       'mouseup',
+      handleClose,
+    );
+    expect(window.removeEventListener).toHaveBeenCalledWith(
+      'resize',
       handleClose,
     );
   });
 
   it('should call handleClose', () => {
     const onClose = jest.fn();
-    const wrapper = shallow(<MenuNewWindow onClose={onClose} />);
+    const wrapper = mount(<MenuNewWindow webview={{}} onClose={onClose} />);
 
     wrapper.instance().handleClose();
 
@@ -51,9 +57,10 @@ describe('<MenuNewWindow />', () => {
   });
 
   it('should call handleOpenBrowser', () => {
-    const wrapper = shallow(
+    const wrapper = mount(
       <MenuNewWindow
         url="mock-url"
+        webview={{}}
       />,
     );
 
@@ -68,7 +75,7 @@ describe('<MenuNewWindow />', () => {
     const webview = {
       loadURL,
     };
-    const wrapper = shallow(
+    const wrapper = mount(
       <MenuNewWindow
         url="mock-url"
         webview={webview}

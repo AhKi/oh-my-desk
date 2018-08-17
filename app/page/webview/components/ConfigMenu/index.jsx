@@ -41,11 +41,11 @@ class ConfigMenu extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('mouseup', this.handleOutSideClick);
+    document.addEventListener('mouseup', this.handleOutSideClick);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('mouseup', this.handleOutSideClick);
+    document.removeEventListener('mouseup', this.handleOutSideClick);
   }
 
   handleDeleteWidget() {
@@ -120,6 +120,7 @@ class ConfigMenu extends React.Component {
           >
             <button
               className="ConfigMenu__btn"
+              data-name="interval-zero-btn"
               type="button"
               disabled={reloadInterval === 0}
               onClick={() => this.handleSetReloadInterval(0)}
@@ -133,6 +134,7 @@ class ConfigMenu extends React.Component {
           >
             <button
               className="ConfigMenu__btn"
+              data-name="set-interval-btn"
               type="button"
               disabled={reloadInterval !== 0}
               onClick={() => this.handleSetReloadInterval(localSecond)}
