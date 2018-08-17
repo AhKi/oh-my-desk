@@ -163,7 +163,7 @@ describe('<AddressBar />', () => {
 
     it('when press metaKey + r', () => {
       const event = {
-        ctrlKey: true,
+        altKey: true,
         metaKey: true,
         key: 'r',
       };
@@ -174,7 +174,7 @@ describe('<AddressBar />', () => {
 
     it('when press metaKey + ㄱ(korean)', () => {
       const event = {
-        ctrlKey: true,
+        altKey: true,
         metaKey: true,
         key: 'ㄱ',
       };
@@ -185,7 +185,7 @@ describe('<AddressBar />', () => {
 
     it('when press metaKey + another key', () => {
       const event = {
-        ctrlKey: true,
+        altKey: true,
         metaKey: true,
         key: 'a',
       };

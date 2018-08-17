@@ -1,4 +1,5 @@
 import React from 'react';
+import os from 'os';
 import { NavLink } from 'react-router-dom';
 import i18n from 'constants/i18n';
 import './PreferenceHeader.scss';
@@ -11,7 +12,7 @@ class PreferenceHeader extends React.Component {
     const text = i18n().preference;
     return (
       <div className="PreferenceHeader">
-        {process.platform === 'darwin' && <div className="PreferenceHeader__Draggable" />}
+        {os.platform() === 'darwin' && <div className="PreferenceHeader__Draggable" />}
         <NavLink
           activeClassName="PreferenceHeader__Link--select"
           className="PreferenceHeader__Link"
