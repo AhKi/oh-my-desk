@@ -47,6 +47,7 @@ export const remote = {
     })),
   },
   app: {
+    getName: jest.fn(),
     getVersion: jest.fn(),
   },
 };

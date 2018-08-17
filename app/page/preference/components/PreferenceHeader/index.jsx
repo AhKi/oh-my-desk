@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import i18n from 'constants/i18n';
-// import PropTypes from 'prop-types';
 import './PreferenceHeader.scss';
 
 const propTypes = {};

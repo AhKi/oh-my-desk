@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WidgetModeConfirm /> should match to snapshot when render default 1`] = `
+<div>
+  <h3>
+    Do you want to change the window mode?
+  </h3>
+  <p>
+    The window you are working on might not be saved.
+  </p>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Undo
+  </button>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Ok
+  </button>
+</div>
+`;

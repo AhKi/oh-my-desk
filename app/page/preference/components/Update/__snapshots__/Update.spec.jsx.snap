@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Update /> should match to snapshot when render default 1`] = `
+<div
+  className="Update"
+>
+  <p
+    className="Update__title"
+  >
+    App Version
+  </p>
+  <button
+    className="Update__app-name"
+    onClick={[Function]}
+    type="button"
+  >
+     
+  </button>
+  <button
+    className="Btn--gray"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Check Update
+  </button>
+</div>
+`;
