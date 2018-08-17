@@ -1,47 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<MenuNewWindow /> should match to snapshot when render default 1`] = `
-<ul
-  className="MenuNewWindow"
-  style={
-    Object {
-      "left": 0,
-      "top": 0,
-    }
-  }
+<MenuNewWindow
+  onClose={[Function]}
+  url=""
+  webview={Object {}}
+  x={0}
+  y={0}
 >
-  <li
-    className="MenuNewWindow__list"
+  <ul
+    className="MenuNewWindow"
+    style={
+      Object {
+        "left": 0,
+        "top": 0,
+      }
+    }
   >
-    <button
-      className="MenuNewWindow__btn"
-      onMouseUp={[Function]}
-      type="button"
+    <li
+      className="MenuNewWindow__list"
     >
-      Open with a new browser
-    </button>
-  </li>
-  <li
-    className="MenuNewWindow__list"
-  >
-    <button
-      className="MenuNewWindow__btn"
-      onMouseUp={[Function]}
-      type="button"
+      <button
+        className="MenuNewWindow__btn"
+        onMouseUp={[Function]}
+        type="button"
+      >
+        Open with a new browser
+      </button>
+    </li>
+    <li
+      className="MenuNewWindow__list"
     >
-      Move
-    </button>
-  </li>
-  <li
-    className="MenuNewWindow__list"
-  >
-    <button
-      className="MenuNewWindow__btn"
-      onMouseUp={[Function]}
-      type="button"
+      <button
+        className="MenuNewWindow__btn"
+        onMouseUp={[Function]}
+        type="button"
+      >
+        Move
+      </button>
+    </li>
+    <li
+      className="MenuNewWindow__list"
     >
-      Open with a new widget
-    </button>
-  </li>
-</ul>
+      <button
+        className="MenuNewWindow__btn"
+        onMouseUp={[Function]}
+        type="button"
+      >
+        Open with a new widget
+      </button>
+    </li>
+  </ul>
+</MenuNewWindow>
 `;

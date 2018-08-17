@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] = `
+<ul
+  className="ConfigMenu"
+>
+  <li
+    className="ConfigMenu__list"
+  >
+    New
+  </li>
+  <li
+    className="ConfigMenu__list"
+  >
+    Edit widget
+  </li>
+  <li
+    className="ConfigMenu__list"
+  >
+    <button
+      className="ConfigMenu__btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Refresh every
+    </button>
+  </li>
+  <li
+    className="ConfigMenu__list"
+    key="never-menu"
+  >
+    <button
+      className="ConfigMenu__btn"
+      data-name="interval-zero-btn"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      Never
+    </button>
+  </li>
+  <li
+    className="ConfigMenu__list"
+    key="reload-every-menu"
+  >
+    <button
+      className="ConfigMenu__btn"
+      data-name="set-interval-btn"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <p>
+        Reload Every 
+        <select
+          onChange={[Function]}
+          value={5}
+        >
+          <option
+            value={5}
+          >
+            5s
+          </option>
+          <option
+            value={10}
+          >
+            10s
+          </option>
+          <option
+            value={30}
+          >
+            30s
+          </option>
+          <option
+            value={60}
+          >
+            60s
+          </option>
+        </select>
+      </p>
+    </button>
+  </li>
+  <li
+    className="ConfigMenu__list"
+  >
+    <button
+      className="ConfigMenu__btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Open with browser
+    </button>
+  </li>
+  <li
+    className="ConfigMenu__list"
+  >
+    <button
+      className="ConfigMenu__btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Delete this widget
+    </button>
+  </li>
+</ul>
+`;
+
+exports[`<ConfigMenu /> should match to snapshot when render default 1`] = `
+<ul
+  className="ConfigMenu"
+>
+  <li
+    className="ConfigMenu__list"
+  >
+    New
+  </li>
+  <li
+    className="ConfigMenu__list"
+  >
+    Edit widget
+  </li>
+  <li
+    className="ConfigMenu__list"
+  >
+    <button
+      className="ConfigMenu__btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Refresh every
+    </button>
+  </li>
+  <li
+    className="ConfigMenu__list"
+  >
+    <button
+      className="ConfigMenu__btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Open with browser
+    </button>
+  </li>
+  <li
+    className="ConfigMenu__list"
+  >
+    <button
+      className="ConfigMenu__btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Delete this widget
+    </button>
+  </li>
+</ul>
+`;

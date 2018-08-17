@@ -108,6 +108,9 @@ describe('test widgets byId reducer', () => {
 
     expect(byId(Immutable.fromJS(initialState), widgetActions.closeTargetWidget(mockId)))
       .toEqual(Immutable.fromJS(nextState));
+
+    expect(byId(Immutable.fromJS(initialState), widgetActions.closeTargetWidget('mock-temp-id')))
+      .toEqual(Immutable.fromJS(initialState));
   });
 
   it('should handle CLOSE_TARGET_WIDGET_FORCED', () => {
@@ -145,6 +148,8 @@ describe('test widgets byId reducer', () => {
 
     expect(byId(Immutable.fromJS(initialState), widgetActions.closeTargetWidgetForced(mockId)))
       .toEqual(Immutable.fromJS(nextState));
+    expect(byId(Immutable.fromJS(initialState), widgetActions.closeTargetWidget('mock-temp-id')))
+      .toEqual(Immutable.fromJS(initialState));
   });
 
   it('should handle DELETE_TARGET_WIDGET', () => {

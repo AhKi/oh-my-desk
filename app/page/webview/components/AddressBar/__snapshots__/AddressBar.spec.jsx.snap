@@ -1,0 +1,265 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddressBar /> should match to snapshot when props.isLoading is true 1`] = `
+<div
+  className="AddressBar"
+>
+  <button
+    className="AddressBar__button"
+    data-name="go-back-btn"
+    disabled={true}
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      src={Object {}}
+    />
+  </button>
+  <button
+    className="AddressBar__button"
+    data-name="go-forward-btn"
+    disabled={true}
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      src={Object {}}
+    />
+  </button>
+  <button
+    className="AddressBar__button"
+    data-name="stop-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      src={Object {}}
+    />
+  </button>
+  <div
+    className="AddressBar__address"
+  >
+    <input
+      className="AddressBar__address-input"
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      type="text"
+      value=""
+    />
+    <button
+      className="AddressBar__address-button"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt=""
+        src={Object {}}
+      />
+    </button>
+  </div>
+  <button
+    className="AddressBar__button AddressBar__more-btn AddressBar__more-btn--active"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      src={Object {}}
+    />
+  </button>
+  <button
+    className="AddressBar__pin-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      className="AddressBar__pin"
+      src={Object {}}
+    />
+  </button>
+</div>
+`;
+
+exports[`<AddressBar /> should match to snapshot when render default 1`] = `
+<div
+  className="AddressBar"
+>
+  <button
+    className="AddressBar__button"
+    data-name="go-back-btn"
+    disabled={true}
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      src={Object {}}
+    />
+  </button>
+  <button
+    className="AddressBar__button"
+    data-name="go-forward-btn"
+    disabled={true}
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      src={Object {}}
+    />
+  </button>
+  <button
+    className="AddressBar__button"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      src={Object {}}
+    />
+  </button>
+  <div
+    className="AddressBar__address"
+  >
+    <input
+      className="AddressBar__address-input"
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      type="text"
+      value=""
+    />
+    <button
+      className="AddressBar__address-button"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt=""
+        src={Object {}}
+      />
+    </button>
+  </div>
+  <button
+    className="AddressBar__button AddressBar__more-btn AddressBar__more-btn--active"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      src={Object {}}
+    />
+  </button>
+  <button
+    className="AddressBar__pin-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      className="AddressBar__pin"
+      src={Object {}}
+    />
+  </button>
+</div>
+`;
+
+exports[`<AddressBar /> should match to snapshot when state.isMenuOpen is true 1`] = `
+<div
+  className="AddressBar"
+>
+  <button
+    className="AddressBar__button"
+    data-name="go-back-btn"
+    disabled={true}
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      src={Object {}}
+    />
+  </button>
+  <button
+    className="AddressBar__button"
+    data-name="go-forward-btn"
+    disabled={true}
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      src={Object {}}
+    />
+  </button>
+  <button
+    className="AddressBar__button"
+    data-name="stop-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      src={Object {}}
+    />
+  </button>
+  <div
+    className="AddressBar__address"
+  >
+    <input
+      className="AddressBar__address-input"
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      type="text"
+      value=""
+    />
+    <button
+      className="AddressBar__address-button"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt=""
+        src={Object {}}
+      />
+    </button>
+  </div>
+  <button
+    className="AddressBar__button AddressBar__more-btn AddressBar__more-btn--active"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      src={Object {}}
+    />
+  </button>
+  <ConfigMenu
+    buttonRef={
+      Object {
+        "current": null,
+      }
+    }
+    currentUrl=""
+    id=""
+    onClose={[Function]}
+    onModalOpen={[Function]}
+    onUpdateWidgetInfo={[Function]}
+    reloadInterval={0}
+  />
+  <button
+    className="AddressBar__pin-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      className="AddressBar__pin"
+      src={Object {}}
+    />
+  </button>
+</div>
+`;

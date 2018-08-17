@@ -17,7 +17,7 @@ const defaultProps = {
   defaultUserAgent: 'DESKTOP',
   id: '',
   title: 'Empty Widget',
-  userAgent: 'DESKTOP',
+  userAgent: '',
   onUpdateWidgetInfo() {},
 };
 
