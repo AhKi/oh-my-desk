@@ -21,8 +21,7 @@
     "lint": "eslint app --ext .js,.jsx",
     "precommit": "lint-staged",
     "prepush": "yarn lint",
-    "clear": "rm -rf ./build && rm ./app/main.prod.js",
-    "reset:mac": "rm ~/Library/Application \\Support/oh-my-desk/store.json"
+    "watch": "nodemon --exec \"npm run dev\" --ext js --ignore build/ --ignore dist/ --ignore coverage/"
   },
   "lint-staged": {
     "*.{js,jsx}": "eslint"
@@ -59,6 +58,7 @@
     "husky": "^0.14.3",
     "jest": "^23.2.0",
     "lint-staged": "^7.2.0",
+    "nodemon": "^1.18.3",
     "redux-devtools-extension": "^2.13.5",
     "redux-mock-store": "^1.5.3",
     "webpack-dev-server": "^3.1.4",
