@@ -25,7 +25,7 @@ module.exports = webpackMerge(webpackBaseConfig, {
       console.log('Start Main Process...');
       spawn(
         'yarn',
-        ['dev'],
+        ['watch'],
         { shell: true, env: process.env, stdio: 'inherit' },
       )
         .on('close', code => process.exit(code))
