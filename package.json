@@ -10,6 +10,7 @@
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "dev": "cross-env NODE_ENV=development electron -r babel-register ./app/main.js",
     "start": "lint-staged && cross-env NODE_ENV=development node -r babel-register ./node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.js --hot --inline --watch",
+    "start-devtools": "cross-env IS_DEVTOOLS=true yarn start",
     "package": "yarn build:app && yarn build:main && build -c electron-builder.yml && yarn clear",
     "package:prod": "yarn build:app && yarn build:main && build --mac -p always -c electron-builder.yml && yarn clear",
     "package:mac": "yarn build:app && yarn build:main && build -c electron-builder.yml --mac && yarn clear",
@@ -61,6 +62,7 @@
     "nodemon": "^1.18.3",
     "redux-devtools-extension": "^2.13.5",
     "redux-mock-store": "^1.5.3",
+    "remote-redux-devtools": "^0.5.13",
     "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.1.3"
   },

@@ -13,6 +13,7 @@ module.exports = {
   },
   target: 'electron-renderer',
   module: {
+    noParse: /ws/,
     rules: [
       {
         test: /\.jsx?$/,
@@ -90,6 +91,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        IS_DEVTOOLS: JSON.stringify(process.env.IS_DEVTOOLS),
       },
       '__DEV__': process.env.NODE_ENV === 'development',
       '__PROD__': process.env.NODE_ENV === 'production',
