@@ -13,7 +13,7 @@ module.exports = {
   },
   target: 'electron-renderer',
   module: {
-    noParse: /ws/,
+    noParse: /ws\/lib/,
     rules: [
       {
         test: /\.jsx?$/,
