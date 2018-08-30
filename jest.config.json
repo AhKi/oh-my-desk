@@ -9,11 +9,11 @@
     "^assets(.*)$": "<rootDir>/app/assets$1",
     "^components(.*)$": "<rootDir>/app/components$1",
     "^constants(.*)$": "<rootDir>/app/constants$1",
-    "^page(.*)$": "<rootDir>/app/page$1",
+    "^renderer(.*)$": "<rootDir>/app/renderer$1",
     "^process(.*)$": "<rootDir>/app/process$1",
-    "^setting(.*)$": "<rootDir>/app/page/setting$1",
+    "^setting(.*)$": "<rootDir>/app/renderer/pages/setting$1",
     "^store(.*)$": "<rootDir>/app/store$1",
-    "^webview(.*)$": "<rootDir>/app/page/webview$1",
+    "^webview(.*)$": "<rootDir>/app/renderer/pages/webview$1",
     "^utils(.*)$": "<rootDir>/app/utils$1"
   },
   "globals": {
