@@ -4,12 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    widget: './app/page/webview/index.jsx',
-    preloadScript: './app/page/webview/preloadScript.js',
-    preference: './app/page/preference/index.jsx',
-    search: './app/page/search/index.jsx',
-    updateWindow: './app/page/update/UpdateWindow/index.jsx',
-    updateProgress: './app/page/update/UpdateProgress/index.jsx'
+    widget: './app/renderer/pages/webview/index.jsx',
+    preloadScript: './app/renderer/pages/webview/preloadScript.js',
+    preference: './app/renderer/pages/preference/index.jsx',
+    search: './app/renderer/pages/search/index.jsx',
+    updateWindow: './app/renderer/pages/update/UpdateWindow/index.jsx',
+    updateProgress: './app/renderer/pages/update/UpdateProgress/index.jsx'
   },
   target: 'electron-renderer',
   module: {
@@ -39,7 +39,7 @@ module.exports = {
             loader: 'sass-resources-loader',
             options: {
               resources: [
-                path.join(__dirname, 'app/page/scss', '**/_*.scss'),
+                path.join(__dirname, 'app/renderer/scss', '**/_*.scss'),
               ],
             },
           }
@@ -61,31 +61,31 @@ module.exports = {
     new HtmlWebpackPlugin({
       chunks: ['widget'],
       filename: 'widget.html',
-      template: path.join(__dirname, './app/page/webview/widget.html'),
+      template: path.join(__dirname, './app/renderer/pages/webview/widget.html'),
       inject: 'body',
     }),
     new HtmlWebpackPlugin({
       chunks: ['preference'],
       filename: 'preference.html',
-      template: path.join(__dirname, './app/page/preference/preference.html'),
+      template: path.join(__dirname, './app/renderer/pages/preference/preference.html'),
       inject: 'body',
     }),
     new HtmlWebpackPlugin({
       chunks: ['search'],
       filename: 'search.html',
-      template: path.join(__dirname, './app/page/search/search.html'),
+      template: path.join(__dirname, './app/renderer/pages/search/search.html'),
       inject: 'body',
     }),
     new HtmlWebpackPlugin({
       chunks: ['updateWindow'],
       filename: 'update_window.html',
-      template: path.join(__dirname, './app/page/update/UpdateWindow/update_window.html'),
+      template: path.join(__dirname, './app/renderer/pages/update/UpdateWindow/update_window.html'),
       inject: 'body',
     }),
     new HtmlWebpackPlugin({
       chunks: ['updateProgress'],
       filename: 'update_progress.html',
-      template: path.join(__dirname, './app/page/update/UpdateProgress/update_progress.html'),
+      template: path.join(__dirname, './app/renderer/pages/update/UpdateProgress/update_progress.html'),
       inject: 'body',
     }),
     new webpack.DefinePlugin({
@@ -103,11 +103,11 @@ module.exports = {
       assets: path.resolve(__dirname, 'app/assets'),
       constants: path.resolve(__dirname, 'app/constants'),
       components: path.resolve(__dirname, 'app/components'),
-      page: path.resolve(__dirname, 'app/page'),
+      renderer: path.resolve(__dirname, 'app/renderer'),
       process: path.resolve(__dirname, 'app/process'),
-      setting: path.resolve(__dirname, 'app/page/setting'),
-      webview: path.resolve(__dirname, 'app/page/webview'),
-      scss: path.resolve(__dirname, 'app/page/scss'),
+      setting: path.resolve(__dirname, 'app/renderer/pages/setting'),
+      webview: path.resolve(__dirname, 'app/renderer/pages/webview'),
+      scss: path.resolve(__dirname, 'app/renderer/scss'),
       utils: path.resolve(__dirname, 'app/utils'),
       store: path.resolve(__dirname, 'app/store'),
     },
