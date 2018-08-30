@@ -110,7 +110,7 @@ describe('<AddressBar />', () => {
 
       wrapper.setProps({ currentUrl: 'mock' });
 
-      expect(componentDidUpdate).toHaveBeenCalledTimes(1);
+      expect(componentDidUpdate).toHaveBeenCalledTimes(2);
       expect(wrapper.instance().state.addressValue).toBe('mock');
     });
   });
