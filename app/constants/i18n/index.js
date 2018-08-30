@@ -5,7 +5,7 @@ import menu from './menu';
 import preference from './preference';
 import search from './search';
 import update from './update';
-import widget from './widget';
+import widget from './widget.jsx';
 
 const getMatchedText = () => { // eslint-disable-line consistent-return
   let store;

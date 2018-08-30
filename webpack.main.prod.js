@@ -9,6 +9,7 @@ module.exports = {
     publicPath: './',
   },
   module: {
+    noParse: /ws\/lib/,
     rules: [
       {
         test: /\.jsx?$/,
