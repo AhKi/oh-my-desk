@@ -22,6 +22,7 @@
     "lint": "eslint app --ext .js,.jsx",
     "precommit": "lint-staged",
     "prepush": "yarn lint",
+    "clear": "rm -rf ./build && rm ./app/main.prod.js",
     "watch": "nodemon --exec \"npm run dev\" --ext js --ignore build/ --ignore dist/ --ignore coverage/"
   },
   "lint-staged": {
