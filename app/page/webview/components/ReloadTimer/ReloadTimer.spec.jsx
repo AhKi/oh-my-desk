@@ -68,7 +68,7 @@ describe('<ReloadTimer />', () => {
 
     wrapper.setProps({ reloadTimer: 50 });
 
-    expect(componentDidUpdate).toHaveBeenCalledTimes(1);
+    expect(componentDidUpdate).toHaveBeenCalledTimes(2);
     expect(wrapper.instance().state.timer).toBe(50);
   });
 
