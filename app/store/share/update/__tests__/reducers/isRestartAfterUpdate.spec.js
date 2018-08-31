@@ -1,4 +1,4 @@
-import * as actions from 'actions/update/index';
+import * as actions from 'actions/update';
 import isRestartAfterUpdate from '../../reducers/isRestartAfterUpdate';
 
 describe('test isRestartAfterUpdate reducer', () => {

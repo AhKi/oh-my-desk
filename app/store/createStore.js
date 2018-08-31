@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { remote } from 'electron';
 import Immutable from 'immutable';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import getStoredDataInDisk from 'utils/getStoredDataInDisk';
+import getData from 'main/utils/disk/getData';
 import rootReducer from './rootReducer';
 import categorizeActionInRenderer from './utils/middleware/categorizeActionInRenderer';
 
@@ -12,7 +12,7 @@ const store = (scope) => {
   if (scope === MAIN) {
     const categorizeActionInMain =
       require('./utils/middleware/categorizeActionInMain').default; // eslint-disable-line global-require
-    const storedData = getStoredDataInDisk();
+    const storedData = getData();
     const middleware = applyMiddleware(categorizeActionInMain);
     const attachDevToolsWithMiddleware = process.env.IS_DEVTOOLS ?
       require('remote-redux-devtools').composeWithDevTools({ name: 'oh-my-desk main process' })(middleware) : middleware; // eslint-disable-line global-require

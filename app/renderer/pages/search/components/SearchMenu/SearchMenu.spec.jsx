@@ -1,7 +1,7 @@
 import { remote } from 'electron';
 import React from 'react';
 import { shallow } from 'enzyme';
-import SearchMenu from './index';
+import SearchMenu from '.';
 
 describe('Test SearchMenu Component', () => {
   remote.getGlobal = jest.fn(() => () => JSON.stringify({ status: { lang: 'English' } }));

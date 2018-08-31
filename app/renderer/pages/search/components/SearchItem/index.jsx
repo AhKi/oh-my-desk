@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import ToggleButton from 'renderer/components/ToggleButton/index';
+import ToggleButton from 'renderer/components/ToggleButton';
 import deleteIcon from 'assets/icon/icon-delete.svg';
 import starIcon from 'assets/icon/icon-more.svg';
-import HighlightParagraph from 'renderer/components/HighlightParagraph/index';
+import HighlightParagraph from 'renderer/components/HighlightParagraph';
 import './SearchItem.scss';
 
 const propTypes = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { shell, remote } from 'electron';
-import MenuNewWindow from './index';
+import MenuNewWindow from '.';
 
 describe('<MenuNewWindow />', () => {
   remote.getGlobal = jest.fn(() => () => JSON.stringify({ status: { lang: 'English' } }));

@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
 import * as widgetActions from 'actions/widget';
-import createWidget from 'utils/createWidget';
+import createWidget from 'main/utils/widget/createWidget';
 import moment from 'moment';
 import byId from '../../reducers/byId';
 

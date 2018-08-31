@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import AddressBar from '../AddressBar/index';
-import TitleBarMac from '../TitleBarMac/index';
+import AddressBar from '../AddressBar';
+import TitleBarMac from '../TitleBarMac';
 import './WidgetHeader.scss';
 
 const propTypes = {

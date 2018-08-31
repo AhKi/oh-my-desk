@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import os from 'os';
 import cx from 'classnames';
-import * as USER_AGENT from 'constants/userAgent/index';
+import * as USER_AGENT from 'constants/userAgent';
 import mobileIcon from 'assets/icon/icon-widget-setting.svg';
 import desktopIcon from 'assets/icon/icon-widget-setting.svg';
 import './TitleBarMac.scss';

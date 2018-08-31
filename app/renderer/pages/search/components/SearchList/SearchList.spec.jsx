@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import SearchList from './index';
+import SearchList from '.';
 
 describe('Test SearchList Component', () => {
   const mockList = [{ id: 'mock1', isOpen: false }, { id: 'mock2', isOpen: false }];

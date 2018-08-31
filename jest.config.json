@@ -9,6 +9,7 @@
     "^assets(.*)$": "<rootDir>/app/assets$1",
     "^components(.*)$": "<rootDir>/app/components$1",
     "^constants(.*)$": "<rootDir>/app/constants$1",
+    "^main(.*)$": "<rootDir>/app/main$1",
     "^renderer(.*)$": "<rootDir>/app/renderer$1",
     "^process(.*)$": "<rootDir>/app/process$1",
     "^setting(.*)$": "<rootDir>/app/renderer/pages/setting$1",

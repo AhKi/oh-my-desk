@@ -2,10 +2,10 @@ import { BrowserWindow, webContents } from 'electron';
 import Immutable from 'immutable';
 import configureStore from 'redux-mock-store';
 import * as CATEGORY from 'actions/category';
-import controllers from 'store/utils/controllers';
+import controllers from 'main/controllers';
 import categorizeActionInMain from '../categorizeActionInMain';
 
-jest.mock('store/utils/controllers');
+jest.mock('main/controllers');
 
 describe('test categorizeActionInMain', () => {
   beforeEach(() => {

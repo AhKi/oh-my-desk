@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { remote } from 'electron';
-import i18n from 'constants/i18n/index';
+import i18n from 'constants/i18n';
 import logo from 'assets/logo/logo-black-mini.svg';
 import './UpdateWindow.scss';
 

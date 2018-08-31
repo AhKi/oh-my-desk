@@ -9,11 +9,12 @@ win:
 nsis:
   installerHeaderIcon: "app/assets/oh-my-desk-icon.png"
 mac:
+  target: "dmg"
   category: "oh.my.desk"
   icon: "app/assets/oh-my-desk-icon"
 dmg:
   icon: "app/assets/oh-my-desk-icon.png"
-  background: "app/assets/oh-my-desk-background.png"
+#  background: "app/assets/oh-my-desk-background.png"
 files:
   - "app/*.js"
   - "app/utils"

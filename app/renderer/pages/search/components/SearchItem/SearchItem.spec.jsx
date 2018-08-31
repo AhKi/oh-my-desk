@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import SearchItem from './index';
+import SearchItem from '.';
 
 describe('Test SearchItem Component', () => {
   const mockItem = {
