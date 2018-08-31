@@ -2,7 +2,7 @@
   "name": "oh-my-desk",
   "version": "v1.1.2",
   "description": "desktop widget application",
-  "main": "./app/main.prod.js",
+  "main": "./build/main.prod.js",
   "scripts": {
     "build:main": "cross-env NODE_ENV=production webpack --config webpack.main.prod.js",
     "build:app": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js",
@@ -11,7 +11,7 @@
     "dev": "cross-env NODE_ENV=development electron -r babel-register ./app/main.js",
     "start": "lint-staged && cross-env NODE_ENV=development node -r babel-register ./node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.dev.config.js --hot --inline --watch",
     "start-devtools": "cross-env IS_DEVTOOLS=true yarn start",
-    "package": "yarn build:app && yarn build:main && build -c electron-builder.yml && yarn clear",
+    "package": "yarn build:app && yarn build:main && build -c electron-builder.yml",
     "package:prod": "yarn build:app && yarn build:main && build --mac -p always -c electron-builder.yml && yarn clear",
     "package:mac": "yarn build:app && yarn build:main && build -c electron-builder.yml --mac && yarn clear",
     "package:win": "yarn build:app && yarn build:main && build -c electron-builder.yml --win && yarn clear",
@@ -22,7 +22,6 @@
     "lint": "eslint app --ext .js,.jsx",
     "precommit": "lint-staged",
     "prepush": "yarn lint",
-    "clear": "rm -rf ./build && rm ./app/main.prod.js",
     "watch": "nodemon --exec \"npm run dev\" --ext js --ignore build/ --ignore dist/ --ignore coverage/"
   },
   "lint-staged": {
