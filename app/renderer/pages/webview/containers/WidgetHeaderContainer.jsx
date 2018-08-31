@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { updateTargetWidgetInfo } from 'actions/widget/index';
-import { modalOpen } from 'actions/modal/index';
-import WidgetHeader from '../components/WidgetHeader/index';
+import { updateTargetWidgetInfo } from 'actions/widget';
+import { modalOpen } from 'actions/modal';
+import WidgetHeader from '../components/WidgetHeader';
 
 const mapStateToProps = () => ({});
 

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { mySelfIdSelector } from 'store/personal/selectors';
-import { deleteTargetWidget } from 'actions/widget/index';
-import DeleteWidgetConfirm from '../components/DeleteWidgetConfirm/index';
+import { deleteTargetWidget } from 'actions/widget';
+import DeleteWidgetConfirm from '../components/DeleteWidgetConfirm';
 
 const mapStateToProps = state => ({
   id: mySelfIdSelector(state),

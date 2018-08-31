@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { shell, remote } from 'electron';
 import DeleteWidgetConfirmContainer from '../../containers/DeleteWidgetConfirmContainer';
-import ConfigMenu from './index';
+import ConfigMenu from '.';
 
 describe('<ConfigMenu />', () => {
   remote.getGlobal = jest.fn(() => () => JSON.stringify({ status: { lang: 'English' } }));

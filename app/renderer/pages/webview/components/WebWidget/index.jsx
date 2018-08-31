@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import url from 'url';
-import * as PATH from 'constants/path/index';
-import * as USER_AGENT from 'constants/userAgent/index';
+import * as PATH from 'constants/path';
+import * as USER_AGENT from 'constants/userAgent';
 import ModalContainer from 'renderer/components/Modal/ModalContainer';
-import widgetContextMenu from 'utils/process/widgetContextMenu';
+import widgetContextMenu from 'main/utils/menu/widgetContextMenu';
 import WidgetHeaderContainer from '../../containers/WidgetHeaderContainer';
-import MenuNewWindow from '../MenuNewWindow/index';
-import ReloadTimer from '../ReloadTimer/index';
+import MenuNewWindow from '../MenuNewWindow';
+import ReloadTimer from '../ReloadTimer';
 import './WebWidget.scss';
 
 const propTypes = {

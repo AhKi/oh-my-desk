@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import toJS from 'utils/toJS';
+import toJS from 'renderer/components/toJS';
 import {
   setLanguageEnglish,
   setLanguageKorean,

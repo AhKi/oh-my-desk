@@ -9,7 +9,7 @@ import homeIcon from 'assets/icon/icon-widget-small-view.svg';
 import moreIcon from 'assets/icon/icon-more.svg';
 import refreshIcon from 'assets/icon/icon-widget-refresh.svg';
 import iconPin from 'assets/icon/icon-pin.svg';
-import ConfigMenu from '../ConfigMenu/index';
+import ConfigMenu from '../ConfigMenu';
 import './AddressBar.scss';
 
 const propTypes = {

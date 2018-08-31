@@ -1,4 +1,4 @@
-import * as actions from 'actions/update/index';
+import * as actions from 'actions/update';
 import newVersion from '../../reducers/newVersion';
 
 describe('test newVersion reducer', () => {

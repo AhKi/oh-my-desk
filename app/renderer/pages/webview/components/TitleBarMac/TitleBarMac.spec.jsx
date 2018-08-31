@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import os from 'os';
 
-import TitleBarMac from './index';
+import TitleBarMac from '.';
 
 jest.mock('os');
 os.platform = () => 'darwin';

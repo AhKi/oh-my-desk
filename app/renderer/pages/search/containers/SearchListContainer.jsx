@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import toJS from 'utils/toJS';
+import toJS from 'renderer/components/toJS';
 import {
   getSearchedWidget,
   getSelectedIndex,
@@ -9,13 +9,13 @@ import {
   closeTargetWidget,
   showTargetWidget,
   updateTargetWidgetInfo,
-} from 'actions/widget/index';
+} from 'actions/widget';
 import {
   searchWidgetSelectIncrease,
   searchWidgetSelectDecrease,
   searchWindowHide,
-} from 'actions/search/index';
-import SearchList from '../components/SearchList/index';
+} from 'actions/search';
+import SearchList from '../components/SearchList';
 
 const mapStateToProps = state => ({
   list: getSearchedWidget(state),

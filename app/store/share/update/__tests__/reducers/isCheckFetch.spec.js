@@ -1,5 +1,5 @@
-import * as actions from 'actions/update/index';
-import { setInitialStore } from 'actions/status/index';
+import * as actions from 'actions/update';
+import { setInitialStore } from 'actions/status';
 import isCheckFetch from '../../reducers/isCheckFetch';
 
 describe('test isCheckFetch reducer', () => {

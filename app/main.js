@@ -1,7 +1,7 @@
 import { app } from 'electron';
 import store from 'store/storeMain';
-import storeDataInDisk from 'utils/storeDataInDisk';
-import init from 'utils/process/init';
+import saveData from 'main/utils/disk/saveData';
+import init from 'main/utils/init';
 import { closePreference } from 'actions/status';
 import { setAllWidgetIsOpenFalse } from 'actions/widget';
 import { autoActiveWidgetSelector } from 'store/share/status/selectors';
@@ -15,5 +15,5 @@ app.on('before-quit', () => {
     store.dispatch(setAllWidgetIsOpenFalse());
   }
   store.dispatch(closePreference());
-  storeDataInDisk();
+  saveData();
 });

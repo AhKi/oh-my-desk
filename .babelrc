@@ -9,6 +9,7 @@
         "assets": "./app/assets",
         "constants": "./app/constants",
         "components": "./app/components",
+        "main": "./app/main",
         "renderer": "./app/renderer",
         "process": "./app/process",
         "setting": "./app/renderer/pages/setting",

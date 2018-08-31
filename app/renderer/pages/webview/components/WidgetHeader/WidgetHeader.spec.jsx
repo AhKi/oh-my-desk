@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import WidgetHeader from './index';
+import WidgetHeader from '.';
 
 describe('<WidgetHeader />', () => {
   it('should match to snapshot when render default', () => {

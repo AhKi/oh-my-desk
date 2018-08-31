@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import ReloadTimer from './index';
+import ReloadTimer from '.';
 
 describe('<ReloadTimer />', () => {
   beforeEach(() => {

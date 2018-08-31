@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import toJS from 'utils/toJS';
+import toJS from 'renderer/components/toJS';
 import { filterSelector } from 'store/personal/search/selectors';
-import { searchSetFilter } from 'actions/search/index';
-import { openPreference } from 'actions/status/index';
-import SearchMenu from '../components/SearchMenu/index';
+import { searchSetFilter } from 'actions/search';
+import { openPreference } from 'actions/status';
+import SearchMenu from '../components/SearchMenu';
 
 const mapStateToProps = state => ({
   filter: filterSelector(state),

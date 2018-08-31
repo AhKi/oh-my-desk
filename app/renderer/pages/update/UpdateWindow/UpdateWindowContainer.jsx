@@ -3,7 +3,7 @@ import {
   updateSkipThisVersion,
   updateDownloadRequest,
   updateSetAutoUpdate,
-} from 'actions/update/index';
+} from 'actions/update';
 import {
   isAutoUpdateSelector,
   isDownloadFetchSelector,
