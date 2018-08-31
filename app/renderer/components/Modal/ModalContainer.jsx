@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import toJS from 'utils/toJS';
+import toJS from 'renderer/components/toJS';
 import Modal from 'renderer/components/Modal';
 import { langSelector } from 'store/share/status/selectors';
 import {

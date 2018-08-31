@@ -1,4 +1,4 @@
-import * as actions from 'actions/update/index';
+import * as actions from 'actions/update';
 import releaseNotes from '../../reducers/releaseNotes';
 
 describe('test releaseNotes reducer', () => {

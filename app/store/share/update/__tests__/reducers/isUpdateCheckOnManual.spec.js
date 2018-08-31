@@ -1,5 +1,5 @@
-import * as actions from 'actions/update/index';
-import { setInitialStore } from 'actions/status/index';
+import * as actions from 'actions/update';
+import { setInitialStore } from 'actions/status';
 import isUpdateCheckOnManual from '../../reducers/isUpdateCheckOnManual';
 
 describe('test isUpdateCheckOnManual reducer', () => {

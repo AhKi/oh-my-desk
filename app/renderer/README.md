@@ -8,7 +8,7 @@ Each windows have each page and page is made by `ReactJS`.
 
 It compose `components`, `containers`, `pages`, `scss` directory.
 
-## defendency
+## dependency
 - Mandatory
     - [React](https://reactjs.org/)
     - [React-Redux](https://github.com/reduxjs/react-redux)

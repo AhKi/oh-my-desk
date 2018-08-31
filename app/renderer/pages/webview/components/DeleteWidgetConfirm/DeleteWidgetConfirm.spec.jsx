@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { remote } from 'electron';
 
-import DeleteWidgetConfirm from './index';
+import DeleteWidgetConfirm from '.';
 
 describe('<DeleteWidgetConfirm />', () => {
   remote.getGlobal = jest.fn(() => () => JSON.stringify({ status: { lang: 'English' } }));

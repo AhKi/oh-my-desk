@@ -1,5 +1,5 @@
-import * as actions from 'actions/update/index';
-import { setInitialStore } from 'actions/status/index';
+import * as actions from 'actions/update';
+import { setInitialStore } from 'actions/status';
 import currentProgress from '../../reducers/currentProgress';
 
 describe('test currentProgress reducer', () => {

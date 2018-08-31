@@ -2,7 +2,7 @@ import { webContents } from 'electron';
 import { isFSA } from 'flux-standard-action';
 import * as CATEGORY from 'actions/category';
 import { windowByIdSelector } from 'store/personal/selectors';
-import controller from 'store/utils/controllers';
+import controller from 'main/controllers';
 
 // TODO Add link about action categorizing docs
 /**

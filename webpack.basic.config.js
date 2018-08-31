@@ -103,6 +103,7 @@ module.exports = {
       assets: path.resolve(__dirname, 'app/assets'),
       constants: path.resolve(__dirname, 'app/constants'),
       components: path.resolve(__dirname, 'app/components'),
+      main: path.resolve(__dirname, 'app/main'),
       renderer: path.resolve(__dirname, 'app/renderer'),
       process: path.resolve(__dirname, 'app/process'),
       setting: path.resolve(__dirname, 'app/renderer/pages/setting'),

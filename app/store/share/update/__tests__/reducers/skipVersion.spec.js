@@ -1,4 +1,4 @@
-import * as actions from 'actions/update/index';
+import * as actions from 'actions/update';
 import skipVersion from '../../reducers/skipVersion';
 
 describe('test skipVersion reducer', () => {

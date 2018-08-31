@@ -5,7 +5,7 @@ import {
   newVersionSelector,
   totalProgressSelector,
 } from 'store/share/update/selectors';
-import { updateProgressCancel } from 'actions/update/index';
+import { updateProgressCancel } from 'actions/update';
 import UpdateProgress from './UpdateProgress';
 
 const mapStateToProps = state => ({

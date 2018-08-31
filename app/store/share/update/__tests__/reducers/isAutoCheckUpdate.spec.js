@@ -1,4 +1,4 @@
-import * as actions from 'actions/update/index';
+import * as actions from 'actions/update';
 import isAutoCheckUpdate from '../../reducers/isAutoCheckUpdate';
 
 describe('test isAutoCheckUpdate reducer', () => {

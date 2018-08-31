@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { shell } from 'electron';
-import i18n from 'constants/i18n/index';
+import i18n from 'constants/i18n';
 import DeleteWidgetConfirmContainer from '../../containers/DeleteWidgetConfirmContainer';
 import './ConfigMenu.scss';
 

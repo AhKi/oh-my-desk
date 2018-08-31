@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import i18n from 'constants/i18n/index';
+import i18n from 'constants/i18n';
 
 const propTypes = {
   id: PropTypes.string,

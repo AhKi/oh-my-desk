@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SearchItem from '../SearchItem/index';
+import SearchItem from '../SearchItem';
 import './SearchList.scss';
 
 const propTypes = {

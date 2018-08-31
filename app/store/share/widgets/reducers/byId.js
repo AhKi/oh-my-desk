@@ -1,6 +1,6 @@
 import { combineActions, handleActions } from 'redux-actions';
 import Immutable from 'immutable';
-import createWidget from 'utils/createWidget';
+import createWidget from 'main/utils/widget/createWidget';
 import * as TYPES from 'actions/actionTypes';
 
 const initialState = Immutable.Map();

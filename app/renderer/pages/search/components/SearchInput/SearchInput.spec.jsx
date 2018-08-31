@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { remote } from 'electron';
-import SearchInput from './index';
+import SearchInput from '.';
 
 describe('Test SearchInput Component', () => {
   remote.getGlobal = jest.fn(() => () => JSON.stringify({ status: { lang: 'English' } }));

@@ -6,7 +6,7 @@ import addIcon from 'assets/icon/icon-widget-refresh.svg';
 import allIcon from 'assets/icon/icon-menu-store.svg';
 import favoritesIcon from 'assets/icon/icon-pin.svg';
 import settingIcon from 'assets/icon/icon-menu-setting.svg';
-import i18n from 'constants/i18n/index';
+import i18n from 'constants/i18n';
 import './SearchMenu.scss';
 
 const propTypes = {

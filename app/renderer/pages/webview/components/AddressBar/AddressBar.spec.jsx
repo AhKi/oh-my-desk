@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import AddressBar from './index';
+import AddressBar from '.';
 
 describe('<AddressBar />', () => {
   const webView = {
