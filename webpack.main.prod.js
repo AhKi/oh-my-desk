@@ -4,9 +4,9 @@ const basic = require('./webpack.basic.config');
 module.exports = {
   entry: './app/main.js',
   output: {
-    filename: './app/[name].prod.js',
-    path: path.resolve(__dirname),
-    publicPath: './',
+    filename: '[name].prod.js',
+    path: path.resolve(__dirname, 'build'),
+    publicPath: '.',
   },
   module: {
     noParse: /ws\/lib/,
