@@ -18,13 +18,15 @@ describe('test openPreference', () => {
   it('when winId exist', () => {
     const mockStore = Immutable.Map({
       share: Immutable.Map({
-        status: Immutable.Map({
-          preferenceId: 'mock-id',
+        identification: Immutable.Map({
+          preference: 'mock-id',
         }),
       }),
       personal: Immutable.Map({
-        windowById: Immutable.Map({
-          'mock-id': mockWindow,
+        identification: Immutable.Map({
+          browserWindowById: Immutable.Map({
+            'mock-id': mockWindow,
+          }),
         }),
       }),
     });
@@ -41,11 +43,15 @@ describe('test openPreference', () => {
 
     const mockStore = Immutable.Map({
       share: Immutable.Map({
-        status: Immutable.Map({}),
+        identification: Immutable.Map({
+          preference: null,
+        }),
       }),
       personal: Immutable.Map({
-        windowById: Immutable.Map({
-          'mock-id': mockWindow,
+        identification: Immutable.Map({
+          browserWindowById: Immutable.Map({
+            'mock-id': mockWindow,
+          }),
         }),
       }),
     });

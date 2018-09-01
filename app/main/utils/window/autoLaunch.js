@@ -1,6 +1,6 @@
 import AutoLaunch from 'auto-launch';
 import store from 'store/storeMain';
-import { autoLaunchSelector } from 'store/share/status/selectors';
+import { isLaunchAppWhenLoginSelector } from 'store/reducers/share/status/selectors';
 
 /**
  * Auto Launch oh-my-desk when boot.
@@ -8,7 +8,7 @@ import { autoLaunchSelector } from 'store/share/status/selectors';
  * https://github.com/Teamwork/node-auto-launch
  */
 function autoLaunch() {
-  const isAutoLaunch = autoLaunchSelector(store.getState());
+  const isLaunchAppWhenLogin = isLaunchAppWhenLoginSelector(store.getState());
   const OhMyDeskAutoLauncher = new AutoLaunch({
     name: 'oh-my-desk',
     mac: {
@@ -18,9 +18,9 @@ function autoLaunch() {
 
   OhMyDeskAutoLauncher.isEnabled()
     .then((isEnable) => {
-      if (isAutoLaunch && !isEnable) {
+      if (isLaunchAppWhenLogin && !isEnable) {
         OhMyDeskAutoLauncher.enable();
-      } else if (!isAutoLaunch && isEnable) {
+      } else if (!isLaunchAppWhenLogin && isEnable) {
         OhMyDeskAutoLauncher.disable();
       }
     });

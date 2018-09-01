@@ -150,7 +150,7 @@ describe('test update action', () => {
     const mockAction = {
       type: TYPES.UPDATE_SET_AUTO_CHECK_UPDATE,
       payload: {
-        isAutoCheckUpdate: true,
+        isCheckUpdateWhenStart: true,
       },
       meta: {
         category: CATEGORY.BROADCAST,
@@ -165,7 +165,7 @@ describe('test update action', () => {
     const mockAction = {
       type: TYPES.UPDATE_SET_AUTO_UPDATE,
       payload: {
-        isAutoUpdate: true,
+        isDownloadUpdateWhenStart: true,
       },
       meta: {
         category: CATEGORY.BROADCAST,

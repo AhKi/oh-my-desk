@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import toJS from 'renderer/components/toJS';
-import { getIndividualInfo } from 'store/share/widgets/selectors';
-import { widgetModeSelector } from 'store/share/status/selectors';
+import { getIndividualInfo } from 'store/reducers/share/identification/selectors';
+import { defaultUserAgentSelector } from 'store/reducers/share/config/selectors';
 import { updateTargetWidgetInfo } from 'actions/widget';
 import { openPreference } from 'actions/status';
 import WebWidget from '../components/WebWidget';
 
 const mapStateToProps = state => ({
   widget: getIndividualInfo(state),
-  defaultMode: widgetModeSelector(state),
+  defaultUserAgent: defaultUserAgentSelector(state),
 });
 
 const mapDispatchToProps = {

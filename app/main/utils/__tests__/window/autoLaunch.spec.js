@@ -1,5 +1,5 @@
 import AutoLaunchLib from 'auto-launch';
-import * as selector from 'store/share/status/selectors';
+import * as selector from 'store/reducers/share/status/selectors';
 import autoLaunch from 'main/utils/window/autoLaunch';
 
 jest.mock('auto-launch');
@@ -13,8 +13,8 @@ describe('test autoLaunch function', () => {
     enable,
     disable,
   }));
-  const autoLaunchSelector = jest
-    .spyOn(selector, 'autoLaunchSelector');
+  const isLaunchAppWhenLoginSelector = jest
+    .spyOn(selector, 'isLaunchAppWhenLoginSelector');
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -34,7 +34,7 @@ describe('test autoLaunch function', () => {
 
   describe('test new AutoLaunch.isEnabled', () => {
     it('when isEnable === true', () => {
-      autoLaunchSelector.mockImplementationOnce(() => false);
+      isLaunchAppWhenLoginSelector.mockImplementationOnce(() => false);
       mockIsEnable = true;
       autoLaunch();
 
@@ -45,7 +45,7 @@ describe('test autoLaunch function', () => {
     });
 
     it('when isEnable === false', () => {
-      autoLaunchSelector.mockImplementationOnce(() => true);
+      isLaunchAppWhenLoginSelector.mockImplementationOnce(() => true);
       mockIsEnable = false;
       autoLaunch();
 
@@ -56,7 +56,7 @@ describe('test autoLaunch function', () => {
     });
 
     it('when doesn\'t match above case', () => {
-      autoLaunchSelector.mockImplementationOnce(() => true);
+      isLaunchAppWhenLoginSelector.mockImplementationOnce(() => true);
       mockIsEnable = true;
       autoLaunch();
 

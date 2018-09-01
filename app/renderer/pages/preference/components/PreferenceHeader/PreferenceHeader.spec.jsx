@@ -9,7 +9,7 @@ jest.mock('os');
 os.platform = () => 'darwin';
 
 describe('<PreferenceHeader />', () => {
-  remote.getGlobal = jest.fn(() => () => JSON.stringify({ status: { lang: 'English' } }));
+  remote.getGlobal = jest.fn(() => () => JSON.stringify({ config: { language: 'English' } }));
 
   it('should match to snapshot when render default', () => {
     const wrapper = shallow(<PreferenceHeader />);

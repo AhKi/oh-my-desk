@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
 import toJS from 'renderer/components/toJS';
 import Modal from 'renderer/components/Modal';
-import { langSelector } from 'store/share/status/selectors';
+import { languageSelector } from 'store/reducers/share/config/selectors';
 import {
   modalClose,
 } from 'actions/modal';
 import {
-  modalTypeSelector,
-  modalPropsSelector,
-} from 'store/personal/modal/selectors';
+  contentSelector,
+  propsSelector,
+} from 'store/reducers/personal/modal/selectors';
 
 const mapStateToProps = state => ({
-  Component: modalTypeSelector(state),
-  lang: langSelector(state),
-  modalProps: modalPropsSelector(state),
+  Component: contentSelector(state),
+  language: languageSelector(state),
+  modalProps: propsSelector(state),
 });
 
 const mapDispatchToProps = {

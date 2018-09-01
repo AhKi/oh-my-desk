@@ -1,10 +1,10 @@
 import makeWidget from 'main/utils/widget/makeWidget';
-import * as widgetsSelector from 'store/share/widgets/selectors';
+import * as sharedId from 'store/reducers/share/identification/selectors';
 import * as statusActions from 'actions/status';
 import store from 'store/storeMain';
 
 const openAllWidgetStatusOpen = () => {
-  const byIdIsOpenIsTrue = widgetsSelector.getByIdsIsOpenIsTrue(store.getState());
+  const byIdIsOpenIsTrue = sharedId.getByIdsIsOpenIsTrue(store.getState());
   const keyArray = byIdIsOpenIsTrue.keySeq().toArray();
   const arr = [];
 

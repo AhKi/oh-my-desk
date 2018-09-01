@@ -2,18 +2,18 @@ import { BrowserWindow } from 'electron';
 import { v4 } from 'uuid';
 import url from 'url';
 import store from 'store/storeMain';
-import * as statusSelector from 'store/share/status/selectors';
-import * as personalSelector from 'store/personal/selectors';
+import * as identificationSelector from 'store/reducers/share/identification/selectors';
+import * as identification from 'store/reducers/personal/identification/selectors';
 import * as statusActions from 'actions/status';
 import * as PATH from 'constants/path';
 
 const openPreference = () => {
-  const winId = statusSelector.preferenceIdSelector(store.getState());
+  const winId = identificationSelector.preferenceSelector(store.getState());
   let winPreference;
 
   if (winId) {
-    const windowById = personalSelector.windowByIdSelector(store.getState());
-    winPreference = windowById.get(winId);
+    const browserWindowById = identification.browserWindowByIdSelector(store.getState());
+    winPreference = browserWindowById.get(winId);
     winPreference.show();
     return;
   }

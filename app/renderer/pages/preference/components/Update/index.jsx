@@ -5,11 +5,11 @@ import i18n from 'constants/i18n';
 import './Update.scss';
 
 const propTypes = {
-  isCheckFetch: PropTypes.bool,
+  isUpdateCheckFetch: PropTypes.bool,
   onUpdateCheckOnManual: PropTypes.func,
 };
 const defaultProps = {
-  isCheckFetch: false,
+  isUpdateCheckFetch: false,
   onUpdateCheckOnManual() {},
 };
 
@@ -24,9 +24,9 @@ class Update extends React.Component {
   }
 
   handleUpdateCheck() {
-    const { isCheckFetch, onUpdateCheckOnManual } = this.props;
+    const { isUpdateCheckFetch, onUpdateCheckOnManual } = this.props;
 
-    if (!isCheckFetch) {
+    if (!isUpdateCheckFetch) {
       onUpdateCheckOnManual();
     }
   }
@@ -36,7 +36,7 @@ class Update extends React.Component {
     const text = i18n().preference;
     const appName = remote.app.getName();
     const appVersion = remote.app.getVersion();
-    const { isCheckFetch } = this.props;
+    const { isUpdateCheckFetch } = this.props;
 
     return (
       <div className="Update">
@@ -50,11 +50,11 @@ class Update extends React.Component {
         </button>
         <button
           className="Btn--gray"
-          disabled={isCheckFetch}
+          disabled={isUpdateCheckFetch}
           type="button"
           onClick={this.handleUpdateCheck}
         >
-          {isCheckFetch ? text.checkingUpdate : text.checkUpdate}
+          {isUpdateCheckFetch ? text.checkingUpdate : text.checkUpdate}
         </button>
       </div>
     );
