@@ -13,8 +13,8 @@ describe('test openAllWidgetStatusOpen', () => {
     store.dispatch = jest.fn();
     store.getState.mockImplementationOnce(() => Immutable.fromJS({
       share: {
-        widgets: {
-          byId: {
+        identification: {
+          widgetInfoById: {
             mock1: {
               a: 'aa',
               isOpen: true,

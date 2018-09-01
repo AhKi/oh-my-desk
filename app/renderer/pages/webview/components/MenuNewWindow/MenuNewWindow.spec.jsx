@@ -4,7 +4,7 @@ import { shell, remote } from 'electron';
 import MenuNewWindow from '.';
 
 describe('<MenuNewWindow />', () => {
-  remote.getGlobal = jest.fn(() => () => JSON.stringify({ status: { lang: 'English' } }));
+  remote.getGlobal = jest.fn(() => () => JSON.stringify({ config: { language: 'English' } }));
 
   beforeEach(() => {
     jest.clearAllMocks();

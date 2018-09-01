@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import toJS from 'renderer/components/toJS';
-import { filterSelector } from 'store/personal/search/selectors';
+import { filterSelector } from 'store/reducers/personal/search/selectors';
 import { searchSetFilter } from 'actions/search';
 import { openPreference } from 'actions/status';
 import SearchMenu from '../components/SearchMenu';

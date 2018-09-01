@@ -5,7 +5,7 @@ import { remote } from 'electron';
 import WidgetModeConfirm from '.';
 
 describe('<WidgetModeConfirm />', () => {
-  remote.getGlobal = jest.fn(() => () => JSON.stringify({ status: { lang: 'English' } }));
+  remote.getGlobal = jest.fn(() => () => JSON.stringify({ config: { language: 'English' } }));
 
   it('should match to snapshot when render default', () => {
     const wrapper = shallow(<WidgetModeConfirm />);

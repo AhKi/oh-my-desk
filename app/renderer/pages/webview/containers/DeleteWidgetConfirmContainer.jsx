@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { mySelfIdSelector } from 'store/personal/selectors';
+import { myselfSelector } from 'store/reducers/personal/identification/selectors';
 import { deleteTargetWidget } from 'actions/widget';
 import DeleteWidgetConfirm from '../components/DeleteWidgetConfirm';
 
 const mapStateToProps = state => ({
-  id: mySelfIdSelector(state),
+  id: myselfSelector(state),
 });
 
 const mapDispatchToProps = {

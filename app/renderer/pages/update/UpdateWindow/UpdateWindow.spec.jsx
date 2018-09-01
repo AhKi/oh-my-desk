@@ -4,7 +4,7 @@ import { shallow, mount } from 'enzyme';
 import UpdateWindow from './UpdateWindow';
 
 describe('<UpdateWindow />', () => {
-  remote.getGlobal = jest.fn(() => () => JSON.stringify({ status: { lang: 'English' } }));
+  remote.getGlobal = jest.fn(() => () => JSON.stringify({ config: { language: 'English' } }));
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -20,17 +20,17 @@ describe('<UpdateWindow />', () => {
     const wrapper = shallow(<UpdateWindow />);
 
     it('when state.autoUpdate is false', () => {
-      wrapper.setState({ isAutoUpdate: false });
-      expect(wrapper.instance().state.isAutoUpdate).toBe(false);
+      wrapper.setState({ isDownloadUpdateWhenStart: false });
+      expect(wrapper.instance().state.isDownloadUpdateWhenStart).toBe(false);
       wrapper.instance().handleChangeAutoUpdate();
-      expect(wrapper.instance().state.isAutoUpdate).toBe(true);
+      expect(wrapper.instance().state.isDownloadUpdateWhenStart).toBe(true);
     });
 
     it('when state.autoUpdate is true', () => {
-      wrapper.setState({ isAutoUpdate: true });
-      expect(wrapper.instance().state.isAutoUpdate).toBe(true);
+      wrapper.setState({ isDownloadUpdateWhenStart: true });
+      expect(wrapper.instance().state.isDownloadUpdateWhenStart).toBe(true);
       wrapper.instance().handleChangeAutoUpdate();
-      expect(wrapper.instance().state.isAutoUpdate).toBe(false);
+      expect(wrapper.instance().state.isDownloadUpdateWhenStart).toBe(false);
     });
   });
 
@@ -102,7 +102,8 @@ describe('<UpdateWindow />', () => {
     wrapper.instance().handleWindowClose();
 
     expect(onSetAutoUpdate).toHaveBeenCalledTimes(1);
-    expect(onSetAutoUpdate).toHaveBeenCalledWith(wrapper.instance().state.isAutoUpdate);
+    expect(onSetAutoUpdate)
+      .toHaveBeenCalledWith(wrapper.instance().state.isDownloadUpdateWhenStart);
     expect(close).toHaveBeenCalledTimes(1);
     expect(close).toHaveBeenCalledWith();
   });

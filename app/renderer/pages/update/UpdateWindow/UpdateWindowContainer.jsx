@@ -5,16 +5,18 @@ import {
   updateSetAutoUpdate,
 } from 'actions/update';
 import {
-  isAutoUpdateSelector,
   isDownloadFetchSelector,
+  isDownloadUpdateWhenStartSelector,
+} from 'store/reducers/share/status/selectors';
+import {
   newVersionSelector,
   releaseNotesSelector,
-} from 'store/share/update/selectors';
+} from 'store/reducers/share/config/selectors';
 import UpdateWindow from './UpdateWindow';
 
 const mapStateToProps = state => ({
   isDownloadFetch: isDownloadFetchSelector(state),
-  isAutoUpdate: isAutoUpdateSelector(state),
+  isDownloadUpdateWhenStart: isDownloadUpdateWhenStartSelector(state),
   newVersion: newVersionSelector(state),
   releaseNotes: releaseNotesSelector(state),
 });

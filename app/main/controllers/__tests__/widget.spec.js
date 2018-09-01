@@ -62,13 +62,15 @@ describe('test widgetController', () => {
 
       const mockStore = Immutable.Map({
         personal: Immutable.Map({
-          windowById: Immutable.Map({
-            'mock-id': browserWindow,
+          identification: Immutable.Map({
+            browserWindowById: Immutable.Map({
+              'mock-id': browserWindow,
+            }),
           }),
         }),
         share: Immutable.Map({
-          widgets: Immutable.fromJS({
-            byId: {
+          identification: Immutable.fromJS({
+            widgetInfoById: {
               'mock-id': {
                 name: 'mock-name',
                 url: 'mock-url',
@@ -89,11 +91,13 @@ describe('test widgetController', () => {
     it('when widget is not exist', () => {
       const mockStore = Immutable.Map({
         personal: Immutable.Map({
-          windowById: Immutable.Map({}),
+          identification: Immutable.Map({
+            browserWindowById: Immutable.Map({}),
+          }),
         }),
         share: Immutable.Map({
-          widgets: Immutable.fromJS({
-            byId: {
+          identification: Immutable.fromJS({
+            widgetInfoById: {
               'mock-id': {
                 name: 'mock-name',
                 url: 'mock-url',
@@ -139,13 +143,15 @@ describe('test widgetController', () => {
     it('when widget exist', () => {
       const mockStore = Immutable.Map({
         personal: Immutable.Map({
-          windowById: Immutable.Map({
-            'mock-id': browserWindow,
+          identification: Immutable.Map({
+            browserWindowById: Immutable.Map({
+              'mock-id': browserWindow,
+            }),
           }),
         }),
         share: Immutable.Map({
-          widgets: Immutable.fromJS({
-            byId: {
+          identification: Immutable.fromJS({
+            widgetInfoById: {
               'mock-id': {
                 name: 'mock-name',
                 url: 'mock-url',
@@ -164,11 +170,13 @@ describe('test widgetController', () => {
     it('when widget don\'t exist', () => {
       const mockStore = Immutable.Map({
         personal: Immutable.Map({
-          windowById: Immutable.Map({}),
+          identification: Immutable.Map({
+            browserWindowById: Immutable.Map({}),
+          }),
         }),
         share: Immutable.Map({
-          widgets: Immutable.fromJS({
-            byId: {
+          identification: Immutable.fromJS({
+            widgetInfoById: {
               'mock-id': {
                 name: 'mock-name',
                 url: 'mock-url',
@@ -201,13 +209,15 @@ describe('test widgetController', () => {
     it('when widget exist', () => {
       const mockStore = Immutable.Map({
         personal: Immutable.Map({
-          windowById: Immutable.Map({
-            'mock-id': browserWindow,
+          identification: Immutable.Map({
+            browserWindowById: Immutable.Map({
+              'mock-id': browserWindow,
+            }),
           }),
         }),
         share: Immutable.Map({
-          widgets: Immutable.fromJS({
-            byId: {
+          identification: Immutable.fromJS({
+            widgetInfoById: {
               'mock-id': {
                 name: 'mock-name',
                 url: 'mock-url',
@@ -226,11 +236,13 @@ describe('test widgetController', () => {
     it('when widget don\'t exist', () => {
       const mockStore = Immutable.Map({
         personal: Immutable.Map({
-          windowById: Immutable.Map({}),
+          identification: Immutable.Map({
+            browserWindowById: Immutable.Map({}),
+          }),
         }),
         share: Immutable.Map({
-          widgets: Immutable.fromJS({
-            byId: {
+          identification: Immutable.fromJS({
+            widgetInfoById: {
               'mock-id': {
                 name: 'mock-name',
                 url: 'mock-url',
@@ -250,13 +262,15 @@ describe('test widgetController', () => {
     const browserWindow = new BrowserWindow();
     const mockStore = Immutable.Map({
       personal: Immutable.Map({
-        windowById: Immutable.Map({
-          'mock-id': browserWindow,
+        identification: Immutable.Map({
+          browserWindowById: Immutable.Map({
+            'mock-id': browserWindow,
+          }),
         }),
       }),
       share: Immutable.Map({
-        widgets: Immutable.fromJS({
-          byId: {
+        identification: Immutable.fromJS({
+          widgetInfoById: {
             'mock-id': {
               name: 'mock-name',
               url: 'mock-url',
@@ -280,11 +294,13 @@ describe('test widgetController', () => {
         };
         const mockWithoutWindow = Immutable.Map({
           personal: Immutable.Map({
-            windowById: Immutable.Map({}),
+            identification: Immutable.Map({
+              browserWindowById: Immutable.Map({}),
+            }),
           }),
           share: Immutable.Map({
-            widgets: Immutable.fromJS({
-              byId: {
+            identification: Immutable.fromJS({
+              widgetInfoById: {
                 'mock-id': {
                   name: 'mock-name',
                   url: 'mock-url',

@@ -1,5 +1,5 @@
 import { remote } from 'electron';
-import { langSelector } from 'store/share/status/selectors';
+import { languageSelector } from 'store/reducers/share/config/selectors';
 import contextMenu from './contextMenu';
 import menu from './menu';
 import preference from './preference';
@@ -9,17 +9,17 @@ import widget from './widget.jsx';
 
 const getMatchedText = () => { // eslint-disable-line consistent-return
   let store;
-  let lang;
+  let language;
   if (!remote) {
     const storeMain = require('store/storeMain').default; // eslint-disable-line global-require
     store = storeMain.getState();
-    lang = langSelector(store);
+    language = languageSelector(store);
   } else {
     store = JSON.parse(remote.getGlobal('getReduxState')());
-    lang = store.status.lang; // eslint-disable-line prefer-destructuring
+    language = store.config.language; // eslint-disable-line prefer-destructuring
   }
 
-  if (lang === 'English') {
+  if (language === 'English') {
     return {
       contextMenu: contextMenu.en,
       menu: menu.en,
@@ -30,7 +30,7 @@ const getMatchedText = () => { // eslint-disable-line consistent-return
     };
   }
 
-  if (lang === 'Korean') {
+  if (language === 'Korean') {
     return {
       contextMenu: contextMenu.ko,
       menu: menu.ko,

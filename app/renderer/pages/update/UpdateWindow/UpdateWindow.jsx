@@ -6,7 +6,7 @@ import logo from 'assets/logo/logo-black-mini.svg';
 import './UpdateWindow.scss';
 
 const propTypes = {
-  isAutoUpdate: PropTypes.bool,
+  isDownloadUpdateWhenStart: PropTypes.bool,
   isDownloadFetch: PropTypes.bool,
   newVersion: PropTypes.string,
   releaseNotes: PropTypes.string,
@@ -16,7 +16,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-  isAutoUpdate: false,
+  isDownloadUpdateWhenStart: false,
   isDownloadFetch: false,
   newVersion: null,
   releaseNotes: '',
@@ -29,7 +29,7 @@ class UpdateWindow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isAutoUpdate: props.isAutoUpdate,
+      isDownloadUpdateWhenStart: props.isDownloadUpdateWhenStart,
     };
     this.widget = remote.getCurrentWindow();
     this.handleChangeAutoUpdate = this.handleChangeAutoUpdate.bind(this);
@@ -43,7 +43,9 @@ class UpdateWindow extends React.Component {
   }
 
   handleChangeAutoUpdate() {
-    this.setState(prevState => ({ isAutoUpdate: !prevState.isAutoUpdate }));
+    this.setState(prevState => ({
+      isDownloadUpdateWhenStart: !prevState.isDownloadUpdateWhenStart,
+    }));
   }
 
   handleSkipVersion() {
@@ -64,15 +66,15 @@ class UpdateWindow extends React.Component {
 
   handleWindowClose() {
     const { onSetAutoUpdate } = this.props;
-    const { isAutoUpdate } = this.state;
+    const { isDownloadUpdateWhenStart } = this.state;
 
-    onSetAutoUpdate(isAutoUpdate);
+    onSetAutoUpdate(isDownloadUpdateWhenStart);
     this.widget.close();
   }
 
   render() {
     const { newVersion, releaseNotes } = this.props;
-    const { isAutoUpdate } = this.state;
+    const { isDownloadUpdateWhenStart } = this.state;
     const currentVersion = remote.app.getVersion();
     const text = i18n().update;
 
@@ -97,7 +99,7 @@ class UpdateWindow extends React.Component {
               className="UpdateWindow__checkbox"
               id="checkbox"
               type="checkbox"
-              checked={isAutoUpdate}
+              checked={isDownloadUpdateWhenStart}
               onChange={this.handleChangeAutoUpdate}
             />
             {text.autoUpdater}
