@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { updateCheckRequestOnManual } from 'actions/update';
-import { isCheckFetchSelector } from 'store/share/update/selectors';
+import { isUpdateCheckFetchSelector } from 'store/reducers/share/status/selectors';
 import Update from '../components/Update';
 
 const mapStateToProps = state => ({
-  isCheckFetch: isCheckFetchSelector(state),
+  isUpdateCheckFetch: isUpdateCheckFetchSelector(state),
 });
 
 const mapDispatchToProps = {

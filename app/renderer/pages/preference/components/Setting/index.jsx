@@ -6,10 +6,10 @@ import WidgetModeConfirm from '../Modal/WidgetModeConfirm';
 import './Setting.scss';
 
 const propTypes = {
-  lang: PropTypes.string,
-  isAutoActiveWidget: PropTypes.bool,
-  isAutoLaunch: PropTypes.bool,
-  widgetMode: PropTypes.string,
+  defaultUserAgent: PropTypes.string,
+  language: PropTypes.string,
+  isOpenWidgetWhenStart: PropTypes.bool,
+  isLaunchAppWhenLogin: PropTypes.bool,
   onModalOpen: PropTypes.func,
   onSetLanguageEnglish: PropTypes.func,
   onSetLanguageKorean: PropTypes.func,
@@ -19,10 +19,10 @@ const propTypes = {
 };
 
 const defaultProps = {
-  lang: 'English',
-  isAutoActiveWidget: true,
-  isAutoLaunch: true,
-  widgetMode: 'DESKTOP',
+  defaultUserAgent: 'DESKTOP',
+  language: 'English',
+  isOpenWidgetWhenStart: true,
+  isLaunchAppWhenLogin: true,
   onModalOpen() {},
   onSetLanguageEnglish() {},
   onSetLanguageKorean() {},
@@ -60,10 +60,10 @@ class Setting extends React.Component {
   render() {
     const text = i18n().preference;
     const {
-      lang,
-      isAutoActiveWidget,
-      isAutoLaunch,
-      widgetMode,
+      defaultUserAgent,
+      language,
+      isOpenWidgetWhenStart,
+      isLaunchAppWhenLogin,
       onToggleAutoActiveWidget,
       onToggleAutoLaunch,
     } = this.props;
@@ -75,20 +75,20 @@ class Setting extends React.Component {
           <li className="Setting__list">
             {text.autoStart}
             <ToggleButton
-              isCheck={isAutoLaunch}
+              isCheck={isLaunchAppWhenLogin}
               onToggle={onToggleAutoLaunch}
             />
           </li>
           <li className="Setting__list">
             {text.autoWidgetActive}
             <ToggleButton
-              isCheck={isAutoActiveWidget}
+              isCheck={isOpenWidgetWhenStart}
               onToggle={onToggleAutoActiveWidget}
             />
           </li>
           <li className="Setting__list">
             {text.language}
-            <select value={lang} onChange={this.handleChangeLanguage}>
+            <select value={language} onChange={this.handleChangeLanguage}>
               <option value="English">English</option>
               <option value="Korean">한국어</option>
             </select>
@@ -98,7 +98,7 @@ class Setting extends React.Component {
         <ul className="Setting__list-set">
           <li className="Setting__list">
             {text.defaultWidgetMode}
-            <select value={widgetMode} onChange={this.handleOpenWidgetModeModal}>
+            <select value={defaultUserAgent} onChange={this.handleOpenWidgetModeModal}>
               <option value="DESKTOP">{text.desktopMode}</option>
               <option value="MOBILE">{text.mobileMode}</option>
             </select>

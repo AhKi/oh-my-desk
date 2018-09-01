@@ -5,7 +5,7 @@ import WidgetModeConfirm from '../Modal/WidgetModeConfirm';
 import Setting from '.';
 
 describe('<Setting />', () => {
-  remote.getGlobal = jest.fn(() => () => JSON.stringify({ status: { lang: 'English' } }));
+  remote.getGlobal = jest.fn(() => () => JSON.stringify({ config: { language: 'English' } }));
 
   beforeEach(() => {
     jest.clearAllMocks();

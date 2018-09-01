@@ -79,11 +79,11 @@ export const {
     }),
   ],
   [TYPES.UPDATE_SET_AUTO_CHECK_UPDATE]: [
-    isAutoCheckUpdate => ({ isAutoCheckUpdate }),
+    isCheckUpdateWhenStart => ({ isCheckUpdateWhenStart }),
     () => ({ category: CATEGORY.BROADCAST }),
   ],
   [TYPES.UPDATE_SET_AUTO_UPDATE]: [
-    isAutoUpdate => ({ isAutoUpdate }),
+    isDownloadUpdateWhenStart => ({ isDownloadUpdateWhenStart }),
     () => ({ category: CATEGORY.BROADCAST }),
   ],
   [TYPES.UPDATE_SET_NOT_AUTO]: [

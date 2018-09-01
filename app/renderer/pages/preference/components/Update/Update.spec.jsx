@@ -5,7 +5,7 @@ import { shell, remote } from 'electron';
 import Update from '.';
 
 describe('<Update />', () => {
-  remote.getGlobal = jest.fn(() => () => JSON.stringify({ status: { lang: 'English' } }));
+  remote.getGlobal = jest.fn(() => () => JSON.stringify({ config: { language: 'English' } }));
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -30,15 +30,15 @@ describe('<Update />', () => {
     const onUpdateCheckOnManual = jest.fn();
     const wrapper = shallow(<Update onUpdateCheckOnManual={onUpdateCheckOnManual} />);
 
-    it('when props isCheckFetch === true', () => {
-      wrapper.setProps({ isCheckFetch: true });
+    it('when props isUpdateCheckFetch === true', () => {
+      wrapper.setProps({ isUpdateCheckFetch: true });
 
       wrapper.instance().handleUpdateCheck();
       expect(onUpdateCheckOnManual).toHaveBeenCalledTimes(0);
     });
 
-    it('when props isCheckFetch === false', () => {
-      wrapper.setProps({ isCheckFetch: false });
+    it('when props isUpdateCheckFetch === false', () => {
+      wrapper.setProps({ isUpdateCheckFetch: false });
 
       wrapper.instance().handleUpdateCheck();
       expect(onUpdateCheckOnManual).toHaveBeenCalledTimes(1);

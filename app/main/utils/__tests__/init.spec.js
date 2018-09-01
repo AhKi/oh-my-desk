@@ -16,7 +16,7 @@ jest.mock('main/utils/window/openAllWidgetStatusOpen');
 jest.mock('store/utils/subscribeActionMain');
 jest.mock('main/utils/menu/trayMenuBar');
 
-remote.getGlobal = jest.fn(() => () => JSON.stringify({ status: { lang: 'English' } }));
+remote.getGlobal = jest.fn(() => () => JSON.stringify({ config: { language: 'English' } }));
 
 describe('test init function', () => {
   init();

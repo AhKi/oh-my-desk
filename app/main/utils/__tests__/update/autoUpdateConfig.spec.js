@@ -2,7 +2,9 @@ import { autoUpdater } from 'electron-updater';
 import store from 'store/storeMain';
 import autoUpdateConfig from 'main/utils/update/autoUpdateConfig';
 import openUpdateWindow from 'main/utils/update/openUpdateWindow';
-import * as selector from 'store/share/update/selectors';
+import * as configSelector from 'store/reducers/share/config/selectors';
+import * as statusSelector from 'store/reducers/share/status/selectors';
+import * as identificationSelector from 'store/reducers/share/identification/selectors';
 import * as actions from 'actions/update';
 
 jest.mock('main/utils/update/openUpdateWindow');
@@ -39,7 +41,7 @@ describe('test autoUpdateConfig', () => {
     });
 
     it('should check download-progress callback', () => {
-      jest.spyOn(selector, 'progressWindowIdSelector')
+      jest.spyOn(identificationSelector, 'downloadProgressSelector')
         .mockImplementation(() => 'mock-id');
 
       autoUpdateConfig();
@@ -55,8 +57,8 @@ describe('test autoUpdateConfig', () => {
     });
 
     describe('should check update-available callback', () => {
-      it('when isAutoUpdate is true', () => {
-        jest.spyOn(selector, 'isAutoUpdateSelector')
+      it('when isDownloadUpdateWhenStart is true', () => {
+        jest.spyOn(statusSelector, 'isDownloadUpdateWhenStartSelector')
           .mockImplementation(() => true);
 
         autoUpdateConfig();
@@ -71,7 +73,7 @@ describe('test autoUpdateConfig', () => {
       });
 
       it('when isUpdateCheckOnManual is true', () => {
-        jest.spyOn(selector, 'isUpdateCheckOnManualSelector')
+        jest.spyOn(statusSelector, 'isUpdateCheckOnManualSelector')
           .mockImplementation(() => true);
 
         autoUpdateConfig();
@@ -84,11 +86,11 @@ describe('test autoUpdateConfig', () => {
       });
 
       it('when skipVersion !== nextVersion is true', () => {
-        jest.spyOn(selector, 'isUpdateCheckOnManualSelector')
+        jest.spyOn(statusSelector, 'isUpdateCheckOnManualSelector')
           .mockImplementation(() => false);
-        jest.spyOn(selector, 'isAutoUpdateSelector')
+        jest.spyOn(statusSelector, 'isDownloadUpdateWhenStartSelector')
           .mockImplementation(() => false);
-        jest.spyOn(selector, 'skipVersionSelector')
+        jest.spyOn(configSelector, 'skipVersionSelector')
           .mockImplementation(() => 'mock-version-2');
 
         autoUpdateConfig();
@@ -101,11 +103,11 @@ describe('test autoUpdateConfig', () => {
       });
 
       it('when skipVersion === nextVersion is true', () => {
-        jest.spyOn(selector, 'isUpdateCheckOnManualSelector')
+        jest.spyOn(statusSelector, 'isUpdateCheckOnManualSelector')
           .mockImplementation(() => false);
-        jest.spyOn(selector, 'isAutoUpdateSelector')
+        jest.spyOn(statusSelector, 'isDownloadUpdateWhenStartSelector')
           .mockImplementation(() => false);
-        jest.spyOn(selector, 'skipVersionSelector')
+        jest.spyOn(configSelector, 'skipVersionSelector')
           .mockImplementation(() => 'mock-version');
 
         autoUpdateConfig();
@@ -132,7 +134,7 @@ describe('test autoUpdateConfig', () => {
 
   describe('should test about auto checking', () => {
     it('when isRestartAfterUpdate is true', () => {
-      jest.spyOn(selector, 'isRestartAfterUpdateSelector')
+      jest.spyOn(statusSelector, 'isRestartAfterUpdateSelector')
         .mockImplementation(() => true);
 
       autoUpdateConfig();
@@ -141,10 +143,10 @@ describe('test autoUpdateConfig', () => {
       expect(dispatch).toHaveBeenCalledWith(actions.updateInstallingDownloaded());
     });
 
-    it('when isInstalling is false and isAutoUpdate === true', () => {
-      jest.spyOn(selector, 'isRestartAfterUpdateSelector')
+    it('when isInstalling is false and isDownloadUpdateWhenStart === true', () => {
+      jest.spyOn(statusSelector, 'isRestartAfterUpdateSelector')
         .mockImplementation(() => false);
-      jest.spyOn(selector, 'isAutoUpdateSelector')
+      jest.spyOn(statusSelector, 'isDownloadUpdateWhenStartSelector')
         .mockImplementation(() => true);
 
       autoUpdateConfig();
@@ -153,12 +155,12 @@ describe('test autoUpdateConfig', () => {
       expect(dispatch).toHaveBeenCalledWith(actions.updateCheckRequest());
     });
 
-    it('when isInstalling is false and isAutoCheckUpdate === true', () => {
-      jest.spyOn(selector, 'isRestartAfterUpdateSelector')
+    it('when isInstalling is false and isCheckUpdateWhenStart === true', () => {
+      jest.spyOn(statusSelector, 'isRestartAfterUpdateSelector')
         .mockImplementation(() => false);
-      jest.spyOn(selector, 'isAutoUpdateSelector')
+      jest.spyOn(statusSelector, 'isDownloadUpdateWhenStartSelector')
         .mockImplementation(() => false);
-      jest.spyOn(selector, 'isAutoCheckUpdateSelector')
+      jest.spyOn(statusSelector, 'isCheckUpdateWhenStartSelector')
         .mockImplementation(() => true);
 
       autoUpdateConfig();

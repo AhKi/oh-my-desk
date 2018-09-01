@@ -7,15 +7,15 @@ describe('test modal actions', () => {
     const mockAction = {
       type: TYPES.MODAL_OPEN,
       payload: {
-        modalType: 'mock-type',
-        modalProps: 'mock-props',
+        content: 'mock-content',
+        props: 'mock-props',
       },
       meta: {
         category: CATEGORY.SELF,
       },
     };
 
-    expect(actions.modalOpen('mock-type', 'mock-props'))
+    expect(actions.modalOpen('mock-content', 'mock-props'))
       .toEqual(mockAction);
   });
 

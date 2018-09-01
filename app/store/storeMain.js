@@ -1,3 +1,3 @@
-import createStore from './createStore';
+import configureStore from './configureStore';
 
-export default createStore('MAIN');
+export default configureStore('MAIN');

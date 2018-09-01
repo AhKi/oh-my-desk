@@ -4,14 +4,14 @@ import saveData from 'main/utils/disk/saveData';
 import init from 'main/utils/init';
 import { closePreference } from 'actions/status';
 import { setAllWidgetIsOpenFalse } from 'actions/widget';
-import { autoActiveWidgetSelector } from 'store/share/status/selectors';
+import { isOpenWidgetWhenStartSelector } from 'store/reducers/share/status/selectors';
 
 app.on('ready', init);
 
 app.on('before-quit', () => {
-  const autoActiveWidget = autoActiveWidgetSelector(store.getState());
+  const isOpenWidgetWhenStart = isOpenWidgetWhenStartSelector(store.getState());
 
-  if (!autoActiveWidget) {
+  if (!isOpenWidgetWhenStart) {
     store.dispatch(setAllWidgetIsOpenFalse());
   }
   store.dispatch(closePreference());

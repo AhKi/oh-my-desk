@@ -3,8 +3,8 @@ import toJS from 'renderer/components/toJS';
 import {
   getSearchedWidget,
   getSelectedIndex,
-} from 'store/share/widgets/selectors';
-import { keywordSelector } from 'store/personal/search/selectors';
+} from 'store/reducers/share/identification/selectors';
+import { keywordSelector } from 'store/reducers/personal/search/selectors';
 import {
   closeTargetWidget,
   showTargetWidget,

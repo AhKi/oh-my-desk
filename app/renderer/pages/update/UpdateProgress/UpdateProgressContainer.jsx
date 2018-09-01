@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import {
   currentProgressSelector,
-  isDownloadFetchSelector,
-  newVersionSelector,
   totalProgressSelector,
-} from 'store/share/update/selectors';
+} from 'store/reducers/personal/update/selectors';
+import { newVersionSelector } from 'store/reducers/share/config/selectors';
+import { isDownloadFetchSelector } from 'store/reducers/share/status/selectors';
 import { updateProgressCancel } from 'actions/update';
 import UpdateProgress from './UpdateProgress';
 

@@ -7,24 +7,24 @@ import {
   updateInstallingDownloaded,
 } from 'actions/update';
 import {
-  progressWindowIdSelector,
-  skipVersionSelector,
-  isAutoUpdateSelector,
-  isAutoCheckUpdateSelector,
+  isCheckUpdateWhenStartSelector,
+  isDownloadUpdateWhenStartSelector,
   isRestartAfterUpdateSelector,
   isUpdateCheckOnManualSelector,
-} from 'store/share/update/selectors';
+} from 'store/reducers/share/status/selectors';
+import { skipVersionSelector } from 'store/reducers/share/config/selectors';
+import { downloadProgressSelector } from 'store/reducers/share/identification/selectors';
 import openUpdateWindow from 'main/utils/update/openUpdateWindow';
 
 
 function autoUpdateConfig() {
-  const isAutoUpdate = isAutoUpdateSelector(store.getState());
-  const isAutoCheckUpdate = isAutoCheckUpdateSelector(store.getState());
+  const isDownloadUpdateWhenStart = isDownloadUpdateWhenStartSelector(store.getState());
+  const isCheckUpdateWhenStart = isCheckUpdateWhenStartSelector(store.getState());
 
   autoUpdater.autoDownload = false;
   autoUpdater.autoInstallOnAppQuit = true;
   autoUpdater.on('download-progress', (downloadObj) => {
-    const id = progressWindowIdSelector(store.getState());
+    const id = downloadProgressSelector(store.getState());
 
     store.dispatch(updateDownloadProgress(downloadObj, id));
   });
@@ -36,7 +36,7 @@ function autoUpdateConfig() {
 
     if (isUpdateCheckOnManual) {
       openUpdateWindow();
-    } else if (isAutoUpdate) {
+    } else if (isDownloadUpdateWhenStart) {
       store.dispatch(updateDownloadRequest());
     } else if (skipVersion !== nextVersion) {
       openUpdateWindow();
@@ -52,7 +52,7 @@ function autoUpdateConfig() {
 
   const isInstalling = isRestartAfterUpdateSelector(store.getState());
   if (!isInstalling) {
-    if (isAutoUpdate || isAutoCheckUpdate) {
+    if (isDownloadUpdateWhenStart || isCheckUpdateWhenStart) {
       store.dispatch(updateCheckRequest());
     }
   } else {

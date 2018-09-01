@@ -18,6 +18,10 @@ export const UPDATE_TARGET_WIDGET_INFO = 'UPDATE_TARGET_WIDGET_INFO';
 export const SET_ALL_WIDGET_ISOPEN_FALSE = 'SET_ALL_WIDGET_ISOPEN_FALSE';
 export const FOCUS_WIDGET = 'FOCUS_WIDGET';
 
+/**
+ * Modal Action
+ * @type {string}
+ */
 export const MODAL_OPEN = 'MODAL_OPEN';
 export const MODAL_CLOSE = 'MODAL_CLOSE';
 
