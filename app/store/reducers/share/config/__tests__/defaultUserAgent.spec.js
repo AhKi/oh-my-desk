@@ -1,4 +1,4 @@
-import * as statusActions from 'actions/status';
+import * as settingActions from 'actions/setting';
 import defaultUserAgent from '../defaultUserAgent';
 
 describe('test defaultUserAgent reducer', () => {
@@ -9,14 +9,14 @@ describe('test defaultUserAgent reducer', () => {
     expect(defaultUserAgent(undefined, {})).toBe(DESKTOP);
   });
 
-  describe('should handle toggleWidgetMode', () => {
+  describe('should handle toggleWidgetDefaultUserAgent', () => {
     it('when state is DESKTOP', () => {
-      expect(defaultUserAgent(DESKTOP, statusActions.toggleWidgetMode()))
+      expect(defaultUserAgent(DESKTOP, settingActions.toggleWidgetDefaultUserAgent()))
         .toEqual(MOBILE);
     });
 
     it('when state is MOBILE', () => {
-      expect(defaultUserAgent(MOBILE, statusActions.toggleWidgetMode()))
+      expect(defaultUserAgent(MOBILE, settingActions.toggleWidgetDefaultUserAgent()))
         .toEqual(DESKTOP);
     });
   });

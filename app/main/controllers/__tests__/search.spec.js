@@ -1,4 +1,4 @@
-import * as TYPES from 'actions/actionTypes';
+import * as TYPES from 'actions/constant/actionTypes';
 import trayBar from 'main/utils/menu/trayMenuBar';
 import searchController from '../search';
 

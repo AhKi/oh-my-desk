@@ -6,8 +6,8 @@ describe('test mySelf reducer', () => {
     expect(mySelf(undefined, {})).toBe(null);
   });
 
-  it('should handle allocateIdTargetWidget action', () => {
-    expect(mySelf(undefined, widgetActions.allocateIdTargetWidget('mock-id')))
+  it('should handle widgetAllocateIdTarget action', () => {
+    expect(mySelf(undefined, widgetActions.widgetAllocateIdTarget('mock-id')))
       .toBe('mock-id');
   });
 });

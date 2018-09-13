@@ -1,4 +1,4 @@
-import * as statusActions from 'actions/status';
+import * as actions from 'actions/preference';
 import preference from '../preference';
 
 describe('test preference reducer', () => {
@@ -8,13 +8,13 @@ describe('test preference reducer', () => {
     expect(preference(undefined, {})).toBe(null);
   });
 
-  it('should handle allocatePreferenceId', () => {
-    expect(preference(undefined, statusActions.allocatePreferenceId(mockId)))
+  it('should handle preferenceAllocateId', () => {
+    expect(preference(undefined, actions.preferenceAllocateId(mockId)))
       .toEqual(mockId);
   });
 
-  it('should handle closePreference', () => {
-    expect(preference(mockId, statusActions.closePreference()))
+  it('should handle preferenceClose', () => {
+    expect(preference(mockId, actions.preferenceClose()))
       .toEqual(null);
   });
 });

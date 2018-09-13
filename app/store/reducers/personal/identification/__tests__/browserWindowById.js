@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
 import { BrowserWindow } from 'electron';
-import * as actions from 'actions/status';
+import { openBrowserWindow } from 'actions/window';
 import * as updateActions from 'actions/update';
 import * as widgetActions from 'actions/widget';
 import browserWindowById from '../browserWindowById';
@@ -18,7 +18,7 @@ describe('test browserWindowById reducer', () => {
         [mockId]: mockWin,
       });
 
-      expect(browserWindowById(undefined, actions.openBrowserWindow(mockId, mockWin)))
+      expect(browserWindowById(undefined, openBrowserWindow(mockId, mockWin)))
         .toEqual(mockResult);
     });
 
@@ -31,7 +31,7 @@ describe('test browserWindowById reducer', () => {
         mock2: mockWin,
       });
 
-      expect(browserWindowById(undefined, actions.openBrowserWindow(mockId, mockWinArray)))
+      expect(browserWindowById(undefined, openBrowserWindow(mockId, mockWinArray)))
         .toEqual(mockResult);
     });
   });
@@ -54,36 +54,19 @@ describe('test browserWindowById reducer', () => {
       [mockId]: mockWin,
     });
 
-    it('should handle closeBrowserWindow', () => {
-      expect(browserWindowById(mockInitial, actions.closeBrowserWindow(mockId)))
+    it('should handle widgetClose', () => {
+      expect(browserWindowById(mockInitial, widgetActions.widgetClose(mockId)))
         .toEqual(Immutable.Map({}));
     });
 
-    it('should handle closeTargetWidget', () => {
-      expect(browserWindowById(mockInitial, widgetActions.closeTargetWidget(mockId)))
-        .toEqual(Immutable.Map({}));
-    });
-
-    it('should handle closeTargetWidgetForced', () => {
-      expect(browserWindowById(mockInitial, widgetActions.closeTargetWidgetForced(mockId)))
+    it('should handle widgetClosed', () => {
+      expect(browserWindowById(mockInitial, widgetActions.widgetClosed(mockId)))
         .toEqual(Immutable.Map({}));
     });
 
     it('should handle updateProgressWindowClose', () => {
       expect(browserWindowById(mockInitial, updateActions.updateProgressWindowClose(mockId)))
         .toEqual(Immutable.Map({}));
-    });
-
-    describe('should handle closePreference', () => {
-      it('when exist payload.id', () => {
-        expect(browserWindowById(mockInitial, actions.closeBrowserWindow(mockId)))
-          .toEqual(Immutable.Map({}));
-      });
-
-      it('when don\'t exist payload.id', () => {
-        expect(browserWindowById(mockInitial, actions.closeBrowserWindow()))
-          .toEqual(mockInitial);
-      });
     });
   });
 });

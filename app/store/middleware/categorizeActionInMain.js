@@ -1,6 +1,6 @@
 import { webContents } from 'electron';
 import { isFSA } from 'flux-standard-action';
-import * as CATEGORY from 'actions/category';
+import * as CATEGORY from 'actions/constant/actionCategory';
 import { browserWindowByIdSelector } from 'store/reducers/personal/identification/selectors';
 import controller from 'main/controllers';
 

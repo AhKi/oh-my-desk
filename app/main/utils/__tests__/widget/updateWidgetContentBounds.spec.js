@@ -12,7 +12,7 @@ describe('test updateWidgetContentBounds', () => {
       height: 10,
       width: 20,
     });
-    const mockAction = actions.updateTargetWidgetInfo('mock-id', {
+    const mockAction = actions.widgetUpdateInfo('mock-id', {
       position: {
         x: 100,
         y: 200,

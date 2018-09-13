@@ -1,4 +1,4 @@
-import * as statusActions from 'actions/status';
+import * as settingActions from 'actions/setting';
 import language from '../language';
 
 describe('test language reducer', () => {
@@ -9,10 +9,10 @@ describe('test language reducer', () => {
   });
 
   it('should handle setLanguageEnglish', () => {
-    expect(language(undefined, statusActions.setLanguageEnglish())).toBe('English');
+    expect(language(undefined, settingActions.setLanguageEnglish())).toBe('English');
   });
 
   it('should handle setLanguageKorean', () => {
-    expect(language(undefined, statusActions.setLanguageKorean())).toBe('Korean');
+    expect(language(undefined, settingActions.setLanguageKorean())).toBe('Korean');
   });
 });

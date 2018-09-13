@@ -1,11 +1,11 @@
 import { handleActions } from 'redux-actions';
-import * as TYPES from 'actions/actionTypes';
+import * as TYPES from 'actions/constant/actionTypes';
 
 const initialState = null;
 
 const preferenceReducer = handleActions({
-  [TYPES.ALLOCATE_PREFERENCE_ID]: (state, action) => action.payload.id,
-  [TYPES.CLOSE_PREFERENCE]: () => initialState,
+  [TYPES.PREFERENCE_ALLOCATE_ID]: (state, action) => action.payload.id,
+  [TYPES.PREFERENCE_CLOSE]: () => initialState,
 }, initialState);
 
 export default preferenceReducer;

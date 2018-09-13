@@ -1,6 +1,6 @@
-import * as TYPES from 'actions/actionTypes';
-import * as CATEGORY from 'actions/category';
-import * as actions from '.';
+import * as TYPES from 'actions/constant/actionTypes';
+import * as CATEGORY from 'actions/constant/actionCategory';
+import * as actions from '../modal';
 
 describe('test modal actions', () => {
   it('should match modalOpen action', () => {

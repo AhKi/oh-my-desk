@@ -11,7 +11,7 @@ import openAllWidgetStatusOpen from 'main/utils/window/openAllWidgetStatusOpen';
 import store from 'store/storeMain';
 import subscribeActionMain from 'store/utils/subscribeActionMain';
 import TrayMenuBar from 'main/utils/menu/trayMenuBar';
-import { setInitialStore } from 'actions/status';
+import { setInitialStore } from 'actions/setting';
 
 function init() {
   autoUpdateConfig();

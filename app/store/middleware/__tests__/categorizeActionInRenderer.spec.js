@@ -1,5 +1,5 @@
 import { ipcRenderer } from 'electron';
-import * as CATEGORY from 'actions/category';
+import * as CATEGORY from 'actions/constant/actionCategory';
 import categorizeActionInRenderer from '../categorizeActionInRenderer';
 
 describe('test categorizeActionInRenderer', () => {

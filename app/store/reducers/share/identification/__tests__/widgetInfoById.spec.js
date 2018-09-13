@@ -12,7 +12,7 @@ describe('test widgets byId reducer', () => {
     expect(widgetInfoById(undefined, {})).toEqual(Immutable.Map());
   });
 
-  it('should handle REGISTER_NEW_WIDGET', () => {
+  it('should handle WIDGET_MAKE', () => {
     const mockId = 'mock-id';
     const mockInfo = {
       name: 'mock-name',
@@ -20,13 +20,13 @@ describe('test widgets byId reducer', () => {
       isOpen: false,
     };
 
-    expect(widgetInfoById(undefined, widgetActions.registerNewWidget(mockId, mockInfo)))
+    expect(widgetInfoById(undefined, widgetActions.widgetMake(mockId, mockInfo)))
       .toEqual(Immutable.fromJS({
         [mockId]: createWidget(mockId, mockInfo),
       }));
   });
 
-  it('should handle SHOW_TARGET_WIDGET', () => {
+  it('should handle WIDGET_OPEN', () => {
     const mockId = 'mock-id';
     const mockInfo = {
       name: 'mock-name',
@@ -45,7 +45,7 @@ describe('test widgets byId reducer', () => {
       [mockId]: resultInfo,
     };
 
-    expect(widgetInfoById(Immutable.fromJS(initialState), widgetActions.showTargetWidget(mockId)))
+    expect(widgetInfoById(Immutable.fromJS(initialState), widgetActions.widgetOpen(mockId)))
       .toEqual(Immutable.fromJS(resultState));
   });
 
@@ -69,11 +69,11 @@ describe('test widgets byId reducer', () => {
       [mockId]: resultInfo,
     };
 
-    expect(widgetInfoById(Immutable.fromJS(initialState), widgetActions.focusWidget(mockId)))
+    expect(widgetInfoById(Immutable.fromJS(initialState), widgetActions.widgetFocus(mockId)))
       .toEqual(Immutable.fromJS(resultState));
   });
 
-  it('should handle CLOSE_TARGET_WIDGET', () => {
+  it('should handle WIDGET_CLOSE', () => {
     const mockId = 'mock-id';
     const initialState = {
       [mockId]: {
@@ -106,14 +106,14 @@ describe('test widgets byId reducer', () => {
       },
     };
 
-    expect(widgetInfoById(Immutable.fromJS(initialState), widgetActions.closeTargetWidget(mockId)))
+    expect(widgetInfoById(Immutable.fromJS(initialState), widgetActions.widgetClose(mockId)))
       .toEqual(Immutable.fromJS(nextState));
 
-    expect(widgetInfoById(Immutable.fromJS(initialState), widgetActions.closeTargetWidget('mock-temp-id')))
+    expect(widgetInfoById(Immutable.fromJS(initialState), widgetActions.widgetClose('mock-temp-id')))
       .toEqual(Immutable.fromJS(initialState));
   });
 
-  it('should handle CLOSE_TARGET_WIDGET_FORCED', () => {
+  it('should handle WIDGET_CLOSED', () => {
     const mockId = 'mock-id';
     const initialState = {
       [mockId]: {
@@ -148,13 +148,13 @@ describe('test widgets byId reducer', () => {
 
     expect(widgetInfoById(
       Immutable.fromJS(initialState),
-      widgetActions.closeTargetWidgetForced(mockId),
+      widgetActions.widgetClosed(mockId),
     )).toEqual(Immutable.fromJS(nextState));
-    expect(widgetInfoById(Immutable.fromJS(initialState), widgetActions.closeTargetWidget('mock-temp-id')))
+    expect(widgetInfoById(Immutable.fromJS(initialState), widgetActions.widgetClose('mock-temp-id')))
       .toEqual(Immutable.fromJS(initialState));
   });
 
-  it('should handle DELETE_TARGET_WIDGET', () => {
+  it('should handle WIDGET_DELETE', () => {
     const mockId = 'mock-id';
     const mockInfo = {
       name: 'mock-name',
@@ -166,11 +166,11 @@ describe('test widgets byId reducer', () => {
     };
     const resultState = {};
 
-    expect(widgetInfoById(Immutable.fromJS(initialState), widgetActions.deleteTargetWidget(mockId)))
+    expect(widgetInfoById(Immutable.fromJS(initialState), widgetActions.widgetDelete(mockId)))
       .toEqual(Immutable.fromJS(resultState));
   });
 
-  it('should handle UPDATE_TARGET_WIDGET_INFO', () => {
+  it('should handle WIDGET_UPDATE_INFO', () => {
     const mockId = 'mock-id';
     const mockInfo = {
       position: {
@@ -214,11 +214,11 @@ describe('test widgets byId reducer', () => {
       },
     });
 
-    expect(widgetInfoById(initialState, widgetActions.updateTargetWidgetInfo(mockId, mockInfo)))
+    expect(widgetInfoById(initialState, widgetActions.widgetUpdateInfo(mockId, mockInfo)))
       .toEqual(nextState);
   });
 
-  it('should handle setAllWidgetIsOpenFalse', () => {
+  it('should handle widgetCloseWhole', () => {
     const initialState = Immutable.fromJS({
       mock1: {
         id: 'mock1',
@@ -248,7 +248,7 @@ describe('test widgets byId reducer', () => {
       },
     });
 
-    expect(widgetInfoById(initialState, widgetActions.setAllWidgetIsOpenFalse()))
+    expect(widgetInfoById(initialState, widgetActions.widgetCloseWhole()))
       .toEqual(resultState);
   });
 });
