@@ -1,4 +1,4 @@
-import * as statusActions from 'actions/status';
+import * as actions from 'actions/search';
 import isTrayOpen from '../isTrayOpen';
 
 describe('test isTrayOpen reducer', () => {
@@ -8,11 +8,11 @@ describe('test isTrayOpen reducer', () => {
     expect(isTrayOpen(undefined, {})).toBe(initialState);
   });
 
-  it('should handle trayWindowClose', () => {
-    expect(isTrayOpen(undefined, statusActions.trayWindowClose())).toBe(false);
+  it('should handle searchTrayClose', () => {
+    expect(isTrayOpen(undefined, actions.searchTrayClose())).toBe(false);
   });
 
-  it('should handle trayWindowOpen', () => {
-    expect(isTrayOpen(undefined, statusActions.trayWindowOpen())).toBe(true);
+  it('should handle searchTrayOpen', () => {
+    expect(isTrayOpen(undefined, actions.searchTrayOpen())).toBe(true);
   });
 });

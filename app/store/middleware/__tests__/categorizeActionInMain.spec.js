@@ -1,7 +1,7 @@
 import { BrowserWindow, webContents } from 'electron';
 import Immutable from 'immutable';
 import configureStore from 'redux-mock-store';
-import * as CATEGORY from 'actions/category';
+import * as CATEGORY from 'actions/constant/actionCategory';
 import controllers from 'main/controllers';
 import categorizeActionInMain from '../categorizeActionInMain';
 

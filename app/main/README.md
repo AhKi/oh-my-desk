@@ -43,7 +43,7 @@ const someController = (action) => {
       openPreference(); // main process run this function to open preference window.
       break;
     }
-    case TYPES.TOGGLE_AUTO_LAUNCH: {
+    case TYPES.TOGGLE_OPEN_APP_WHEN_LOGIN: {
       autoLaunch();
       break;
     }

@@ -4,10 +4,10 @@ import toJS from 'renderer/components/toJS';
 import {
   setLanguageEnglish,
   setLanguageKorean,
-  toggleAutoActiveWidget,
-  toggleAutoLaunch,
-  toggleWidgetMode,
-} from 'actions/status';
+  toggleOpenAppWhenLogin,
+  toggleOpenWidgetWhenStart,
+  toggleWidgetDefaultUserAgent,
+} from 'actions/setting';
 import {
   defaultUserAgentSelector,
   languageSelector,
@@ -29,9 +29,9 @@ const mapDispatchToProps = {
   onModalOpen: modalOpen,
   onSetLanguageEnglish: setLanguageEnglish,
   onSetLanguageKorean: setLanguageKorean,
-  onToggleAutoActiveWidget: toggleAutoActiveWidget,
-  onToggleAutoLaunch: toggleAutoLaunch,
-  onToggleWidgetMode: toggleWidgetMode,
+  onToggleOpenWidgetWhenStart: toggleOpenWidgetWhenStart,
+  onToggleOpenAppWhenLogin: toggleOpenAppWhenLogin,
+  onToggleWidgetDefaultUserAgent: toggleWidgetDefaultUserAgent,
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(toJS(Setting)));

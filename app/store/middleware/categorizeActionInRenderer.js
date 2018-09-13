@@ -1,6 +1,6 @@
 import { ipcRenderer } from 'electron';
 import { isFSA } from 'flux-standard-action';
-import * as CATEGORY from 'actions/category';
+import * as CATEGORY from 'actions/constant/actionCategory';
 
 // TODO Add link about action categorizing docs
 

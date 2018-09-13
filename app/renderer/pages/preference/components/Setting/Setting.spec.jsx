@@ -44,11 +44,11 @@ describe('<Setting />', () => {
 
   it('should call handleOpenWidgetModeModal', () => {
     const onModalOpen = jest.fn();
-    const onToggleWidgetMode = jest.fn();
+    const onToggleWidgetDefaultUserAgent = jest.fn();
     const wrapper = shallow(
       <Setting
         onModalOpen={onModalOpen}
-        onToggleWidgetMode={onToggleWidgetMode}
+        onToggleWidgetDefaultUserAgent={onToggleWidgetDefaultUserAgent}
       />,
     );
 
@@ -58,7 +58,7 @@ describe('<Setting />', () => {
     expect(onModalOpen).toHaveBeenCalledWith(
       WidgetModeConfirm,
       {
-        onChangeMode: onToggleWidgetMode,
+        onChangeMode: onToggleWidgetDefaultUserAgent,
       },
     );
   });

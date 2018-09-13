@@ -3,9 +3,9 @@ import menuBar from 'menubar';
 import url from 'url';
 import store from 'store/storeMain';
 import {
-  trayWindowClose,
-  trayWindowOpen,
-} from 'actions/status';
+  searchTrayClose,
+  searchTrayOpen,
+} from 'actions/search';
 import * as PATH from 'constants/path';
 
 const trayMenuBar = menuBar({
@@ -25,11 +25,11 @@ trayMenuBar.on('show', () => {
       trayMenuBar.hideWindow();
     }
   });
-  store.dispatch(trayWindowOpen());
+  store.dispatch(searchTrayOpen());
 });
 
 trayMenuBar.on('hide', () => {
-  store.dispatch(trayWindowClose());
+  store.dispatch(searchTrayClose());
   globalShortcut.unregister('Escape');
 });
 

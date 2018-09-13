@@ -1,8 +1,8 @@
 import Immutable from 'immutable';
 import { BrowserWindow } from 'electron';
-import * as statusActions from 'actions/status';
-import * as TYPES from 'actions/actionTypes';
+import * as TYPES from 'actions/constant/actionTypes';
 import storeMock from 'store/storeMain';
+import { openBrowserWindow } from 'actions/window';
 import * as utils from 'main/utils/widget/makeWidget';
 import widgetController from '../widget';
 
@@ -13,9 +13,9 @@ describe('test widgetController', () => {
   const mockBrowserWindow = new BrowserWindow();
   storeMock.dispatch = jest.fn();
 
-  it('should handle TYPES.REGISTER_NEW_WIDGET', () => {
+  it('should handle TYPES.WIDGET_MAKE', () => {
     const mockAction = {
-      type: TYPES.REGISTER_NEW_WIDGET,
+      type: TYPES.WIDGET_MAKE,
       payload: {
         id: 'mock-id',
         info: {
@@ -40,16 +40,16 @@ describe('test widgetController', () => {
 
     expect(storeMock.dispatch).toHaveBeenCalledTimes(1);
     expect(storeMock.dispatch).toHaveBeenCalledWith(
-      statusActions.openBrowserWindow(
+      openBrowserWindow(
         'mock-id',
         mockBrowserWindow,
       ),
     );
   });
 
-  describe('should handle TYPES.SHOW_TARGET_WIDGET', () => {
+  describe('should handle TYPES.WIDGET_OPEN', () => {
     const mockAction = {
-      type: TYPES.SHOW_TARGET_WIDGET,
+      type: TYPES.WIDGET_OPEN,
       payload: {
         id: 'mock-id',
         isFocus: true,
@@ -118,7 +118,7 @@ describe('test widgetController', () => {
       }, true);
       expect(storeMock.dispatch).toHaveBeenCalledTimes(1);
       expect(storeMock.dispatch).toHaveBeenCalledWith(
-        statusActions.openBrowserWindow(
+        openBrowserWindow(
           'mock-id',
           mockBrowserWindow,
         ),
@@ -126,10 +126,10 @@ describe('test widgetController', () => {
     });
   });
 
-  describe('should handle TYPES.CLOSE_TARGET_WIDGET', () => {
+  describe('should handle TYPES.WIDGET_CLOSE', () => {
     const browserWindow = new BrowserWindow();
     const mockAction = {
-      type: TYPES.CLOSE_TARGET_WIDGET,
+      type: TYPES.WIDGET_CLOSE,
       payload: {
         id: 'mock-id',
         info: {
@@ -192,10 +192,10 @@ describe('test widgetController', () => {
     });
   });
 
-  describe('should handle TYPES.DELETE_TARGET_WIDGET', () => {
+  describe('should handle TYPES.WIDGET_DELETE', () => {
     const browserWindow = new BrowserWindow();
     const mockAction = {
-      type: TYPES.DELETE_TARGET_WIDGET,
+      type: TYPES.WIDGET_DELETE,
       payload: {
         id: 'mock-id',
         info: {
@@ -258,7 +258,7 @@ describe('test widgetController', () => {
     });
   });
 
-  describe('should handle UPDATE_TARGET_WIDGET_INFO', () => {
+  describe('should handle WIDGET_UPDATE_INFO', () => {
     const browserWindow = new BrowserWindow();
     const mockStore = Immutable.Map({
       personal: Immutable.Map({
@@ -284,7 +284,7 @@ describe('test widgetController', () => {
     describe('test isOnTop', () => {
       it('when widget don\'t exist', () => {
         const mockAction = {
-          type: TYPES.UPDATE_TARGET_WIDGET_INFO,
+          type: TYPES.WIDGET_UPDATE_INFO,
           payload: {
             id: 'mock-id',
             info: {
@@ -318,7 +318,7 @@ describe('test widgetController', () => {
 
       it('when isOnTop is false', () => {
         const mockAction = {
-          type: TYPES.UPDATE_TARGET_WIDGET_INFO,
+          type: TYPES.WIDGET_UPDATE_INFO,
           payload: {
             id: 'mock-id',
             info: {
@@ -335,7 +335,7 @@ describe('test widgetController', () => {
 
       it('when isOnTop is true', () => {
         const mockAction = {
-          type: TYPES.UPDATE_TARGET_WIDGET_INFO,
+          type: TYPES.WIDGET_UPDATE_INFO,
           payload: {
             id: 'mock-id',
             info: {

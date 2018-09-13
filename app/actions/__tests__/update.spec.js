@@ -1,7 +1,7 @@
 import { BrowserWindow } from 'electron';
 import * as actions from 'actions/update';
-import * as CATEGORY from 'actions/category';
-import * as TYPES from 'actions/actionTypes';
+import * as CATEGORY from 'actions/constant/actionCategory';
+import * as TYPES from 'actions/constant/actionTypes';
 
 describe('test update action', () => {
   it('should handle updateCheckRequest', () => {
