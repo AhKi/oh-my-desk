@@ -63,7 +63,7 @@ describe('test makeWidgetWindow', () => {
 
       expect(storeMock.dispatch).toHaveBeenCalledTimes(1);
       expect(storeMock.dispatch).toHaveBeenCalledWith(
-        actions.closeTargetWidgetForced('mock-id'),
+        actions.widgetClosed('mock-id'),
       );
     });
 
@@ -74,7 +74,7 @@ describe('test makeWidgetWindow', () => {
 
       expect(storeMock.dispatch).toHaveBeenCalledTimes(1);
       expect(storeMock.dispatch)
-        .toHaveBeenCalledWith(actions.focusWidget('mock-id'));
+        .toHaveBeenCalledWith(actions.widgetFocus('mock-id'));
     });
   });
 
@@ -94,7 +94,7 @@ describe('test makeWidgetWindow', () => {
 
       expect(storeMock.dispatch).toHaveBeenCalledTimes(1);
       expect(storeMock.dispatch).toHaveBeenCalledWith(
-        actions.allocateIdTargetWidget('mock-id'),
+        actions.widgetAllocateIdTarget('mock-id'),
       );
     });
   });

@@ -6,9 +6,9 @@ import {
 } from 'store/reducers/share/identification/selectors';
 import { keywordSelector } from 'store/reducers/personal/search/selectors';
 import {
-  closeTargetWidget,
-  showTargetWidget,
-  updateTargetWidgetInfo,
+  widgetClose,
+  widgetOpen,
+  widgetUpdateInfo,
 } from 'actions/widget';
 import {
   searchWidgetSelectIncrease,
@@ -24,12 +24,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  onCloseWidget: closeTargetWidget,
+  onCloseWidget: widgetClose,
   onHideWindow: searchWindowHide,
   onSelectIncrease: searchWidgetSelectIncrease,
   onSelectDecrease: searchWidgetSelectDecrease,
-  onShowWidget: showTargetWidget,
-  onUpdateInfo: updateTargetWidgetInfo,
+  onShowWidget: widgetOpen,
+  onUpdateInfo: widgetUpdateInfo,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(toJS(SearchList));

@@ -1,6 +1,6 @@
-import * as TYPES from 'actions/actionTypes';
-import * as CATEGORY from 'actions/category';
-import * as actions from '.';
+import * as TYPES from 'actions/constant/actionTypes';
+import * as CATEGORY from 'actions/constant/actionCategory';
+import * as actions from 'actions/search';
 
 describe('test search actions', () => {
   it('should handle searchChangeKeyword', () => {
@@ -67,5 +67,27 @@ describe('test search actions', () => {
     };
 
     expect(actions.searchWindowHide()).toEqual(mockAction);
+  });
+
+  it('should handle searchTrayOpen', () => {
+    const mockAction = {
+      type: TYPES.SEARCH_TRAY_OPEN,
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+    };
+
+    expect(actions.searchTrayOpen()).toEqual(mockAction);
+  });
+
+  it('should handle searchTrayClose', () => {
+    const mockAction = {
+      type: TYPES.SEARCH_TRAY_CLOSE,
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+    };
+
+    expect(actions.searchTrayClose()).toEqual(mockAction);
   });
 });

@@ -1,6 +1,6 @@
 import Immutable from 'immutable';
 import { handleActions } from 'redux-actions';
-import * as TYPES from 'actions/actionTypes';
+import * as TYPES from 'actions/constant/actionTypes';
 
 const initialState = Immutable.Map();
 

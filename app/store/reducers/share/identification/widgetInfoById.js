@@ -1,26 +1,26 @@
 import { combineActions, handleActions } from 'redux-actions';
 import Immutable from 'immutable';
 import createWidget from 'main/utils/widget/createWidget';
-import * as TYPES from 'actions/actionTypes';
+import * as TYPES from 'actions/constant/actionTypes';
 
 const initialState = Immutable.Map();
 
 const widgetInfoByIdReducer = handleActions({
-  [TYPES.REGISTER_NEW_WIDGET]: (state, action) => {
+  [TYPES.WIDGET_MAKE]: (state, action) => {
     const { id, info } = action.payload;
     const widgetInfo = createWidget(id, info);
 
     return state.set(id, Immutable.fromJS(widgetInfo));
   },
-  [TYPES.SHOW_TARGET_WIDGET]: (state, action) => {
+  [TYPES.WIDGET_OPEN]: (state, action) => {
     const { id } = action.payload;
     const widget = state.get(id);
 
     return state.set(id, widget.set('isOpen', true));
   },
   [combineActions(
-    TYPES.CLOSE_TARGET_WIDGET,
-    TYPES.CLOSE_TARGET_WIDGET_FORCED,
+    TYPES.WIDGET_CLOSE,
+    TYPES.WIDGET_CLOSED,
   )]: (state, action) => {
     const { id } = action.payload;
     const widget = state.get(id);
@@ -31,18 +31,18 @@ const widgetInfoByIdReducer = handleActions({
 
     return state.set(id, widget.set('isOpen', false));
   },
-  [TYPES.DELETE_TARGET_WIDGET]: (state, action) => {
+  [TYPES.WIDGET_DELETE]: (state, action) => {
     const { id } = action.payload;
 
     return state.delete(id);
   },
-  [TYPES.FOCUS_WIDGET]: (state, action) => {
+  [TYPES.WIDGET_FOCUS]: (state, action) => {
     const { id, time } = action.payload;
     const widget = state.get(id);
 
     return state.set(id, widget.set('resentFocusTime', time));
   },
-  [TYPES.UPDATE_TARGET_WIDGET_INFO]: (state, action) => {
+  [TYPES.WIDGET_UPDATE_INFO]: (state, action) => {
     const { id, info } = action.payload;
 
     const widgetInfo = state.get(id);
@@ -51,7 +51,7 @@ const widgetInfoByIdReducer = handleActions({
 
     return state.set(id, updatedInfo);
   },
-  [TYPES.SET_ALL_WIDGET_ISOPEN_FALSE]: state => state.map(item => item.set('isOpen', false)),
+  [TYPES.WIDGET_CLOSE_WHOLE]: state => state.map(item => item.set('isOpen', false)),
 }, initialState);
 
 export default widgetInfoByIdReducer;

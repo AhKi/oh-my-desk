@@ -1,5 +1,5 @@
 import { combineActions, handleActions } from 'redux-actions';
-import * as TYPES from 'actions/actionTypes';
+import * as TYPES from 'actions/constant/actionTypes';
 
 const initialState = false;
 

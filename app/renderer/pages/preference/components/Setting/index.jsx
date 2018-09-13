@@ -13,9 +13,9 @@ const propTypes = {
   onModalOpen: PropTypes.func,
   onSetLanguageEnglish: PropTypes.func,
   onSetLanguageKorean: PropTypes.func,
-  onToggleAutoActiveWidget: PropTypes.func,
-  onToggleAutoLaunch: PropTypes.func,
-  onToggleWidgetMode: PropTypes.func,
+  onToggleOpenWidgetWhenStart: PropTypes.func,
+  onToggleOpenAppWhenLogin: PropTypes.func,
+  onToggleWidgetDefaultUserAgent: PropTypes.func,
 };
 
 const defaultProps = {
@@ -26,9 +26,9 @@ const defaultProps = {
   onModalOpen() {},
   onSetLanguageEnglish() {},
   onSetLanguageKorean() {},
-  onToggleAutoActiveWidget() {},
-  onToggleAutoLaunch() {},
-  onToggleWidgetMode() {},
+  onToggleOpenWidgetWhenStart() {},
+  onToggleOpenAppWhenLogin() {},
+  onToggleWidgetDefaultUserAgent() {},
 };
 
 class Setting extends React.Component {
@@ -50,10 +50,10 @@ class Setting extends React.Component {
   }
 
   handleOpenWidgetModeModal() {
-    const { onModalOpen, onToggleWidgetMode } = this.props;
+    const { onModalOpen, onToggleWidgetDefaultUserAgent } = this.props;
 
     onModalOpen(WidgetModeConfirm, {
-      onChangeMode: onToggleWidgetMode,
+      onChangeMode: onToggleWidgetDefaultUserAgent,
     });
   }
 
@@ -64,8 +64,8 @@ class Setting extends React.Component {
       language,
       isOpenWidgetWhenStart,
       isLaunchAppWhenLogin,
-      onToggleAutoActiveWidget,
-      onToggleAutoLaunch,
+      onToggleOpenWidgetWhenStart,
+      onToggleOpenAppWhenLogin,
     } = this.props;
 
     return (
@@ -76,14 +76,14 @@ class Setting extends React.Component {
             {text.autoStart}
             <ToggleButton
               isCheck={isLaunchAppWhenLogin}
-              onToggle={onToggleAutoLaunch}
+              onToggle={onToggleOpenAppWhenLogin}
             />
           </li>
           <li className="Setting__list">
             {text.autoWidgetActive}
             <ToggleButton
               isCheck={isOpenWidgetWhenStart}
-              onToggle={onToggleAutoActiveWidget}
+              onToggle={onToggleOpenWidgetWhenStart}
             />
           </li>
           <li className="Setting__list">

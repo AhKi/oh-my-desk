@@ -14,7 +14,7 @@ const updateWidgetContentBounds = (id, win) => {
     },
   };
 
-  store.dispatch(actions.updateTargetWidgetInfo(id, widgetBounds));
+  store.dispatch(actions.widgetUpdateInfo(id, widgetBounds));
 };
 
 export default updateWidgetContentBounds;

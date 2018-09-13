@@ -46,15 +46,15 @@ const makeWidget = (id, info, isFocus) => {
   });
 
   widget.on('closed', () => {
-    store.dispatch(actions.closeTargetWidgetForced(id));
+    store.dispatch(actions.widgetClosed(id));
   });
 
   widget.on('focus', () => {
-    store.dispatch(actions.focusWidget(id));
+    store.dispatch(actions.widgetFocus(id));
   });
 
   widget.webContents.on('did-finish-load', () => {
-    store.dispatch(actions.allocateIdTargetWidget(id));
+    store.dispatch(actions.widgetAllocateIdTarget(id));
   });
 
   return widget;

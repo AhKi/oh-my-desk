@@ -1,7 +1,7 @@
 import { BrowserWindow } from 'electron';
 import Immutable from 'immutable';
 import store from 'store/storeMain';
-import * as statusActions from 'actions/status';
+import { openBrowserWindow } from 'actions/window';
 import * as makeWidget from 'main/utils/widget/makeWidget';
 import openAllWidgetStatusOpen from 'main/utils/window/openAllWidgetStatusOpen';
 
@@ -48,7 +48,7 @@ describe('test openAllWidgetStatusOpen', () => {
     ]);
     expect(store.dispatch).toHaveBeenCalledTimes(1);
     expect(store.dispatch).toHaveBeenCalledWith(
-      statusActions.openBrowserWindow(
+      openBrowserWindow(
         ['mock1', 'mock3'],
         [mockWindow, mockWindow],
       ),

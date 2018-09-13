@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { myselfSelector } from 'store/reducers/personal/identification/selectors';
-import { deleteTargetWidget } from 'actions/widget';
+import { widgetDelete } from 'actions/widget';
 import DeleteWidgetConfirm from '../components/DeleteWidgetConfirm';
 
 const mapStateToProps = state => ({
@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  onDelete: deleteTargetWidget,
+  onDelete: widgetDelete,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeleteWidgetConfirm);

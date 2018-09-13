@@ -1,4 +1,4 @@
-import * as statusActions from 'actions/status';
+import * as settingActions from 'actions/setting';
 import isLaunchAppWhenLogin from '../isLaunchAppWhenLogin';
 
 describe('test autoLaunch reducer', () => {
@@ -8,13 +8,13 @@ describe('test autoLaunch reducer', () => {
     expect(isLaunchAppWhenLogin(undefined, {})).toBe(initialState);
   });
 
-  describe('should handle toggleAutoLaunch', () => {
+  describe('should handle toggleOpenAppWhenLogin', () => {
     it('when state is false', () => {
-      expect(isLaunchAppWhenLogin(false, statusActions.toggleAutoLaunch())).toBe(true);
+      expect(isLaunchAppWhenLogin(false, settingActions.toggleOpenAppWhenLogin())).toBe(true);
     });
 
     it('when state is true', () => {
-      expect(isLaunchAppWhenLogin(true, statusActions.toggleAutoLaunch())).toBe(false);
+      expect(isLaunchAppWhenLogin(true, settingActions.toggleOpenAppWhenLogin())).toBe(false);
     });
   });
 });

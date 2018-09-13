@@ -5,7 +5,8 @@ import url from 'url';
 import store from 'store/storeMain';
 import * as PATH from 'constants/path';
 import openPreference from 'main/utils/window/openPreference';
-import * as actions from 'actions/status';
+import { openBrowserWindow } from 'actions/window';
+import * as preferenceActions from 'actions/preference';
 
 jest.mock('store/storeMain');
 
@@ -84,7 +85,7 @@ describe('test openPreference', () => {
       cb();
 
       expect(store.dispatch).toHaveBeenCalledTimes(3);
-      expect(store.dispatch).toHaveBeenCalledWith(actions.closePreference('mockId'));
+      expect(store.dispatch).toHaveBeenCalledWith(preferenceActions.preferenceClose('mockId'));
     });
 
     describe('should call openDevTools if NODE_ENV', () => {
@@ -108,10 +109,10 @@ describe('test openPreference', () => {
 
       expect(store.dispatch).toHaveBeenCalledTimes(2);
       expect(store.dispatch).toHaveBeenCalledWith(
-        actions.allocatePreferenceId('mockId'),
+        preferenceActions.preferenceAllocateId('mockId'),
       );
       expect(store.dispatch).toHaveBeenCalledWith(
-        actions.openBrowserWindow('mockId', mockWindow),
+        openBrowserWindow('mockId', mockWindow),
       );
     });
   });

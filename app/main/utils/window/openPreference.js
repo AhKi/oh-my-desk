@@ -4,7 +4,8 @@ import url from 'url';
 import store from 'store/storeMain';
 import * as identificationSelector from 'store/reducers/share/identification/selectors';
 import * as identification from 'store/reducers/personal/identification/selectors';
-import * as statusActions from 'actions/status';
+import { openBrowserWindow } from 'actions/window';
+import * as preferenceAction from 'actions/preference';
 import * as PATH from 'constants/path';
 
 const openPreference = () => {
@@ -42,12 +43,12 @@ const openPreference = () => {
   const id = v4();
 
   winPreference.on('close', () => {
-    store.dispatch(statusActions.closePreference(id));
+    store.dispatch(preferenceAction.preferenceClose(id));
   });
 
 
-  store.dispatch(statusActions.allocatePreferenceId(id));
-  store.dispatch(statusActions.openBrowserWindow(id, winPreference));
+  store.dispatch(preferenceAction.preferenceAllocateId(id));
+  store.dispatch(openBrowserWindow(id, winPreference));
 };
 
 export default openPreference;
