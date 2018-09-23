@@ -91,8 +91,9 @@ class SearchList extends React.Component {
     }
 
     if (e.key === 'Enter') {
-      onShowWidget(list[selectedIndex].id, true);
+      e.preventDefault();
       onHideWindow();
+      onShowWidget(list[selectedIndex].id, true);
     }
   }
 
