@@ -16,6 +16,7 @@ const propTypes = {
   currentUrl: PropTypes.string,
   homeUrl: PropTypes.string,
   id: PropTypes.string,
+  isMakeProgress: PropTypes.bool,
   isOnTop: PropTypes.bool,
   isLoading: PropTypes.bool,
   reloadInterval: PropTypes.number,
@@ -27,6 +28,7 @@ const defaultProps = {
   currentUrl: '',
   homeUrl: '',
   id: '',
+  isMakeProgress: false,
   isOnTop: false,
   isLoading: false,
   reloadInterval: 0,
@@ -162,6 +164,12 @@ class AddressBar extends React.Component {
   }
 
   handleToggleMenu(value) {
+    const { isMakeProgress } = this.props;
+
+    if (isMakeProgress) {
+      return;
+    }
+
     if (typeof value === 'boolean') {
       this.setState({ isMenuOpen: value });
     } else {
