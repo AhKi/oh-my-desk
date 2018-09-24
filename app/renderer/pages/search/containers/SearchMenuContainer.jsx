@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import toJS from 'renderer/components/toJS';
 import { filterSelector } from 'store/reducers/personal/search/selectors';
-import { searchSetFilter } from 'actions/search';
 import { preferenceOpen } from 'actions/preference';
+import { searchSetFilter } from 'actions/search';
+import { widgetMakeRequest } from 'actions/widget';
 import SearchMenu from '../components/SearchMenu';
 
 const mapStateToProps = state => ({
@@ -10,8 +11,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  onSetFilter: searchSetFilter,
+  onMakeWidgetRequest: widgetMakeRequest,
   onOpenPreference: preferenceOpen,
+  onSetFilter: searchSetFilter,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(toJS(SearchMenu));

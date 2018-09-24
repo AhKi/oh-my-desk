@@ -1,5 +1,6 @@
 import moment from 'moment';
 import { createActions } from 'redux-actions';
+import { v4 } from 'uuid';
 import * as TYPES from 'actions/constant/actionTypes';
 import * as CATEGORY from 'actions/constant/actionCategory';
 
@@ -13,7 +14,7 @@ export const {
   widgetCloseWhole,
   widgetDelete,
   widgetFocus,
-  widgetMake,
+  widgetMakeRequest,
   widgetOpen,
   widgetUpdateInfo,
 } = createActions({
@@ -73,15 +74,17 @@ export const {
     id => ({ id, time: moment().toISOString() }),
     () => ({ category: CATEGORY.BROADCAST }),
   ],
-  [TYPES.WIDGET_MAKE]: [
+  [TYPES.WIDGET_MAKE_REQUEST]: [
     /**
-     * Make new widget using information.
-     * @param:String id: identification that will be made widget.
-     * @param:Object info: information to make new widget.
-     * @returns {{id : *, info : *}}
+     * Make process window of widget to make new window.
+     * Need to dispatch only main process.
      */
-    (id, info) => ({ id, info }),
-    () => ({ category: CATEGORY.BROADCAST }),
+    info => ({ id: v4(), info }),
+    () => ({
+      category: CATEGORY.TARGET,
+      self: false,
+      containMain: true,
+    }),
   ],
   [TYPES.WIDGET_OPEN]: [
     /**

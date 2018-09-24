@@ -6,9 +6,14 @@ import * as TYPES from 'actions/constant/actionTypes';
 const initialState = Immutable.Map();
 
 const widgetInfoByIdReducer = handleActions({
-  [TYPES.WIDGET_MAKE]: (state, action) => {
+  [TYPES.WIDGET_MAKE_REQUEST]: (state, action) => {
     const { id, info } = action.payload;
-    const widgetInfo = createWidget(id, info);
+    const emptyInfo = {
+      ...info,
+      isMakeProgress: true,
+    };
+
+    const widgetInfo = createWidget(id, emptyInfo);
 
     return state.set(id, Immutable.fromJS(widgetInfo));
   },
@@ -27,6 +32,10 @@ const widgetInfoByIdReducer = handleActions({
 
     if (!widget) {
       return state;
+    }
+
+    if (widget.get('isMakeProgress')) {
+      return state.delete(id);
     }
 
     return state.set(id, widget.set('isOpen', false));

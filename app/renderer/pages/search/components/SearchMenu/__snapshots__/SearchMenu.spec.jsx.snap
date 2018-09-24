@@ -17,6 +17,7 @@ exports[`Test SearchMenu Component should match to snapshot 1`] = `
     >
       <button
         className="SearchMenu__Btn"
+        onClick={[Function]}
         type="button"
       >
         <img
@@ -96,6 +97,7 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
     >
       <button
         className="SearchMenu__Btn"
+        onClick={[Function]}
         type="button"
       >
         <img
