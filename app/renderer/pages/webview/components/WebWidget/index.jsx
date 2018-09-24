@@ -162,14 +162,14 @@ class WebWidget extends React.Component {
             onClose={this.handleToggleNewWindowMenu}
           />
         )}
-        {widget.reloadInterval !== 0 && (
+        {widget.reloadInterval ? (
           <ReloadTimer
             id={widget.id}
             webView={this.webViewRef.current}
             reloadTimer={widget.reloadInterval}
             onUpdateInfo={onUpdateInfo}
           />
-        )}
+        ) : null}
         <webview
           ref={this.webViewRef}
           src="https://www.github.com"
