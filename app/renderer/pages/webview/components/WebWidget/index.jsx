@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import url from 'url';
 import * as PATH from 'constants/path';
+import i18n from 'constants/i18n';
 import * as USER_AGENT from 'constants/userAgent';
 import ModalContainer from 'renderer/components/Modal/ModalContainer';
 import widgetContextMenu from 'main/utils/menu/widgetContextMenu';
 import WidgetHeaderContainer from '../../containers/WidgetHeaderContainer';
+import MakeNotice from '../MakeNotice';
 import MenuNewWindow from '../MenuNewWindow';
 import ReloadTimer from '../ReloadTimer';
 import './WebWidget.scss';
@@ -34,8 +36,6 @@ class WebWidget extends React.Component {
       newWindowURL: null,
     };
     this.webViewRef = React.createRef();
-    this.prevScrollY = 0;
-    this.tick = null;
     this.mousePosition = {
       x: 0,
       y: 0,
@@ -69,9 +69,9 @@ class WebWidget extends React.Component {
       widgetContextMenu(this.webViewRef.current);
     });
 
-    // webView.addEventListener('dom-ready', () => {
-    //   this.webViewRef.current.openDevTools();
-    // });
+    webView.addEventListener('dom-ready', () => {
+      this.webViewRef.current.openDevTools();
+    });
 
     window.addEventListener('mousemove', (e) => {
       this.mousePosition = {
@@ -126,6 +126,7 @@ class WebWidget extends React.Component {
   }
 
   render() {
+    const text = i18n().widget;
     const {
       currentUrl,
       isLoading,
@@ -148,11 +149,18 @@ class WebWidget extends React.Component {
           title={widget.name}
           url={widget.url}
           id={widget.id}
+          isMakeProgress={widget.isMakeProgress}
           isLoading={isLoading}
           isOnTop={widget.isOnTop}
           userAgent={widget.userAgent}
           onToggleSetting={this.handleToggleSettingMenu}
         />
+        {widget.isMakeProgress && (
+          <MakeNotice
+            currentUrl={currentUrl}
+            title={text.addWidget}
+          />
+        )}
         {newWindowURL && (
           <MenuNewWindow
             url={newWindowURL}
@@ -172,7 +180,7 @@ class WebWidget extends React.Component {
         ) : null}
         <webview
           ref={this.webViewRef}
-          src="https://www.github.com"
+          src="https://google.com"
           style={{
             display: 'inline-flex',
             width: '100%',

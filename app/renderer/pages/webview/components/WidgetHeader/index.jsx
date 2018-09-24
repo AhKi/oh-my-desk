@@ -10,6 +10,7 @@ const propTypes = {
   defaultUserAgent: PropTypes.string,
   title: PropTypes.string,
   id: PropTypes.string,
+  isMakeProgress: PropTypes.bool,
   isOnTop: PropTypes.bool,
   isLoading: PropTypes.bool,
   reloadInterval: PropTypes.number,
@@ -26,6 +27,7 @@ const defaultProps = {
   defaultUserAgent: 'DESKTOP',
   title: '',
   id: '',
+  isMakeProgress: false,
   isOnTop: false,
   isLoading: false,
   reloadInterval: 0,
@@ -44,6 +46,7 @@ class WidgetHeader extends React.Component {
       defaultUserAgent,
       title,
       id,
+      isMakeProgress,
       isOnTop,
       isLoading,
       reloadInterval,
@@ -69,6 +72,7 @@ class WidgetHeader extends React.Component {
           currentUrl={currentUrl}
           homeUrl={url}
           id={id}
+          isMakeProgress={isMakeProgress}
           isOnTop={isOnTop}
           isLoading={isLoading}
           reloadInterval={reloadInterval}

@@ -1,0 +1,17 @@
+.MakeNotice__bar {
+  background-color: #5167ff;
+  color: $color-white;
+  font-size: 14px;
+  width: 100%;
+  height: 33px;
+}
+
+.MakeNotice__bar-btn {
+  color: $color-white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.MakeNotice__bar--hidden {
+  display: none;
+}
