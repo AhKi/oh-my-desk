@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-function createWidget(id, info) {
+function createWidget(id, info = {}) {
   return {
     id,
     name: info.name,
@@ -13,6 +13,7 @@ function createWidget(id, info) {
       width: (info.size && info.size.width) || 300,
       height: (info.size && info.size.height) || 400,
     },
+    isMakeProgress: info.isMakeProgress,
     isOnTop: info.isOnTop || false,
     isOpen: true,
     favorites: false,

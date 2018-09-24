@@ -11,13 +11,15 @@ import './SearchMenu.scss';
 
 const propTypes = {
   filter: PropTypes.string,
-  onSetFilter: PropTypes.func,
+  onMakeWidgetRequest: PropTypes.func,
   onOpenPreference: PropTypes.func,
+  onSetFilter: PropTypes.func,
 };
 const defaultProps = {
   filter: 'ALL',
-  onSetFilter() {},
+  onMakeWidgetRequest() {},
   onOpenPreference() {},
+  onSetFilter() {},
 };
 
 class SearchMenu extends React.Component {
@@ -25,6 +27,13 @@ class SearchMenu extends React.Component {
     super(props);
     this.handleSetAllFilter = this.handleSetAllFilter.bind(this);
     this.handleSetFavoritesFilter = this.handleSetFavoritesFilter.bind(this);
+    this.handleMakeWidgetRequest = this.handleMakeWidgetRequest.bind(this);
+  }
+
+  handleMakeWidgetRequest() {
+    const { onMakeWidgetRequest } = this.props;
+
+    onMakeWidgetRequest();
   }
 
   handleSetAllFilter() {
@@ -65,6 +74,7 @@ class SearchMenu extends React.Component {
             <button
               className="SearchMenu__Btn"
               type="button"
+              onClick={this.handleMakeWidgetRequest}
             >
               <img
                 className="SearchMenu__Icon"

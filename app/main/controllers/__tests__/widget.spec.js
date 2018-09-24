@@ -13,9 +13,9 @@ describe('test widgetController', () => {
   const mockBrowserWindow = new BrowserWindow();
   storeMock.dispatch = jest.fn();
 
-  it('should handle TYPES.WIDGET_MAKE', () => {
+  it('should handle TYPES.WIDGET_MAKE_REQUEST', () => {
     const mockAction = {
-      type: TYPES.WIDGET_MAKE,
+      type: TYPES.WIDGET_MAKE_REQUEST,
       payload: {
         id: 'mock-id',
         info: {
@@ -32,11 +32,7 @@ describe('test widgetController', () => {
     widgetController(mockAction);
 
     expect(makeWidgetWindow).toHaveBeenCalledTimes(1);
-    expect(makeWidgetWindow).toHaveBeenCalledWith('mock-id', {
-      name: 'mock-name',
-      url: 'mock-url',
-      isOpen: false,
-    });
+    expect(makeWidgetWindow).toHaveBeenCalledWith('mock-id', undefined, true);
 
     expect(storeMock.dispatch).toHaveBeenCalledTimes(1);
     expect(storeMock.dispatch).toHaveBeenCalledWith(

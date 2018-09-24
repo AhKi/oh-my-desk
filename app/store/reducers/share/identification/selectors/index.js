@@ -28,7 +28,7 @@ export const widgetInfoByIdSelector = createSelector(
 export const getWidgetArray = createSelector(
   widgetInfoByIdSelector,
   (byId) => {
-    const array = byId.toArray();
+    const array = byId.toArray().filter(item => !item.get('isMakeProgress'));
 
     array.sort((lItem, rItem) => {
       const lTime = lItem.get('resentFocusTime');
