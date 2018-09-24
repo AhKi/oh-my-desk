@@ -1,26 +1,29 @@
 import Immutable from 'immutable';
+import uuid from 'uuid';
 import * as widgetActions from 'actions/widget';
 import createWidget from 'main/utils/widget/createWidget';
 import moment from 'moment';
 import widgetInfoById from '../widgetInfoById';
 
 
-describe('test widgets byId reducer', () => {
+describe('test widgets widgetInfoById reducer', () => {
   moment.mockImplementation(() => ({ default: 'mock', toISOString: jest.fn(() => 'mockISO') }));
 
   it('should return initialState', () => {
     expect(widgetInfoById(undefined, {})).toEqual(Immutable.Map());
   });
 
-  it('should handle WIDGET_MAKE', () => {
+  it('should handle WIDGET_MAKE_REQUEST', () => {
+    uuid.v4 = jest.fn(() => 'mock-id');
     const mockId = 'mock-id';
     const mockInfo = {
       name: 'mock-name',
       url: 'mock-url',
       isOpen: false,
+      isMakeProgress: true,
     };
 
-    expect(widgetInfoById(undefined, widgetActions.widgetMake(mockId, mockInfo)))
+    expect(widgetInfoById(undefined, widgetActions.widgetMakeRequest(mockInfo)))
       .toEqual(Immutable.fromJS({
         [mockId]: createWidget(mockId, mockInfo),
       }));
@@ -113,6 +116,33 @@ describe('test widgets byId reducer', () => {
       .toEqual(Immutable.fromJS(initialState));
   });
 
+  it('should handle WIDGET_CLOSE when widget is making progress', () => {
+    const mockId = 'mock-id';
+    const initialState = {
+      [mockId]: {
+        name: 'mock-name',
+        url: 'mock-url',
+        isOpen: true,
+        position: {
+          x: 10,
+          y: 20,
+        },
+        size: {
+          height: 100,
+          width: 200,
+        },
+        isMakeProgress: true,
+      },
+    };
+    const nextState = {};
+
+    expect(widgetInfoById(Immutable.fromJS(initialState), widgetActions.widgetClose(mockId)))
+      .toEqual(Immutable.fromJS(nextState));
+
+    expect(widgetInfoById(Immutable.fromJS(initialState), widgetActions.widgetClose('mock-temp-id')))
+      .toEqual(Immutable.fromJS(initialState));
+  });
+
   it('should handle WIDGET_CLOSED', () => {
     const mockId = 'mock-id';
     const initialState = {
@@ -145,6 +175,34 @@ describe('test widgets byId reducer', () => {
         },
       },
     };
+
+    expect(widgetInfoById(
+      Immutable.fromJS(initialState),
+      widgetActions.widgetClosed(mockId),
+    )).toEqual(Immutable.fromJS(nextState));
+    expect(widgetInfoById(Immutable.fromJS(initialState), widgetActions.widgetClose('mock-temp-id')))
+      .toEqual(Immutable.fromJS(initialState));
+  });
+
+  it('should handle WIDGET_CLOSED when widget is making progress', () => {
+    const mockId = 'mock-id';
+    const initialState = {
+      [mockId]: {
+        name: 'mock-name',
+        url: 'mock-url',
+        isOpen: true,
+        position: {
+          x: 10,
+          y: 20,
+        },
+        size: {
+          height: 100,
+          width: 200,
+        },
+        isMakeProgress: true,
+      },
+    };
+    const nextState = {};
 
     expect(widgetInfoById(
       Immutable.fromJS(initialState),

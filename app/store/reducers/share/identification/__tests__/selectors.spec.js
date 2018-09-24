@@ -67,6 +67,11 @@ describe('test identification selectors', () => {
               3: '33',
               resentFocusTime: moment('2018-01-03').toISOString(),
             },
+            mock4: {
+              4: '44',
+              isMakeProgress: true,
+              resentFocusTime: moment('2018-01-03').toISOString(),
+            },
           },
         },
       },

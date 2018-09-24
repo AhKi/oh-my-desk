@@ -8,9 +8,9 @@ import * as identificationSelector from 'store/reducers/personal/identification/
 const widgetController = (action, prev) => {
   const { type } = action;
   switch (type) { // eslint-disable-line default-case
-    case TYPES.WIDGET_MAKE: {
-      const { id, info } = action.payload;
-      const widgetWin = makeWidget(id, info);
+    case TYPES.WIDGET_MAKE_REQUEST: {
+      const { id } = action.payload;
+      const widgetWin = makeWidget(id, undefined, true);
 
       store.dispatch(openBrowserWindow(id, widgetWin));
       break;

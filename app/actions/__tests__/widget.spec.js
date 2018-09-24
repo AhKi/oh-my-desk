@@ -1,3 +1,4 @@
+import uuid from 'uuid';
 import * as actions from 'actions/widget';
 import * as CATEGORY from 'actions/constant/actionCategory';
 import * as TYPES from 'actions/constant/actionTypes';
@@ -87,19 +88,22 @@ describe('test widget actions', () => {
       .toEqual(mockAction);
   });
 
-  it('should handle widgetMake', () => {
+  it('should handle widgetMakeRequest', () => {
+    uuid.v4 = jest.fn(() => mockId);
     const mockAction = {
-      type: TYPES.WIDGET_MAKE,
+      type: TYPES.WIDGET_MAKE_REQUEST,
       payload: {
         id: mockId,
         info: mockInfo,
       },
       meta: {
-        category: CATEGORY.BROADCAST,
+        category: CATEGORY.TARGET,
+        self: false,
+        containMain: true,
       },
     };
 
-    expect(actions.widgetMake(mockId, mockInfo))
+    expect(actions.widgetMakeRequest(mockInfo))
       .toEqual(mockAction);
   });
 
