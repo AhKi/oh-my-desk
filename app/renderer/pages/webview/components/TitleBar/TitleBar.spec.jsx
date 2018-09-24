@@ -1,25 +1,21 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import os from 'os';
 
-import TitleBarMac from '.';
+import TitleBar from '.';
 
-jest.mock('os');
-os.platform = () => 'darwin';
-
-describe('<TitleBarMac />', () => {
+describe('<TitleBar />', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   it('should match to snapshot when render default', () => {
-    const wrapper = shallow(<TitleBarMac />);
+    const wrapper = shallow(<TitleBar />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should match to snapshot when exist userAgent', () => {
-    const wrapper = shallow(<TitleBarMac userAgent="DESKTOP" />);
+    const wrapper = shallow(<TitleBar userAgent="DESKTOP" />);
 
     expect(wrapper).toMatchSnapshot();
   });
@@ -27,7 +23,7 @@ describe('<TitleBarMac />', () => {
   it('should call handleSetMobileAgent', () => {
     const onUpdateWidgetInfo = jest.fn();
     const wrapper = shallow(
-      <TitleBarMac
+      <TitleBar
         id="mock-id"
         onUpdateWidgetInfo={onUpdateWidgetInfo}
       />,
@@ -44,10 +40,25 @@ describe('<TitleBarMac />', () => {
     );
   });
 
+  it('should call handleSetMobileAgent', () => {
+    const onCloseWidget = jest.fn();
+    const wrapper = shallow(
+      <TitleBar
+        id="mock-id"
+        onCloseWidget={onCloseWidget}
+      />,
+    );
+
+    wrapper.instance().handleCloseWidget();
+
+    expect(onCloseWidget).toHaveBeenCalledTimes(1);
+    expect(onCloseWidget).toHaveBeenCalledWith('mock-id');
+  });
+
   it('should call handleSetDesktopAgent', () => {
     const onUpdateWidgetInfo = jest.fn();
     const wrapper = shallow(
-      <TitleBarMac
+      <TitleBar
         id="mock-id"
         onUpdateWidgetInfo={onUpdateWidgetInfo}
       />,

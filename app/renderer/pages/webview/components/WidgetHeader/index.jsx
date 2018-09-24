@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import AddressBar from '../AddressBar';
-import TitleBarMac from '../TitleBarMac';
+import TitleBar from '../TitleBar';
 import './WidgetHeader.scss';
 
 const propTypes = {
@@ -16,6 +16,7 @@ const propTypes = {
   webView: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   userAgent: PropTypes.string,
   url: PropTypes.string,
+  onCloseWidget: PropTypes.func,
   onModalOpen: PropTypes.func,
   onUpdateWidgetInfo: PropTypes.func,
 };
@@ -31,6 +32,7 @@ const defaultProps = {
   webView: null,
   userAgent: '',
   url: '',
+  onCloseWidget() {},
   onModalOpen() {},
   onUpdateWidgetInfo() {},
 };
@@ -48,17 +50,19 @@ class WidgetHeader extends React.Component {
       webView,
       userAgent,
       url,
+      onCloseWidget,
       onModalOpen,
       onUpdateWidgetInfo,
     } = this.props;
 
     return (
       <div className="WidgetHeader__title-bar">
-        <TitleBarMac
+        <TitleBar
           defaultUserAgent={defaultUserAgent}
           id={id}
           title={title}
           userAgent={userAgent}
+          onCloseWidget={onCloseWidget}
           onUpdateWidgetInfo={onUpdateWidgetInfo}
         />
         <AddressBar

@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TitleBar /> should match to snapshot when exist userAgent 1`] = `
+<div
+  className="TitleBar"
+>
+  <button
+    className="TitleBar__close-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      className="TitleBar__close-img"
+      src={Object {}}
+    />
+  </button>
+  <div
+    className="TitleBar__title"
+  >
+    Empty Widget
+  </div>
+  <div
+    className="TitleBar__asset"
+  >
+    <button
+      className="TitleBar__button"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt=""
+        className="TitleBar__mobile-icon"
+        src={Object {}}
+      />
+    </button>
+    <button
+      className="TitleBar__button"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt=""
+        className="TitleBar__desktop-icon"
+        src={Object {}}
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<TitleBar /> should match to snapshot when render default 1`] = `
+<div
+  className="TitleBar"
+>
+  <button
+    className="TitleBar__close-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      className="TitleBar__close-img"
+      src={Object {}}
+    />
+  </button>
+  <div
+    className="TitleBar__title"
+  >
+    Empty Widget
+  </div>
+  <div
+    className="TitleBar__asset"
+  >
+    <button
+      className="TitleBar__button"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt=""
+        className="TitleBar__mobile-icon"
+        src={Object {}}
+      />
+    </button>
+    <button
+      className="TitleBar__button"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt=""
+        className="TitleBar__desktop-icon"
+        src={Object {}}
+      />
+    </button>
+  </div>
+</div>
+`;
