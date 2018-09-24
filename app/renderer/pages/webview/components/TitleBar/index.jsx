@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import os from 'os';
 import cx from 'classnames';
 import * as USER_AGENT from 'constants/userAgent';
-import mobileIcon from 'assets/icon/icon-widget-setting.svg';
+import closeIcon from 'assets/icon/icon-widget-close.svg';
 import desktopIcon from 'assets/icon/icon-widget-setting.svg';
-import './TitleBarMac.scss';
+import mobileIcon from 'assets/icon/icon-widget-setting.svg';
+import './TitleBar.scss';
 
 const propTypes = {
   defaultUserAgent: PropTypes.string,
   id: PropTypes.string,
   title: PropTypes.string,
   userAgent: PropTypes.string,
+  onCloseWidget: PropTypes.func,
   onUpdateWidgetInfo: PropTypes.func,
 };
 const defaultProps = {
@@ -19,14 +20,22 @@ const defaultProps = {
   id: '',
   title: 'Empty Widget',
   userAgent: '',
+  onCloseWidget() {},
   onUpdateWidgetInfo() {},
 };
 
-class TitleBarMac extends React.Component {
+class TitleBar extends React.Component {
   constructor(props) {
     super(props);
+    this.handleCloseWidget = this.handleCloseWidget.bind(this);
     this.handleSetMobileAgent = this.handleSetMobileAgent.bind(this);
     this.handleSetDesktopAgent = this.handleSetDesktopAgent.bind(this);
+  }
+
+  handleCloseWidget() {
+    const { id, onCloseWidget } = this.props;
+
+    onCloseWidget(id);
   }
 
   handleSetMobileAgent() {
@@ -48,24 +57,26 @@ class TitleBarMac extends React.Component {
   render() {
     const { title, defaultUserAgent, userAgent } = this.props;
     const currentUserAgent = userAgent || defaultUserAgent;
-    const mobileIconClass = cx('TitleBarMac__mobile-icon', {
-      'TitleBarMac__icon--active': userAgent === USER_AGENT.MOBILE,
+    const mobileIconClass = cx('TitleBar__mobile-icon', {
+      'TitleBar__icon--active': userAgent === USER_AGENT.MOBILE,
     });
-    const desktopIconClass = cx('TitleBarMac__desktop-icon', {
-      'TitleBarMac__icon--active': userAgent === USER_AGENT.MOBILE,
+    const desktopIconClass = cx('TitleBar__desktop-icon', {
+      'TitleBar__icon--active': userAgent === USER_AGENT.MOBILE,
     });
-
-    if (os.platform() !== 'darwin') {
-      return null;
-    }
 
     return (
-      <div className="TitleBarMac">
-        <div className="TitleBarMac__traffic-light" />
-        <div className="TitleBarMac__title">{title}</div>
-        <div className="TitleBarMac__asset">
+      <div className="TitleBar">
+        <button
+          className="TitleBar__close-btn"
+          type="button"
+          onClick={this.handleCloseWidget}
+        >
+          <img className="TitleBar__close-img" src={closeIcon} alt="" />
+        </button>
+        <div className="TitleBar__title">{title}</div>
+        <div className="TitleBar__asset">
           <button
-            className="TitleBarMac__button"
+            className="TitleBar__button"
             disabled={currentUserAgent === 'MOBILE'}
             type="button"
             onClick={this.handleSetMobileAgent}
@@ -77,7 +88,7 @@ class TitleBarMac extends React.Component {
             />
           </button>
           <button
-            className="TitleBarMac__button"
+            className="TitleBar__button"
             disabled={currentUserAgent === 'DESKTOP'}
             type="button"
             onClick={this.handleSetDesktopAgent}
@@ -94,7 +105,7 @@ class TitleBarMac extends React.Component {
   }
 }
 
-TitleBarMac.propTypes = propTypes;
-TitleBarMac.defaultProps = defaultProps;
+TitleBar.propTypes = propTypes;
+TitleBar.defaultProps = defaultProps;
 
-export default TitleBarMac;
+export default TitleBar;

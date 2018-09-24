@@ -4,9 +4,10 @@ exports[`<WidgetHeader /> should match to snapshot when render default 1`] = `
 <div
   className="WidgetHeader__title-bar"
 >
-  <TitleBarMac
+  <TitleBar
     defaultUserAgent="DESKTOP"
     id=""
+    onCloseWidget={[Function]}
     onUpdateWidgetInfo={[Function]}
     title=""
     userAgent=""
