@@ -1,5 +1,4 @@
 import { BrowserWindow } from 'electron';
-import os from 'os';
 import url from 'url';
 import * as actions from 'actions/widget';
 import store from 'store/storeMain';
@@ -18,7 +17,7 @@ const makeWidget = (id, info, isFocus) => {
     height: widgetInfo.size.height,
     alwaysOnTop: widgetInfo.isOnTop,
     autoHideMenuBar: true,
-    titleBarStyle: os.platform() === 'darwin' ? 'hiddenInset' : 'default',
+    titleBarStyle: 'default',
     show: false,
     frame: false,
   });
