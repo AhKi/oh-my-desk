@@ -1,7 +1,11 @@
+import React from 'react'; // eslint-disable-line
+import axios from 'axios';
 import makeWidget from 'main/utils/widget/makeWidget';
 import store from 'store/storeMain';
 import * as TYPES from 'actions/constant/actionTypes';
 import { openBrowserWindow } from 'actions/window';
+import { widgetUpdateInfo } from 'actions/widget';
+import { modalOpen } from 'actions/modal';
 import * as sharedId from 'store/reducers/share/identification/selectors';
 import * as identificationSelector from 'store/reducers/personal/identification/selectors';
 
@@ -59,6 +63,30 @@ const widgetController = (action, prev) => {
           }
         });
       }
+      break;
+    }
+    case TYPES.WIDGET_URL_VALID_CHECK: {
+      const { id, name, url } = action.payload;
+
+      axios({ url })
+        .then(() => {
+          store.dispatch(widgetUpdateInfo(id, {
+            name,
+            url,
+            isMakeProgress: false,
+          }));
+        })
+        .catch(() => {
+          store.dispatch(modalOpen(
+            'URL_INVALID_NOTIFICATION',
+            {
+              name,
+              url,
+              id,
+            },
+            id,
+          ));
+        });
       break;
     }
   }
