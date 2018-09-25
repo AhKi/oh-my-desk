@@ -17,6 +17,7 @@ export const {
   widgetMakeRequest,
   widgetOpen,
   widgetUpdateInfo,
+  widgetUrlValidCheck,
 } = createActions({
   [TYPES.WIDGET_ALLOCATE_ID_TARGET]: [
     /**
@@ -80,11 +81,7 @@ export const {
      * Need to dispatch only main process.
      */
     info => ({ id: v4(), info }),
-    () => ({
-      category: CATEGORY.TARGET,
-      self: false,
-      containMain: true,
-    }),
+    () => ({ category: CATEGORY.BROADCAST }),
   ],
   [TYPES.WIDGET_OPEN]: [
     /**
@@ -105,5 +102,20 @@ export const {
      */
     (id, info) => ({ id, info }),
     () => ({ category: CATEGORY.BROADCAST }),
+  ],
+  [TYPES.WIDGET_URL_VALID_CHECK]: [
+    /**
+     * Check if url is valid.
+     * @param:String id: identification of target widget window.
+     * @param:String name: widget name that will be set.
+     * @param:String url: widget url that will be set.
+     * @returns {{id : *, name : *, url : *}}
+     */
+    (id, name, url) => ({ id, name, url }),
+    () => ({
+      category: CATEGORY.TARGET,
+      self: false,
+      containMain: true,
+    }),
   ],
 });
