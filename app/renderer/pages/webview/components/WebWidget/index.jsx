@@ -18,11 +18,13 @@ const propTypes = {
     name: PropTypes.string,
     url: PropTypes.string,
   }),
+  onCheckUrlValidation: PropTypes.func,
   onUpdateInfo: PropTypes.func,
 };
 const defaultProps = {
   defaultUserAgent: 'DESKTOP',
   widget: {},
+  onCheckUrlValidation() {},
   onUpdateInfo() {},
 };
 
@@ -69,9 +71,9 @@ class WebWidget extends React.Component {
       widgetContextMenu(this.webViewRef.current);
     });
 
-    webView.addEventListener('dom-ready', () => {
-      this.webViewRef.current.openDevTools();
-    });
+    // webView.addEventListener('dom-ready', () => {
+    //   this.webViewRef.current.openDevTools();
+    // });
 
     window.addEventListener('mousemove', (e) => {
       this.mousePosition = {
@@ -92,6 +94,9 @@ class WebWidget extends React.Component {
     }
 
     if (prevProps.widget.url !== widget.url) {
+      this.setState({ // eslint-disable-line react/no-did-update-set-state
+        currentUrl: widget.url,
+      });
       this.webViewRef.current.loadURL(widget.url, { userAgent });
     }
 
@@ -135,6 +140,7 @@ class WebWidget extends React.Component {
     const {
       defaultUserAgent,
       widget,
+      onCheckUrlValidation,
       onUpdateInfo,
     } = this.props;
 
@@ -158,7 +164,9 @@ class WebWidget extends React.Component {
         {widget.isMakeProgress && (
           <MakeNotice
             currentUrl={currentUrl}
+            id={widget.id}
             title={text.addWidget}
+            onCheckUrlValidation={onCheckUrlValidation}
           />
         )}
         {newWindowURL && (

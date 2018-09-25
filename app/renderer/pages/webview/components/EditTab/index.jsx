@@ -6,15 +6,19 @@ import closeIcon from 'assets/icon/icon-widget-close.svg';
 import './EditTab.scss';
 
 const propTypes = {
-  title: PropTypes.string,
   currentUrl: PropTypes.string,
+  title: PropTypes.string,
+  id: PropTypes.string,
   hidden: PropTypes.bool,
+  onCheckUrlValidation: PropTypes.func,
   onCloseTab: PropTypes.func,
 };
 const defaultProps = {
-  title: '',
   currentUrl: '',
+  title: '',
+  id: '',
   hidden: false,
+  onCheckUrlValidation() {},
   onCloseTab() {},
 };
 
@@ -28,6 +32,7 @@ class EditTab extends React.Component {
     };
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeUrl = this.handleChangeUrl.bind(this);
+    this.handleCheckUrlValidation = this.handleCheckUrlValidation.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -51,8 +56,25 @@ class EditTab extends React.Component {
     this.setState({ url: e.target.value });
   }
 
+  handleCheckUrlValidation() {
+    const { name, url } = this.state;
+    const { id, onCheckUrlValidation } = this.props;
+    const isUrlFormat = url.indexOf('http://') === 0 || url.indexOf('https://') === 0;
+    let nextUrl = url;
+    if (!isUrlFormat) {
+      nextUrl = `https://${url}`;
+      this.setState({ url: nextUrl });
+    }
+
+    onCheckUrlValidation(id, name, nextUrl);
+  }
+
   render() {
-    const { hidden, title, onCloseTab } = this.props;
+    const {
+      hidden,
+      title,
+      onCloseTab,
+    } = this.props;
     const { name, url, isUrlHighlight } = this.state;
     const text = i18n().widget;
     const tabClassName = cx('EditTab', {
@@ -100,6 +122,7 @@ class EditTab extends React.Component {
           <button
             className="Btn Btn--primary"
             type="button"
+            onClick={this.handleCheckUrlValidation}
           >
             {text.config}
           </button>

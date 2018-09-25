@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import ReactModal from 'react-modal';
 import OutsideClickHandler from 'renderer/components/OutsideClickHandler';
+import UrlInvalidNotificationContainer from 'renderer/pages/webview/containers/UrlInvalidNotificationContainer';
 import './Modal.scss';
 
 const propTypes = {
-  Component: PropTypes.func,
+  Component: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.string,
+  ]),
   modalProps: PropTypes.object, // eslint-disable-line
   onModalClose: PropTypes.func,
 };
@@ -15,6 +19,10 @@ const defaultProps = {
   Component() {},
   modalProps: {},
   onModalClose() {},
+};
+
+const MODAL_CONTENT = {
+  URL_INVALID_NOTIFICATION: UrlInvalidNotificationContainer,
 };
 
 class Modal extends React.Component {
@@ -31,16 +39,25 @@ class Modal extends React.Component {
       activeOutsideClose,
     } = modalProps;
 
+    if (!isOpen) {
+      return null;
+    }
+
+    /**
+     * When open modal in remote process, action is dispatched another process.
+     * Then, Electron doesn't transfer about function parameter.
+     * So, solve it for transfer string of Modal Type.
+     * @type {Modal.props.Component}
+     */
+    const Content = typeof Component === 'string' ? MODAL_CONTENT[Component] : Component;
+    console.log(Content);
+
     const modalClassName = cx(modalClass, {
       Modal__container: !modalClass,
     });
     const overlayClassName = cx(overlayClass, {
       Modal__overlay: !overlayClass,
     });
-
-    if (!isOpen) {
-      return null;
-    }
 
     return (
       <ReactModal
@@ -52,10 +69,10 @@ class Modal extends React.Component {
       >
         {activeOutsideClose ? (
           <OutsideClickHandler onOutSideClick={onModalClose}>
-            <Component {...modalProps} onModalClose={onModalClose} />
+            <Content {...modalProps} onModalClose={onModalClose} />
           </OutsideClickHandler>
         ) :
-          <Component {...modalProps} onModalClose={onModalClose} />
+          <Content {...modalProps} onModalClose={onModalClose} />
         }
       </ReactModal>
     );

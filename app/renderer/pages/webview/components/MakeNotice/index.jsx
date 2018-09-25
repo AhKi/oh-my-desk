@@ -7,11 +7,15 @@ import './MakeNotice.scss';
 
 const propTypes = {
   currentUrl: PropTypes.string,
+  id: PropTypes.string,
   title: PropTypes.string,
+  onCheckUrlValidation: PropTypes.func,
 };
 const defaultProps = {
   currentUrl: '',
+  id: '',
   title: '',
+  onCheckUrlValidation() {},
 };
 
 class MakeNotice extends React.Component {
@@ -33,7 +37,12 @@ class MakeNotice extends React.Component {
 
   render() {
     const { isOpenTab } = this.state;
-    const { currentUrl, title } = this.props;
+    const {
+      currentUrl,
+      id,
+      title,
+      onCheckUrlValidation,
+    } = this.props;
     const text = i18n().widget;
     const barClassName = cx('MakeNotice__bar', {
       'MakeNotice__bar--hidden': isOpenTab,
@@ -54,7 +63,9 @@ class MakeNotice extends React.Component {
         currentUrl={currentUrl}
         hidden={!isOpenTab}
         key="tab"
+        id={id}
         title={title}
+        onCheckUrlValidation={onCheckUrlValidation}
         onCloseTab={this.handleToggleTab}
       />,
     ];
