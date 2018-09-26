@@ -97,9 +97,7 @@ describe('test widget actions', () => {
         info: mockInfo,
       },
       meta: {
-        category: CATEGORY.TARGET,
-        self: false,
-        containMain: true,
+        category: CATEGORY.BROADCAST,
       },
     };
 

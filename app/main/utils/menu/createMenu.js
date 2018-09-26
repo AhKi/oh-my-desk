@@ -1,5 +1,7 @@
 import { app, Menu } from 'electron';
 import os from 'os';
+import store from 'store/storeMain';
+import { widgetMakeRequest } from 'actions/widget';
 import openPreference from 'main/utils/window/openPreference';
 import i18n from 'constants/i18n';
 
@@ -39,6 +41,11 @@ function createMenu() {
       submenu: [
         { label: text.minimize, role: 'minimize' },
         { label: text.close, role: 'close' },
+        {
+          label: text.newWidget,
+          accelerator: 'CommandOrControl+n',
+          click: () => { store.dispatch(widgetMakeRequest()); },
+        },
       ],
     },
   ];
@@ -79,12 +86,26 @@ function createMenu() {
 
     // Window menu
     template[3].submenu = [
+      {
+        label: text.newWidget,
+        accelerator: 'CommandOrControl+n',
+        click: () => { store.dispatch(widgetMakeRequest()); },
+      },
       { label: text.closeWindow, role: 'close' },
       { label: text.minimize, role: 'minimize' },
       { label: text.zoom, role: 'zoom' },
       { type: 'separator' },
       { label: text.bringAllToFront, role: 'front' },
     ];
+  } else {
+    template[1].submenu.push(
+      { type: 'separator' },
+      {
+        label: text.preference,
+        accelerator: 'CommandOrControl+,',
+        click: () => { openPreference(); },
+      },
+    );
   }
 
   const menu = Menu.buildFromTemplate(template);
