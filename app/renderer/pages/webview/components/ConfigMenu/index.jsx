@@ -11,6 +11,7 @@ const propTypes = {
   buttonRef: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   reloadInterval: PropTypes.number,
   onClose: PropTypes.func,
+  onMakeWidget: PropTypes.func,
   onModalOpen: PropTypes.func,
   onUpdateWidgetInfo: PropTypes.func,
 };
@@ -20,6 +21,7 @@ const defaultProps = {
   buttonRef: null,
   reloadInterval: 0,
   onClose() {},
+  onMakeWidget() {},
   onModalOpen() {},
   onUpdateWidgetInfo() {},
 };
@@ -35,6 +37,7 @@ class ConfigMenu extends React.Component {
     this.handleChangeLocalSecond = this.handleChangeLocalSecond.bind(this);
     this.handleDeleteWidget = this.handleDeleteWidget.bind(this);
     this.handleOutSideClick = this.handleOutSideClick.bind(this);
+    this.handleMakeWidget = this.handleMakeWidget.bind(this);
     this.handleToggleReloadMenu = this.handleToggleReloadMenu.bind(this);
     this.handleOpenWithBrowser = this.handleOpenWithBrowser.bind(this);
     this.handleSetReloadInterval = this.handleSetReloadInterval.bind(this);
@@ -52,6 +55,13 @@ class ConfigMenu extends React.Component {
     const { onClose, onModalOpen } = this.props;
 
     onModalOpen(DeleteWidgetConfirmContainer);
+    onClose();
+  }
+
+  handleMakeWidget() {
+    const { onClose, onMakeWidget } = this.props;
+
+    onMakeWidget();
     onClose();
   }
 
@@ -102,7 +112,15 @@ class ConfigMenu extends React.Component {
         className="ConfigMenu"
         ref={this.menuContainerRef}
       >
-        <li className="ConfigMenu__list">{text.newWindow}</li>
+        <li className="ConfigMenu__list">
+          <button
+            className="ConfigMenu__btn"
+            type="button"
+            onClick={this.handleMakeWidget}
+          >
+            {text.newWindow}
+          </button>
+        </li>
         <li className="ConfigMenu__list">{text.editWidget}</li>
         <li className="ConfigMenu__list">
           <button
