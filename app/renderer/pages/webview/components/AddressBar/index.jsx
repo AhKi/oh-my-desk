@@ -21,6 +21,7 @@ const propTypes = {
   isLoading: PropTypes.bool,
   reloadInterval: PropTypes.number,
   webView: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  onMakeWidget: PropTypes.func,
   onModalOpen: PropTypes.func,
   onUpdateWidgetInfo: PropTypes.func,
 };
@@ -33,6 +34,7 @@ const defaultProps = {
   isLoading: false,
   reloadInterval: 0,
   webView: null,
+  onMakeWidget() {},
   onModalOpen() {},
   onUpdateWidgetInfo() {},
 };
@@ -187,6 +189,7 @@ class AddressBar extends React.Component {
       isLoading,
       reloadInterval,
       webView,
+      onMakeWidget,
       onModalOpen,
       onUpdateWidgetInfo,
     } = this.props;
@@ -273,6 +276,7 @@ class AddressBar extends React.Component {
             id={id}
             reloadInterval={reloadInterval}
             onClose={this.handleToggleMenu}
+            onMakeWidget={onMakeWidget}
             onModalOpen={onModalOpen}
             onUpdateWidgetInfo={onUpdateWidgetInfo}
           />
