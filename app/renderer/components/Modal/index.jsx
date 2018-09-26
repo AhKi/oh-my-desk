@@ -50,7 +50,6 @@ class Modal extends React.Component {
      * @type {Modal.props.Component}
      */
     const Content = typeof Component === 'string' ? MODAL_CONTENT[Component] : Component;
-    console.log(Content);
 
     const modalClassName = cx(modalClass, {
       Modal__container: !modalClass,

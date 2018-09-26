@@ -8,6 +8,7 @@ import isRestartAfterUpdate from './isRestartAfterUpdate';
 import isTrayOpen from './isTrayOpen';
 import isUpdateCheckFetch from './isUpdateCheckFetch';
 import isUpdateCheckOnManual from './isUpdateCheckOnManual';
+import isUrlCheckFetch from './isUrlCheckFetch';
 
 const statusReducer = combineReducers({
   isCheckUpdateWhenStart,
@@ -19,6 +20,7 @@ const statusReducer = combineReducers({
   isTrayOpen,
   isUpdateCheckFetch,
   isUpdateCheckOnManual,
+  isUrlCheckFetch,
 });
 
 export default statusReducer;

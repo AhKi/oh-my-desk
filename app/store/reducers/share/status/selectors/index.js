@@ -50,3 +50,8 @@ export const isUpdateCheckOnManualSelector = createSelector(
   statusSelector,
   status => status.get('isUpdateCheckOnManual'),
 );
+
+export const isUrlCheckFetchSelector = createSelector(
+  statusSelector,
+  status => status.get('isUrlCheckFetch'),
+);
