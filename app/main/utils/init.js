@@ -20,7 +20,8 @@ function init() {
 
   globalShortcut.register('Ctrl+Space', () => {
     if (TrayMenuBar.window && TrayMenuBar.window.isFocused()) {
-      TrayMenuBar.hideWindow();
+      TrayMenuBar.window.blur(); // Need to reopen in windowOS
+      TrayMenuBar.hideWindow(); // Need to reopen in macOS
     } else {
       TrayMenuBar.showWindow();
     }

@@ -22,7 +22,8 @@ const trayMenuBar = menuBar({
 trayMenuBar.on('show', () => {
   globalShortcut.register('Escape', () => {
     if (trayMenuBar.window && trayMenuBar.window.isFocused()) {
-      trayMenuBar.hideWindow();
+      trayMenuBar.window.blur(); // Need to reopen in windowOS
+      trayMenuBar.hideWindow(); // Need to reopen in macOS
     }
   });
   store.dispatch(searchTrayOpen());
