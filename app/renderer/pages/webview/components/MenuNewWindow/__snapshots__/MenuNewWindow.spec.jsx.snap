@@ -3,6 +3,7 @@
 exports[`<MenuNewWindow /> should match to snapshot when render default 1`] = `
 <MenuNewWindow
   onClose={[Function]}
+  onMakeWidget={[Function]}
   url=""
   webview={Object {}}
   x={0}
