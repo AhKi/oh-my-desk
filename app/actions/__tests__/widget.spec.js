@@ -149,4 +149,47 @@ describe('test widget actions', () => {
     expect(actions.widgetCloseWhole())
       .toEqual(mockAction);
   });
+
+  it('should handle widgetUrlCheckRequest', () => {
+    const mockAction = {
+      type: TYPES.WIDGET_URL_CHECK_REQUEST,
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+    };
+
+    expect(actions.widgetUrlCheckRequest())
+      .toEqual(mockAction);
+  });
+
+  it('should handle widgetUrlCheckSuccess', () => {
+    const mockAction = {
+      type: TYPES.WIDGET_URL_CHECK_SUCCESS,
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+    };
+
+    expect(actions.widgetUrlCheckSuccess())
+      .toEqual(mockAction);
+  });
+
+  it('should handle widgetUrlValidCheck', () => {
+    const mockAction = {
+      type: TYPES.WIDGET_URL_VALID_CHECK,
+      payload: {
+        id: 'mock-id',
+        name: 'mock-name',
+        url: 'mock-url',
+      },
+      meta: {
+        category: CATEGORY.TARGET,
+        self: false,
+        containMain: true,
+      },
+    };
+
+    expect(actions.widgetUrlValidCheck('mock-id', 'mock-name', 'mock-url'))
+      .toEqual(mockAction);
+  });
 });

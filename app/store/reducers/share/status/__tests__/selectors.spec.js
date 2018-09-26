@@ -119,4 +119,17 @@ describe('test status selectors', () => {
     expect(selectors.isUpdateCheckOnManualSelector(initialState))
       .toEqual(false);
   });
+
+  it('should select isUrlCheckFetch', () => {
+    const initialState = Immutable.fromJS({
+      share: {
+        status: {
+          isUrlCheckFetch: false,
+        },
+      },
+    });
+
+    expect(selectors.isUrlCheckFetchSelector(initialState))
+      .toEqual(false);
+  });
 });
