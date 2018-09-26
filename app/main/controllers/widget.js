@@ -4,7 +4,12 @@ import makeWidget from 'main/utils/widget/makeWidget';
 import store from 'store/storeMain';
 import * as TYPES from 'actions/constant/actionTypes';
 import { openBrowserWindow } from 'actions/window';
-import { widgetUpdateInfo } from 'actions/widget';
+import {
+  widgetUpdateInfo,
+  widgetUrlCheckRequest,
+  widgetUrlCheckSuccess,
+} from 'actions/widget';
+import { isUrlCheckFetchSelector } from 'store/reducers/share/status/selectors';
 import { modalOpen } from 'actions/modal';
 import * as sharedId from 'store/reducers/share/identification/selectors';
 import * as identificationSelector from 'store/reducers/personal/identification/selectors';
@@ -68,8 +73,14 @@ const widgetController = (action, prev) => {
     case TYPES.WIDGET_URL_VALID_CHECK: {
       const { id, name, url } = action.payload;
 
+      if (isUrlCheckFetchSelector(store.getState())) {
+        return;
+      }
+
+      store.dispatch(widgetUrlCheckRequest());
       axios({ url })
         .then(() => {
+          store.dispatch(widgetUrlCheckSuccess());
           store.dispatch(widgetUpdateInfo(id, {
             name,
             url,
@@ -77,6 +88,7 @@ const widgetController = (action, prev) => {
           }));
         })
         .catch(() => {
+          store.dispatch(widgetUrlCheckSuccess());
           store.dispatch(modalOpen(
             'URL_INVALID_NOTIFICATION',
             {

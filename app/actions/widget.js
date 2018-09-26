@@ -17,6 +17,8 @@ export const {
   widgetMakeRequest,
   widgetOpen,
   widgetUpdateInfo,
+  widgetUrlCheckRequest,
+  widgetUrlCheckSuccess,
   widgetUrlValidCheck,
 } = createActions({
   [TYPES.WIDGET_ALLOCATE_ID_TARGET]: [
@@ -101,6 +103,20 @@ export const {
      * @returns {{id : *, info : *}}
      */
     (id, info) => ({ id, info }),
+    () => ({ category: CATEGORY.BROADCAST }),
+  ],
+  [TYPES.WIDGET_URL_CHECK_REQUEST]: [
+    /**
+     * Fetch get api to target url
+     */
+    () => {},
+    () => ({ category: CATEGORY.BROADCAST }),
+  ],
+  [TYPES.WIDGET_URL_CHECK_SUCCESS]: [
+    /**
+     * Receive about fetch get api to target url
+     */
+    () => {},
     () => ({ category: CATEGORY.BROADCAST }),
   ],
   [TYPES.WIDGET_URL_VALID_CHECK]: [
