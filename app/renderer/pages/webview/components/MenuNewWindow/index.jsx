@@ -10,6 +10,7 @@ const propTypes = {
   x: PropTypes.number,
   y: PropTypes.number,
   onClose: PropTypes.func,
+  onMakeWidget: PropTypes.func,
 };
 
 const defaultProps = {
@@ -18,6 +19,7 @@ const defaultProps = {
   x: 0,
   y: 0,
   onClose() {},
+  onMakeWidget() {},
 };
 
 class MenuNewWindow extends React.Component {
@@ -71,8 +73,9 @@ class MenuNewWindow extends React.Component {
   }
 
   handleOpenWidget() {
-    const { url } = this.props;
-    console.log('url: ', url);
+    const { url, onMakeWidget } = this.props;
+
+    onMakeWidget({ url });
   }
 
   render() {
