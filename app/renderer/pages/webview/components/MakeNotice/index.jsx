@@ -22,8 +22,7 @@ class MakeNotice extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpenTab: true,
-      // isOpenTab: false,
+      isOpenTab: false,
     };
     this.handleToggleTab = this.handleToggleTab.bind(this);
   }

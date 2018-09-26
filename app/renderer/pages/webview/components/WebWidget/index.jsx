@@ -19,12 +19,14 @@ const propTypes = {
     url: PropTypes.string,
   }),
   onCheckUrlValidation: PropTypes.func,
+  onMakeWidget: PropTypes.func,
   onUpdateInfo: PropTypes.func,
 };
 const defaultProps = {
   defaultUserAgent: 'DESKTOP',
   widget: {},
   onCheckUrlValidation() {},
+  onMakeWidget() {},
   onUpdateInfo() {},
 };
 
@@ -141,6 +143,7 @@ class WebWidget extends React.Component {
       defaultUserAgent,
       widget,
       onCheckUrlValidation,
+      onMakeWidget,
       onUpdateInfo,
     } = this.props;
 
@@ -176,6 +179,7 @@ class WebWidget extends React.Component {
             x={this.mousePosition.x}
             y={this.mousePosition.y}
             onClose={this.handleToggleNewWindowMenu}
+            onMakeWidget={onMakeWidget}
           />
         )}
         {widget.reloadInterval ? (
