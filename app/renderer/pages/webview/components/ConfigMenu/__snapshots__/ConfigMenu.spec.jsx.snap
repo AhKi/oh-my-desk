@@ -18,7 +18,13 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
   <li
     className="ConfigMenu__list"
   >
-    Edit widget
+    <button
+      className="ConfigMenu__btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Edit widget
+    </button>
   </li>
   <li
     className="ConfigMenu__list"
@@ -129,7 +135,13 @@ exports[`<ConfigMenu /> should match to snapshot when render default 1`] = `
   <li
     className="ConfigMenu__list"
   >
-    Edit widget
+    <button
+      className="ConfigMenu__btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Edit widget
+    </button>
   </li>
   <li
     className="ConfigMenu__list"

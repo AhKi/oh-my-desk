@@ -18,6 +18,7 @@ const propTypes = {
   userAgent: PropTypes.string,
   url: PropTypes.string,
   onCloseWidget: PropTypes.func,
+  onEditWidget: PropTypes.func,
   onMakeWidget: PropTypes.func,
   onModalOpen: PropTypes.func,
   onUpdateWidgetInfo: PropTypes.func,
@@ -36,6 +37,7 @@ const defaultProps = {
   userAgent: '',
   url: '',
   onCloseWidget() {},
+  onEditWidget() {},
   onMakeWidget() {},
   onModalOpen() {},
   onUpdateWidgetInfo() {},
@@ -56,6 +58,7 @@ class WidgetHeader extends React.Component {
       userAgent,
       url,
       onCloseWidget,
+      onEditWidget,
       onMakeWidget,
       onModalOpen,
       onUpdateWidgetInfo,
@@ -80,6 +83,7 @@ class WidgetHeader extends React.Component {
           isLoading={isLoading}
           reloadInterval={reloadInterval}
           webView={webView}
+          onEditWidget={onEditWidget}
           onMakeWidget={onMakeWidget}
           onModalOpen={onModalOpen}
           onUpdateWidgetInfo={onUpdateWidgetInfo}
