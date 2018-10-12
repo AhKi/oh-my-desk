@@ -14,6 +14,8 @@ export const {
   widgetCloseWhole,
   widgetDelete,
   widgetFocus,
+  widgetEditRequest,
+  widgetEditCancel,
   widgetMakeRequest,
   widgetOpen,
   widgetUpdateInfo,
@@ -75,6 +77,22 @@ export const {
      * @returns {{id : *, time : string}}
      */
     id => ({ id, time: moment().toISOString() }),
+    () => ({ category: CATEGORY.BROADCAST }),
+  ],
+  [TYPES.WIDGET_EDIT_REQUEST]: [
+    /**
+     * Edit process window of widget to change window name or url.
+     * Need to dispatch only main process.
+     */
+    id => ({ id }),
+    () => ({ category: CATEGORY.BROADCAST }),
+  ],
+  [TYPES.WIDGET_EDIT_CANCEL]: [
+    /**
+     * cancel about edit process window of widget to change window name or url.
+     * Need to dispatch only main process.
+     */
+    id => ({ id }),
     () => ({ category: CATEGORY.BROADCAST }),
   ],
   [TYPES.WIDGET_MAKE_REQUEST]: [

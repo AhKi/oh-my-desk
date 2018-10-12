@@ -19,6 +19,7 @@ exports[`<WidgetHeader /> should match to snapshot when render default 1`] = `
     isLoading={false}
     isMakeProgress={false}
     isOnTop={false}
+    onEditWidget={[Function]}
     onMakeWidget={[Function]}
     onModalOpen={[Function]}
     onUpdateWidgetInfo={[Function]}

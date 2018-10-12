@@ -3,6 +3,7 @@ import toJS from 'renderer/components/toJS';
 import { getIndividualInfo } from 'store/reducers/share/identification/selectors';
 import { defaultUserAgentSelector } from 'store/reducers/share/config/selectors';
 import {
+  widgetEditCancel,
   widgetMakeRequest,
   widgetUpdateInfo,
   widgetUrlValidCheck,
@@ -16,6 +17,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
+  onCancelEditWidget: widgetEditCancel,
   onCheckUrlValidation: widgetUrlValidCheck,
   onMakeWidget: widgetMakeRequest,
   onUpdateInfo: widgetUpdateInfo,

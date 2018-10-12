@@ -85,6 +85,7 @@ const widgetController = (action, prev) => {
             name,
             url,
             isMakeProgress: false,
+            isEditProgress: false,
           }));
         })
         .catch(() => {

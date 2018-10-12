@@ -246,6 +246,7 @@ exports[`<AddressBar /> should match to snapshot when state.isMenuOpen is true 1
     currentUrl=""
     id=""
     onClose={[Function]}
+    onEditWidget={[Function]}
     onMakeWidget={[Function]}
     onModalOpen={[Function]}
     onUpdateWidgetInfo={[Function]}
