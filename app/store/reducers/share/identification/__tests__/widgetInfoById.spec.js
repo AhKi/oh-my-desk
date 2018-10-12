@@ -29,6 +29,54 @@ describe('test widgets widgetInfoById reducer', () => {
       }));
   });
 
+  it('should handle WIDGET_EDIT_REQUEST', () => {
+    const mockId = 'mock-id';
+    const prevState = {
+      name: 'mock-name',
+      url: 'mock-url',
+    };
+    const mockInfo = {
+      name: 'mock-name',
+      url: 'mock-url',
+      isEditProgress: true,
+    };
+    const initialState = {
+      [mockId]: prevState,
+    };
+
+    expect(widgetInfoById(
+      Immutable.fromJS(initialState),
+      widgetActions.widgetEditRequest(mockId),
+    ))
+      .toEqual(Immutable.fromJS({
+        [mockId]: mockInfo,
+      }));
+  });
+
+  it('should handle WIDGET_EDIT_CANCEL', () => {
+    const mockId = 'mock-id';
+    const prevState = {
+      name: 'mock-name',
+      url: 'mock-url',
+    };
+    const mockInfo = {
+      name: 'mock-name',
+      url: 'mock-url',
+      isEditProgress: false,
+    };
+    const initialState = {
+      [mockId]: prevState,
+    };
+
+    expect(widgetInfoById(
+      Immutable.fromJS(initialState),
+      widgetActions.widgetEditCancel(mockId),
+    ))
+      .toEqual(Immutable.fromJS({
+        [mockId]: mockInfo,
+      }));
+  });
+
   it('should handle WIDGET_OPEN', () => {
     const mockId = 'mock-id';
     const mockInfo = {

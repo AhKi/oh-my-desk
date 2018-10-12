@@ -7,6 +7,7 @@ import './EditTab.scss';
 
 const propTypes = {
   currentUrl: PropTypes.string,
+  name: PropTypes.string,
   title: PropTypes.string,
   id: PropTypes.string,
   hidden: PropTypes.bool,
@@ -15,6 +16,7 @@ const propTypes = {
 };
 const defaultProps = {
   currentUrl: '',
+  name: '',
   title: '',
   id: '',
   hidden: false,
@@ -26,7 +28,7 @@ class EditTab extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: props.currentUrl,
+      name: props.name,
       url: props.currentUrl,
       isUrlHighlight: false,
     };
@@ -36,7 +38,7 @@ class EditTab extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { currentUrl } = this.props;
+    const { currentUrl, name } = this.props;
     if (prevProps.currentUrl !== currentUrl) {
       this.setState({ // eslint-disable-line react/no-did-update-set-state
         url: currentUrl,
@@ -45,6 +47,12 @@ class EditTab extends React.Component {
       setTimeout(() => this.setState({
         isUrlHighlight: false,
       }), 1000);
+    }
+
+    if (prevProps.name !== name) {
+      this.setState({ // eslint-disable-line react/no-did-update-set-state
+        name,
+      });
     }
   }
 
@@ -56,7 +64,9 @@ class EditTab extends React.Component {
     this.setState({ url: e.target.value });
   }
 
-  handleCheckUrlValidation() {
+  handleCheckUrlValidation(e) {
+    e.preventDefault();
+
     const { name, url } = this.state;
     const { id, onCheckUrlValidation } = this.props;
     const isUrlFormat = url.indexOf('http://') === 0 || url.indexOf('https://') === 0;
@@ -93,40 +103,42 @@ class EditTab extends React.Component {
         >
           <img src={closeIcon} alt="" />
         </button>
-        <div className="InputSet">
-          <p className="InputSet__label">{text.name}</p>
-          <input
-            className="InputSet__dividing-inputs-group"
-            type="text"
-            value={name}
-            onChange={this.handleChangeName}
-          />
-        </div>
-        <div className="InputSet">
-          <p className="InputSet__label">{text.url}</p>
-          <input
-            className={urlClassName}
-            type="text"
-            value={url}
-            onChange={this.handleChangeUrl}
-          />
-        </div>
-        <div>
-          <button
-            className="Btn Btn--gray"
-            type="button"
-            onClick={onCloseTab}
-          >
-            {text.cancel}
-          </button>
-          <button
-            className="Btn Btn--primary"
-            type="button"
-            onClick={this.handleCheckUrlValidation}
-          >
-            {text.config}
-          </button>
-        </div>
+        <form onSubmit={this.handleCheckUrlValidation}>
+          <div className="InputSet">
+            <p className="InputSet__label">{text.name}</p>
+            <input
+              autoFocus // eslint-disable-line jsx-a11y/no-autofocus
+              className="InputSet__dividing-inputs-group"
+              type="text"
+              value={name}
+              onChange={this.handleChangeName}
+            />
+          </div>
+          <div className="InputSet">
+            <p className="InputSet__label">{text.url}</p>
+            <input
+              className={urlClassName}
+              type="text"
+              value={url}
+              onChange={this.handleChangeUrl}
+            />
+          </div>
+          <div>
+            <button
+              className="Btn Btn--gray"
+              type="button"
+              onClick={onCloseTab}
+            >
+              {text.cancel}
+            </button>
+            <button
+              className="Btn Btn--primary"
+              type="submit"
+            >
+              {text.config}
+            </button>
+          </div>
+        </form>
       </div>
     );
   }

@@ -17,6 +17,16 @@ const widgetInfoByIdReducer = handleActions({
 
     return state.set(id, Immutable.fromJS(widgetInfo));
   },
+  [TYPES.WIDGET_EDIT_REQUEST]: (state, action) => {
+    const { id } = action.payload;
+
+    return state.setIn([id, 'isEditProgress'], true);
+  },
+  [TYPES.WIDGET_EDIT_CANCEL]: (state, action) => {
+    const { id } = action.payload;
+
+    return state.setIn([id, 'isEditProgress'], false);
+  },
   [TYPES.WIDGET_OPEN]: (state, action) => {
     const { id } = action.payload;
     const widget = state.get(id);

@@ -7,6 +7,7 @@ import * as USER_AGENT from 'constants/userAgent';
 import ModalContainer from 'renderer/components/Modal/ModalContainer';
 import widgetContextMenu from 'main/utils/menu/widgetContextMenu';
 import WidgetHeaderContainer from '../../containers/WidgetHeaderContainer';
+import EditTab from '../EditTab';
 import MakeNotice from '../MakeNotice';
 import MenuNewWindow from '../MenuNewWindow';
 import ReloadTimer from '../ReloadTimer';
@@ -18,6 +19,7 @@ const propTypes = {
     name: PropTypes.string,
     url: PropTypes.string,
   }),
+  onCancelEditWidget: PropTypes.func,
   onCheckUrlValidation: PropTypes.func,
   onMakeWidget: PropTypes.func,
   onUpdateInfo: PropTypes.func,
@@ -25,6 +27,7 @@ const propTypes = {
 const defaultProps = {
   defaultUserAgent: 'DESKTOP',
   widget: {},
+  onCancelEditWidget() {},
   onCheckUrlValidation() {},
   onMakeWidget() {},
   onUpdateInfo() {},
@@ -142,6 +145,7 @@ class WebWidget extends React.Component {
     const {
       defaultUserAgent,
       widget,
+      onCancelEditWidget,
       onCheckUrlValidation,
       onMakeWidget,
       onUpdateInfo,
@@ -164,6 +168,16 @@ class WebWidget extends React.Component {
           userAgent={widget.userAgent}
           onToggleSetting={this.handleToggleSettingMenu}
         />
+        {widget.isEditProgress && (
+          <EditTab
+            currentUrl={currentUrl}
+            id={widget.id}
+            name={widget.name}
+            title={text.editWidget}
+            onCloseTab={() => onCancelEditWidget(widget.id)}
+            onCheckUrlValidation={onCheckUrlValidation}
+          />
+        )}
         {widget.isMakeProgress && (
           <MakeNotice
             currentUrl={currentUrl}

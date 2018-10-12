@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import {
   widgetClose,
+  widgetEditRequest,
   widgetMakeRequest,
   widgetUpdateInfo,
 } from 'actions/widget';
@@ -10,6 +11,7 @@ import WidgetHeader from '../components/WidgetHeader';
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = {
+  onEditWidget: widgetEditRequest,
   onMakeWidget: widgetMakeRequest,
   onCloseWidget: widgetClose,
   onModalOpen: modalOpen,

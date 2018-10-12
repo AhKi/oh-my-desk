@@ -88,6 +88,36 @@ describe('test widget actions', () => {
       .toEqual(mockAction);
   });
 
+  it('should handle widgetEditRequest', () => {
+    const mockAction = {
+      type: TYPES.WIDGET_EDIT_REQUEST,
+      payload: {
+        id: mockId,
+      },
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+    };
+
+    expect(actions.widgetEditRequest(mockId))
+      .toEqual(mockAction);
+  });
+
+  it('should handle widgetEditCancel', () => {
+    const mockAction = {
+      type: TYPES.WIDGET_EDIT_CANCEL,
+      payload: {
+        id: mockId,
+      },
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+    };
+
+    expect(actions.widgetEditCancel(mockId))
+      .toEqual(mockAction);
+  });
+
   it('should handle widgetMakeRequest', () => {
     uuid.v4 = jest.fn(() => mockId);
     const mockAction = {
