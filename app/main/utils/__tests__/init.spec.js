@@ -48,13 +48,16 @@ describe('test init function', () => {
     const cb = globalShortcut.register.mock.calls[0][1];
 
     it('when TrayMenuBar.window === true and window.isFocused === true', () => {
+      const blur = jest.fn();
       TrayMenuBar.window = {
         isFocused: () => true,
+        blur,
       };
 
       cb();
 
       expect(TrayMenuBar.hideWindow).toHaveBeenCalledTimes(1);
+      expect(blur).toHaveBeenCalledTimes(1);
       expect(TrayMenuBar.showWindow).toHaveBeenCalledTimes(0);
     });
 
