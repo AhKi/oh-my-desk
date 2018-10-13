@@ -6,7 +6,7 @@ import './MenuNewWindow.scss';
 
 const propTypes = {
   url: PropTypes.string,
-  webview: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  widget: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   x: PropTypes.number,
   y: PropTypes.number,
   onClose: PropTypes.func,
@@ -15,7 +15,7 @@ const propTypes = {
 
 const defaultProps = {
   url: '',
-  webview: null,
+  widget: null,
   x: 0,
   y: 0,
   onClose() {},
@@ -37,9 +37,9 @@ class MenuNewWindow extends React.Component {
   }
 
   componentDidMount() {
-    const { x, y, webview } = this.props;
-    const screenWidth = webview.clientWidth;
-    const screenHeight = webview.clientHeight;
+    const { x, y, widget } = this.props;
+    const screenWidth = widget.clientWidth;
+    const screenHeight = widget.clientHeight;
     const menuWidth = this.menuRef.current.clientWidth;
     const menuHeight = this.menuRef.current.clientHeight;
 
@@ -68,8 +68,8 @@ class MenuNewWindow extends React.Component {
   }
 
   handleMovementPage() {
-    const { webview, url } = this.props;
-    webview.loadURL(url);
+    const { widget, url } = this.props;
+    widget.loadURL(url);
   }
 
   handleOpenWidget() {

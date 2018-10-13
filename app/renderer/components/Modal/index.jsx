@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import ReactModal from 'react-modal';
 import OutsideClickHandler from 'renderer/components/OutsideClickHandler';
-import UrlInvalidNotificationContainer from 'renderer/pages/webview/containers/UrlInvalidNotificationContainer';
+import UrlInvalidNotificationContainer from 'renderer/pages/widget/containers/UrlInvalidNotificationContainer';
 import './Modal.scss';
 
 const propTypes = {

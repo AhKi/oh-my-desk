@@ -4,8 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    widget: './app/renderer/pages/webview/index.jsx',
-    preloadScript: './app/renderer/pages/webview/preloadScript.js',
+    widget: './app/renderer/pages/widget/index.jsx',
+    preloadScript: './app/renderer/pages/widget/preloadScript.js',
     preference: './app/renderer/pages/preference/index.jsx',
     search: './app/renderer/pages/search/index.jsx',
     updateWindow: './app/renderer/pages/update/UpdateWindow/index.jsx',
@@ -61,7 +61,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       chunks: ['widget'],
       filename: 'widget.html',
-      template: path.join(__dirname, './app/renderer/pages/webview/widget.html'),
+      template: path.join(__dirname, './app/renderer/pages/widget/widget.html'),
       inject: 'body',
     }),
     new HtmlWebpackPlugin({
@@ -78,14 +78,14 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       chunks: ['updateWindow'],
-      filename: 'update_window.html',
-      template: path.join(__dirname, './app/renderer/pages/update/UpdateWindow/update_window.html'),
+      filename: 'UpdateWindow.html',
+      template: path.join(__dirname, './app/renderer/pages/update/UpdateWindow/UpdateWindow.html'),
       inject: 'body',
     }),
     new HtmlWebpackPlugin({
       chunks: ['updateProgress'],
-      filename: 'update_progress.html',
-      template: path.join(__dirname, './app/renderer/pages/update/UpdateProgress/update_progress.html'),
+      filename: 'UpdateProgress.html',
+      template: path.join(__dirname, './app/renderer/pages/update/UpdateProgress/UpdateProgress.html'),
       inject: 'body',
     }),
     new webpack.DefinePlugin({
@@ -107,7 +107,7 @@ module.exports = {
       renderer: path.resolve(__dirname, 'app/renderer'),
       process: path.resolve(__dirname, 'app/process'),
       setting: path.resolve(__dirname, 'app/renderer/pages/setting'),
-      webview: path.resolve(__dirname, 'app/renderer/pages/webview'),
+      widget: path.resolve(__dirname, 'app/renderer/pages/widget'),
       scss: path.resolve(__dirname, 'app/renderer/scss'),
       utils: path.resolve(__dirname, 'app/utils'),
       store: path.resolve(__dirname, 'app/store'),

@@ -11,7 +11,7 @@ describe('<MenuNewWindow />', () => {
   });
 
   it('should match to snapshot when render default', () => {
-    const wrapper = mount(<MenuNewWindow webview={{}} />);
+    const wrapper = mount(<MenuNewWindow widget={{}} />);
 
     expect(wrapper).toMatchSnapshot();
   });
@@ -21,7 +21,7 @@ describe('<MenuNewWindow />', () => {
     const componentWillUnmount = jest.spyOn(MenuNewWindow.prototype, 'componentWillUnmount');
     window.addEventListener = jest.fn();
     window.removeEventListener = jest.fn();
-    const wrapper = mount(<MenuNewWindow webview={{}} />);
+    const wrapper = mount(<MenuNewWindow widget={{}} />);
     const { handleClose } = wrapper.instance();
 
     expect(componentDidMount).toHaveBeenCalledTimes(1);
@@ -48,7 +48,7 @@ describe('<MenuNewWindow />', () => {
 
   it('should call handleClose', () => {
     const onClose = jest.fn();
-    const wrapper = mount(<MenuNewWindow webview={{}} onClose={onClose} />);
+    const wrapper = mount(<MenuNewWindow widget={{}} onClose={onClose} />);
 
     wrapper.instance().handleClose();
 
@@ -60,7 +60,7 @@ describe('<MenuNewWindow />', () => {
     const wrapper = mount(
       <MenuNewWindow
         url="mock-url"
-        webview={{}}
+        widget={{}}
       />,
     );
 
@@ -72,13 +72,13 @@ describe('<MenuNewWindow />', () => {
 
   it('should call handleMovementPage', () => {
     const loadURL = jest.fn();
-    const webview = {
+    const widget = {
       loadURL,
     };
     const wrapper = mount(
       <MenuNewWindow
         url="mock-url"
-        webview={webview}
+        widget={widget}
       />,
     );
 
