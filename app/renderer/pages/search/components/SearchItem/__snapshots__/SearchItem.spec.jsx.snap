@@ -22,16 +22,22 @@ exports[`Test SearchItem Component should match to snapshot 1`] = `
   <p
     className="SearchItem__Text"
   >
-    <strong>
+    <button
+      className="SearchItem__Btn"
+      onClick={[Function]}
+      type="button"
+    >
+      <strong>
+        <span>
+          mock-name
+        </span>
+      </strong>
       <span>
-        mock-name
+        <span>
+          mock-url
+        </span>
       </span>
-    </strong>
-    <span>
-      <span>
-        mock-url
-      </span>
-    </span>
+    </button>
   </p>
   <p
     className="SearchItem__BtnSet"
@@ -79,20 +85,26 @@ exports[`Test SearchItem Component should match to snapshot when item.searched =
   <p
     className="SearchItem__Text"
   >
-    <strong>
-      <HighlightParagraph
-        content="mock-name"
-        highlightClass=""
-        keyword=""
-      />
-    </strong>
-    <span>
-      <HighlightParagraph
-        content="mock-url"
-        highlightClass=""
-        keyword=""
-      />
-    </span>
+    <button
+      className="SearchItem__Btn"
+      onClick={[Function]}
+      type="button"
+    >
+      <strong>
+        <HighlightParagraph
+          content="mock-name"
+          highlightClass=""
+          keyword=""
+        />
+      </strong>
+      <span>
+        <HighlightParagraph
+          content="mock-url"
+          highlightClass=""
+          keyword=""
+        />
+      </span>
+    </button>
   </p>
   <p
     className="SearchItem__BtnSet"
