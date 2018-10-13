@@ -13,7 +13,7 @@
         "renderer": "./app/renderer",
         "process": "./app/process",
         "setting": "./app/renderer/pages/setting",
-        "webview": "./app/renderer/pages/webview",
+        "widget": "./app/renderer/pages/widget",
         "scss": "./app/renderer/scss",
         "utils": "./app/utils",
         "store": "./app/store"
