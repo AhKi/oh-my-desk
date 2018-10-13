@@ -32,8 +32,18 @@ const defaultProps = {
 class SearchItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleFocusWidget = this.handleFocusWidget.bind(this);
     this.handleToggleWidget = this.handleToggleWidget.bind(this);
     this.handleToggleFavorites = this.handleToggleFavorites.bind(this);
+  }
+
+  handleFocusWidget(e) {
+    const { item, onShowWidget } = this.props;
+
+    if (item.isOpen) {
+      e.preventDefault();
+      onShowWidget(item.id);
+    }
   }
 
   handleToggleWidget() {
@@ -65,22 +75,28 @@ class SearchItem extends React.Component {
           onToggle={this.handleToggleWidget}
         />
         <p className="SearchItem__Text">
-          <strong>
-            {(item.searched === 'both' || item.searched === 'name') ? (
-              <HighlightParagraph
-                keyword={keyword}
-                content={item.name}
-              />
-            ) : <span>{item.name}</span>}
-          </strong>
-          <span>
-            {(item.searched === 'both' || item.searched === 'url') ? (
-              <HighlightParagraph
-                keyword={keyword}
-                content={item.url}
-              />
-            ) : <span>{item.url}</span>}
-          </span>
+          <button
+            className="SearchItem__Btn"
+            type="button"
+            onClick={this.handleFocusWidget}
+          >
+            <strong>
+              {(item.searched === 'both' || item.searched === 'name') ? (
+                <HighlightParagraph
+                  keyword={keyword}
+                  content={item.name}
+                />
+              ) : <span>{item.name}</span>}
+            </strong>
+            <span>
+              {(item.searched === 'both' || item.searched === 'url') ? (
+                <HighlightParagraph
+                  keyword={keyword}
+                  content={item.url}
+                />
+              ) : <span>{item.url}</span>}
+            </span>
+          </button>
         </p>
         <p className="SearchItem__BtnSet">
           <button
