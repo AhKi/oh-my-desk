@@ -53,7 +53,7 @@ class WebWidget extends React.Component {
 
   componentDidMount() {
     const webView = this.webViewRef.current;
-    // add event when webview page loading
+    // add event when widget page loading
     webView.addEventListener('did-start-loading', () => {
       this.setState({ isLoading: true });
     });
@@ -189,7 +189,7 @@ class WebWidget extends React.Component {
         {newWindowURL && (
           <MenuNewWindow
             url={newWindowURL}
-            webview={this.webViewRef.current}
+            widget={this.webViewRef.current}
             x={this.mousePosition.x}
             y={this.mousePosition.y}
             onClose={this.handleToggleNewWindowMenu}

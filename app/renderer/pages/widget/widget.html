@@ -12,18 +12,6 @@
     <div id="root"></div>
     <!--fontawesome CDN-->
     <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
-    <script>if (typeof module === 'object') {
-      window.module = module;
-      module = undefined;
-    }</script>
-    <script>
-      (function (window) {
-        const { remote, ipcRenderer } = require('electron');
-        window.ipcRenderer = ipcRenderer;
-        window.remote = remote;
-      })(window);
-    </script>
-    <script>if (window.module) module = window.module;</script>
     <!-- inject bundle.js in webpack-dev-server when NODE_ENV is development -->
     <script>
       const scripts = [];
