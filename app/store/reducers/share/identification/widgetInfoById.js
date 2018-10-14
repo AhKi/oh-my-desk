@@ -59,6 +59,10 @@ const widgetInfoByIdReducer = handleActions({
     const { id, time } = action.payload;
     const widget = state.get(id);
 
+    if (!widget) {
+      return state;
+    }
+
     return state.set(id, widget.set('resentFocusTime', time));
   },
   [TYPES.WIDGET_UPDATE_INFO]: (state, action) => {
@@ -71,6 +75,23 @@ const widgetInfoByIdReducer = handleActions({
     return state.set(id, updatedInfo);
   },
   [TYPES.WIDGET_CLOSE_WHOLE]: state => state.map(item => item.set('isOpen', false)),
+  [TYPES.SET_WHEN_QUIT_APP]: (state) => {
+    let result = state;
+    state.map((item) => { // eslint-disable-line  array-callback-return
+      const isMakeProgress = item.get('isMakeProgress');
+      const isEditProgress = item.get('isEditProgress');
+
+      if (isMakeProgress) {
+        result = result.delete(item.get('id'));
+      }
+
+      if (isEditProgress) {
+        result = result.setIn([item.get('id'), 'isEditProgress'], false);
+      }
+    });
+
+    return result;
+  },
 }, initialState);
 
 export default widgetInfoByIdReducer;

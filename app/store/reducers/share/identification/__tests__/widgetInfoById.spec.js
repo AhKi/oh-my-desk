@@ -1,6 +1,7 @@
 import Immutable from 'immutable';
 import uuid from 'uuid';
 import * as widgetActions from 'actions/widget';
+import * as settingActions from 'actions/setting';
 import createWidget from 'main/utils/widget/createWidget';
 import moment from 'moment';
 import widgetInfoById from '../widgetInfoById';
@@ -355,6 +356,34 @@ describe('test widgets widgetInfoById reducer', () => {
     });
 
     expect(widgetInfoById(initialState, widgetActions.widgetCloseWhole()))
+      .toEqual(resultState);
+  });
+
+  it('should handle setWhenQuitApp', () => {
+    const initialState = Immutable.fromJS({
+      mock1: {
+        id: 'mock1',
+      },
+      mock2: {
+        id: 'mock2',
+        isMakeProgress: true,
+      },
+      mock3: {
+        id: 'mock3',
+        isEditProgress: true,
+      },
+    });
+    const resultState = Immutable.fromJS({
+      mock1: {
+        id: 'mock1',
+      },
+      mock3: {
+        id: 'mock3',
+        isEditProgress: false,
+      },
+    });
+
+    expect(widgetInfoById(initialState, settingActions.setWhenQuitApp()))
       .toEqual(resultState);
   });
 });
