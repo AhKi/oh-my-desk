@@ -9,6 +9,7 @@ export const {
   setInitialStore,
   setLanguageEnglish,
   setLanguageKorean,
+  setWhenQuitApp,
   toggleOpenAppWhenLogin,
   toggleOpenWidgetWhenStart,
   toggleWidgetDefaultUserAgent,
@@ -32,6 +33,15 @@ export const {
   [TYPES.SET_LANGUAGE_KOREAN]: [
     /**
      * Setting language to Korean.
+     */
+    () => {},
+    () => ({
+      category: CATEGORY.BROADCAST,
+    }),
+  ],
+  [TYPES.SET_WHEN_QUIT_APP]: [
+    /**
+     * Setting when app is quited.
      */
     () => {},
     () => ({

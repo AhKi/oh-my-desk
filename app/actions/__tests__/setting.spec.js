@@ -36,6 +36,17 @@ describe('test setting action', () => {
     expect(actions.setLanguageKorean()).toEqual(mockAction);
   });
 
+  it('should handle setWhenQuitApp', () => {
+    const mockAction = {
+      type: TYPES.SET_WHEN_QUIT_APP,
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+    };
+
+    expect(actions.setWhenQuitApp()).toEqual(mockAction);
+  });
+
   it('should handle toggleOpenAppWhenLogin', () => {
     const mockAction = {
       type: TYPES.TOGGLE_OPEN_APP_WHEN_LOGIN,

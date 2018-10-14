@@ -49,6 +49,9 @@ const makeWidget = (id, info, isFocus) => {
   widget.on('close', (e) => {
     const text = i18n().widget;
     const targetInfo = widgetInfoByIdSelector(store.getState()).get(id);
+    if (!targetInfo) {
+      return;
+    }
     const isMakeProgress = targetInfo.get('isMakeProgress');
     const isEditProgress = targetInfo.get('isEditProgress');
 
