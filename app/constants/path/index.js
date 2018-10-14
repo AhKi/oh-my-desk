@@ -35,6 +35,7 @@ function getAssetPath(image) {
 }
 
 export const TRAY_ICON_PATH = getAssetPath('iconTemplate');
+export const LOGO_ICON_PATH = getAssetPath('oh-my-desk-icon');
 
 /**
  * Path for renderer process.
