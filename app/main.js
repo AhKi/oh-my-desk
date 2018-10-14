@@ -4,6 +4,7 @@ import saveData from 'main/utils/disk/saveData';
 import init from 'main/utils/init';
 import { preferenceClose } from 'actions/preference';
 import { widgetCloseWhole } from 'actions/widget';
+import { setWhenQuitApp } from 'actions/setting';
 import { isOpenWidgetWhenStartSelector } from 'store/reducers/share/status/selectors';
 
 app.on('ready', init);
@@ -15,5 +16,6 @@ app.on('before-quit', () => {
     store.dispatch(widgetCloseWhole());
   }
   store.dispatch(preferenceClose());
+  store.dispatch(setWhenQuitApp());
   saveData();
 });
