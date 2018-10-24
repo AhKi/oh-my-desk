@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { remote } from 'electron';
 import cx from 'classnames';
 import i18n from 'constants/i18n';
-import logo from 'assets/logo/logo-black-mini.svg';
+import logo from 'assets/oh-my-desk-icon.png';
 import './UpdateProgress.scss';
 
 const propTypes = {
