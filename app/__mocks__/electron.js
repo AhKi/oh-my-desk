@@ -10,6 +10,7 @@ export const ipcMain = {
 
 export const BrowserWindow = jest.fn(info => ({
   close: jest.fn(),
+  destroy: jest.fn(),
   loadURL: jest.fn(),
   once: jest.fn(),
   on: jest.fn(),
@@ -28,6 +29,10 @@ export const BrowserWindow = jest.fn(info => ({
     openDevTools: jest.fn(),
   },
 }));
+
+export const dialog = {
+  showMessageBox: jest.fn(),
+};
 
 export const clipboard = {
   writeText: jest.fn(),
