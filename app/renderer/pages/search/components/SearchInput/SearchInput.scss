@@ -1,5 +1,18 @@
 .SearchInput {
-  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SearchInput__icon {
+  margin-left: 5px;
+  padding: 5px;
+  width: 45px;
+  height: 45px;
+}
+
+.SearchInput__input {
+  width: 100%;
   height: 45px;
   font-size: 20px;
   padding: 15px;

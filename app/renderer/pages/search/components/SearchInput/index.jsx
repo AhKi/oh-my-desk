@@ -1,6 +1,7 @@
 import React from 'react';
 import i18n from 'constants/i18n';
 import PropTypes from 'prop-types';
+import searchIcon from 'assets/icon/icon-magnifying.svg';
 import './SearchInput.scss';
 
 const propTypes = {
@@ -47,14 +48,17 @@ class SearchInput extends React.Component {
     const placeholder = filter === 'ALL' ? text.search : text.bookMarkSearch;
 
     return (
-      <input
-        className="SearchInput"
-        type="text"
-        placeholder={placeholder}
-        ref={this.inputRef}
-        value={keyword}
-        onChange={this.handleChangeKeyword}
-      />
+      <div className="SearchInput">
+        <img className="SearchInput__icon" src={searchIcon} alt="" />
+        <input
+          className="SearchInput__input"
+          type="text"
+          placeholder={placeholder}
+          ref={this.inputRef}
+          value={keyword}
+          onChange={this.handleChangeKeyword}
+        />
+      </div>
     );
   }
 }
