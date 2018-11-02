@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import ToggleButton from 'renderer/components/ToggleButton';
-import deleteIcon from 'assets/icon/icon-delete.svg';
-import starIcon from 'assets/icon/icon-more.svg';
+import starIcon from 'assets/icon/icon-star-black.svg';
 import HighlightParagraph from 'renderer/components/HighlightParagraph';
 import './SearchItem.scss';
 
@@ -67,20 +66,25 @@ class SearchItem extends React.Component {
     const SearchItemClassName = cx('SearchItem', {
       SearchItem__select: isSelect,
     });
+    const BookmarkClassName = cx('SearchItem__icon', {
+      'SearchItem__icon--select': item.favorites,
+    });
 
     return (
       <li className={SearchItemClassName}>
-        <ToggleButton
-          isCheck={item.isOpen}
-          onToggle={this.handleToggleWidget}
-        />
+        <div className="SearchItem__toggle-btn">
+          <ToggleButton
+            isCheck={item.isOpen}
+            onToggle={this.handleToggleWidget}
+          />
+        </div>
         <p className="SearchItem__Text">
           <button
             className="SearchItem__Btn"
             type="button"
             onClick={this.handleFocusWidget}
           >
-            <strong>
+            <strong className="SearchItem__title-text">
               {(item.searched === 'both' || item.searched === 'name') ? (
                 <HighlightParagraph
                   keyword={keyword}
@@ -88,7 +92,7 @@ class SearchItem extends React.Component {
                 />
               ) : <span>{item.name}</span>}
             </strong>
-            <span>
+            <span className="SearchItem__url-text">
               {(item.searched === 'both' || item.searched === 'url') ? (
                 <HighlightParagraph
                   keyword={keyword}
@@ -100,13 +104,11 @@ class SearchItem extends React.Component {
         </p>
         <p className="SearchItem__BtnSet">
           <button
+            className="SearchItem__bookmark-btn"
             type="button"
             onClick={this.handleToggleFavorites}
           >
-            <img src={starIcon} alt="" />
-          </button>
-          <button type="button">
-            <img src={deleteIcon} alt="" />
+            <img className={BookmarkClassName} src={starIcon} alt="" />
           </button>
         </p>
       </li>
