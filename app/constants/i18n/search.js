@@ -2,9 +2,9 @@ export default {
   en: {
     all: 'All',
     bookMarkSearch: 'Search in "Favorites"',
-    favorites: 'Favorites',
-    newWidget: 'New Widget',
-    setting: 'Setting',
+    favorites: 'Bookmark',
+    newWidget: 'New',
+    setting: 'Options',
     search: 'Search widgets',
   },
   ko: {

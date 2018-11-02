@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import icon from 'assets/oh-my-desk-icon.png';
-import addIcon from 'assets/icon/icon-widget-refresh.svg';
-import allIcon from 'assets/icon/icon-menu-store.svg';
-import favoritesIcon from 'assets/icon/icon-pin.svg';
+import addIcon from 'assets/icon/icon-plus-white.svg';
+import allIcon from 'assets/icon/icon-desktop-white.svg';
+import favoritesIcon from 'assets/icon/icon-border-star-white.svg';
 import settingIcon from 'assets/icon/icon-menu-setting.svg';
 import i18n from 'constants/i18n';
 import './SearchMenu.scss';
@@ -55,11 +55,11 @@ class SearchMenu extends React.Component {
   render() {
     const text = i18n().search;
     const { filter, onOpenPreference } = this.props;
-    const allMenuClassName = cx('SearchMenu__Item', {
-      'SearchMenu__Item--active': filter === 'ALL',
+    const allMenuClassName = cx('SearchMenu__Btn', {
+      'SearchMenu__Btn--active': filter === 'ALL',
     });
-    const favoritesMenuClassName = cx('SearchMenu__Item', {
-      'SearchMenu__Item--active': filter === 'FAVORITES',
+    const favoritesMenuClassName = cx('SearchMenu__Btn', {
+      'SearchMenu__Btn--active': filter === 'FAVORITES',
     });
 
     return (
@@ -84,9 +84,9 @@ class SearchMenu extends React.Component {
               {text.newWidget}
             </button>
           </li>
-          <li className={allMenuClassName}>
+          <li className="SearchMenu__Item">
             <button
-              className="SearchMenu__Btn"
+              className={allMenuClassName}
               type="button"
               onClick={this.handleSetAllFilter}
             >
@@ -98,9 +98,9 @@ class SearchMenu extends React.Component {
               {text.all}
             </button>
           </li>
-          <li className={favoritesMenuClassName}>
+          <li className="SearchMenu__Item">
             <button
-              className="SearchMenu__Btn"
+              className={favoritesMenuClassName}
               type="button"
               onClick={this.handleSetFavoritesFilter}
             >
