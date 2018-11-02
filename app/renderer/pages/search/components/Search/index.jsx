@@ -9,8 +9,10 @@ class Search extends React.Component {
     return (
       <div className="Search">
         <SearchMenuContainer />
-        <SearchInputContainer />
-        <SearchListContainer />
+        <div className="Search__content">
+          <SearchInputContainer />
+          <SearchListContainer />
+        </div>
       </div>
     );
   }

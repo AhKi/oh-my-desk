@@ -1,3 +1,8 @@
 .Search {
+  display: flex;
   height: 100%;
+}
+
+.Search__content {
+  flex: 1;
 }
