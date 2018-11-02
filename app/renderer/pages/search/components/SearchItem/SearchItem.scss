@@ -1,28 +1,59 @@
 .SearchItem {
   padding: 5px;
   display: flex;
-  height: 35px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-top: 1px solid $color-cool-gray300;
+  border-bottom: 1px solid $color-cool-gray300;
   margin-bottom: -1px;
 }
 
 .SearchItem__select {
-  background-color: darkgray;
+  background-color: $color-light-blue;
+  color: $color-white;
+}
+
+.SearchItem__toggle-btn {
+  display: flex;
+  width: 60px;
+  justify-content: center;
+  align-items: center;
 }
 
 .SearchItem__Text {
-  display: flex;
-  flex: 2;
+  width: 230px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .SearchItem__Btn {
+  color: inherit;
   cursor: default;
-  width: 100%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: inherit;
 }
 
 .SearchItem__BtnSet {
   display: flex;
-  flex: 1
+  justify-content: center;
+  align-items: center;
+}
+
+.SearchItem__bookmark-btn {
+  width: 40px;
+  height: 20px;
+}
+
+.SearchItem__icon {
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+}
+
+.SearchItem__icon--select {
+  opacity: 1;
 }
