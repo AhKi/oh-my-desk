@@ -1,33 +1,42 @@
 .SearchMenu {
-  background-color: #888888;
-  float: left;
+  display: flex;
+  flex-direction: column;
+  background-color: #303240;
   height: 100%;
-  width: 70px;
-  text-align: center;
 }
 
 .SearchMenu__Logo {
-  width: 60px;
-  height: 60px;
-  margin-top: 10px;
+  width: 65px;
+  height: 65px;
+  align-self: center;
 }
 
 .SearchMenu__List {
-  padding: 5px;
-  margin: 5px;
-}
-
-.SearchMenu__Icon {
-  width: 30px;
-  margin: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 .SearchMenu__Item {
-  margin-top: 5px;
+  height: 75px;
 }
 
-.SearchMenu__Item--active {
-  background-color: #9e9e9e;
+.SearchMenu__Btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+.SearchMenu__Btn--active {
+  font-weight: 700;
+}
+
+.SearchMenu__Icon {
+  align-self: center;
+  vertical-align: middle;
+  width: 30px;
+  padding-bottom: 5px;
 }
 
 .SearchMenu__Btn {
