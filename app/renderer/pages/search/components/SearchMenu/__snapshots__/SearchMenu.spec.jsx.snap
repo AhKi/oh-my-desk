@@ -25,14 +25,14 @@ exports[`Test SearchMenu Component should match to snapshot 1`] = `
           className="SearchMenu__Icon"
           src={Object {}}
         />
-        New Widget
+        New
       </button>
     </li>
     <li
-      className="SearchMenu__Item SearchMenu__Item--active"
+      className="SearchMenu__Item"
     >
       <button
-        className="SearchMenu__Btn"
+        className="SearchMenu__Btn SearchMenu__Btn--active"
         onClick={[Function]}
         type="button"
       >
@@ -57,7 +57,7 @@ exports[`Test SearchMenu Component should match to snapshot 1`] = `
           className="SearchMenu__Icon"
           src={Object {}}
         />
-        Favorites
+        Bookmark
       </button>
     </li>
     <li
@@ -73,7 +73,7 @@ exports[`Test SearchMenu Component should match to snapshot 1`] = `
           className="SearchMenu__Icon"
           src={Object {}}
         />
-        Setting
+        Options
       </button>
     </li>
   </ul>
@@ -105,7 +105,7 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
           className="SearchMenu__Icon"
           src={Object {}}
         />
-        New Widget
+        New
       </button>
     </li>
     <li
@@ -125,10 +125,10 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
       </button>
     </li>
     <li
-      className="SearchMenu__Item SearchMenu__Item--active"
+      className="SearchMenu__Item"
     >
       <button
-        className="SearchMenu__Btn"
+        className="SearchMenu__Btn SearchMenu__Btn--active"
         onClick={[Function]}
         type="button"
       >
@@ -137,7 +137,7 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
           className="SearchMenu__Icon"
           src={Object {}}
         />
-        Favorites
+        Bookmark
       </button>
     </li>
     <li
@@ -153,7 +153,7 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
           className="SearchMenu__Icon"
           src={Object {}}
         />
-        Setting
+        Options
       </button>
     </li>
   </ul>

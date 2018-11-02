@@ -5,7 +5,11 @@ exports[`Test Search Component should match to snapshot 1`] = `
   className="Search"
 >
   <Connect(toJS(SearchMenu)) />
-  <Connect(toJS(SearchInput)) />
-  <Connect(toJS(SearchList)) />
+  <div
+    className="Search__content"
+  >
+    <Connect(toJS(SearchInput)) />
+    <Connect(toJS(SearchList)) />
+  </div>
 </div>
 `;

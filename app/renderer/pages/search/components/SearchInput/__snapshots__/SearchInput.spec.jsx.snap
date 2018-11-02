@@ -7,13 +7,22 @@ exports[`Test SearchInput Component should match to snapshot 1`] = `
   keyword=""
   onChangeKeyword={[Function]}
 >
-  <input
+  <div
     className="SearchInput"
-    onChange={[Function]}
-    placeholder="Search widgets"
-    type="text"
-    value=""
-  />
+  >
+    <img
+      alt=""
+      className="SearchInput__icon"
+      src={Object {}}
+    />
+    <input
+      className="SearchInput__input"
+      onChange={[Function]}
+      placeholder="Search widgets"
+      type="text"
+      value=""
+    />
+  </div>
 </SearchInput>
 `;
 
@@ -24,12 +33,21 @@ exports[`Test SearchInput Component should match to snapshot when filter !== ALL
   keyword=""
   onChangeKeyword={[Function]}
 >
-  <input
+  <div
     className="SearchInput"
-    onChange={[Function]}
-    placeholder="Search in \\"Favorites\\""
-    type="text"
-    value=""
-  />
+  >
+    <img
+      alt=""
+      className="SearchInput__icon"
+      src={Object {}}
+    />
+    <input
+      className="SearchInput__input"
+      onChange={[Function]}
+      placeholder="Search in \\"Favorites\\""
+      type="text"
+      value=""
+    />
+  </div>
 </SearchInput>
 `;

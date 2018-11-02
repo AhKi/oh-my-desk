@@ -4,21 +4,25 @@ exports[`Test SearchItem Component should match to snapshot 1`] = `
 <li
   className="SearchItem"
 >
-  <ToggleButton
-    checkedValue={
-      <i
-        className="fa fa-check"
-      />
-    }
-    isCheck={false}
-    onToggle={[Function]}
-    unCheckedValue={
-      <i
-        className="fa fa-times"
-      />
-    }
-    width={40}
-  />
+  <div
+    className="SearchItem__toggle-btn"
+  >
+    <ToggleButton
+      checkedValue={
+        <i
+          className="fa fa-check"
+        />
+      }
+      isCheck={false}
+      onToggle={[Function]}
+      unCheckedValue={
+        <i
+          className="fa fa-times"
+        />
+      }
+      width={40}
+    />
+  </div>
   <p
     className="SearchItem__Text"
   >
@@ -27,12 +31,16 @@ exports[`Test SearchItem Component should match to snapshot 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <strong>
+      <strong
+        className="SearchItem__title-text"
+      >
         <span>
           mock-name
         </span>
       </strong>
-      <span>
+      <span
+        className="SearchItem__url-text"
+      >
         <span>
           mock-url
         </span>
@@ -43,19 +51,13 @@ exports[`Test SearchItem Component should match to snapshot 1`] = `
     className="SearchItem__BtnSet"
   >
     <button
+      className="SearchItem__bookmark-btn"
       onClick={[Function]}
       type="button"
     >
       <img
         alt=""
-        src={Object {}}
-      />
-    </button>
-    <button
-      type="button"
-    >
-      <img
-        alt=""
+        className="SearchItem__icon"
         src={Object {}}
       />
     </button>
@@ -67,21 +69,25 @@ exports[`Test SearchItem Component should match to snapshot when item.searched =
 <li
   className="SearchItem"
 >
-  <ToggleButton
-    checkedValue={
-      <i
-        className="fa fa-check"
-      />
-    }
-    isCheck={false}
-    onToggle={[Function]}
-    unCheckedValue={
-      <i
-        className="fa fa-times"
-      />
-    }
-    width={40}
-  />
+  <div
+    className="SearchItem__toggle-btn"
+  >
+    <ToggleButton
+      checkedValue={
+        <i
+          className="fa fa-check"
+        />
+      }
+      isCheck={false}
+      onToggle={[Function]}
+      unCheckedValue={
+        <i
+          className="fa fa-times"
+        />
+      }
+      width={40}
+    />
+  </div>
   <p
     className="SearchItem__Text"
   >
@@ -90,14 +96,18 @@ exports[`Test SearchItem Component should match to snapshot when item.searched =
       onClick={[Function]}
       type="button"
     >
-      <strong>
+      <strong
+        className="SearchItem__title-text"
+      >
         <HighlightParagraph
           content="mock-name"
           highlightClass=""
           keyword=""
         />
       </strong>
-      <span>
+      <span
+        className="SearchItem__url-text"
+      >
         <HighlightParagraph
           content="mock-url"
           highlightClass=""
@@ -110,19 +120,13 @@ exports[`Test SearchItem Component should match to snapshot when item.searched =
     className="SearchItem__BtnSet"
   >
     <button
+      className="SearchItem__bookmark-btn"
       onClick={[Function]}
       type="button"
     >
       <img
         alt=""
-        src={Object {}}
-      />
-    </button>
-    <button
-      type="button"
-    >
-      <img
-        alt=""
+        className="SearchItem__icon"
         src={Object {}}
       />
     </button>
