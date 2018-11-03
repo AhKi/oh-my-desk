@@ -175,32 +175,12 @@ class WebWidget extends React.Component {
           userAgent={widget.userAgent}
           onToggleSetting={this.handleToggleSettingMenu}
         />
-        {widget.isEditProgress && (
-          <EditTab
-            currentUrl={currentUrl}
-            id={widget.id}
-            name={widget.name}
-            title={text.editWidget}
-            onCloseTab={() => onCancelEditWidget(widget.id)}
-            onCheckUrlValidation={onCheckUrlValidation}
-          />
-        )}
         {widget.isMakeProgress && (
           <MakeNotice
             currentUrl={currentUrl}
             id={widget.id}
             title={text.addWidget}
             onCheckUrlValidation={onCheckUrlValidation}
-          />
-        )}
-        {newWindowURL && (
-          <MenuNewWindow
-            url={newWindowURL}
-            widget={this.webViewRef.current}
-            x={this.mousePosition.x}
-            y={this.mousePosition.y}
-            onClose={this.handleToggleNewWindowMenu}
-            onMakeWidget={onMakeWidget}
           />
         )}
         {widget.reloadInterval ? (
@@ -211,22 +191,38 @@ class WebWidget extends React.Component {
             onUpdateInfo={onUpdateInfo}
           />
         ) : null}
-        <webview
-          ref={this.webViewRef}
-          src="https://google.com"
-          style={{
-            display: 'inline-flex',
-            width: '100%',
-            height: '100%',
-            overflow: 'auto',
-            overflowY: 'hidden',
-          }}
-          preload={url.format({
-            pathname: PATH.PRELOAD_SCRIPT_PATH,
-            protocol: 'file:',
-            slashed: true,
-          })}
-        />
+        {newWindowURL && (
+          <MenuNewWindow
+            url={newWindowURL}
+            widget={this.webViewRef.current}
+            x={this.mousePosition.x}
+            y={this.mousePosition.y}
+            onClose={this.handleToggleNewWindowMenu}
+            onMakeWidget={onMakeWidget}
+          />
+        )}
+        <div className="WebWidget__content">
+          <webview
+            className="WebWidget__webview"
+            ref={this.webViewRef}
+            src="https://google.com"
+            preload={url.format({
+              pathname: PATH.PRELOAD_SCRIPT_PATH,
+              protocol: 'file:',
+              slashed: true,
+            })}
+          />
+          {widget.isEditProgress && (
+            <EditTab
+              currentUrl={currentUrl}
+              id={widget.id}
+              name={widget.name}
+              title={text.editWidget}
+              onCloseTab={() => onCancelEditWidget(widget.id)}
+              onCheckUrlValidation={onCheckUrlValidation}
+            />
+          )}
+        </div>
       </div>
     );
   }
