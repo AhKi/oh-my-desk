@@ -1,8 +1,8 @@
 .TitleBar {
   display: flex;
-  width: 100%;
   height: 40px;
   text-align: center;
+  align-items: center;
   justify-content: center;
   -webkit-app-region: drag;
 }
@@ -37,7 +37,7 @@
   float: right;
   width: 20px;
   margin: 5px;
-  opacity: 0.5;
+  opacity: 0.2;
 
   &:disabled {
     opacity: 1;
@@ -48,8 +48,4 @@
 .TitleBar__mobile-icon {
   width: 100%;
   height: 100%;
-}
-
-.TitleBar__icon--active {
-  opacity: 0.8;
 }
