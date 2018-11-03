@@ -5,7 +5,7 @@ import cx from 'classnames';
 import cancelIcon from 'assets/icon/icon-widget-close.svg';
 import leftArrowIcon from 'assets/icon/icon-widget-back-arrow.svg';
 import rightArrowIcon from 'assets/icon/icon-widget-go-arrow.svg';
-import homeIcon from 'assets/icon/icon-widget-small-view.svg';
+import homeIcon from 'assets/icon/icon-home.svg';
 import moreIcon from 'assets/icon/icon-more.svg';
 import refreshIcon from 'assets/icon/icon-widget-refresh.svg';
 import iconPin from 'assets/icon/icon-pin.svg';
@@ -197,7 +197,7 @@ class AddressBar extends React.Component {
       onUpdateWidgetInfo,
     } = this.props;
     const moreClassName = cx('AddressBar__button', 'AddressBar__more-btn', {
-      'AddressBar__more-btn--active': true,
+      'AddressBar__more-btn--active': isMenuOpen,
     });
     const pinClassName = cx('AddressBar__pin-btn', {
       'AddressBar__pin-btn--active': isOnTop,
@@ -260,8 +260,8 @@ class AddressBar extends React.Component {
             type="button"
             onClick={this.handleNavigateToHome}
           >
-            <img src={homeIcon} alt="" />
-            {homeUrl}
+            <img className="AddressBar__home-icon" src={homeIcon} alt="" />
+            <span className="AddressBar__home-url">{homeUrl}</span>
           </button>
         </div>
         <button

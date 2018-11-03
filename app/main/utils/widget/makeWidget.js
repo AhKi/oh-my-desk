@@ -22,6 +22,8 @@ const makeWidget = (id, info, isFocus) => {
     titleBarStyle: 'default',
     show: false,
     frame: false,
+    minWidth: 200,
+    minHeight: 300,
   });
 
   widget.loadURL(url.format({
