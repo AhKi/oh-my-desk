@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import * as USER_AGENT from 'constants/userAgent';
 import closeIcon from 'assets/icon/icon-widget-close.svg';
-import desktopIcon from 'assets/icon/icon-widget-setting.svg';
-import mobileIcon from 'assets/icon/icon-widget-setting.svg';
+import desktopIcon from 'assets/icon/icon-desktop-white.svg';
+import mobileIcon from 'assets/icon/icon-mobile-white.svg';
 import './TitleBar.scss';
 
 const propTypes = {
