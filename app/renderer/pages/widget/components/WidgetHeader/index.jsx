@@ -65,7 +65,7 @@ class WidgetHeader extends React.Component {
     } = this.props;
 
     return (
-      <div className="WidgetHeader__title-bar">
+      <div className="WidgetHeader">
         <TitleBar
           defaultUserAgent={defaultUserAgent}
           id={id}
