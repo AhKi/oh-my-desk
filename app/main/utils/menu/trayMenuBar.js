@@ -19,6 +19,7 @@ const trayMenuBar = menuBar({
   tooltip: `oh-my-desk ${app.getVersion()}`,
   fullscreenable: false,
   resizable: false,
+  height: 445,
 });
 
 trayMenuBar.on('show', () => {
