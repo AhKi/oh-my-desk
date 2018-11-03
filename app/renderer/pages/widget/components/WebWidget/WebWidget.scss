@@ -1,5 +1,15 @@
 .WebWidget {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+}
+
+.WebWidget__content {
+  flex: 1;
+  display: flex;
+}
+
+.WebWidget__webview {
+  flex: 1;
 }
