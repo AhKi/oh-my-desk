@@ -1,7 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { shell } from 'electron';
+import cx from 'classnames';
 import i18n from 'constants/i18n';
+import plusIcon from 'assets/icon/icon-plus-white.svg';
+import editIcon from 'assets/icon/icon-edit.svg';
+import reloadIcon from 'assets/icon/icon-widget-refresh.svg';
+import checkIcon from 'assets/icon/icon-checked.svg';
+import outIcon from 'assets/icon/icon-out.svg';
+import deleteIcon from 'assets/icon/icon-delete.svg';
 import DeleteWidgetConfirmContainer from '../../containers/DeleteWidgetConfirmContainer';
 import './ConfigMenu.scss';
 
@@ -116,19 +123,30 @@ class ConfigMenu extends React.Component {
     const { localSecond, isOpenReloadMenu } = this.state;
     const { reloadInterval } = this.props;
     const text = i18n().widget;
+    const timerBtnClassName = cx('ConfigMenu__btn', 'ConfigMenu__arrow', {
+      'ConfigMenu__arrow-up': isOpenReloadMenu,
+      'ConfigMenu__arrow-down': !isOpenReloadMenu,
+    });
+    const neverRefreshIconClassName = cx('ConfigMenu__check-icon', {
+      'ConfigMenu__check-icon--active': reloadInterval === 0,
+    });
+    const refreshIconClassName = cx('ConfigMenu__check-icon', {
+      'ConfigMenu__check-icon--active': reloadInterval !== 0,
+    });
 
     return (
       <ul
         className="ConfigMenu"
         ref={this.menuContainerRef}
       >
-        <li className="ConfigMenu__list">
+        <li className="ConfigMenu__list ConfigMenu__bottom-line">
           <button
             className="ConfigMenu__btn"
             type="button"
             onClick={this.handleMakeWidget}
           >
-            {text.newWindow}
+            <img className="ConfigMenu__icon" src={plusIcon} alt="" />
+            <span className="ConfigMenu__text">{text.newWindow}</span>
           </button>
         </li>
         <li className="ConfigMenu__list">
@@ -137,16 +155,18 @@ class ConfigMenu extends React.Component {
             type="button"
             onClick={this.handleEditWidget}
           >
-            {text.editWidget}
+            <img className="ConfigMenu__icon" src={editIcon} alt="" />
+            <span className="ConfigMenu__text">{text.editWidget}</span>
           </button>
         </li>
         <li className="ConfigMenu__list">
           <button
-            className="ConfigMenu__btn"
+            className={timerBtnClassName}
             type="button"
             onClick={this.handleToggleReloadMenu}
           >
-            {text.everySecond}
+            <img className="ConfigMenu__icon" src={reloadIcon} alt="" />
+            <span className="ConfigMenu__text">{text.everySecond}</span>
           </button>
         </li>
         {isOpenReloadMenu && ([
@@ -155,13 +175,14 @@ class ConfigMenu extends React.Component {
             key="never-menu"
           >
             <button
-              className="ConfigMenu__btn"
+              className="ConfigMenu__btn ConfigMenu__dropdown-btn"
               data-name="interval-zero-btn"
               type="button"
               disabled={reloadInterval === 0}
               onClick={() => this.handleSetReloadInterval(0)}
             >
-              {text.never}
+              <img className={neverRefreshIconClassName} src={checkIcon} alt="" />
+              <span className="ConfigMenu__text">{text.never}</span>
             </button>
           </li>,
           <li
@@ -169,14 +190,17 @@ class ConfigMenu extends React.Component {
             key="reload-every-menu"
           >
             <button
-              className="ConfigMenu__btn"
+              className="ConfigMenu__btn ConfigMenu__dropdown-btn"
               data-name="set-interval-btn"
               type="button"
               disabled={reloadInterval !== 0}
               onClick={() => this.handleSetReloadInterval(localSecond)}
             >
-              {text.reloadEvery(
+              <img className={refreshIconClassName} src={checkIcon} alt="" />
+              {text.reloadEvery([
                 <select
+                  className="ConfigMenu__select"
+                  key="select"
                   value={localSecond}
                   onChange={this.handleChangeLocalSecond}
                 >
@@ -185,19 +209,19 @@ class ConfigMenu extends React.Component {
                   <option value={30}>30s</option>
                   <option value={60}>60s</option>
                 </select>,
-              )}
+                <span className="ConfigMenu__select-arrow" key="arrow" />,
+              ])}
             </button>
           </li>,
         ])}
-        <li
-          className="ConfigMenu__list"
-        >
+        <li className="ConfigMenu__list ConfigMenu__bottom-line">
           <button
             className="ConfigMenu__btn"
             type="button"
             onClick={this.handleOpenWithBrowser}
           >
-            {text.openBrowser}
+            <img className="ConfigMenu__icon" src={outIcon} alt="" />
+            <span className="ConfigMenu__text">{text.openBrowser}</span>
           </button>
         </li>
         <li className="ConfigMenu__list">
@@ -206,7 +230,8 @@ class ConfigMenu extends React.Component {
             type="button"
             onClick={this.handleDeleteWidget}
           >
-            {text.deleteWidget}
+            <img className="ConfigMenu__icon" src={deleteIcon} alt="" />
+            <span className="ConfigMenu__text">{text.deleteWidget}</span>
           </button>
         </li>
       </ul>
