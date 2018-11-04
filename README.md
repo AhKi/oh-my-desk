@@ -6,6 +6,11 @@ it is using web page as a widget that desktop application.
 ![oh-my-desk preference](https://user-images.githubusercontent.com/23732795/43676963-88ff653c-9835-11e8-9085-e4fd1ffc1097.png)
 ![oh-my-desk widget](https://user-images.githubusercontent.com/23732795/43676972-9a34881e-9835-11e8-8bf2-adbe0ae48030.png)
 
+## Download
+[For Window](https://github.com/AhKi/oh-my-desk/releases/download/v1.1.2/oh-my-desk-setup-1.1.2.exe)
+
+[For MacOS](https://github.com/AhKi/oh-my-desk/releases/download/v1.1.2/oh-my-desk-1.1.2.dmg)
+
 ## Getting Started 
 
 you must install package manager like [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/lang/en/) 
@@ -42,10 +47,18 @@ we manage document in this repository [wiki](https://github.com/AhKi/oh-my-desk/
 
 ## Contributing
 
-We want to using this application widely.
-So many registration issues are welcome because we want to receive various opinions.
+~~We want to using this application widely.
+So many registration issues are welcome because we want to receive various opinions.~~
 
-Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+~~Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.~~
+
+Thank you for your interest. 
+
+But Please wait for a moment if you want to contribute. Because We are preparing release v2.0.0. It may be have huge breaking change. 
+
+So, Before release v2.0.0, it's hard to get your help. Please wait for the present work to be completed. 
+
+[You can preview about v2.0.0!](https://github.com/AhKi/oh-my-desk/issues/141)
 
 ## License
 oh-my-desk is licensed under the [GNU GENERAL PUBLIC LICENSE v3](https://github.com/AhKi/oh-my-desk/blob/edit/read-me/LICENSE).
