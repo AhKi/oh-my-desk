@@ -23,7 +23,7 @@ export default {
     openBrowser: 'Open with browser',
     ok: 'Ok',
     url: 'Url',
-    reloadEvery: component => <p>Reload Every {component}</p>,
+    reloadEvery: component => <p className="ConfigMenu__select-container">Reload Every {component}</p>,
   },
   ko: {
     addWidget: '위젯 만들기',
@@ -47,6 +47,6 @@ export default {
     openBrowser: '브라우저로 열기',
     ok: '확인',
     url: '주소',
-    reloadEvery: component => <p>{component}마다 새로고침</p>,
+    reloadEvery: component => <p className="ConfigMenu__select-container">{component} 마다 새로고침</p>,
   },
 };
