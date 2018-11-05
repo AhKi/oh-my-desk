@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import closeIcon from 'assets/icon/icon-widget-close.svg';
 import './ReloadTimer.scss';
 
@@ -21,15 +22,17 @@ class ReloadTimer extends React.Component {
     super(props);
     this.state = {
       timer: props.reloadTimer,
+      tick: null,
     };
-    this.tick = null;
     this.handleCancelTimer = this.handleCancelTimer.bind(this);
     this.handleTick = this.handleTick.bind(this);
     this.handleToggleTimer = this.handleToggleTimer.bind(this);
   }
 
   componentDidMount() {
-    this.tick = setInterval(this.handleTick, 1000);
+    this.setState({
+      tick: setInterval(this.handleTick, 1000),
+    });
   }
 
   componentDidUpdate(prevProps) {
@@ -41,15 +44,19 @@ class ReloadTimer extends React.Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.tick);
+    const { tick } = this.state;
+
+    clearInterval(tick);
   }
 
   handleToggleTimer() {
-    if (this.tick) {
-      clearInterval(this.tick);
-      this.tick = null;
+    const { tick } = this.state;
+
+    if (tick) {
+      clearInterval(tick);
+      this.setState({ tick: null });
     } else {
-      this.tick = setInterval(this.handleTick, 1000);
+      this.setState({ tick: setInterval(this.handleTick, 1000) });
     }
   }
 
@@ -76,12 +83,15 @@ class ReloadTimer extends React.Component {
   }
 
   render() {
-    const { timer } = this.state;
+    const { timer, tick } = this.state;
     const minute = parseInt(timer / 60, 10);
     const second = timer % 60;
+    const reloadTimerBtnClassName = cx('ReloadTimer', {
+      ReloadTimer__stop: !tick,
+    });
 
     return (
-      <div className="ReloadTimer">
+      <div className={reloadTimerBtnClassName}>
         <button
           className="ReloadTimer__button"
           type="button"

@@ -3,14 +3,21 @@
   position: fixed;
   border-radius: 45px;
   background-color: gray;
-  color: white;
-  padding: 5px;
-  right: 0;
+  color: $color-white;
+  padding: 3px 5px;
+  top: 85px;
+  right: 2px;
+  transition: background-color 1s;
+  opacity: 0.8;
 }
 
 .ReloadTimer__button {
   display: flex;
   align-self: center;
+  color: inherit;
   padding: 3px;
-  color: white;
+}
+
+.ReloadTimer__stop {
+  background-color: $color-red;
 }
