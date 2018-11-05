@@ -1,17 +1,33 @@
 .MenuNewWindow {
-  background-color: gainsboro;
+  background-color: #414141;
+  color: $color-white-opacity50;
+  border-radius: 5px;
+
   position: absolute;
 }
 
 .MenuNewWindow__btn {
+  color: inherit;
   width: 100%;
   height: 100%;
 }
 
 .MenuNewWindow__list {
-  width: 100px;
-  height: 30px;
-  background-color: antiquewhite;
-  border: 1px solid black;
+  padding: 10px;
+  color: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  height: 35px;
+  border-bottom: 1px solid #7D7D7D;
   margin-bottom: -1px;
+
+  &:hover {
+    background-color: #515151;
+    border-radius: 5px;
+    color: $color-white;
+  }
+}
+
+.MenuNewWindow__list--bottom {
+  border: 0;
 }
