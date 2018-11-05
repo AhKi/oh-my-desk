@@ -109,7 +109,7 @@ class MenuNewWindow extends React.Component {
             {text.moveBrowser}
           </button>
         </li>
-        <li className="MenuNewWindow__list">
+        <li className="MenuNewWindow__list MenuNewWindow__list--bottom">
           <button
             className="MenuNewWindow__btn"
             type="button"
