@@ -49,7 +49,7 @@ class MakeNotice extends React.Component {
 
     return [
       <div className={barClassName} key="bar">
-        {text.makeBarContent}
+        <p className="MakeNotice__bar-text">{text.makeBarContent}</p>
         <button
           className="MakeNotice__bar-btn"
           type="button"

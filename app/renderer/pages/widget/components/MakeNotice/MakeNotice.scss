@@ -1,15 +1,32 @@
 .MakeNotice__bar {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
   background-color: #5167ff;
   color: $color-white;
   font-size: 14px;
   width: 100%;
   height: 33px;
+  padding-left: 10px;
+}
+
+.MakeNotice__bar-text {
+  flex: 1;
+  align-self: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: inherit;
 }
 
 .MakeNotice__bar-btn {
   color: $color-white;
+  width: 130px;
+  height: 100%;
   font-size: 14px;
   font-weight: bold;
+  text-decoration: underline;
+  margin-right: 5px;
 }
 
 .MakeNotice__bar--hidden {
