@@ -25,7 +25,7 @@
 .AddressBar__address-input {
   background-color: rgb(240, 240, 240);
   display: flex;
-  flex: 8;
+  width: 80%;
   font-size: 13px;
   font-weight: 500;
   margin-right: 5px;
@@ -33,7 +33,7 @@
 }
 
 .AddressBar__address-button {
-  flex: 2;
+  width: 20%;
   display: flex;
   align-self: center;
   border-radius: 20px;
