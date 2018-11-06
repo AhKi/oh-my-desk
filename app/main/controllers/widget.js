@@ -93,6 +93,7 @@ const widgetController = (action, prev) => {
           store.dispatch(modalOpen(
             'URL_INVALID_NOTIFICATION',
             {
+              className: 'UrlInvalidNotification__wrapper',
               name,
               url,
               id,

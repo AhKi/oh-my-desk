@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { shell } from 'electron';
 import i18n from 'constants/i18n';
+import iconExclamation from 'assets/icon/icon-exclamation.svg';
+import './UrlInvalidNotification.scss';
 
 const propTypes = {
   id: PropTypes.string,
@@ -53,31 +55,53 @@ class UrlInvalidNotification extends React.Component {
     const text = i18n().widget;
 
     return (
-      <div>
-        <h3>{text.notFound}</h3>
-        <h5>{text.checkUrl}</h5>
-        <p>{text.name}</p>
-        <p>{name}</p>
-        <p>{text.url}</p>
-        <p>{url}</p>
-        <button
-          type="button"
-          onClick={this.handleOpenWindow}
-        >
-          {text.checkUrl}
-        </button>
-        <button
-          type="button"
-          onClick={onModalClose}
-        >
-          {'<'} {text.back}
-        </button>
-        <button
-          type="button"
-          onClick={this.handleMakeWidget}
-        >
-          {text.addWidget}
-        </button>
+      <div className="UrlInvalidNotification__container">
+        <div className="UrlInvalidNotification__header">
+          <img
+            className="UrlInvalidNotification__image"
+            src={iconExclamation}
+            alt=""
+          />
+          <p className="UrlInvalidNotification__title">
+            <h6>{text.notFound}</h6>
+            <p>{text.checkUrl}</p>
+          </p>
+        </div>
+        <div className="UrlInvalidNotification__content">
+          <p className="UrlInvalidNotification__name">
+            <p className="UrlInvalidNotification__label">{text.name}</p>
+            <p className="UrlInvalidNotification__text">{name}</p>
+          </p>
+          <p className="UrlInvalidNotification__url">
+            <p className="UrlInvalidNotification__label">{text.url}</p>
+            <p className="UrlInvalidNotification__text UrlInvalidNotification__text-url">
+              <p className="UrlInvalidNotification__url-list">{url}</p>
+              <button
+                className="UrlInvalidNotification__check-btn Btn"
+                type="button"
+                onClick={this.handleOpenWindow}
+              >
+                {text.checkSite}
+              </button>
+            </p>
+          </p>
+        </div>
+        <div className="UrlInvalidNotification__Button-set">
+          <button
+            className="Btn Btn--gray Btn--sm"
+            type="button"
+            onClick={onModalClose}
+          >
+            {'<'} {text.back}
+          </button>
+          <button
+            className="Btn Btn--primary Btn--sm"
+            type="button"
+            onClick={this.handleMakeWidget}
+          >
+            {text.addWidget}
+          </button>
+        </div>
       </div>
     );
   }
