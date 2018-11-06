@@ -1,0 +1,92 @@
+.UrlInvalidNotification__wrapper {
+  width: 450px;
+  height: 450px;
+}
+
+.UrlInvalidNotification__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: inherit;
+}
+
+.UrlInvalidNotification__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.UrlInvalidNotification__image {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.UrlInvalidNotification__title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.UrlInvalidNotification__content {
+  border-top: 2px solid #cfcfcf;
+  border-bottom: 2px solid #cfcfcf;
+  margin: 10px 30px;
+  padding: 5px;
+}
+
+.UrlInvalidNotification__name,
+.UrlInvalidNotification__url {
+  display: flex;
+  align-items: center;
+}
+
+.UrlInvalidNotification__name {
+  height: 45px;
+  border-bottom: 1px solid #efefef;
+}
+
+.UrlInvalidNotification__label {
+  width: 100px;
+  color: $color-cool-gray500;
+}
+
+.UrlInvalidNotification__text {
+  width: 300px;
+  justify-content: center;
+}
+
+.UrlInvalidNotification__text-url {
+  display: flex;
+  flex-direction: column;
+  height: 65px;
+  padding-top: 10px;
+}
+
+.UrlInvalidNotification__check-btn {
+  padding: 0 5px;
+  color: $color-cool-gray500;
+  border: 1px solid $color-cool-gray500;
+  border-radius: 5px;
+  width: 150px;
+  height: 25px;
+  margin: 8px;
+}
+
+.UrlInvalidNotification__Button-set {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.UrlInvalidNotification__url-list {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
