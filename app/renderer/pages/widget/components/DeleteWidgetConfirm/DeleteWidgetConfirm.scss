@@ -1,0 +1,18 @@
+.DeleteWidgetConfirm__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  font-family: inherit;
+}
+
+.DeleteWidgetConfirm__content {
+  padding: 10px 0;
+}
+
+.DeleteWidgetConfirm__btn-set {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
