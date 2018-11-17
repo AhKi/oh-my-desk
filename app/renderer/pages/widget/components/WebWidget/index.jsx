@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 import url from 'url';
 import * as PATH from 'constants/path';
 import i18n from 'constants/i18n';
@@ -53,14 +55,21 @@ class WebWidget extends React.Component {
 
   componentDidMount() {
     const webView = this.webViewRef.current;
+    NProgress.configure({
+      easing: 'ease',
+      speed: 800,
+      minimum: 0.2,
+      parent: '.AddressBar__address',
+      showSpinner: false,
+    });
     // add event when widget page loading
     webView.addEventListener('did-start-loading', () => {
+      NProgress.remove();
+      NProgress.start();
       this.setState({ isLoading: true });
     });
-    webView.addEventListener('did-finish-load', () => {
-      this.setState({ isLoading: false });
-    });
     webView.addEventListener('did-stop-loading', () => {
+      NProgress.done();
       this.setState({ isLoading: false });
     });
     webView.addEventListener('new-window', (e) => {
@@ -82,10 +91,6 @@ class WebWidget extends React.Component {
     window.addEventListener('contextmenu', () => {
       widgetContextMenu(this.webViewRef.current);
     });
-
-    // webView.addEventListener('dom-ready', () => {
-    //   this.webViewRef.current.openDevTools();
-    // });
 
     window.addEventListener('mousemove', (e) => {
       this.mousePosition = {

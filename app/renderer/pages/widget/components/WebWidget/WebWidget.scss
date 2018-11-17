@@ -13,3 +13,10 @@
 .WebWidget__webview {
   flex: 1;
 }
+
+#nprogress {
+  .bar {
+    opacity: 0.4;
+    height: 100%;
+  }
+}
