@@ -83,6 +83,7 @@
     "mousetrap": "^1.6.2",
     "node-sass": "^4.9.0",
     "normalize.css": "^8.0.0",
+    "nprogress": "^0.2.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
