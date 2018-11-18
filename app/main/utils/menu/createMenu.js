@@ -112,4 +112,4 @@ function createMenu() {
   Menu.setApplicationMenu(menu);
 }
 
-module.exports = createMenu;
+export default createMenu;

@@ -19,8 +19,10 @@
     "linebreak-style": 0,
     "operator-linebreak": [2, "after"],
     "jsx-a11y/heading-has-content": 0,
-    "react/jsx-one-expression-per-line": 0
+    "react/jsx-one-expression-per-line": 0,
+    "lines-between-class-members": 0,
   },
+  "parser": "babel-eslint",
   "globals": {
     "__DEV__": false,
     "__TEST__": false,
