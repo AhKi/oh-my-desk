@@ -44,7 +44,7 @@ export const ipcRenderer = {
 };
 
 export const remote = {
-  getGlobal: jest.fn(),
+  getGlobal: jest.fn(() => () => JSON.stringify({ config: { language: 'English' } })),
   getCurrentWindow: jest.fn(),
   Menu: {
     buildFromTemplate: jest.fn(() => ({

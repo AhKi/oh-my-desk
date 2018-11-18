@@ -4,8 +4,6 @@ import { remote } from 'electron';
 import UpdateProgress from './UpdateProgress';
 
 describe('<UpdateProgress />', () => {
-  remote.getGlobal = jest.fn(() => () => JSON.stringify({ config: { language: 'English' } }));
-
   beforeEach(() => {
     jest.clearAllMocks();
   });

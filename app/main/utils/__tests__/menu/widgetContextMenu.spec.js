@@ -12,8 +12,6 @@ describe('test widgetContextMenu', () => {
   const getWebContents = () => ({
     getURL: jest.fn(() => 'mock-url'),
   });
-  remote.getGlobal = jest.fn(() => () => JSON.stringify({ config: { language: 'English' } }));
-
   const mockWebview = {
     canGoBack,
     canGoForward,

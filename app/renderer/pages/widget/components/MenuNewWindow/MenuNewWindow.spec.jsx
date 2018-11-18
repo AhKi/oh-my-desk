@@ -1,11 +1,9 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { shell, remote } from 'electron';
+import { shell } from 'electron';
 import MenuNewWindow from '.';
 
 describe('<MenuNewWindow />', () => {
-  remote.getGlobal = jest.fn(() => () => JSON.stringify({ config: { language: 'English' } }));
-
   beforeEach(() => {
     jest.clearAllMocks();
   });
