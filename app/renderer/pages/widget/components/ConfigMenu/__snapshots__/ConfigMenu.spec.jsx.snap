@@ -5,14 +5,23 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
   className="ConfigMenu"
 >
   <li
-    className="ConfigMenu__list"
+    className="ConfigMenu__list ConfigMenu__bottom-line"
   >
     <button
       className="ConfigMenu__btn"
       onClick={[Function]}
       type="button"
     >
-      New
+      <img
+        alt=""
+        className="ConfigMenu__icon"
+        src={Object {}}
+      />
+      <span
+        className="ConfigMenu__text"
+      >
+        New
+      </span>
     </button>
   </li>
   <li
@@ -23,18 +32,36 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
       onClick={[Function]}
       type="button"
     >
-      Edit widget
+      <img
+        alt=""
+        className="ConfigMenu__icon"
+        src={Object {}}
+      />
+      <span
+        className="ConfigMenu__text"
+      >
+        Edit widget
+      </span>
     </button>
   </li>
   <li
     className="ConfigMenu__list"
   >
     <button
-      className="ConfigMenu__btn"
+      className="ConfigMenu__btn ConfigMenu__arrow ConfigMenu__arrow-up"
       onClick={[Function]}
       type="button"
     >
-      Refresh every
+      <img
+        alt=""
+        className="ConfigMenu__icon"
+        src={Object {}}
+      />
+      <span
+        className="ConfigMenu__text"
+      >
+        Refresh every
+      </span>
     </button>
   </li>
   <li
@@ -42,13 +69,22 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
     key="never-menu"
   >
     <button
-      className="ConfigMenu__btn"
+      className="ConfigMenu__btn ConfigMenu__dropdown-btn"
       data-name="interval-zero-btn"
       disabled={true}
       onClick={[Function]}
       type="button"
     >
-      Never
+      <img
+        alt=""
+        className="ConfigMenu__check-icon ConfigMenu__check-icon--active"
+        src={Object {}}
+      />
+      <span
+        className="ConfigMenu__text"
+      >
+        Never
+      </span>
     </button>
   </li>
   <li
@@ -56,15 +92,24 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
     key="reload-every-menu"
   >
     <button
-      className="ConfigMenu__btn"
+      className="ConfigMenu__btn ConfigMenu__dropdown-btn"
       data-name="set-interval-btn"
       disabled={false}
       onClick={[Function]}
       type="button"
     >
-      <p>
+      <img
+        alt=""
+        className="ConfigMenu__check-icon"
+        src={Object {}}
+      />
+      <p
+        className="ConfigMenu__select-container"
+      >
         Reload Every 
         <select
+          className="ConfigMenu__select"
+          key="select"
           onChange={[Function]}
           value={5}
         >
@@ -89,18 +134,31 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
             60s
           </option>
         </select>
+        <span
+          className="ConfigMenu__select-arrow"
+          key="arrow"
+        />
       </p>
     </button>
   </li>
   <li
-    className="ConfigMenu__list"
+    className="ConfigMenu__list ConfigMenu__bottom-line"
   >
     <button
       className="ConfigMenu__btn"
       onClick={[Function]}
       type="button"
     >
-      Open with browser
+      <img
+        alt=""
+        className="ConfigMenu__icon"
+        src={Object {}}
+      />
+      <span
+        className="ConfigMenu__text"
+      >
+        Open with browser
+      </span>
     </button>
   </li>
   <li
@@ -111,7 +169,16 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
       onClick={[Function]}
       type="button"
     >
-      Delete this widget
+      <img
+        alt=""
+        className="ConfigMenu__icon"
+        src={Object {}}
+      />
+      <span
+        className="ConfigMenu__text"
+      >
+        Delete this widget
+      </span>
     </button>
   </li>
 </ul>
@@ -122,14 +189,23 @@ exports[`<ConfigMenu /> should match to snapshot when render default 1`] = `
   className="ConfigMenu"
 >
   <li
-    className="ConfigMenu__list"
+    className="ConfigMenu__list ConfigMenu__bottom-line"
   >
     <button
       className="ConfigMenu__btn"
       onClick={[Function]}
       type="button"
     >
-      New
+      <img
+        alt=""
+        className="ConfigMenu__icon"
+        src={Object {}}
+      />
+      <span
+        className="ConfigMenu__text"
+      >
+        New
+      </span>
     </button>
   </li>
   <li
@@ -140,7 +216,56 @@ exports[`<ConfigMenu /> should match to snapshot when render default 1`] = `
       onClick={[Function]}
       type="button"
     >
-      Edit widget
+      <img
+        alt=""
+        className="ConfigMenu__icon"
+        src={Object {}}
+      />
+      <span
+        className="ConfigMenu__text"
+      >
+        Edit widget
+      </span>
+    </button>
+  </li>
+  <li
+    className="ConfigMenu__list"
+  >
+    <button
+      className="ConfigMenu__btn ConfigMenu__arrow ConfigMenu__arrow-down"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt=""
+        className="ConfigMenu__icon"
+        src={Object {}}
+      />
+      <span
+        className="ConfigMenu__text"
+      >
+        Refresh every
+      </span>
+    </button>
+  </li>
+  <li
+    className="ConfigMenu__list ConfigMenu__bottom-line"
+  >
+    <button
+      className="ConfigMenu__btn"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt=""
+        className="ConfigMenu__icon"
+        src={Object {}}
+      />
+      <span
+        className="ConfigMenu__text"
+      >
+        Open with browser
+      </span>
     </button>
   </li>
   <li
@@ -151,29 +276,16 @@ exports[`<ConfigMenu /> should match to snapshot when render default 1`] = `
       onClick={[Function]}
       type="button"
     >
-      Refresh every
-    </button>
-  </li>
-  <li
-    className="ConfigMenu__list"
-  >
-    <button
-      className="ConfigMenu__btn"
-      onClick={[Function]}
-      type="button"
-    >
-      Open with browser
-    </button>
-  </li>
-  <li
-    className="ConfigMenu__list"
-  >
-    <button
-      className="ConfigMenu__btn"
-      onClick={[Function]}
-      type="button"
-    >
-      Delete this widget
+      <img
+        alt=""
+        className="ConfigMenu__icon"
+        src={Object {}}
+      />
+      <span
+        className="ConfigMenu__text"
+      >
+        Delete this widget
+      </span>
     </button>
   </li>
 </ul>

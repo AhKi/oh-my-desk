@@ -1,24 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<DeleteWidgetConfirm /> should match to snapshot when render default 1`] = `
-<div>
-  <h3>
+<div
+  className="DeleteWidgetConfirm__container"
+>
+  <h5>
     Delete this widget
-  </h3>
-  <p>
+  </h5>
+  <p
+    className="DeleteWidgetConfirm__content"
+  >
     This widget will be deleted. Would you like to go on?
   </p>
-  <button
-    onClick={[Function]}
-    type="button"
+  <div
+    className="DeleteWidgetConfirm__btn-set"
   >
-    Cancel
-  </button>
-  <button
-    onClick={[Function]}
-    type="button"
-  >
-    Ok
-  </button>
+    <button
+      className="Btn Btn--sm Btn--gray"
+      onClick={[Function]}
+      type="button"
+    >
+      Cancel
+    </button>
+    <button
+      className="Btn Btn--sm Btn--primary"
+      onClick={[Function]}
+      type="button"
+    >
+      Ok
+    </button>
+  </div>
 </div>
 `;
