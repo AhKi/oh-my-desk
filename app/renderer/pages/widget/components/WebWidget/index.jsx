@@ -79,14 +79,7 @@ class WebWidget extends React.Component {
       this.setState({ currentUrl: e.url });
     });
     webView.addEventListener('did-navigate-in-page', (e) => {
-      /**
-       * when access `google.com`, google redirect `notification.google.com/...` page.
-       * So To block It.
-       * It will occur isMainFrame === false in params of did-navigate-in-page.
-       */
-      if (e.isMainFrame) {
-        this.setState({ currentUrl: e.url });
-      }
+      this.setState({ currentUrl: e.url });
     });
     window.addEventListener('contextmenu', () => {
       widgetContextMenu(this.webViewRef.current);
