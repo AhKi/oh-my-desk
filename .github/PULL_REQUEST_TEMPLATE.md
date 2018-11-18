@@ -1,13 +1,7 @@
-// This is just guide line.
-// You can write freely.
+## Purpose
 
+## Done
 
-##### What kind of change does this PR introduce?
+## Notice
 
-##### Did you add tests for your changes?
-
-##### Summary
-
-##### Does this PR introduce a breaking change?
-
-##### Other information
+## Todo after
