@@ -1,4 +1,4 @@
-import { app, remote, globalShortcut } from 'electron';
+import { app, globalShortcut } from 'electron';
 import autoLaunch from 'main/utils/window/autoLaunch';
 import autoUpdateConfig from 'main/utils/update/autoUpdateConfig';
 import createMenu from 'main/utils/menu/createMenu';
@@ -15,8 +15,6 @@ jest.mock('main/utils/menu/createMenu');
 jest.mock('main/utils/window/openAllWidgetStatusOpen');
 jest.mock('store/utils/subscribeActionMain');
 jest.mock('main/utils/menu/trayMenuBar');
-
-remote.getGlobal = jest.fn(() => () => JSON.stringify({ config: { language: 'English' } }));
 
 describe('test init function', () => {
   init();

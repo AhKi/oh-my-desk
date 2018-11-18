@@ -1,12 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { shell, remote } from 'electron';
+import { shell } from 'electron';
 
 import Update from '.';
 
 describe('<Update />', () => {
-  remote.getGlobal = jest.fn(() => () => JSON.stringify({ config: { language: 'English' } }));
-
   beforeEach(() => {
     jest.clearAllMocks();
   });

@@ -1,4 +1,4 @@
-import { BrowserWindow, dialog, remote } from 'electron';
+import { BrowserWindow, dialog } from 'electron';
 import Immutable from 'immutable';
 import * as actions from 'actions/widget';
 import { BrowserWindow as MockBrowserWindow } from 'app/__mocks__/electron';
@@ -60,8 +60,6 @@ describe('test makeWidgetWindow', () => {
     });
 
     describe('test callback of close event', () => {
-      remote.getGlobal = jest.fn(() => () => JSON.stringify({ config: { language: 'English' } }));
-
       const cb = mock.on.mock.calls[2][1];
       const preventDefault = jest.fn();
       const event = {

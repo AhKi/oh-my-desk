@@ -1,12 +1,10 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { shell, remote } from 'electron';
+import { shell } from 'electron';
 import DeleteWidgetConfirmContainer from '../../containers/DeleteWidgetConfirmContainer';
 import ConfigMenu from '.';
 
 describe('<ConfigMenu />', () => {
-  remote.getGlobal = jest.fn(() => () => JSON.stringify({ config: { language: 'English' } }));
-
   beforeEach(() => {
     jest.clearAllMocks();
   });

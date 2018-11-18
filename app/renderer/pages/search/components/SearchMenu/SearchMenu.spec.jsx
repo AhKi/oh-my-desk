@@ -1,10 +1,8 @@
-import { remote } from 'electron';
 import React from 'react';
 import { shallow } from 'enzyme';
 import SearchMenu from '.';
 
 describe('Test SearchMenu Component', () => {
-  remote.getGlobal = jest.fn(() => () => JSON.stringify({ config: { language: 'English' } }));
   beforeEach(() => {
     jest.clearAllMocks();
   });
