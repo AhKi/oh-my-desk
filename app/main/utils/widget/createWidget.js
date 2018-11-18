@@ -10,8 +10,8 @@ function createWidget(id, info = {}) {
       y: (info.position && info.position.y) || 100,
     },
     size: {
-      width: (info.size && info.size.width) || 300,
-      height: (info.size && info.size.height) || 400,
+      width: (info.size && info.size.width) || 500,
+      height: (info.size && info.size.height) || 600,
     },
     isMakeProgress: info.isMakeProgress,
     isOnTop: info.isOnTop || false,
