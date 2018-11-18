@@ -1,12 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { remote } from 'electron';
 import WidgetModeConfirm from '../Modal/WidgetModeConfirm';
 import Setting from '.';
 
 describe('<Setting />', () => {
-  remote.getGlobal = jest.fn(() => () => JSON.stringify({ config: { language: 'English' } }));
-
   beforeEach(() => {
     jest.clearAllMocks();
   });

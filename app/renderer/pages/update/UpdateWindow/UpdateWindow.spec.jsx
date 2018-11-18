@@ -1,11 +1,8 @@
 import React from 'react';
-import { remote } from 'electron';
 import { shallow, mount } from 'enzyme';
 import UpdateWindow from './UpdateWindow';
 
 describe('<UpdateWindow />', () => {
-  remote.getGlobal = jest.fn(() => () => JSON.stringify({ config: { language: 'English' } }));
-
   beforeEach(() => {
     jest.clearAllMocks();
   });
