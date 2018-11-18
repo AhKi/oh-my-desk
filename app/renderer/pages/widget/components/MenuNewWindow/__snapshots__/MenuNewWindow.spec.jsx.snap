@@ -41,7 +41,7 @@ exports[`<MenuNewWindow /> should match to snapshot when render default 1`] = `
       </button>
     </li>
     <li
-      className="MenuNewWindow__list"
+      className="MenuNewWindow__list MenuNewWindow__list--bottom"
     >
       <button
         className="MenuNewWindow__btn"

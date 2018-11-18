@@ -2,7 +2,7 @@
 
 exports[`<WidgetHeader /> should match to snapshot when render default 1`] = `
 <div
-  className="WidgetHeader__title-bar"
+  className="WidgetHeader"
 >
   <TitleBar
     defaultUserAgent="DESKTOP"
