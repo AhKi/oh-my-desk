@@ -6,7 +6,6 @@ import url from 'url';
 import * as PATH from 'constants/path';
 import i18n from 'constants/i18n';
 import * as USER_AGENT from 'constants/userAgent';
-import ModalContainer from 'renderer/components/Modal/ModalContainer';
 import widgetContextMenu from 'main/utils/menu/widgetContextMenu';
 import WidgetHeaderContainer from '../../containers/WidgetHeaderContainer';
 import EditTab from '../EditTab';
@@ -35,55 +34,27 @@ const defaultProps = {
   onUpdateInfo() {},
 };
 
+const initialPage = 'https://google.co.kr';
+
 class WebWidget extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentUrl: '',
-      isLoading: false,
-      isSettingOpen: false,
-      newWindowURL: null,
-    };
-    this.webViewRef = React.createRef();
-    this.mousePosition = {
-      x: 0,
-      y: 0,
-    };
-    this.handleToggleSettingMenu = this.handleToggleSettingMenu.bind(this);
-    this.handleToggleNewWindowMenu = this.handleToggleNewWindowMenu.bind(this);
-  }
+  state = {
+    currentUrl: '',
+    isLoading: false,
+    isSettingOpen: false,
+    newWindowURL: null,
+  };
+  webViewRef = React.createRef();
+  mousePosition = {
+    x: 0,
+    y: 0,
+  };
 
   componentDidMount() {
-    const webView = this.webViewRef.current;
-    NProgress.configure({
-      easing: 'ease',
-      speed: 800,
-      minimum: 0.2,
-      parent: '.AddressBar__address',
-      showSpinner: false,
-    });
-    // add event when widget page loading
-    webView.addEventListener('did-start-loading', () => {
-      NProgress.remove();
-      NProgress.start();
-      this.setState({ isLoading: true });
-    });
-    webView.addEventListener('did-stop-loading', () => {
-      NProgress.done();
-      this.setState({ isLoading: false });
-    });
-    webView.addEventListener('new-window', (e) => {
-      this.handleToggleNewWindowMenu(e.url);
-    });
-    webView.addEventListener('did-navigate', (e) => {
-      this.setState({ currentUrl: e.url });
-    });
-    webView.addEventListener('did-navigate-in-page', (e) => {
-      this.setState({ currentUrl: e.url });
-    });
-    window.addEventListener('contextmenu', () => {
-      widgetContextMenu(this.webViewRef.current);
-    });
+    this.configureLoader();
+    this.configureNavigateEvent();
+    this.configureNewWindowEvent();
+    this.configureContextMenu();
+
 
     window.addEventListener('mousemove', (e) => {
       this.mousePosition = {
@@ -94,51 +65,111 @@ class WebWidget extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { currentUrl } = this.state;
-    const { defaultUserAgent, widget } = this.props;
-    let userAgent;
-    if (widget.userAgent) {
-      userAgent = widget.userAgent === 'MOBILE' ? USER_AGENT.MOBILE : USER_AGENT.DESKTOP;
-    } else {
-      userAgent = defaultUserAgent === 'MOBILE' ? USER_AGENT.MOBILE : USER_AGENT.DESKTOP;
-    }
+    const { widget } = this.props;
 
-    if (prevProps.widget.url !== widget.url) {
-      this.setState({ // eslint-disable-line react/no-did-update-set-state
-        currentUrl: widget.url,
-      });
-      this.webViewRef.current.loadURL(widget.url, { userAgent });
-    }
+    const prevUserAgent = this.getUserAgent(prevProps);
+    const currentUserAgent = this.getUserAgent(this.props);
 
-    if (
-      (!widget.userAgent && prevProps.defaultUserAgent !== defaultUserAgent) ||
-      (prevProps.widget.userAgent !== widget.userAgent)
-    ) {
-      // Most website provide separate url about userAgent.
-      // Mobile page url is prepended with 'm.'.
-      // So remove 'm.' in url when change userAgent mobile to desktop.
-      this.webViewRef.current.loadURL(
-        userAgent === USER_AGENT.DESKTOP ? currentUrl.replace('https://m.', 'https://') : currentUrl,
-        { userAgent },
-      );
+    const isChangeUserAgent = prevUserAgent !== currentUserAgent;
+    const isPropsChangeUrl = prevProps.widget.url !== widget.url;
+
+    if (isPropsChangeUrl || isChangeUserAgent) {
+      this.loadPage(widget.url, currentUserAgent);
     }
   }
 
-  handleToggleSettingMenu(bool) {
+  /**
+   * Configure loading if webview is loading content.
+   */
+  configureLoader = () => {
+    const webView = this.webViewRef.current;
+
+    NProgress.configure({
+      easing: 'ease',
+      speed: 800,
+      minimum: 0.2,
+      parent: '.AddressBar__address',
+      showSpinner: false,
+    });
+
+    webView.addEventListener('did-start-loading', () => {
+      NProgress.remove();
+      NProgress.start();
+      this.setState({ isLoading: true });
+    });
+
+    webView.addEventListener('did-stop-loading', () => {
+      NProgress.done();
+      this.setState({ isLoading: false });
+    });
+  };
+
+  configureNavigateEvent = () => {
+    const webView = this.webViewRef.current;
+    const changeUrl = e => this.setState({ currentUrl: e.url });
+
+    webView.addEventListener('did-navigate', changeUrl); // for Multi Page Application
+    webView.addEventListener('did-navigate-in-page', changeUrl); // for Single Page Application
+  };
+
+  configureNewWindowEvent = () => {
+    const webView = this.webViewRef.current;
+    const changeNewUrl = e => this.setState({ newWindowURL: e.url });
+
+    webView.addEventListener('new-window', changeNewUrl);
+  };
+
+  configureContextMenu = () => {
+    const webView = this.webViewRef.current;
+
+    window.addEventListener('contextmenu', () => {
+      widgetContextMenu(webView);
+    });
+  };
+
+  getUserAgent = (props) => {
+    const { defaultUserAgent, widget } = props;
+    const { userAgent } = widget;
+
+    if (userAgent) {
+      return USER_AGENT[userAgent];
+    }
+
+    return USER_AGENT[defaultUserAgent];
+  };
+
+  handleToggleSettingMenu = (bool) => {
     if (typeof bool === 'boolean') {
       this.setState({ isSettingOpen: bool });
     } else {
       this.setState(prevState => ({ isSettingOpen: !prevState.isSettingOpen }));
     }
-  }
+  };
 
-  handleToggleNewWindowMenu(targetURL) {
-    if (targetURL) {
-      this.setState({ newWindowURL: targetURL });
-    } else {
-      this.setState({ newWindowURL: '' });
-    }
-  }
+  handleCloseNewWindowMenu = () => {
+    this.setState({ newWindowURL: '' });
+  };
+
+  handleCancelEditWidget = () => {
+    const { widget, onCancelEditWidget } = this.props;
+
+    onCancelEditWidget(widget.id);
+  };
+
+  loadPage = (loadUrl, userAgent) => {
+    /**
+     * When change from mobile to desktop,
+     * Some page preserve prefix 'm' of url like https://m.example.com.
+     * So, Delete prefix 'm' of url.
+     */
+    const urlByUserAgent = userAgent === USER_AGENT.DESKTOP ?
+      loadUrl.replace('https://m.', 'https://') : loadUrl;
+
+    this.webViewRef.current.loadURL(
+      urlByUserAgent,
+      { userAgent },
+    );
+  };
 
   render() {
     const text = i18n().widget;
@@ -150,7 +181,6 @@ class WebWidget extends React.Component {
     const {
       defaultUserAgent,
       widget,
-      onCancelEditWidget,
       onCheckUrlValidation,
       onMakeWidget,
       onUpdateInfo,
@@ -158,7 +188,6 @@ class WebWidget extends React.Component {
 
     return (
       <div className="WebWidget">
-        <ModalContainer />
         <WidgetHeaderContainer
           currentUrl={currentUrl}
           defaultUserAgent={defaultUserAgent}
@@ -195,7 +224,7 @@ class WebWidget extends React.Component {
             widget={this.webViewRef.current}
             x={this.mousePosition.x}
             y={this.mousePosition.y}
-            onClose={this.handleToggleNewWindowMenu}
+            onClose={this.handleCloseNewWindowMenu}
             onMakeWidget={onMakeWidget}
           />
         )}
@@ -203,7 +232,7 @@ class WebWidget extends React.Component {
           <webview
             className="WebWidget__webview"
             ref={this.webViewRef}
-            src="https://google.com"
+            src={initialPage}
             preload={url.format({
               pathname: PATH.PRELOAD_SCRIPT_PATH,
               protocol: 'file:',
@@ -216,7 +245,7 @@ class WebWidget extends React.Component {
               id={widget.id}
               name={widget.name}
               title={text.editWidget}
-              onCloseTab={() => onCancelEditWidget(widget.id)}
+              onCloseTab={this.handleCancelEditWidget}
               onCheckUrlValidation={onCheckUrlValidation}
             />
           )}
