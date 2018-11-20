@@ -15,7 +15,6 @@ import ReloadTimer from '../ReloadTimer';
 import './WebWidget.scss';
 
 const propTypes = {
-  defaultUserAgent: PropTypes.string,
   widget: PropTypes.shape({
     name: PropTypes.string,
     url: PropTypes.string,
@@ -26,7 +25,6 @@ const propTypes = {
   onUpdateInfo: PropTypes.func,
 };
 const defaultProps = {
-  defaultUserAgent: 'DESKTOP',
   widget: {},
   onCancelEditWidget() {},
   onCheckUrlValidation() {},
@@ -179,7 +177,6 @@ class WebWidget extends React.Component {
       newWindowURL,
     } = this.state;
     const {
-      defaultUserAgent,
       widget,
       onCheckUrlValidation,
       onMakeWidget,
@@ -190,16 +187,8 @@ class WebWidget extends React.Component {
       <div className="WebWidget">
         <WidgetHeaderContainer
           currentUrl={currentUrl}
-          defaultUserAgent={defaultUserAgent}
           webView={this.webViewRef.current}
-          reloadInterval={widget.reloadInterval}
-          title={widget.name}
-          url={widget.url}
-          id={widget.id}
-          isMakeProgress={widget.isMakeProgress}
           isLoading={isLoading}
-          isOnTop={widget.isOnTop}
-          userAgent={widget.userAgent}
           onToggleSetting={this.handleToggleSettingMenu}
         />
         {widget.isMakeProgress && (
