@@ -9,7 +9,7 @@ exports[`<WidgetHeader /> should match to snapshot when render default 1`] = `
     id=""
     onCloseWidget={[Function]}
     onUpdateWidgetInfo={[Function]}
-    title=""
+    title="Empty Widget"
     userAgent=""
   />
   <AddressBar

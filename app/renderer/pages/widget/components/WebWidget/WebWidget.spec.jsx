@@ -5,6 +5,7 @@ import { mount } from 'enzyme';
 import NProgress from 'nprogress';
 import * as USER_AGENT from 'constants/userAgent';
 import widgetContextMenu from 'main/utils/menu/widgetContextMenu';
+import storeMock from 'app/__mocks__/storeMock';
 
 import WebWidget from '.';
 
@@ -12,7 +13,7 @@ jest.mock('nprogress');
 jest.mock('main/utils/menu/widgetContextMenu');
 
 function getComponent(props) {
-  const mockStore = configureStore([])({});
+  const mockStore = configureStore([])(storeMock);
 
   const container = mount(
     <Provider store={mockStore}>
