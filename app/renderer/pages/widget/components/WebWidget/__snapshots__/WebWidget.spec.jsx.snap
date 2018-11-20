@@ -2,7 +2,6 @@
 
 exports[`test WebWidget should match to snapshot when default render 1`] = `
 <WebWidget
-  defaultUserAgent="DESKTOP"
   onCancelEditWidget={[Function]}
   onCheckUrlValidation={[Function]}
   onMakeWidget={[Function]}
@@ -12,192 +11,200 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
   <div
     className="WebWidget"
   >
-    <Connect(WidgetHeader)
+    <Connect(toJS(WidgetHeader))
       currentUrl=""
-      defaultUserAgent="DESKTOP"
       isLoading={false}
       onToggleSetting={[Function]}
       webView={null}
     >
-      <WidgetHeader
+      <toJS(WidgetHeader)
         currentUrl=""
         defaultUserAgent="DESKTOP"
-        id=""
         isLoading={false}
-        isMakeProgress={false}
-        isOnTop={false}
         onCloseWidget={[Function]}
         onEditWidget={[Function]}
         onMakeWidget={[Function]}
         onModalOpen={[Function]}
         onToggleSetting={[Function]}
         onUpdateWidgetInfo={[Function]}
-        reloadInterval={0}
-        title=""
-        url=""
-        userAgent=""
         webView={null}
       >
-        <div
-          className="WidgetHeader"
+        <WidgetHeader
+          currentUrl=""
+          defaultUserAgent="DESKTOP"
+          isLoading={false}
+          onCloseWidget={[Function]}
+          onEditWidget={[Function]}
+          onMakeWidget={[Function]}
+          onModalOpen={[Function]}
+          onToggleSetting={[Function]}
+          onUpdateWidgetInfo={[Function]}
+          webView={null}
+          widget={Object {}}
         >
-          <TitleBar
-            defaultUserAgent="DESKTOP"
-            id=""
-            onCloseWidget={[Function]}
-            onUpdateWidgetInfo={[Function]}
-            title=""
-            userAgent=""
+          <div
+            className="WidgetHeader"
           >
-            <div
-              className="TitleBar"
+            <TitleBar
+              defaultUserAgent="DESKTOP"
+              id=""
+              onCloseWidget={[Function]}
+              onUpdateWidgetInfo={[Function]}
+              title="Empty Widget"
+              userAgent=""
             >
-              <button
-                className="TitleBar__close-btn"
-                onClick={[Function]}
-                type="button"
-              >
-                <img
-                  alt=""
-                  className="TitleBar__close-img"
-                  src={Object {}}
-                />
-              </button>
               <div
-                className="TitleBar__title"
-              />
-              <div
-                className="TitleBar__asset"
+                className="TitleBar"
               >
                 <button
-                  className="TitleBar__button"
-                  disabled={false}
+                  className="TitleBar__close-btn"
                   onClick={[Function]}
                   type="button"
                 >
                   <img
                     alt=""
-                    className="TitleBar__mobile-icon"
+                    className="TitleBar__close-img"
                     src={Object {}}
                   />
                 </button>
+                <div
+                  className="TitleBar__title"
+                >
+                  Empty Widget
+                </div>
+                <div
+                  className="TitleBar__asset"
+                >
+                  <button
+                    className="TitleBar__button"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <img
+                      alt=""
+                      className="TitleBar__mobile-icon"
+                      src={Object {}}
+                    />
+                  </button>
+                  <button
+                    className="TitleBar__button"
+                    disabled={true}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <img
+                      alt=""
+                      className="TitleBar__desktop-icon"
+                      src={Object {}}
+                    />
+                  </button>
+                </div>
+              </div>
+            </TitleBar>
+            <AddressBar
+              currentUrl=""
+              homeUrl=""
+              id=""
+              isLoading={false}
+              isMakeProgress={false}
+              isOnTop={false}
+              onEditWidget={[Function]}
+              onMakeWidget={[Function]}
+              onModalOpen={[Function]}
+              onUpdateWidgetInfo={[Function]}
+              reloadInterval={0}
+              webView={null}
+            >
+              <div
+                className="AddressBar"
+              >
                 <button
-                  className="TitleBar__button"
+                  className="AddressBar__button"
+                  data-name="go-back-btn"
                   disabled={true}
                   onClick={[Function]}
                   type="button"
                 >
                   <img
                     alt=""
-                    className="TitleBar__desktop-icon"
                     src={Object {}}
                   />
                 </button>
-              </div>
-            </div>
-          </TitleBar>
-          <AddressBar
-            currentUrl=""
-            homeUrl=""
-            id=""
-            isLoading={false}
-            isMakeProgress={false}
-            isOnTop={false}
-            onEditWidget={[Function]}
-            onMakeWidget={[Function]}
-            onModalOpen={[Function]}
-            onUpdateWidgetInfo={[Function]}
-            reloadInterval={0}
-            webView={null}
-          >
-            <div
-              className="AddressBar"
-            >
-              <button
-                className="AddressBar__button"
-                data-name="go-back-btn"
-                disabled={true}
-                onClick={[Function]}
-                type="button"
-              >
-                <img
-                  alt=""
-                  src={Object {}}
-                />
-              </button>
-              <button
-                className="AddressBar__button"
-                data-name="go-forward-btn"
-                disabled={true}
-                onClick={[Function]}
-                type="button"
-              >
-                <img
-                  alt=""
-                  src={Object {}}
-                />
-              </button>
-              <button
-                className="AddressBar__button"
-                onClick={[Function]}
-                type="button"
-              >
-                <img
-                  alt=""
-                  src={Object {}}
-                />
-              </button>
-              <div
-                className="AddressBar__address"
-              >
-                <input
-                  className="AddressBar__address-input"
-                  onChange={[Function]}
-                  onKeyDown={[Function]}
-                  type="text"
-                  value=""
-                />
                 <button
-                  className="AddressBar__address-button"
+                  className="AddressBar__button"
+                  data-name="go-forward-btn"
+                  disabled={true}
                   onClick={[Function]}
                   type="button"
                 >
                   <img
                     alt=""
-                    className="AddressBar__home-icon"
                     src={Object {}}
                   />
-                  <span
-                    className="AddressBar__home-url"
+                </button>
+                <button
+                  className="AddressBar__button"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <img
+                    alt=""
+                    src={Object {}}
+                  />
+                </button>
+                <div
+                  className="AddressBar__address"
+                >
+                  <input
+                    className="AddressBar__address-input"
+                    onChange={[Function]}
+                    onKeyDown={[Function]}
+                    type="text"
+                    value=""
+                  />
+                  <button
+                    className="AddressBar__address-button"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <img
+                      alt=""
+                      className="AddressBar__home-icon"
+                      src={Object {}}
+                    />
+                    <span
+                      className="AddressBar__home-url"
+                    />
+                  </button>
+                </div>
+                <button
+                  className="AddressBar__button AddressBar__more-btn"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <img
+                    alt=""
+                    src={Object {}}
+                  />
+                </button>
+                <button
+                  className="AddressBar__pin-btn"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <img
+                    alt=""
+                    className="AddressBar__pin"
+                    src={Object {}}
                   />
                 </button>
               </div>
-              <button
-                className="AddressBar__button AddressBar__more-btn"
-                onClick={[Function]}
-                type="button"
-              >
-                <img
-                  alt=""
-                  src={Object {}}
-                />
-              </button>
-              <button
-                className="AddressBar__pin-btn"
-                onClick={[Function]}
-                type="button"
-              >
-                <img
-                  alt=""
-                  className="AddressBar__pin"
-                  src={Object {}}
-                />
-              </button>
-            </div>
-          </AddressBar>
-        </div>
-      </WidgetHeader>
-    </Connect(WidgetHeader)>
+            </AddressBar>
+          </div>
+        </WidgetHeader>
+      </toJS(WidgetHeader)>
+    </Connect(toJS(WidgetHeader))>
     <div
       className="WebWidget__content"
     >

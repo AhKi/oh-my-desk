@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import AddressBar from '../AddressBar';
 import TitleBar from '../TitleBar';
 import './WidgetHeader.scss';
@@ -8,15 +7,18 @@ import './WidgetHeader.scss';
 const propTypes = {
   currentUrl: PropTypes.string,
   defaultUserAgent: PropTypes.string,
-  title: PropTypes.string,
-  id: PropTypes.string,
-  isMakeProgress: PropTypes.bool,
-  isOnTop: PropTypes.bool,
   isLoading: PropTypes.bool,
-  reloadInterval: PropTypes.number,
   webView: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-  userAgent: PropTypes.string,
-  url: PropTypes.string,
+  widget: PropTypes.shape({
+    id: PropTypes.string,
+    isMakeProgress: PropTypes.bool,
+    isOnTop: PropTypes.bool,
+    name: PropTypes.string,
+    reloadInterval: PropTypes.number,
+    url: PropTypes.string,
+    userAgent: PropTypes.string,
+
+  }),
   onCloseWidget: PropTypes.func,
   onEditWidget: PropTypes.func,
   onMakeWidget: PropTypes.func,
@@ -27,15 +29,9 @@ const propTypes = {
 const defaultProps = {
   currentUrl: '',
   defaultUserAgent: 'DESKTOP',
-  title: '',
-  id: '',
-  isMakeProgress: false,
-  isOnTop: false,
   isLoading: false,
-  reloadInterval: 0,
+  widget: {},
   webView: null,
-  userAgent: '',
-  url: '',
   onCloseWidget() {},
   onEditWidget() {},
   onMakeWidget() {},
@@ -48,28 +44,31 @@ class WidgetHeader extends React.Component {
     const {
       currentUrl,
       defaultUserAgent,
-      title,
-      id,
-      isMakeProgress,
-      isOnTop,
       isLoading,
-      reloadInterval,
       webView,
-      userAgent,
-      url,
+      widget,
       onCloseWidget,
       onEditWidget,
       onMakeWidget,
       onModalOpen,
       onUpdateWidgetInfo,
     } = this.props;
+    const {
+      id,
+      isMakeProgress,
+      isOnTop,
+      name,
+      reloadInterval,
+      userAgent,
+      url,
+    } = widget;
 
     return (
       <div className="WidgetHeader">
         <TitleBar
           defaultUserAgent={defaultUserAgent}
           id={id}
-          title={title}
+          title={name}
           userAgent={userAgent}
           onCloseWidget={onCloseWidget}
           onUpdateWidgetInfo={onUpdateWidgetInfo}
