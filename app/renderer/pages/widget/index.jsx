@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'store/configureStore';
 import subscribeActionRenderer from 'store/utils/subscribeActionRenderer';
+import ModalContainer from 'renderer/components/Modal/ModalContainer';
 import 'scss/index.scss';
 import WebWidgetContainer from './containers/WebWidgetContainer';
 
@@ -11,7 +12,10 @@ subscribeActionRenderer(store);
 
 ReactDOM.render(
   <Provider store={store}>
-    <WebWidgetContainer />
+    <>
+      <ModalContainer />
+      <WebWidgetContainer />
+    </>
   </Provider>,
   document.getElementById('root'),
 );
