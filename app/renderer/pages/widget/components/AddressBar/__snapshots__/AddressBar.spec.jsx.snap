@@ -205,7 +205,6 @@ exports[`<AddressBar /> should match to snapshot when state.isMenuOpen is true 1
   </button>
   <button
     className="AddressBar__button"
-    data-name="stop-btn"
     onClick={[Function]}
     type="button"
   >

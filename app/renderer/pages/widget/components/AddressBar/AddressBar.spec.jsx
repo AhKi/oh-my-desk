@@ -1,9 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import os from 'os';
 
 import AddressBar from '.';
 
+jest.mock('os');
+
 describe('<AddressBar />', () => {
+  const platform = jest.spyOn(os, 'platform');
+  platform.mockImplementation(() => 'darwin');
+
   const webView = {
     reload: jest.fn(),
     loadURL: jest.fn(),
@@ -30,88 +36,52 @@ describe('<AddressBar />', () => {
   });
 
   it('should match to snapshot when state.isMenuOpen is true', () => {
-    const wrapper = shallow(<AddressBar isLoading />);
+    const wrapper = shallow(<AddressBar />);
     wrapper.setState({ isMenuOpen: true });
 
     expect(wrapper).toMatchSnapshot();
   });
 
-  describe('should test componentDidMount', () => {
+  describe('test react lifecycle', () => {
     const componentDidMount = jest.spyOn(AddressBar.prototype, 'componentDidMount');
     const componentWillUnmount = jest.spyOn(AddressBar.prototype, 'componentWillUnmount');
     document.addEventListener = jest.fn();
     document.removeEventListener = jest.fn();
 
-    it('when webView exist', () => {
+    it('should handle componentDidMount & componentWillUnmount', () => {
       const wrapper = shallow(<AddressBar webView={webView} />);
-      const {
-        handleAttachAddressFocusHotKey,
-        handleAttachReloadHotKey,
-      } = wrapper.instance();
+      const { configureKeyDownEvent } = wrapper.instance();
 
       expect(componentDidMount).toHaveBeenCalledTimes(1);
-      expect(document.addEventListener).toHaveBeenCalledTimes(2);
+      expect(document.addEventListener).toHaveBeenCalledTimes(1);
       expect(document.addEventListener).toHaveBeenCalledWith(
         'keydown',
-        handleAttachAddressFocusHotKey,
-      );
-      expect(document.addEventListener).toHaveBeenCalledWith(
-        'keydown',
-        handleAttachReloadHotKey,
+        configureKeyDownEvent,
       );
 
       wrapper.unmount();
 
       expect(componentWillUnmount).toHaveBeenCalledTimes(1);
-      expect(document.removeEventListener).toHaveBeenCalledTimes(2);
+      expect(document.removeEventListener).toHaveBeenCalledTimes(1);
       expect(document.removeEventListener).toHaveBeenCalledWith(
         'keydown',
-        handleAttachAddressFocusHotKey,
-      );
-      expect(document.removeEventListener).toHaveBeenCalledWith(
-        'keydown',
-        handleAttachReloadHotKey,
+        configureKeyDownEvent,
       );
     });
 
-    it('when webView don\'t exist', () => {
+    describe('should handle componentDidUpdate', () => {
+      const componentDidUpdate = jest.spyOn(AddressBar.prototype, 'componentDidUpdate');
       const wrapper = shallow(<AddressBar />);
 
-      expect(componentDidMount).toHaveBeenCalledTimes(1);
-      expect(document.addEventListener).toHaveBeenCalledTimes(1);
-      expect(document.addEventListener).toHaveBeenCalledWith(
-        'keydown',
-        wrapper.instance().handleAttachAddressFocusHotKey,
-      );
-    });
-  });
+      it('should change state', () => {
+        expect(wrapper.instance().state.addressValue).toBe('');
+        expect(componentDidUpdate).toHaveBeenCalledTimes(0);
 
-  describe('test componentDidUpdate', () => {
-    document.addEventListener = jest.fn();
-    const componentDidUpdate = jest.spyOn(AddressBar.prototype, 'componentDidUpdate');
-    const wrapper = shallow(<AddressBar />);
+        wrapper.setProps({ currentUrl: 'mock' });
 
-    it('should call addEventListener', () => {
-      expect(document.addEventListener).toHaveBeenCalledTimes(0);
-      expect(componentDidUpdate).toHaveBeenCalledTimes(0);
-      wrapper.setProps({ webView });
-
-      expect(componentDidUpdate).toHaveBeenCalledTimes(1);
-      expect(document.addEventListener).toHaveBeenCalledTimes(1);
-      expect(document.addEventListener).toHaveBeenCalledWith(
-        'keydown',
-        wrapper.instance().handleAttachReloadHotKey,
-      );
-    });
-
-    it('should change state', () => {
-      expect(wrapper.instance().state.addressValue).toBe('');
-      expect(componentDidUpdate).toHaveBeenCalledTimes(0);
-
-      wrapper.setProps({ currentUrl: 'mock' });
-
-      expect(componentDidUpdate).toHaveBeenCalledTimes(2);
-      expect(wrapper.instance().state.addressValue).toBe('mock');
+        expect(componentDidUpdate).toHaveBeenCalledTimes(2);
+        expect(wrapper.instance().state.addressValue).toBe('mock');
+      });
     });
   });
 
@@ -126,36 +96,48 @@ describe('<AddressBar />', () => {
 
     it('when press metaKey + l', () => {
       const event = {
-        ctrlKey: true,
         metaKey: true,
-        key: 'l',
+        keyCode: 76,
       };
 
       wrapper.instance().handleAttachAddressFocusHotKey(event);
       expect(select).toHaveBeenCalledTimes(1);
     });
 
-    it('when press metaKey + ㅣ(korean)', () => {
+    it('when press another key', () => {
       const event = {
-        ctrlKey: true,
         metaKey: true,
-        key: 'ㅣ',
-      };
-
-      wrapper.instance().handleAttachAddressFocusHotKey(event);
-      expect(select).toHaveBeenCalledTimes(1);
-    });
-
-    it('when press metaKey + another key in macOS', () => {
-      const event = {
-        ctrlKey: true,
-        metaKey: true,
-        key: 'a',
+        keyCode: 77,
       };
 
       wrapper.instance().handleAttachAddressFocusHotKey(event);
       expect(select).toHaveBeenCalledTimes(0);
+      expect(blur).toHaveBeenCalledTimes(0);
     });
+
+    it('when press ESC key', () => {
+      const event = {
+        keyCode: 27,
+      };
+
+      wrapper.instance().handleAttachAddressFocusHotKey(event);
+      expect(blur).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  it('should handle configureKeyDownEvent', () => {
+    const wrapper = shallow(<AddressBar webView={webView} />);
+    const handleAttachAddressFocusHotKey = jest.fn();
+    const handleAttachReloadHotKey = jest.fn();
+    const e = { event: 'mock-event' };
+
+    wrapper.instance().handleAttachReloadHotKey = handleAttachReloadHotKey;
+    wrapper.instance().handleAttachAddressFocusHotKey = handleAttachAddressFocusHotKey;
+
+    wrapper.instance().configureKeyDownEvent(e);
+
+    expect(handleAttachReloadHotKey).toHaveBeenNthCalledWith(1, e);
+    expect(handleAttachAddressFocusHotKey).toHaveBeenNthCalledWith(1, e);
   });
 
   describe('test handleAttachReloadHotKey', () => {
@@ -163,20 +145,8 @@ describe('<AddressBar />', () => {
 
     it('when press metaKey + r', () => {
       const event = {
-        altKey: true,
         metaKey: true,
-        key: 'r',
-      };
-
-      wrapper.instance().handleAttachReloadHotKey(event);
-      expect(webView.reload).toHaveBeenCalledTimes(1);
-    });
-
-    it('when press metaKey + ㄱ(korean)', () => {
-      const event = {
-        altKey: true,
-        metaKey: true,
-        key: 'ㄱ',
+        keyCode: 82,
       };
 
       wrapper.instance().handleAttachReloadHotKey(event);
@@ -185,9 +155,8 @@ describe('<AddressBar />', () => {
 
     it('when press metaKey + another key', () => {
       const event = {
-        altKey: true,
         metaKey: true,
-        key: 'a',
+        keyCode: 83,
       };
 
       wrapper.instance().handleAttachReloadHotKey(event);
@@ -229,12 +198,21 @@ describe('<AddressBar />', () => {
         addressValue: 'google.com',
       });
 
-      expect(wrapper.instance().state.addressValue).toBe('google.com');
       wrapper.instance().handleAddressEnter({ key: 'Enter' });
 
-      expect(wrapper.instance().state.addressValue).toBe('https://google.com');
       expect(webView.loadURL).toHaveBeenCalledTimes(1);
-      expect(webView.loadURL).toHaveBeenCalledWith('https://google.com');
+      expect(webView.loadURL).toHaveBeenCalledWith('http://google.com');
+    });
+
+    it('when addressValue doesn\'t url', () => {
+      wrapper.setState({
+        addressValue: 'google',
+      });
+
+      wrapper.instance().handleAddressEnter({ key: 'Enter' });
+
+      expect(webView.loadURL).toHaveBeenCalledTimes(1);
+      expect(webView.loadURL).toHaveBeenCalledWith('https://www.google.com/search?q=google');
     });
 
     it('when doesn\'t press enter key', () => {
@@ -242,10 +220,8 @@ describe('<AddressBar />', () => {
         addressValue: 'google.com',
       });
 
-      expect(wrapper.instance().state.addressValue).toBe('google.com');
       wrapper.instance().handleAddressEnter({ key: 'a' });
 
-      expect(wrapper.instance().state.addressValue).toBe('google.com');
       expect(webView.loadURL).toHaveBeenCalledTimes(0);
     });
   });
@@ -263,7 +239,6 @@ describe('<AddressBar />', () => {
 
     expect(webView.loadURL).toHaveBeenCalledTimes(1);
     expect(webView.loadURL).toHaveBeenCalledWith('https://google.com');
-    expect(wrapper.instance().state.addressValue).toBe('https://google.com');
   });
 
   it('should call handleNavigateReload', () => {
@@ -278,8 +253,6 @@ describe('<AddressBar />', () => {
     wrapper.instance().handleNavigateReload();
 
     expect(webView.reload).toHaveBeenCalledTimes(1);
-    expect(webView.reload).toHaveBeenCalledWith();
-    expect(wrapper.instance().state.addressValue).toBe('https://google.com');
   });
 
   it('should call handleToggleIsOnTop', () => {
@@ -315,6 +288,10 @@ describe('<AddressBar />', () => {
     wrapper.instance().handleToggleMenu(true);
     expect(wrapper.instance().state.isMenuOpen).toBe(true);
 
+    wrapper.instance().handleToggleMenu();
+    expect(wrapper.instance().state.isMenuOpen).toBe(false);
+
+    wrapper.setProps({ isMakeProgress: true });
     wrapper.instance().handleToggleMenu();
     expect(wrapper.instance().state.isMenuOpen).toBe(false);
   });
