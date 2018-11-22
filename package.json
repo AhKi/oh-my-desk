@@ -82,6 +82,7 @@
     "hoist-non-react-statics": "^2.5.5",
     "html-webpack-plugin": "^3.2.0",
     "immutable": "^3.8.2",
+    "is-url": "^1.2.4",
     "menubar": "^5.2.3",
     "moment": "^2.22.2",
     "mousetrap": "^1.6.2",

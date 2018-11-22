@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import os from 'os';
 import cx from 'classnames';
+import isUrl from 'is-url';
 import cancelIcon from 'assets/icon/icon-widget-close.svg';
 import leftArrowIcon from 'assets/icon/icon-widget-back-arrow.svg';
 import rightArrowIcon from 'assets/icon/icon-widget-go-arrow.svg';
@@ -42,44 +43,19 @@ const defaultProps = {
 };
 
 class AddressBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      addressValue: '',
-      isMenuOpen: false,
-    };
-    this.moreBtnRef = React.createRef();
-    this.addressInputRef = React.createRef();
-    this.handleAttachReloadHotKey = this.handleAttachReloadHotKey.bind(this);
-    this.handleAttachAddressFocusHotKey = this.handleAttachAddressFocusHotKey.bind(this);
-    this.handleAddressChange = this.handleAddressChange.bind(this);
-    this.handleAddressEnter = this.handleAddressEnter.bind(this);
-    this.handleNavigateReload = this.handleNavigateReload.bind(this);
-    this.handleNavigateToHome = this.handleNavigateToHome.bind(this);
-    this.handleToggleIsOnTop = this.handleToggleIsOnTop.bind(this);
-    this.handleToggleMenu = this.handleToggleMenu.bind(this);
-  }
+  state = {
+    addressValue: '',
+    isMenuOpen: false,
+  };
+  moreBtnRef = React.createRef();
+  addressInputRef = React.createRef();
 
   componentDidMount() {
-    const { webView } = this.props;
-    document.addEventListener('keydown', this.handleAttachAddressFocusHotKey);
-
-    if (webView) {
-      document.addEventListener('keydown', this.handleAttachReloadHotKey);
-    }
+    document.addEventListener('keydown', this.configureKeyDownEvent);
   }
 
   componentDidUpdate(prevProps) {
-    const { currentUrl, webView } = this.props; // eslint-disable-line
-
-    /**
-     * Need to occur once. but webView is parent DOM element
-     * so don't catch in "componentDidMount"
-     * Occur addEventListener once when webView is rendered from null to element
-     */
-    if (!prevProps.webView && webView) {
-      document.addEventListener('keydown', this.handleAttachReloadHotKey);
-    }
+    const { currentUrl } = this.props;
 
     if (currentUrl !== prevProps.currentUrl) {
       this.setState({ // eslint-disable-line react/no-did-update-set-state
@@ -89,85 +65,77 @@ class AddressBar extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleAttachAddressFocusHotKey);
-    document.removeEventListener('keydown', this.handleAttachReloadHotKey);
+    document.removeEventListener('keydown', this.configureKeyDownEvent);
   }
 
-  handleAttachAddressFocusHotKey(e) {
-    const additionKey = os.platform() === 'darwin' ? 'metaKey' : 'ctrlKey';
+  configureKeyDownEvent = (e) => {
+    this.handleAttachAddressFocusHotKey(e);
+    this.handleAttachReloadHotKey(e);
+  };
 
-    if (e[additionKey] && (e.key === 'l' || e.key === 'ㅣ')) {
+  handleAttachAddressFocusHotKey = (e) => {
+    const command = os.platform() === 'darwin' ? e.metaKey : e.ctrlKey;
+    const isInsertCmdL = command && e.keyCode === 76;
+    const isInsertEsc = e.keyCode === 27;
+
+    if (isInsertCmdL) {
       this.addressInputRef.current.select();
     }
-    if (document.activeElement === this.addressInputRef.current &&
-      e.key === 'Escape') {
+
+    if (isInsertEsc) {
       this.addressInputRef.current.blur();
     }
-  }
+  };
 
-  handleAttachReloadHotKey(e) {
+  handleAttachReloadHotKey = (e) => {
     const { currentUrl, webView } = this.props;
-    let command;
-    if (os.platform() === 'darwin') {
-      command = e.metaKey;
-    } else {
-      command = e.altKey;
-    }
+    const command = os.platform() === 'darwin' ? e.metaKey : e.altKey;
+    const isInsertCmdR = command && e.keyCode === 82;
 
-    if (command && (e.key === 'r' || e.key === 'ㄱ')) {
+    if (isInsertCmdR) {
       webView.reload();
-      this.setState({
-        addressValue: currentUrl,
-      });
+      this.setState({ addressValue: currentUrl });
     }
-  }
+  };
 
-  handleAddressChange(e) {
+  handleAddressChange = (e) => {
     this.setState({ addressValue: e.target.value });
-  }
+  };
 
-  handleAddressEnter(e) {
+  handleAddressEnter = (e) => {
     const { webView } = this.props;
-    const { addressValue } = this.state;
+    const { addressValue: address } = this.state;
+    let nextUrl = address;
 
     if (e.key === 'Enter') {
-      const isUrlFormat = addressValue.indexOf('http://') === 0 || addressValue.indexOf('https://') === 0;
-      if (!isUrlFormat) {
-        this.setState(prevState => ({
-          addressValue: `https://${prevState.addressValue}`,
-        }), () => {
-          const { addressValue: nextAddressValue } = this.state;
-          webView.loadURL(nextAddressValue);
-        });
+      if (!isUrl(address) && !isUrl(`https://${address}`)) {
+        nextUrl = `https://www.google.com/search?q=${address}`;
       } else {
-        webView.loadURL(addressValue);
+        nextUrl = /^http(s)?:\/\//.test(address) ? address : `http://${address}`;
       }
+      webView.loadURL(nextUrl);
     }
-  }
+  };
 
-  handleNavigateToHome() {
+  handleNavigateToHome = () => {
     const { homeUrl, webView } = this.props;
 
     webView.loadURL(homeUrl);
-    this.setState({ addressValue: homeUrl });
-  }
+  };
 
-  handleNavigateReload() {
-    const { currentUrl, webView } = this.props;
+  handleNavigateReload = () => {
+    const { webView } = this.props;
 
     webView.reload();
-    this.setState({ addressValue: currentUrl });
-  }
+  };
 
-  handleToggleIsOnTop() {
+  handleToggleIsOnTop = () => {
     const { id, isOnTop, onUpdateWidgetInfo } = this.props;
 
-    onUpdateWidgetInfo(id, {
-      isOnTop: !isOnTop,
-    });
-  }
+    onUpdateWidgetInfo(id, { isOnTop: !isOnTop });
+  };
 
-  handleToggleMenu(value) {
+  handleToggleMenu = (value) => {
     const { isMakeProgress } = this.props;
 
     if (isMakeProgress) {
@@ -179,7 +147,7 @@ class AddressBar extends React.Component {
     } else {
       this.setState(prevState => ({ isMenuOpen: !prevState.isMenuOpen }));
     }
-  }
+  };
 
   render() {
     const { addressValue, isMenuOpen } = this.state;

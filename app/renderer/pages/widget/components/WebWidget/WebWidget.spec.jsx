@@ -4,6 +4,7 @@ import configureStore from 'redux-mock-store';
 import { mount } from 'enzyme';
 import NProgress from 'nprogress';
 import * as USER_AGENT from 'constants/userAgent';
+import * as PATH from 'constants/path';
 import widgetContextMenu from 'main/utils/menu/widgetContextMenu';
 import storeMock from 'app/__mocks__/storeMock';
 
@@ -11,6 +12,9 @@ import WebWidget from '.';
 
 jest.mock('nprogress');
 jest.mock('main/utils/menu/widgetContextMenu');
+jest.mock('constants/path');
+
+PATH.PRELOAD_SCRIPT_PATH = '/mock-path/app/constants/build/preloadScript.js';
 
 function getComponent(props) {
   const mockStore = configureStore([])(storeMock);
