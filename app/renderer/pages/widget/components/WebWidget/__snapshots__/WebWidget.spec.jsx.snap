@@ -210,7 +210,7 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
     >
       <webview
         className="WebWidget__webview"
-        preload="file:///Users/ahnhyunmo/project/oh-my-desk/app/constants/build/preloadScript.js"
+        preload="file:///mock-path/app/constants/build/preloadScript.js"
         src="https://google.co.kr"
       />
     </div>
