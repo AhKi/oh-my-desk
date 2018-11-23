@@ -46,10 +46,12 @@ describe('test WebWidget', () => {
       const configureNavigateEvent = jest.fn();
       const configureNewWindowEvent = jest.fn();
       const configureContextMenu = jest.fn();
+      const configureGetMousePosition = jest.fn();
       wrapper.instance().configureLoader = configureLoader;
       wrapper.instance().configureNavigateEvent = configureNavigateEvent;
       wrapper.instance().configureNewWindowEvent = configureNewWindowEvent;
       wrapper.instance().configureContextMenu = configureContextMenu;
+      wrapper.instance().configureGetMousePosition = configureGetMousePosition;
 
       wrapper.instance().componentDidMount();
 
@@ -58,6 +60,7 @@ describe('test WebWidget', () => {
       expect(configureNavigateEvent).toHaveBeenCalledTimes(1);
       expect(configureNewWindowEvent).toHaveBeenCalledTimes(1);
       expect(configureContextMenu).toHaveBeenCalledTimes(1);
+      expect(configureGetMousePosition).toHaveBeenCalledTimes(1);
     });
 
     describe('should test componentDidUpdate', () => {
@@ -250,6 +253,24 @@ describe('test WebWidget', () => {
       cb();
 
       expect(widgetContextMenu).toHaveBeenCalledTimes(1);
+    });
+
+    it('test configureGetMousePosition', () => {
+      const { configureGetMousePosition } = wrapper.instance();
+      const windowAddEventListener = jest.spyOn(window, 'addEventListener');
+      widgetContextMenu.mockImplementation = jest.fn();
+
+      configureGetMousePosition();
+
+      expect(windowAddEventListener).toHaveBeenNthCalledWith(1, 'mousedown', expect.any(Function));
+
+      const cb = windowAddEventListener.mock.calls[0][1];
+      cb({ pageX: 100, pageY: 200 });
+
+      expect(wrapper.instance().mousePosition).toEqual({
+        x: 100,
+        y: 200,
+      });
     });
 
     it('test getUserAgent', () => {
