@@ -1,73 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
 import i18n from 'constants/i18n';
-import EditTab from '../EditTab';
 import './MakeNotice.scss';
 
 const propTypes = {
-  currentUrl: PropTypes.string,
-  id: PropTypes.string,
-  title: PropTypes.string,
-  onCheckUrlValidation: PropTypes.func,
+  onCloseNotice: PropTypes.func,
 };
 const defaultProps = {
-  currentUrl: '',
-  id: '',
-  title: '',
-  onCheckUrlValidation() {},
+  onCloseNotice() {},
 };
 
 class MakeNotice extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpenTab: false,
-    };
-    this.handleToggleTab = this.handleToggleTab.bind(this);
-  }
-
-  handleToggleTab() {
-    this.setState(prevState => ({
-      isOpenTab: !prevState.isOpenTab,
-    }));
-  }
-
-
   render() {
-    const { isOpenTab } = this.state;
-    const {
-      currentUrl,
-      id,
-      title,
-      onCheckUrlValidation,
-    } = this.props;
+    const { onCloseNotice } = this.props;
     const text = i18n().widget;
-    const barClassName = cx('MakeNotice__bar', {
-      'MakeNotice__bar--hidden': isOpenTab,
-    });
 
-    return [
-      <div className={barClassName} key="bar">
+    return (
+      <div className="MakeNotice__bar" key="bar">
         <p className="MakeNotice__bar-text">{text.makeBarContent}</p>
         <button
           className="MakeNotice__bar-btn"
           type="button"
-          onClick={this.handleToggleTab}
+          onClick={onCloseNotice}
         >
           {text.makeWidget} {'>'}
         </button>
-      </div>,
-      <EditTab
-        currentUrl={currentUrl}
-        hidden={!isOpenTab}
-        key="tab"
-        id={id}
-        title={title}
-        onCheckUrlValidation={onCheckUrlValidation}
-        onCloseTab={this.handleToggleTab}
-      />,
-    ];
+      </div>
+    );
   }
 }
 

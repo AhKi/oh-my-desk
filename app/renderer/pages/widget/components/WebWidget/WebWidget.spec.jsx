@@ -315,18 +315,36 @@ describe('test WebWidget', () => {
       expect(setState).toHaveBeenNthCalledWith(1, { newWindowURL: '' });
     });
 
-    it('test handleCloseNewWindowMenu', () => {
-      const widget = { id: 'mock-id' };
-      const onCancelEditWidget = jest.fn();
-      const component = getComponent({
-        widget,
-        onCancelEditWidget,
+    describe('test handleCancelEditWidget', () => {
+      it('when isEditProgress === true', () => {
+        const widget = { id: 'mock-id', isEditProgress: true };
+        const onCancelEditWidget = jest.fn();
+        const component = getComponent({
+          widget,
+          onCancelEditWidget,
+        });
+        component.instance().setState = setState;
+
+        const { handleCancelEditWidget } = component.instance();
+
+        handleCancelEditWidget();
+
+        expect(onCancelEditWidget).toHaveBeenNthCalledWith(1, 'mock-id');
+        expect(setState).toHaveBeenNthCalledWith(1, { isMakeMenuOpen: false });
+
+        onCancelEditWidget.mockClear();
+        component.instance().props = { widget: { id: 'mock-id', isEditProgress: false } };
+        handleCancelEditWidget();
+
+        expect(onCancelEditWidget).toHaveBeenCalledTimes(0);
+        expect(setState).toHaveBeenNthCalledWith(1, { isMakeMenuOpen: false });
       });
-      const { handleCancelEditWidget } = component.instance();
+    });
 
-      handleCancelEditWidget();
+    it('test handleCloseMakeNotice', () => {
+      wrapper.instance().handleCloseMakeNotice();
 
-      expect(onCancelEditWidget).toHaveBeenNthCalledWith(1, 'mock-id');
+      expect(setState).toHaveBeenNthCalledWith(1, { isMakeMenuOpen: true });
     });
 
     describe('test loadPage', () => {

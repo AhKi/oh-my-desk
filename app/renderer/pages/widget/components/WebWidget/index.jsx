@@ -39,6 +39,7 @@ class WebWidget extends React.Component {
     currentUrl: '',
     isLoading: false,
     isSettingOpen: false,
+    isMakeMenuOpen: false,
     newWindowURL: null,
   };
   webViewRef = React.createRef();
@@ -165,7 +166,15 @@ class WebWidget extends React.Component {
   handleCancelEditWidget = () => {
     const { widget, onCancelEditWidget } = this.props;
 
-    onCancelEditWidget(widget.id);
+    this.setState({ isMakeMenuOpen: false });
+
+    if (widget.isEditProgress) {
+      onCancelEditWidget(widget.id);
+    }
+  };
+
+  handleCloseMakeNotice = () => {
+    this.setState({ isMakeMenuOpen: true });
   };
 
   loadPage = (loadUrl, userAgent) => {
@@ -188,6 +197,7 @@ class WebWidget extends React.Component {
     const {
       currentUrl,
       isLoading,
+      isMakeMenuOpen,
       newWindowURL,
     } = this.state;
     const {
@@ -196,6 +206,7 @@ class WebWidget extends React.Component {
       onMakeWidget,
       onUpdateInfo,
     } = this.props;
+    const isInfoEdit = widget.isEditProgress || (widget.isMakeProgress && isMakeMenuOpen);
 
     return (
       <div className="WebWidget">
@@ -205,12 +216,10 @@ class WebWidget extends React.Component {
           isLoading={isLoading}
           onToggleSetting={this.handleToggleSettingMenu}
         />
-        {widget.isMakeProgress && (
+        {widget.isMakeProgress && !isMakeMenuOpen && (
           <MakeNotice
-            currentUrl={currentUrl}
-            id={widget.id}
-            title={text.addWidget}
             onCheckUrlValidation={onCheckUrlValidation}
+            onCloseNotice={this.handleCloseMakeNotice}
           />
         )}
         {widget.reloadInterval ? (
@@ -242,12 +251,12 @@ class WebWidget extends React.Component {
               slashed: true,
             })}
           />
-          {widget.isEditProgress && (
+          {isInfoEdit && (
             <EditTab
               currentUrl={currentUrl}
               id={widget.id}
               name={widget.name}
-              title={text.editWidget}
+              title={widget.isEditProgress ? text.editWidget : text.addWidget}
               onCloseTab={this.handleCancelEditWidget}
               onCheckUrlValidation={onCheckUrlValidation}
             />
