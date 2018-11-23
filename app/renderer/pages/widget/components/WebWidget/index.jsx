@@ -52,14 +52,7 @@ class WebWidget extends React.Component {
     this.configureNavigateEvent();
     this.configureNewWindowEvent();
     this.configureContextMenu();
-
-
-    window.addEventListener('mousemove', (e) => {
-      this.mousePosition = {
-        x: e.pageX,
-        y: e.pageY,
-      };
-    });
+    this.configureGetMousePosition();
   }
 
   componentDidUpdate(prevProps) {
@@ -122,6 +115,18 @@ class WebWidget extends React.Component {
 
     window.addEventListener('contextmenu', () => {
       widgetContextMenu(webView);
+    });
+  };
+
+  /**
+   * Need to popup new-window context menu
+   */
+  configureGetMousePosition = () => {
+    window.addEventListener('mousedown', (e) => {
+      this.mousePosition = {
+        x: e.pageX,
+        y: e.pageY,
+      };
     });
   };
 
