@@ -53,6 +53,10 @@ class WebWidget extends React.Component {
     this.configureNewWindowEvent();
     this.configureContextMenu();
     this.configureGetMousePosition();
+
+    // this.webViewRef.current.addEventListener('dom-ready', () => {
+    //   this.webViewRef.current.openDevTools();
+    // });
   }
 
   componentDidUpdate(prevProps) {
@@ -98,9 +102,14 @@ class WebWidget extends React.Component {
   configureNavigateEvent = () => {
     const webView = this.webViewRef.current;
     const changeUrl = e => this.setState({ currentUrl: e.url });
+    const changeUrlInPage = (e) => {
+      if (e.isMainFrame) {
+        changeUrl(e);
+      }
+    };
 
     webView.addEventListener('did-navigate', changeUrl); // for Multi Page Application
-    webView.addEventListener('did-navigate-in-page', changeUrl); // for Single Page Application
+    webView.addEventListener('did-navigate-in-page', changeUrlInPage); // for Single Page Application
   };
 
   configureNewWindowEvent = () => {

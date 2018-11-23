@@ -211,12 +211,18 @@ describe('test WebWidget', () => {
               break;
             }
             case 'did-navigate-in-page': {
-              it('when did-navigate-in-page', () => {
-                mock[1]({ url: 'mock-url' });
+              it('when did-navigate-in-page with isMainFrame === true', () => {
+                mock[1]({ url: 'mock-url', isMainFrame: true });
 
                 expect(setState).toHaveBeenNthCalledWith(1, {
                   currentUrl: 'mock-url',
                 });
+              });
+
+              it('when did-navigate-in-page with isMainFrame === false', () => {
+                mock[1]({ url: 'mock-url', isMainFrame: false });
+
+                expect(setState).toHaveBeenCalledTimes(0);
               });
               break;
             }
