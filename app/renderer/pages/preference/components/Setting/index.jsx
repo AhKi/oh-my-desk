@@ -103,12 +103,6 @@ class Setting extends React.Component {
               <option value="MOBILE">{text.mobileMode}</option>
             </select>
           </li>
-          <li className="Setting__list">
-            {text.themeColor}
-            <select>
-              <option value="English">{text.colorSpaceGray}</option>
-            </select>
-          </li>
         </ul>
       </div>
     );
