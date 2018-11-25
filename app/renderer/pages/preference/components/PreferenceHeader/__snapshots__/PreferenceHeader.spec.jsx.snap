@@ -5,9 +5,6 @@ exports[`<PreferenceHeader /> should match to snapshot when render default 1`] =
   className="PreferenceHeader"
 >
   <div
-    className="PreferenceHeader__Draggable"
-  />
-  <div
     className="PreferenceHeader__nav"
   >
     <NavLink

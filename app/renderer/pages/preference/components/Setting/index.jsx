@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import i18n from 'constants/i18n';
 import ToggleButton from 'renderer/components/ToggleButton';
 import WidgetModeConfirm from '../Modal/WidgetModeConfirm';
+import ConfigureHotKeyContainer from '../../containers/ConfigureHotKeyContainer';
 import './Setting.scss';
 
 const propTypes = {
@@ -113,6 +114,10 @@ class Setting extends React.Component {
                 <option value="DESKTOP">{text.desktopMode}</option>
                 <option value="MOBILE">{text.mobileMode}</option>
               </select>
+            </li>
+            <li className="Setting__list">
+              {text.hotKeySearch}
+              <ConfigureHotKeyContainer />
             </li>
           </ul>
         </div>

@@ -22,8 +22,7 @@ const openPreference = () => {
   winPreference = new BrowserWindow({
     acceptFirstMouse: true,
     width: 500,
-    height: 400,
-    titleBarStyle: 'hidden',
+    height: 450,
     resizable: false,
     webPreferences: {
       devTools: process.env.NODE_ENV === 'development',
