@@ -1,70 +1,87 @@
-# oh-my-desk [![CircleCI](https://circleci.com/gh/AhKi/oh-my-desk.svg?style=shield&circle-token=f779ef67e3b142774ebbf79072fe2f54c617d61a)](https://circleci.com/gh/AhKi/oh-my-desk) [![License](https://img.shields.io/badge/license-GPL%20v3-green.svg)](https://github.com/AhKi/oh-my-desk/blob/master/LICENSE) <a href='https://coveralls.io/github/AhKi/oh-my-desk'><img src='https://coveralls.io/repos/github/AhKi/oh-my-desk/badge.svg' alt='Coverage Status' /></a>
+# Oh-My-Desk [![CircleCI](https://circleci.com/gh/AhKi/oh-my-desk.svg?style=shield&circle-token=f779ef67e3b142774ebbf79072fe2f54c617d61a)](https://circleci.com/gh/AhKi/oh-my-desk) [![License](https://img.shields.io/badge/license-GPL%20v3-green.svg)](https://github.com/AhKi/oh-my-desk/blob/master/LICENSE) <a href='https://coveralls.io/github/AhKi/oh-my-desk'><img src='https://coveralls.io/repos/github/AhKi/oh-my-desk/badge.svg' alt='Coverage Status' /></a>
 
-it is using web page as a widget that desktop application.
-
-## OverView
-![oh-my-desk preference](https://user-images.githubusercontent.com/23732795/43676963-88ff653c-9835-11e8-9085-e4fd1ffc1097.png)
-![oh-my-desk widget](https://user-images.githubusercontent.com/23732795/43676972-9a34881e-9835-11e8-8bf2-adbe0ae48030.png)
+It is using web page as a widget that desktop application.
 
 ## Download
-[For Window](https://github.com/AhKi/oh-my-desk/releases/download/v1.1.2/oh-my-desk-setup-1.1.2.exe)
+[For Window](https://github.com/AhKi/oh-my-desk/releases/download/v2.0.0/oh-my-desk-setup-2.0.0.exe)
 
-[For MacOS](https://github.com/AhKi/oh-my-desk/releases/download/v1.1.2/oh-my-desk-1.1.2.dmg)
+[For MacOS](https://github.com/AhKi/oh-my-desk/releases/download/v2.0.0/oh-my-desk-2.0.0.dmg)
+
+## OverView
+
+### Whole view
+![oh-my-desk whole view](https://user-images.githubusercontent.com/23732795/48982013-337ede00-f120-11e8-9385-9db14d17d942.png)
+<p align="center">
+  Can stick web-site in desktop.
+</p>
+
+### Search Window
+![oh-my-desk search view](https://user-images.githubusercontent.com/23732795/48982073-f109d100-f120-11e8-8c3a-b6416e6afb86.png)
+<p align="center">
+  Can manage widget. And open using keyboard-hotkey without mouse.
+</p>
+
+### Widget Detail
+![oh-my-desk widget detail](https://user-images.githubusercontent.com/23732795/48982092-231b3300-f121-11e8-8769-ea2ba070e3e2.png)
+<p align="center">
+  Widget looks like browser. Can using almost feature about browser.
+</p>
+
+### Preference
+![oh-my-desk preference](https://user-images.githubusercontent.com/23732795/48982110-4e9e1d80-f121-11e8-8e13-a3822548ae85.png)
+<p align="center">
+  Can configure `oh-my-desk` application.
+</p>
 
 ## Getting Started 
 
-you must install package manager like [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/lang/en/) 
+This project use [yarn](https://yarnpkg.com/lang/en/) for package manager.
 
-**Install Application**
-
+**Project Clone**
 ```
 git clone https://github.com/AhKi/oh-my-desk.git
 cd oh-my-desk
-npm install && npm run build // when using npm
 ```
-open `Window Explorer`(or `Finder` in mac).
-execute `.exe` or `.dmg` file and install.
 
 **Start Project**
 
 ```
-git clone https://github.com/AhKi/oh-my-desk.git
-cd oh-my-desk
-npm install && npm run start // when using npm
+yarn && yarn start 
 ```
 
-**Show test coverage**
+**Show Unit test coverage**
 
 ```
-npm install
-npm run test:coverage
-npm run coverage
+yarn && yarn test
+```
+
+**Build**
+
+```
+yarn && yarn package
 ```
 
 ## Documentation
 
-we manage document in this repository [wiki](https://github.com/AhKi/oh-my-desk/wiki)
+`Oh-My-Desk` consist of [actions](https://github.com/AhKi/oh-my-desk/blob/master/app/actions/README.md), [main](https://github.com/AhKi/oh-my-desk/blob/master/app/main/README.md), [renderer](https://github.com/AhKi/oh-my-desk/blob/master/app/renderer/README.md) and [Store](https://github.com/AhKi/oh-my-desk/blob/master/app/store/README.md)
+
+~~[Show Detail Documentation]~~ **In Progressing**
 
 ## Contributing
 
-~~We want to using this application widely.
-So many registration issues are welcome because we want to receive various opinions.~~
+Welcome about any tiny issue.
 
-~~Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.~~
+We want to using this application widely.
 
-Thank you for your interest. 
+So many registration issues are welcome because we want to receive various opinions.
 
-But Please wait for a moment if you want to contribute. Because We are preparing release v2.0.0. It may be have huge breaking change. 
-
-So, Before release v2.0.0, it's hard to get your help. Please wait for the present work to be completed. 
-
-[You can preview about v2.0.0!](https://github.com/AhKi/oh-my-desk/issues/141)
+If you want chat us, [Join Oh-My-Desk Open Community in slack](https://join.slack.com/t/oh-my-desk/shared_invite/enQtNDUyMjM4MzA0NTk1LTJjYzM2YWNiZmNkMDI4ODAwNDAzYTljYzNkZDc1MTU1YTQxNGViMTZjZGFlOWUxZTM1OWM0YWU4YzEwNzIzMDI)
 
 ## License
 oh-my-desk is licensed under the [GNU GENERAL PUBLIC LICENSE v3](https://github.com/AhKi/oh-my-desk/blob/edit/read-me/LICENSE).
 
 ```
-Copyright (C) 2017-present,  HyunmoAhn, Produck
+Copyright (C) 2017-present,  HyunmoAhn
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

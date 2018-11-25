@@ -1,16 +1,15 @@
-// This is just guide line.
-// You can write freely.
+**Do you want to request a *feature* or report a *bug*?**
 
-## Description
+**What is the current behavior?**
 
-## Type of Issue
+**Expected behavior**
 
-> Bug
-> Suggestion
-> Feature
-> Question
-> etc.
+**URL attempting to access**
 
-## Reference
+**Screenshots (Optional But May Be Requested)**
 
-## Etc
+**Oh-My-Desk Version:**
+
+**OS / OS Version:**
+
+Any issue that doesn't have all of these filled in will be closed, if yours is closed reopen with everything filled in.
