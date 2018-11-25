@@ -70,40 +70,52 @@ class Setting extends React.Component {
 
     return (
       <div className="Setting">
-        <p className="Setting__title">{text.user}</p>
-        <ul className="Setting__list-set">
-          <li className="Setting__list">
-            {text.autoStart}
-            <ToggleButton
-              isCheck={isLaunchAppWhenLogin}
-              onToggle={onToggleOpenAppWhenLogin}
-            />
-          </li>
-          <li className="Setting__list">
-            {text.autoWidgetActive}
-            <ToggleButton
-              isCheck={isOpenWidgetWhenStart}
-              onToggle={onToggleOpenWidgetWhenStart}
-            />
-          </li>
-          <li className="Setting__list">
-            {text.language}
-            <select value={language} onChange={this.handleChangeLanguage}>
-              <option value="English">English</option>
-              <option value="Korean">한국어</option>
-            </select>
-          </li>
-        </ul>
-        <p className="Setting__title">{text.shape}</p>
-        <ul className="Setting__list-set">
-          <li className="Setting__list">
-            {text.defaultWidgetMode}
-            <select value={defaultUserAgent} onChange={this.handleOpenWidgetModeModal}>
-              <option value="DESKTOP">{text.desktopMode}</option>
-              <option value="MOBILE">{text.mobileMode}</option>
-            </select>
-          </li>
-        </ul>
+        <div>
+          <p className="Setting__title">{text.user}</p>
+          <ul className="Setting__list-set">
+            <li className="Setting__list">
+              {text.autoStart}
+              <ToggleButton
+                isCheck={isLaunchAppWhenLogin}
+                onToggle={onToggleOpenAppWhenLogin}
+              />
+            </li>
+            <li className="Setting__list">
+              {text.autoWidgetActive}
+              <ToggleButton
+                isCheck={isOpenWidgetWhenStart}
+                onToggle={onToggleOpenWidgetWhenStart}
+              />
+            </li>
+            <li className="Setting__list">
+              {text.language}
+              <select
+                className="InputSet__select"
+                value={language}
+                onChange={this.handleChangeLanguage}
+              >
+                <option value="English">English</option>
+                <option value="Korean">한국어</option>
+              </select>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p className="Setting__title">{text.shape}</p>
+          <ul className="Setting__list-set">
+            <li className="Setting__list">
+              {text.defaultWidgetMode}
+              <select
+                className="InputSet__select"
+                value={defaultUserAgent}
+                onChange={this.handleOpenWidgetModeModal}
+              >
+                <option value="DESKTOP">{text.desktopMode}</option>
+                <option value="MOBILE">{text.mobileMode}</option>
+              </select>
+            </li>
+          </ul>
+        </div>
       </div>
     );
   }

@@ -7,14 +7,22 @@ exports[`<PreferenceHeader /> should match to snapshot when render default 1`] =
   <div
     className="PreferenceHeader__Draggable"
   />
-  <NavLink
-    activeClassName="PreferenceHeader__Link--select"
-    aria-current="page"
-    className="PreferenceHeader__Link"
-    exact={true}
-    to="/"
+  <div
+    className="PreferenceHeader__nav"
   >
-    Basic
-  </NavLink>
+    <NavLink
+      activeClassName="PreferenceHeader__Link--select"
+      aria-current="page"
+      className="PreferenceHeader__Link"
+      exact={true}
+      to="/"
+    >
+      <img
+        alt=""
+        className="PreferenceHeader__icon"
+        src={Object {}}
+      />
+    </NavLink>
+  </div>
 </div>
 `;

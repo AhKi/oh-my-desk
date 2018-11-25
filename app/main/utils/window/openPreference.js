@@ -21,7 +21,7 @@ const openPreference = () => {
 
   winPreference = new BrowserWindow({
     acceptFirstMouse: true,
-    width: 700,
+    width: 500,
     height: 400,
     titleBarStyle: 'hidden',
     resizable: false,
