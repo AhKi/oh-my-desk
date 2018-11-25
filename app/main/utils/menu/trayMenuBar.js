@@ -37,4 +37,9 @@ trayMenuBar.on('hide', () => {
   globalShortcut.unregister('Escape');
 });
 
+trayMenuBar.on('after-close', () => {
+  store.dispatch(searchTrayClose());
+  globalShortcut.unregister('Escape');
+});
+
 export default trayMenuBar;
