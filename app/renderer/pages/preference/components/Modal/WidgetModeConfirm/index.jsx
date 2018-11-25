@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import i18n from 'constants/i18n';
+import './WidgetModeConfirm.scss';
 
 const propTypes = {
   onChangeMode: PropTypes.func,
@@ -29,21 +30,27 @@ class WidgetModeConfirm extends React.Component {
     const text = i18n().preference;
 
     return (
-      <div>
+      <div className="WidgetModeConfirm__container">
         <h3>{text.widgetModeConfirmTitle}</h3>
-        <p>{text.widgetModeConfirmContent}</p>
-        <button
-          type="button"
-          onClick={onModalClose}
-        >
-          {text.changedCancel}
-        </button>
-        <button
-          type="button"
-          onClick={this.handleChange}
-        >
-          {text.ok}
-        </button>
+        <p className="WidgetModeConfirm__content">
+          {text.widgetModeConfirmContent}
+        </p>
+        <div className="WidgetModeConfirm__btn-set">
+          <button
+            className="Btn Btn--sm Btn--gray"
+            type="button"
+            onClick={onModalClose}
+          >
+            {text.changedCancel}
+          </button>
+          <button
+            className="Btn Btn--sm Btn--primary"
+            type="button"
+            onClick={this.handleChange}
+          >
+            {text.ok}
+          </button>
+        </div>
       </div>
     );
   }

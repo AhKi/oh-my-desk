@@ -11,8 +11,11 @@
   -webkit-app-region: drag;
 }
 
+.PreferenceHeader__nav {
+  display: flex;
+}
+
 .PreferenceHeader__Link {
-  float: left;
   font-size: 13px;
   height: 55px;
   padding: 5px;
@@ -22,4 +25,9 @@
 
 .PreferenceHeader__Link--select {
   background-color: rgb(195, 195, 195);
+}
+
+.PreferenceHeader__icon {
+  width: 45px;
+  height: 45px;
 }

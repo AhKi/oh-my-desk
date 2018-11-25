@@ -1,0 +1,19 @@
+.WidgetModeConfirm__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  font-family: inherit;
+}
+
+.WidgetModeConfirm__content {
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+.WidgetModeConfirm__btn-set {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}

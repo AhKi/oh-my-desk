@@ -1,19 +1,31 @@
 .Setting {
-  margin: 15px;
+  margin: 0 15px 15px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .Setting__title {
   font-weight: 600;
   font-size: 14px;
+  margin: 10px 0;
 }
 
 .Setting__list {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
   background: white;
   font-size: 14px;
+  border-bottom: 1px solid $color-cool-gray200;
+  height: 45px;
 }
 
 .Setting__list-set {
   box-shadow: 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.Setting__select {
+  width: 400px;
 }
