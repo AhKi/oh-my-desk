@@ -2,6 +2,59 @@
   width: 40%;
   background-color: #f7f7f7;
   height: 100%;
+  min-width: 200px;
+
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 15px 10px 10px rgba(170,170,170,0.7);
+  z-index: 3;
+}
+
+.EditTab__Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+  border-bottom: 2px solid $color-cool-gray200;
+}
+
+.EditTab__title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.EditTab__close-btn {
+  height: 100%;
+  width: 30px;
+}
+
+.EditTab__close-icon {
+  height: 100%;
+  width: 100%;
+}
+
+.EditTab__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.EditTab__input-set {
+  margin: 20px 20px 0 20px;
+  width: 90%;
+}
+
+.EditTab__label {
+  font-size: 16px;
+  align-self: baseline;
+}
+
+.EditTab__input {
+  &:focus {
+    outline: 2px solid $color-blue;
+  }
 }
 
 .EditTab__highlight {
@@ -10,4 +63,15 @@
 
 .EditTab__hidden {
   display: none;
+}
+
+.EditTab__btn-set {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.EditTab__btn {
+  font-size: 16px;
 }

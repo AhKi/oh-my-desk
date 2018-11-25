@@ -69,12 +69,9 @@ class EditTab extends React.Component {
 
     const { name, url } = this.state;
     const { id, onCheckUrlValidation } = this.props;
-    const isUrlFormat = url.indexOf('http://') === 0 || url.indexOf('https://') === 0;
-    let nextUrl = url;
-    if (!isUrlFormat) {
-      nextUrl = `https://${url}`;
-      this.setState({ url: nextUrl });
-    }
+
+    const nextUrl = /^http(s)?:\/\//.test(url) ? url : `http://${url}`;
+    this.setState({ url: nextUrl });
 
     onCheckUrlValidation(id, name, nextUrl);
   }
@@ -90,32 +87,35 @@ class EditTab extends React.Component {
     const tabClassName = cx('EditTab', {
       EditTab__hidden: hidden,
     });
-    const urlClassName = cx('InputSet__dividing-inputs-group', {
+    const urlClassName = cx('InputSet__text-input', 'EditTab__input', {
       EditTab__highlight: isUrlHighlight,
     });
 
     return (
       <div className={tabClassName}>
-        <h1>{title}</h1>
-        <button
-          type="button"
-          onClick={onCloseTab}
-        >
-          <img src={closeIcon} alt="" />
-        </button>
-        <form onSubmit={this.handleCheckUrlValidation}>
-          <div className="InputSet">
-            <p className="InputSet__label">{text.name}</p>
+        <div className="EditTab__Header">
+          <p className="EditTab__title">{title}</p>
+          <button
+            className="EditTab__close-btn"
+            type="button"
+            onClick={onCloseTab}
+          >
+            <img className="EditTab__close-icon" src={closeIcon} alt="" />
+          </button>
+        </div>
+        <form className="EditTab__form" onSubmit={this.handleCheckUrlValidation}>
+          <div className="InputSet EditTab__input-set">
+            <p className="InputSet__label EditTab__label">{text.name}</p>
             <input
               autoFocus // eslint-disable-line jsx-a11y/no-autofocus
-              className="InputSet__dividing-inputs-group"
+              className="InputSet__text-input EditTab__input"
               type="text"
               value={name}
               onChange={this.handleChangeName}
             />
           </div>
-          <div className="InputSet">
-            <p className="InputSet__label">{text.url}</p>
+          <div className="InputSet EditTab__input-set">
+            <p className="InputSet__label EditTab__label">{text.url}</p>
             <input
               className={urlClassName}
               type="text"
@@ -123,16 +123,16 @@ class EditTab extends React.Component {
               onChange={this.handleChangeUrl}
             />
           </div>
-          <div>
+          <div className="EditTab__btn-set">
             <button
-              className="Btn Btn--gray"
+              className="EditTab__btn Btn Btn--md Btn--gray"
               type="button"
               onClick={onCloseTab}
             >
               {text.cancel}
             </button>
             <button
-              className="Btn Btn--primary"
+              className="EditTab__btn Btn Btn--md Btn--primary"
               type="submit"
             >
               {text.config}
