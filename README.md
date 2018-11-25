@@ -1,4 +1,16 @@
-# Oh-My-Desk [![CircleCI](https://circleci.com/gh/AhKi/oh-my-desk.svg?style=shield&circle-token=f779ef67e3b142774ebbf79072fe2f54c617d61a)](https://circleci.com/gh/AhKi/oh-my-desk) [![License](https://img.shields.io/badge/license-GPL%20v3-green.svg)](https://github.com/AhKi/oh-my-desk/blob/master/LICENSE) <a href='https://coveralls.io/github/AhKi/oh-my-desk'><img src='https://coveralls.io/repos/github/AhKi/oh-my-desk/badge.svg' alt='Coverage Status' /></a>
+
+  <p align="center"><img src="https://user-images.githubusercontent.com/23732795/48982423-80b17e80-f125-11e8-9a9e-0d6ca1ddb4c4.png" alt="Oh-My-Desk-logo"></img></p>
+
+<h1 align="center">Oh-My-Desk</h1>
+<p align="center">
+  <a href='https://circleci.com/gh/AhKi/oh-my-desk'><img src='https://circleci.com/gh/AhKi/oh-my-desk.svg?style=shield&circle-token=f779ef67e3b142774ebbf79072fe2f54c617d61a' alt='Circle CI' /></a>
+  <img src='https://img.shields.io/badge/platform-macOS%20%7C%20Window-blue.svg'></image>
+  <a href='https://img.shields.io/badge/license-GPL%20v3-green.svg)](https://github.com/AhKi/oh-my-desk/blob/master/LICENSE'><img src='https://img.shields.io/badge/license-GPL%20v3-green.svg' alt='License' /></a>
+  <a href='https://coveralls.io/github/AhKi/oh-my-desk'><img src='https://coveralls.io/repos/github/AhKi/oh-my-desk/badge.svg' alt='Coverage Status' /></a>
+  <img src='https://img.shields.io/badge/contribute-welcome-green.svg'></image>
+</p>
+
+
 
 It is using web page as a widget that desktop application.
 
@@ -10,25 +22,33 @@ It is using web page as a widget that desktop application.
 ## OverView
 
 ### Whole view
-![oh-my-desk whole view](https://user-images.githubusercontent.com/23732795/48982013-337ede00-f120-11e8-9385-9db14d17d942.png)
+<p align="center">
+  <img align="center" src="https://user-images.githubusercontent.com/23732795/48982013-337ede00-f120-11e8-9385-9db14d17d942.png" alt="oh-my-desk whole view"></img>
+</p>
 <p align="center">
   Can stick web-site in desktop.
 </p>
 
 ### Search Window
-![oh-my-desk search view](https://user-images.githubusercontent.com/23732795/48982073-f109d100-f120-11e8-8c3a-b6416e6afb86.png)
+<p align="center">
+  <img align="center" src="https://user-images.githubusercontent.com/23732795/48982073-f109d100-f120-11e8-8c3a-b6416e6afb86.png" alt="oh-my-desk search view"></img>
+</p>
 <p align="center">
   Can manage widget. And open using keyboard-hotkey without mouse.
 </p>
 
 ### Widget Detail
-![oh-my-desk widget detail](https://user-images.githubusercontent.com/23732795/48982092-231b3300-f121-11e8-8769-ea2ba070e3e2.png)
+<p align="center">
+  <img align="center" src="https://user-images.githubusercontent.com/23732795/48982092-231b3300-f121-11e8-8769-ea2ba070e3e2.png" alt="oh-my-desk widget detail"></img>
+</p>
 <p align="center">
   Widget looks like browser. Can using almost feature about browser.
 </p>
 
 ### Preference
-![oh-my-desk preference](https://user-images.githubusercontent.com/23732795/48982110-4e9e1d80-f121-11e8-8e13-a3822548ae85.png)
+<p align="center">
+  <img align="center" src="https://user-images.githubusercontent.com/23732795/48982110-4e9e1d80-f121-11e8-8e13-a3822548ae85.png" alt="oh-my-desk preference"></img>
+</p>
 <p align="center">
   Can configure `oh-my-desk` application.
 </p>
