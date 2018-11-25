@@ -9,7 +9,6 @@ win:
 nsis:
   installerHeaderIcon: "app/assets/oh-my-desk-icon.png"
 mac:
-  target: "dmg"
   category: "oh.my.desk"
   icon: "app/assets/oh-my-desk-icon"
 dmg:

@@ -22,6 +22,6 @@ describe('test getStoredDataInDisk', () => {
     const result = getData();
 
     expect(fs.readFileSync).toHaveBeenCalledTimes(0);
-    expect(result).toEqual(SETTING.defaultWidgets);
+    expect(result).toEqual(JSON.parse(SETTING.defaultWidgets));
   });
 });
