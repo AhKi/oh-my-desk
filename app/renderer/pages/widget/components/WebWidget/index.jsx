@@ -54,10 +54,6 @@ class WebWidget extends React.Component {
     this.configureNewWindowEvent();
     this.configureContextMenu();
     this.configureGetMousePosition();
-
-    // this.webViewRef.current.addEventListener('dom-ready', () => {
-    //   this.webViewRef.current.openDevTools();
-    // });
   }
 
   componentDidUpdate(prevProps) {
