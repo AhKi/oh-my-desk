@@ -4,8 +4,8 @@ import {
   BrowserWindow,
   globalShortcut,
 } from 'electron';
+import { autoUpdater } from 'electron-updater';
 import autoLaunch from 'main/utils/window/autoLaunch';
-import autoUpdateConfig from 'main/utils/update/autoUpdateConfig';
 import createMenu from 'main/utils/menu/createMenu';
 import openAllWidgetStatusOpen from 'main/utils/window/openAllWidgetStatusOpen';
 import store from 'store/storeMain';
@@ -14,9 +14,11 @@ import TrayMenuBar from 'main/utils/menu/trayMenuBar';
 import { setInitialStore } from 'actions/setting';
 
 function init() {
-  autoUpdateConfig();
+  autoLaunch();
   subscribeActionMain(store);
   createMenu();
+  openAllWidgetStatusOpen();
+  autoUpdater.checkForUpdatesAndNotify();
 
   globalShortcut.register('Ctrl+Space', () => {
     if (TrayMenuBar.window && TrayMenuBar.window.isFocused()) {
@@ -27,10 +29,6 @@ function init() {
     }
   });
 
-  if (process.env.NODE_ENV !== 'development') {
-    autoLaunch();
-  }
-  openAllWidgetStatusOpen();
   app.on('activate', (e, isOpenWindow) => {
     if (!isOpenWindow) {
       TrayMenuBar.showWindow();

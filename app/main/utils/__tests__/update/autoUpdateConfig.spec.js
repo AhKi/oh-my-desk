@@ -120,18 +120,6 @@ describe('test autoUpdateConfig', () => {
     });
   });
 
-  it('should match setFeedURL', () => {
-    autoUpdateConfig();
-
-    expect(autoUpdater.setFeedURL).toHaveBeenCalledTimes(1);
-    expect(autoUpdater.setFeedURL).toHaveBeenCalledWith({
-      provider: 'github',
-      owner: 'ahki',
-      protocol: 'https',
-      repo: 'oh-my-desk',
-    });
-  });
-
   describe('should test about auto checking', () => {
     it('when isRestartAfterUpdate is true', () => {
       jest.spyOn(statusSelector, 'isRestartAfterUpdateSelector')

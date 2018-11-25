@@ -43,13 +43,6 @@ function autoUpdateConfig() {
     }
   });
 
-  autoUpdater.setFeedURL({
-    provider: 'github',
-    owner: 'ahki',
-    protocol: 'https',
-    repo: 'oh-my-desk',
-  });
-
   const isInstalling = isRestartAfterUpdateSelector(store.getState());
   if (!isInstalling) {
     if (isDownloadUpdateWhenStart || isCheckUpdateWhenStart) {
