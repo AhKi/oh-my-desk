@@ -6,6 +6,7 @@ import * as TYPES from 'actions/constant/actionTypes';
  * Change about setting data.
  */
 export const {
+  setHotKeySearchWindow,
   setInitialStore,
   setLanguageEnglish,
   setLanguageKorean,
@@ -14,6 +15,15 @@ export const {
   toggleOpenWidgetWhenStart,
   toggleWidgetDefaultUserAgent,
 } = createActions({
+  [TYPES.SET_HOT_KEY_SEARCH_WINDOW]: [
+    /**
+     * Setting hot key about search window.
+     * @param:String value: keyboard combination string.
+     * @returns {{key : *}}
+     */
+    key => ({ key }),
+    () => ({ category: CATEGORY.BROADCAST }),
+  ],
   [TYPES.SET_INITIAL_STORE]: [
     /**
      * Setting data that initialized in store.

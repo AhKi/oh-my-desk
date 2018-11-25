@@ -3,6 +3,20 @@ import * as TYPES from 'actions/constant/actionTypes';
 import * as CATEGORY from 'actions/constant/actionCategory';
 
 describe('test setting action', () => {
+  it('should handle setHotKeySearchWindow', () => {
+    const mockAction = {
+      type: TYPES.SET_HOT_KEY_SEARCH_WINDOW,
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+      payload: {
+        key: 'mock-key',
+      },
+    };
+
+    expect(actions.setHotKeySearchWindow('mock-key')).toEqual(mockAction);
+  });
+
   it('should handle setInitialStore', () => {
     const mockAction = {
       type: TYPES.SET_INITIAL_STORE,

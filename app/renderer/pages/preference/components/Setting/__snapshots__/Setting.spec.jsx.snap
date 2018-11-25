@@ -106,6 +106,12 @@ exports[`<Setting /> should match to snapshot when render default 1`] = `
           </option>
         </select>
       </li>
+      <li
+        className="Setting__list"
+      >
+        Search Hotkey
+        <Connect(ConfigureHotKey) />
+      </li>
     </ul>
   </div>
 </div>

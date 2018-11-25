@@ -6,6 +6,11 @@ export const configSelector = createSelector(
   share => share.get('config'),
 );
 
+export const hotKeySearchWindowSelector = createSelector(
+  configSelector,
+  config => config.get('hotKeySearchWindow'),
+);
+
 export const defaultUserAgentSelector = createSelector(
   configSelector,
   config => config.get('defaultUserAgent'),

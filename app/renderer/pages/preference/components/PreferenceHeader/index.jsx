@@ -1,5 +1,4 @@
 import React from 'react';
-import os from 'os';
 import { NavLink } from 'react-router-dom';
 import omdIcon from 'assets/oh-my-desk-icon.png';
 import './PreferenceHeader.scss';
@@ -11,7 +10,6 @@ class PreferenceHeader extends React.Component {
   render() {
     return (
       <div className="PreferenceHeader">
-        {os.platform() === 'darwin' && <div className="PreferenceHeader__Draggable" />}
         <div className="PreferenceHeader__nav">
           <NavLink
             activeClassName="PreferenceHeader__Link--select"

@@ -2,14 +2,15 @@ import {
   app,
   BrowserView,
   BrowserWindow,
-  globalShortcut,
 } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import autoLaunch from 'main/utils/window/autoLaunch';
 import createMenu from 'main/utils/menu/createMenu';
+import handlingSearchHotKey from 'main/utils/menu/handlingSearchHotKey';
 import openAllWidgetStatusOpen from 'main/utils/window/openAllWidgetStatusOpen';
 import store from 'store/storeMain';
 import subscribeActionMain from 'store/utils/subscribeActionMain';
+import { hotKeySearchWindowSelector } from 'store/reducers/share/config/selectors';
 import TrayMenuBar from 'main/utils/menu/trayMenuBar';
 import { setInitialStore } from 'actions/setting';
 
@@ -17,17 +18,9 @@ function init() {
   autoLaunch();
   subscribeActionMain(store);
   createMenu();
+  handlingSearchHotKey(hotKeySearchWindowSelector(store.getState()));
   openAllWidgetStatusOpen();
   autoUpdater.checkForUpdatesAndNotify();
-
-  globalShortcut.register('Ctrl+Space', () => {
-    if (TrayMenuBar.window && TrayMenuBar.window.isFocused()) {
-      TrayMenuBar.window.blur(); // Need to reopen in windowOS
-      TrayMenuBar.hideWindow(); // Need to reopen in macOS
-    } else {
-      TrayMenuBar.showWindow();
-    }
-  });
 
   app.on('activate', (e, isOpenWindow) => {
     if (!isOpenWindow) {
