@@ -16,29 +16,5 @@ exports[`<PreferenceHeader /> should match to snapshot when render default 1`] =
   >
     Basic
   </NavLink>
-  <NavLink
-    activeClassName="PreferenceHeader__Link--select"
-    aria-current="page"
-    className="PreferenceHeader__Link"
-    to="/update"
-  >
-    Update
-  </NavLink>
-  <NavLink
-    activeClassName="PreferenceHeader__Link--select"
-    aria-current="page"
-    className="PreferenceHeader__Link"
-    to="/hot-key"
-  >
-    HotKey
-  </NavLink>
-  <NavLink
-    activeClassName="PreferenceHeader__Link--select"
-    aria-current="page"
-    className="PreferenceHeader__Link"
-    to="/widget"
-  >
-    Window
-  </NavLink>
 </div>
 `;

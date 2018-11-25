@@ -1,6 +1,6 @@
 import { app, globalShortcut } from 'electron';
+import { autoUpdater } from 'electron-updater';
 import autoLaunch from 'main/utils/window/autoLaunch';
-import autoUpdateConfig from 'main/utils/update/autoUpdateConfig';
 import createMenu from 'main/utils/menu/createMenu';
 import openAllWidgetStatusOpen from 'main/utils/window/openAllWidgetStatusOpen';
 import store from 'store/storeMain';
@@ -9,6 +9,7 @@ import TrayMenuBar from 'main/utils/menu/trayMenuBar';
 
 import init from 'main/utils/init';
 
+jest.mock('electron-updater');
 jest.mock('main/utils/window/autoLaunch');
 jest.mock('main/utils/update/autoUpdateConfig');
 jest.mock('main/utils/menu/createMenu');
@@ -24,8 +25,7 @@ describe('test init function', () => {
     expect(subscribeActionMain).toHaveBeenCalledWith(store);
     expect(autoLaunch).toHaveBeenCalledTimes(1);
     expect(autoLaunch).toHaveBeenCalledWith();
-    expect(autoUpdateConfig).toHaveBeenCalledTimes(1);
-    expect(autoUpdateConfig).toHaveBeenCalledWith();
+    expect(autoUpdater.checkForUpdatesAndNotify).toHaveBeenCalledTimes(1);
     expect(createMenu).toHaveBeenCalledTimes(1);
     expect(globalShortcut.register).toHaveBeenCalledTimes(1);
     expect(openAllWidgetStatusOpen).toHaveBeenCalledTimes(1);
@@ -97,13 +97,5 @@ describe('test init function', () => {
       expect(TrayMenuBar.showWindow).toHaveBeenCalledTimes(1);
       expect(TrayMenuBar.hideWindow).toHaveBeenCalledTimes(0);
     });
-  });
-
-  it('should not call autoLaunch when process.env.NODE_ENV === development', () => {
-    process.env.NODE_ENV = 'development';
-    autoLaunch.mockClear();
-    init();
-
-    expect(autoLaunch).toHaveBeenCalledTimes(0);
   });
 });

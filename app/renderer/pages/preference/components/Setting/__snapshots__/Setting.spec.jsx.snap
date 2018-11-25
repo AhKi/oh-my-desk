@@ -101,18 +101,6 @@ exports[`<Setting /> should match to snapshot when render default 1`] = `
         </option>
       </select>
     </li>
-    <li
-      className="Setting__list"
-    >
-      Theme Color
-      <select>
-        <option
-          value="English"
-        >
-          Space Gray
-        </option>
-      </select>
-    </li>
   </ul>
 </div>
 `;
