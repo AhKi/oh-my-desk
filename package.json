@@ -1,6 +1,6 @@
 {
   "name": "oh-my-desk",
-  "version": "v2.0.0",
+  "version": "v2.0.1",
   "description": "desktop widget application",
   "main": "./build/main.prod.js",
   "scripts": {

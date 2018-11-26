@@ -15,9 +15,9 @@
 It is using web page as a widget that desktop application.
 
 ## Download
-[For Window](https://github.com/AhKi/oh-my-desk/releases/download/v2.0.0/oh-my-desk-setup-2.0.0.exe)
+[For Window](https://github.com/AhKi/oh-my-desk/releases/download/v2.0.1/oh-my-desk-setup-2.0.1.exe)
 
-[For MacOS](https://github.com/AhKi/oh-my-desk/releases/download/v2.0.0/oh-my-desk-2.0.0.dmg)
+[For MacOS](https://github.com/AhKi/oh-my-desk/releases/download/v2.0.1/oh-my-desk-2.0.0.dmg)
 
 ## OverView
 
