@@ -57,6 +57,7 @@ class WebWidget extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    const { currentUrl } = this.state;
     const { widget } = this.props;
 
     const prevUserAgent = this.getUserAgent(prevProps);
@@ -65,7 +66,11 @@ class WebWidget extends React.Component {
     const isChangeUserAgent = prevUserAgent !== currentUserAgent;
     const isPropsChangeUrl = prevProps.widget.url !== widget.url;
 
-    if (isPropsChangeUrl || isChangeUserAgent) {
+    if (isChangeUserAgent) {
+      this.loadPage(currentUrl, currentUserAgent);
+    }
+
+    if (isPropsChangeUrl) {
       this.loadPage(widget.url, currentUserAgent);
     }
   }
