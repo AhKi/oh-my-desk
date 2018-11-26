@@ -96,10 +96,12 @@ describe('test WebWidget', () => {
             userAgent: 'prev-ua',
           },
         };
+        const currentState = { currentUrl: 'current-state-url' };
+        wrapper.instance().state = currentState;
         wrapper.instance().componentDidUpdate(prevProps);
 
         expect(componentDidUpdate).toHaveBeenCalledTimes(1);
-        expect(loadPage).toHaveBeenNthCalledWith(1, 'current-url', 'current-ua');
+        expect(loadPage).toHaveBeenNthCalledWith(1, 'current-state-url', 'current-ua');
       });
 
       it('when isChargeUrl === false and isChangeUserAgent === false ', () => {
