@@ -1,4 +1,3 @@
-/*eslint-disable*/
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -36,10 +35,9 @@ class ConfigureHotKey extends React.Component {
     if (altKey) comKey.push('Alt');
     if (metaKey) comKey.push('Cmd');
     if (shiftKey) comKey.push('Shift');
+    if (staticKeyCode[keyCode]) comKey.push(staticKeyCode[keyCode]);
 
-    comKey.push(staticKeyCode[keyCode]);
-
-    return comKey.join(' + ');
+    return comKey.length > 0 ? comKey.join(' + ') : prevKey;
   }
 
   static fromSettingKeyToVisibleKey(settingKey) {
@@ -60,7 +58,7 @@ class ConfigureHotKey extends React.Component {
     super(props);
     this.state = {
       isEditMode: false,
-      key: ConfigureHotKey.fromSettingKeyToVisibleKey(props.hotKey),
+      key: props.hotKey,
     };
   }
 
