@@ -1,4 +1,4 @@
-import { app, globalShortcut } from 'electron';
+import { app, globalShortcut, Menu } from 'electron';
 import menuBar from 'menubar';
 import url from 'url';
 import store from 'store/storeMain';
@@ -7,6 +7,8 @@ import {
   searchTrayOpen,
 } from 'actions/search';
 import * as PATH from 'constants/path';
+import i18n from 'constants/i18n';
+import openPreference from 'main/utils/window/openPreference';
 
 const trayMenuBar = menuBar({
   icon: PATH.TRAY_ICON_PATH,
@@ -40,6 +42,22 @@ trayMenuBar.on('hide', () => {
 trayMenuBar.on('after-close', () => {
   store.dispatch(searchTrayClose());
   globalShortcut.unregister('Escape');
+});
+
+trayMenuBar.on('ready', () => {
+  const { tray } = trayMenuBar;
+  const popUpContextMenuInTray = () => {
+    const text = i18n().menu;
+
+    tray.popUpContextMenu(Menu.buildFromTemplate([
+      { label: text.preference, click: openPreference },
+      { type: 'separator' },
+      { label: text.open, click: () => trayMenuBar.showWindow() },
+      { label: text.quit, role: 'quit' },
+    ]));
+  };
+
+  tray.on('right-click', popUpContextMenuInTray);
 });
 
 export default trayMenuBar;
