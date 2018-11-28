@@ -21,3 +21,4 @@ files:
   - "node_modules"
   - "app/assets"
 compression: "maximum"
+forceCodeSigning: "true"
