@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import os from 'os';
 import * as USER_AGENT from 'constants/userAgent';
 import closeIcon from 'assets/icon/icon-widget-close.svg';
 import desktopIcon from 'assets/icon/icon-desktop-white.svg';
@@ -63,16 +64,19 @@ class TitleBar extends React.Component {
     const desktopIconClass = cx('TitleBar__desktop-icon', {
       'TitleBar__icon--active': userAgent === USER_AGENT.MOBILE,
     });
+    const isMacOS = os.platform() === 'darwin';
 
     return (
       <div className="TitleBar">
-        <button
-          className="TitleBar__close-btn"
-          type="button"
-          onClick={this.handleCloseWidget}
-        >
-          <img className="TitleBar__close-img" src={closeIcon} alt="" />
-        </button>
+        {!isMacOS && (
+          <button
+            className="TitleBar__close-btn"
+            type="button"
+            onClick={this.handleCloseWidget}
+          >
+            <img className="TitleBar__close-img" src={closeIcon} alt="" />
+          </button>
+        )}
         <div className="TitleBar__title">{title}</div>
         <div className="TitleBar__asset">
           <button

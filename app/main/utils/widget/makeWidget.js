@@ -19,7 +19,7 @@ const makeWidget = (id, info, isFocus) => {
     height: widgetInfo.size.height,
     alwaysOnTop: widgetInfo.isOnTop,
     autoHideMenuBar: true,
-    titleBarStyle: 'default',
+    titleBarStyle: 'hiddenInset',
     show: false,
     frame: false,
     minWidth: 200,

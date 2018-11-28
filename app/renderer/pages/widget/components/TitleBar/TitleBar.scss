@@ -22,15 +22,16 @@
 
 .TitleBar__title {
   display: inline-block;
-  order: 2;
-  flex-grow: 1;
+  flex: 1;
   align-self: center;
+  text-align: center;
+  user-select: none;
 }
 
 .TitleBar__asset {
+  margin-left: -60px;
   align-self: center;
   display: inline-block;
-  order: 3;
   -webkit-app-region: no-drag;
 }
 
