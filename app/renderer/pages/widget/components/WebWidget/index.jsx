@@ -32,7 +32,7 @@ const defaultProps = {
   onUpdateInfo() {},
 };
 
-const initialPage = 'https://google.co.kr';
+const initialPage = 'https://google.com';
 
 class WebWidget extends React.Component {
   state = {
