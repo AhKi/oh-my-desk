@@ -13,6 +13,7 @@ import { isUrlCheckFetchSelector } from 'store/reducers/share/status/selectors';
 import { modalOpen } from 'actions/modal';
 import * as sharedId from 'store/reducers/share/identification/selectors';
 import * as identificationSelector from 'store/reducers/personal/identification/selectors';
+import saveData from 'main/utils/disk/saveData';
 
 const widgetController = (action, prev) => {
   const { type } = action;
@@ -22,6 +23,7 @@ const widgetController = (action, prev) => {
       const widgetWin = makeWidget(id, undefined, true);
 
       store.dispatch(openBrowserWindow(id, widgetWin));
+      saveData();
       break;
     }
     case TYPES.WIDGET_OPEN: {
@@ -39,7 +41,6 @@ const widgetController = (action, prev) => {
 
         store.dispatch(openBrowserWindow(id, widgetWin));
       }
-
       break;
     }
     case TYPES.WIDGET_CLOSE:
@@ -51,7 +52,6 @@ const widgetController = (action, prev) => {
       if (widget) {
         widget.close();
       }
-
       break;
     }
     case TYPES.WIDGET_UPDATE_INFO: {
