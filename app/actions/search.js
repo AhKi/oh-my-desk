@@ -3,6 +3,7 @@ import * as TYPES from 'actions/constant/actionTypes';
 import * as CATEGORY from 'actions/constant/actionCategory';
 
 export const {
+  searchAppQuit,
   searchChangeKeyword,
   searchSetFilter,
   searchTrayOpen,
@@ -11,6 +12,13 @@ export const {
   searchWidgetSelectIncrease,
   searchWidgetSelectDecrease,
 } = createActions({
+  [TYPES.SEARCH_APP_QUIT]: [
+    /**
+     * Alert message if quit 'oh-my-desk' in search window.
+     */
+    () => {},
+    () => ({ category: CATEGORY.BROADCAST }),
+  ],
   [TYPES.SEARCH_CHANGE_KEYWORD]: [
     /**
      * Change keyword for search

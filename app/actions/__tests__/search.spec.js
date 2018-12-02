@@ -3,6 +3,17 @@ import * as CATEGORY from 'actions/constant/actionCategory';
 import * as actions from 'actions/search';
 
 describe('test search actions', () => {
+  it('should handle searchAppQuit', () => {
+    const mockAction = {
+      type: TYPES.SEARCH_APP_QUIT,
+      meta: {
+        category: CATEGORY.BROADCAST,
+      },
+    };
+
+    expect(actions.searchAppQuit()).toEqual(mockAction);
+  });
+
   it('should handle searchChangeKeyword', () => {
     const mockAction = {
       type: TYPES.SEARCH_CHANGE_KEYWORD,
