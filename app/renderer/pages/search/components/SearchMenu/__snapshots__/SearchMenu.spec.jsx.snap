@@ -76,6 +76,22 @@ exports[`Test SearchMenu Component should match to snapshot 1`] = `
         Options
       </button>
     </li>
+    <li
+      className="SearchMenu__Item"
+    >
+      <button
+        className="SearchMenu__Btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt=""
+          className="SearchMenu__Icon"
+          src={Object {}}
+        />
+        Quit
+      </button>
+    </li>
   </ul>
 </div>
 `;
@@ -154,6 +170,22 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
           src={Object {}}
         />
         Options
+      </button>
+    </li>
+    <li
+      className="SearchMenu__Item"
+    >
+      <button
+        className="SearchMenu__Btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt=""
+          className="SearchMenu__Icon"
+          src={Object {}}
+        />
+        Quit
       </button>
     </li>
   </ul>

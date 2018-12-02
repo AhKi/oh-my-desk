@@ -5,6 +5,7 @@ import icon from 'assets/oh-my-desk-icon.png';
 import addIcon from 'assets/icon/icon-plus-white.svg';
 import allIcon from 'assets/icon/icon-desktop-white.svg';
 import favoritesIcon from 'assets/icon/icon-border-star-white.svg';
+import outIcon from 'assets/icon/icon-out.svg';
 import settingIcon from 'assets/icon/icon-menu-setting.svg';
 import i18n from 'constants/i18n';
 import './SearchMenu.scss';
@@ -13,12 +14,14 @@ const propTypes = {
   filter: PropTypes.string,
   onMakeWidgetRequest: PropTypes.func,
   onOpenPreference: PropTypes.func,
+  onQuitApp: PropTypes.func,
   onSetFilter: PropTypes.func,
 };
 const defaultProps = {
   filter: 'ALL',
   onMakeWidgetRequest() {},
   onOpenPreference() {},
+  onQuitApp() {},
   onSetFilter() {},
 };
 
@@ -54,7 +57,7 @@ class SearchMenu extends React.Component {
 
   render() {
     const text = i18n().search;
-    const { filter, onOpenPreference } = this.props;
+    const { filter, onOpenPreference, onQuitApp } = this.props;
     const allMenuClassName = cx('SearchMenu__Btn', {
       'SearchMenu__Btn--active': filter === 'ALL',
     });
@@ -124,6 +127,20 @@ class SearchMenu extends React.Component {
                 alt=""
               />
               {text.setting}
+            </button>
+          </li>
+          <li className="SearchMenu__Item">
+            <button
+              className="SearchMenu__Btn"
+              type="button"
+              onClick={onQuitApp}
+            >
+              <img
+                className="SearchMenu__Icon"
+                src={outIcon}
+                alt=""
+              />
+              {text.quit}
             </button>
           </li>
         </ul>
