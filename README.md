@@ -4,10 +4,12 @@
 <h1 align="center">Oh-My-Desk</h1>
 <p align="center">
   <a href='https://circleci.com/gh/AhKi/oh-my-desk'><img src='https://circleci.com/gh/AhKi/oh-my-desk.svg?style=shield&circle-token=f779ef67e3b142774ebbf79072fe2f54c617d61a' alt='Circle CI' /></a>
-  <img src='https://img.shields.io/badge/platform-macOS%20%7C%20Window-blue.svg'></image>
-  <a href='https://img.shields.io/badge/license-GPL%20v3-green.svg)](https://github.com/AhKi/oh-my-desk/blob/master/LICENSE'><img src='https://img.shields.io/badge/license-GPL%20v3-green.svg' alt='License' /></a>
   <a href='https://coveralls.io/github/AhKi/oh-my-desk?branch=master'><img src='https://coveralls.io/repos/github/AhKi/oh-my-desk/badge.svg?branch=master' alt='Coverage Status' /></a>
-  <img src='https://img.shields.io/badge/contribute-welcome-green.svg'></image>
+  <a href='https://img.shields.io/badge/license-GPL%20v3-green.svg)](https://github.com/AhKi/oh-my-desk/blob/master/LICENSE'><img src='https://img.shields.io/badge/license-GPL%20v3-green.svg' alt='License' /></a>
+  <br>
+  <img src='https://img.shields.io/badge/platform-macOS%20%7C%20Window-blue.svg'></image>
+  <a href="https://github.com/ahki/oh-my-desk/releases"><img src="https://img.shields.io/github/release/ahki/oh-my-desk.svg" alt="github release version"></a>
+  <a href='https://github.com/AhKi/oh-my-desk/releases'><img src='https://img.shields.io/github/downloads/ahki/oh-my-desk/total.svg' alt='Total Donwload' /></a>
 </p>
 
 
