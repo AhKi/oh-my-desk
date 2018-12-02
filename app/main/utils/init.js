@@ -11,8 +11,12 @@ import openAllWidgetStatusOpen from 'main/utils/window/openAllWidgetStatusOpen';
 import store from 'store/storeMain';
 import subscribeActionMain from 'store/utils/subscribeActionMain';
 import { hotKeySearchWindowSelector } from 'store/reducers/share/config/selectors';
+import saveData from 'main/utils/disk/saveData';
 import TrayMenuBar from 'main/utils/menu/trayMenuBar';
 import { setInitialStore } from 'actions/setting';
+
+// save data about setting every 5 minutes.
+const SAVE_SETTING_INTERVAL = 300000;
 
 function init() {
   autoLaunch();
@@ -21,6 +25,7 @@ function init() {
   handlingSearchHotKey(hotKeySearchWindowSelector(store.getState()));
   openAllWidgetStatusOpen();
   autoUpdater.checkForUpdatesAndNotify();
+  setInterval(saveData, SAVE_SETTING_INTERVAL);
 
   app.on('activate', (e, isOpenWindow) => {
     if (!isOpenWindow) {

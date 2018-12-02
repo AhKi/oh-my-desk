@@ -4,7 +4,10 @@ import * as TYPES from 'actions/constant/actionTypes';
 import storeMock from 'store/storeMain';
 import { openBrowserWindow } from 'actions/window';
 import * as utils from 'main/utils/widget/makeWidget';
+import saveData from 'main/utils/disk/saveData';
 import widgetController from '../widget';
+
+jest.mock('main/utils/disk/saveData');
 
 describe('test widgetController', () => {
   beforeEach(() => {
@@ -41,6 +44,7 @@ describe('test widgetController', () => {
         mockBrowserWindow,
       ),
     );
+    expect(saveData).toHaveBeenCalledTimes(1);
   });
 
   describe('should handle TYPES.WIDGET_OPEN', () => {
