@@ -77,7 +77,7 @@ const widgetInfoByIdReducer = handleActions({
   [TYPES.WIDGET_CLOSE_WHOLE]: state => state.map(item => item.set('isOpen', false)),
   [TYPES.SET_WHEN_QUIT_APP]: (state) => {
     let result = state;
-    state.map((item) => { // eslint-disable-line  array-callback-return
+    state.forEach((item) => {
       const isMakeProgress = item.get('isMakeProgress');
       const isEditProgress = item.get('isEditProgress');
 
