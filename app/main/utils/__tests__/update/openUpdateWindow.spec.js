@@ -1,6 +1,5 @@
 import { BrowserWindow } from 'electron';
-import url from 'url';
-import * as PATH from 'constants/path';
+import { UPDATE_WINDOW_PATH } from 'config';
 import openUpdateWindow from 'main/utils/update/openUpdateWindow';
 
 describe('test openUpdateWindow', () => {
@@ -15,12 +14,6 @@ describe('test openUpdateWindow', () => {
     openUpdateWindow();
 
     expect(mockWindow.loadURL).toHaveBeenCalledTimes(1);
-    expect(mockWindow.loadURL).toHaveBeenCalledWith(
-      url.format({
-        pathname: PATH.UPDATE_WINDOW_PATH,
-        protocol: 'file:',
-        slashes: true,
-      }),
-    );
+    expect(mockWindow.loadURL).toHaveBeenCalledWith(UPDATE_WINDOW_PATH);
   });
 });

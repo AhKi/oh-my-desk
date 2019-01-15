@@ -1,11 +1,10 @@
 import { BrowserWindow, dialog } from 'electron';
-import url from 'url';
 import * as actions from 'actions/widget';
 import { widgetInfoByIdSelector } from 'store/reducers/share/identification/selectors';
 import store from 'store/storeMain';
 import createWidget from 'main/utils/widget/createWidget';
 import updateWidgetContentBounds from 'main/utils/widget/updateWidgetContentBounds';
-import * as PATH from 'constants/path';
+import { WIDGET_PATH, LOGO_ICON_PATH } from 'config';
 import i18n from 'constants/i18n';
 
 const makeWidget = (id, info, isFocus) => {
@@ -26,11 +25,7 @@ const makeWidget = (id, info, isFocus) => {
     minHeight: 300,
   });
 
-  widget.loadURL(url.format({
-    pathname: PATH.WIDGET_PATH,
-    protocol: 'file:',
-    slashes: true,
-  }));
+  widget.loadURL(WIDGET_PATH);
 
   widget.once('ready-to-show', () => {
     if (isFocus) {
@@ -67,7 +62,7 @@ const makeWidget = (id, info, isFocus) => {
         title: text.closeWidget,
         message: text.closeMessage(targetInfo.get('name')),
         buttons: [text.ok, text.cancel],
-        icon: PATH.LOGO_ICON_PATH,
+        icon: LOGO_ICON_PATH,
       };
       dialog.showMessageBox(options, (index) => {
         if (index === 0) { // when click Yes button

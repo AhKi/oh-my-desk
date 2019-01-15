@@ -1,22 +1,20 @@
 import { app, globalShortcut, Menu } from 'electron';
 import menuBar from 'menubar';
-import url from 'url';
 import store from 'store/storeMain';
 import {
   searchTrayClose,
   searchTrayOpen,
 } from 'actions/search';
-import * as PATH from 'constants/path';
+import {
+  SEARCH_PATH,
+  TRAY_ICON_PATH,
+} from 'config';
 import i18n from 'constants/i18n';
 import openPreference from 'main/utils/window/openPreference';
 
 const trayMenuBar = menuBar({
-  icon: PATH.TRAY_ICON_PATH,
-  index: url.format({
-    pathname: PATH.SEARCH_PATH,
-    protocol: 'file:',
-    slashes: true,
-  }),
+  icon: TRAY_ICON_PATH,
+  index: SEARCH_PATH,
   showDockIcon: true,
   tooltip: `oh-my-desk ${app.getVersion()}`,
   fullscreenable: false,

@@ -1,7 +1,6 @@
 import { BrowserWindow } from 'electron';
 import uuid from 'uuid';
-import url from 'url';
-import * as PATH from 'constants/path';
+import { UPDATE_PROGRESS_PATH } from 'config';
 import store from 'store/storeMain';
 import openUpdateProgress from 'main/utils/update/openUpdateProgress';
 import { updateProgressWindowOpen, updateProgressWindowClose } from 'actions/update';
@@ -45,12 +44,6 @@ describe('test openUpdateProgress', () => {
     openUpdateProgress();
 
     expect(mockWindow.loadURL).toHaveBeenCalledTimes(1);
-    expect(mockWindow.loadURL).toHaveBeenCalledWith(
-      url.format({
-        pathname: PATH.UPDATE_PROGRESS_PATH,
-        protocol: 'file:',
-        slashes: true,
-      }),
-    );
+    expect(mockWindow.loadURL).toHaveBeenCalledWith(UPDATE_PROGRESS_PATH);
   });
 });

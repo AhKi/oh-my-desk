@@ -1,8 +1,7 @@
 import { BrowserWindow } from 'electron';
-import url from 'url';
 import { v4 } from 'uuid';
 import store from 'store/storeMain';
-import * as PATH from 'constants/path';
+import { UPDATE_PROGRESS_PATH } from 'config';
 import {
   updateProgressWindowOpen,
   updateProgressWindowClose,
@@ -26,11 +25,7 @@ const openUpdateWindow = () => {
 
   store.dispatch(updateProgressWindowOpen(id, updateWindow));
 
-  updateWindow.loadURL(url.format({
-    pathname: PATH.UPDATE_PROGRESS_PATH,
-    protocol: 'file:',
-    slashes: true,
-  }));
+  updateWindow.loadURL(UPDATE_PROGRESS_PATH);
 };
 
 export default openUpdateWindow;
