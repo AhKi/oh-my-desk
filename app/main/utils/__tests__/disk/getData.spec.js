@@ -1,5 +1,5 @@
 import fs from 'fs';
-import * as SETTING from 'constants/setting';
+import { DEFAULT_SETTING } from 'config';
 import getData from 'main/utils/disk/getData';
 
 jest.mock('fs');
@@ -22,6 +22,6 @@ describe('test getStoredDataInDisk', () => {
     const result = getData();
 
     expect(fs.readFileSync).toHaveBeenCalledTimes(0);
-    expect(result).toEqual(JSON.parse(SETTING.defaultWidgets));
+    expect(result).toEqual(DEFAULT_SETTING);
   });
 });

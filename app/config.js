@@ -47,7 +47,7 @@ export const DEFAULT_SETTING = {
         name: 'google',
         isOnTop: false,
         url: 'https://www.google.com/',
-        isOpen: false,
+        isOpen: true,
         favorites: true,
         userAgent: 'DESKTOP',
         resentFocusTime: '2018-11-13T11:32:48.186Z',
