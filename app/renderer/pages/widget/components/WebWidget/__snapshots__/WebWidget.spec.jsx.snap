@@ -159,6 +159,7 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
                   <input
                     className="AddressBar__address-input"
                     onChange={[Function]}
+                    onDoubleClick={[Function]}
                     onKeyDown={[Function]}
                     type="text"
                     value=""

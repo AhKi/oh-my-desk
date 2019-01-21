@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import os from 'os';
 
 import AddressBar from '.';
@@ -322,5 +322,18 @@ describe('<AddressBar />', () => {
 
       expect(webView.stop).toHaveBeenCalledTimes(1);
     });
+  });
+
+  it('should handle dobule click on address input tag', () => {
+    const select = jest.fn();
+    const wrapper = mount(<AddressBar />);
+    const input = wrapper.find('.AddressBar__address-input');
+    const { current: inputRef } = wrapper.instance().addressInputRef;
+
+    inputRef.select = select;
+
+    expect(select).toHaveBeenCalledTimes(0);
+    input.simulate('doubleclick');
+    expect(select).toHaveBeenCalledTimes(1);
   });
 });

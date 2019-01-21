@@ -45,6 +45,7 @@ exports[`<AddressBar /> should match to snapshot when props.isLoading is true 1`
     <input
       className="AddressBar__address-input"
       onChange={[Function]}
+      onDoubleClick={[Function]}
       onKeyDown={[Function]}
       type="text"
       value=""
@@ -132,6 +133,7 @@ exports[`<AddressBar /> should match to snapshot when render default 1`] = `
     <input
       className="AddressBar__address-input"
       onChange={[Function]}
+      onDoubleClick={[Function]}
       onKeyDown={[Function]}
       type="text"
       value=""
@@ -219,6 +221,7 @@ exports[`<AddressBar /> should match to snapshot when state.isMenuOpen is true 1
     <input
       className="AddressBar__address-input"
       onChange={[Function]}
+      onDoubleClick={[Function]}
       onKeyDown={[Function]}
       type="text"
       value=""

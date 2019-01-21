@@ -222,6 +222,7 @@ class AddressBar extends React.Component {
             value={addressValue}
             onChange={this.handleAddressChange}
             onKeyDown={this.handleAddressEnter}
+            onDoubleClick={() => this.addressInputRef.current.select()}
           />
           <button
             className="AddressBar__address-button"
