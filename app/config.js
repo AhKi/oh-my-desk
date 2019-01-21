@@ -50,7 +50,7 @@ export const DEFAULT_SETTING = {
         isOpen: true,
         favorites: true,
         userAgent: 'DESKTOP',
-        resentFocusTime: '2018-11-13T11:32:48.186Z',
+        resentFocusTime: '2018-11-26T11:32:48.186Z',
         id: 'fb07e56a-2ef3-4c3f-b7d4-3680a7173dd2',
         reloadInterval: 5,
       },

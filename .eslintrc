@@ -21,6 +21,8 @@
     "jsx-a11y/heading-has-content": 0,
     "react/jsx-one-expression-per-line": 0,
     "lines-between-class-members": 0,
+    "no-continue": 0,
+    "no-bitwise": 0
   },
   "parser": "babel-eslint",
   "globals": {
