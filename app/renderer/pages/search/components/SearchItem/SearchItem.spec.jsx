@@ -67,6 +67,67 @@ describe('Test SearchItem Component', () => {
     });
   });
 
+  describe('test handleFocusWidget', () => {
+    it('when props.item.isOpen === true', () => {
+      const onShowWidget = jest.fn();
+      const mockEvent = {
+        preventDefault: jest.fn(),
+      };
+      const wrapper = shallow(
+        <SearchItem
+          item={{
+            ...mockItem,
+            isOpen: true,
+          }}
+          onShowWidget={onShowWidget}
+        />,
+      );
+
+      wrapper.instance().handleFocusWidget(mockEvent);
+
+      expect(mockEvent.preventDefault).toHaveBeenCalledTimes(1);
+      expect(onShowWidget).toHaveBeenCalledTimes(1);
+      expect(onShowWidget).toHaveBeenCalledWith('mock-id');
+    });
+
+    it('when props.item.isOpen === false', () => {
+      const onShowWidget = jest.fn();
+      const mockEvent = {
+        preventDefault: jest.fn(),
+      };
+      const wrapper = shallow(
+        <SearchItem
+          item={{
+            ...mockItem,
+            isOpen: false,
+          }}
+          onShowWidget={onShowWidget}
+        />,
+      );
+
+      wrapper.instance().handleFocusWidget(mockEvent);
+      expect(mockEvent.preventDefault).toHaveBeenCalledTimes(0);
+      expect(onShowWidget).toHaveBeenCalledTimes(0);
+    });
+  });
+
+  it('should call handleOpenWidget', () => {
+    const onShowWidget = jest.fn();
+    const wrapper = shallow(
+      <SearchItem
+        item={{
+          ...mockItem,
+          isOpen: false,
+        }}
+        onShowWidget={onShowWidget}
+      />,
+    );
+
+    wrapper.instance().handleOpenWidget();
+
+    expect(onShowWidget).toHaveBeenCalledTimes(1);
+  });
+
   it('should call handleToggleFavorites', () => {
     const onUpdateInfo = jest.fn();
     const wrapper = shallow(

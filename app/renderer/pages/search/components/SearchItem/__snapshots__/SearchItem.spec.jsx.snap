@@ -29,6 +29,7 @@ exports[`Test SearchItem Component should match to snapshot 1`] = `
     <button
       className="SearchItem__Btn"
       onClick={[Function]}
+      onDoubleClick={[Function]}
       type="button"
     >
       <strong
@@ -94,6 +95,7 @@ exports[`Test SearchItem Component should match to snapshot when item.searched =
     <button
       className="SearchItem__Btn"
       onClick={[Function]}
+      onDoubleClick={[Function]}
       type="button"
     >
       <strong
