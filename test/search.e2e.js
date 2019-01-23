@@ -98,4 +98,98 @@ describe('test search window', async () => {
     expect(btn.classList.contains('ToggleButton__wrapper-active'))
       .toBe(true);
   });
+
+  describe('change selected list of widget', async () => {
+    describe('test of arrow down', () => {
+      it('test first to second list', async () => {
+        await app.client.keys('ArrowDown');
+
+        const container = await test.getElement('.SearchList');
+        const btn = container.querySelectorAll('.SearchItem');
+        expect(btn[0].classList.contains('SearchItem__select'))
+          .toBe(false);
+        expect(btn[1].classList.contains('SearchItem__select'))
+          .toBe(true);
+      });
+
+      it('test second to third list', async () => {
+        await app.client.keys('ArrowDown');
+
+        const container = await test.getElement('.SearchList');
+        const btn = container.querySelectorAll('.SearchItem');
+        expect(btn[1].classList.contains('SearchItem__select'))
+          .toBe(false);
+        expect(btn[2].classList.contains('SearchItem__select'))
+          .toBe(true);
+      });
+
+      it('test third to first list', async () => {
+        await app.client.keys('ArrowDown');
+
+        const container = await test.getElement('.SearchList');
+        const btn = container.querySelectorAll('.SearchItem');
+        expect(btn[2].classList.contains('SearchItem__select'))
+          .toBe(false);
+        expect(btn[0].classList.contains('SearchItem__select'))
+          .toBe(true);
+      });
+    });
+    describe('test of arrow up', () => {
+      it('test first to third list', async () => {
+        await app.client.keys('ArrowUp');
+
+        const container = await test.getElement('.SearchList');
+        const btn = container.querySelectorAll('.SearchItem');
+        expect(btn[0].classList.contains('SearchItem__select'))
+          .toBe(false);
+        expect(btn[2].classList.contains('SearchItem__select'))
+          .toBe(true);
+      });
+
+      it('test third to second list', async () => {
+        await app.client.keys('ArrowUp');
+
+        const container = await test.getElement('.SearchList');
+        const btn = container.querySelectorAll('.SearchItem');
+        expect(btn[2].classList.contains('SearchItem__select'))
+          .toBe(false);
+        expect(btn[1].classList.contains('SearchItem__select'))
+          .toBe(true);
+      });
+
+      it('test second to first list', async () => {
+        await app.client.keys('ArrowUp');
+
+        const container = await test.getElement('.SearchList');
+        const btn = container.querySelectorAll('.SearchItem');
+        expect(btn[1].classList.contains('SearchItem__select'))
+          .toBe(false);
+        expect(btn[0].classList.contains('SearchItem__select'))
+          .toBe(true);
+      });
+    });
+    describe('open widget to type enter except first list', () => {
+      it('focus second widget of list', async () => {
+        await app.client.keys('ArrowDown');
+        await app.client.keys('Enter');
+        expect(await app.browserWindow.isVisible()).toBe(false);
+        await app.client.windowByIndex(0);
+        expect(await app.browserWindow.isFocused()).toBe(true);
+      });
+
+      it('open third widget of list', async () => {
+        await browser.searchWindowOpen();
+        await app.client.windowByIndex(2);
+        await app.client.keys('ArrowDown');
+        await app.client.keys('Enter');
+        await app.client.pause(500);
+        expect(await app.browserWindow.isVisible()).toBe(false);
+        await test.matchWindowCount(7);
+        await app.client.windowByIndex(6);
+        await test.matchWindowTitle('oh-my-desk widget');
+        expect(await app.browserWindow.isFocused()).toBe(true);
+        await test.matchText('.TitleBar__title', 'trello');
+      });
+    });
+  });
 });
