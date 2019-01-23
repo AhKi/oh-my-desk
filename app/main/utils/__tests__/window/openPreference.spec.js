@@ -1,9 +1,8 @@
 import { BrowserWindow } from 'electron';
 import Immutable from 'immutable';
 import uuid from 'uuid';
-import url from 'url';
 import store from 'store/storeMain';
-import * as PATH from 'constants/path';
+import { PREFERENCE_PATH } from 'config';
 import openPreference from 'main/utils/window/openPreference';
 import { openBrowserWindow } from 'actions/window';
 import * as preferenceActions from 'actions/preference';
@@ -64,13 +63,7 @@ describe('test openPreference', () => {
       openPreference();
 
       expect(mockWindow.loadURL).toHaveBeenCalledTimes(1);
-      expect(mockWindow.loadURL).toHaveBeenCalledWith(
-        url.format({
-          pathname: PATH.PREFERENCE_PATH,
-          protocol: 'file:',
-          slashed: true,
-        }),
-      );
+      expect(mockWindow.loadURL).toHaveBeenCalledWith(PREFERENCE_PATH);
     });
 
     it('should call BrowserWindow.on', () => {

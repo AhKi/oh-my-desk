@@ -1,6 +1,5 @@
 import { BrowserWindow } from 'electron';
-import url from 'url';
-import * as PATH from 'constants/path';
+import { UPDATE_WINDOW_PATH } from 'config';
 
 const openUpdateWindow = () => {
   const updateWindow = new BrowserWindow({
@@ -13,11 +12,7 @@ const openUpdateWindow = () => {
     },
   });
 
-  updateWindow.loadURL(url.format({
-    pathname: PATH.UPDATE_WINDOW_PATH,
-    protocol: 'file:',
-    slashes: true,
-  }));
+  updateWindow.loadURL(UPDATE_WINDOW_PATH);
 };
 
 export default openUpdateWindow;

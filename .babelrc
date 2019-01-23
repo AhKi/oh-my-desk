@@ -8,6 +8,7 @@
       "alias": {
         "actions": "./app/actions",
         "assets": "./app/assets",
+        "config": "./app/config.js",
         "constants": "./app/constants",
         "components": "./app/components",
         "main": "./app/main",

@@ -1,7 +1,7 @@
 import { app, dialog } from 'electron';
 import * as TYPES from 'actions/constant/actionTypes';
 import TrayBar from 'main/utils/menu/trayMenuBar';
-import * as PATH from 'constants/path';
+import { LOGO_ICON_PATH } from 'config';
 import i18n from 'constants/i18n';
 
 const searchController = (action) => {
@@ -18,7 +18,7 @@ const searchController = (action) => {
         title: text.quit,
         message: text.quitMessage,
         buttons: [text.ok, text.cancel],
-        icon: PATH.LOGO_ICON_PATH,
+        icon: LOGO_ICON_PATH,
       };
       dialog.showMessageBox(options, (index) => {
         const isYesBtn = index === 0;

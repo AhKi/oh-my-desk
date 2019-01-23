@@ -101,6 +101,7 @@ module.exports = {
     alias: {
       actions: path.resolve(__dirname, 'app/actions'),
       assets: path.resolve(__dirname, 'app/assets'),
+      config: path.resolve(__dirname, 'app/config.js'),
       constants: path.resolve(__dirname, 'app/constants'),
       components: path.resolve(__dirname, 'app/components'),
       main: path.resolve(__dirname, 'app/main'),

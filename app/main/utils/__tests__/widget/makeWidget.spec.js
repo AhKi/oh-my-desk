@@ -3,7 +3,7 @@ import Immutable from 'immutable';
 import * as actions from 'actions/widget';
 import { BrowserWindow as MockBrowserWindow } from 'app/__mocks__/electron';
 import storeMock from 'store/storeMain';
-import * as PATH from 'constants/path';
+import { WIDGET_PATH, LOGO_ICON_PATH } from 'config';
 import * as updateWidgetContentBounds from 'main/utils/widget/updateWidgetContentBounds';
 import makeWidget from 'main/utils/widget/makeWidget';
 
@@ -106,7 +106,7 @@ describe('test makeWidgetWindow', () => {
           title: 'Close Widget',
           message: 'Content of progress will be disappear. \nDo close making window?',
           buttons: ['Ok', 'Cancel'],
-          icon: PATH.LOGO_ICON_PATH,
+          icon: LOGO_ICON_PATH,
         }, expect.any(Function));
       });
 
@@ -131,7 +131,7 @@ describe('test makeWidgetWindow', () => {
           title: 'Close Widget',
           message: 'Content of progress will be disappear. \nDo close making window?',
           buttons: ['Ok', 'Cancel'],
-          icon: PATH.LOGO_ICON_PATH,
+          icon: LOGO_ICON_PATH,
         }, expect.any(Function));
       });
 
@@ -216,8 +216,7 @@ describe('test makeWidgetWindow', () => {
     it('when process.env.NODE_ENV === development', () => {
       makeWidget('mock-id', mockInfo);
       expect(mock.loadURL).toHaveBeenCalledTimes(1);
-      expect(mock.loadURL)
-        .toHaveBeenCalledWith(`file://${PATH.WIDGET_PATH}`);
+      expect(mock.loadURL).toHaveBeenCalledWith(WIDGET_PATH);
     });
 
     // TODO test about process.env.NODE_ENV === 'production'

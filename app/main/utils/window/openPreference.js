@@ -1,12 +1,11 @@
 import { BrowserWindow } from 'electron';
 import { v4 } from 'uuid';
-import url from 'url';
 import store from 'store/storeMain';
 import * as identificationSelector from 'store/reducers/share/identification/selectors';
 import * as identification from 'store/reducers/personal/identification/selectors';
 import { openBrowserWindow } from 'actions/window';
 import * as preferenceAction from 'actions/preference';
-import * as PATH from 'constants/path';
+import { PREFERENCE_PATH } from 'config';
 
 const openPreference = () => {
   const winId = identificationSelector.preferenceSelector(store.getState());
@@ -29,11 +28,7 @@ const openPreference = () => {
     },
   });
 
-  winPreference.loadURL(url.format({
-    pathname: PATH.PREFERENCE_PATH,
-    protocol: 'file:',
-    slashes: true,
-  }));
+  winPreference.loadURL(PREFERENCE_PATH);
 
   if (process.env.NODE_ENV === 'development') {
     winPreference.webContents.openDevTools();

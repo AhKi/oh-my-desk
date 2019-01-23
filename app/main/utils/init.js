@@ -14,6 +14,7 @@ import { hotKeySearchWindowSelector } from 'store/reducers/share/config/selector
 import saveData from 'main/utils/disk/saveData';
 import TrayMenuBar from 'main/utils/menu/trayMenuBar';
 import { setInitialStore } from 'actions/setting';
+import e2eIpcHandler from '../../e2e-ipc-handler';
 
 // save data about setting every 5 minutes.
 const SAVE_SETTING_INTERVAL = 300000;
@@ -50,6 +51,10 @@ function init() {
   }
 
   store.dispatch(setInitialStore());
+
+  if (process.env.NODE_ENV === 'test') {
+    e2eIpcHandler();
+  }
 }
 
 export default init;

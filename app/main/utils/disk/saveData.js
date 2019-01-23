@@ -1,11 +1,11 @@
 import fs from 'fs';
-import * as PATH from 'constants/path';
+import { SETTING_FILE_PATH } from 'config';
 import store from 'store/storeMain';
 
 const saveData = () => {
   const data = store.getState().get('share');
 
-  fs.writeFileSync(`${PATH.CONFIG_PATH}/${PATH.SETTING_FILE_NAME}`, JSON.stringify(data.toJS()));
+  fs.writeFileSync(SETTING_FILE_PATH, JSON.stringify(data.toJS()));
 };
 
 export default saveData;

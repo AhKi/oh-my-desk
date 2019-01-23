@@ -1,14 +1,15 @@
 import fs from 'fs';
-import * as PATH from 'constants/path';
-import * as SETTING from 'constants/setting';
+import {
+  DEFAULT_SETTING,
+  SETTING_FILE_PATH,
+} from 'config';
 
 const getData = () => {
-  const STORED_PATH = `${PATH.CONFIG_PATH}/${PATH.SETTING_FILE_NAME}`;
-  if (!fs.existsSync(STORED_PATH)) {
-    return JSON.parse(SETTING.defaultWidgets);
+  if (!fs.existsSync(SETTING_FILE_PATH)) {
+    return DEFAULT_SETTING;
   }
 
-  const storedData = fs.readFileSync(STORED_PATH, { encoding: 'utf-8' });
+  const storedData = fs.readFileSync(SETTING_FILE_PATH, { encoding: 'utf-8' });
 
   return JSON.parse(storedData);
 };

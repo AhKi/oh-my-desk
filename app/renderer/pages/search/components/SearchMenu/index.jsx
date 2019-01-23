@@ -76,6 +76,7 @@ class SearchMenu extends React.Component {
           <li className="SearchMenu__Item">
             <button
               className="SearchMenu__Btn"
+              data-test-id="menu-new-widget"
               type="button"
               onClick={this.handleMakeWidgetRequest}
             >
@@ -90,6 +91,7 @@ class SearchMenu extends React.Component {
           <li className="SearchMenu__Item">
             <button
               className={allMenuClassName}
+              data-test-id="menu-all"
               type="button"
               onClick={this.handleSetAllFilter}
             >
@@ -104,6 +106,7 @@ class SearchMenu extends React.Component {
           <li className="SearchMenu__Item">
             <button
               className={favoritesMenuClassName}
+              data-test-id="menu-favorites"
               type="button"
               onClick={this.handleSetFavoritesFilter}
             >
@@ -118,6 +121,7 @@ class SearchMenu extends React.Component {
           <li className="SearchMenu__Item">
             <button
               className="SearchMenu__Btn"
+              data-test-id="menu-setting"
               type="button"
               onClick={onOpenPreference}
             >
@@ -132,6 +136,7 @@ class SearchMenu extends React.Component {
           <li className="SearchMenu__Item">
             <button
               className="SearchMenu__Btn"
+              data-test-id="menu-quit"
               type="button"
               onClick={onQuitApp}
             >
