@@ -46,6 +46,7 @@ class AddressBar extends React.Component {
   state = {
     addressValue: '',
     isMenuOpen: false,
+    isMouseOverInput: false,
   };
   moreBtnRef = React.createRef();
   addressInputRef = React.createRef();
@@ -102,6 +103,11 @@ class AddressBar extends React.Component {
     this.setState({ addressValue: e.target.value });
   };
 
+  handleAddressCancel = () => {
+    this.setState({ addressValue: '' });
+    this.addressInputRef.current.focus();
+  };
+
   handleAddressEnter = (e) => {
     const { webView } = this.props;
     const { addressValue: address } = this.state;
@@ -150,7 +156,7 @@ class AddressBar extends React.Component {
   };
 
   render() {
-    const { addressValue, isMenuOpen } = this.state;
+    const { addressValue, isMouseOverInput, isMenuOpen } = this.state;
     const {
       id,
       currentUrl,
@@ -215,15 +221,30 @@ class AddressBar extends React.Component {
           </button>
         )}
         <div className="AddressBar__address">
-          <input
-            className="AddressBar__address-input"
-            type="text"
-            ref={this.addressInputRef}
-            value={addressValue}
-            onChange={this.handleAddressChange}
-            onKeyDown={this.handleAddressEnter}
-            onDoubleClick={() => this.addressInputRef.current.select()}
-          />
+          <div
+            className="AddressBar__address-value"
+            onMouseEnter={() => this.setState({ isMouseOverInput: true })}
+            onMouseLeave={() => this.setState({ isMouseOverInput: false })}
+          >
+            <input
+              className="AddressBar__address-input"
+              type="text"
+              ref={this.addressInputRef}
+              value={addressValue}
+              onChange={this.handleAddressChange}
+              onKeyDown={this.handleAddressEnter}
+              onDoubleClick={() => this.addressInputRef.current.select()}
+            />
+            {isMouseOverInput && (
+              <button
+                className="AddressBar__address-cancel"
+                type="button"
+                onClick={this.handleAddressCancel}
+              >
+                <img className="AddressBar__cancel-icon" src={cancelIcon} alt="" />
+              </button>
+            )}
+          </div>
           <button
             className="AddressBar__address-button"
             type="button"
