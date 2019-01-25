@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import ToggleButton from 'renderer/components/ToggleButton';
-import starIcon from 'assets/icon/icon-star-black.svg';
+import starIcon from 'assets/search-view_icon/icon_star-fill.svg';
+import moreIcon from 'assets/search-view_icon/icon_more.svg';
 import HighlightParagraph from 'renderer/components/HighlightParagraph';
 import './SearchItem.scss';
 
@@ -117,6 +118,12 @@ class SearchItem extends React.Component {
             onClick={this.handleToggleFavorites}
           >
             <img className={BookmarkClassName} src={starIcon} alt="" />
+          </button>
+          <button
+            className="SearchItem__more-btn"
+            type="button"
+          >
+            <img src={moreIcon} alt="" />
           </button>
         </p>
       </li>

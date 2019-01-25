@@ -2,7 +2,7 @@ import React from 'react';
 import { ipcRenderer } from 'electron';
 import i18n from 'constants/i18n';
 import PropTypes from 'prop-types';
-import searchIcon from 'assets/icon/icon-magnifying.svg';
+import searchIcon from 'assets/search-view_icon/icon_magnifier.svg';
 import './SearchInput.scss';
 
 const propTypes = {
