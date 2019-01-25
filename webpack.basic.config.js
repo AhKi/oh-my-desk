@@ -53,6 +53,10 @@ module.exports = {
           publicPath: process.env.NODE_ENV === 'development' ? path.join(__dirname) : undefined,
           outputPath: process.env.NODE_ENV === 'development' ? '/' : undefined,
         },
+      },
+      {
+        test: /\.svg$/,
+        loader: 'raw-loader',
       }
     ]
   },
