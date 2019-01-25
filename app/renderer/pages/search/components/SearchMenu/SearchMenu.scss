@@ -1,14 +1,15 @@
 .SearchMenu {
   display: flex;
   flex-direction: column;
-  background-color: #303240;
+  background-color: #21242C;
   height: 100%;
 }
 
 .SearchMenu__Logo {
-  width: 65px;
-  height: 65px;
+  padding: 12px;
+  width: 60px;
   align-self: center;
+  background-color: #111111;
 }
 
 .SearchMenu__List {
@@ -17,7 +18,12 @@
 }
 
 .SearchMenu__Item {
-  height: 75px;
+  height: 70px;
+  background-color: #21242C;
+
+  &:hover {
+    background-color: #111111;
+  }
 }
 
 .SearchMenu__Btn {
@@ -26,21 +32,27 @@
   justify-content: center;
   align-items: center;
   font-size: 12px;
+  color: #8c8c8c;
+
+  &:hover {
+    color: #ffffff;
+  }
 }
 
 .SearchMenu__Btn--active {
-  font-weight: 700;
+  font-weight: 800;
+  color: #ffffff;
 }
 
 .SearchMenu__Icon {
   align-self: center;
   vertical-align: middle;
-  width: 30px;
-  padding-bottom: 5px;
+  width: 25px;
+  padding-bottom: 8px;
+
 }
 
 .SearchMenu__Btn {
-  color: #e4e4e4;
   height: 100%;
   width: 100%;
 }
