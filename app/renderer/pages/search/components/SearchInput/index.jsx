@@ -1,6 +1,7 @@
 import React from 'react';
-import i18n from 'constants/i18n';
 import PropTypes from 'prop-types';
+import i18n from 'constants/i18n';
+import Svg from 'react-svg-inline';
 import searchIcon from 'assets/search-view_icon/icon_magnifier.svg';
 import './SearchInput.scss';
 
@@ -49,7 +50,7 @@ class SearchInput extends React.Component {
 
     return (
       <div className="SearchInput">
-        <img className="SearchInput__icon" src={searchIcon} alt="" />
+        <Svg className="SearchInput__icon" svg={searchIcon} />
         <input
           className="SearchInput__input"
           type="text"

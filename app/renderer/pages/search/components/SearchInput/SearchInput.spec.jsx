@@ -2,6 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import SearchInput from '.';
 
+jest.mock('react-svg-inline');
+
 describe('Test SearchInput Component', () => {
   beforeEach(() => {
     jest.clearAllMocks();

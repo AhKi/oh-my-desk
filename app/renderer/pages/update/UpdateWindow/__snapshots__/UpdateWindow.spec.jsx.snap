@@ -7,10 +7,13 @@ exports[`<UpdateWindow /> should match to snapshot when render default 1`] = `
   <div
     className="UpdateWindow__title"
   >
-    <img
-      alt=""
+    <SVGInline
       className="UpdateWindow__logo"
-      src={Object {}}
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
     <p
       className="UpdateWindow__notice"
