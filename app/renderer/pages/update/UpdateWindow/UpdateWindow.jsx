@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { remote } from 'electron';
+import Svg from 'react-svg-inline';
 import i18n from 'constants/i18n';
-import logo from 'assets/oh-my-desk-icon.png';
+import logo from 'assets/search-view_icon/icon_omdLogo.svg';
 import './UpdateWindow.scss';
 
 const propTypes = {
@@ -81,7 +82,7 @@ class UpdateWindow extends React.Component {
     return (
       <div className="UpdateWindow">
         <div className="UpdateWindow__title">
-          <img className="UpdateWindow__logo" src={logo} alt="" />
+          <Svg className="UpdateWindow__logo" svg={logo} />
           <p className="UpdateWindow__notice">{text.updateNotice}({currentVersion} {'=>'} {newVersion})</p>
         </div>
         <div className="UpdateWindow__content">

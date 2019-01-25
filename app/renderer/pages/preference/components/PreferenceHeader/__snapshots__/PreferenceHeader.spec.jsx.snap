@@ -14,10 +14,13 @@ exports[`<PreferenceHeader /> should match to snapshot when render default 1`] =
       exact={true}
       to="/"
     >
-      <img
-        alt=""
+      <SVGInline
         className="PreferenceHeader__icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
     </NavLink>
   </div>

@@ -13,10 +13,13 @@ exports[`<UpdateProgress /> should match to snapshot when props.isDownload === t
   <div
     className="UpdateProgress__content"
   >
-    <img
-      alt=""
+    <SVGInline
       className="UpdateProgress__logo"
-      src={Object {}}
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
     <p
       className="UpdateProgress__notice"
@@ -69,10 +72,13 @@ exports[`<UpdateProgress /> should match to snapshot when render default 1`] = `
   <div
     className="UpdateProgress__content"
   >
-    <img
-      alt=""
+    <SVGInline
       className="UpdateProgress__logo"
-      src={Object {}}
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
     <p
       className="UpdateProgress__notice"

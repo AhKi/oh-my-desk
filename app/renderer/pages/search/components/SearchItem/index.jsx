@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import Svg from 'react-svg-inline';
 import ToggleButton from 'renderer/components/ToggleButton';
 import starIcon from 'assets/search-view_icon/icon_star-fill.svg';
 import moreIcon from 'assets/search-view_icon/icon_more.svg';
@@ -109,13 +110,13 @@ class SearchItem extends React.Component {
             type="button"
             onClick={this.handleToggleFavorites}
           >
-            <img className={BookmarkClassName} src={starIcon} alt="" />
+            <Svg className={BookmarkClassName} svg={starIcon} />
           </button>
           <button
             className="SearchItem__more-btn"
             type="button"
           >
-            <img src={moreIcon} alt="" />
+            <Svg svg={moreIcon} />
           </button>
         </p>
       </li>

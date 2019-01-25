@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Svg from 'react-svg-inline';
 import cx from 'classnames';
 import * as USER_AGENT from 'constants/userAgent';
 import closeIcon from 'assets/icon/icon-widget-close.svg';
@@ -71,7 +72,7 @@ class TitleBar extends React.Component {
           type="button"
           onClick={this.handleCloseWidget}
         >
-          <img className="TitleBar__close-img" src={closeIcon} alt="" />
+          <Svg className="TitleBar__close-img" svg={closeIcon} />
         </button>
         <div className="TitleBar__title">{title}</div>
         <div className="TitleBar__asset">
@@ -81,10 +82,9 @@ class TitleBar extends React.Component {
             type="button"
             onClick={this.handleSetMobileAgent}
           >
-            <img
+            <Svg
               className={mobileIconClass}
-              src={mobileIcon}
-              alt=""
+              svg={mobileIcon}
             />
           </button>
           <button
@@ -93,10 +93,9 @@ class TitleBar extends React.Component {
             type="button"
             onClick={this.handleSetDesktopAgent}
           >
-            <img
+            <Svg
               className={desktopIconClass}
-              src={desktopIcon}
-              alt=""
+              svg={desktopIcon}
             />
           </button>
         </div>

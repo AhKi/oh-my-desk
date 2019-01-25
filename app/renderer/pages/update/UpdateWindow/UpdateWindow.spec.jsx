@@ -2,6 +2,8 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import UpdateWindow from './UpdateWindow';
 
+jest.mock('react-svg-inline');
+
 describe('<UpdateWindow />', () => {
   beforeEach(() => {
     jest.clearAllMocks();

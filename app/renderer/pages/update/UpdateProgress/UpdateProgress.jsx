@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { remote } from 'electron';
 import cx from 'classnames';
+import Svg from 'react-svg-inline';
 import i18n from 'constants/i18n';
-import logo from 'assets/oh-my-desk-icon.png';
+import logo from 'assets/search-view_icon/icon_omdLogo.svg';
 import './UpdateProgress.scss';
 
 const propTypes = {
@@ -58,7 +59,7 @@ class UpdateProgress extends React.Component {
          Oh-My-Desk {text.downloading}
         </div>
         <div className="UpdateProgress__content">
-          <img className="UpdateProgress__logo" src={logo} alt="" />
+          <Svg className="UpdateProgress__logo" svg={logo} />
           <p className="UpdateProgress__notice">
             Oh-My-Desk v.{newVersion} {text.downloadNotice}
           </p>

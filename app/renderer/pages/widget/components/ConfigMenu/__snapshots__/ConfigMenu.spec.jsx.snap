@@ -12,10 +12,13 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="ConfigMenu__icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
       <span
         className="ConfigMenu__text"
@@ -32,10 +35,13 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="ConfigMenu__icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
       <span
         className="ConfigMenu__text"
@@ -52,10 +58,13 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="ConfigMenu__icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
       <span
         className="ConfigMenu__text"
@@ -75,10 +84,13 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="ConfigMenu__check-icon ConfigMenu__check-icon--active"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
       <span
         className="ConfigMenu__text"
@@ -98,10 +110,13 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="ConfigMenu__check-icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
       <p
         className="ConfigMenu__select-container"
@@ -149,10 +164,13 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="ConfigMenu__icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
       <span
         className="ConfigMenu__text"
@@ -169,10 +187,13 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="ConfigMenu__icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
       <span
         className="ConfigMenu__text"
@@ -196,10 +217,13 @@ exports[`<ConfigMenu /> should match to snapshot when render default 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="ConfigMenu__icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
       <span
         className="ConfigMenu__text"
@@ -216,10 +240,13 @@ exports[`<ConfigMenu /> should match to snapshot when render default 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="ConfigMenu__icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
       <span
         className="ConfigMenu__text"
@@ -236,10 +263,13 @@ exports[`<ConfigMenu /> should match to snapshot when render default 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="ConfigMenu__icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
       <span
         className="ConfigMenu__text"
@@ -256,10 +286,13 @@ exports[`<ConfigMenu /> should match to snapshot when render default 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="ConfigMenu__icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
       <span
         className="ConfigMenu__text"
@@ -276,10 +309,13 @@ exports[`<ConfigMenu /> should match to snapshot when render default 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="ConfigMenu__icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
       <span
         className="ConfigMenu__text"

@@ -4,10 +4,13 @@ exports[`Test SearchMenu Component should match to snapshot 1`] = `
 <div
   className="SearchMenu"
 >
-  <img
-    alt="Oh-My-Desk-Logo"
+  <SVGInline
     className="SearchMenu__Logo"
-    src={Object {}}
+    classSuffix="-svg"
+    cleanup={Array []}
+    cleanupExceptions={Array []}
+    component="span"
+    svg={Object {}}
   />
   <ul
     className="SearchMenu__List"
@@ -20,10 +23,13 @@ exports[`Test SearchMenu Component should match to snapshot 1`] = `
         onClick={[Function]}
         type="button"
       >
-        <img
-          alt=""
+        <SVGInline
           className="SearchMenu__Icon"
-          src={Object {}}
+          classSuffix="-svg"
+          cleanup={Array []}
+          cleanupExceptions={Array []}
+          component="span"
+          svg={Object {}}
         />
         New
       </button>
@@ -36,10 +42,13 @@ exports[`Test SearchMenu Component should match to snapshot 1`] = `
         onClick={[Function]}
         type="button"
       >
-        <img
-          alt=""
+        <SVGInline
           className="SearchMenu__Icon"
-          src={Object {}}
+          classSuffix="-svg"
+          cleanup={Array []}
+          cleanupExceptions={Array []}
+          component="span"
+          svg={Object {}}
         />
         All
       </button>
@@ -52,10 +61,13 @@ exports[`Test SearchMenu Component should match to snapshot 1`] = `
         onClick={[Function]}
         type="button"
       >
-        <img
-          alt=""
+        <SVGInline
           className="SearchMenu__Icon"
-          src={Object {}}
+          classSuffix="-svg"
+          cleanup={Array []}
+          cleanupExceptions={Array []}
+          component="span"
+          svg={Object {}}
         />
         Bookmark
       </button>
@@ -68,10 +80,13 @@ exports[`Test SearchMenu Component should match to snapshot 1`] = `
         onClick={[Function]}
         type="button"
       >
-        <img
-          alt=""
+        <SVGInline
           className="SearchMenu__Icon"
-          src={Object {}}
+          classSuffix="-svg"
+          cleanup={Array []}
+          cleanupExceptions={Array []}
+          component="span"
+          svg={Object {}}
         />
         Options
       </button>
@@ -84,10 +99,13 @@ exports[`Test SearchMenu Component should match to snapshot 1`] = `
         onClick={[Function]}
         type="button"
       >
-        <img
-          alt=""
+        <SVGInline
           className="SearchMenu__Icon"
-          src={Object {}}
+          classSuffix="-svg"
+          cleanup={Array []}
+          cleanupExceptions={Array []}
+          component="span"
+          svg={Object {}}
         />
         Quit
       </button>
@@ -100,10 +118,13 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
 <div
   className="SearchMenu"
 >
-  <img
-    alt="Oh-My-Desk-Logo"
+  <SVGInline
     className="SearchMenu__Logo"
-    src={Object {}}
+    classSuffix="-svg"
+    cleanup={Array []}
+    cleanupExceptions={Array []}
+    component="span"
+    svg={Object {}}
   />
   <ul
     className="SearchMenu__List"
@@ -116,10 +137,13 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
         onClick={[Function]}
         type="button"
       >
-        <img
-          alt=""
+        <SVGInline
           className="SearchMenu__Icon"
-          src={Object {}}
+          classSuffix="-svg"
+          cleanup={Array []}
+          cleanupExceptions={Array []}
+          component="span"
+          svg={Object {}}
         />
         New
       </button>
@@ -132,10 +156,13 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
         onClick={[Function]}
         type="button"
       >
-        <img
-          alt=""
+        <SVGInline
           className="SearchMenu__Icon"
-          src={Object {}}
+          classSuffix="-svg"
+          cleanup={Array []}
+          cleanupExceptions={Array []}
+          component="span"
+          svg={Object {}}
         />
         All
       </button>
@@ -148,10 +175,13 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
         onClick={[Function]}
         type="button"
       >
-        <img
-          alt=""
+        <SVGInline
           className="SearchMenu__Icon"
-          src={Object {}}
+          classSuffix="-svg"
+          cleanup={Array []}
+          cleanupExceptions={Array []}
+          component="span"
+          svg={Object {}}
         />
         Bookmark
       </button>
@@ -164,10 +194,13 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
         onClick={[Function]}
         type="button"
       >
-        <img
-          alt=""
+        <SVGInline
           className="SearchMenu__Icon"
-          src={Object {}}
+          classSuffix="-svg"
+          cleanup={Array []}
+          cleanupExceptions={Array []}
+          component="span"
+          svg={Object {}}
         />
         Options
       </button>
@@ -180,10 +213,13 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
         onClick={[Function]}
         type="button"
       >
-        <img
-          alt=""
+        <SVGInline
           className="SearchMenu__Icon"
-          src={Object {}}
+          classSuffix="-svg"
+          cleanup={Array []}
+          cleanupExceptions={Array []}
+          component="span"
+          svg={Object {}}
         />
         Quit
       </button>

@@ -9,9 +9,12 @@ exports[`<ReloadTimer /> should match to snapshot when render default 1`] = `
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
-      src={Object {}}
+    <SVGInline
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
   </button>
   <button
@@ -35,9 +38,12 @@ exports[`<ReloadTimer /> should match to snapshot when render default 2`] = `
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
-      src={Object {}}
+    <SVGInline
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
   </button>
   <button

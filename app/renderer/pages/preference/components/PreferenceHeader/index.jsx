@@ -1,6 +1,7 @@
 import React from 'react';
+import Svg from 'react-svg-inline';
 import { NavLink } from 'react-router-dom';
-import omdIcon from 'assets/oh-my-desk-icon.png';
+import omdIcon from 'assets/search-view_icon/icon_omdLogo.svg';
 import './PreferenceHeader.scss';
 
 const propTypes = {};
@@ -17,7 +18,7 @@ class PreferenceHeader extends React.Component {
             exact
             to="/"
           >
-            <img className="PreferenceHeader__icon" src={omdIcon} alt="" />
+            <Svg className="PreferenceHeader__icon" svg={omdIcon} />
           </NavLink>
         </div>
       </div>

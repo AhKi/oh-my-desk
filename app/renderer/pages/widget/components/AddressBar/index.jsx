@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import os from 'os';
 import cx from 'classnames';
+import Svg from 'react-svg-inline';
 import isUrl from 'is-url';
 import cancelIcon from 'assets/icon/icon-widget-close.svg';
 import leftArrowIcon from 'assets/icon/icon-widget-back-arrow.svg';
@@ -185,7 +186,7 @@ class AddressBar extends React.Component {
           disabled={!isGoBack}
           onClick={() => webView.goBack()}
         >
-          <img src={leftArrowIcon} alt="" />
+          <Svg svg={leftArrowIcon} />
         </button>
         <button
           className="AddressBar__button"
@@ -194,7 +195,7 @@ class AddressBar extends React.Component {
           disabled={!isGoForward}
           onClick={() => webView.goForward()}
         >
-          <img src={rightArrowIcon} alt="" />
+          <Svg svg={rightArrowIcon} />
         </button>
         {isLoading ? (
           <button
@@ -203,7 +204,7 @@ class AddressBar extends React.Component {
             type="button"
             onClick={() => webView.stop()}
           >
-            <img src={cancelIcon} alt="" />
+            <Svg svg={cancelIcon} />
           </button>
         ) : (
           <button
@@ -211,7 +212,7 @@ class AddressBar extends React.Component {
             type="button"
             onClick={this.handleNavigateReload}
           >
-            <img src={refreshIcon} alt="" />
+            <Svg svg={refreshIcon} />
           </button>
         )}
         <div className="AddressBar__address">
@@ -228,7 +229,7 @@ class AddressBar extends React.Component {
             type="button"
             onClick={this.handleNavigateToHome}
           >
-            <img className="AddressBar__home-icon" src={homeIcon} alt="" />
+            <Svg className="AddressBar__home-icon" svg={homeIcon} />
             <span className="AddressBar__home-url">{homeUrl}</span>
           </button>
         </div>
@@ -238,7 +239,7 @@ class AddressBar extends React.Component {
           type="button"
           onClick={this.handleToggleMenu}
         >
-          <img src={moreIcon} alt="" />
+          <Svg svg={moreIcon} />
         </button>
         {isMenuOpen && (
           <ConfigMenu
@@ -258,7 +259,7 @@ class AddressBar extends React.Component {
           type="button"
           onClick={this.handleToggleIsOnTop}
         >
-          <img className={pinIconClassName} src={iconPin} alt="" />
+          <Svg className={pinIconClassName} svg={iconPin} />
         </button>
       </div>
     );

@@ -4,6 +4,8 @@ import { shell } from 'electron';
 import DeleteWidgetConfirmContainer from '../../containers/DeleteWidgetConfirmContainer';
 import ConfigMenu from '.';
 
+jest.mock('react-svg-inline');
+
 describe('<ConfigMenu />', () => {
   beforeEach(() => {
     jest.clearAllMocks();
