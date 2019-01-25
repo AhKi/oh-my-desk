@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import icon from 'assets/oh-my-desk-icon.png';
-import addIcon from 'assets/icon/icon-plus-white.svg';
-import allIcon from 'assets/icon/icon-desktop-white.svg';
-import favoritesIcon from 'assets/icon/icon-border-star-white.svg';
+import omdLogo from 'assets/search-view_icon/icon_omdLogo.svg';
+import addIcon from 'assets/search-view_icon/icon_plus.svg';
+import allIcon from 'assets/search-view_icon/icon_monitor.svg';
+import favoritesIcon from 'assets/search-view_icon/icon_star.svg';
+import settingIcon from 'assets/search-view_icon/icon_wheel.svg';
 import outIcon from 'assets/icon/icon-out.svg';
-import settingIcon from 'assets/icon/icon-menu-setting.svg';
 import i18n from 'constants/i18n';
 import './SearchMenu.scss';
 
@@ -69,7 +69,7 @@ class SearchMenu extends React.Component {
       <div className="SearchMenu">
         <img
           className="SearchMenu__Logo"
-          src={icon}
+          src={omdLogo}
           alt="Oh-My-Desk-Logo"
         />
         <ul className="SearchMenu__List">
