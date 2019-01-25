@@ -62,6 +62,15 @@ exports[`Test SearchItem Component should match to snapshot 1`] = `
         src={Object {}}
       />
     </button>
+    <button
+      className="SearchItem__more-btn"
+      type="button"
+    >
+      <img
+        alt=""
+        src={Object {}}
+      />
+    </button>
   </p>
 </li>
 `;
@@ -129,6 +138,15 @@ exports[`Test SearchItem Component should match to snapshot when item.searched =
       <img
         alt=""
         className="SearchItem__icon"
+        src={Object {}}
+      />
+    </button>
+    <button
+      className="SearchItem__more-btn"
+      type="button"
+    >
+      <img
+        alt=""
         src={Object {}}
       />
     </button>
