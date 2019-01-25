@@ -11,9 +11,12 @@ exports[`<AddressBar /> should match to snapshot when props.isLoading is true 1`
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
-      src={Object {}}
+    <SVGInline
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
   </button>
   <button
@@ -23,9 +26,12 @@ exports[`<AddressBar /> should match to snapshot when props.isLoading is true 1`
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
-      src={Object {}}
+    <SVGInline
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
   </button>
   <button
@@ -34,9 +40,12 @@ exports[`<AddressBar /> should match to snapshot when props.isLoading is true 1`
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
-      src={Object {}}
+    <SVGInline
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
   </button>
   <div
@@ -61,10 +70,13 @@ exports[`<AddressBar /> should match to snapshot when props.isLoading is true 1`
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="AddressBar__home-icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
       <span
         className="AddressBar__home-url"
@@ -76,9 +88,12 @@ exports[`<AddressBar /> should match to snapshot when props.isLoading is true 1`
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
-      src={Object {}}
+    <SVGInline
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
   </button>
   <button
@@ -86,10 +101,13 @@ exports[`<AddressBar /> should match to snapshot when props.isLoading is true 1`
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
+    <SVGInline
       className="AddressBar__pin"
-      src={Object {}}
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
   </button>
 </div>
@@ -106,9 +124,12 @@ exports[`<AddressBar /> should match to snapshot when render default 1`] = `
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
-      src={Object {}}
+    <SVGInline
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
   </button>
   <button
@@ -118,9 +139,12 @@ exports[`<AddressBar /> should match to snapshot when render default 1`] = `
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
-      src={Object {}}
+    <SVGInline
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
   </button>
   <button
@@ -128,9 +152,12 @@ exports[`<AddressBar /> should match to snapshot when render default 1`] = `
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
-      src={Object {}}
+    <SVGInline
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
   </button>
   <div
@@ -155,10 +182,13 @@ exports[`<AddressBar /> should match to snapshot when render default 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="AddressBar__home-icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
       <span
         className="AddressBar__home-url"
@@ -170,9 +200,12 @@ exports[`<AddressBar /> should match to snapshot when render default 1`] = `
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
-      src={Object {}}
+    <SVGInline
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
   </button>
   <button
@@ -180,10 +213,13 @@ exports[`<AddressBar /> should match to snapshot when render default 1`] = `
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
+    <SVGInline
       className="AddressBar__pin"
-      src={Object {}}
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
   </button>
 </div>
@@ -200,9 +236,12 @@ exports[`<AddressBar /> should match to snapshot when state.isMenuOpen is true 1
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
-      src={Object {}}
+    <SVGInline
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
   </button>
   <button
@@ -212,9 +251,12 @@ exports[`<AddressBar /> should match to snapshot when state.isMenuOpen is true 1
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
-      src={Object {}}
+    <SVGInline
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
   </button>
   <button
@@ -222,9 +264,12 @@ exports[`<AddressBar /> should match to snapshot when state.isMenuOpen is true 1
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
-      src={Object {}}
+    <SVGInline
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
   </button>
   <div
@@ -249,10 +294,13 @@ exports[`<AddressBar /> should match to snapshot when state.isMenuOpen is true 1
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="AddressBar__home-icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
       <span
         className="AddressBar__home-url"
@@ -264,9 +312,12 @@ exports[`<AddressBar /> should match to snapshot when state.isMenuOpen is true 1
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
-      src={Object {}}
+    <SVGInline
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
   </button>
   <ConfigMenu
@@ -289,10 +340,13 @@ exports[`<AddressBar /> should match to snapshot when state.isMenuOpen is true 1
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
+    <SVGInline
       className="AddressBar__pin"
-      src={Object {}}
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg={Object {}}
     />
   </button>
 </div>

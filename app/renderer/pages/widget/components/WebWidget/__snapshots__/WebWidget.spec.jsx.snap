@@ -61,10 +61,13 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
                   onClick={[Function]}
                   type="button"
                 >
-                  <img
-                    alt=""
+                  <SVGInline
                     className="TitleBar__close-img"
-                    src={Object {}}
+                    classSuffix="-svg"
+                    cleanup={Array []}
+                    cleanupExceptions={Array []}
+                    component="span"
+                    svg={Object {}}
                   />
                 </button>
                 <div
@@ -81,10 +84,13 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
                     onClick={[Function]}
                     type="button"
                   >
-                    <img
-                      alt=""
+                    <SVGInline
                       className="TitleBar__mobile-icon"
-                      src={Object {}}
+                      classSuffix="-svg"
+                      cleanup={Array []}
+                      cleanupExceptions={Array []}
+                      component="span"
+                      svg={Object {}}
                     />
                   </button>
                   <button
@@ -93,10 +99,13 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
                     onClick={[Function]}
                     type="button"
                   >
-                    <img
-                      alt=""
+                    <SVGInline
                       className="TitleBar__desktop-icon"
-                      src={Object {}}
+                      classSuffix="-svg"
+                      cleanup={Array []}
+                      cleanupExceptions={Array []}
+                      component="span"
+                      svg={Object {}}
                     />
                   </button>
                 </div>
@@ -126,9 +135,12 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
                   onClick={[Function]}
                   type="button"
                 >
-                  <img
-                    alt=""
-                    src={Object {}}
+                  <SVGInline
+                    classSuffix="-svg"
+                    cleanup={Array []}
+                    cleanupExceptions={Array []}
+                    component="span"
+                    svg={Object {}}
                   />
                 </button>
                 <button
@@ -138,9 +150,12 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
                   onClick={[Function]}
                   type="button"
                 >
-                  <img
-                    alt=""
-                    src={Object {}}
+                  <SVGInline
+                    classSuffix="-svg"
+                    cleanup={Array []}
+                    cleanupExceptions={Array []}
+                    component="span"
+                    svg={Object {}}
                   />
                 </button>
                 <button
@@ -148,9 +163,12 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
                   onClick={[Function]}
                   type="button"
                 >
-                  <img
-                    alt=""
-                    src={Object {}}
+                  <SVGInline
+                    classSuffix="-svg"
+                    cleanup={Array []}
+                    cleanupExceptions={Array []}
+                    component="span"
+                    svg={Object {}}
                   />
                 </button>
                 <div
@@ -175,10 +193,13 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
                     onClick={[Function]}
                     type="button"
                   >
-                    <img
-                      alt=""
+                    <SVGInline
                       className="AddressBar__home-icon"
-                      src={Object {}}
+                      classSuffix="-svg"
+                      cleanup={Array []}
+                      cleanupExceptions={Array []}
+                      component="span"
+                      svg={Object {}}
                     />
                     <span
                       className="AddressBar__home-url"
@@ -190,9 +211,12 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
                   onClick={[Function]}
                   type="button"
                 >
-                  <img
-                    alt=""
-                    src={Object {}}
+                  <SVGInline
+                    classSuffix="-svg"
+                    cleanup={Array []}
+                    cleanupExceptions={Array []}
+                    component="span"
+                    svg={Object {}}
                   />
                 </button>
                 <button
@@ -200,10 +224,13 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
                   onClick={[Function]}
                   type="button"
                 >
-                  <img
-                    alt=""
+                  <SVGInline
                     className="AddressBar__pin"
-                    src={Object {}}
+                    classSuffix="-svg"
+                    cleanup={Array []}
+                    cleanupExceptions={Array []}
+                    component="span"
+                    svg={Object {}}
                   />
                 </button>
               </div>

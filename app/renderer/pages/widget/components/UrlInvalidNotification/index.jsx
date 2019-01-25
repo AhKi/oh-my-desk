@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { shell } from 'electron';
+import Svg from 'react-svg-inline';
 import i18n from 'constants/i18n';
 import iconExclamation from 'assets/icon/icon-exclamation.svg';
 import './UrlInvalidNotification.scss';
@@ -57,10 +58,9 @@ class UrlInvalidNotification extends React.Component {
     return (
       <div className="UrlInvalidNotification__container">
         <div className="UrlInvalidNotification__header">
-          <img
+          <Svg
             className="UrlInvalidNotification__image"
-            src={iconExclamation}
-            alt=""
+            svg={iconExclamation}
           />
           <p className="UrlInvalidNotification__title">
             <h6>{text.notFound}</h6>

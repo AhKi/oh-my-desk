@@ -56,19 +56,25 @@ exports[`Test SearchItem Component should match to snapshot 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="SearchItem__icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
     </button>
     <button
       className="SearchItem__more-btn"
       type="button"
     >
-      <img
-        alt=""
-        src={Object {}}
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
     </button>
   </p>
@@ -135,19 +141,25 @@ exports[`Test SearchItem Component should match to snapshot when item.searched =
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="SearchItem__icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
     </button>
     <button
       className="SearchItem__more-btn"
       type="button"
     >
-      <img
-        alt=""
-        src={Object {}}
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg={Object {}}
       />
     </button>
   </p>
