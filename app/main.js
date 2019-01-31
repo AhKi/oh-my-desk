@@ -1,7 +1,6 @@
 import { app } from 'electron';
 import store from 'store/storeMain';
 import saveData from 'main/utils/disk/saveData';
-import { preferenceClose } from 'actions/preference';
 import { widgetCloseWhole } from 'actions/widget';
 import { setInitialStore, setWhenQuitApp } from 'actions/setting';
 import { isOpenWidgetWhenStartSelector } from 'store/reducers/share/status/selectors';
@@ -13,6 +12,7 @@ import handlingSearchHotKey from 'main/utils/menu/handlingSearchHotKey';
 import { hotKeySearchWindowSelector } from 'store/reducers/share/config/selectors';
 import openAllWidgetStatusOpen from 'main/utils/window/openAllWidgetStatusOpen';
 import openReduxDevTools from 'main/utils/window/openReduxDevTools';
+import handleIPC from 'main/utils/handleIPC';
 import { autoUpdater } from 'electron-updater';
 
 const SAVE_SETTING_INTERVAL = 300000;
@@ -35,6 +35,7 @@ app.on('ready', () => {
   autoLaunchConfig();
   autoUpdater.checkForUpdatesAndNotify();
 
+  handleIPC();
   // config data
   setInterval(saveData, SAVE_SETTING_INTERVAL);
   store.dispatch(setInitialStore());
@@ -67,7 +68,6 @@ app.on('before-quit', () => {
   if (!isOpenWidgetWhenStart) {
     dispatch(widgetCloseWhole());
   }
-  dispatch(preferenceClose());
   dispatch(setWhenQuitApp());
   saveData();
 });

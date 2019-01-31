@@ -1,7 +1,6 @@
 import { autoUpdater } from 'electron-updater';
 import { CancellationToken } from 'electron-builder-http';
 import * as TYPES from 'actions/constant/actionTypes';
-import * as openPreference from 'main/utils/window/openPreference';
 import * as autoLaunch from 'main/utils/window/autoLaunch';
 import store from 'store/storeMain';
 import createMenu from 'main/utils/menu/createMenu';
@@ -19,19 +18,6 @@ jest.mock('electron-updater');
 describe('test preference controller', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-  });
-
-  it('should handle OPEN_PREFERENCE', () => {
-    const mockOpenPreference = jest.spyOn(openPreference, 'default');
-    mockOpenPreference.mockImplementation(jest.fn());
-    const mockAction = {
-      type: TYPES.PREFERENCE_OPEN,
-    };
-
-    preferenceController(mockAction);
-
-    expect(mockOpenPreference).toHaveBeenCalledTimes(1);
-    expect(mockOpenPreference).toHaveBeenCalledWith();
   });
 
   it('should handle TOGGLE_OPEN_APP_WHEN_LOGIN', () => {

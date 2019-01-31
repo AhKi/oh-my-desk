@@ -10,7 +10,7 @@ import {
   TRAY_ICON_PATH,
 } from 'config';
 import i18n from 'constants/i18n';
-import openPreference from 'main/utils/window/openPreference';
+import { openPreference } from 'main/utils/window/preference';
 
 const trayMenuBar = menuBar({
   icon: TRAY_ICON_PATH,

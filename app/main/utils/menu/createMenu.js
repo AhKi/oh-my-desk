@@ -2,7 +2,7 @@ import { app, Menu } from 'electron';
 import os from 'os';
 import store from 'store/storeMain';
 import { widgetMakeRequest } from 'actions/widget';
-import openPreference from 'main/utils/window/openPreference';
+import { openPreference } from 'main/utils/window/preference';
 import i18n from 'constants/i18n';
 
 // reference by https://electronjs.org/docs/api/menu#examples

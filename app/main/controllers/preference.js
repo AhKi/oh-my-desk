@@ -1,7 +1,6 @@
 import { autoUpdater } from 'electron-updater';
 import { CancellationToken } from 'electron-builder-http';
 import store from 'store/storeMain';
-import openPreference from 'main/utils/window/openPreference';
 import * as TYPES from 'actions/constant/actionTypes';
 import autoLaunch from 'main/utils/window/autoLaunch';
 import createMenu from 'main/utils/menu/createMenu';
@@ -18,10 +17,6 @@ let cancellationToken;
 const preferenceController = (action) => {
   const { type } = action;
   switch (type) { // eslint-disable-line default-case
-    case TYPES.PREFERENCE_OPEN: {
-      openPreference();
-      break;
-    }
     case TYPES.TOGGLE_OPEN_APP_WHEN_LOGIN: {
       autoLaunch();
       break;
