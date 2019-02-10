@@ -51,14 +51,12 @@ describe('Test SearchList Component', () => {
     };
     const onSelectDecrease = jest.fn();
     const onSelectIncrease = jest.fn();
-    const onHideWindow = jest.fn();
     const onShowWidget = jest.fn();
     const wrapper = shallow(
       <SearchList
         list={mockList}
         onSelectDecrease={onSelectDecrease}
         onSelectIncrease={onSelectIncrease}
-        onHideWindow={onHideWindow}
         onShowWidget={onShowWidget}
       />,
     );
@@ -86,8 +84,6 @@ describe('Test SearchList Component', () => {
 
       expect(onShowWidget).toHaveBeenCalledTimes(1);
       expect(onShowWidget).toHaveBeenCalledWith('mock1', true);
-      expect(onHideWindow).toHaveBeenCalledTimes(1);
-      expect(onHideWindow).toHaveBeenCalledWith();
     });
   });
 });

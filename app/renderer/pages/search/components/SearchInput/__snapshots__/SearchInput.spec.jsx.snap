@@ -3,7 +3,6 @@
 exports[`Test SearchInput Component should match to snapshot 1`] = `
 <SearchInput
   filter="ALL"
-  isTrayOpen={false}
   keyword=""
   onChangeKeyword={[Function]}
 >
@@ -29,7 +28,6 @@ exports[`Test SearchInput Component should match to snapshot 1`] = `
 exports[`Test SearchInput Component should match to snapshot when filter !== ALL 1`] = `
 <SearchInput
   filter="FAVORITES"
-  isTrayOpen={false}
   keyword=""
   onChangeKeyword={[Function]}
 >

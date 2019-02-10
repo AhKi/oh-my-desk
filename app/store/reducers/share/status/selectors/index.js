@@ -36,11 +36,6 @@ export const isRestartAfterUpdateSelector = createSelector(
   status => status.get('isRestartAfterUpdate'),
 );
 
-export const isTrayOpenSelector = createSelector(
-  statusSelector,
-  status => status.get('isTrayOpen'),
-);
-
 export const isUpdateCheckFetchSelector = createSelector(
   statusSelector,
   status => status.get('isUpdateCheckFetch'),

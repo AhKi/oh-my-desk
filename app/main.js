@@ -4,7 +4,7 @@ import saveData from 'main/utils/disk/saveData';
 import { widgetCloseWhole } from 'actions/widget';
 import { setInitialStore, setWhenQuitApp } from 'actions/setting';
 import { isOpenWidgetWhenStartSelector } from 'store/reducers/share/status/selectors';
-import TrayMenuBar from 'main/utils/menu/trayMenuBar';
+import { showSearch, hideSearch } from 'main/utils/window/search';
 import autoLaunchConfig from 'main/utils/window/autoLaunch';
 import subscribeActionMain from 'store/utils/subscribeActionMain';
 import createMenu from 'main/utils/menu/createMenu';
@@ -50,9 +50,9 @@ app.on('ready', () => {
  */
 app.on('activate', (e, isOpenWindow) => {
   if (!isOpenWindow) {
-    TrayMenuBar.showWindow();
+    showSearch();
   } else {
-    TrayMenuBar.hideWindow();
+    hideSearch();
   }
 });
 

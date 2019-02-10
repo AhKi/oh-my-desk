@@ -1,18 +1,11 @@
-import { remote, globalShortcut } from 'electron';
+import { globalShortcut } from 'electron';
+import { toggleSearch } from 'main/utils/window/search';
 
 function handlingSearchHotKey(key) {
-  if (!remote) {
-    const TrayMenuBar = require('main/utils/menu/trayMenuBar').default; // eslint-disable-line global-require
-    globalShortcut.unregisterAll();
-    globalShortcut.register(key, () => {
-      if (TrayMenuBar.window && TrayMenuBar.window.isFocused()) {
-        TrayMenuBar.window.blur(); // Need to reopen in windowOS
-        TrayMenuBar.hideWindow(); // Need to reopen in macOS
-      } else {
-        TrayMenuBar.showWindow();
-      }
-    });
-  }
+  globalShortcut.unregisterAll();
+  globalShortcut.register(key, () => {
+    toggleSearch();
+  });
 }
 
 export default handlingSearchHotKey;

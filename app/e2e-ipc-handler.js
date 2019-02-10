@@ -1,13 +1,13 @@
 import { ipcMain } from 'electron';
-import TrayMenuBar from 'main/utils/menu/trayMenuBar';
+import { showSearch, hideSearch } from 'main/utils/window/search';
 
 function e2eIpcHandler() {
   ipcMain.on('search.window.open', () => {
-    TrayMenuBar.showWindow();
+    showSearch();
   });
 
   ipcMain.on('search.window.close', () => {
-    TrayMenuBar.hideWindow();
+    hideSearch();
   });
 }
 

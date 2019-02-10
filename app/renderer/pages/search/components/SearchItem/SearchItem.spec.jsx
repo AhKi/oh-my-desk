@@ -87,4 +87,49 @@ describe('Test SearchItem Component', () => {
       favorites: true,
     });
   });
+
+  describe('should call handleFocusWidget', () => {
+    const onShowWidget = jest.fn();
+    const event = {
+      preventDefault: jest.fn(),
+    };
+
+    it('when item.isOpen === true', () => {
+      const wrapper = shallow(
+        <SearchItem
+          item={{
+            ...mockItem,
+            isOpen: true,
+          }}
+          onShowWidget={onShowWidget}
+        />,
+      );
+      const btn = wrapper.find('.SearchItem__Btn');
+
+      expect(wrapper.instance().props.item.isOpen).toBe(true);
+      btn.simulate('click', event);
+
+      expect(onShowWidget).toHaveBeenNthCalledWith(1, 'mock-id');
+      expect(event.preventDefault).toHaveBeenCalledTimes(1);
+    });
+
+    it('when item.isOpen === false', () => {
+      const wrapper = shallow(
+        <SearchItem
+          item={{
+            ...mockItem,
+            isOpen: false,
+          }}
+          onShowWidget={onShowWidget}
+        />,
+      );
+      const btn = wrapper.find('.SearchItem__Btn');
+
+      expect(wrapper.instance().props.item.isOpen).toBe(false);
+      btn.simulate('click', event);
+
+      expect(onShowWidget).toHaveBeenCalledTimes(0);
+      expect(event.preventDefault).toHaveBeenCalledTimes(0);
+    });
+  });
 });

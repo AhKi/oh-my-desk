@@ -81,19 +81,6 @@ describe('test status selectors', () => {
       .toEqual(false);
   });
 
-  it('should select isTrayOpen', () => {
-    const initialState = Immutable.fromJS({
-      share: {
-        status: {
-          isTrayOpen: false,
-        },
-      },
-    });
-
-    expect(selectors.isTrayOpenSelector(initialState))
-      .toEqual(false);
-  });
-
   it('should select isUpdateCheckFetch', () => {
     const initialState = Immutable.fromJS({
       share: {
