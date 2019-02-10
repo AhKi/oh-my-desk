@@ -1,6 +1,6 @@
 .SearchItem {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 50px;
   border-top: 1px solid $color-cool-gray300;
@@ -23,20 +23,18 @@
 
 }
 
-.SearchItem__toggle-btn {
+
+.SearchItem__namebox {
   display: flex;
-  width: 60px;
-  justify-content: center;
   align-items: center;
+  justify-content: left;
 }
 
-.SearchItem__Text {
-  width: 230px;
 
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.SearchItem__toggle-btn {
+  margin: 0 12px;
 }
+
 
 .SearchItem__Btn {
   color: inherit;
@@ -44,26 +42,39 @@
   display: flex;
   flex-direction: column;
   width: inherit;
+
 }
 
 .SearchItem__BtnSet {
+  margin: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.SearchItem__title-text,
+.SearchItem__url-text {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .SearchItem__bookmark-btn {
-  :hover {
-    background-color: $color-black-opacity15;
-    border-radius: 3px;
+  &:hover {
+    background: $color-black-opacity15;
+    border-radius: 4px;
   }
+
 }
 
 .SearchItem__more-btn {
-  :hover {
-    background-color: $color-black-opacity15;
-    border-radius: 3px;
+  &:hover {
+    background: $color-black-opacity15;
+    border-radius: 4px;
   }
   svg {
     fill: #ffffff;

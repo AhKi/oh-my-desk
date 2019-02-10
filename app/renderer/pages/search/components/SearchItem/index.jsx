@@ -81,37 +81,38 @@ class SearchItem extends React.Component {
 
     return (
       <li className={SearchItemClassName}>
-        <div className="SearchItem__toggle-btn">
-          <ToggleButton
-            isCheck={item.isOpen}
-            onToggle={this.handleToggleWidget}
-          />
+        <div className="SearchItem__namebox">
+          <div className="SearchItem__toggle-btn">
+            <ToggleButton
+              isCheck={item.isOpen}
+              onToggle={this.handleToggleWidget}
+            />
+          </div>
+          <p className="SearchItem__Text">
+            <button
+              className="SearchItem__Btn"
+              type="button"
+              onClick={this.handleFocusWidget}
+            >
+              <strong className="SearchItem__title-text">
+                {(item.searched === 'both' || item.searched === 'name') ? (
+                  <HighlightParagraph
+                    keyword={keyword}
+                    content={item.name}
+                  />
+                ) : <span>{item.name}</span>}
+              </strong>
+              <span className="SearchItem__url-text">
+                {(item.searched === 'both' || item.searched === 'url') ? (
+                  <HighlightParagraph
+                    keyword={keyword}
+                    content={item.url}
+                  />
+                ) : <span>{item.url}</span>}
+              </span>
+            </button>
+          </p>
         </div>
-        <p className="SearchItem__Text">
-          <button
-            className="SearchItem__Btn"
-            type="button"
-            onClick={this.handleFocusWidget}
-            onDoubleClick={this.handleOpenWidget}
-          >
-            <strong className="SearchItem__title-text">
-              {(item.searched === 'both' || item.searched === 'name') ? (
-                <HighlightParagraph
-                  keyword={keyword}
-                  content={item.name}
-                />
-              ) : <span>{item.name}</span>}
-            </strong>
-            <span className="SearchItem__url-text">
-              {(item.searched === 'both' || item.searched === 'url') ? (
-                <HighlightParagraph
-                  keyword={keyword}
-                  content={item.url}
-                />
-              ) : <span>{item.url}</span>}
-            </span>
-          </button>
-        </p>
         <p className="SearchItem__BtnSet">
           <button
             className="SearchItem__bookmark-btn"
