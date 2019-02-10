@@ -6,6 +6,8 @@ import ToggleButton from 'renderer/components/ToggleButton';
 import starIcon from 'assets/search-view_icon/icon_star-fill.svg';
 import moreIcon from 'assets/search-view_icon/icon_more.svg';
 import HighlightParagraph from 'renderer/components/HighlightParagraph';
+import OutsideClickHandler from 'renderer/components/OutsideClickHandler';
+import SearchDropdown from '../SearchDropdown';
 import './SearchItem.scss';
 
 const propTypes = {
@@ -33,6 +35,9 @@ const defaultProps = {
 class SearchItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isShowDropdown: false,
+    };
     this.handleFocusWidget = this.handleFocusWidget.bind(this);
     this.handleToggleWidget = this.handleToggleWidget.bind(this);
     this.handleToggleFavorites = this.handleToggleFavorites.bind(this);
@@ -64,6 +69,7 @@ class SearchItem extends React.Component {
   }
 
   render() {
+    const { isShowDropdown } = this.state;
     const { keyword, item, isSelect } = this.props;
     const SearchItemClassName = cx('SearchItem', {
       SearchItem__select: isSelect,
@@ -117,9 +123,27 @@ class SearchItem extends React.Component {
           <button
             className="SearchItem__more-btn"
             type="button"
+            onClick={() => {
+              this.setState({
+                isShowDropdown: !isShowDropdown,
+              });
+              console.log('click!~', isShowDropdown);
+            }}
           >
             <Svg svg={moreIcon} />
           </button>
+          {isShowDropdown && (
+            <OutsideClickHandler
+              onOutSideClick={() => {
+                this.setState({
+                  isShowDropdown: !isShowDropdown,
+                });
+                console.log('click!~', isShowDropdown);
+              }}
+            >
+              <SearchDropdown />
+            </OutsideClickHandler>
+          )}
         </p>
       </li>
     );
