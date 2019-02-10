@@ -3,33 +3,39 @@
   height: 40px;
   text-align: center;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   -webkit-app-region: drag;
 }
 
 .TitleBar__close-btn {
   display: inline-block;
-  width: 45px;
-  padding: 10px;
+  padding: 0 12px;
   order: 1;
   -webkit-app-region: no-drag;
+
 }
 
 .TitleBar__close-img {
-  width: 100%;
-  height: 100%;
+
+  svg {
+    fill: #ffffff;
+    width: 20px;
+  }
 }
 
 .TitleBar__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: inline-block;
   order: 2;
   flex-grow: 1;
   align-self: center;
+  white-space: nowrap;
 }
 
 .TitleBar__asset {
-  align-self: center;
-  display: inline-block;
+  min-width: 76px;
+  padding: 0 8px;
   order: 3;
   -webkit-app-region: no-drag;
 }
