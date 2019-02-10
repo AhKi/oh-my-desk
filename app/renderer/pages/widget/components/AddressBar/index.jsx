@@ -7,10 +7,10 @@ import isUrl from 'is-url';
 import cancelIcon from 'assets/icon/icon-widget-close.svg';
 import leftArrowIcon from 'assets/icon/icon-widget-back-arrow.svg';
 import rightArrowIcon from 'assets/icon/icon-widget-go-arrow.svg';
-import homeIcon from 'assets/icon/icon-home.svg';
-import moreIcon from 'assets/icon/icon-more.svg';
 import refreshIcon from 'assets/icon/icon-widget-refresh.svg';
-import iconPin from 'assets/icon/icon-pin.svg';
+import homeIcon from 'assets/page-view_icon/icon_home.svg';
+import moreIcon from 'assets/page-view_icon/icon_seemore.svg';
+import iconPin from 'assets/page-view_icon/icon_pin.svg';
 import ConfigMenu from '../ConfigMenu';
 import './AddressBar.scss';
 
@@ -179,42 +179,44 @@ class AddressBar extends React.Component {
 
     return (
       <div className="AddressBar">
-        <button
-          className="AddressBar__button"
-          data-name="go-back-btn"
-          type="button"
-          disabled={!isGoBack}
-          onClick={() => webView.goBack()}
-        >
-          <Svg svg={leftArrowIcon} />
-        </button>
-        <button
-          className="AddressBar__button"
-          data-name="go-forward-btn"
-          type="button"
-          disabled={!isGoForward}
-          onClick={() => webView.goForward()}
-        >
-          <Svg svg={rightArrowIcon} />
-        </button>
-        {isLoading ? (
+        <div className="AddressBar__front-button-box">
           <button
             className="AddressBar__button"
-            data-name="stop-btn"
+            data-name="go-back-btn"
             type="button"
-            onClick={() => webView.stop()}
+            disabled={!isGoBack}
+            onClick={() => webView.goBack()}
           >
-            <Svg svg={cancelIcon} />
+            <Svg svg={leftArrowIcon} />
           </button>
-        ) : (
           <button
             className="AddressBar__button"
+            data-name="go-forward-btn"
             type="button"
-            onClick={this.handleNavigateReload}
+            disabled={!isGoForward}
+            onClick={() => webView.goForward()}
           >
-            <Svg svg={refreshIcon} />
+            <Svg svg={rightArrowIcon} />
           </button>
-        )}
+          {isLoading ? (
+            <button
+              className="AddressBar__button"
+              data-name="stop-btn"
+              type="button"
+              onClick={() => webView.stop()}
+            >
+              <Svg svg={cancelIcon} />
+            </button>
+          ) : (
+            <button
+              className="AddressBar__button"
+              type="button"
+              onClick={this.handleNavigateReload}
+            >
+              <Svg svg={refreshIcon} />
+            </button>
+          )}
+        </div>
         <div className="AddressBar__address">
           <input
             className="AddressBar__address-input"
@@ -230,37 +232,39 @@ class AddressBar extends React.Component {
             onClick={this.handleNavigateToHome}
           >
             <Svg className="AddressBar__home-icon" svg={homeIcon} />
-            <span className="AddressBar__home-url">{homeUrl}</span>
+            <div className="AddressBar__home-url">{homeUrl}</div>
           </button>
         </div>
-        <button
-          className={moreClassName}
-          ref={this.moreBtnRef}
-          type="button"
-          onClick={this.handleToggleMenu}
-        >
-          <Svg svg={moreIcon} />
-        </button>
-        {isMenuOpen && (
-          <ConfigMenu
-            currentUrl={currentUrl}
-            buttonRef={this.moreBtnRef}
-            id={id}
-            reloadInterval={reloadInterval}
-            onClose={this.handleToggleMenu}
-            onEditWidget={onEditWidget}
-            onMakeWidget={onMakeWidget}
-            onModalOpen={onModalOpen}
-            onUpdateWidgetInfo={onUpdateWidgetInfo}
-          />
-        )}
-        <button
-          className={pinClassName}
-          type="button"
-          onClick={this.handleToggleIsOnTop}
-        >
-          <Svg className={pinIconClassName} svg={iconPin} />
-        </button>
+        <div className="AddressBar__end-button-box">
+          <button
+            className={moreClassName}
+            ref={this.moreBtnRef}
+            type="button"
+            onClick={this.handleToggleMenu}
+          >
+            <Svg svg={moreIcon} />
+          </button>
+          {isMenuOpen && (
+            <ConfigMenu
+              currentUrl={currentUrl}
+              buttonRef={this.moreBtnRef}
+              id={id}
+              reloadInterval={reloadInterval}
+              onClose={this.handleToggleMenu}
+              onEditWidget={onEditWidget}
+              onMakeWidget={onMakeWidget}
+              onModalOpen={onModalOpen}
+              onUpdateWidgetInfo={onUpdateWidgetInfo}
+            />
+          )}
+          <button
+            className={pinClassName}
+            type="button"
+            onClick={this.handleToggleIsOnTop}
+          >
+            <Svg className={pinIconClassName} svg={iconPin} />
+          </button>
+        </div>
       </div>
     );
   }

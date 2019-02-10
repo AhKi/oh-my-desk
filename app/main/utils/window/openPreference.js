@@ -23,7 +23,7 @@ const openPreference = () => {
     acceptFirstMouse: true,
     width: 500,
     height: 450,
-    resizable: false,
+    // resizable: false,
     webPreferences: {
       devTools: process.env.NODE_ENV === 'development',
     },

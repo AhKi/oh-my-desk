@@ -7,9 +7,12 @@
 
 .SearchMenu__Logo {
   padding: 12px;
-  width: 60px;
   align-self: center;
   background-color: #111111;
+
+  svg {
+    width: 35px;
+  }
 }
 
 .SearchMenu__List {
@@ -47,9 +50,13 @@
 .SearchMenu__Icon {
   align-self: center;
   vertical-align: middle;
-  padding-bottom: 8px;
+  padding-bottom: 5px;
 
+  svg {
+    width: 25px;
+  }
 }
+
 
 .SearchMenu__Btn {
   height: 100%;

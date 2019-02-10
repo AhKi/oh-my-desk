@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Svg from 'react-svg-inline';
 import cx from 'classnames';
 import * as USER_AGENT from 'constants/userAgent';
-import closeIcon from 'assets/icon/icon-widget-close.svg';
-import desktopIcon from 'assets/icon/icon-desktop-white.svg';
-import mobileIcon from 'assets/icon/icon-mobile-white.svg';
+import closeIcon from 'assets/page-view_icon/icon_xbtn.svg';
+import desktopIcon from 'assets/page-view_icon/icon_desktop.svg';
+import mobileIcon from 'assets/page-view_icon/icon_mobile.svg';
 import './TitleBar.scss';
 
 const propTypes = {
@@ -72,7 +72,11 @@ class TitleBar extends React.Component {
           type="button"
           onClick={this.handleCloseWidget}
         >
-          <Svg className="TitleBar__close-img" svg={closeIcon} />
+          <Svg
+            className="TitleBar__close-img"
+            fill="#ffffff"
+            svg={closeIcon}
+          />
         </button>
         <div className="TitleBar__title">{title}</div>
         <div className="TitleBar__asset">
@@ -84,6 +88,7 @@ class TitleBar extends React.Component {
           >
             <Svg
               className={mobileIconClass}
+              fill="#ffffff"
               svg={mobileIcon}
             />
           </button>
@@ -95,6 +100,7 @@ class TitleBar extends React.Component {
           >
             <Svg
               className={desktopIconClass}
+              fill="#ffffff"
               svg={desktopIcon}
             />
           </button>
