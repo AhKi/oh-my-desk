@@ -93,6 +93,7 @@ class SearchItem extends React.Component {
               className="SearchItem__Btn"
               type="button"
               onClick={this.handleFocusWidget}
+              onDoubleClick={this.handleOpenWidget}
             >
               <strong className="SearchItem__title-text">
                 {(item.searched === 'both' || item.searched === 'name') ? (
