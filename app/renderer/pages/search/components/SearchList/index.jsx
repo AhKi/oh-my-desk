@@ -9,6 +9,7 @@ const propTypes = {
   selectedIndex: PropTypes.number,
   onCloseWidget: PropTypes.func,
   onHideWindow: PropTypes.func,
+  onModalOpen: PropTypes.func,
   onSelectIncrease: PropTypes.func,
   onSelectDecrease: PropTypes.func,
   onShowWidget: PropTypes.func,
@@ -21,6 +22,7 @@ const defaultProps = {
   keyword: '',
   onCloseWidget() {},
   onHideWindow() {},
+  onModalOpen() {},
   onSelectIncrease() {},
   onSelectDecrease() {},
   onShowWidget() {},
@@ -103,6 +105,7 @@ class SearchList extends React.Component {
       list,
       selectedIndex,
       onCloseWidget,
+      onModalOpen,
       onShowWidget,
       onUpdateInfo,
     } = this.props;
@@ -116,6 +119,7 @@ class SearchList extends React.Component {
             keyword={keyword}
             item={item}
             onCloseWidget={onCloseWidget}
+            onModalOpen={onModalOpen}
             onShowWidget={onShowWidget}
             onUpdateInfo={onUpdateInfo}
           />

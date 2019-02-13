@@ -15,6 +15,7 @@ import {
   searchWidgetSelectDecrease,
   searchWindowHide,
 } from 'actions/search';
+import { modalOpen } from 'actions/modal';
 import SearchList from '../components/SearchList';
 
 const mapStateToProps = state => ({
@@ -26,6 +27,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   onCloseWidget: widgetClose,
   onHideWindow: searchWindowHide,
+  onModalOpen: modalOpen,
   onSelectIncrease: searchWidgetSelectIncrease,
   onSelectDecrease: searchWidgetSelectDecrease,
   onShowWidget: widgetOpen,
