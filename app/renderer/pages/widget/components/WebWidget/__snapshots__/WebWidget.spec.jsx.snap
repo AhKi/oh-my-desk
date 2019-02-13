@@ -156,13 +156,20 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
                 <div
                   className="AddressBar__address"
                 >
-                  <input
-                    className="AddressBar__address-input"
-                    onChange={[Function]}
-                    onKeyDown={[Function]}
-                    type="text"
-                    value=""
-                  />
+                  <div
+                    className="AddressBar__address-value"
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                  >
+                    <input
+                      className="AddressBar__address-input"
+                      onChange={[Function]}
+                      onDoubleClick={[Function]}
+                      onKeyDown={[Function]}
+                      type="text"
+                      value=""
+                    />
+                  </div>
                   <button
                     className="AddressBar__address-button"
                     onClick={[Function]}

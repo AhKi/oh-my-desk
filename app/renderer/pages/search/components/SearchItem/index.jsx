@@ -34,6 +34,7 @@ class SearchItem extends React.Component {
     this.handleFocusWidget = this.handleFocusWidget.bind(this);
     this.handleToggleWidget = this.handleToggleWidget.bind(this);
     this.handleToggleFavorites = this.handleToggleFavorites.bind(this);
+    this.handleOpenWidget = this.handleOpenWidget.bind(this);
   }
 
   handleFocusWidget(e) {
@@ -53,6 +54,12 @@ class SearchItem extends React.Component {
     } else {
       onShowWidget(item.id);
     }
+  }
+
+  handleOpenWidget() {
+    const { item, onShowWidget } = this.props;
+
+    onShowWidget(item.id);
   }
 
   handleToggleFavorites() {
@@ -83,6 +90,7 @@ class SearchItem extends React.Component {
             className="SearchItem__Btn"
             type="button"
             onClick={this.handleFocusWidget}
+            onDoubleClick={this.handleOpenWidget}
           >
             <strong className="SearchItem__title-text">
               {(item.searched === 'both' || item.searched === 'name') ? (

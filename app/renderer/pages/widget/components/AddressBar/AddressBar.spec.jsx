@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import os from 'os';
 
 import AddressBar from '.';
@@ -38,6 +38,13 @@ describe('<AddressBar />', () => {
   it('should match to snapshot when state.isMenuOpen is true', () => {
     const wrapper = shallow(<AddressBar />);
     wrapper.setState({ isMenuOpen: true });
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should match to snapshot when state.isMouseOverInput true', () => {
+    const wrapper = shallow(<AddressBar />);
+    wrapper.setState({ isMouseOverInput: true });
 
     expect(wrapper).toMatchSnapshot();
   });
@@ -177,6 +184,19 @@ describe('<AddressBar />', () => {
     wrapper.instance().handleAddressChange(event);
 
     expect(wrapper.instance().state.addressValue).toBe('mock-value');
+  });
+
+  it('should call handleAddressCancel', () => {
+    const focus = jest.fn();
+    const wrapper = mount(<AddressBar />);
+    wrapper.setState({ addressValue: 'mock-value' });
+    wrapper.instance().addressInputRef.current.focus = focus;
+
+    expect(wrapper.instance().state.addressValue).toBe('mock-value');
+    wrapper.instance().handleAddressCancel();
+    expect(wrapper.instance().state.addressValue).toBe('');
+
+    expect(focus).toHaveBeenCalledTimes(1);
   });
 
   describe('test call handleAddressEnter', () => {
@@ -322,5 +342,29 @@ describe('<AddressBar />', () => {
 
       expect(webView.stop).toHaveBeenCalledTimes(1);
     });
+  });
+
+  it('should handle dobule click on address input tag', () => {
+    const select = jest.fn();
+    const wrapper = mount(<AddressBar />);
+    const input = wrapper.find('.AddressBar__address-input');
+    const { current: inputRef } = wrapper.instance().addressInputRef;
+
+    inputRef.select = select;
+
+    expect(select).toHaveBeenCalledTimes(0);
+    input.simulate('doubleclick');
+    expect(select).toHaveBeenCalledTimes(1);
+  });
+
+  it('test mouse event on .AddressBar__address-value', () => {
+    const wrapper = mount(<AddressBar />);
+    const div = wrapper.find('.AddressBar__address-value');
+
+    expect(wrapper.instance().state.isMouseOverInput).toBe(false);
+    div.simulate('mouseEnter');
+    expect(wrapper.instance().state.isMouseOverInput).toBe(true);
+    div.simulate('mouseLeave');
+    expect(wrapper.instance().state.isMouseOverInput).toBe(false);
   });
 });
