@@ -88,7 +88,6 @@ class TitleBar extends React.Component {
           >
             <Svg
               className={mobileIconClass}
-              fill="#ffffff"
               svg={mobileIcon}
             />
           </button>
@@ -100,7 +99,6 @@ class TitleBar extends React.Component {
           >
             <Svg
               className={desktopIconClass}
-              fill="#ffffff"
               svg={desktopIcon}
             />
           </button>

@@ -4,12 +4,12 @@ import { shell } from 'electron';
 import cx from 'classnames';
 import Svg from 'react-svg-inline';
 import i18n from 'constants/i18n';
-import plusIcon from 'assets/icon/icon-plus-white.svg';
-import editIcon from 'assets/icon/icon-edit.svg';
-import reloadIcon from 'assets/icon/icon-widget-refresh.svg';
-import checkIcon from 'assets/icon/icon-checked.svg';
-import outIcon from 'assets/icon/icon-out.svg';
-import deleteIcon from 'assets/icon/icon-delete.svg';
+import plusIcon from 'assets/page-view_icon/icon_more-plus.svg';
+import editIcon from 'assets/page-view_icon/icon_more-edit.svg';
+import reloadIcon from 'assets/page-view_icon/icon_more-refresh.svg';
+import checkIcon from 'assets/page-view_icon/icon_more-check.svg';
+import outIcon from 'assets/page-view_icon/icon_more-browser.svg';
+import deleteIcon from 'assets/page-view_icon/icon_more-delete.svg';
 import DeleteWidgetConfirmContainer from '../../containers/DeleteWidgetConfirmContainer';
 import './ConfigMenu.scss';
 
@@ -210,8 +210,8 @@ class ConfigMenu extends React.Component {
                   <option value={30}>30s</option>
                   <option value={60}>60s</option>
                 </select>,
-                <span className="ConfigMenu__select-arrow" key="arrow" />,
               ])}
+              <span className="ConfigMenu__select-arrow" key="arrow" />
             </button>
           </li>,
         ])}

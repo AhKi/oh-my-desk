@@ -1,7 +1,7 @@
 .WidgetHeader {
-  background: linear-gradient(180deg, $color-gray-blue, $color-dark-gray-blue);
+  background: linear-gradient(90deg, #21242C, #2C395A);
   color: $color-white;
-
+  user-select: none;
   display: flex;
   flex-direction: column;
   height: 80px;

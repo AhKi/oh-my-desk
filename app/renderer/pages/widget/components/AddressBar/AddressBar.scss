@@ -14,9 +14,12 @@
 }
 
 .AddressBar__button {
+  svg {
+    width: 22px;
+  }
 
   &:disabled {
-    opacity: 0.5;
+    opacity: 0.2;
   }
 
   &:hover {
@@ -48,15 +51,23 @@
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
+
+  &:focus {
+    background-color: #ffffff;
+    outline: none;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 100px;
+  }
 }
 
 .AddressBar__cancel-icon {
-  background-color: #4e5c65;
-  border-radius: 50%;
-  width: 15px;
-  margin: 5px;
-
-  align-self: center;
+  margin-right: 8px;
+  svg {
+    width: 12px;
+    background-color: #a8a8a8;
+    border-radius: 100%;
+    padding: 3px;
+  }
 }
 
 .AddressBar__address-button {
@@ -71,7 +82,6 @@
   text-overflow: ellipsis;
   padding: 5px;
   height: 30px;
-
 }
 
 .AddressBar__home-url {
@@ -99,7 +109,7 @@
 .AddressBar__more-btn,
 .AddressBar__pin-btn {
   border-radius: 5px;
-  width: 25px;
+  width: 22px;
 }
 
 .AddressBar__pin {
