@@ -11,7 +11,7 @@ export const search = menuBar({
   tooltip: `oh-my-desk ${APP_VERSION}`,
   fullscreenable: false,
   resizable: false,
-  height: 445,
+  height: 460,
 });
 
 export function showSearch() {

@@ -10,8 +10,3 @@ export const myselfSelector = createSelector(
   identificationSelector,
   identification => identification.get('myself'),
 );
-
-export const browserWindowByIdSelector = createSelector(
-  identificationSelector,
-  identification => identification.get('browserWindowById'),
-);

@@ -1,4 +1,4 @@
-import makeWidget from 'main/utils/widget/makeWidget';
+import { openWidget } from 'main/utils/window/widget';
 import * as sharedId from 'store/reducers/share/identification/selectors';
 import { openBrowserWindow } from 'actions/window';
 import store from 'store/storeMain';
@@ -9,7 +9,7 @@ const openAllWidgetStatusOpen = () => {
   const arr = [];
 
   keyArray.forEach((item) => {
-    arr.push(makeWidget(item, byIdIsOpenIsTrue.get(item).toJS()));
+    arr.push(openWidget(item, byIdIsOpenIsTrue.get(item).toJS()));
   });
 
   store.dispatch(openBrowserWindow(keyArray, arr));
