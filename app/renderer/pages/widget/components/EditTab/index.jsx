@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Svg from 'react-svg-inline';
 import i18n from 'constants/i18n';
-import closeIcon from 'assets/icon/icon-widget-close.svg';
+import closeIcon from 'assets/page-view_icon/icon_xbtn.svg';
 import './EditTab.scss';
 
 const propTypes = {

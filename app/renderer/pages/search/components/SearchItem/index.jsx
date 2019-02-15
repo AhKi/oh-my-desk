@@ -150,22 +150,24 @@ class SearchItem extends React.Component {
           >
             <Svg className={BookmarkClassName} svg={starIcon} />
           </button>
-          <button
-            className="SearchItem__more-btn"
-            type="button"
-            onClick={this.handleToggleMoreMenu}
-          >
-            <Svg svg={moreIcon} />
-          </button>
-          {isMoreMenu && (
-            <SearchMoreMenu
-              onEditWidget={this.handleEditWidget}
-              onDeleteWidget={() => onModalOpen(DeleteWidgetOnSearch, {
-                id: item.id,
-              })}
-              onToggleMenu={this.handleToggleMoreMenu}
-            />
-          )}
+          <div className="SearchMoreMenu__boxSet">
+            <button
+              className="SearchItem__more-btn"
+              type="button"
+              onClick={this.handleToggleMoreMenu}
+            >
+              <Svg svg={moreIcon} />
+            </button>
+            {isMoreMenu && (
+              <SearchMoreMenu
+                onEditWidget={this.handleEditWidget}
+                onDeleteWidget={() => onModalOpen(DeleteWidgetOnSearch, {
+                  id: item.id,
+                })}
+                onToggleMenu={this.handleToggleMoreMenu}
+              />
+            )}
+          </div>
         </div>
       </li>
     );

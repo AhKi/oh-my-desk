@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Svg from 'react-svg-inline';
-import EmptyIcon from 'assets/icon/icon-edit.svg';
+import EmptyIcon from 'assets/search-view_icon/icon_no-page.png';
+import NoresearchIcon from 'assets/search-view_icon/icon_no-research.png';
 import i18n from 'constants/i18n';
 import SearchItem from '../SearchItem';
 import './SearchList.scss';
@@ -128,23 +128,29 @@ class SearchList extends React.Component {
           />
         ))}
         {(list.length === 0 && keyword) && (
-          <>
-            <Svg svg={EmptyIcon} />
+          <div className="SearchList__no-research-img">
+            <img
+              src={NoresearchIcon}
+              alt="no research"
+            />
             {text.noSearch}
-          </>
+          </div>
         )}
         {(list.length === 0 && !keyword) && (
-          <>
-            <Svg svg={EmptyIcon} />
+          <div className="SearchList__no-research-img">
+            <img
+              src={EmptyIcon}
+              alt="empty"
+            />
             {text.empty}
             <button
-              className="Btn Btn--primary"
+              className="Btn Btn--primary SearchList__no-page-btn"
               type="button"
               onClick={() => onMakeWidget()}
             >
-              {text.newWidget}
+              {text.firstWidget}
             </button>
-          </>
+          </div>
         )}
       </ul>
     );

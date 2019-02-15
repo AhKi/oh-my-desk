@@ -38,7 +38,7 @@
   font-weight: inherit;
 
   svg {
-    width: 14px;
+    width: 16px;
     fill: #BEC0CC;
   }
 }
@@ -112,15 +112,18 @@
   -webkit-appearance: none;  /*Removes default chrome and safari style*/
 }
 
-.ConfigMenu__select-arrow {
-  align-self: center;
-  content: '';
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 6px solid #ffffff;
-  position: absolute;
-  top: 160px;
-  left: 88px;
+.ConfigMenu__select-label {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #ffffff;
+    top: 10px;
+    right: 8px;
+  }
 }

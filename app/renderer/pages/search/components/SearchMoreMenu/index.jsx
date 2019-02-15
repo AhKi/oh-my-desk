@@ -28,23 +28,25 @@ class SearchMoreMenu extends React.Component {
     } = this.props;
 
     return (
-      <ul>
-        <li>
+      <ul className="SearchMoreMenu">
+        <li className="SearchMoreMenu__btnSet">
           <button
             type="button"
             onClick={onEditWidget}
+            className="SearchMoreMenu__btn"
           >
+            <div>{text.moreEdit}</div>
             <Svg svg={EditIcon} />
-            {text.edit}
           </button>
         </li>
         <li>
           <button
             type="button"
             onClick={onDeleteWidget}
+            className="SearchMoreMenu__btn"
           >
+            {text.moreRemove}
             <Svg svg={DeleteIcon} />
-            {text.delete}
           </button>
         </li>
       </ul>

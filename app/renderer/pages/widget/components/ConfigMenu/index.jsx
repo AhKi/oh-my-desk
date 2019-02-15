@@ -199,19 +199,20 @@ class ConfigMenu extends React.Component {
             >
               <Svg className={refreshIconClassName} svg={checkIcon} />
               {text.reloadEvery([
-                <select
-                  className="ConfigMenu__select"
-                  key="select"
-                  value={localSecond}
-                  onChange={this.handleChangeLocalSecond}
-                >
-                  <option value={5}>5s</option>
-                  <option value={10}>10s</option>
-                  <option value={30}>30s</option>
-                  <option value={60}>60s</option>
-                </select>,
+                <label className="ConfigMenu__select-label">
+                  <select
+                    className="ConfigMenu__select"
+                    key="select"
+                    value={localSecond}
+                    onChange={this.handleChangeLocalSecond}
+                  >
+                    <option value={5}>5s</option>
+                    <option value={10}>10s</option>
+                    <option value={30}>30s</option>
+                    <option value={60}>60s</option>
+                  </select>
+                </label>,
               ])}
-              <span className="ConfigMenu__select-arrow" key="arrow" />
             </button>
           </li>,
         ])}

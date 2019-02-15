@@ -9,7 +9,7 @@
 
 .TitleBar__close-btn {
   display: inline-block;
-  padding: 0 8px;
+  padding: 0 16px;
   order: 1;
   -webkit-app-region: no-drag;
 
@@ -19,7 +19,7 @@
 
   svg {
     fill: #ffffff;
-    width: 20px;
+    width: 22px;
   }
 }
 

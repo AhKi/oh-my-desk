@@ -10,7 +10,8 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 100px;
+  width: 116px;
+  padding: 0 8px;
 }
 
 .AddressBar__button {
@@ -30,6 +31,7 @@
 
 .AddressBar__address {
   display: flex;
+  justify-content: space-between;
   flex: 1;
   border-right: 1px solid rgb(216, 216, 216);
   border-left: 1px solid rgb(216, 216, 216);

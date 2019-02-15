@@ -8,6 +8,7 @@ import addIcon from 'assets/search-view_icon/icon_plus.svg';
 import allIcon from 'assets/search-view_icon/icon_monitor.svg';
 import favoritesIcon from 'assets/search-view_icon/icon_star.svg';
 import settingIcon from 'assets/search-view_icon/icon_wheel.svg';
+import quitIcon from 'assets/search-view_icon/icon_quit.svg';
 import i18n from 'constants/i18n';
 import './SearchMenu.scss';
 
@@ -136,7 +137,7 @@ class SearchMenu extends React.Component {
             >
               <Svg
                 className="SearchMenu__Icon"
-                svg={settingIcon}
+                svg={quitIcon}
               />
               {text.quit}
             </button>
