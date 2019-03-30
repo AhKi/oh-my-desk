@@ -5,19 +5,6 @@ import * as selectors from '../selectors';
 jest.unmock('moment');
 
 describe('test identification selectors', () => {
-  it('should select downloadProgress', () => {
-    const initialState = Immutable.fromJS({
-      share: {
-        identification: {
-          downloadProgress: 'mock-id',
-        },
-      },
-    });
-
-    expect(selectors.downloadProgressSelector(initialState))
-      .toEqual('mock-id');
-  });
-
   it('should select preference', () => {
     const initialState = Immutable.fromJS({
       share: {

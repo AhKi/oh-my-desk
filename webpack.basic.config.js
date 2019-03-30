@@ -8,8 +8,6 @@ module.exports = {
     preloadScript: './app/renderer/pages/widget/preloadScript.js',
     preference: './app/renderer/pages/preference/index.jsx',
     search: './app/renderer/pages/search/index.jsx',
-    updateWindow: './app/renderer/pages/update/UpdateWindow/index.jsx',
-    updateProgress: './app/renderer/pages/update/UpdateProgress/index.jsx'
   },
   target: 'electron-renderer',
   module: {
@@ -74,18 +72,6 @@ module.exports = {
       chunks: ['search'],
       filename: 'search.html',
       template: path.join(__dirname, './app/renderer/pages/search/search.html'),
-      inject: 'body',
-    }),
-    new HtmlWebpackPlugin({
-      chunks: ['updateWindow'],
-      filename: 'UpdateWindow.html',
-      template: path.join(__dirname, './app/renderer/pages/update/UpdateWindow/UpdateWindow.html'),
-      inject: 'body',
-    }),
-    new HtmlWebpackPlugin({
-      chunks: ['updateProgress'],
-      filename: 'UpdateProgress.html',
-      template: path.join(__dirname, './app/renderer/pages/update/UpdateProgress/UpdateProgress.html'),
       inject: 'body',
     }),
     new webpack.DefinePlugin({
