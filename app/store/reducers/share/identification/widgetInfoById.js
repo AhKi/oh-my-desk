@@ -1,4 +1,4 @@
-import { combineActions, handleActions } from 'redux-actions';
+import { handleActions } from 'redux-actions';
 import Immutable from 'immutable';
 import createWidget from 'main/utils/widget/createWidget';
 import * as TYPES from 'actions/constant/actionTypes';
@@ -33,10 +33,7 @@ const widgetInfoByIdReducer = handleActions({
 
     return state.set(id, widget.set('isOpen', true));
   },
-  [combineActions(
-    TYPES.WIDGET_CLOSE,
-    TYPES.WIDGET_CLOSED,
-  )]: (state, action) => {
+  [TYPES.WIDGET_CLOSED]: (state, action) => {
     const { id } = action.payload;
     const widget = state.get(id);
 
@@ -46,6 +43,10 @@ const widgetInfoByIdReducer = handleActions({
 
     if (widget.get('isMakeProgress')) {
       return state.delete(id);
+    }
+
+    if (widget.get('isEditProgress')) {
+      return state.set(id, widget.set('isOpen', false).set('isEditProgress', false));
     }
 
     return state.set(id, widget.set('isOpen', false));
@@ -77,7 +78,7 @@ const widgetInfoByIdReducer = handleActions({
   [TYPES.WIDGET_CLOSE_WHOLE]: state => state.map(item => item.set('isOpen', false)),
   [TYPES.SET_WHEN_QUIT_APP]: (state) => {
     let result = state;
-    state.map((item) => { // eslint-disable-line  array-callback-return
+    state.forEach((item) => {
       const isMakeProgress = item.get('isMakeProgress');
       const isEditProgress = item.get('isEditProgress');
 

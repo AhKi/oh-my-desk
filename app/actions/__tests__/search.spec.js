@@ -65,40 +65,4 @@ describe('test search actions', () => {
 
     expect(actions.searchWidgetSelectIncrease()).toEqual(mockAction);
   });
-
-  it('should handle searchWindowHide', () => {
-    const mockAction = {
-      type: TYPES.SEARCH_WINDOW_HIDE,
-      payload: {},
-      meta: {
-        category: CATEGORY.TARGET,
-        containMain: true,
-        self: false,
-      },
-    };
-
-    expect(actions.searchWindowHide()).toEqual(mockAction);
-  });
-
-  it('should handle searchTrayOpen', () => {
-    const mockAction = {
-      type: TYPES.SEARCH_TRAY_OPEN,
-      meta: {
-        category: CATEGORY.BROADCAST,
-      },
-    };
-
-    expect(actions.searchTrayOpen()).toEqual(mockAction);
-  });
-
-  it('should handle searchTrayClose', () => {
-    const mockAction = {
-      type: TYPES.SEARCH_TRAY_CLOSE,
-      meta: {
-        category: CATEGORY.BROADCAST,
-      },
-    };
-
-    expect(actions.searchTrayClose()).toEqual(mockAction);
-  });
 });

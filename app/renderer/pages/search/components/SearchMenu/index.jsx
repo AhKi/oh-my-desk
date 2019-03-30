@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ipcRenderer } from 'electron';
 import cx from 'classnames';
 import icon from 'assets/oh-my-desk-icon.png';
 import addIcon from 'assets/icon/icon-plus-white.svg';
@@ -13,14 +14,12 @@ import './SearchMenu.scss';
 const propTypes = {
   filter: PropTypes.string,
   onMakeWidgetRequest: PropTypes.func,
-  onOpenPreference: PropTypes.func,
   onQuitApp: PropTypes.func,
   onSetFilter: PropTypes.func,
 };
 const defaultProps = {
   filter: 'ALL',
   onMakeWidgetRequest() {},
-  onOpenPreference() {},
   onQuitApp() {},
   onSetFilter() {},
 };
@@ -57,7 +56,7 @@ class SearchMenu extends React.Component {
 
   render() {
     const text = i18n().search;
-    const { filter, onOpenPreference, onQuitApp } = this.props;
+    const { filter, onQuitApp } = this.props;
     const allMenuClassName = cx('SearchMenu__Btn', {
       'SearchMenu__Btn--active': filter === 'ALL',
     });
@@ -123,7 +122,7 @@ class SearchMenu extends React.Component {
               className="SearchMenu__Btn"
               data-test-id="menu-setting"
               type="button"
-              onClick={onOpenPreference}
+              onClick={() => ipcRenderer.send('preference.open')}
             >
               <img
                 className="SearchMenu__Icon"

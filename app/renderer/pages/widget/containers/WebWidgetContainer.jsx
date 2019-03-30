@@ -8,7 +8,6 @@ import {
   widgetUpdateInfo,
   widgetUrlValidCheck,
 } from 'actions/widget';
-import { preferenceOpen } from 'actions/preference';
 import WebWidget from '../components/WebWidget';
 
 const mapStateToProps = state => ({
@@ -21,7 +20,6 @@ const mapDispatchToProps = {
   onCheckUrlValidation: widgetUrlValidCheck,
   onMakeWidget: widgetMakeRequest,
   onUpdateInfo: widgetUpdateInfo,
-  onOpenPreference: preferenceOpen,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(toJS(WebWidget));

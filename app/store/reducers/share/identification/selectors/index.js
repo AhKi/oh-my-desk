@@ -10,11 +10,6 @@ export const identificationSelector = createSelector(
   share => share.get('identification'),
 );
 
-export const downloadProgressSelector = createSelector(
-  identificationSelector,
-  identification => identification.get('downloadProgress'),
-);
-
 export const preferenceSelector = createSelector(
   identificationSelector,
   identification => identification.get('preference'),

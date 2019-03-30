@@ -6,6 +6,7 @@ const TEMP_DIR = process.platform === 'win32' ? 'C:\\Windows\\Temp' : '/tmp';
 const IS_TEST = process.env.NODE_ENV === 'test';
 const SETTING_FILE = 'store.json';
 
+export const APP_VERSION = (app || remote.app).getVersion();
 export const SETTING_FILE_PATH = !IS_TEST ?
   path.join(BASIC_PATH, 'oh-my-desk', SETTING_FILE) :
   path.join(TEMP_DIR, SETTING_FILE);

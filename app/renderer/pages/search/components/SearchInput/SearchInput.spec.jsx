@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { ipcRenderer } from 'electron';
 import SearchInput from '.';
 
 describe('Test SearchInput Component', () => {
@@ -19,49 +20,43 @@ describe('Test SearchInput Component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should test componentDidMount', () => {
+  describe('should test componentDidMount', () => {
     const componentDidMount = jest.spyOn(SearchInput.prototype, 'componentDidMount');
-    const wrapper = mount(<SearchInput filter="FAVORITES" />);
-    const inputRef = wrapper.instance().inputRef.current;
 
-    expect(componentDidMount).toHaveBeenCalledTimes(1);
-    expect(document.activeElement).toEqual(inputRef);
-  });
+    it('should focus input element', () => {
+      const wrapper = mount(<SearchInput />);
+      const inputRef = wrapper.instance().inputRef.current;
 
-  describe('should test componentDidUpdate', () => {
-    const componentDidUpdate = jest.spyOn(SearchInput.prototype, 'componentDidUpdate');
-    const wrapper = mount(<SearchInput isTrayOpen={false} />);
-    const inputRef = wrapper.instance().inputRef.current;
-    inputRef.focus = jest.fn();
-
-    it('when isTrayOpen change from false to true', () => {
-      expect(wrapper.instance().props.isTrayOpen).toBe(false);
-      wrapper.setProps({
-        isTrayOpen: true,
-      });
-
-      expect(componentDidUpdate).toHaveBeenCalledTimes(1);
-      expect(inputRef.focus).toHaveBeenCalledTimes(1);
+      expect(componentDidMount).toHaveBeenCalledTimes(1);
+      expect(document.activeElement).toEqual(inputRef);
     });
 
-    it('when isTrayOpen change from false to true', () => {
-      expect(wrapper.instance().props.isTrayOpen).toBe(true);
-      wrapper.setProps({
-        isTrayOpen: false,
-      });
+    it('should match number of event that handled IPC', () => {
+      mount(<SearchInput />);
 
-      expect(componentDidUpdate).toHaveBeenCalledTimes(1);
-      expect(inputRef.focus).toHaveBeenCalledTimes(1);
+      expect(ipcRenderer.on).toHaveBeenCalledTimes(2);
     });
 
-    it('when isTrayOpen doesn\'t change', () => {
-      expect(wrapper.instance().props.isTrayOpen).toBe(false);
-      wrapper.setProps({
-        isTrayOpen: false,
+    describe('should test IPC callback function', () => {
+      it('when tray.show', () => {
+        const wrapper = mount(<SearchInput />);
+        const inputRef = wrapper.instance().inputRef.current;
+        const showCb = ipcRenderer.on.mock.calls.filter(i => i[0] === 'tray.show')[0][1];
+
+        inputRef.blur();
+        expect(document.activeElement).not.toEqual(inputRef);
+        showCb();
+        expect(document.activeElement).toEqual(inputRef);
       });
 
-      expect(componentDidUpdate).toHaveBeenCalledTimes(1);
-      expect(inputRef.focus).toHaveBeenCalledTimes(0);
+      it('when tray.hide', () => {
+        const onChangeKeyword = jest.fn();
+        mount(<SearchInput onChangeKeyword={onChangeKeyword} />);
+        const hideCb = ipcRenderer.on.mock.calls.filter(i => i[0] === 'tray.hide')[0][1];
+        hideCb();
+
+        expect(onChangeKeyword).toHaveBeenNthCalledWith(1, '');
+      });
     });
   });
 

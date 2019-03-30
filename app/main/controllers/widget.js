@@ -1,9 +1,11 @@
-import React from 'react'; // eslint-disable-line
 import axios from 'axios';
-import makeWidget from 'main/utils/widget/makeWidget';
+import {
+  closeWidget,
+  openWidget,
+  setAlwaysOnTop,
+} from 'main/utils/window/widget';
 import store from 'store/storeMain';
 import * as TYPES from 'actions/constant/actionTypes';
-import { openBrowserWindow } from 'actions/window';
 import {
   widgetUpdateInfo,
   widgetUrlCheckRequest,
@@ -12,7 +14,6 @@ import {
 import { isUrlCheckFetchSelector } from 'store/reducers/share/status/selectors';
 import { modalOpen } from 'actions/modal';
 import * as sharedId from 'store/reducers/share/identification/selectors';
-import * as identificationSelector from 'store/reducers/personal/identification/selectors';
 import saveData from 'main/utils/disk/saveData';
 
 const widgetController = (action, prev) => {
@@ -20,54 +21,37 @@ const widgetController = (action, prev) => {
   switch (type) { // eslint-disable-line default-case
     case TYPES.WIDGET_MAKE_REQUEST: {
       const { id } = action.payload;
-      const widgetWin = makeWidget(id, undefined, true);
 
-      store.dispatch(openBrowserWindow(id, widgetWin));
+      openWidget(id);
       saveData();
       break;
     }
     case TYPES.WIDGET_OPEN: {
       const { id, isFocus } = action.payload;
       const byId = sharedId.widgetInfoByIdSelector(prev);
-      const item = byId.get(id);
+      const info = byId.get(id).toJS();
 
-      const winWidgets = identificationSelector.browserWindowByIdSelector(prev);
-      const widget = winWidgets.get(id);
-
-      if (widget) {
-        widget.show();
-      } else {
-        const widgetWin = makeWidget(id, item.toJS(), isFocus);
-
-        store.dispatch(openBrowserWindow(id, widgetWin));
-      }
+      openWidget(id, info, isFocus);
+      saveData();
       break;
     }
     case TYPES.WIDGET_CLOSE:
     case TYPES.WIDGET_DELETE: {
       const { id } = action.payload;
-      const winWidgets = identificationSelector.browserWindowByIdSelector(prev);
-      const widget = winWidgets.get(id);
 
-      if (widget) {
-        widget.close();
-      }
+      closeWidget(id);
       break;
     }
     case TYPES.WIDGET_UPDATE_INFO: {
       const { id, info } = action.payload;
-      const winWidgets = identificationSelector.browserWindowByIdSelector(prev);
-      const widget = winWidgets.get(id);
 
-      if (widget) {
-        Object.keys(info).forEach((target) => {
-          switch (target) { // eslint-disable-line default-case
-            case 'isOnTop': {
-              widget.setAlwaysOnTop(info.isOnTop);
-            }
+      Object.keys(info).forEach((target) => {
+        switch (target) { // eslint-disable-line default-case
+          case 'isOnTop': {
+            setAlwaysOnTop(id, info.isOnTop);
           }
-        });
-      }
+        }
+      });
       break;
     }
     case TYPES.WIDGET_URL_VALID_CHECK: {
