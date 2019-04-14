@@ -15,7 +15,8 @@ exports[`<TitleBar /> should match to snapshot when exist userAgent 1`] = `
       cleanup={Array []}
       cleanupExceptions={Array []}
       component="span"
-      svg={Object {}}
+      fill="#ffffff"
+      svg=""
     />
   </button>
   <div
@@ -38,7 +39,7 @@ exports[`<TitleBar /> should match to snapshot when exist userAgent 1`] = `
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
     </button>
     <button
@@ -53,7 +54,7 @@ exports[`<TitleBar /> should match to snapshot when exist userAgent 1`] = `
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
     </button>
   </div>
@@ -75,7 +76,8 @@ exports[`<TitleBar /> should match to snapshot when render default 1`] = `
       cleanup={Array []}
       cleanupExceptions={Array []}
       component="span"
-      svg={Object {}}
+      fill="#ffffff"
+      svg=""
     />
   </button>
   <div
@@ -98,7 +100,7 @@ exports[`<TitleBar /> should match to snapshot when render default 1`] = `
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
     </button>
     <button
@@ -113,7 +115,7 @@ exports[`<TitleBar /> should match to snapshot when render default 1`] = `
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
     </button>
   </div>

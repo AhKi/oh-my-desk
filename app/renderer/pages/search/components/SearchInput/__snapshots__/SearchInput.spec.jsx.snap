@@ -15,7 +15,7 @@ exports[`Test SearchInput Component should match to snapshot 1`] = `
       cleanup={Array []}
       cleanupExceptions={Array []}
       component="span"
-      svg={Object {}}
+      svg=""
     />
     <input
       className="SearchInput__input"
@@ -43,7 +43,7 @@ exports[`Test SearchInput Component should match to snapshot when filter !== ALL
       cleanup={Array []}
       cleanupExceptions={Array []}
       component="span"
-      svg={Object {}}
+      svg=""
     />
     <input
       className="SearchInput__input"

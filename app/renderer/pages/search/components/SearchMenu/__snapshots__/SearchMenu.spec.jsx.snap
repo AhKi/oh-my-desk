@@ -10,7 +10,7 @@ exports[`Test SearchMenu Component should match to snapshot 1`] = `
     cleanup={Array []}
     cleanupExceptions={Array []}
     component="span"
-    svg={Object {}}
+    svg=""
   />
   <ul
     className="SearchMenu__List"
@@ -30,7 +30,7 @@ exports[`Test SearchMenu Component should match to snapshot 1`] = `
           cleanup={Array []}
           cleanupExceptions={Array []}
           component="span"
-          svg={Object {}}
+          svg=""
         />
         New
       </button>
@@ -50,7 +50,7 @@ exports[`Test SearchMenu Component should match to snapshot 1`] = `
           cleanup={Array []}
           cleanupExceptions={Array []}
           component="span"
-          svg={Object {}}
+          svg=""
         />
         All
       </button>
@@ -70,7 +70,7 @@ exports[`Test SearchMenu Component should match to snapshot 1`] = `
           cleanup={Array []}
           cleanupExceptions={Array []}
           component="span"
-          svg={Object {}}
+          svg=""
         />
         Bookmark
       </button>
@@ -90,7 +90,7 @@ exports[`Test SearchMenu Component should match to snapshot 1`] = `
           cleanup={Array []}
           cleanupExceptions={Array []}
           component="span"
-          svg={Object {}}
+          svg=""
         />
         Options
       </button>
@@ -110,7 +110,7 @@ exports[`Test SearchMenu Component should match to snapshot 1`] = `
           cleanup={Array []}
           cleanupExceptions={Array []}
           component="span"
-          svg={Object {}}
+          svg=""
         />
         Quit
       </button>
@@ -129,7 +129,7 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
     cleanup={Array []}
     cleanupExceptions={Array []}
     component="span"
-    svg={Object {}}
+    svg=""
   />
   <ul
     className="SearchMenu__List"
@@ -149,7 +149,7 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
           cleanup={Array []}
           cleanupExceptions={Array []}
           component="span"
-          svg={Object {}}
+          svg=""
         />
         New
       </button>
@@ -169,7 +169,7 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
           cleanup={Array []}
           cleanupExceptions={Array []}
           component="span"
-          svg={Object {}}
+          svg=""
         />
         All
       </button>
@@ -189,7 +189,7 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
           cleanup={Array []}
           cleanupExceptions={Array []}
           component="span"
-          svg={Object {}}
+          svg=""
         />
         Bookmark
       </button>
@@ -209,7 +209,7 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
           cleanup={Array []}
           cleanupExceptions={Array []}
           component="span"
-          svg={Object {}}
+          svg=""
         />
         Options
       </button>
@@ -229,7 +229,7 @@ exports[`Test SearchMenu Component should match to snapshot when props.filter ==
           cleanup={Array []}
           cleanupExceptions={Array []}
           component="span"
-          svg={Object {}}
+          svg=""
         />
         Quit
       </button>

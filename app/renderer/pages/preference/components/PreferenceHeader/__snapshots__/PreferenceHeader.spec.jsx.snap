@@ -20,7 +20,7 @@ exports[`<PreferenceHeader /> should match to snapshot when render default 1`] =
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
     </NavLink>
   </div>

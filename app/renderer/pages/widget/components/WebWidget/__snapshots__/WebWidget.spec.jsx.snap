@@ -67,7 +67,8 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
                     cleanup={Array []}
                     cleanupExceptions={Array []}
                     component="span"
-                    svg={Object {}}
+                    fill="#ffffff"
+                    svg=""
                   />
                 </button>
                 <div
@@ -90,7 +91,7 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
                       cleanup={Array []}
                       cleanupExceptions={Array []}
                       component="span"
-                      svg={Object {}}
+                      svg=""
                     />
                   </button>
                   <button
@@ -105,7 +106,7 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
                       cleanup={Array []}
                       cleanupExceptions={Array []}
                       component="span"
-                      svg={Object {}}
+                      svg=""
                     />
                   </button>
                 </div>
@@ -128,49 +129,53 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
               <div
                 className="AddressBar"
               >
-                <button
-                  className="AddressBar__button"
-                  data-name="go-back-btn"
-                  disabled={true}
-                  onClick={[Function]}
-                  type="button"
+                <div
+                  className="AddressBar__front-button-box"
                 >
-                  <SVGInline
-                    classSuffix="-svg"
-                    cleanup={Array []}
-                    cleanupExceptions={Array []}
-                    component="span"
-                    svg={Object {}}
-                  />
-                </button>
-                <button
-                  className="AddressBar__button"
-                  data-name="go-forward-btn"
-                  disabled={true}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  <SVGInline
-                    classSuffix="-svg"
-                    cleanup={Array []}
-                    cleanupExceptions={Array []}
-                    component="span"
-                    svg={Object {}}
-                  />
-                </button>
-                <button
-                  className="AddressBar__button"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  <SVGInline
-                    classSuffix="-svg"
-                    cleanup={Array []}
-                    cleanupExceptions={Array []}
-                    component="span"
-                    svg={Object {}}
-                  />
-                </button>
+                  <button
+                    className="AddressBar__button"
+                    data-name="go-back-btn"
+                    disabled={true}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <SVGInline
+                      classSuffix="-svg"
+                      cleanup={Array []}
+                      cleanupExceptions={Array []}
+                      component="span"
+                      svg=""
+                    />
+                  </button>
+                  <button
+                    className="AddressBar__button"
+                    data-name="go-forward-btn"
+                    disabled={true}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <SVGInline
+                      classSuffix="-svg"
+                      cleanup={Array []}
+                      cleanupExceptions={Array []}
+                      component="span"
+                      svg=""
+                    />
+                  </button>
+                  <button
+                    className="AddressBar__button"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <SVGInline
+                      classSuffix="-svg"
+                      cleanup={Array []}
+                      cleanupExceptions={Array []}
+                      component="span"
+                      svg=""
+                    />
+                  </button>
+                </div>
                 <div
                   className="AddressBar__address"
                 >
@@ -199,40 +204,44 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
                       cleanup={Array []}
                       cleanupExceptions={Array []}
                       component="span"
-                      svg={Object {}}
+                      svg=""
                     />
-                    <span
+                    <div
                       className="AddressBar__home-url"
                     />
                   </button>
                 </div>
-                <button
-                  className="AddressBar__button AddressBar__more-btn"
-                  onClick={[Function]}
-                  type="button"
+                <div
+                  className="AddressBar__end-button-box"
                 >
-                  <SVGInline
-                    classSuffix="-svg"
-                    cleanup={Array []}
-                    cleanupExceptions={Array []}
-                    component="span"
-                    svg={Object {}}
-                  />
-                </button>
-                <button
-                  className="AddressBar__pin-btn"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  <SVGInline
-                    className="AddressBar__pin"
-                    classSuffix="-svg"
-                    cleanup={Array []}
-                    cleanupExceptions={Array []}
-                    component="span"
-                    svg={Object {}}
-                  />
-                </button>
+                  <button
+                    className="AddressBar__button AddressBar__more-btn"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <SVGInline
+                      classSuffix="-svg"
+                      cleanup={Array []}
+                      cleanupExceptions={Array []}
+                      component="span"
+                      svg=""
+                    />
+                  </button>
+                  <button
+                    className="AddressBar__pin-btn"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <SVGInline
+                      className="AddressBar__pin"
+                      classSuffix="-svg"
+                      cleanup={Array []}
+                      cleanupExceptions={Array []}
+                      component="span"
+                      svg=""
+                    />
+                  </button>
+                </div>
               </div>
             </AddressBar>
           </div>

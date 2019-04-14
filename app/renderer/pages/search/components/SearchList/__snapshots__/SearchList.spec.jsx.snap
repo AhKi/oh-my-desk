@@ -3,7 +3,24 @@
 exports[`Test SearchList Component should match to snapshot 1`] = `
 <ul
   className="SearchList"
-/>
+>
+  <div
+    className="SearchList__no-research-img"
+  >
+    <img
+      alt="empty"
+      src=""
+    />
+    Empty Page
+    <button
+      className="Btn Btn--primary SearchList__no-page-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Create Widget &gt;
+    </button>
+  </div>
+</ul>
 `;
 
 exports[`Test SearchList Component should match to snapshot 2`] = `
@@ -21,6 +38,7 @@ exports[`Test SearchList Component should match to snapshot 2`] = `
     key="mock1"
     keyword=""
     onCloseWidget={[Function]}
+    onModalOpen={[Function]}
     onShowWidget={[Function]}
     onUpdateInfo={[Function]}
   />
@@ -35,6 +53,7 @@ exports[`Test SearchList Component should match to snapshot 2`] = `
     key="mock2"
     keyword=""
     onCloseWidget={[Function]}
+    onModalOpen={[Function]}
     onShowWidget={[Function]}
     onUpdateInfo={[Function]}
   />

@@ -4,50 +4,54 @@ exports[`<AddressBar /> should match to snapshot when props.isLoading is true 1`
 <div
   className="AddressBar"
 >
-  <button
-    className="AddressBar__button"
-    data-name="go-back-btn"
-    disabled={true}
-    onClick={[Function]}
-    type="button"
+  <div
+    className="AddressBar__front-button-box"
   >
-    <SVGInline
-      classSuffix="-svg"
-      cleanup={Array []}
-      cleanupExceptions={Array []}
-      component="span"
-      svg={Object {}}
-    />
-  </button>
-  <button
-    className="AddressBar__button"
-    data-name="go-forward-btn"
-    disabled={true}
-    onClick={[Function]}
-    type="button"
-  >
-    <SVGInline
-      classSuffix="-svg"
-      cleanup={Array []}
-      cleanupExceptions={Array []}
-      component="span"
-      svg={Object {}}
-    />
-  </button>
-  <button
-    className="AddressBar__button"
-    data-name="stop-btn"
-    onClick={[Function]}
-    type="button"
-  >
-    <SVGInline
-      classSuffix="-svg"
-      cleanup={Array []}
-      cleanupExceptions={Array []}
-      component="span"
-      svg={Object {}}
-    />
-  </button>
+    <button
+      className="AddressBar__button"
+      data-name="go-back-btn"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+    <button
+      className="AddressBar__button"
+      data-name="go-forward-btn"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+    <button
+      className="AddressBar__button"
+      data-name="stop-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+  </div>
   <div
     className="AddressBar__address"
   >
@@ -76,40 +80,44 @@ exports[`<AddressBar /> should match to snapshot when props.isLoading is true 1`
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
-      <span
+      <div
         className="AddressBar__home-url"
       />
     </button>
   </div>
-  <button
-    className="AddressBar__button AddressBar__more-btn"
-    onClick={[Function]}
-    type="button"
+  <div
+    className="AddressBar__end-button-box"
   >
-    <SVGInline
-      classSuffix="-svg"
-      cleanup={Array []}
-      cleanupExceptions={Array []}
-      component="span"
-      svg={Object {}}
-    />
-  </button>
-  <button
-    className="AddressBar__pin-btn"
-    onClick={[Function]}
-    type="button"
-  >
-    <SVGInline
-      className="AddressBar__pin"
-      classSuffix="-svg"
-      cleanup={Array []}
-      cleanupExceptions={Array []}
-      component="span"
-      svg={Object {}}
-    />
-  </button>
+    <button
+      className="AddressBar__button AddressBar__more-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+    <button
+      className="AddressBar__pin-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        className="AddressBar__pin"
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+  </div>
 </div>
 `;
 
@@ -117,49 +125,53 @@ exports[`<AddressBar /> should match to snapshot when render default 1`] = `
 <div
   className="AddressBar"
 >
-  <button
-    className="AddressBar__button"
-    data-name="go-back-btn"
-    disabled={true}
-    onClick={[Function]}
-    type="button"
+  <div
+    className="AddressBar__front-button-box"
   >
-    <SVGInline
-      classSuffix="-svg"
-      cleanup={Array []}
-      cleanupExceptions={Array []}
-      component="span"
-      svg={Object {}}
-    />
-  </button>
-  <button
-    className="AddressBar__button"
-    data-name="go-forward-btn"
-    disabled={true}
-    onClick={[Function]}
-    type="button"
-  >
-    <SVGInline
-      classSuffix="-svg"
-      cleanup={Array []}
-      cleanupExceptions={Array []}
-      component="span"
-      svg={Object {}}
-    />
-  </button>
-  <button
-    className="AddressBar__button"
-    onClick={[Function]}
-    type="button"
-  >
-    <SVGInline
-      classSuffix="-svg"
-      cleanup={Array []}
-      cleanupExceptions={Array []}
-      component="span"
-      svg={Object {}}
-    />
-  </button>
+    <button
+      className="AddressBar__button"
+      data-name="go-back-btn"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+    <button
+      className="AddressBar__button"
+      data-name="go-forward-btn"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+    <button
+      className="AddressBar__button"
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+  </div>
   <div
     className="AddressBar__address"
   >
@@ -188,40 +200,44 @@ exports[`<AddressBar /> should match to snapshot when render default 1`] = `
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
-      <span
+      <div
         className="AddressBar__home-url"
       />
     </button>
   </div>
-  <button
-    className="AddressBar__button AddressBar__more-btn"
-    onClick={[Function]}
-    type="button"
+  <div
+    className="AddressBar__end-button-box"
   >
-    <SVGInline
-      classSuffix="-svg"
-      cleanup={Array []}
-      cleanupExceptions={Array []}
-      component="span"
-      svg={Object {}}
-    />
-  </button>
-  <button
-    className="AddressBar__pin-btn"
-    onClick={[Function]}
-    type="button"
-  >
-    <SVGInline
-      className="AddressBar__pin"
-      classSuffix="-svg"
-      cleanup={Array []}
-      cleanupExceptions={Array []}
-      component="span"
-      svg={Object {}}
-    />
-  </button>
+    <button
+      className="AddressBar__button AddressBar__more-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+    <button
+      className="AddressBar__pin-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        className="AddressBar__pin"
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+  </div>
 </div>
 `;
 
@@ -229,49 +245,53 @@ exports[`<AddressBar /> should match to snapshot when state.isMenuOpen is true 1
 <div
   className="AddressBar"
 >
-  <button
-    className="AddressBar__button"
-    data-name="go-back-btn"
-    disabled={true}
-    onClick={[Function]}
-    type="button"
+  <div
+    className="AddressBar__front-button-box"
   >
-    <SVGInline
-      classSuffix="-svg"
-      cleanup={Array []}
-      cleanupExceptions={Array []}
-      component="span"
-      svg={Object {}}
-    />
-  </button>
-  <button
-    className="AddressBar__button"
-    data-name="go-forward-btn"
-    disabled={true}
-    onClick={[Function]}
-    type="button"
-  >
-    <SVGInline
-      classSuffix="-svg"
-      cleanup={Array []}
-      cleanupExceptions={Array []}
-      component="span"
-      svg={Object {}}
-    />
-  </button>
-  <button
-    className="AddressBar__button"
-    onClick={[Function]}
-    type="button"
-  >
-    <SVGInline
-      classSuffix="-svg"
-      cleanup={Array []}
-      cleanupExceptions={Array []}
-      component="span"
-      svg={Object {}}
-    />
-  </button>
+    <button
+      className="AddressBar__button"
+      data-name="go-back-btn"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+    <button
+      className="AddressBar__button"
+      data-name="go-forward-btn"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+    <button
+      className="AddressBar__button"
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+  </div>
   <div
     className="AddressBar__address"
   >
@@ -300,55 +320,59 @@ exports[`<AddressBar /> should match to snapshot when state.isMenuOpen is true 1
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
-      <span
+      <div
         className="AddressBar__home-url"
       />
     </button>
   </div>
-  <button
-    className="AddressBar__button AddressBar__more-btn AddressBar__more-btn--active"
-    onClick={[Function]}
-    type="button"
+  <div
+    className="AddressBar__end-button-box"
   >
-    <SVGInline
-      classSuffix="-svg"
-      cleanup={Array []}
-      cleanupExceptions={Array []}
-      component="span"
-      svg={Object {}}
-    />
-  </button>
-  <ConfigMenu
-    buttonRef={
-      Object {
-        "current": null,
+    <button
+      className="AddressBar__button AddressBar__more-btn AddressBar__more-btn--active"
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+    <ConfigMenu
+      buttonRef={
+        Object {
+          "current": null,
+        }
       }
-    }
-    currentUrl=""
-    id=""
-    onClose={[Function]}
-    onEditWidget={[Function]}
-    onMakeWidget={[Function]}
-    onModalOpen={[Function]}
-    onUpdateWidgetInfo={[Function]}
-    reloadInterval={0}
-  />
-  <button
-    className="AddressBar__pin-btn"
-    onClick={[Function]}
-    type="button"
-  >
-    <SVGInline
-      className="AddressBar__pin"
-      classSuffix="-svg"
-      cleanup={Array []}
-      cleanupExceptions={Array []}
-      component="span"
-      svg={Object {}}
+      currentUrl=""
+      id=""
+      onClose={[Function]}
+      onEditWidget={[Function]}
+      onMakeWidget={[Function]}
+      onModalOpen={[Function]}
+      onUpdateWidgetInfo={[Function]}
+      reloadInterval={0}
     />
-  </button>
+    <button
+      className="AddressBar__pin-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        className="AddressBar__pin"
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+  </div>
 </div>
 `;
 
@@ -356,40 +380,53 @@ exports[`<AddressBar /> should match to snapshot when state.isMouseOverInput tru
 <div
   className="AddressBar"
 >
-  <button
-    className="AddressBar__button"
-    data-name="go-back-btn"
-    disabled={true}
-    onClick={[Function]}
-    type="button"
+  <div
+    className="AddressBar__front-button-box"
   >
-    <img
-      alt=""
-      src={Object {}}
-    />
-  </button>
-  <button
-    className="AddressBar__button"
-    data-name="go-forward-btn"
-    disabled={true}
-    onClick={[Function]}
-    type="button"
-  >
-    <img
-      alt=""
-      src={Object {}}
-    />
-  </button>
-  <button
-    className="AddressBar__button"
-    onClick={[Function]}
-    type="button"
-  >
-    <img
-      alt=""
-      src={Object {}}
-    />
-  </button>
+    <button
+      className="AddressBar__button"
+      data-name="go-back-btn"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+    <button
+      className="AddressBar__button"
+      data-name="go-forward-btn"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+    <button
+      className="AddressBar__button"
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+  </div>
   <div
     className="AddressBar__address"
   >
@@ -411,10 +448,13 @@ exports[`<AddressBar /> should match to snapshot when state.isMouseOverInput tru
         onClick={[Function]}
         type="button"
       >
-        <img
-          alt=""
+        <SVGInline
           className="AddressBar__cancel-icon"
-          src={Object {}}
+          classSuffix="-svg"
+          cleanup={Array []}
+          cleanupExceptions={Array []}
+          component="span"
+          svg=""
         />
       </button>
     </div>
@@ -423,36 +463,49 @@ exports[`<AddressBar /> should match to snapshot when state.isMouseOverInput tru
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="AddressBar__home-icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
       />
-      <span
+      <div
         className="AddressBar__home-url"
       />
     </button>
   </div>
-  <button
-    className="AddressBar__button AddressBar__more-btn"
-    onClick={[Function]}
-    type="button"
+  <div
+    className="AddressBar__end-button-box"
   >
-    <img
-      alt=""
-      src={Object {}}
-    />
-  </button>
-  <button
-    className="AddressBar__pin-btn"
-    onClick={[Function]}
-    type="button"
-  >
-    <img
-      alt=""
-      className="AddressBar__pin"
-      src={Object {}}
-    />
-  </button>
+    <button
+      className="AddressBar__button AddressBar__more-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+    <button
+      className="AddressBar__pin-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      <SVGInline
+        className="AddressBar__pin"
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
+      />
+    </button>
+  </div>
 </div>
 `;

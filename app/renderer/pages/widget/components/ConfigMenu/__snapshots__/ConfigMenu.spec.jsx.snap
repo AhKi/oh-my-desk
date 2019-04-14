@@ -18,7 +18,7 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
       <span
         className="ConfigMenu__text"
@@ -41,7 +41,7 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
       <span
         className="ConfigMenu__text"
@@ -64,7 +64,7 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
       <span
         className="ConfigMenu__text"
@@ -90,7 +90,7 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
       <span
         className="ConfigMenu__text"
@@ -116,43 +116,43 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
       <p
         className="ConfigMenu__select-container"
       >
         Reload Every 
-        <select
-          className="ConfigMenu__select"
-          key="select"
-          onChange={[Function]}
-          value={5}
+        <label
+          className="ConfigMenu__select-label"
         >
-          <option
+          <select
+            className="ConfigMenu__select"
+            key="select"
+            onChange={[Function]}
             value={5}
           >
-            5s
-          </option>
-          <option
-            value={10}
-          >
-            10s
-          </option>
-          <option
-            value={30}
-          >
-            30s
-          </option>
-          <option
-            value={60}
-          >
-            60s
-          </option>
-        </select>
-        <span
-          className="ConfigMenu__select-arrow"
-          key="arrow"
-        />
+            <option
+              value={5}
+            >
+              5s
+            </option>
+            <option
+              value={10}
+            >
+              10s
+            </option>
+            <option
+              value={30}
+            >
+              30s
+            </option>
+            <option
+              value={60}
+            >
+              60s
+            </option>
+          </select>
+        </label>
       </p>
     </button>
   </li>
@@ -170,7 +170,7 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
       <span
         className="ConfigMenu__text"
@@ -193,7 +193,7 @@ exports[`<ConfigMenu /> should match to snapshot when isReloadMenu === true 1`] 
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
       <span
         className="ConfigMenu__text"
@@ -223,7 +223,7 @@ exports[`<ConfigMenu /> should match to snapshot when render default 1`] = `
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
       <span
         className="ConfigMenu__text"
@@ -246,7 +246,7 @@ exports[`<ConfigMenu /> should match to snapshot when render default 1`] = `
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
       <span
         className="ConfigMenu__text"
@@ -269,7 +269,7 @@ exports[`<ConfigMenu /> should match to snapshot when render default 1`] = `
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
       <span
         className="ConfigMenu__text"
@@ -292,7 +292,7 @@ exports[`<ConfigMenu /> should match to snapshot when render default 1`] = `
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
       <span
         className="ConfigMenu__text"
@@ -315,7 +315,7 @@ exports[`<ConfigMenu /> should match to snapshot when render default 1`] = `
         cleanup={Array []}
         cleanupExceptions={Array []}
         component="span"
-        svg={Object {}}
+        svg=""
       />
       <span
         className="ConfigMenu__text"

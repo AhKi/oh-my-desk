@@ -198,7 +198,7 @@ class ConfigMenu extends React.Component {
               onClick={() => this.handleSetReloadInterval(localSecond)}
             >
               <Svg className={refreshIconClassName} svg={checkIcon} />
-              {text.reloadEvery([
+              {text.reloadEvery(
                 <label className="ConfigMenu__select-label">
                   <select
                     className="ConfigMenu__select"
@@ -212,7 +212,7 @@ class ConfigMenu extends React.Component {
                     <option value={60}>60s</option>
                   </select>
                 </label>,
-              ])}
+              )}
             </button>
           </li>,
         ])}
