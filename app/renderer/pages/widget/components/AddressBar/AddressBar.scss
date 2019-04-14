@@ -1,21 +1,37 @@
 .AddressBar {
   display: flex;
+  justify-content: space-between;
   height: 40px;
-  width: 100%;
+  align-items: center;
   background-color: rgb(240, 240, 240);
 }
 
+.AddressBar__front-button-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 116px;
+  padding: 0 8px;
+}
+
 .AddressBar__button {
-  width: 25px;
-  margin: 5px;
+  svg {
+    width: 22px;
+  }
 
   &:disabled {
-    opacity: 0.5;
+    opacity: 0.2;
+  }
+
+  &:hover {
+    background: $color-black-opacity15;
+    border-radius: 4px;
   }
 }
 
 .AddressBar__address {
   display: flex;
+  justify-content: space-between;
   flex: 1;
   border-right: 1px solid rgb(216, 216, 216);
   border-left: 1px solid rgb(216, 216, 216);
@@ -29,70 +45,90 @@
 
 .AddressBar__address-input {
   background-color: rgb(240, 240, 240);
-  width: 100%;
   height: 100%;
   font-size: 13px;
   font-weight: 500;
   margin-right: 5px;
-  padding: 0 5px;
+  padding: 0 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+
+  &:focus {
+    background-color: #ffffff;
+    outline: none;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 100px;
+  }
 }
 
 .AddressBar__cancel-icon {
-  background-color: #4e5c65;
-  border-radius: 50%;
-  width: 15px;
-  margin: 5px;
-
-  align-self: center;
+  margin-right: 8px;
+  svg {
+    width: 12px;
+    background-color: #a8a8a8;
+    border-radius: 100%;
+    padding: 3px;
+  }
 }
 
 .AddressBar__address-button {
-  width: 20%;
   display: flex;
-  align-self: center;
-  border-radius: 20px;
-  height: 25px;
+  border-radius: 100px;
   background-color: rgb(212, 212, 212);
   flex-wrap: nowrap;
   align-items: center;
   font-weight: 500;
-  min-width: 150px;
+  max-width: 150px;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-left: 5px;
-  padding-right: 10px;
+  padding: 5px;
+  height: 30px;
 }
 
 .AddressBar__home-url {
+  margin-bottom: 4px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .AddressBar__home-icon {
-  width: 20px;
-  margin: 5px;
+  margin: 0 4px;
+  svg {
+    width: 20px;
+  }
+}
+
+.AddressBar__end-button-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80px;
+  padding: 8px;
 }
 
 .AddressBar__more-btn,
 .AddressBar__pin-btn {
-  float: right;
-  margin: 8px;
-  padding: 2px;
   border-radius: 5px;
+  width: 22px;
 }
 
 .AddressBar__pin {
-  transform: rotate(45deg);
+  svg {
+    transform: rotate(45deg);
+  }
 }
 
 .AddressBar__pin--active {
-  transform: rotate(0);
+  svg {
+    transform: rotate(0);
+  }
 }
 
 .AddressBar__pin-btn--active,
 .AddressBar__more-btn--active {
-  background-color: #e0e0e0;
+  background-color: rgb(212, 212, 212);
 }
 
 @media (max-width: $body-min-width) {

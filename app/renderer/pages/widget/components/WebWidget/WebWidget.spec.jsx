@@ -13,6 +13,7 @@ import WebWidget from '.';
 jest.mock('nprogress');
 jest.mock('main/utils/menu/widgetContextMenu');
 jest.mock('constants/path');
+jest.mock('react-svg-inline');
 
 PATH.PRELOAD_SCRIPT_PATH = '/mock-path/app/constants/build/preloadScript.js';
 

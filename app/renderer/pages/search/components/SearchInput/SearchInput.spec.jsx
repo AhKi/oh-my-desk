@@ -3,6 +3,8 @@ import { mount } from 'enzyme';
 import { ipcRenderer } from 'electron';
 import SearchInput from '.';
 
+jest.mock('react-svg-inline');
+
 describe('Test SearchInput Component', () => {
   beforeEach(() => {
     jest.clearAllMocks();

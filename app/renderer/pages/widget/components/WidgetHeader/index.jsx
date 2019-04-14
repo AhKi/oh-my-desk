@@ -17,7 +17,6 @@ const propTypes = {
     reloadInterval: PropTypes.number,
     url: PropTypes.string,
     userAgent: PropTypes.string,
-
   }),
   onCloseWidget: PropTypes.func,
   onEditWidget: PropTypes.func,

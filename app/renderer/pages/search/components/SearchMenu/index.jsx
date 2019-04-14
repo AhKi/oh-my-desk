@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ipcRenderer } from 'electron';
 import cx from 'classnames';
-import icon from 'assets/oh-my-desk-icon.png';
-import addIcon from 'assets/icon/icon-plus-white.svg';
-import allIcon from 'assets/icon/icon-desktop-white.svg';
-import favoritesIcon from 'assets/icon/icon-border-star-white.svg';
-import outIcon from 'assets/icon/icon-out.svg';
-import settingIcon from 'assets/icon/icon-menu-setting.svg';
+import Svg from 'react-svg-inline';
+import omdLogo from 'assets/search-view_icon/icon_omdLogo.svg';
+import addIcon from 'assets/search-view_icon/icon_plus.svg';
+import allIcon from 'assets/search-view_icon/icon_monitor.svg';
+import favoritesIcon from 'assets/search-view_icon/icon_star.svg';
+import settingIcon from 'assets/search-view_icon/icon_wheel.svg';
+import quitIcon from 'assets/search-view_icon/icon_quit.svg';
 import i18n from 'constants/i18n';
 import './SearchMenu.scss';
 
@@ -66,10 +67,9 @@ class SearchMenu extends React.Component {
 
     return (
       <div className="SearchMenu">
-        <img
+        <Svg
           className="SearchMenu__Logo"
-          src={icon}
-          alt="Oh-My-Desk-Logo"
+          svg={omdLogo}
         />
         <ul className="SearchMenu__List">
           <li className="SearchMenu__Item">
@@ -79,10 +79,9 @@ class SearchMenu extends React.Component {
               type="button"
               onClick={this.handleMakeWidgetRequest}
             >
-              <img
+              <Svg
                 className="SearchMenu__Icon"
-                src={addIcon}
-                alt=""
+                svg={addIcon}
               />
               {text.newWidget}
             </button>
@@ -94,10 +93,9 @@ class SearchMenu extends React.Component {
               type="button"
               onClick={this.handleSetAllFilter}
             >
-              <img
+              <Svg
                 className="SearchMenu__Icon"
-                src={allIcon}
-                alt=""
+                svg={allIcon}
               />
               {text.all}
             </button>
@@ -109,10 +107,9 @@ class SearchMenu extends React.Component {
               type="button"
               onClick={this.handleSetFavoritesFilter}
             >
-              <img
+              <Svg
                 className="SearchMenu__Icon"
-                src={favoritesIcon}
-                alt=""
+                svg={favoritesIcon}
               />
               {text.favorites}
             </button>
@@ -124,10 +121,9 @@ class SearchMenu extends React.Component {
               type="button"
               onClick={() => ipcRenderer.send('preference.open')}
             >
-              <img
+              <Svg
                 className="SearchMenu__Icon"
-                src={settingIcon}
-                alt=""
+                svg={settingIcon}
               />
               {text.setting}
             </button>
@@ -139,10 +135,9 @@ class SearchMenu extends React.Component {
               type="button"
               onClick={onQuitApp}
             >
-              <img
+              <Svg
                 className="SearchMenu__Icon"
-                src={outIcon}
-                alt=""
+                svg={quitIcon}
               />
               {text.quit}
             </button>

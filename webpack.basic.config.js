@@ -44,13 +44,17 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot|cur)$/,
+        test: /\.(png|jpg|jpeg|gif|woff|woff2|ttf|eot|cur)$/,
         loader: 'file-loader',
         options: {
           name: '[path][name].[ext]',
           publicPath: process.env.NODE_ENV === 'development' ? path.join(__dirname) : undefined,
           outputPath: process.env.NODE_ENV === 'development' ? '/' : undefined,
         },
+      },
+      {
+        test: /\.svg$/,
+        loader: 'raw-loader',
       }
     ]
   },

@@ -1,5 +1,24 @@
 .SearchList {
-  margin-top: 10px;
   overflow: scroll;
-  min-height: 390px;
+  height: 100%;
+}
+
+.SearchList__no-research-img {
+  img {
+    display: block;
+    margin: 30px 0 10px;
+  }
+  color: #939393;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.SearchList__no-page-btn {
+  padding: 14px 16px;
+  margin: 16px;
+  border-radius: 8px;
 }

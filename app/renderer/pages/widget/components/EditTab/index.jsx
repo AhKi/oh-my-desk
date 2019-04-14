@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import Svg from 'react-svg-inline';
 import i18n from 'constants/i18n';
-import closeIcon from 'assets/icon/icon-widget-close.svg';
+import closeIcon from 'assets/page-view_icon/icon_xbtn.svg';
 import './EditTab.scss';
 
 const propTypes = {
@@ -100,7 +101,7 @@ class EditTab extends React.Component {
             type="button"
             onClick={onCloseTab}
           >
-            <img className="EditTab__close-icon" src={closeIcon} alt="" />
+            <Svg className="EditTab__close-icon" svg={closeIcon} />
           </button>
         </div>
         <form className="EditTab__form" onSubmit={this.handleCheckUrlValidation}>
