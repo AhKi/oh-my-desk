@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 import * as NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import url from 'url';
@@ -36,6 +37,7 @@ const initialPage = 'https://google.com';
 
 class WebWidget extends React.Component {
   state = {
+    title: '',
     currentUrl: '',
     isLoading: false,
     isSettingOpen: false,
@@ -98,6 +100,10 @@ class WebWidget extends React.Component {
     webView.addEventListener('did-stop-loading', () => {
       NProgress.done();
       this.setState({ isLoading: false });
+    });
+
+    webView.addEventListener('page-title-updated', ({ title }) => {
+      this.setState({ title });
     });
   };
 
@@ -197,6 +203,7 @@ class WebWidget extends React.Component {
     const text = i18n().widget;
     const {
       currentUrl,
+      title,
       isLoading,
       isMakeMenuOpen,
       newWindowURL,
@@ -211,6 +218,9 @@ class WebWidget extends React.Component {
 
     return (
       <div className="WebWidget">
+        <Helmet>
+          <title>{title}</title>
+        </Helmet>
         <WidgetHeaderContainer
           currentUrl={currentUrl}
           webView={this.webViewRef.current}
