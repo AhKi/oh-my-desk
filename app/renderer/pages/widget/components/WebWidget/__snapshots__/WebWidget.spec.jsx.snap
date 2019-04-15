@@ -11,6 +11,24 @@ exports[`test WebWidget should match to snapshot when default render 1`] = `
   <div
     className="WebWidget"
   >
+    <HelmetWrapper
+      defer={true}
+      encodeSpecialCharacters={true}
+    >
+      <SideEffect(NullComponent)
+        defer={true}
+        encodeSpecialCharacters={true}
+        title=""
+        titleAttributes={Object {}}
+      >
+        <NullComponent
+          defer={true}
+          encodeSpecialCharacters={true}
+          title=""
+          titleAttributes={Object {}}
+        />
+      </SideEffect(NullComponent)>
+    </HelmetWrapper>
     <Connect(toJS(WidgetHeader))
       currentUrl=""
       isLoading={false}
