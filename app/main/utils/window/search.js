@@ -26,7 +26,9 @@ export function hideSearch() {
    * windowOS need to `search.window.blur()` to hide menubar.
    * macOS need to `search.hideWindow()`.
    */
-  search.window.blur(); // Need to reopen in windowOS
+  if (search.window) {
+    search.window.blur(); // Need to reopen in windowOS
+  }
   search.hideWindow(); // Need to reopen in macOS
 }
 
