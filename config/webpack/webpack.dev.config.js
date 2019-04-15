@@ -1,12 +1,12 @@
-const path = require('path');
 const webpackMerge = require('webpack-merge');
 const { spawn } = require('child_process');
 const webpackBaseConfig = require('./webpack.basic.config');
+const { BUILD_PATH } = require('../path');
 
 module.exports = webpackMerge(webpackBaseConfig, {
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'build'),
+    path: BUILD_PATH,
     publicPath: 'http://127.0.0.1:1112/',
   },
   cache: true,
@@ -15,7 +15,7 @@ module.exports = webpackMerge(webpackBaseConfig, {
     compress: true,
     inline: true,
     lazy: false,
-    contentBase: path.join(__dirname, 'build'),
+    contentBase: BUILD_PATH,
     publicPath: 'http://localhost:1112/build',
     disableHostCheck: true, // do not use production
     historyApiFallback: true,

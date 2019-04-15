@@ -1,11 +1,11 @@
-const path = require('path');
 const basic = require('./webpack.basic.config');
+const { BUILD_PATH } = require('../path');
 
 module.exports = {
   entry: './app/main.js',
   output: {
     filename: '[name].prod.js',
-    path: path.resolve(__dirname, 'build'),
+    path: BUILD_PATH,
     publicPath: '.',
   },
   module: {
