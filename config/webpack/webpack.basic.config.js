@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { APP_PATH, ROOT_PATH } = require('../path');
+const { APP_PATH, ROOT_PATH, CONFIG_PATH } = require('../path');
 
 module.exports = {
   entry: {
@@ -23,6 +23,9 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
+            options: {
+              configFile: path.join(CONFIG_PATH, 'babel/babel.config.js'),
+            },
           },
           'eslint-loader',
         ]
