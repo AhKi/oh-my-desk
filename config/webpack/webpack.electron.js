@@ -1,8 +1,10 @@
+// Webpack config for Electron main.js
 const basic = require('./webpack.basic.config');
-const { BUILD_PATH } = require('../path');
+
+const { APP_PATH, BUILD_PATH, CONFIG_PATH } = require('../path');
 
 module.exports = {
-  entry: './app/main.js',
+  entry: `${APP_PATH}/main.js`,
   output: {
     filename: '[name].prod.js',
     path: BUILD_PATH,
@@ -17,6 +19,9 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
+            options: {
+              configFile: `${CONFIG_PATH}/babel/babel.config.js`,
+            },
           },
           'eslint-loader',
         ],

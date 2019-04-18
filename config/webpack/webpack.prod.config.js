@@ -1,3 +1,4 @@
+// Webpack config for page
 const webpackMerge = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.basic.config');
 const { BUILD_PATH } = require('../path');
