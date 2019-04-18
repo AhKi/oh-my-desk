@@ -12,5 +12,5 @@ build/**
 *.log
 main.prod.js
 
-keyChain/
 release.sh
+.release/
