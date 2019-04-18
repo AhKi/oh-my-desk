@@ -25,7 +25,7 @@
     "e2e:build": "cross-env NODE_ENV=test webpack --config ./config/webpack/webpack.prod.config.js",
     "e2e:watch": "yarn e2e:build && yarn e2e -- --watch",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "lint": "eslint app --ext .js,.jsx"
+    "lint": "eslint app --ext .js,.jsx --config ./config/.eslintrc"
   },
   "husky": {
     "hooks": {

@@ -27,7 +27,12 @@ module.exports = {
               configFile: path.join(CONFIG_PATH, 'babel/babel.config.js'),
             },
           },
-          'eslint-loader',
+          {
+            loader: 'eslint-loader',
+            options: {
+              configFile: path.join(CONFIG_PATH, '.eslintrc'),
+            },
+          },
         ]
       },
       {

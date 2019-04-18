@@ -23,7 +23,12 @@ module.exports = {
               configFile: `${CONFIG_PATH}/babel/babel.config.js`,
             },
           },
-          'eslint-loader',
+          {
+            loader: 'eslint-loader',
+            options: {
+              configFile: `${CONFIG_PATH}/.eslintrc`,
+            },
+          },
         ],
       },
       {
