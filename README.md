@@ -64,23 +64,25 @@ This project use [yarn](https://yarnpkg.com/lang/en/) for package manager.
 git clone https://github.com/AhKi/oh-my-desk.git
 cd oh-my-desk
 ```
+**Download Dependency**
+```
+yarn
+```
 
 **Start Project**
-
 ```
-yarn && yarn start 
-```
-
-**Show Unit test coverage**
-
-```
-yarn && yarn test
+yarn start 
 ```
 
-**Build**
-
+**Unit test**
 ```
-yarn && yarn package
+yarn test
+yarn show:coverage // if you want to show coverage
+```
+
+**Packaging(Make install file)**
+```
+yarn package
 ```
 
 ## Documentation

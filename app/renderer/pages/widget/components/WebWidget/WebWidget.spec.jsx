@@ -143,7 +143,7 @@ describe('test WebWidget', () => {
         it('match times handling event', () => {
           configureLoader();
 
-          expect(addEventListener).toHaveBeenCalledTimes(2);
+          expect(addEventListener).toHaveBeenCalledTimes(3);
         });
 
         describe('match each handled event ', () => {
@@ -176,6 +176,18 @@ describe('test WebWidget', () => {
                   expect(done).toHaveBeenCalledTimes(1);
                   expect(setState).toHaveBeenNthCalledWith(1, {
                     isLoading: false,
+                  });
+                });
+                break;
+              }
+              case 'page-title-updated': {
+                it('when page title is updated', () => {
+                  wrapper.instance().setState = setState;
+
+                  mock[1]({ title: 'mock-title' });
+
+                  expect(setState).toHaveBeenNthCalledWith(1, {
+                    title: 'mock-title',
                   });
                 });
                 break;
