@@ -17,9 +17,9 @@
 It is using web page as a widget that desktop application.
 
 ## Download
-[For Window](https://github.com/AhKi/oh-my-desk/releases/download/v2.0.3/oh-my-desk-setup-2.0.3.exe)
+[For Window](https://github.com/AhKi/oh-my-desk/releases/download/v2.1.0/oh-my-desk-setup-2.1.0.exe)
 
-[For MacOS](https://github.com/AhKi/oh-my-desk/releases/download/v2.0.3/oh-my-desk-2.0.3.dmg)
+[For MacOS](https://github.com/AhKi/oh-my-desk/releases/download/v2.1.0/oh-my-desk-2.1.0.dmg)
 
 ## OverView
 
@@ -84,12 +84,6 @@ yarn show:coverage // if you want to show coverage
 ```
 yarn package
 ```
-
-## Documentation
-
-`Oh-My-Desk` consist of [actions](https://github.com/AhKi/oh-my-desk/blob/master/app/actions/README.md), [main](https://github.com/AhKi/oh-my-desk/blob/master/app/main/README.md), [renderer](https://github.com/AhKi/oh-my-desk/blob/master/app/renderer/README.md) and [Store](https://github.com/AhKi/oh-my-desk/blob/master/app/store/README.md)
-
-~~[Show Detail Documentation]~~ **In Progressing**
 
 ## Contributing
 
