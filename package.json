@@ -21,6 +21,9 @@
     "test:watch": "yarn test -- --watch",
     "test:coverage": "yarn test -- --coverage",
     "show:coverage": "yarn test:coverage && open ./coverage/lcov-report/index.html",
+    "analysis": "concurrently \"yarn analysis:page\" \"yarn analysis:electron\"",
+    "analysis:page": "cross-env NODE_ENV=production webpack --config ./config/webpack/webpack.prod.analysis.js",
+    "analysis:electron": "cross-env NODE_ENV=production webpack --config ./config/webpack/webpack.electron.analysis.js",
     "e2e": "jest --config ./config/jest/jest.e2e.config.js",
     "e2e:build": "cross-env NODE_ENV=test webpack --config ./config/webpack/webpack.prod.config.js",
     "e2e:watch": "yarn e2e:build && yarn e2e -- --watch",
@@ -78,6 +81,7 @@
     "remote-redux-devtools": "^0.5.13",
     "rimraf": "^2.6.3",
     "spectron": "^5.0.0",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.1.3"
   },
