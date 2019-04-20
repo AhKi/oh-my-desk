@@ -3,17 +3,19 @@
 exports[`Test SearchInput Component should match to snapshot 1`] = `
 <SearchInput
   filter="ALL"
-  isTrayOpen={false}
   keyword=""
   onChangeKeyword={[Function]}
 >
   <div
     className="SearchInput"
   >
-    <img
-      alt=""
+    <SVGInline
       className="SearchInput__icon"
-      src={Object {}}
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg=""
     />
     <input
       className="SearchInput__input"
@@ -29,17 +31,19 @@ exports[`Test SearchInput Component should match to snapshot 1`] = `
 exports[`Test SearchInput Component should match to snapshot when filter !== ALL 1`] = `
 <SearchInput
   filter="FAVORITES"
-  isTrayOpen={false}
   keyword=""
   onChangeKeyword={[Function]}
 >
   <div
     className="SearchInput"
   >
-    <img
-      alt=""
+    <SVGInline
       className="SearchInput__icon"
-      src={Object {}}
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      svg=""
     />
     <input
       className="SearchInput__input"

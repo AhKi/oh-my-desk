@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import os from 'os';
 import cx from 'classnames';
+import Svg from 'react-svg-inline';
 import isUrl from 'is-url';
-import cancelIcon from 'assets/icon/icon-widget-close.svg';
-import leftArrowIcon from 'assets/icon/icon-widget-back-arrow.svg';
-import rightArrowIcon from 'assets/icon/icon-widget-go-arrow.svg';
-import homeIcon from 'assets/icon/icon-home.svg';
-import moreIcon from 'assets/icon/icon-more.svg';
-import refreshIcon from 'assets/icon/icon-widget-refresh.svg';
-import iconPin from 'assets/icon/icon-pin.svg';
+import cancelIcon from 'assets/page-view_icon/icon_xbtn.svg';
+import leftArrowIcon from 'assets/page-view_icon/icon_leftbtn.svg';
+import rightArrowIcon from 'assets/page-view_icon/icon_rightbtn.svg';
+import refreshIcon from 'assets/page-view_icon/icon_refreshbtn.svg';
+import homeIcon from 'assets/page-view_icon/icon_home.svg';
+import moreIcon from 'assets/page-view_icon/icon_seemore.svg';
+import iconPin from 'assets/page-view_icon/icon_pin.svg';
 import ConfigMenu from '../ConfigMenu';
 import './AddressBar.scss';
 
@@ -46,6 +47,7 @@ class AddressBar extends React.Component {
   state = {
     addressValue: '',
     isMenuOpen: false,
+    isMouseOverInput: false,
   };
   moreBtnRef = React.createRef();
   addressInputRef = React.createRef();
@@ -102,6 +104,11 @@ class AddressBar extends React.Component {
     this.setState({ addressValue: e.target.value });
   };
 
+  handleAddressCancel = () => {
+    this.setState({ addressValue: '' });
+    this.addressInputRef.current.focus();
+  };
+
   handleAddressEnter = (e) => {
     const { webView } = this.props;
     const { addressValue: address } = this.state;
@@ -150,7 +157,7 @@ class AddressBar extends React.Component {
   };
 
   render() {
-    const { addressValue, isMenuOpen } = this.state;
+    const { addressValue, isMouseOverInput, isMenuOpen } = this.state;
     const {
       id,
       currentUrl,
@@ -178,88 +185,108 @@ class AddressBar extends React.Component {
 
     return (
       <div className="AddressBar">
-        <button
-          className="AddressBar__button"
-          data-name="go-back-btn"
-          type="button"
-          disabled={!isGoBack}
-          onClick={() => webView.goBack()}
-        >
-          <img src={leftArrowIcon} alt="" />
-        </button>
-        <button
-          className="AddressBar__button"
-          data-name="go-forward-btn"
-          type="button"
-          disabled={!isGoForward}
-          onClick={() => webView.goForward()}
-        >
-          <img src={rightArrowIcon} alt="" />
-        </button>
-        {isLoading ? (
+        <div className="AddressBar__front-button-box">
           <button
             className="AddressBar__button"
-            data-name="stop-btn"
+            data-name="go-back-btn"
             type="button"
-            onClick={() => webView.stop()}
+            disabled={!isGoBack}
+            onClick={() => webView.goBack()}
           >
-            <img src={cancelIcon} alt="" />
+            <Svg svg={leftArrowIcon} />
           </button>
-        ) : (
           <button
             className="AddressBar__button"
+            data-name="go-forward-btn"
             type="button"
-            onClick={this.handleNavigateReload}
+            disabled={!isGoForward}
+            onClick={() => webView.goForward()}
           >
-            <img src={refreshIcon} alt="" />
+            <Svg svg={rightArrowIcon} />
           </button>
-        )}
+          {isLoading ? (
+            <button
+              className="AddressBar__button"
+              data-name="stop-btn"
+              type="button"
+              onClick={() => webView.stop()}
+            >
+              <Svg svg={cancelIcon} />
+            </button>
+          ) : (
+            <button
+              className="AddressBar__button"
+              type="button"
+              onClick={this.handleNavigateReload}
+            >
+              <Svg svg={refreshIcon} />
+            </button>
+          )}
+        </div>
         <div className="AddressBar__address">
-          <input
-            className="AddressBar__address-input"
-            type="text"
-            ref={this.addressInputRef}
-            value={addressValue}
-            onChange={this.handleAddressChange}
-            onKeyDown={this.handleAddressEnter}
-          />
+          <div
+            className="AddressBar__address-value"
+            onMouseEnter={() => this.setState({ isMouseOverInput: true })}
+            onMouseLeave={() => this.setState({ isMouseOverInput: false })}
+          >
+            <input
+              className="AddressBar__address-input"
+              type="text"
+              ref={this.addressInputRef}
+              value={addressValue}
+              onChange={this.handleAddressChange}
+              onKeyDown={this.handleAddressEnter}
+              onDoubleClick={() => this.addressInputRef.current.select()}
+            />
+            {isMouseOverInput && (
+              <button
+                className="AddressBar__address-cancel"
+                type="button"
+                onClick={this.handleAddressCancel}
+              >
+                <Svg className="AddressBar__cancel-icon" svg={cancelIcon} />
+              </button>
+            )}
+          </div>
           <button
             className="AddressBar__address-button"
             type="button"
             onClick={this.handleNavigateToHome}
           >
-            <img className="AddressBar__home-icon" src={homeIcon} alt="" />
-            <span className="AddressBar__home-url">{homeUrl}</span>
+            <Svg className="AddressBar__home-icon" svg={homeIcon} />
+            <div className="AddressBar__home-url">{homeUrl}</div>
           </button>
         </div>
-        <button
-          className={moreClassName}
-          ref={this.moreBtnRef}
-          type="button"
-          onClick={this.handleToggleMenu}
-        >
-          <img src={moreIcon} alt="" />
-        </button>
-        {isMenuOpen && (
-          <ConfigMenu
-            currentUrl={currentUrl}
-            buttonRef={this.moreBtnRef}
-            id={id}
-            reloadInterval={reloadInterval}
-            onClose={this.handleToggleMenu}
-            onEditWidget={onEditWidget}
-            onMakeWidget={onMakeWidget}
-            onModalOpen={onModalOpen}
-            onUpdateWidgetInfo={onUpdateWidgetInfo}
-          />
-        )}
-        <button
-          className={pinClassName}
-          type="button"
-          onClick={this.handleToggleIsOnTop}
-        >
-          <img className={pinIconClassName} src={iconPin} alt="" />
-        </button>
+        <div className="AddressBar__end-button-box">
+          <button
+            className={moreClassName}
+            ref={this.moreBtnRef}
+            type="button"
+            onClick={this.handleToggleMenu}
+          >
+            <Svg svg={moreIcon} />
+          </button>
+          {isMenuOpen && (
+            <ConfigMenu
+              currentUrl={currentUrl}
+              buttonRef={this.moreBtnRef}
+              id={id}
+              reloadInterval={reloadInterval}
+              onClose={this.handleToggleMenu}
+              onEditWidget={onEditWidget}
+              onMakeWidget={onMakeWidget}
+              onModalOpen={onModalOpen}
+              onUpdateWidgetInfo={onUpdateWidgetInfo}
+            />
+          )}
+          <button
+            className={pinClassName}
+            type="button"
+            onClick={this.handleToggleIsOnTop}
+          >
+            <Svg className={pinIconClassName} svg={iconPin} />
+          </button>
+        </div>
       </div>
     );
   }

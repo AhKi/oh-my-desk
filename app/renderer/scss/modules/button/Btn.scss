@@ -70,13 +70,12 @@
 }
 
 .Btn--primary {
-  background: linear-gradient(180deg, $color-light-blue, $color-blue);
-  border: 1px solid $color-blue;
+  background: linear-gradient(90deg, #7751E6, #5658FF,#488CFF);
   color: $color-white;
   box-shadow: 0 2px 6px -1px rgba(54,59,111,0.47);
 
   &:hover {
-    background: linear-gradient(180deg, $color-blue, $color-blue);
+    background: linear-gradient(90deg, #9273EA, #7978FD,#6CA2FE);
   }
 
   &:active {

@@ -6,9 +6,6 @@ export const {
   searchAppQuit,
   searchChangeKeyword,
   searchSetFilter,
-  searchTrayOpen,
-  searchTrayClose,
-  searchWindowHide,
   searchWidgetSelectIncrease,
   searchWidgetSelectDecrease,
 } = createActions({
@@ -36,31 +33,6 @@ export const {
      */
     filter => ({ filter }),
     () => ({ category: CATEGORY.SELF }),
-  ],
-  [TYPES.SEARCH_TRAY_OPEN]: [
-    /**
-     * Open tray menu about searching.
-     */
-    () => {},
-    () => ({ category: CATEGORY.BROADCAST }),
-  ],
-  [TYPES.SEARCH_TRAY_CLOSE]: [
-    /**
-     * Close tray menu about searching.
-     */
-    () => {},
-    () => ({ category: CATEGORY.BROADCAST }),
-  ],
-  [TYPES.SEARCH_WINDOW_HIDE]: [
-    /**
-     * Hide tray menu about searching.
-     */
-    () => ({}),
-    () => ({
-      category: CATEGORY.TARGET,
-      containMain: true,
-      self: false,
-    }),
   ],
   [TYPES.SEARCH_WIDGET_SELECT_INCREASE]: [
     /**

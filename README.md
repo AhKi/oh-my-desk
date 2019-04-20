@@ -17,9 +17,9 @@
 It is using web page as a widget that desktop application.
 
 ## Download
-[For Window](https://github.com/AhKi/oh-my-desk/releases/download/v2.0.3/oh-my-desk-setup-2.0.3.exe)
+[For Window](https://github.com/AhKi/oh-my-desk/releases/download/v2.1.0/oh-my-desk-setup-2.1.0.exe)
 
-[For MacOS](https://github.com/AhKi/oh-my-desk/releases/download/v2.0.3/oh-my-desk-2.0.3.dmg)
+[For MacOS](https://github.com/AhKi/oh-my-desk/releases/download/v2.1.0/oh-my-desk-2.1.0.dmg)
 
 ## OverView
 
@@ -64,30 +64,26 @@ This project use [yarn](https://yarnpkg.com/lang/en/) for package manager.
 git clone https://github.com/AhKi/oh-my-desk.git
 cd oh-my-desk
 ```
+**Download Dependency**
+```
+yarn
+```
 
 **Start Project**
-
 ```
-yarn && yarn start 
-```
-
-**Show Unit test coverage**
-
-```
-yarn && yarn test
+yarn start 
 ```
 
-**Build**
-
+**Unit test**
 ```
-yarn && yarn package
+yarn test
+yarn show:coverage // if you want to show coverage
 ```
 
-## Documentation
-
-`Oh-My-Desk` consist of [actions](https://github.com/AhKi/oh-my-desk/blob/master/app/actions/README.md), [main](https://github.com/AhKi/oh-my-desk/blob/master/app/main/README.md), [renderer](https://github.com/AhKi/oh-my-desk/blob/master/app/renderer/README.md) and [Store](https://github.com/AhKi/oh-my-desk/blob/master/app/store/README.md)
-
-~~[Show Detail Documentation]~~ **In Progressing**
+**Packaging(Make install file)**
+```
+yarn package
+```
 
 ## Contributing
 

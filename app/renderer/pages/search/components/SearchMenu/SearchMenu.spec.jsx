@@ -1,4 +1,5 @@
 import React from 'react';
+import { ipcRenderer } from 'electron';
 import { shallow } from 'enzyme';
 import SearchMenu from '.';
 
@@ -79,5 +80,25 @@ describe('Test SearchMenu Component', () => {
       expect(onSetFilter).toHaveBeenCalledTimes(1);
       expect(onSetFilter).toHaveBeenCalledWith('FAVORITES');
     });
+  });
+
+  it('should call ipcRenderer.send when click data-test-id="menu-setting"', () => {
+    const wrapper = shallow(<SearchMenu />);
+    const btn = wrapper.find('[data-test-id="menu-setting"]');
+
+    btn.simulate('click');
+
+    expect(ipcRenderer.send).toHaveBeenCalledTimes(1);
+    expect(ipcRenderer.send).toHaveBeenCalledWith('preference.open');
+  });
+
+  it('should call props.onMakeWidgetRequest when click data-test-id="menu-new-widget"', () => {
+    const onMakeWidgetRequest = jest.fn();
+    const wrapper = shallow(<SearchMenu onMakeWidgetRequest={onMakeWidgetRequest} />);
+    const btn = wrapper.find('[data-test-id="menu-new-widget"]');
+
+    btn.simulate('click');
+
+    expect(onMakeWidgetRequest).toHaveBeenCalledTimes(1);
   });
 });

@@ -9,10 +9,14 @@ exports[`<TitleBar /> should match to snapshot when exist userAgent 1`] = `
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
+    <SVGInline
       className="TitleBar__close-img"
-      src={Object {}}
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      fill="#ffffff"
+      svg=""
     />
   </button>
   <div
@@ -29,10 +33,13 @@ exports[`<TitleBar /> should match to snapshot when exist userAgent 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="TitleBar__mobile-icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
       />
     </button>
     <button
@@ -41,10 +48,13 @@ exports[`<TitleBar /> should match to snapshot when exist userAgent 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="TitleBar__desktop-icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
       />
     </button>
   </div>
@@ -60,10 +70,14 @@ exports[`<TitleBar /> should match to snapshot when render default 1`] = `
     onClick={[Function]}
     type="button"
   >
-    <img
-      alt=""
+    <SVGInline
       className="TitleBar__close-img"
-      src={Object {}}
+      classSuffix="-svg"
+      cleanup={Array []}
+      cleanupExceptions={Array []}
+      component="span"
+      fill="#ffffff"
+      svg=""
     />
   </button>
   <div
@@ -80,10 +94,13 @@ exports[`<TitleBar /> should match to snapshot when render default 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="TitleBar__mobile-icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
       />
     </button>
     <button
@@ -92,10 +109,13 @@ exports[`<TitleBar /> should match to snapshot when render default 1`] = `
       onClick={[Function]}
       type="button"
     >
-      <img
-        alt=""
+      <SVGInline
         className="TitleBar__desktop-icon"
-        src={Object {}}
+        classSuffix="-svg"
+        cleanup={Array []}
+        cleanupExceptions={Array []}
+        component="span"
+        svg=""
       />
     </button>
   </div>

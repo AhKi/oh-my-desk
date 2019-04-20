@@ -7,14 +7,15 @@ import {
 import { keywordSelector } from 'store/reducers/personal/search/selectors';
 import {
   widgetClose,
+  widgetMakeRequest,
   widgetOpen,
   widgetUpdateInfo,
 } from 'actions/widget';
 import {
   searchWidgetSelectIncrease,
   searchWidgetSelectDecrease,
-  searchWindowHide,
 } from 'actions/search';
+import { modalOpen } from 'actions/modal';
 import SearchList from '../components/SearchList';
 
 const mapStateToProps = state => ({
@@ -25,7 +26,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   onCloseWidget: widgetClose,
-  onHideWindow: searchWindowHide,
+  onMakeWidget: widgetMakeRequest,
+  onModalOpen: modalOpen,
   onSelectIncrease: searchWidgetSelectIncrease,
   onSelectDecrease: searchWidgetSelectDecrease,
   onShowWidget: widgetOpen,

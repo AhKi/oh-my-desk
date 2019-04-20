@@ -1,7 +1,7 @@
 import { webContents } from 'electron';
 import { isFSA } from 'flux-standard-action';
 import * as CATEGORY from 'actions/constant/actionCategory';
-import { browserWindowByIdSelector } from 'store/reducers/personal/identification/selectors';
+import { manager } from 'main/utils/window/widget';
 import controller from 'main/controllers';
 
 // TODO Add link about action categorizing docs
@@ -67,7 +67,6 @@ const categorizeActionInMain = store => next => (action) => {
     }
 
     const { target } = meta;
-    const winById = browserWindowByIdSelector(store.getState());
     const targetArr = [];
     const targetAction = {
       type: action.type,
@@ -80,7 +79,7 @@ const categorizeActionInMain = store => next => (action) => {
 
     if (target) {
       target.forEach((id) => { // TODO exception that id is not validity
-        targetArr.push(winById.get(id));
+        targetArr.push(manager.getWindow(id).win);
       });
     }
 

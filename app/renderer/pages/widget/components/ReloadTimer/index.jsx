@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import closeIcon from 'assets/icon/icon-widget-close.svg';
+import Svg from 'react-svg-inline';
+import closeIcon from 'assets/page-view_icon/icon_xbtn.svg';
 import './ReloadTimer.scss';
 
 const propTypes = {
@@ -97,10 +98,10 @@ class ReloadTimer extends React.Component {
           type="button"
           onClick={this.handleCancelTimer}
         >
-          <img src={closeIcon} alt="" />
+          <Svg svg={closeIcon} />
         </button>
         <button
-          className="ReloadTimer__button"
+          className="ReloadTimer__button ReloadTimer__timetext"
           type="button"
           onClick={this.handleToggleTimer}
         >

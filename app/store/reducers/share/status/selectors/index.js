@@ -31,26 +31,6 @@ export const isOpenWidgetWhenStartSelector = createSelector(
   status => status.get('isOpenWidgetWhenStart'),
 );
 
-export const isRestartAfterUpdateSelector = createSelector(
-  statusSelector,
-  status => status.get('isRestartAfterUpdate'),
-);
-
-export const isTrayOpenSelector = createSelector(
-  statusSelector,
-  status => status.get('isTrayOpen'),
-);
-
-export const isUpdateCheckFetchSelector = createSelector(
-  statusSelector,
-  status => status.get('isUpdateCheckFetch'),
-);
-
-export const isUpdateCheckOnManualSelector = createSelector(
-  statusSelector,
-  status => status.get('isUpdateCheckOnManual'),
-);
-
 export const isUrlCheckFetchSelector = createSelector(
   statusSelector,
   status => status.get('isUrlCheckFetch'),

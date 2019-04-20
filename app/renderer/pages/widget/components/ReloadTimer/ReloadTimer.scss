@@ -2,22 +2,35 @@
   display: flex;
   position: fixed;
   border-radius: 45px;
-  background-color: gray;
-  color: $color-white;
+  background-color: #3C3F47;
   padding: 3px 5px;
   top: 85px;
-  right: 2px;
+  right: 8px;
   transition: background-color 1s;
-  opacity: 0.8;
+  align-self: center;
+  justify-content: center;
 }
 
 .ReloadTimer__button {
   display: flex;
-  align-self: center;
-  color: inherit;
-  padding: 3px;
+  color: $color-white;
+
+  svg{
+    width: 20px;
+    margin: 2px 4px 0 4px;
+    fill: #a8aab1;
+  }
 }
 
 .ReloadTimer__stop {
   background-color: $color-red;
+
+  svg{
+    fill: #ffffff;
+  }
+}
+
+.ReloadTimer__timetext {
+  line-height: 1;
+  width: 50px;
 }

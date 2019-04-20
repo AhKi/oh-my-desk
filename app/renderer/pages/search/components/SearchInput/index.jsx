@@ -1,19 +1,19 @@
 import React from 'react';
-import i18n from 'constants/i18n';
+import { ipcRenderer } from 'electron';
 import PropTypes from 'prop-types';
-import searchIcon from 'assets/icon/icon-magnifying.svg';
+import i18n from 'constants/i18n';
+import Svg from 'react-svg-inline';
+import searchIcon from 'assets/search-view_icon/icon_magnifier.svg';
 import './SearchInput.scss';
 
 const propTypes = {
   filter: PropTypes.string,
   keyword: PropTypes.string,
-  isTrayOpen: PropTypes.bool,
   onChangeKeyword: PropTypes.func,
 };
 const defaultProps = {
   filter: 'ALL',
   keyword: '',
-  isTrayOpen: false,
   onChangeKeyword() {},
 };
 
@@ -26,14 +26,12 @@ class SearchInput extends React.Component {
 
   componentDidMount() {
     this.inputRef.current.focus();
-  }
-
-  componentDidUpdate(prevProps) {
-    const { isTrayOpen } = this.props;
-
-    if (prevProps.isTrayOpen !== isTrayOpen) {
+    ipcRenderer.on('tray.show', () => {
       this.inputRef.current.focus();
-    }
+    });
+    ipcRenderer.on('tray.hide', () => {
+      this.props.onChangeKeyword('');
+    });
   }
 
   handleChangeKeyword(e) {
@@ -49,7 +47,7 @@ class SearchInput extends React.Component {
 
     return (
       <div className="SearchInput">
-        <img className="SearchInput__icon" src={searchIcon} alt="" />
+        <Svg className="SearchInput__icon" svg={searchIcon} />
         <input
           className="SearchInput__input"
           type="text"

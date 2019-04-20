@@ -2,25 +2,27 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   position: fixed;
   width: 200px;
-  background-color: #414141;
-  right: 30px;
+  background-color: #3C3F47;
+  right: 43px;
   top: 80px;
-  border-radius: 5px;
-  margin: 2px;
-  padding-top: 2px;
+  border-radius: 8px;
+  border-top-right-radius: 0;
+  padding: 4px 0;
 }
 
 .ConfigMenu__list {
   display: flex;
-
   font-size: 13px;
   font-weight: 500;
   height: 35px;
   line-height: 30px;
   padding: 5px;
+
+  &:hover {
+    background-color: #707176;
+  }
 }
 
 .ConfigMenu__bottom-line {
@@ -32,14 +34,20 @@
   height: 100%;
   color: white;
   display: flex;
-  justify-content: center;
+  align-items: center;
   font-weight: inherit;
+
+  svg {
+    width: 16px;
+    fill: #BEC0CC;
+  }
 }
 
 .ConfigMenu__text {
   flex: 1;
   text-align: left;
   align-self: center;
+  margin-left: 10px;
 }
 
 .ConfigMenu__arrow {
@@ -48,9 +56,9 @@
     content: '';
     width: 0;
     height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    margin-right: 5px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    margin-right: 6px;
   }
 }
 
@@ -71,11 +79,7 @@
 }
 
 .ConfigMenu__check-icon {
-  width: 10px;
-  height: 10px;
   visibility: hidden;
-  align-self: center;
-  margin: 5px;
 }
 
 .ConfigMenu__check-icon--active {
@@ -83,8 +87,6 @@
 }
 
 .ConfigMenu__icon {
-  width: 20px;
-  height: 20px;
   margin: 0 10px;
 }
 
@@ -93,11 +95,15 @@
   font-size: inherit;
   align-items: center;
   justify-content: center;
+  margin-left: 10px;
 }
 
 .ConfigMenu__select {
+  position: relative;
   color: #fff;
-  background-color: #414141;
+  padding: 4px 15px 4px 0;
+  margin-right: 8px;
+  background-color: transparent;
   border-top: 0 !important;
   border-left: 0 !important;
   border-right: 0 !important;
@@ -106,13 +112,18 @@
   -webkit-appearance: none;  /*Removes default chrome and safari style*/
 }
 
-.ConfigMenu__select-arrow {
-  align-self: center;
-  content: '';
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  margin-right: 5px;
-  border-top: 6px solid #ffffff;
+.ConfigMenu__select-label {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #ffffff;
+    top: 10px;
+    right: 8px;
+  }
 }

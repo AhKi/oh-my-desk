@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import EmptyIcon from 'assets/search-view_icon/icon_no-page.png';
+import NoresearchIcon from 'assets/search-view_icon/icon_no-research.png';
+import i18n from 'constants/i18n';
 import SearchItem from '../SearchItem';
 import './SearchList.scss';
 
@@ -8,7 +11,8 @@ const propTypes = {
   list: PropTypes.arrayOf(PropTypes.object), // eslint-disable-line no-unused-prop-types
   selectedIndex: PropTypes.number,
   onCloseWidget: PropTypes.func,
-  onHideWindow: PropTypes.func,
+  onMakeWidget: PropTypes.func,
+  onModalOpen: PropTypes.func,
   onSelectIncrease: PropTypes.func,
   onSelectDecrease: PropTypes.func,
   onShowWidget: PropTypes.func,
@@ -20,7 +24,8 @@ const defaultProps = {
   list: [],
   keyword: '',
   onCloseWidget() {},
-  onHideWindow() {},
+  onMakeWidget() {},
+  onModalOpen() {},
   onSelectIncrease() {},
   onSelectDecrease() {},
   onShowWidget() {},
@@ -74,7 +79,6 @@ class SearchList extends React.Component {
     const {
       list,
       selectedIndex,
-      onHideWindow,
       onShowWidget,
       onSelectIncrease,
       onSelectDecrease,
@@ -92,17 +96,19 @@ class SearchList extends React.Component {
 
     if (e.key === 'Enter') {
       e.preventDefault();
-      onHideWindow();
       onShowWidget(list[selectedIndex].id, true);
     }
   }
 
   render() {
+    const text = i18n().search;
     const {
       keyword,
       list,
       selectedIndex,
       onCloseWidget,
+      onMakeWidget,
+      onModalOpen,
       onShowWidget,
       onUpdateInfo,
     } = this.props;
@@ -116,10 +122,36 @@ class SearchList extends React.Component {
             keyword={keyword}
             item={item}
             onCloseWidget={onCloseWidget}
+            onModalOpen={onModalOpen}
             onShowWidget={onShowWidget}
             onUpdateInfo={onUpdateInfo}
           />
         ))}
+        {(list.length === 0 && keyword) && (
+          <div className="SearchList__no-research-img">
+            <img
+              src={NoresearchIcon}
+              alt="no research"
+            />
+            {text.noSearch}
+          </div>
+        )}
+        {(list.length === 0 && !keyword) && (
+          <div className="SearchList__no-research-img">
+            <img
+              src={EmptyIcon}
+              alt="empty"
+            />
+            {text.empty}
+            <button
+              className="Btn Btn--primary SearchList__no-page-btn"
+              type="button"
+              onClick={() => onMakeWidget()}
+            >
+              {text.firstWidget}
+            </button>
+          </div>
+        )}
       </ul>
     );
   }

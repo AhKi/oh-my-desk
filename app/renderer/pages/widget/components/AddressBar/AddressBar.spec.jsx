@@ -42,6 +42,13 @@ describe('<AddressBar />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should match to snapshot when state.isMouseOverInput true', () => {
+    const wrapper = shallow(<AddressBar />);
+    wrapper.setState({ isMouseOverInput: true });
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   describe('test react lifecycle', () => {
     const componentDidMount = jest.spyOn(AddressBar.prototype, 'componentDidMount');
     const componentWillUnmount = jest.spyOn(AddressBar.prototype, 'componentWillUnmount');

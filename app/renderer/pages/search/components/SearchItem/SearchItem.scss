@@ -1,33 +1,42 @@
 .SearchItem {
-  padding: 5px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 50px;
-  border-top: 1px solid $color-cool-gray300;
   border-bottom: 1px solid $color-cool-gray300;
   margin-bottom: -1px;
+
+  &:hover {
+    background-color: #EBEFF1;
+  }
 }
+
 
 .SearchItem__select {
-  background-color: $color-light-blue;
+  background: linear-gradient(90deg, #9273EA, #7978FD,#6CA2FE);
   color: $color-white;
+
+  .SearchItem__url-text {
+    color: $color-white;
+  }
+
+  &:hover{
+    background: linear-gradient(90deg, #7751E6, #5658FF,#488CFF);
+  }
 }
+
+
+.SearchItem__namebox {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
 
 .SearchItem__toggle-btn {
-  display: flex;
-  width: 60px;
-  justify-content: center;
-  align-items: center;
+  margin: 0 12px;
 }
 
-.SearchItem__Text {
-  width: 230px;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 
 .SearchItem__Btn {
   color: inherit;
@@ -35,17 +44,47 @@
   display: flex;
   flex-direction: column;
   width: inherit;
+
 }
 
 .SearchItem__BtnSet {
+  margin: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: relative;
+}
+
+.SearchItem__title-text,
+.SearchItem__url-text {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.SearchItem__url-text {
+  color: $color-middle-gray-blue;
 }
 
 .SearchItem__bookmark-btn {
-  width: 40px;
-  height: 20px;
+  &:hover {
+    background: $color-black-opacity15;
+    border-radius: 4px;
+  }
+
+}
+
+.SearchItem__more-btn {
+  &:hover {
+    background: $color-black-opacity15;
+    border-radius: 4px;
+  }
+  svg {
+    fill: #ffffff;
+  }
 }
 
 .SearchItem__icon {
@@ -56,4 +95,34 @@
 
 .SearchItem__icon--select {
   opacity: 1;
+}
+
+//----moreBtnSscss----//
+.SearchMoreMenu {
+  position: absolute;
+  width: 120px;
+  top: 30px;
+  right: 8px;
+  background-color: $color-white;
+  border: 1px solid rgb(216, 216, 216);
+  box-shadow: 2px 3px 7px -2px rgba(59, 60, 67, .23);
+  z-index: 1;
+
+  li:hover {
+    background-color: #E9EBEC;
+  }
+}
+
+.SearchMoreMenu__btnSet {
+  border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+.SearchMoreMenu__btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+
+
 }
