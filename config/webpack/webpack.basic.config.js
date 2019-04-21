@@ -33,7 +33,7 @@ module.exports = {
               configFile: path.join(CONFIG_PATH, '.eslintrc'),
             },
           },
-        ]
+        ],
       },
       {
         test: /\.s?css$/,
@@ -49,8 +49,8 @@ module.exports = {
                 path.join(APP_PATH, 'renderer/scss', '**/_*.scss'),
               ],
             },
-          }
-        ]
+          },
+        ],
       },
       {
         test: /\.(png|jpg|jpeg|gif|woff|woff2|ttf|eot|cur)$/,
@@ -64,10 +64,9 @@ module.exports = {
       {
         test: /\.svg$/,
         loader: 'raw-loader',
-      }
-    ]
+      },
+    ],
   },
-
   plugins: [
     new HtmlWebpackPlugin({
       chunks: ['widget'],

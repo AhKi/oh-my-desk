@@ -10,4 +10,11 @@ module.exports = webpackMerge(webpackBaseConfig, {
     publicPath: './',
   },
   mode: 'production',
+  optimization: {
+    splitChunks: {
+      chunks (chunk) {
+        return chunk.name !== 'preloadScript';
+      },
+    },
+  },
 });
