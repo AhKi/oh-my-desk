@@ -3,6 +3,7 @@ import {
   DEFAULT_SETTING,
   SETTING_FILE_PATH,
 } from 'config';
+import { syncStore } from './syncData';
 
 const getData = () => {
   if (!fs.existsSync(SETTING_FILE_PATH)) {
@@ -11,7 +12,7 @@ const getData = () => {
 
   const storedData = fs.readFileSync(SETTING_FILE_PATH, { encoding: 'utf-8' });
 
-  return JSON.parse(storedData);
+  return syncStore(JSON.parse(storedData));
 };
 
 export default getData;

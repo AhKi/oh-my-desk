@@ -1,3 +1,5 @@
+import { createStore } from 'redux';
+import shareReducer, { shareObject } from 'store/reducers/share';
 /**
  * change data object to match format object
  *
@@ -10,7 +12,7 @@
  * @param data(Object)
  * @param format(Object)
  */
-export function syncObject(data, format) { // eslint-disable-line
+export function syncObject(data, format) {
   const formatKeys = Object.keys(format);
 
   const finalObject = {};
@@ -20,4 +22,22 @@ export function syncObject(data, format) { // eslint-disable-line
   });
 
   return finalObject;
+}
+
+export function syncStore(data) {
+  const defaultStore = createStore(shareReducer);
+  const defaultState = defaultStore.getState().toJS();
+  const defaultKeys = Object.keys(shareObject);
+
+  const finalObject = {};
+
+  try {
+    defaultKeys.forEach((key) => {
+      finalObject[key] = syncObject(data[key], defaultState[key]);
+    });
+
+    return finalObject;
+  } catch (err) {
+    return data;
+  }
 }
