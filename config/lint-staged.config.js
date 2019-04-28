@@ -1,6 +1,6 @@
 module.exports = {
   linters: {
-    '**/*.{js,jsx}': 'eslint',
+    '**/*.{js,jsx}': 'eslint --config ./config/.eslintrc',
   },
   ignore: ['**/*.config.js'],
 };
