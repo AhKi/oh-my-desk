@@ -3,10 +3,12 @@ import config from './config';
 import status from './status';
 import identification from './identification';
 
-const shareReducer = combineReducers({
+export const shareObject = {
   config,
   status,
   identification,
-});
+};
+
+const shareReducer = combineReducers(shareObject);
 
 export default shareReducer;
